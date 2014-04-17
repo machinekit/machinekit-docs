@@ -51,7 +51,7 @@ body > header {
   display: inline-block;
 }
 
-body > header  h1 {
+#maintitle {
     margin-top: 0.1em;
     font-weight: 700;
     font-size: 96pt;
