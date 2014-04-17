@@ -4,11 +4,6 @@
 /*
 /*****************************************************************************/
 
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
 
 html, body { height: 100%; }
 
@@ -19,6 +14,12 @@ body {
   text-align: center;
 }
 
+#bodyWrapper {
+  background-image: url('/images/gear-300px-grey.png');
+  background-repeat: no-repeat;
+  width: 110%;
+  margin-left: auto;
+  margin-right: auto; } 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 

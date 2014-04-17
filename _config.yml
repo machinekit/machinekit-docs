@@ -1,3 +1,5 @@
-name: Your New Jekyll Site
-markdown: redcarpet
-pygments: true
+name: Machinekit
+highlighter: pygments
+relative_permalinks: false
+permalink: /blog/:year/:month/:day/:title/
+repository: https://github.com/machinekit/machinekit
