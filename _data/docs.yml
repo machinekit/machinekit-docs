@@ -1,6 +1,7 @@
 - title: Getting Started
   docs:
-  - packages-debian
+    - packages-debian
 
 - title: Development
   docs:
+    - C4
