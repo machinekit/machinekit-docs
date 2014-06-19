@@ -1,6 +1,7 @@
 - title: Getting Started
   docs:
   - home
+  - packages-debian
   - downloading
   - installation
   - usage
