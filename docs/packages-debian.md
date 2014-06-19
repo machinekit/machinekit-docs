@@ -51,6 +51,12 @@ This archive is currently unsigned. Apt will complain; simply answer
   identical, and the packages in this archive currently require an
   extra step to boot from uBoot.
 
+- **RTAI kernel**
+
+  The machinekit repo builds and runs fine on RTAI. However, we currently
+  do not have a sufficiently recent RTAI kernel available as a package.
+
+
 ### Other things to do
 
 - Browse the Debian archive directly at
