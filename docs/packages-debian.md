@@ -2,7 +2,6 @@
 layout: docs
 title: Debian packages
 prev_section: home
-next_section: downloading
 permalink: /docs/packages-debian/
 ---
 

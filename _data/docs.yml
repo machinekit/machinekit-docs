@@ -2,47 +2,6 @@
   docs:
   - home
   - packages-debian
-  - downloading
-  - installation
-  - usage
-  - configuration
 
-- title: Beyond the PC
+- title: Development
   docs:
-  - images
-  - beaglebone
-  - rasppi 
-  - arm
-  - makingbuilds
-
-- title: Machinekit Architecture
-  docs:
-  - architecture
-  - messagebus
-  - realtime
-  - hal
-  - motioncontrol
-  - userinterface
-
-- title: HAL - Pluggable Hardware
-  docs:
-  - halarchitecture
-  - halcomponents
-
-- title: User Interface
-  docs:
-  - AXIS
-  - Touchy
-  - Gmoccapy
-
-- title: Miscellaneous
-  docs:
-  - troubleshooting
-  - sites
-  - resources
-  - upgrading
-
-- title: Meta
-  docs:
-  - contributing
-  - history
