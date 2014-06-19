@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Maintainers
-prev_section: C4
+prev_section: contributing
 permalink: /docs/maintainers/
 ---
 
