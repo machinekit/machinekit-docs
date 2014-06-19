@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Welcome
-next_section: downloading
+next_section: packages-debian
 permalink: /docs/home/
 ---
 

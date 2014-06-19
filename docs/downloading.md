@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Downloading
-prev_section: home
+prev_section: packages-debian
 next_section: usage
 permalink: /docs/downloading/
 ---
