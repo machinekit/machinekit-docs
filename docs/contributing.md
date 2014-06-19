@@ -1,7 +1,6 @@
 ---
 layout: docs
 title: Contributing
-prev_section: C4
 next_section: maintainers
 permalink: /docs/contributing/
 ---
