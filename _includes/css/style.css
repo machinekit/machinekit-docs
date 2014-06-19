@@ -57,6 +57,12 @@ body > header {
     font-size: 96pt;
 }
 
+#maintitle-mobile {
+    margin-top: 0.1em;
+    font-weight: 700;
+    font-size: 40pt;
+}
+
 
 nav ul {
   padding: 0;
