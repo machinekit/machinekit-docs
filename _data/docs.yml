@@ -6,4 +6,5 @@
   docs:
     - contributing
     - maintainers
+    - buildbot
     - C4

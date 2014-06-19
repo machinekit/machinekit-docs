@@ -2,7 +2,7 @@
 layout: docs
 title: Maintainers
 prev_section: contributing
-next_section: C4
+next_section: buildbot
 permalink: /docs/maintainers/
 ---
 
