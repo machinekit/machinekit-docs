@@ -38,3 +38,4 @@ Some problem fields we initially focus on are:
 - widening applicability to general automation tasks beyond CNC machine control
 - move towards online viewing and editing of documentation
 - removing fundamental limitations like ‘everything in a single memory space’
+
