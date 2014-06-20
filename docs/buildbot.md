@@ -2,7 +2,7 @@
 layout: docs
 title: Buildbot
 prev_section: maintainers
-next_section: C4
+next_section: website
 permalink: /docs/buildbot/
 ---
 
