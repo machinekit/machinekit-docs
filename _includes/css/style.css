@@ -109,7 +109,7 @@ nav li {
   float: left;
   width: 100%;
   background: #333;
-  color: #fc0;
+  color: #da0;
   text-align: center;
   font-size: 14px;
   font-weight: 900;
@@ -487,7 +487,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #fc0;
+  color: #da0;
   text-decoration: none;
   transition: all .25s;
    -moz-transition: all .25s;
@@ -495,7 +495,7 @@ a {
 }
 
 a:hover {
-  color: #f90;
+  color: #b80;
 }
 
 strong {
@@ -748,7 +748,7 @@ code.option, code.flag, code.filter, code.output {
 
 .note:after {
   content: "★";
-  color: #fc0;
+  color: #da0;
   position: absolute;
   top: 14px;
   left: 14px;
@@ -770,7 +770,7 @@ code.option, code.flag, code.filter, code.output {
 
 .warning:after {
   content: "‼";
-  color: #fc0;
+  color: #da0;
   position: absolute;
   top: 15px;
   left: 15px;
