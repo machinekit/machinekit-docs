@@ -54,7 +54,9 @@ This archive is currently unsigned. Apt will complain; simply answer
 - **RTAI kernel**
 
   The machinekit repo builds and runs fine on RTAI. However, we currently
-  do not have a sufficiently recent RTAI kernel available as a package.
+  do not have a sufficiently recent RTAI kernel available as a package. You need
+  to build from source to match your RTAI version. Builds are known
+  to work with the 2.6.32-122-rtai and 3.4.55 kernels from the LinuxCNC project. 
 
 
 ### Other things to do
