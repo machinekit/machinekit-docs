@@ -14,7 +14,7 @@ To add or change this website:
 - fork the repository 
 - clone it locally 
 - edit content
-- preview results with [Jekyll][2] 
+- preview the results with [Jekyll][2] 
 - commit, push and send a Pull Request
 
 
