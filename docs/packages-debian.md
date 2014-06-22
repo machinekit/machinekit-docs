@@ -56,16 +56,18 @@ This archive is currently unsigned. Apt will complain; simply answer
   The machinekit repo builds and runs fine on RTAI. However, we currently
   do not have a sufficiently recent RTAI kernel available as a package here.
 
-- In the interim there are some independently hosted 3.4.55-rtai-2 kernel packages 
-  which run on Wheezy and against which MachineKit builds on x86
-  [http://deb.mgware.co.uk](http://deb.mgware.co.uk)
+  In the interim there are some independently hosted 3.4.55-rtai-2
+  kernel packages which run on Wheezy and against which MachineKit
+  builds on x86 [http://deb.mgware.co.uk](http://deb.mgware.co.uk)
   
-  Follow the instructions at that address
+  Follow the instructions at that address.
   
-- *NB.*
-  The packages are essentially the same ones as on Seb Kuzminsky's site,
-  [http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/](http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/)
-  with a postinst script alteration to prevent some symlinks being clobbered which prevented MK building against them.
+  - *NB.* The packages are essentially the same ones as on Seb
+    Kuzminsky's site,
+    [http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/]
+    (http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/) with a
+    postinst script alteration to prevent some symlinks being
+    clobbered which prevented MK building against them.
 
 
 ### Other things to do
