@@ -2,6 +2,7 @@
 layout: article
 title: About Machinekit
 permalink: /about/
+about: true
 ---
 
 ## Mission Statement
