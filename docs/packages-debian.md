@@ -17,7 +17,8 @@ Follow these steps to configure Apt and install Machinekit packages.
 Copy and paste the following into a shell to configure the package archive:
 
     sudo sh -c \
-        "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
+        "sudo apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 73571BB9; \
+        echo 'deb http://deb.dovetail-automata.com wheezy main' > \
         /etc/apt/sources.list.d/machinekit.list"
     sudo apt-get update
 
