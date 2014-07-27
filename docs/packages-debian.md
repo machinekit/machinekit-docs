@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: Debian packages
+next_section: community
 permalink: /docs/packages-debian/
 ---
 
