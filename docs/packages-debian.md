@@ -41,7 +41,7 @@ List of RTOS choices:
 For those wanting a development environment, run:
 
     sudo apt-get install libczmq-dev python-zmq libjansson-dev \
-        libwebsockets-dev libxenomai-dev libzmq4-dev
+        libwebsockets-dev libxenomai-dev
 
 This archive is currently unsigned. Apt will complain; simply answer
 'y' to its warnings.
@@ -51,7 +51,7 @@ Further more, add wheezy-backports in the package archive for cython 0.19
     sudo sh -c \
         "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
          /etc/apt/sources.list.d/wheezy-backports.list"
-    sudp apt-get update
+    sudo apt-get update
     sudo apt-get install -t wheezy-backports cython
 
 
