@@ -6,35 +6,76 @@ permalink: /docs/packages-debian/
 ---
 
 Third-party packages for Debian Wheezy are available for amd64, i386
-and ARM/Beaglebone.
+and ARM/Beaglebone. 
 
 ## Quick start
 
-Follow these steps to configure Apt and install Machinekit packages.
+Decide which type of realtime kernel you want: for x86 and amd64,
+your options are RT-PREEMPT, Xenomai, or RTAI. For ARM/Beaglebone and
+ARM/Raspberry Pi, Xenomai is the only supported realtime kernel.
 
-### Configure Apt
+The RT-PREEMPT realtime kernel comes from the stock wheezy package
+stream. Xenomai is a custom kernel with lower latency;
+both are fine for applications with hardware step generation or plain
+servo configs. RTAI is justifiable only for high-rate software step
+generation, at the expense of signficantly higher maintainence
+(RT-PREEMPT and Xenomai installs have no significant kernel
+dependencies; RTAI installations only run with the kernel the package
+was built for).
+
+Follow these steps to configure Apt and install a kernel and Machinekit packages:
+
+### Configure Apt for i386, amd64 and arm7 (Beaglebone) 
 
 Copy and paste the following into a shell to configure the package archive:
 
     sudo sh -c \
-        "sudo apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 73571BB9; \
-        echo 'deb http://deb.dovetail-automata.com wheezy main' > \
-        /etc/apt/sources.list.d/machinekit.list"
+        "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
+		/etc/apt/sources.list.d/machinekit.list; \
+		apt-get update ; \
+		apt-get install dovetail-automata-keyring"
+
+### Configure Apt for armv6 (Raspberry) 
+
+Copy and paste the following into a shell to configure the package
+archive:
+
+    sudo sh -c \
+      "apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 49550439; \
+      echo 'deb http://0ptr.link/raspbian wheezy main' > \
+      /etc/apt/sources.list.d/rpi-machinekit.list"
     sudo apt-get update
 
-### Install run-time packages
+### Install an RT-PREEMPT realtime kernel (x86 and amd64)
+
+	sudo apt-get install linux-image-rt-686-pae   # x86
+	sudo apt-get install linux-image-rt-amd64     # amd64
+
+### Install a Xenomai realtime kernel (all platforms)
+
+	sudo apt-get install linux-image-xenomai
+
+### Install an RTAI realtime kernel (x86 and amd64)
+
+	sudo apt-get install linux-image-rtai
+	
+
+### Install run-time packages 
 
 For those wanting just Machinekit binaries, the following should
-install the main 'machinekit' package and the Xenomai Linux
-kernel:
+install the main 'machinekit' package for your kernel choice (multiple
+kernels and flavors possible):
 
+    sudo apt-get install machinekit-rt-preempt
     sudo apt-get install machinekit-xenomai
+    sudo apt-get install machinekit-rtai-kernel
+    sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
 
-List of RTOS choices:
 
-    machinekit-xenomai
-    machinekit-posix
-    machinekit-rt-preempt
+### Post-installation hints
+
+- when using Xenomai, you need to log out and log in again after package installation (assuming the Xenomai kernel was already running)
+- Beaglebone users: please see [Alex's installation hints](https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Machinekit-Debian-Image)
 
 ### Install development environment packages
 
@@ -43,42 +84,13 @@ For those wanting a development environment, run:
     sudo apt-get install libczmq-dev python-zmq libjansson-dev \
         libwebsockets-dev libxenomai-dev
 
-This archive is currently unsigned. Apt will complain; simply answer
-'y' to its warnings.
-
-Further more, add wheezy-backports in the package archive for cython 0.19
+Further more, add wheezy-backports in the package archive for cython 0.19:
 
     sudo sh -c \
         "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
          /etc/apt/sources.list.d/wheezy-backports.list"
     sudo apt-get update
     sudo apt-get install -t wheezy-backports cython
-
-
-- **Beaglebone kernel note**
-
-  While there is a Beaglebone kernel, it's easier to use that one
-  shipped with the Machinekit Beaglebone images. It is nearly
-  identical, and the packages in this archive currently require an
-  extra step to boot from uBoot.
-
-- **RTAI kernel**
-
-  The machinekit repo builds and runs fine on RTAI. However, we currently
-  do not have a sufficiently recent RTAI kernel available as a package here.
-
-  In the interim there are some independently hosted 3.4.55-rtai-2
-  kernel packages which run on Wheezy and against which MachineKit
-  builds on x86 [http://deb.mgware.co.uk](http://deb.mgware.co.uk)
-
-  Follow the instructions at that address.
-
-  - *NB.* The packages are essentially the same ones as on Seb
-    Kuzminsky's site,
-    [http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/]
-    (http://highlab.com/~seb/linuxcnc/rtai-for-3.4-prerelease/) with a
-    postinst script alteration to prevent some symlinks being
-    clobbered which prevented MK building against them.
 
 
 ### Other things to do
