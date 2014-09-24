@@ -5,27 +5,28 @@ next_section: community
 permalink: /docs/packages-debian/
 ---
 
-Third-party packages for Debian Wheezy are available for amd64, i386
-and ARM/Beaglebone. 
+Third-party packages for Debian Wheezy are available for amd64, 686,
+arm7/Beaglebone and arm6/Raspberry Pi. 
 
 ## Quick start
 
-Decide which type of realtime kernel you want: for x86 and amd64,
-your options are RT-PREEMPT, Xenomai, or RTAI. For ARM/Beaglebone and
-ARM/Raspberry Pi, Xenomai is the only supported realtime kernel.
+Decide which type of realtime kernel you want: for 686 and amd64,
+your options are RT-PREEMPT, Xenomai, or RTAI. For arm7/Beaglebone and
+arm6/Raspberry Pi, Xenomai is the only supported realtime kernel.
 
 The RT-PREEMPT realtime kernel comes from the stock wheezy package
 stream. Xenomai is a custom kernel with lower latency;
 both are fine for applications with hardware step generation or plain
-servo configs. RTAI is justifiable only for high-rate software step
-generation, at the expense of signficantly higher maintainence
+servo configs. RTAI only makes sense for high-rate software step
+generation and dumb hardware (parallel port),
+at the expense of signficantly higher maintainence
 (RT-PREEMPT and Xenomai installs have no significant kernel
 dependencies; RTAI installations only run with the kernel the package
 was built for).
 
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
-### Configure Apt for i386, amd64 and arm7 (Beaglebone) 
+### Configure Apt for 686, amd64 and arm7 (Beaglebone) 
 
 Copy and paste the following into a shell to configure the package archive:
 
@@ -35,7 +36,7 @@ Copy and paste the following into a shell to configure the package archive:
 		apt-get update ; \
 		apt-get install dovetail-automata-keyring"
 
-### Configure Apt for armv6 (Raspberry) 
+### Configure Apt for arm6 (Raspberry) 
 
 Copy and paste the following into a shell to configure the package
 archive:
@@ -46,19 +47,22 @@ archive:
       /etc/apt/sources.list.d/rpi-machinekit.list"
     sudo apt-get update
 
-### Install an RT-PREEMPT realtime kernel (x86 and amd64)
+### Install an RT-PREEMPT realtime kernel (686 and amd64)
 
-	sudo apt-get install linux-image-rt-686-pae   # x86
+	sudo apt-get install linux-image-rt-686-pae   # 686
 	sudo apt-get install linux-image-rt-amd64     # amd64
 
 ### Install a Xenomai realtime kernel (all platforms)
 
-	sudo apt-get install linux-image-xenomai
+	sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
+	sudo apt-get install linux-image-xenomai.x86-686-pae      # i686
+	sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
+	sudo apt-get install linux-image-3.8.13-xenomai+          # raspberry
 
 ### Install an RTAI realtime kernel (x86 and amd64)
 
-	sudo apt-get install linux-image-rtai
-	
+	sudo apt-get install linux-image-rtai.x86-686-pae # i686
+	sudo apt-get install linux-image-rtai.x86-amd64   # amd64
 
 ### Install run-time packages 
 
@@ -74,8 +78,16 @@ kernels and flavors possible):
 
 ### Post-installation hints
 
-- when using Xenomai, you need to log out and log in again after package installation (assuming the Xenomai kernel was already running)
-- Beaglebone users: please see [Alex's installation hints](https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Machinekit-Debian-Image)
+#### Raspberry
+
+The kernel image needs to be copied to the boot partition like so:
+
+    sudo mv /boot/kernel.img /boot/kernel.img.bck
+    sudo cp /boot/vmlinuz* /boot/kernel.img
+
+#### Beaglebone
+
+Please see [Alex's installation hints](https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Machinekit-Debian-Image)
 
 ### Install development environment packages
 
