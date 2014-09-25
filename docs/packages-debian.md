@@ -5,12 +5,12 @@ next_section: community
 permalink: /docs/packages-debian/
 ---
 
-Third-party packages for Debian Wheezy are available for amd64, 686,
+Third-party packages for Debian Wheezy are available for amd64, i686,
 arm7/Beaglebone and arm6/Raspberry Pi. 
 
 ## Quick start
 
-Decide which type of realtime kernel you want: for 686 and amd64,
+Decide which type of realtime kernel you want: for i686 and amd64,
 your options are RT-PREEMPT, Xenomai, or RTAI. For arm7/Beaglebone and
 arm6/Raspberry Pi, Xenomai is the only supported realtime kernel.
 
@@ -26,7 +26,7 @@ was built for).
 
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
-### Configure Apt for 686, amd64 and arm7 (Beaglebone) 
+### Configure Apt for i686, amd64 and arm7 (Beaglebone) 
 
 Copy and paste the following into a shell to configure the package archive:
 
@@ -47,9 +47,9 @@ archive:
       /etc/apt/sources.list.d/rpi-machinekit.list"
     sudo apt-get update
 
-### Install an RT-PREEMPT realtime kernel (686 and amd64)
+### Install an RT-PREEMPT realtime kernel (i686 and amd64)
 
-	sudo apt-get install linux-image-rt-686-pae   # 686
+	sudo apt-get install linux-image-rt-686-pae   # i686
 	sudo apt-get install linux-image-rt-amd64     # amd64
 
 ### Install a Xenomai realtime kernel (all platforms)
