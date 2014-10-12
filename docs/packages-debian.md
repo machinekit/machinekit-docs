@@ -6,7 +6,7 @@ permalink: /docs/packages-debian/
 ---
 
 Third-party packages for Debian Wheezy are available for amd64, i686,
-arm7/Beaglebone and arm6/Raspberry Pi. 
+arm7/Beaglebone and arm6/Raspberry Pi.
 
 ## Quick start
 
@@ -26,7 +26,11 @@ was built for).
 
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
-### Configure Apt for i686, amd64 and arm7 (Beaglebone) 
+> Note: The kernel-naming convention used in these packages may change as
+> experience is accumulated, especially with ARM-based systems. Be sure to
+> check back here before installing a new kernel.
+
+### Configure Apt for i686, amd64 and arm7 (Beaglebone)
 
 Copy and paste the following into a shell to configure the package archive:
 
@@ -36,7 +40,7 @@ Copy and paste the following into a shell to configure the package archive:
 		apt-get update ; \
 		apt-get install dovetail-automata-keyring"
 
-### Configure Apt for arm6 (Raspberry) 
+### Configure Apt for arm6 (Raspberry)
 
 Copy and paste the following into a shell to configure the package
 archive:
@@ -54,17 +58,17 @@ archive:
 
 ### Install a Xenomai realtime kernel (all platforms)
 
-	sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
+	sudo apt-get install linux-image-xenomai.x86-amd64 	   # amd64
 	sudo apt-get install linux-image-xenomai.x86-686-pae      # i686
 	sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
-	sudo apt-get install linux-image-3.8.13-xenomai+          # raspberry
+	sudo apt-get install linux-image-xenomai                  # raspberry
 
 ### Install an RTAI realtime kernel (x86 and amd64)
 
 	sudo apt-get install linux-image-rtai.x86-686-pae # i686
 	sudo apt-get install linux-image-rtai.x86-amd64   # amd64
 
-### Install run-time packages 
+### Install run-time packages
 
 For those wanting just Machinekit binaries, the following should
 install the main 'machinekit' package for your kernel choice (multiple
