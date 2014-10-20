@@ -23,8 +23,8 @@ bash shell from the command line in a terminal, know the difference between an
 ordinary user and the root user and can switch between them, know what a Debian
 package is and can use apt-related tools, and so forth. Only minimal attention
 is paid here to Linux subtleties such as prompts you may receive from a
-command you invoke, such as a request for you to enter a password, or to answer
-yes, usually, when asked to respond yes (Y/y) or no (N/n).
+command you invoke, such as a request for you to enter a password or to answer
+respond yes (Y/y) or no (N/n). The answer, by the way, is almost always yes.
 As the saying goes, "Google is your friend," and so are the Man pages on your
 system.
 
@@ -58,11 +58,14 @@ pick up the new privileges.
 
 From a standing start on a fresh, updated install of Debian Wheezy with sudo
 privileges set as described above, the following steps should result in a
-working, non-realtime (e.g., Posix threads) machinekit including the
-LinuxCNC application. It will have been built in the subdirectory
+working machinekit, including the
+LinuxCNC application, built in Xenomai (realtime) and Posix (non-realtime)
+flavors. It will have been built in the subdirectory
 ```machinekit``` with a so-called run-in-place (rip) version of LinuxCNC.
+Once this process is finished, you will also have on hand all the basic tools
+needed to track the github repository and do further development of machinekit.
 Note that a considerable number of packages may be downloaded from the Internet
-and there is lots of compiling in this process. There will be opportunities to
+and there will be lots of compiling in this process. There will be opportunities to
 get up and get a cup of coffee, check your email, maybe even walk the dog.
 
 ### First, perform the following steps
@@ -89,7 +92,7 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
     sudo apt-get install git devscripts
     git clone https://github.com/machinekit/machinekit.git
     cd machinekit
-    debian/configure -p
+    debian/configure -px
     sudo mk-build-deps -i
     cd src
     ./autogen.sh
