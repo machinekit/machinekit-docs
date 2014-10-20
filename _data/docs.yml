@@ -5,6 +5,7 @@
 
 - title: Development
   docs:
+    - building-from-source
     - contributing
     - maintainers
     - buildbot
