@@ -39,16 +39,13 @@ depending on the specific flavor of desktop environment you installed, if any.
 If ```sudo``` is not present (simple test: try to invoke it) then you need to
 perform an additional step:
 
-    su
-    apt-get install sudo
-    exit
+    su -c "apt-get install sudo"
 
-To give yourself all sudo privileges (which is overkill, by the way),
+To give yourself all sudo privileges (which is overkill, by the way):
 
-    su
-    adduser <your username> sudo
-    exit
+    su -c "adduser <your username> sudo"
 
+where the entire string \<your username> should be replaced by your username.
 
 Log out of the system, then log in again as the chosen user to
 pick up the new privileges.
