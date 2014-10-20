@@ -1,8 +1,8 @@
 ---
 layout: docs
-title: Build From Source
-next_section: community
-permalink: /docs/build-from-source/
+title: Building From Source
+next_section: contributing
+permalink: /docs/building-from-source/
 ---
 
 ## Prologue
@@ -70,7 +70,7 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
 
 ### First, perform the following steps
 (also described in the companion page
-   [Debian packages](http://machinekit.io/docs/packages-debian))
+   [Debian packages](../packages-debian))
 
     sudo sh -c \
         "echo 'deb http://deb.dovetail-automata.com wheezy main' >
