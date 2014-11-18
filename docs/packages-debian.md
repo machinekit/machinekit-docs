@@ -98,7 +98,7 @@ Please see [Alex's installation hints](https://github.com/strahlex/asciidoc-sand
 For those wanting a development environment, run:
 
     sudo apt-get install libczmq-dev python-zmq libjansson-dev \
-        libwebsockets-dev libxenomai-dev
+        libwebsockets-dev libxenomai-dev python-pyftpdlib
 
 Further more, add wheezy-backports in the package archive for cython 0.19:
 
