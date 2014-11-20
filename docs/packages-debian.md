@@ -39,6 +39,7 @@ Copy and paste the following into a shell to configure the package archive:
         /etc/apt/sources.list.d/machinekit.list; \
         apt-get update ; \
         apt-get install dovetail-automata-keyring"
+    sudo apt-get update
 
 ### Configure Apt for arm6 (Raspberry)
 
