@@ -71,9 +71,10 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
 
     sudo sh -c \
         "echo 'deb http://deb.dovetail-automata.com wheezy main' >
-		/etc/apt/sources.list.d/machinekit.list"
+        /etc/apt/sources.list.d/machinekit.list"
     sudo apt-get update
     sudo apt-get install dovetail-automata-keyring
+    sudo apt-get update
 
     sudo apt-get install libczmq-dev python-zmq libjansson-dev \
         libwebsockets-dev libxenomai-dev
