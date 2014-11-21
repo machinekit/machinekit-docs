@@ -70,7 +70,7 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
    [Debian packages](../packages-debian))
 
     sudo sh -c \
-        "echo 'deb http://deb.dovetail-automata.com wheezy main' >
+        "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
         /etc/apt/sources.list.d/machinekit.list"
     sudo apt-get update
     sudo apt-get install dovetail-automata-keyring
@@ -87,11 +87,14 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
 
 ### Then proceed to the main event
 
-    sudo apt-get install git devscripts
+Note: The following steps have been modified and no longer
+result in a root-owned file being left in the machinekit directory.
+
+    sudo apt-get install git dpkg-dev
     git clone https://github.com/machinekit/machinekit.git
     cd machinekit
     debian/configure -px
-    sudo mk-build-deps -i
+    sudo scripts/apt-installbuilddeps
     cd src
     ./autogen.sh
     ./configure
