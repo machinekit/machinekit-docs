@@ -1,8 +1,8 @@
 ---
 layout: docs
-title: Documentation Start
+title: Welcome
 next_section: packages-debian
-permalink: /docs/
+permalink: /docs/home/
 ---
 
 This documentation is to help users and developers get started.  It
