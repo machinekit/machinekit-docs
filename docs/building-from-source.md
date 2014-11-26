@@ -108,6 +108,31 @@ LinuxCNC application,
     . scripts/rip-environment
     linuxcnc
 
+### Additional runtime packages you may need
+
+At this point you should be able to select and run most of the LinuxCNC user
+interfaces. However, GladeVCP, Gmoccapy, and possibly some other
+functionality will fail at runtime because they depend on certain
+packages which are not installed during the build process described above.
+
+You can install these additional packages to ensure the runtime environment is
+the same as it would be had you installed machinekit directly from packages:
+
+    sudo apt-get install \
+         libgnomeprintui2.2 \
+         python-configobj \
+         python-glade2 \
+         python-gst0.10 \
+         python-gtkglext1 \
+         python-gtksourceview2 \
+         python-imaging-tk \
+         python-vte \
+         python-xlib \
+         tcl-tclreadline
+
+You can check your work by executing the LinuxCNC application and selecting,
+e.g., a Gmoccapy configuration.
+
 ### Adding rip-environment script to .bashrc
 To enable the use of Machinekit from every terminal without running the rip-environment script explicitly we can add it to the .bashrc using the following command:
 
