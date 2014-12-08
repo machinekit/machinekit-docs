@@ -13,7 +13,7 @@ window.
 
 .HAL Configuration Window[[cap:HAL-Configuration-Window]]
 
-image::images/HAL_Configuration.png[align="center"]
+image:images/HAL_Configuration.png[align="center"]
 
 === loadrt [[sub:loadrt]] (((loadrt)))
 
@@ -105,7 +105,7 @@ net home-x axis.0.home-sw-in <= parport.0.pin-11-in
 ----
 
 In the above example 'home-x' is the signal name, 'axis.0.home-sw-in' is a
-'Direction IN' pin, '<=' is the optional direction indicator, and 
+'Direction IN' pin, '<=' is the optional direction indicator, and
 'parport.0.pin-11-in' is a 'Direction OUT' pin. This may seem confusing but
 the in and out labels for a parallel port pin indicates the physical way the
 pin works not how it is handled in HAL.
@@ -296,7 +296,7 @@ have up to three HAL files in your config directory.
    first and should not be changed if you used the Stepper Config Wizard.
  -  custom.hal This file is loaded next and before the GUI loads. This is
    where you put your custom HAL commands that you want loaded before the
-   GUI is loaded. 
+   GUI is loaded.
  -  custom_postgui.hal This file is loaded after the GUI loads. This is
    where you put your custom HAL commands that you want loaded after the
    GUI is loaded. Any HAL commands that use pyVCP widgets need to be
@@ -431,7 +431,7 @@ xor2[count=n] | [names=name1[,name2...]]
 
 Functions
 
-+xor2.n+ 
++xor2.n+
 
 Pins
 
@@ -506,7 +506,7 @@ of 0 is 1 and the 'weight' of 2 is 4 so the sum is 5.
 
 .weighted_sum
 -----------------------------------------------------------
-Component Pins: 
+Component Pins:
 Owner   Type  Dir         Value  Name
     10  bit   In           TRUE  wsum.0.bit.0.in
     10  s32   I/O             1  wsum.0.bit.0.weight
@@ -520,5 +520,3 @@ Owner   Type  Dir         Value  Name
     10  s32   I/O             0  wsum.0.offset
     10  s32   Out             5  wsum.0.sum
 -----------------------------------------------------------
-
-
