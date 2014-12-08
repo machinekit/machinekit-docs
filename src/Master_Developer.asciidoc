@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 Developer Manual V{lversion}, {localdate}
 =========================================
@@ -26,5 +33,12 @@ include::code/Contributing-to-LinuxCNC.asciidoc[]
 include::common/Glossary.asciidoc[]
 
 include::common/GPLD_Copyright.asciidoc[]
+
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
 
 // vim: set syntax=asciidoc:

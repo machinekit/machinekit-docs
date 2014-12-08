@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 Getting Started V{lversion}, {localdate}
 ========================================
@@ -37,6 +44,13 @@ include::config/copy_and_run.asciidoc[]
 include::common/Linux_FAQ.asciidoc[]
 
 include::common/GPLD_Copyright.asciidoc[]
+
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
 
 // = Index
 

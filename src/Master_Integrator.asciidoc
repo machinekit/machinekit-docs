@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 Integrator Manual V{lversion}, {localdate}
 ==========================================
@@ -152,6 +159,14 @@ include::common/GPLD_Copyright.asciidoc[]
 :leveloffset: 1
 
 include::install/ConfigurationChanges.asciidoc[]
+
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 // = Index
 
 // vim: set syntax=asciidoc:

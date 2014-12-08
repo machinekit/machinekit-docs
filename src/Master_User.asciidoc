@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 User Manual V{lversion}, {localdate}
 ====================================
@@ -77,6 +84,13 @@ include::gui/image-to-gcode.asciidoc[]
 include::common/Glossary.asciidoc[]
 
 include::common/GPLD_Copyright.asciidoc[]
+
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
 
 // = Index
 

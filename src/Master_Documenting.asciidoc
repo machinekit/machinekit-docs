@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 Documenting Manual
 ==================
@@ -42,4 +49,10 @@ _How?_
 . add to the docs in your fork.
 . make a pull request.
 
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
 // vim: set syntax=asciidoc:
