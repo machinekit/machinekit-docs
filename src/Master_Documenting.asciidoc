@@ -36,7 +36,7 @@ This fast evolving time asks for:
 
 _How?_
 =====
-. read up on link::http://www.machinekit.io/docs/contributing/[contributing].
+. read up on link:http://www.machinekit.io/docs/contributing/[contributing].
 . get a Github user account.
 . fork the machinekit-docs repo.
 . add to the docs in your fork.
