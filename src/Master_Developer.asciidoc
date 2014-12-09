@@ -1,3 +1,10 @@
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
+
 :lversion: {sys: cat ../VERSION}
 Developer Manual V{lversion}, {localdate}
 =========================================
@@ -10,22 +17,28 @@ Developer Manual V{lversion}, {localdate}
 
 image::common/images/emc2-intro.*[]
 
-include::common/overleaf.txt[]
+include::common/overleaf.asciidoc[]
 
 
 :leveloffset: 1
 
-include::code/Code_Notes.txt[]
+include::code/Code_Notes.asciidoc[]
 
-include::code/NML_Messages.txt[]
+include::code/NML_Messages.asciidoc[]
 
-include::code/Style_Guide.txt[]
+include::code/Style_Guide.asciidoc[]
 
-include::code/Contributing-to-LinuxCNC.txt[]
+include::code/Contributing-to-LinuxCNC.asciidoc[]
 
-include::common/Glossary.txt[]
+include::common/Glossary.asciidoc[]
 
-include::common/GPLD_Copyright.txt[]
+include::common/GPLD_Copyright.asciidoc[]
+
+[cols="3*"]
+|===
+|
+|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|
+|===
 
 // vim: set syntax=asciidoc:
-
