@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the Documents index]
 |
 |===
 
@@ -46,13 +46,11 @@ _How?_
 . read up on link:http://www.machinekit.io/docs/contributing/[contributing].
 . get a Github user account.
 . fork the machinekit-docs repo.
-. add to the docs in your fork.
-. make a pull request.
+. read these instructions
 
 [cols="3*"]
 |===
 |
-|link:../DOCUMENTS.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the Documents index]
 |
 |===
-// vim: set syntax=asciidoc:
