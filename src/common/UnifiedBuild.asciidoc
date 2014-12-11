@@ -7,8 +7,10 @@
 :hal: {basebackend@docbook:'':hal}
 :ngc: {basebackend@docbook:'':ngc}
 
-This document is work in progress by Michael Haberler, John Morris and
-Kent Reed. Comments, fixes, and addenda are welcome.
+This document describes the Unified RTOS Build, work by
+Michael Haberler, John Morris and Charles Steinkuehler
+that integrates new real-time thread flavors into
+Machinekit/LinuxCNC.
 
 == The Rationale for Multiple Realtime Operating Systems Support
 
