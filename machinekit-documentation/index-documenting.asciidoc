@@ -5,13 +5,6 @@
 |
 |===
 
-:lversion: {sys: cat ../VERSION}
-Documenting Manual
-==================
-
-:lang: en
-:masterdir: {indir}
-
 
 GOAL: The Best Documented Project Ever
 ======================================
@@ -46,7 +39,7 @@ _How?_
 . read up on link:http://www.machinekit.io/docs/contributing/[contributing].
 . get a Github user account.
 . fork the machinekit-docs repo.
-. read these instructions
+. read link:documenting/documenting.asciidoc[these instructions].
 
 [cols="3*"]
 |===
