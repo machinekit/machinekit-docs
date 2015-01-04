@@ -6,13 +6,13 @@
 |===
 
 .Documentation Matrix
-[cols="7*", options="header", center]
+[cols="7*", options="header", options="center"]
 |===
 |
 | Getting Started
 | Using
 | HAL
-| Integrating
+| Setting up
 | Developing
 | Documentiation
 
