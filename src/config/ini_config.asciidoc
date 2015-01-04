@@ -445,6 +445,24 @@ The first executable M1xx found in the search is used for each M1xx.
 * 'USER_DEFINED_FUNCTION_MAX_DIRS=5'. The maximum number of directories defined
    at compile time. 
 
+* 'TOLERANCE_INCH = 0.0028' - (((TOLERANCE INCH)))
+   Specifies the arc tolerance in imperial units to be used by the interpreter.
+   If a valid figure, currently between 0.0028" and 0.00004", this figure will be
+   used by the interpreter, instead of the default of 0.0028".
+   
+* 'TOLERANCE_MM = 0.0282' - (((TOLERANCE MM)))
+   Specifies the arc tolerance in metric units to be used by the interpreter.
+   If a valid figure, currently between 0.0282mm and 0.001mm, this figure will be
+   used by the interpreter, instead of the default of 0.0282mm.
++
+TOLERANCE fields are primarily of use when using code produced by CAM.
+The default figures should now cater for CAM code which has rounded up
+values for I J K figures, which previously would have produced errors.
+If you require a higher degree of accuracy in arc tolerance calculation, 
+this can be specified down to 1 micron (0.001mm) or the imperial equivalent.
+
+Most users can ignore these fields and use the defaults.
++
 [NOTE]
 [WIZARD]WIZARD_ROOT is a valid search path but the Wizard has not been fully
 implemented and the results of using it are unpredictable.
