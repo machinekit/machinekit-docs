@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the main Documents index]
 |
 |===
 
@@ -163,6 +163,6 @@ link:../src/install/ConfigurationChanges.asciidoc[]
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the main Documents index]
 |
 |===

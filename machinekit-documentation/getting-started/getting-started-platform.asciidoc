@@ -1,0 +1,31 @@
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+Getting started with:
+=====================
+
+. <<beaglebone-black,Beagle Bone Black>>
+. <<mesa-anything-io,Mesa Anything IO card>>
+
+[[beaglebone-black]]Beaglebone Black
+====================================
+
+instructions to be written
+
+[[mesa-anything-io]]Mesa Anything IO card
+=========================================
+
+instructions to be written
+
+
+
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===

@@ -2,7 +2,7 @@
 |===
 |link:../index-developer.asciidoc[Back to the Developer index]
 |link:../documents-index.asciidoc[Back to the main Documents index]
-|
+|link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
 Buildbot
@@ -63,5 +63,5 @@ image::images/fix-error.png[]
 |===
 |link:../index-developer.asciidoc[Back to the Developer index]
 |link:../documents-index.asciidoc[Back to the main Documents index]
-|
+|link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

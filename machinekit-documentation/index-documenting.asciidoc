@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the main Documents index]
 |
 |===
 
@@ -11,18 +11,21 @@ GOAL: The Best Documented Project Ever
 
 We aim to make this project the best documented project ever...
 
-_Why?_
-=====
+At this point in time the documentation is a big work in progress and will probably
+change a good deal in layout and structure. Improving as we go.
+So please update your copy frequently.
+
+_Why documentation?_
+====================
 
 Because that will help speed up the development of Machinekit...
 
-If the documentation
-of this project can help a *Person* get started, a *User* get better, an
+If the documentation of this project can help a *Person* get started, a *User* get better, an
 *Integrator* working faster and help a *Developer* maintaining focus and
 better reference then everybody can benefit from this wonderfull project.
 
-_What?_
-=======
+_What is Machinekit?_
+=====================
 Machinekit is a fast evolving project. The development of recent years have
 resulted in smaller and faster processors, different OS'es and a lot of applications
 that were not possible before. Think about the reprap project for example.
@@ -34,8 +37,8 @@ This fast evolving time asks for:
 - Up-to-date references.
 - Up-to-date knowledge.
 
-_How?_
-=====
+_How can i help documenting?_
+=============================
 . read up on link:http://www.machinekit.io/docs/contributing/[contributing].
 . get a Github user account.
 . fork the machinekit-docs repo.
@@ -44,6 +47,6 @@ _How?_
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the Documents index]
+|link:documents-index.asciidoc[Back to the main Documents index]
 |
 |===

@@ -1,0 +1,67 @@
+[cols="3*"]
+|===
+|
+|link:documents-index.asciidoc[Back to the main Documents index]
+|
+|===
+
+.Documentation Matrix
+[cols="7*", options="header", center]
+|===
+|
+| Getting Started
+| Using
+| HAL
+| Integrating
+| Developing
+| Documentiation
+
+| Platform specific
+| link:getting-started/getting-started-platform.asciidoc[Getting started
+  instructions on specific platforms]
+|
+|
+|
+|
+|
+
+| Documenting
+| link:documenting/documenting.asciidoc[Documentation instructions]
+|
+|
+|
+|
+|
+
+| Examples
+|
+|
+|
+|
+|
+|
+
+| How to
+|
+|
+|
+|
+| link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+|
+
+| Tools
+|
+|
+|
+|
+|
+|
+
+|===
+
+[cols="3*"]
+|===
+|
+|link:documents-index.asciidoc[Back to the main Documents index]
+|
+|===
