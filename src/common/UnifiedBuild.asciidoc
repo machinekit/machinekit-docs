@@ -236,12 +236,12 @@ single `./configure && make` run builds many RT options::
 	distributions.
 
 
-=== Principles of Operations
+== Principles of Operations
 
 The overall structure and cooperation of major components is a bit
 different from the past modus operandi.
 
-==== Major data structures
+=== Major data structures
 
 Before the 'unified build' work was undertaken,
 the RT build (RTAI) used a shared memory segment at the RTAPI
@@ -250,7 +250,7 @@ the HAL segment, no RTAPI shared memory segment.
 
 In contrast to the earlier approach, the shared memory segments in use in the 'unified build' branch are:
 
-===== The Global Data Segment
+==== The Global Data Segment
 
 This is a per-instance shared memory segment which is assumed to
 exist before any RT operations start (either flavor). It carries
@@ -273,7 +273,7 @@ the options are too diverse and heuristic in detection to relegate
 decisions of per-instance nature to autodetection mechanisms at lower
 levels.
 
-===== The HAL Data  Segment
+==== The HAL Data  Segment
 
 Besides small changes in per-object (thread, component, pin etc)
 structures there are no major changes except provisions for a
@@ -281,7 +281,7 @@ configurable segment size, plus data structures and macros/functions
 to access foreign instance HAL data segments. This is not used
 extensively in the current branch.
 
-===== The RTAPI Data  Segment
+==== The RTAPI Data  Segment
 
 The RTAPI data segment is essentially unchanged in layout respective
 to previous versions.
@@ -291,7 +291,7 @@ a shared memory segment for RTAPI data as it is all local variables in
 the rtapi_app process. In retrospect this lack of uniformity was a
 mistake, although not a showstopper.
 
-==== Relation of the major data structures
+=== Relation of the major data structures
 
 The obvious candidates for the global segment is the logging ringbuffer,
 plus key parameters driving overall instance parameters. As it is
@@ -309,7 +309,7 @@ been made for this at the per-flavor configuration information (follow
 the logic of  FLAVOR_RTAPI_DATA_IN_SHM usage to see how).
 
 
-==== Multiple instances and the role of the `shmdrv` shared memory driver
+=== Multiple instances and the role of the `shmdrv` shared memory driver
 
 Running multiple RTAPI instances side by side will make sense
 eventually, for instance for multi-spindle setups. However, these
@@ -374,9 +374,9 @@ segment by a kernel module which was previously created by a user
 process. This is a severe restriction not only for instance
 interoperability, but also for startup and shutdown.
 
-==== Major Processes
+=== Major Processes
 
-===== The rtapi_msgd Process
+==== The rtapi_msgd Process
 
 The primary purpose of the rtapi_msgd process is to create, populate
 and service the per-instance global_data_t shared memory segment. In
@@ -402,7 +402,7 @@ The rtapi_msgd changes its argv to `msgd:<instance number>` once started
 successfully to aid duplicate startup attempt detection, and instance
 shutdown.
 
-===== The rtapi_app Process (Userland threads)
+==== The rtapi_app Process (Userland threads)
 
 This is based largely on the sim_rtapi_app process used in the
 'simulator environment' in previous releases. It is present only in
@@ -428,7 +428,7 @@ scripts/realtime and the halcmd code in hal/utils how to do that.
 The rtapi_app program changes its argv to `rtapi:<instance number>` once started
 successfully.
 
-==== Kernel threads
+=== Kernel threads
 
 With RTAI and Xenomai-kernel flavors, there is no corresponding
 rtapi_app process since HAL modules are just kernel modules. There is
@@ -436,7 +436,7 @@ no conceptual change here - modules are inserted by the setuid
 module_helper.
 
 
-=== Tested Operating Systems
+== Tested Operating Systems
 
 rtai 2.6.32-122-rtai::
      as used in the 10.04LTS live CD
