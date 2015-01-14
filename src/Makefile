@@ -1,3 +1,7 @@
+ifeq ($(BUILD_VERBOSE),1)
+A2X_VERBOSE = -v
+endif
+
 DOCS_EN := $(patsubst %.asciidoc,%,$(wildcard *.asciidoc */*.asciidoc))
 DOCS_ES := $(patsubst %.asciidoc,%,$(wildcard *_es.asciidoc */*_es.asciidoc))
 DOCS_FR := $(patsubst %.asciidoc,%,$(wildcard *_fr.asciidoc */*_fr.asciidoc))
@@ -11,12 +15,17 @@ LARGE := $(LARGE_EN) $(LARGE_ES) $(LARGE_FR)
 
 #include $(patsubst %,%.dep,$(LARGE))
 
-A2X = ./a2x --xsltproc-opts "--stringparam toc.section.depth 3 \
-			   --stringparam toc.max.depth 2 \
-			   --stringparam generate.section.toc.level 2 \
-			   --stringparam generate.toc 'book toc,title chapter toc'" \
-	  --asciidoc-opts "-f docbook.conf" \
-	  --dblatex-opts "-P doc.publisher.show=0 -P latex.output.revhistory=0 -s ./emc2.sty"
+A2X = ./a2x \
+	--xsltproc-opts "\
+	    --stringparam toc.section.depth 3 \
+	    --stringparam toc.max.depth 2 \
+	    --stringparam generate.section.toc.level 2 \
+	    --stringparam generate.toc 'book toc,title chapter toc'" \
+	--asciidoc-opts "-f docbook.conf" \
+	--dblatex-opts "\
+	    -P doc.publisher.show=0 \
+	    -P latex.output.revhistory=0 -s ./emc2.sty" \
+	$(A2X_VERBOSE)
 
 all:
 	$(MAKE) -C ../../src docs
@@ -57,15 +66,15 @@ xref_en.links: $(patsubst %,%.db,$(SMALL))
 #	asciidoc -a stylesheet=$(shell pwd)/linuxcnc.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
 
 %.pdf: %.asciidoc
-	$(A2X) -L -d book -vf pdf $< || (X=$$?; rm $@; exit $$X)
+	$(A2X) -L -d book -f pdf $< || (X=$$?; rm $@; exit $$X)
 
 $(patsubst %,%.html,$(LARGE)) :: %.html: %.asciidoc
-	$(A2X) --stylesheet=./linuxcnc.css -L -d book -vf xhtml $< || (X=$$?; rm $@; exit $$X)
+	$(A2X) --stylesheet=./linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(LARGE_ES)) :: %.html: %.asciidoc
-#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -vf xhtml $< || (X=$$?; rm $@; exit $$X)
+#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(LARGE_FR)) :: %.html: %.asciidoc
-#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -vf xhtml $< || (X=$$?; rm $@; exit $$X)
+#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 .PHONY: all docs htmldocs pdfdocs docclean clean

@@ -1,3 +1,7 @@
+ifeq ($(BUILD_VERBOSE),1)
+A2X_VERBOSE = -v
+endif
+
 .PHONY: docs docsclean checkref checkref_en checkref_es checkref_fr
 .PHONY: pdfdocs htmldocs install-doc install-doc-pdf install-doc-html
 
@@ -21,7 +25,7 @@ ifneq ($(MANDB),)
 default: $(DOC_DIR)/man/index.db
 $(DOC_DIR)/man/index.db: $(MAN_SRCS)
 	@echo "Updating 'whatis' database"
-	$(Q)$(MANDB) $(DOC_DIR)/man
+	$(Q)env -u MANPATH $(MANDB) $(DOC_DIR)/man
 endif
 
 ifeq ($(BUILD_DOCS),yes)
@@ -345,15 +349,24 @@ HTML_TARGETS := \
 	$(DOC_DIR)/html/index_es.html \
 	$(DOC_DIR)/html/index_fr.html \
 
-A2X = a2x --xsltproc-opts "--stringparam toc.section.depth 3 \
-			   --stringparam toc.max.depth 2 \
-			   --stringparam generate.section.toc.level 2 \
-			   --stringparam generate.toc 'book toc,title chapter toc'" \
-	  -a "scriptdir=$(DOC_SRCDIR)/" \
-	  --asciidoc-opts "-f $(DOC_SRCDIR)/docbook.conf -f $(DOC_SRCDIR)/asciidoc-dont-replace-arrows.conf" \
-	  --dblatex-opts "-P doc.publisher.show=0 -P latex.output.revhistory=0 -s $(DOC_SRCDIR)/emc2.sty \
-			  -P latex.hyperparam=colorlinks,linkcolor=blue,filecolor=blue,urlcolor=blue,citecolor=blue \
-                          $(A2X_LATEX_ENCODING)"
+A2X = a2x \
+	--xsltproc-opts "\
+	    --stringparam toc.section.depth 3 \
+	    --stringparam toc.max.depth 2 \
+	    --stringparam generate.section.toc.level 2 \
+	    --stringparam generate.toc 'book toc,title chapter toc'" \
+	-a "scriptdir=$(DOC_SRCDIR)/" \
+	--asciidoc-opts "\
+	    -f $(DOC_SRCDIR)/docbook.conf \
+	    -f $(DOC_SRCDIR)/asciidoc-dont-replace-arrows.conf" \
+	--dblatex-opts "\
+	    -P doc.publisher.show=0 \
+	    -P latex.output.revhistory=0 \
+	    -s $(DOC_SRCDIR)/emc2.sty \
+	    -P latex.hyperparam=colorlinks,linkcolor=blue,filecolor=blue,urlcolor=blue,citecolor=blue \
+            $(A2X_LATEX_ENCODING)" \
+	$(A2X_VERBOSE)
+
 
 ifeq ($(TRIVIAL_BUILD),no)
 -include $(patsubst %.asciidoc, depends/%.d, $(DOC_SRCS_TXT))
@@ -476,7 +489,7 @@ $(DOC_DIR)/html/index.html: $(DOC_SRCDIR)/index.tmpl objects/index.incl $(DOC_SR
 $(DOC_SRCDIR)/%.pdf: $(DOC_SRCDIR)/%.asciidoc
 	$(ECHO) Building $@
 	@rm -f $@
-	$(A2X) -L -d book -vf pdf $< || (X=$$?; rm $@; exit $$X)
+	$(A2X) -L -d book -f pdf $< || (X=$$?; rm $@; exit $$X)
 	@test -f $@
 
 depends/%.d: $(DOC_SRCDIR)/%.asciidoc $(DOC_SRCDIR)/asciideps
@@ -645,8 +658,7 @@ docclean:
 	-rm -f $(DOC_TARGETS_HTML) $(DOC_DIR)/html/xref*.html $(DOC_DIR)/html/index*.html $(DOC_DIR)/*.png $(DOC_DIR)/man/*.png
 	-rm -f .htmldoc-stamp
 	-rm -f .html-images-stamp
-# unsure how to do this as Submakefile: -mah
-	-(cd $(LOC_HL_DIR); make clean)
+	+$(MAKE) -C $(LOC_HL_DIR) clean
 
 
 ifeq ($(BUILD_DOCS),yes)
