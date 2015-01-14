@@ -658,8 +658,7 @@ docclean:
 	-rm -f $(DOC_TARGETS_HTML) $(DOC_DIR)/html/xref*.html $(DOC_DIR)/html/index*.html $(DOC_DIR)/*.png $(DOC_DIR)/man/*.png
 	-rm -f .htmldoc-stamp
 	-rm -f .html-images-stamp
-# unsure how to do this as Submakefile: -mah
-	-(cd $(LOC_HL_DIR); make clean)
+	+$(MAKE) -C $(LOC_HL_DIR) clean
 
 
 ifeq ($(BUILD_DOCS),yes)
