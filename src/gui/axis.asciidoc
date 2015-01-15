@@ -85,7 +85,7 @@ Some menu items might be grayed out depending on how you have your
 .ini file configured. For more information on configuration see the
 Integrator Manual.
 
-.File Menu
+*File Menu*
 
 * 'Open...' - Opens a standard dialog box to open a g code file to load in AXIS. If
     you have configured LinuxCNC to use a filter program you can also open it
@@ -119,7 +119,7 @@ Integrator Manual.
 * 'Quit' - 
     Terminates the current LinuxCNC session.
 
-.Machine Menu [[sub:axis-machine-menu]]
+*Machine Menu* [[sub:axis-machine-menu]]
 
 * 'Toggle Emergency Stop F1' - Change the state of the Emergency Stop.
 
@@ -192,7 +192,7 @@ fixed location on the machine, with the ninth ('G59.3') coordinate system set
 such that the tip of a zero-length tool is at the fixture's origin when the
 Relative coordinates are 0.  See <<sec:G10-L11,G10 L11>> in the G code chapter.
 
-.View Menu
+*View Menu*
 
 .It's all in your point of view
 *******************************************************************************
@@ -293,7 +293,27 @@ So be familiar with your machine's design and interpret the display as needed.
     
 * 'Show Relative Position' - This is the Machine Position modified by 'G5x', 'G92', and 'G43' offsets.
     
-.Help Menu
+*User Menu*
+    
+* 'User0' - User defined command number 1 - to
+   
+* 'User9' - User defined command number 10
+
+This menu will be shown but disabled unless activated in the ini file
+Ten user commands can be specified in the ini file.
+
+* '#' precedes a halcmd
+ This will be sent and the return waited for before continuing
+
+* '$' precedes a system command
+ This will be spawned to a new process and return immediately
+ 
+* No prefix before a gcode instruction
+
+The commands can optionally be bound to the 0 - 9 keys on the keyboard
+Full details in the INI file docs
+    
+*Help Menu*
 
 * 'About Axis' - We all know what this is.
     
@@ -745,7 +765,7 @@ AXIS includes a program called 'axis-remote' which can send certain
 commands to a running AXIS. The available commands are shown by running
 'axis-remote --help' and include checking whether AXIS is running
 ('--ping'), loading a file by name, reloading the currently loaded
-file ('--reload'), and making AXIS exit ('--quit').
+file ('--reload'), running the loaded file ('--run') and making AXIS exit ('--quit').
 
 [[sec:Manual-Tool-Change]]
 == Manual Tool Change
@@ -963,5 +983,15 @@ preview on certain parts that are already working OK).
  - (AXIS,notify,the_text) Displays the_text as an info display
 This display can be useful in the Axis preview when (debug,message)
 comments are not displayed.
+
+*NB*
+The preview display can be completely disabled for all loaded files by
+an ini file field
+
+'[USER_COMMANDS]'
+
+DISABLE_DISPLAY = YES
+
+See the INI file docs for full details
 
 

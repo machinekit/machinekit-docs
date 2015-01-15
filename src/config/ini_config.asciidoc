@@ -396,6 +396,70 @@ if __name__ == "__main__":
    main(sys.argv[1:])
 ----
 
+[[sub:USER_COMMANDS-section]]
+=== [USER_COMMANDS] Section(((USER_COMMANDS (inifile section))))
+
+* 'USER0 = #setp iocontrol.0.lube_level 1'
+    (((USER0)))
+* 'USER1 = G0 X0 Y0 Z0' 
+    (((USER1)))
+* 'USER2 = G0 X5 Y5 Z5'
+    (((USER2)))
+* 'USER3 = G0 X10 Y10 Z10'
+    (((USER3)))
+* 'USER4 = G0 X15 Y15 Z15'
+    (((USER4)))
+* 'USER5 = G0 X20 Y20 Z20'
+    (((USER5)))
+* 'USER6 = G0 X25 Y25'
+    (((USER6)))
+* 'USER7 = G0 X30 Y30'
+    (((USER7)))
+* 'USER8 = $firefox "www.machinekit.io"'
+    (((USER8)))
+* 'USER9 = $gedit' 
+    (((USER9)))
++
+Ten user commands can be specified in the ini file.
+    
+    # precedes a halcmd
+    This will be sent and the return waited for before continuing
+    
+    $ precedes a system command
+    This will be spawned to a new process and return immediately
+    
+    No prefix before a gcode instruction
+    
+    The commands are accessed from the extra dropdown User menu
+    (see below re key binding)
+
+* 'NUMKEYS = YES'
+    (((NUMKEYS)))
++
+    To bind the user keys to the numeric 0-9 keys, set NUMKEYS = YES
+    Use this carefully, the main reason for its inclusion
+    is to allow HID type pendant to operate commands from keystrokes
+
+    If using a keyboard, probably best set to NO and just use Alt U + n (0-9).
+    
+* 'DISABLE_PREVIEW = YES'
+    (((DISABLE_PREVIEW)))
++
+    Loading big files can seriously slow down or even crash Axis if the preview is enabled, 
+    because it consumes huge amounts of memory.
+    This option turns the preview off.  The live plot will still be drawn.
+
+* 'LOAD_LASTFILE = YES'
+    (((LOAD_LASTFILE)))
++
+    Unless Linuxcnc is launched with a file in the command line,
+    or there is a file specified to be opened in the ini file 
+    or in the environment variable,
+    the file that was open when linuxcnc was last closed, will be re-opened.
+    
+    Use with caution if you use very large and frequently changing files, 
+    as this could slow down launch considerably waiting for the last file to load.
+
 [[sub:RS274NGC-section]]
 === [RS274NGC] Section(((RS274NGC (inifile section))))
 
