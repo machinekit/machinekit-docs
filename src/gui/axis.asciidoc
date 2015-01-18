@@ -984,14 +984,14 @@ preview on certain parts that are already working OK).
 This display can be useful in the Axis preview when (debug,message)
 comments are not displayed.
 
-*NB*
+[NOTE]
 The preview display can be completely disabled for all loaded files by
 an ini file field
 
-'[USER_COMMANDS]'
-
+----
+[USER_COMMANDS]
 DISABLE_DISPLAY = YES
-
+----
 See the INI file docs for full details
 
 
