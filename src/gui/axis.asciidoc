@@ -946,6 +946,34 @@ root_window.bind("<Control-q>", "destroy .")
 help2.append(("Control-Q", "Quit"))
 ----
 
+=== axisui
+(((axisui)))
+
+Upon initialisation, Axis creates several HAL pins which can be used externally.
+
+- *axisui.jog.x* (also y z a b c u v w) is an OUT bit pin set TRUE if that axis is currently the selected
+             axis for jogging in the Axis GUI
+             
+- *axisui.jog.increment*  is an OUT float pin set true if in incremental jog mode, set 0 if in continous mode.
+             If in incremental mode, the value of the pin is the increment selected
+             eg. In metric mode, value of 5.000000 = 5mm increments, 0.500000 = 0.5mm increments
+             
+- *axisui.notifications-clear-info* is an IN bit pin, which if set TRUE will clear all info text from the Axis GUI
+             notification area (bottom right corner)
+             
+- *axisui.notifications-clear-error* is an IN bit pin, which if set TRUE will clear all error text from the Axis GUI
+             notification area (bottom right corner)
+             
+- *axisui.notifications-clear* is an IN bit pin, which if set TRUE will clear ALL text from the Axis GUI
+             notification area (bottom right corner) Same as using Ctrl Space from the keyboard
+             
+- *axisui.run-disable* is an IN bit pin, which if set TRUE will prevent Axis running a program.
+             An example of its use would be to connect it to a machine safety screen interlocks, thereby allowing
+             jogging, touch off etc. but preventing a program running until the screens are back in place.
+
+Some of these pins can be useful in synchronising pyvcp or gladevcp panels which duplicate some of
+the functions of Axis.
+
 === External Editor
 (((External Editor)))
 
