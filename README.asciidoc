@@ -20,7 +20,7 @@ Making documentation should be easy
 One of the tasks for the splitting of the `docs` in a separate repo was that it
 should be easy for anybody to document something. Because of that we focus on
 `.asciidoc` files that can be read and improved upon. This is 2015 after all :)
-You can actually help improve this documentatino without knowing anything of
+You can actually help improve this documentation without knowing anything of
 "git". Just read these link:machinekit-documentation/documenting/documenting.asciidoc[instructions] and
 you'll be ready to go in the blink of an eye.
 

@@ -520,6 +520,9 @@ c.override_limits()
 c.program_open("foo.ngc")
 c.reset_interpreter()
 
+c.set_home_parameters(jointnum, home_pos, home_offset, home_final_velocity, home_search_velocity, home_final_velocity, use_index, ignore_limits, is_shared, home_sequence, volatile_home, locking_indexer) )
+
+
 c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orientation)
 ---------------------------------------------------------------------
 === `linuxcnc.command` attributes
@@ -612,6 +615,9 @@ c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orie
 
 `set_max_limit(int, float)`::
         set max position limit for a given axis
+        
+'set_home_parameters(int, float, float, float, float, float, int, int, int, int, int, int)'::
+	set home parameters for a given axis. All parameters must be passed to the function to succeed.
 
 `set_min_limit()`::
         set min position limit for a given axis
