@@ -69,7 +69,7 @@ can add up to 64 digital I/O by using the num_dio option when loading
 motmod.
 
 If the number of analog I/O needed is more than the default of 4 you
-can add up to 16 analog I/O by using the num_aio option when loading
+can add up to 64 analog I/O by using the num_aio option when loading
 motmod.
 
 === Pins (((motion (HAL pins))))
