@@ -346,8 +346,34 @@ the moment the homing sequence is done.
 
 
 == [[delta-radius]]Delta Radius
+If the `delta radius` is not correct, the movement of the effector will be convex
+or concave instead of straight.
+
+We use the same way we calibrated the endstops in the previous section for
+finetuning the `delta radius`.
 
 === Setting `Delta Radius` value from terminal
+
+. go to `TOWER C` and find the  Z-value like in steps 3 & 4 of <<endstops,section 5.1>>
+. like in steps 5 and following move the effector down, but this time at (0,0) so the
+effector will be above the center.
+. in small steps change the `delta radius` {value} until the Z-position matches
+like in step 6, only this time from the terminal:
++
+[source]
+----
+halcmd sets lineardeltakins.R {value}
+----
+. This value now will be changed, and is not effected by homing.
+. **change the value in your ini file!**
+
+---
+
+= Done!
+Your movement should run straight above the bed. It is highly recommended to use
+a dial caliper because it just makes life easy. If you don't have access to one
+you can get the same results with the "scraping-paper-method". Don't worry
+about that.
 
 
 [WARNING]
