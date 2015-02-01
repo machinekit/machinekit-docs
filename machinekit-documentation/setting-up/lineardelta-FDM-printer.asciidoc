@@ -1,0 +1,159 @@
+[cols="3*"]
+|===
+|link:setting-up-examples.asciidoc[Setting up examples]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+Linear Delta FDM printer setup
+==============================
+
+This guide is meant as a start for setting up the machine in a way that will enable
+you to get a machine running. Other instructions of guides, which focus on
+calibrating an extruder, temperature PID loops or working with a GUI will have a better
+place in a separate document. Preferrably linked to at the end of this one and
+in the link:setting-up-example.asciidoc[setting-up page summary].
+
+Whether you use some scripts or levelling feature later on to make re-calibrating
+of endstops and/or delta radius easier / less time consuming, I would advice you
+to at least do a full setup and configuration manually to understand what happens
+exactly.
+
+Contents
+========
+
+. <<doctionary,Dictionary>>
+. <<frame,The Frame>>
+. <<connecting,Connecting>>
+. <<configuration,Configuration Files>>
+. <<endstops,Endstops>>
+. <<delta-radius,Delta Radius>>
+
+---
+
+
+== [[dictionary]]Dictionary
+
+These instructions will talk about towers, axes, joints, motors and connectors and other
+parts of the machine. Below you'll find a short summary of meaningful names.
+
+===== Axes
+The axes which are mentionned are the cartesian `X`, `Y` and `Z` axis who together
+describe a coordinate in caresian space by (`X`,`Y`,`Z`).
+
+===== Tower
+The vertical actuator on which the carriage runs. To eliminate confusion between
+motors, joints, axes, cartesian space, connectors etc. these 3 towers are called
+`TOWER A`, `TOWER B` and `TOWER C`.
+
+Go sit before your machine and see that they are located (maybe put a yellow
+sticky note on the tower afterwards):
+
+- `TOWER A`: front left, location (-X,-Y)
+- `TOWER B`: front right, location (+X,-Y)
+- `TOWER C`: back middle, location (0,+Y)
+
+===== Carriage
+This vertical moving platform connects a set of rods to a tower. It is moved by
+something like a spindle or a timing belt.
+
+===== Effector
+The moving platform which is connected to towers by 3 sets of rods.
+
+===== Paralellogram
+The 2 rods from each carriage together with a side of the effector form a
+paralellogram. The 3 paralellograms together constrain the machine in such a way
+that the effector cannot rotate around the `x`, `y` and `z` axes (pitch `a`,
+roll `b` and yaw `c`) degrees of dreedom
+
+===== Extruder
+The thing that drives the filament into the Hot End
+
+===== Hot End
+The shaft that melts the filament. The hot end is mounted below the effector and
+the nozzle should be the lowest point
+
+
+== [[frame]]The Frame
+
+The frame is the base of everything. All further setup depends on the frame and
+the bed so do this as accurate as possible. If you run into a problem first fix
+it so you have a good foundation.
+
+==== Towers
+
+The first thing to do is to make sure the 3 columns are parallel and on the correct
+distances from each other. The more the position corresponds with the theoretical
+position, the better the dimensions of the printed part will be.
+
+It's also important to have the 3 columns running parallel to each other. Without
+this paralellity the part dimensions will not be uniform in height. One way to
+start would be to set the towers vertical with a level, and measure the distances
+from one to the other 2.
+
+==== The Bed
+
+The bed should be perpendicular to the 3 parallel towers. Preferrably the bed
+is constrained on 3 points near the tower so adjusting a point directly influences
+the angle of the bed at the tower you are setting up.
+
+. Put the bed on the 3 points near the towers
+. Get a carpenters angle and put this on the bed. Point 1 side upwards, parallel
+to the tower, and the other side on the bed pointing towards the middle of the
+bed.
+
++
+Preferrably, get a bright area after the gap between the angle and tower and move
+the angle towards the tower. If the gap is not fully closed over the full length
+you should use the adjusting point to get close the gap.
+
+
+== [[connecting]]Connecting
+
+Most important thing to do here is that we make a clear distinction of the naming
+of axes, joints, towers and connectors.
+
+When you use some sort of configuration (most likely a BeagleBone Black with
+a 3D printing cape) you probalbly have motor connections named on the board like
+`X`, `Y` and `Z`. I like to remember the mnemonic "CAB", like in "Taxi!".
+
+Here `CAB` uses the `XYZ` connectors. You just remember `CAB` and connect:
+
+- motor of `TOWER C` => `connector X` (which is normally `joint[0]`)
+- motor of `TOWER A` => `connector Y` (which is normally `joint[1]`)
+- motor of `TOWER B` => `connector Z` (which is normally `joint[2]`)
+
+== [[configuration]]Configuration Files
+
+=== INI-file
+
+=== HAL-file
+
+
+== [[endstops]]Endstops
+
+=== Use of debug pins in kinematics
+
+=== Setting `HOME_OFFSET`  from terminal
+
+
+== [[delta-radius]]Delta Radius
+
+=== Setting `Delta Radius` value from terminal
+
+
+[WARNING]
+====
+todo:
+
+- document and link to calibrating extrusion do not exist
+- smart scripts and possibly other tools
+- GUI and other setup instructions
+====
+
+[cols="3*"]
+|===
+|link:setting-up-examples.asciidoc[Setting up examples]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
