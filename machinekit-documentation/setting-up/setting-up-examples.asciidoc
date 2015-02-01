@@ -15,6 +15,9 @@ with different hardware.
 
 . link:lineardelta-FDM-printer.asciidoc[Linear Delta FDM printer]
 
++
+Starting point also for other machines which use the lineardelta kinematics
+
 
 [cols="3*"]
 |===

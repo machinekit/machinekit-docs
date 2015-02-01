@@ -14,6 +14,9 @@ calibrating an extruder, temperature PID loops or working with a GUI will have a
 place in a separate document. Preferrably linked to at the end of this one and
 in the link:setting-up-example.asciidoc[setting-up page summary].
 
+If this type of machine does not act as a FDM machine, but as a mill for example
+then this document also acts as a setup guide. Most information is equivalent.
+
 Whether you use some scripts or levelling feature later on to make re-calibrating
 of endstops and/or delta radius easier / less time consuming, I would advice you
 to at least do a full setup and configuration manually to understand what happens
@@ -71,7 +74,10 @@ The thing that drives the filament into the Hot End
 
 ===== Hot End
 The shaft that melts the filament. The hot end is mounted below the effector and
-the nozzle should be the lowest point
+the nozzle should be the lowest point.
+
+If your machine has a drill bit or functions as a mill then this drill or mill bit
+also is the lowest point beneath the effector.
 
 
 == [[frame]]The Frame
