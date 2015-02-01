@@ -131,16 +131,218 @@ Here `CAB` uses the `XYZ` connectors. You just remember `CAB` and connect:
 
 == [[configuration]]Configuration Files
 
+When you start Machinekit you get to choose which configuration you want to use
+choose one with "lineardelta" or equivalent. Its not really important what the
+name is though. You can make a "my machine" configuration if you want.
+
+Scroll around the configuration (`config` directory in machinekit) directory to
+see if your hardware setup has one. If it's not there then you must make one.
+
+It's important to understand that the `INI` file is just loaded once, during
+startup. So any changes you make in your `INI` file are only loaded during
+the start.
+
+A configuration consists of an `INI` file and a `HAL` file. More info can be found
+in the legacy LinuxCNC documentation. For now below are the parts which are
+important for the machine setup.
+
 === INI-file
+
+When making a configuration file for this type of machine you should look at the
+following sections. Below examples with comments about their use.
+
+[source,ini]
+----
+[EMC]
+# below text will show in the GUI for example
+MACHINE = type the name of your machine here
+----
+
+[source,ini]
+----
+[MACHINE]
+DELTA_R = 158.55 #here the delta radius is given
+CF_ROD = 326.37  #here the rod length given
+----
+
+[source,ini]
+----
+[HAL]
+# this file will hold the settings of which
+# software pin is wired to which hardware pin
+HALFILE = the-location-of-the-hal-file.hal
+----
+
+[source,ini]
+----
+[AXIS_n] #where n is 0, 1, 2 and 3
+TYPE =              LINEAR
+
+# for our linear delta type machine we need
+# to have the value of MAX_VELOCITY way below
+# the value of STEPGEN_MAX_VEL.
+#
+# why? do you ask...
+#
+# MAX_VELOCITY of [AXIS_0] is the velocity of
+# the cartesian x-axis, where STEPGEN_MAX_VEL
+# is the max velocity of of JOINT[0].
+#
+# because of the kinematics of our machine
+# the joint must be able to move and accelerate
+# a lot quicker than the cartesian axis.
+# Especially if the effector is moving at the
+# edge of the working area (radius)
+#
+# this is confusing, I know
+MAX_VELOCITY =      250.0
+STEPGEN_MAX_VEL =   390
+
+# the same goes for the acceleration settings.
+# here again the difference between cartesian
+# and joint setting
+MAX_ACCELERATION =  1100.0
+STEPGEN_MAX_ACC =   5000
+
+# this is the scale of the motor.
+# simply make positive/negative to
+# change the direction
+SCALE =  -128
+
+# when homing the value of HOME_OFFSET is used
+# for setting the JOINT[n] position.
+# different
+HOME =              710.00
+HOME_OFFSET =       711.10
+# speed (up) when homing
+HOME_SEARCH_VEL =   30.0
+# speed down (slow) when homing
+HOME_LATCH_VEL =    -1.0
+----
+
+[NOTE]
+more info about `HOMING` can be found in link:../../src/config/ini_homing.asciidoc[]
+
+[NOTE]
+since this setup document is about calibrating the mechanics, the `INI` values
+that are needed for the extruder are better of in a separate setup document. Could
+be linked to from here if/whenever it exisists.
 
 === HAL-file
 
+The `HAL` is the Hardware Abstraction Layer. If you are not familiar with this
+then please visit the link:../../machinekit-documentation/index-HAL.asciidoc[HAL index]
+with especially the link:../../src/hal/intro.asciidoc[HAL intro] before continuing.
+The `HALFILE` in the above mentionned `INI` settings contains all the "wiring logic"
+of the machine.
+
+We'll not dig deeple here, but some lines are worth mentionning
+
+[source,hal]
+----
+# this line loads the kinematics file
+loadrt lineardeltakins
+
+# settings for delta printer. These are
+# taken from the INI file mentionned above
+setp lineardeltakins.L [MACHINE]CF_ROD
+setp lineardeltakins.R [MACHINE]DELTA_R
+----
+
+==== net signal source target
+Reading a `HAL` file can be very energy draining. Just remember the following:
+
+A `signal` is the "wire" linking `pins`, where the `source pin` is mentionned after
+the `signal` and the `target pin` is mentionned after the `source pin`
+
+Ych!.... just repeat 10 times _**NOW**_ and you'll know it the 11th time when
+you pull your hair and grind your teeth reding thru a `HAL` FILE:
+
+=> => [red]#**NET SIGNAL SOURCE TARGET**# <= <=
+
+for example:
+----
+net the-signal-from-pinA-to-pinB pinA pinB
+----
+which is the same as:
+----
+net the-signal-from-pinA-to-pinB pinA
+net the-signal-from-pinA-to-pinB pinB
+----
+
 
 == [[endstops]]Endstops
+The goal of this section is gettin the exact height of the endswitch of a joint
+with respect to the bed. This is important since the nozzle will have to travel
+in a straight line across the bed and printed layers.
+
+You have to understand that `HOMING` sets the height of the
+tower joint (`TOWER C` which is `JOINT[0]`). So when the homing routine is done
+then your machine knows the height of the carriages, and in turn calculates the
+cartesian (`X`,`Y`,`Z`) position.
+
+you can view the `JOINTS` position in the `joint mode` and the cartesian values
+in the `world mode`. you can switch between them in the GUI.
 
 === Use of debug pins in kinematics
+. home the machine
+. go to a position near a tower within the `MDI mode`. This is where you manually
+give a command to move the effector go to the tower coordinates. Like
+`G1 X0 Y150 Z50 F2000`. This should result in the effector being at the
+position of the tower at the back.
 
-=== Setting `HOME_OFFSET`  from terminal
++
+[NOTE]
+`Y150` in the example should be your delta radius value. Furthermore the rods of the
+paralellogram should be as-good-as vertical. Big deviation means you have to look
+into the reason "why". A small deviation is no problem since the cosine part (`Z`)
+of the (`X`,`Y`) error is very small and has very little influence of the height
+(position of the tower)
+
+. go down with the nozzle until you experience friction between nozzle and bed
+with the "dragging-paper-method" or to a specified height of a dial caliper.
+. **write down the cartesian Z-position**.
+. go to another tower and move down until you have the nozzle at the same height
+as `TOWER C` + 5 mm.
+. go down in little steps, and change from the terminal the joint debug pins. These
+pins move the effector lower/higher without effecting the joint[n] position or
+Z-height readout value. Do like this and replace {n} with the joint you are workin
+on:
+
++
+[source]
+----
+halcmd sets lineardeltakins.J{n}off 0.1
+----
+you should be able to notice (paper-friction-test, or see the dial caliper change)
+the effector move. Do this in little steps to prevent following errors until
+you have the same dragging-paper-friction situation at the same cartesian
+Z-position as noted with `TOWER C`.
+. **write down the final value of [red]#lineardeltakins.J{n}off# **
+. return to step 5 for the remaining tower.
+
+
+=== Setting `HOME_OFFSET` values
+Now that we know the errors of our endswitches, we can either correct them in
+our `INI` file (which will require a restart for them to be loaded)
+
+or...
+
+. we can without having to restart
+change the value from terminal like this, where {n} is to be replaced by
+the joint number of the HOME_OFFSET you want to change, and {value} is the new
+value you found in the previous steps:
++
+[source]
+----
+halcmd sets axis.{n}.home_offset {value}
+----
+. After you have done this for all the offsets you want to change you need to home
+the machine again, which will result in the joints getting an other position
+the moment the homing sequence is done.
+. Set all the debug pins `lineardeltakins.J{n}off` to zero.
+. Re-home for good measure.
+. **CHANGE THESE VALUES IN YOUR INI FILE!**
 
 
 == [[delta-radius]]Delta Radius
