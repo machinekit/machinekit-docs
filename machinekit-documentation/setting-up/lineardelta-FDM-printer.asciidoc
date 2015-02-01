@@ -25,7 +25,7 @@ exactly.
 Contents
 ========
 
-. <<doctionary,Dictionary>>
+. <<dictionary,Dictionary>>
 . <<frame,The Frame>>
 . <<connecting,Connecting>>
 . <<configuration,Configuration Files>>
@@ -41,7 +41,7 @@ These instructions will talk about towers, axes, joints, motors and connectors a
 parts of the machine. Below you'll find a short summary of meaningful names.
 
 ===== Axes
-The axes which are mentionned are the cartesian `X`, `Y` and `Z` axis who together
+The axes which are mentioned are the cartesian `X`, `Y` and `Z` axis who together
 describe a coordinate in caresian space by (`X`,`Y`,`Z`).
 
 ===== Tower
@@ -66,8 +66,8 @@ The moving platform which is connected to towers by 3 sets of rods.
 ===== Paralellogram
 The 2 rods from each carriage together with a side of the effector form a
 paralellogram. The 3 paralellograms together constrain the machine in such a way
-that the effector cannot rotate around the `x`, `y` and `z` axes (pitch `a`,
-roll `b` and yaw `c`) degrees of dreedom
+that the effector cannot rotate around the `x`, `y` and `z` axes (roll `a`,
+pitch `b` and yaw `c`) degrees of dreedom
 
 ===== Extruder
 The thing that drives the filament into the Hot End
@@ -105,8 +105,8 @@ the angle of the bed at the tower you are setting up.
 
 . Put the bed on the 3 points near the towers
 . Get a carpenters angle and put this on the bed. Point 1 side upwards, parallel
-to the tower, and the other side on the bed pointing towards the middle of the
-bed.
+  to the tower, and the other side on the bed pointing towards the middle of the
+  bed.
 
 +
 Preferrably, get a bright area after the gap between the angle and tower and move
@@ -272,7 +272,7 @@ net the-signal-from-pinA-to-pinB pinB
 
 
 == [[endstops]]Endstops
-The goal of this section is gettin the exact height of the endswitch of a joint
+The goal of this section is getting the exact height of the endswitch of a joint
 with respect to the bed. This is important since the nozzle will have to travel
 in a straight line across the bed and printed layers.
 
@@ -287,9 +287,9 @@ in the `world mode`. you can switch between them in the GUI.
 === Use of debug pins in kinematics
 . home the machine
 . go to a position near a tower within the `MDI mode`. This is where you manually
-give a command to move the effector go to the tower coordinates. Like
-`G1 X0 Y150 Z50 F2000`. This should result in the effector being at the
-position of the tower at the back.
+  give a command to move the effector go to the tower coordinates. Like
+  `G1 X0 Y150 Z50 F2000`. This should result in the effector being at the
+  position of the tower at the back.
 
 +
 [NOTE]
@@ -300,20 +300,21 @@ of the (`X`,`Y`) error is very small and has very little influence of the height
 (position of the tower)
 
 . go down with the nozzle until you experience friction between nozzle and bed
-with the "dragging-paper-method" or to a specified height of a dial caliper.
+  with the "dragging-paper-method" or to a specified height of a dial caliper.
 . **write down the cartesian Z-position**.
 . go to another tower and move down until you have the nozzle at the same height
-as `TOWER C` + 5 mm.
+  as `TOWER C` + 5 mm.
 . go down in little steps, and change from the terminal the joint debug pins. These
-pins move the effector lower/higher without effecting the joint[n] position or
-Z-height readout value. Do like this and replace {n} with the joint you are workin
-on:
+  pins move the effector lower/higher without effecting the joint[n] position or
+  Z-height readout value. Do like this and replace {n} with the joint you are workin
+  on:
 
 +
 [source]
 ----
 halcmd sets lineardeltakins.J{n}off 0.1
 ----
++
 you should be able to notice (paper-friction-test, or see the dial caliper change)
 the effector move. Do this in little steps to prevent following errors until
 you have the same dragging-paper-friction situation at the same cartesian
@@ -329,17 +330,17 @@ our `INI` file (which will require a restart for them to be loaded)
 or...
 
 . we can without having to restart
-change the value from terminal like this, where {n} is to be replaced by
-the joint number of the HOME_OFFSET you want to change, and {value} is the new
-value you found in the previous steps:
+  change the value from terminal like this, where {n} is to be replaced by
+  the joint number of the HOME_OFFSET you want to change, and {value} is the new
+  value you found in the previous steps:
 +
 [source]
 ----
 halcmd sets axis.{n}.home_offset {value}
 ----
 . After you have done this for all the offsets you want to change you need to home
-the machine again, which will result in the joints getting an other position
-the moment the homing sequence is done.
+  the machine again, which will result in the joints getting an other position
+  the moment the homing sequence is done.
 . Set all the debug pins `lineardeltakins.J{n}off` to zero.
 . Re-home for good measure.
 . **CHANGE THESE VALUES IN YOUR INI FILE!**
@@ -356,14 +357,18 @@ finetuning the `delta radius`.
 
 . go to `TOWER C` and find the  Z-value like in steps 3 & 4 of <<endstops,section 5.1>>
 . like in steps 5 and following move the effector down, but this time at (0,0) so the
-effector will be above the center.
+  effector will be above the center.
 . in small steps change the `delta radius` {value} until the Z-position matches
-like in step 6, only this time from the terminal:
+  like in step 6, only this time from the terminal:
 +
 [source]
 ----
 halcmd sets lineardeltakins.R {value}
 ----
+. Decrease this value if the effector is too low (too little play between hot end
+  and bed). Decreasing raises the effector.
+. Increase this value if there is too much space between nozzle and bed.
+  increasing means lowering the effector.
 . This value now will be changed, and is not effected by homing.
 . **change the value in your ini file!**
 
