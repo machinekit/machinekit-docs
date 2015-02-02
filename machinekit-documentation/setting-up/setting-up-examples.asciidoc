@@ -1,0 +1,27 @@
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+Setting up a machine:
+=====================
+
+Below you'll find links to examples of the steps to take to get your
+machine moving. This will be examples where in some cases hardware specific
+steps are mentioned. But it should be generic enough to set up a machine
+with different hardware.
+
+. link:lineardelta-FDM-printer.asciidoc[Linear Delta FDM printer]
+
++
+Starting point also for other machines which use the lineardelta kinematics
+
+
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
