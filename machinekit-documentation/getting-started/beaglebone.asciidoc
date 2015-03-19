@@ -27,9 +27,8 @@ MACHINEKIT QUICK START FOR BEAGLEBONE
 	March 2015 version 0.1  
 	Should also work on white, though not tested
 	
-NOTE: 
-
-	DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT
+ NOTE:
+ 	DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT
 	SUPPLIED TO THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE
 	WARRANTY.
 	
@@ -71,8 +70,8 @@ TODO:	Insert relative links to latest machinekit image.
 [[beaglebone-connect]]Beaglebone connect and start Machinekit
 =========================================
 
-MACHINEKIT CONNECT AND STARTUP
-	After the machinekit image is booted from the uSD card 
+ MACHINEKIT CONNECT AND STARTUP
+ After the machinekit image is booted from the uSD card its possible to connect to the Beaglebone
  
 	login using ssh (-Y to have X forwarding to client pc/laptop/tablet/phone)
 		~$ ssh -Y machinekit@beaglebone.local
@@ -90,59 +89,55 @@ MACHINEKIT CONNECT AND STARTUP
 	For one of the commercial capes, select it from the ARM>BEAGLEBONE dropdown in the sample configs.
 	This should pretty much get you up and running. 
 
-TODO:	Howto flash/copy to eMMC for use without uSD 
+ TODO:	Howto flash/copy to eMMC for use without uSD 
 
 [[beaglebone-manual-config]]Beaglebone manual configuration
 =========================================
 
-MACHINEKIT MANUAL CONFIGURATION
+ MACHINEKIT MANUAL CONFIGURATION
 
 	The sections below are for setting up user defined opperation. 
 	It discribes how to setup different sections of linuxcnc for use on the Beaglebone
 	This will show how to setup hardware which isn't on a cape.
  	
 
-TODO:	Far from complete 
+ TODO:	Far from complete 
 
 [[beaglebone-capes]]Beaglebone configure capes
 ==============================================
 
-MACHINEKIT CONFIGURE CAPES
+ MACHINEKIT CONFIGURE CAPES
 
 
-TODO: TAKE FROM eQEP
+ TODO: TAKE FROM eQEP
 
 [[beaglebone-inputs]]Beaglebone configure inputs
 ================================================
 
 MACHINEKIT CONFIGURE INPUTS
 
-
-TODO:
+instructions to be written
 
 [[beaglebone-adc]]Beaglebone configure analog inputs
 ====================================================
 
 MACHINEKIT CONFIGURE INPUTS
 
-
-TODO:
+instructions to be written
 
 [[beaglebone-outputs]]Beaglebone configure outputs
 ==================================================
 
 MACHINEKIT CONFIGURE OUTPUTS
 
-
-TODO:
+instructions to be written
 
 [[beaglebone-pwm]]Beaglebone configure PWM
 ==========================================
 
 MACHINEKIT CONFIGURE PWM
 
-
-TODO:
+instructions to be written
 
 [[beaglebone-eqep]]Beaglebone configure eQEP encoders
 =====================================================
