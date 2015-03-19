@@ -14,7 +14,7 @@ Getting started with:
 [[beaglebone-black]]Beaglebone Black
 ====================================
 
-instructions to be written
+link:./beaglebone.asciidoc[Beaglebone]
 
 [[mesa-anything-io]]Mesa Anything IO card
 =========================================
