@@ -1,0 +1,26 @@
+MACHINEKIT PREPARE uSD/INSTALL
+	These steps will create a bootable machinekit uSD card to run machinekit without flashing it to the eMMC(onboard memory).
+	The Beaglebone is connected over usb to a computer running linux.
+	Commands after: "~$" are executed on the linux computer
+	Commands after: "machinekit@beaglebone:~$" are executed on the beaglebone 
+	
+
+Download latest BBW/BBB (All Revs) Machinekit image:
+	Check for latest version (http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#BBW.2FBBB_.28All_Revs.29_Machinekit)
+		~$ wget https://rcn-ee.net/rootfs/bb.org/testing/2015-03-08/machinekit/bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img.xz
+
+
+Extract the image (this can take a while)
+		~$ unxz bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img.xz
+
+
+Write image to uSD card on the linux computer (this can take a while and even a bit longer, uSD data will be overwriten!)
+	(make sure where your is uSD at, i.e. for /dev/mmcblk0 use)
+		~$ sudo dd if=bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img of=/dev/mmcblk0 bs=4096k oflag=direct
+	(if your uSD is at /dev/sdb it would be like following)
+		~$ sudo dd if=bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img of=/dev/sdb bs=4096k oflag=direct
+
+
+When ready Insert card into Beaglebone, plug in usb cable and wait for it to boot.
+
+TODO:	Insert relative links to latest machinekit image.
