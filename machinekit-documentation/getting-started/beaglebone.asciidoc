@@ -11,9 +11,18 @@ MACHINEKIT QUICK START FOR BEAGLEBONE
 . <<beaglebone-into,Beaglebone Intro>>
 . <<beaglebone-instal,Beaglebone install Machinekit>>
 . <<beaglebone-connect,Beaglebone connect and start Machinekit>>
+. <<beaglebone-manual-config,Beaglebone manual configuration>>
+. <<beaglebone-capes,Beaglebone configure capes>>
+. <<beaglebone-inputs,Beaglebone configure inputs>>
+. <<beaglebone-adc,Beaglebone configure analog inputs>>
+. <<beaglebone-outputs,Beaglebone configure outputs>>
+. <<beaglebone-pwm,Beaglebone configure PWM>>
+. <<beaglebone-eqep,Beaglebone configure eQEP encoders>>
+
 
 [[beaglebone-into]]Beaglebone Intro
 ====================================
+
 	Tested on element14 Beaglebone black rev C. 
 	March 2015 version 0.1  
 	Should also work on white, though not tested
@@ -30,6 +39,7 @@ NOTE:
 
 [[beaglebone-instal]]Beaglebone install Machinekit
 =========================================
+
 MACHINEKIT PREPARE uSD/INSTALL
 	
 	These steps will create a bootable machinekit uSD card to run machinekit 
@@ -61,6 +71,7 @@ TODO:	Insert relative links to latest machinekit image.
 
 [[beaglebone-connect]]Beaglebone connect and start Machinekit
 =========================================
+
 MACHINEKIT CONNECT AND STARTUP
 	After the machinekit image is booted from the uSD card 
  
@@ -82,8 +93,9 @@ MACHINEKIT CONNECT AND STARTUP
 
 TODO:	Howto flash/copy to eMMC for use without uSD 
 
-[[beaglebone-black]]Beaglebone manual configuration
+[[beaglebone-manual-config]]Beaglebone manual configuration
 =========================================
+
 MACHINEKIT MANUAL CONFIGURATION
 
 	The sections below are for setting up user defined opperation. 
@@ -93,35 +105,49 @@ MACHINEKIT MANUAL CONFIGURATION
 
 TODO:	Far from complete 
 
-[[beaglebone-black]]Beaglebone configure cape
-=========================================
-MACHINEKIT CONFIGURE cape
+[[beaglebone-capes]]Beaglebone configure capes
+==============================================
+
+MACHINEKIT CONFIGURE CAPES
 
 
-TODO:
-[[beaglebone-black]]Beaglebone configure inputs
-=========================================
+TODO: TAKE FROM eQEP
+
+[[beaglebone-inputs]]Beaglebone configure inputs
+================================================
+
 MACHINEKIT CONFIGURE INPUTS
 
 
 TODO:
 
-[[beaglebone-black]]Beaglebone configure outputs
-=========================================
+[[beaglebone-adc]]Beaglebone configure analog inputs
+====================================================
+
+MACHINEKIT CONFIGURE INPUTS
+
+
+TODO:
+
+[[beaglebone-outputs]]Beaglebone configure outputs
+==================================================
+
 MACHINEKIT CONFIGURE OUTPUTS
 
 
 TODO:
 
-[[beaglebone-black]]Beaglebone configure PWM
-=========================================
-MACHINEKIT CONFIGURE IPWM
+[[beaglebone-pwm]]Beaglebone configure PWM
+==========================================
+
+MACHINEKIT CONFIGURE PWM
 
 
 TODO:
 
-[[beaglebone-black]]Beaglebone configure eQEP encoders
-=========================================
+[[beaglebone-eqep]]Beaglebone configure eQEP encoders
+=====================================================
+
 MACHINEKIT CONFIGURE eQEP
 
 MACHINEKIT CONFIGURE EQEP ENCODERS
@@ -298,7 +324,7 @@ MACHINEKIT CONFIGURE EQEP ENCODERS
 
 	
 
-TODO:
+TODO: Split parts into correct section
 
 
 [cols="3*"]
