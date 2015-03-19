@@ -1,0 +1,310 @@
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+Getting started with:
+=====================
+
+. <<beaglebone-black,Beagle Bone Black>>
+
+
+[[beaglebone-black]]Beaglebone Intro
+====================================
+MACHINEKIT QUICK START FOR BEAGLEBONE
+
+	Tested on element14 Beaglebone black rev C. 
+	March 2015 version 0.1  
+	Should also work on white, though not tested
+	
+NOTE: 
+
+	DO NOT APPLY VOLTAGE TO ANY I/O PIN WHEN POWER IS NOT
+	SUPPLIED TO THE BOARD. IT WILL DAMAGE THE PROCESSOR AND VOID THE
+	WARRANTY.
+	
+	NO PINS ARE TO BE DRIVEN UNTIL AFTER THE SYS_RESET LINE GOES HIGH.
+
+	DO NOT CONNECT 5V LOGIC LEVEL SIGNAL TO ANY I/O PIN OR THE BOARD WILL BE DAMAGED.
+
+[[beaglebone-black]]Beaglebone install Machinekit
+=========================================
+MACHINEKIT PREPARE uSD/INSTALL
+	
+	These steps will create a bootable machinekit uSD card to run machinekit 
+	Without flashing it to the eMMC(onboard memory).
+	The Beaglebone is connected over usb to a computer running linux.
+	Commands after: "~$" are executed on the linux computer
+	Commands after: "machinekit@beaglebone:~$" are executed on the beaglebone 
+	
+
+	Download latest BBW/BBB (All Revs) Machinekit image:
+	Check for latest version (http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#BBW.2FBBB_.28All_Revs.29_Machinekit)
+		~$ wget https://rcn-ee.net/rootfs/bb.org/testing/2015-03-08/machinekit/bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img.xz
+
+
+	extract image (this can take a while)
+		~$ unxz bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img.xz
+
+
+	Write image to uSD card on the linux computer 
+	(this can take a while and even a bit longer, uSD card data will be overwriten!)
+	(make sure where your is uSD at, i.e. for /dev/mmcblk0 use)
+		~$ sudo dd if=bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img of=/dev/mmcblk0 bs=4096k oflag=direct
+	(if your uSD is at /dev/sdb it would be like following)
+		~$ sudo dd if=bone-debian-7.8-machinekit-armhf-2015-03-15-4gb.img of=/dev/sdb bs=4096k oflag=direct
+
+	When ready Insert card into Beaglebone, plug in usb cable and wait for it to boot.
+
+TODO:	Insert relative links to latest machinekit image.
+
+[[beaglebone-black]]Beaglebone connect and start Machinekit
+=========================================
+MACHINEKIT CONNECT AND STARTUP
+	After the machinekit image is booted from the uSD card 
+ 
+	login using ssh (-Y to have X forwarding to client pc/laptop/tablet/phone)
+		~$ ssh -Y machinekit@beaglebone.local
+	(if machinekit@beaglebone.local is not found you could also use:)
+		~$ ssh -Y machinekit@192.168.7.2
+	(when it's the first time you connect, say ¨yes¨ to accept the ECDSA key fingerprint question.
+		~$ Are you sure you want to continue connecting (yes/no)?yes
+	Type in the default password which is "machinekit"
+		machinekit@beaglebone.local's password:**********
+
+	Now you are connected and linuxcnc can be started. 
+		machinekit@beaglebone:~$ linuxcnc
+	
+	A welcome display should show up on your client computer.
+	For one of the commercial capes, select it from the ARM>BEAGLEBONE dropdown in the sample configs.
+	This should pretty much get you up and running. 
+
+TODO:	Howto flash/copy to eMMC for use without uSD 
+
+[[beaglebone-black]]Beaglebone manual configuration
+=========================================
+MACHINEKIT MANUAL CONFIGURATION
+
+	The sections below are for setting up user defined opperation. 
+	It discribes how to setup different sections of linuxcnc for use on the Beaglebone
+	This will show how to setup hardware which isn't on a cape.
+ 	
+
+TODO:	Far from complete 
+
+[[beaglebone-black]]Beaglebone configure cape
+=========================================
+MACHINEKIT CONFIGURE cape
+
+
+TODO:
+[[beaglebone-black]]Beaglebone configure inputs
+=========================================
+MACHINEKIT CONFIGURE INPUTS
+
+
+TODO:
+
+[[beaglebone-black]]Beaglebone configure outputs
+=========================================
+MACHINEKIT CONFIGURE OUTPUTS
+
+
+TODO:
+
+[[beaglebone-black]]Beaglebone configure PWM
+=========================================
+MACHINEKIT CONFIGURE IPWM
+
+
+TODO:
+
+[[beaglebone-black]]Beaglebone configure eQEP encoders
+=========================================
+MACHINEKIT CONFIGURE eQEP
+
+MACHINEKIT CONFIGURE EQEP ENCODERS
+	 
+	This will show howto manualy setup and test hardware supported encoder feedback
+	In this example eQEP0 is used. Only eQEP2 doesn't conflict with the HDMI pins.
+	Hdmi must be disabled to be able to use of all 3 eQEP hardware encoder blocks.
+
+
+	First check what capes are loaded, in this case the onboard eMMC and HDMIN(no audio)
+		machinekit@beaglebone:~$ cat /sys/devices/bone_capemgr.*/slots
+					 0: 54:PF--- 
+					 1: 55:PF--- 
+					 2: 56:PF--- 
+					 3: 57:PF--- 
+					 4: ff:P-O-L Bone-LT-eMMC-2G,00A0,Texas Instrument,BB-BONE-EMMC-2G
+					 5: ff:P-O-- Bone-Black-HDMI,00A0,Texas Instrument,BB-BONELT-HDMI
+					 6: ff:P-O-L Bone-Black-HDMIN,00A0,Texas Instrument,BB-BONELT-HDMIN
+
+	Now edit the uEnv.txt (this is loaded when BB boots)
+		machinekit@beaglebone:~$ sudo nano /boot/uEnv.txt 
+		   change the lines below:
+			##Disable HDMI
+			#cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN
+
+			##Disable HDMI Audio
+			cape_disable=capemgr.disable_partno=BB-BONELT-HDMI
+     		   
+		   into:
+			##Disable HDMI
+			cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN
+     
+			##Disable HDMI Audio
+			#cape_disable=capemgr.disable_partno=BB-BONELT-HDMI
+		   Press CTRL+X to close and Y to save
+	
+	Reboot the Beaglebone to activate these changes
+		machinekit@beaglebone:~$ sudo reboot
+
+	login using ssh again
+		~$ ssh -Y machinekit@beaglebone.local
+	
+	Check what capes are loaded after rebooting,now only the onboard eMMC shows the "L" loaded flag.
+		machinekit@beaglebone:~$ cat /sys/devices/bone_capemgr.*/slots
+					 0: 54:PF--- 
+					 1: 55:PF--- 
+					 2: 56:PF--- 
+					 3: 57:PF--- 
+					 4: ff:P-O-L Bone-LT-eMMC-2G,00A0,Texas Instrument,BB-BONE-EMMC-2G
+					 5: ff:P-O-- Bone-Black-HDMI,00A0,Texas Instrument,BB-BONELT-HDMI
+					 6: ff:P-O-- Bone-Black-HDMIN,00A0,Texas Instrument,BB-BONELT-HDMIN
+
+
+	Load the corresponding cape, because "config-pin -a P9.27 qep" fails on automatic loading
+		machinekit@beaglebone:~$ config-pin overlay cape-universal
+			Loading cape-universal
+
+	Check loaded capes again
+		machinekit@beaglebone:~$ cat /sys/devices/bone_capemgr.*/slots
+			 0: 54:PF--- 
+			 1: 55:PF--- 
+			 2: 56:PF--- 
+			 3: 57:PF--- 
+			 4: ff:P-O-L Bone-LT-eMMC-2G,00A0,Texas Instrument,BB-BONE-EMMC-2G
+			 5: ff:P-O-- Bone-Black-HDMI,00A0,Texas Instrument,BB-BONELT-HDMI
+			 6: ff:P-O-- Bone-Black-HDMIN,00A0,Texas Instrument,BB-BONELT-HDMIN
+			 9: ff:P-O-L Override Board Name,00A0,Override Manuf,cape-universal
+
+
+
+	Set the correct function to pins, for eQEP encoder this is: qep
+		machinekit@beaglebone:~$ config-pin  P9.27 qep
+		machinekit@beaglebone:~$ config-pin  P9.91 qep
+		machinekit@beaglebone:~$ config-pin  P9.92 qep
+
+
+	Check if the pins are set correct
+		machinekit@beaglebone:~$ config-pin -q P9.27
+			P9_27 Mode: qep
+		machinekit@beaglebone:~$ config-pin -q P9.91
+			P9_91 Mode: qep
+		machinekit@beaglebone:~$ config-pin -q P9.92
+			P9_92 Mode: qep
+
+	Setup hal
+		machinekit@beaglebone:~$ halrun 
+			msgd:0 stopped
+			rtapi:0 stopped
+
+	Load eQEP0 into realtime
+		halcmd: loadrt hal_arm335xQEP encoders=eQEP0
+
+	Check if pins are created
+		halcmd: show pin 
+			Component Pins:
+			Owner   Type  Dir         Value  Name	Epsilon		Flags
+			    71  bit   I/O         FALSE  eQEP0.counter-mode			0
+			    71  s32   I/O             0  eQEP0.counts			0
+			    71  bit   I/O         FALSE  eQEP0.index-enable			0
+			    71  bit   I/O         FALSE  eQEP0.invert-A			0
+			    71  bit   I/O         FALSE  eQEP0.invert-B			0
+			    71  bit   I/O         FALSE  eQEP0.invert-Z			0
+			    71  float IN              1  eQEP0.min-speed-estimate	0.000010	0
+			    71  float OUT             0  eQEP0.phase-errors	0.000010	0
+			    71  float OUT             0  eQEP0.position	0.000010	0
+			    71  float OUT             0  eQEP0.position-interpolated	0.000010	0
+			    71  float I/O             1  eQEP0.position-scale	0.000010	0
+			    71  s32   OUT             0  eQEP0.rawcounts			0
+			    71  bit   I/O         FALSE  eQEP0.reset			0
+			    71  float OUT             0  eQEP0.velocity	0.000010	0
+			    71  bit   I/O         FALSE  eQEP0.x2-mode			0
+			    71  s32   OUT             0  eqep.update.time			0
+
+	Check that parameters are available
+		halcmd:  show param
+			Parameters:
+			Owner   Type  Dir         Value  Name
+			    71  s32   RW              0  eqep.update.tmax
+			    71  bit   RO          FALSE  eqep.update.tmax-increased
+
+	Check that functions are loaded
+		halcmd: show funct
+			Exported Functions:
+			Owner   CodeAddr  Arg       FP   Users  Name
+			 00071  b67eae11  b66ba120  NO       0   eqep.update
+	
+	Set up a 1ms thread for updating/reading the hardware position into software 
+		halcmd: loadrt threads name1=eQEP-update-thread period1=1000000
+
+	
+	Add the before discovered "eqep.update" function to the previous created "eQEP-update-thread" thread	
+		addf eqep.update eQEP-update-thread
+
+	Check the tread is created
+		halcmd: show thread
+			Realtime Threads (flavor: xenomai) :
+			     Period  FP     Name               (     Time, Max-Time )
+			    1000000  YES    eQEP-update-thread (        0,        0 )
+					  1 eqep.update
+
+	Set correct encoder scaling, this example uses 1024 lines/pulse per rotation
+		setp eQEP0.position-scale 1024
+
+	Now all thats left is to start.
+		halcmd: start
+
+	After this the encoder data can be shown  
+		halcmd: show pin
+			Component Pins:
+			Owner   Type  Dir         Value  Name	Epsilon		Flags
+			    71  bit   I/O         FALSE  eQEP0.counter-mode			0
+			    71  s32   I/O        -13126  eQEP0.counts			0
+			    71  bit   I/O         FALSE  eQEP0.index-enable			0
+			    71  bit   I/O         FALSE  eQEP0.invert-A			0
+			    71  bit   I/O         FALSE  eQEP0.invert-B			0
+			    71  bit   I/O         FALSE  eQEP0.invert-Z			0
+			    71  float IN              1  eQEP0.min-speed-estimate	0.000010	0
+			    71  float OUT             0  eQEP0.phase-errors	0.000010	0
+			    71  float OUT     -12.81836  eQEP0.position	0.000010	0
+			    71  float OUT     -12.81836  eQEP0.position-interpolated	0.000010	0
+			    71  float I/O          1024  eQEP0.position-scale	0.000010	0
+			    71  s32   OUT        -13127  eQEP0.rawcounts			0
+			    71  bit   I/O         FALSE  eQEP0.reset			0
+			    71  float OUT    -0.9765625  eQEP0.velocity	0.000010	0
+			    71  bit   I/O         FALSE  eQEP0.x2-mode			0
+			    71  s32   OUT           104  eqep.update.time			0
+
+	Save the the encoder to a .hal file
+		halcmd: save all eQEP0.hal
+	
+	Exit hal
+		halcmd: exit
+			machinekit@beaglebone:~$
+
+	
+
+TODO:
+
+
+[cols="3*"]
+|===
+|
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
