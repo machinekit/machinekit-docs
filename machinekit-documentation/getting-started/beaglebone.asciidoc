@@ -5,16 +5,15 @@
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
-Getting started with:
+MACHINEKIT QUICK START FOR BEAGLEBONE
 =====================
 
-. <<beaglebone-black,Beagle Bone Black>>
+. <<beaglebone-into,Beaglebone Intro>>
+. <<beaglebone-instal,Beaglebone install Machinekit>>
+. <<beaglebone-connect,Beaglebone connect and start Machinekit>>
 
-
-[[beaglebone-black]]Beaglebone Intro
+[[beaglebone-into]]Beaglebone Intro
 ====================================
-MACHINEKIT QUICK START FOR BEAGLEBONE
-
 	Tested on element14 Beaglebone black rev C. 
 	March 2015 version 0.1  
 	Should also work on white, though not tested
@@ -29,7 +28,7 @@ NOTE:
 
 	DO NOT CONNECT 5V LOGIC LEVEL SIGNAL TO ANY I/O PIN OR THE BOARD WILL BE DAMAGED.
 
-[[beaglebone-black]]Beaglebone install Machinekit
+[[beaglebone-instal]]Beaglebone install Machinekit
 =========================================
 MACHINEKIT PREPARE uSD/INSTALL
 	
@@ -60,7 +59,7 @@ MACHINEKIT PREPARE uSD/INSTALL
 
 TODO:	Insert relative links to latest machinekit image.
 
-[[beaglebone-black]]Beaglebone connect and start Machinekit
+[[beaglebone-connect]]Beaglebone connect and start Machinekit
 =========================================
 MACHINEKIT CONNECT AND STARTUP
 	After the machinekit image is booted from the uSD card 
