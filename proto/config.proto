@@ -37,3 +37,27 @@ message Application {
     repeated File         file          = 5;
     // config params go here
 }
+
+message StdoutLine {
+
+    option (nanopb_msgopt).msgid = 202;
+
+    required int32  index = 1;
+    optional string line  = 2;
+}
+
+// message for mklauncher
+message Launcher {
+
+    option (nanopb_msgopt).msgid = 203;
+
+    required string     name           = 1; // unique key
+    optional string     title          = 2; // the visible title
+    optional string     description    = 3; // description of the config
+    optional File       image          = 4; // image representing the configuration
+    optional bool       running        = 5; // indicates whether the config is running or not
+    optional string     command        = 6; // configuration start command
+    optional bool       shell          = 7; // if the configuration command is executed in a shell
+    repeated StdoutLine stdout         = 8; // stdout output of the command
+    optional int32      returncode     = 9; // return code of the command
+}

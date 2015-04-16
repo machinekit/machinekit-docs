@@ -636,6 +636,16 @@ enum ContainerType {
     MT_EMC_NML_ERROR = 12510;
     MT_EMC_NML_TEXT = 12511;
     MT_EMC_NML_DISPLAY = 12512;
+
+    // launcher pub-sub
+    MT_LAUNCHER_FULL_UPDATE = 12600;
+    MT_LAUNCHER_INCREMENTAL_UPDATE = 12601;
+    // launcher command
+    MT_LAUNCHER_START = 12610;
+    MT_LAUNCHER_STOP = 12611;
+    MT_LAUNCHER_WRITE_STDIN = 12612;
+    MT_LAUNCHER_CALL = 12613;
+    MT_LAUNCHER_SHUTDOWN = 12614;
 }
 
 enum OriginIndex {
