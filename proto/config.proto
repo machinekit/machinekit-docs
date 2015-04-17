@@ -60,4 +60,5 @@ message Launcher {
     optional bool       shell          = 7; // if the configuration command is executed in a shell
     repeated StdoutLine stdout         = 8; // stdout output of the command
     optional int32      returncode     = 9; // return code of the command
+    optional string     workdir        = 10; // working dir of the command
 }

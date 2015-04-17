@@ -640,6 +640,7 @@ enum ContainerType {
     // launcher pub-sub
     MT_LAUNCHER_FULL_UPDATE = 12600;
     MT_LAUNCHER_INCREMENTAL_UPDATE = 12601;
+    MT_LAUNCHER_ERROR = 12602;
     // launcher command
     MT_LAUNCHER_START = 12610;
     MT_LAUNCHER_STOP = 12611;
