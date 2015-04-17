@@ -51,8 +51,8 @@ message Launcher {
 
     option (nanopb_msgopt).msgid = 203;
 
-    required string     name           = 1; // unique key
-    optional string     title          = 2; // the visible title
+    required int32      index          = 1; // index is necessary to access repeated
+    optional string     name           = 2; // visible name
     optional string     description    = 3; // description of the config
     optional File       image          = 4; // image representing the configuration
     optional bool       running        = 5; // indicates whether the config is running or not
