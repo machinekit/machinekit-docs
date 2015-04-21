@@ -46,19 +46,30 @@ message StdoutLine {
     optional string line  = 2;
 }
 
+message MachineInfo {
+
+    option (nanopb_msgopt).msgid = 203;
+
+    optional string     type            = 1; // type of the machine, e.g. FDM, CNC, ...
+    optional string     manufacturer    = 2; // manufacturer of the machine
+    optional string     model           = 3; // machine model
+    optional string     variant         = 4; // variant of the machine
+}
+
 // message for mklauncher
 message Launcher {
 
     option (nanopb_msgopt).msgid = 203;
 
-    required int32      index          = 1; // index is necessary to access repeated
-    optional string     name           = 2; // visible name
-    optional string     description    = 3; // description of the config
-    optional File       image          = 4; // image representing the configuration
-    optional bool       running        = 5; // indicates whether the config is running or not
-    optional string     command        = 6; // configuration start command
-    optional bool       shell          = 7; // if the configuration command is executed in a shell
-    repeated StdoutLine stdout         = 8; // stdout output of the command
-    optional int32      returncode     = 9; // return code of the command
-    optional string     workdir        = 10; // working dir of the command
+    required int32        index          = 1; // index is necessary to access repeated
+    optional string       name           = 2; // visible name
+    optional string       description    = 3; // description of the config
+    optional File         image          = 4; // image representing the configuration
+    optional bool         running        = 5; // indicates whether the config is running or not
+    optional string       command        = 6; // configuration start command
+    optional bool         shell          = 7; // if the configuration command is executed in a shell
+    repeated StdoutLine   stdout         = 8; // stdout output of the command
+    optional int32        returncode     = 9; // return code of the command
+    optional string       workdir        = 10; // working dir of the command
+    optional MachineInfo  info           = 11; // information about the machine
 }
