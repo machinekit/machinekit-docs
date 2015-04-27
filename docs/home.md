@@ -30,3 +30,11 @@ links are provided for convenience below.
 - Buildbot grid:  <http://buildbot.dovetail-automata.com/grid>
 
 - Buildbot results:  <http://buildbot.dovetail-automata.com/results/>
+
+## Related material
+
+- An [overview of the Portable Realtime API](http://static.mah.priv.at/public/portable-realtime-API-talk/osadl-rtapi.pdf)
+
+- [Machinetalk Tutorial](http://static.mah.priv.at/public/tutorial/machinetalk-tutorial.pdf)
+
+- [Presentation on Machinekit and Machinetalk, IoT Vienna Mar 2015](https://youtu.be/VPaaXHBu7gE)
