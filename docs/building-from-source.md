@@ -77,7 +77,7 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
     sudo apt-get update
 
     sudo apt-get install libczmq-dev python-zmq libjansson-dev \
-        libwebsockets-dev libxenomai-dev
+        libwebsockets-dev libxenomai-dev lsb-release
 
     sudo sh -c \
         "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
