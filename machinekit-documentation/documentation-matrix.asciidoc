@@ -57,6 +57,14 @@
 |
 |
 
+| setting up
+|
+|
+|
+|
+| link:setting-up/developing-setting-up-examples.asciidoc[Example machines]
+|
+
 |===
 
 [cols="3*"]

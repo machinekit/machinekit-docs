@@ -1,6 +1,6 @@
 [cols="3*"]
 |===
-|
+|link:
 |link:documents-index.asciidoc[Back to the main Documents index]
 |
 |===
@@ -23,6 +23,7 @@ link:../src/common/GPLD_Copyright.asciidoc[]
 == How To
 
 - link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+- link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
 
 [cols="3*"]
 |===
