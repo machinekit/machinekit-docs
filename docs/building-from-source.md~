@@ -92,7 +92,6 @@ Note: The following steps have been modified and no longer
 result in a root-owned file being left in the machinekit directory.
 
     sudo apt-get install git dpkg-dev
-	sudo apt-get install devscripts
     git clone https://github.com/machinekit/machinekit.git
     cd machinekit
     debian/configure -x
@@ -102,10 +101,7 @@ result in a root-owned file being left in the machinekit directory.
     ./configure
     make
     sudo make setuid
-
-if configure was ran with the option --with-xenomai else skip
-
-    sudo adduser <username> xenomai
+    sudo adduser <username> <kernel Flavor>
 
 Log out and log back in    
 
