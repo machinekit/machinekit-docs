@@ -84,6 +84,7 @@ get up and get a cup of coffee, check your email, maybe even walk the dog.
          /etc/apt/sources.list.d/wheezy-backports.list"
     sudo apt-get update
     sudo apt-get install -t wheezy-backports cython
+    sudo apt-get install bwidget
 
 ### Then proceed to the main event
 
@@ -93,18 +94,21 @@ result in a root-owned file being left in the machinekit directory.
     sudo apt-get install git dpkg-dev
     git clone https://github.com/machinekit/machinekit.git
     cd machinekit
-    debian/configure -px
-    sudo scripts/apt-installbuilddeps
+    debian/configure -x
+    sudo mk-build-deps -ir
     cd src
     ./autogen.sh
     ./configure
     make
     sudo make setuid
+    sudo adduser <username> <kernel Flavor>
+
+Log out and log back in    
 
 Voilà, you're done. Check your work by executing the just-built
 LinuxCNC application,
 
-    cd ..
+    cd machinekit/
     . scripts/rip-environment
     linuxcnc
 
