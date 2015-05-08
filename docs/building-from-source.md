@@ -92,10 +92,10 @@ Note: The following steps have been modified and no longer
 result in a root-owned file being left in the machinekit directory.
 
     sudo apt-get install git dpkg-dev
-	sudo apt-get install devscripts
+	sudo apt-get install --no-install-recommends devscripts equivs
     git clone https://github.com/machinekit/machinekit.git
     cd machinekit
-    debian/configure -x
+    debian/configure -px
     sudo mk-build-deps -ir
     cd src
     ./autogen.sh
@@ -103,7 +103,7 @@ result in a root-owned file being left in the machinekit directory.
     make
     sudo make setuid
 
-if configure was ran with the option --with-xenomai else skip
+Users who wish to invoke machinekit (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
 
     sudo adduser <username> xenomai
 
