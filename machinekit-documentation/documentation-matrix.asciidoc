@@ -37,7 +37,7 @@
 |
 |
 |
-| link:setting-up/setting-up-examples.asciidoc[Example machines]
+| link:setting-up/machine-setting-up-examples.asciidoc[Example machines]
 |
 |
 
@@ -55,6 +55,14 @@
 |
 |
 |
+|
+
+| setting up
+|
+|
+|
+|
+| link:setting-up/developing-setting-up-examples.asciidoc[Example machines]
 |
 
 |===

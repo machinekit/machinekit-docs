@@ -1,6 +1,6 @@
 [cols="3*"]
 |===
-|link:setting-up-examples.asciidoc[Setting up examples]
+|link:machine-setting-up-examples.asciidoc[Setting up examples]
 |link:../documents-index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
@@ -392,7 +392,7 @@ todo:
 
 [cols="3*"]
 |===
-|link:setting-up-examples.asciidoc[Setting up examples]
+|link:machine-setting-up-examples.asciidoc[Setting up examples]
 |link:../documents-index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

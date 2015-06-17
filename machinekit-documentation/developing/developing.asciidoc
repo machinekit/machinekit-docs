@@ -1,0 +1,15 @@
+[cols="3*"]
+|===
+|link:../index-developer.asciidoc[Back to the Documenting index]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+. link:CAN-developing.asciidoc[CAN developing for Machinekit]
+
+[cols="3*"]
+|===
+|link:../index-developer.asciidoc[Back to the Documenting index]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
