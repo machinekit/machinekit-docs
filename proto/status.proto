@@ -331,6 +331,7 @@ message EmcStatusTask {
     optional EmcTaskModeType        task_mode           = 7;
     optional int32                  task_paused         = 8;
     optional EmcTaskStateType       task_state          = 9;
+    optional int32                  total_lines         = 10;
 }
 
 message EmcStatusInterp {
