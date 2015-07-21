@@ -12,15 +12,22 @@ development environment, and community participation.
 Please browse the topics in the navigation bar on the right.  Quick
 links are provided for convenience below.
 
+The legacy documentation has been moved from the codebase, and can be viewed
+in the [machinekit-docs repository](https://github.com/machinekit/machinekit-docs).
+This opens up the way for using the github portal for viewing and
+extending the documentation in a friendly and low barrier way.
+
 
 ## Community links
 
 - Machinekit Google group:  <http://groups.google.com/group/machinekit>
 
 - Machinekit GitHub issue tracker:
-  <https://github.com/machinekit/machinekit/issues> 
+  <https://github.com/machinekit/machinekit/issues>
 
 - Machinekit Blog:  <http://blog.machinekit.io/>
+
+- Machinekit Documentation: [Machinekit-docs](https://github.com/machinekit/machinekit-docs/blob/master/machinekit-documentation/documents-index.asciidoc)
 
 
 ## Development quick links
