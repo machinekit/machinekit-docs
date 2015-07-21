@@ -5,12 +5,13 @@
 |
 |===
 
-. <<getting-help,Getting Help!>>
-. <<help-people-help-you,Help the people who help you!>>
+. <<getting-help,Getting Help>>
+. <<start-investigating,Start investigating yourself !>>
+. <<regarding-questions,Questions regarding errors>>
 . <<a-checklist,A super user-friendly checklist!>>
 
-[[getting-help]]Getting help !
-==============================
+[[getting-help]]Getting help
+============================
 
 Nothing is more irritating
 - for you appearing dumb and ignorant.
@@ -21,11 +22,13 @@ Above points do not mean you are dumb, or that people who answer questions are
 put at least an effort in knowing about the surroundings of your question as
 good as you are able.
 
-[[help-people-help-you]]Help the people who help you!
-=====================================================
+in short: help people helping you.
+
+[[start-investigating]]Start investigating yourself !
+======================================================
 
 . Make sure you're not ignorant, there's no excuse for being ignorant:
-.. Read `/var/log/linuxcnc.log` to try to finf what is going wrong. Nobody will
+.. Read `/var/log/linuxcnc.log` to try to find what is going wrong. Nobody will
    mind you not knowing about an error first time. The first step can do is
    reading the log to try to understand what's being said in the log.
 .. Search the Machinekit google group for a question already asked.
@@ -33,10 +36,17 @@ good as you are able.
    search field where you can type your keywords].
 .. Do a search in the link:https://github.com/machinekit/machinekit-docs/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit-docs search bar].
 .. Do a search in the link:https://github.com/machinekit/machinekit/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit search bar].
-. When you tried and didn't find the answer (but elevated your knowledge) then
-  following the 2 above steps will show the people on the list that you at least
-  tried. The searching you did will show in the way you frame your question:
-.. A proper description of your problem in the Subject header.
+.. Have a look and the link:https://github.com/machinekit/machinekit/issues?utf8=%E2%9C%93&q=Please+use+this+box+to+search+the+issue+tracker+list[search the issue tracker]
+. If the answer isn't there and you find a problem please report an issue.
+. If you're not sure if you should make a new issue then ask on the Machinekit list.
+
+[[regarding-questions]]Questions regarding errors
+==============================================================================
+
+. When you investigated yourself and didn't find the answer (but elevated your
+  knowledge) then the searching you did yourself will become obvious in the way
+  you frame your question:
+.. A proper description of your problem in the header.
    Please don't use as a header "Machinekit won't start" because that's too
    generic. Try to find out what is happening
 .. Try to explain your case, your goal, or what's happening. No prose, but a
