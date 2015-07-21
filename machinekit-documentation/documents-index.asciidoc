@@ -1,6 +1,11 @@
 Document index
 ==============
 
+Before asking questions on the google group Machinekit list,
+please make sure you have read:
+
+- link:getting-help.asciidoc[Getting help]
+
 This document gathers the locations of the current available manuals.
 this is a small rework of the links of the Linuxcnc Master* manuals at
 link:../src[]
@@ -11,7 +16,7 @@ link:../src[]
 - link:index-integrator.asciidoc[Integrator manual]
 - link:index-developer.asciidoc[Developer manual]
 
-the Doumenting manual is new and is at this time a working document about
+the Documenting manual is new and is at this time a working document about
 the way the documenting is done.
 
 - link:index-documenting.asciidoc[Documenting manual]
