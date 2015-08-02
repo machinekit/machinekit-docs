@@ -1,0 +1,93 @@
+[cols="3*"]
+|===
+|
+|link:documents-index.asciidoc[Back to the main Documents index]
+|
+|===
+
+. <<getting-help,Getting Help>>
+. <<start-investigating,Start investigating yourself !>>
+. <<regarding-questions,Questions regarding errors>>
+. <<a-checklist,A super user-friendly checklist!>>
+
+[[getting-help]]Getting help
+============================
+
+Nothing is more irritating
+- for you appearing dumb and ignorant.
+- answering a question that already has been answered.
+
+Above points do not mean you are dumb, or that people who answer questions are
+"more equal" than others. But keep in mind that helping out means you should
+put at least an effort in knowing about the surroundings of your question as
+good as you are able.
+
+in short: help people helping you.
+
+[[start-investigating]]Start investigating yourself !
+======================================================
+
+. Make sure you're not ignorant, there's no excuse for being ignorant:
+.. Read `/var/log/linuxcnc.log` to try to find what is going wrong. Nobody will
+   mind you not knowing about an error first time. The first step can do is
+   reading the log to try to understand what's being said in the log.
+.. Search the Machinekit google group for a question already asked.
+   There is link:https://groups.google.com/forum/#!searchin/machinekit/please$20type$20your$20keywords$20here$20![a
+   search field where you can type your keywords].
+.. Do a search in the link:https://github.com/machinekit/machinekit-docs/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit-docs search bar].
+.. Do a search in the link:https://github.com/machinekit/machinekit/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit search bar].
+.. Have a look and the link:https://github.com/machinekit/machinekit/issues?utf8=%E2%9C%93&q=Please+use+this+box+to+search+the+issue+tracker+list[search the issue tracker]
+. If the answer isn't there and you find a problem please report an issue.
+. If you're not sure if you should make a new issue then ask on the Machinekit list.
+
+[[regarding-questions]]Questions regarding errors
+==============================================================================
+
+. When you investigated yourself and didn't find the answer (but elevated your
+  knowledge) then the searching you did yourself will become obvious in the way
+  you frame your question:
+.. A proper description of your problem in the header.
+   Please don't use as a header "Machinekit won't start" because that's too
+   generic. Try to find out what is happening
+.. Try to explain your case, your goal, or what's happening. No prose, but a
+   way for others to understand what you want to do.
+. Copy the reply of `uname -r` into the message.
+. Use your text editor to copy the contents of `/var/log/linuxcnc.log` to
+  link:http://pastebin.com[pastebin.com] and put the generated URL like this
+  one link:http://pastebin.com/q3w7K4py[http://pastebin.com/q3w7K4py] into
+  your message.
+. Do the same with files like HAL or INI files, put them on link:http://pastebin.com[pastebin.com].
+. DON'T attach screendumps of files in the message.
+.. Firstly because it's very hard to copy-paste when replying and pointing out
+   stuff if somebody has to re-type from your screendump. So that won't
+   happen and you won't get answered.
+.. Secondly because when replying from a mobile device you can't always open files
+   that are attached. They are absolutely useless for the person trying
+   to help you. And thus you won't get answered.
+
+[[a-checklist]]A super user-friendly checklist
+==============================================
+
+As a service to you and us :-) please copy the following lines into you message
+as a way of having a user-friendly textual check-list.
+
+(no, really, make life easy for all and copy-paste the next lines as a first
+thing into your empty email that you're going to write to the list !)
+
+[source]
+----
+[ ] I hereby swear and sign with my own blood that I have read the
+    logfile `/var/log/linuxcnc.log` myself at least once for this problem.
+[ ] Proper subject header
+[ ] Proper explanation of what you're trying to accomplish
+[ ] I searched the google group, machinekit-doc repo and the machinekit repo
+    with the following search string: (put that below)
+[ ] Output of `uname -r` (put that below)
+[ ] The file `/var/log/linuxcnc.log` is on pastebin (put the link below)
+[ ] Other files like HAL / INI files when applicable are on
+    pastebin.com. (put the link(s) below)
+[ ] I do solemny swear not to attach files needed for others to help me.
+[ ] all the checkmarks above are marked with an 'x'
+----
+
+The above may sound silly but despite that we think you get the meaning :-)
