@@ -2114,7 +2114,7 @@ and may be used to define new M-codes:
  M81 M82 M83 M84 M85 M86 M87 M88 M89 M90
  M91 M92 M93 M94 M95 M96 M97 M98 M99
 
-All codes between `M199`  and `M999`.
+All codes between `M100`  and `M999`.
 
 === readahead time and execution time
 foo
