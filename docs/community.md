@@ -30,7 +30,9 @@ Both means are equivalent, and give access to the same postings.
 ## Machinekit GitHub issue tracker
 
 Report problems with Machinekit on the [GitHub issue tracker][2].
-When submitting an issue, please:
+When submitting an issue, please read the following instructions carefully:
+
+[Getting help][5]
 
 - Choose a meaningful title
 
@@ -54,3 +56,4 @@ make sure the output formatting is sane.
 [2]:  https://github.com/machinekit/machinekit/issues
 [3]:  https://help.github.com/articles/github-flavored-markdown
 [4]:  mailto:machinekit+subscribe@googlegroups.com
+[5]:  https://github.com/machinekit/machinekit-docs/blob/master/machinekit-documentation/getting-help.asciidoc
