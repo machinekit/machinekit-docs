@@ -6,9 +6,9 @@
 |===
 
 . <<getting-help,Getting Help>>
-. <<start-investigating,Start investigating yourself !>>
-. <<regarding-questions,Questions regarding errors>>
-. <<a-checklist,A super user-friendly checklist!>>
+. <<start-investigating,Before you ask: try yourself>>
+. <<reporting-an-error,How to report an Error>>
+. <<before-you-hit-send,Before you hit: 'Submit new issue'>>
 
 [[getting-help]]Getting help
 ============================
