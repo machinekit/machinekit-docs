@@ -5,23 +5,26 @@
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
-Getting started with:
-=====================
+Getting Started
+===============
 
-. <<beaglebone-black,Beagle Bone Black>>
-. <<mesa-anything-io,Mesa Anything IO card>>
+This document is intended to get Machinekit installed on the platform of your
+choice. Because of the multi-platform nature of the machinekit project there
+can be some differences in the installation for a specific platform.
 
-[[beaglebone-black]]Beaglebone Black
-====================================
+[NOTE]
+====
+You should have a working Debian Wheezy installation.
+====
 
-instructions to be written
+The options:
+============
 
-[[mesa-anything-io]]Mesa Anything IO card
-=========================================
-
-instructions to be written
-
-
+. link:machinekit-images.asciidoc[Use a pre-made image] for Beaglebone Black
+. link:installing-packages.asciidoc[Set up the packages yourself]
+  for amd64, i686, arm7/Beaglebone or arm6/Raspberry Pi.
+. link:../developing/machinekit-developing.asciidoc[Set up a development platform]
+  when you want to develop for Machinekit.
 
 [cols="3*"]
 |===
