@@ -17,13 +17,14 @@ can be some differences in the installation for a specific platform.
 You should have a working Debian Wheezy installation.
 ====
 
-The options:
-============
+Installation options:
+====================
 
 . link:machinekit-images.asciidoc[Use a pre-made image] for Beaglebone Black
 . link:installing-packages.asciidoc[Set up the packages yourself]
-  for amd64, i686, arm7/Beaglebone or arm6/Raspberry Pi.
-. link:../developing/machinekit-developing.asciidoc[Set up a development platform]
+  for amd64, i686, arm7/Beaglebone or arm6/Raspberry Pi. This means configuring
+  Apt, installing kernels and installing the runtime packages.
+. link:../developing/developing.asciidoc[Set up a development platform]
   when you want to develop for Machinekit.
 
 [cols="3*"]

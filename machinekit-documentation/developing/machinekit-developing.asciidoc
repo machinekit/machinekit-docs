@@ -1,0 +1,31 @@
+[cols="3*"]
+|===
+|link:developing.asciidoc[Back to Developing]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+== [[packages-developing]]Development packages
+
+For those wanting a development environment, install developing packages:
+[source,bash]
+----
+sudo apt-get install libczmq-dev python-zmq libjansson-dev \
+  libwebsockets-dev libxenomai-dev python-pyftpdlib
+----
+
+Further more, add wheezy-backports in the package archive for cython 0.19:
+[source,bash]
+----
+sudo sh -c \
+  "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
+  /etc/apt/sources.list.d/wheezy-backports.list"
+sudo apt-get update
+sudo apt-get install -t wheezy-backports cython
+----
+
+[cols="3*"]
+|===
+|link:developing.asciidoc[Back to Developing]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===

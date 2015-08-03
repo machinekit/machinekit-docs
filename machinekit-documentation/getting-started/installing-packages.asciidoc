@@ -1,116 +1,189 @@
----
-layout: docs
-title: Debian packages
-next_section: community
-permalink: /docs/packages-debian/
----
+[cols="3*"]
+|===
+|link:getting-started-platform.asciidoc[Back to Getting Started]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
 
-Third-party packages for Debian Wheezy are available for amd64, i686,
-arm7/Beaglebone and arm6/Raspberry Pi.
-
-## Quick start
-
-Decide which type of realtime kernel you want: for i686 and amd64,
-your options are RT-PREEMPT, Xenomai, or RTAI. For arm7/Beaglebone and
-arm6/Raspberry Pi, Xenomai is the only supported realtime kernel.
-
-The RT-PREEMPT realtime kernel comes from the stock wheezy package
-stream. Xenomai is a custom kernel with lower latency;
-both are fine for applications with hardware step generation or plain
-servo configs. RTAI only makes sense for high-rate software step
-generation and dumb hardware (parallel port),
-at the expense of signficantly higher maintainence
-(RT-PREEMPT and Xenomai installs have no significant kernel
-dependencies; RTAI installations only run with the kernel the package
-was built for).
+Installing Packages
+===================
 
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
-> Note: The kernel-naming convention used in these packages may change as
-> experience is accumulated, especially with ARM-based systems. Be sure to
-> check back here before installing a new kernel.
+[WARNING]
+====
+The kernel-naming convention used in these packages may change as
+experience is accumulated, especially with ARM-based systems. Be sure to
+check back here before installing a new kernel.
+====
 
-### Configure Apt for i686, amd64 and arm7 (Beaglebone)
+. *<<configure-apt,Configure Apt>>*
+.. <<configure-APT-i686-amd64-arm7,Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
+.. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
+. [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
+.. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
+.. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i686 and amd64)>>
+.. <<rt-kernel-rtai,RTAI realtime kernel (x86 and amd64)>>
+. [[install-runtime-packs]]*<<install-runtime-packages,Install runtime packages>>*
+. *<<post-installation,Post installation>>*
+
+
+
+== [[configure-apt]]Configure Apt
+
+=== [[configure-APT-i686-amd64-arm7]]Configure Apt for i686, amd64 and arm7 (Beaglebone)
 
 Copy and paste the following into a shell to configure the package archive:
+[source,bash]
+----
+sudo sh -c \
+  "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
+  /etc/apt/sources.list.d/machinekit.list; \
+  apt-get update ; \
+  apt-get install dovetail-automata-keyring"
+sudo apt-get update
+----
+continue with:
+[cols="1*"]
+|===
+|<<install-RT-kernel, install your kernel>>
+|===
 
-    sudo sh -c \
-        "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
-        /etc/apt/sources.list.d/machinekit.list; \
-        apt-get update ; \
-        apt-get install dovetail-automata-keyring"
-    sudo apt-get update
-
-### Configure Apt for arm6 (Raspberry)
+=== [[configure-APT-i686-arm6]]Configure Apt for arm6 (Raspberry)
 
 Copy and paste the following into a shell to configure the package
 archive:
+[source,bash]
+----
+sudo sh -c \
+  "apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 49550439; \
+  echo 'deb http://0ptr.link/raspbian wheezy main' > \
+  /etc/apt/sources.list.d/rpi-machinekit.list"
+sudo apt-get update
+----
+continue with:
+[cols="1*"]
+|===
+|<<install-RT-kernel, install your kernel>>
+|===
 
-    sudo sh -c \
-      "apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 49550439; \
-      echo 'deb http://0ptr.link/raspbian wheezy main' > \
-      /etc/apt/sources.list.d/rpi-machinekit.list"
-    sudo apt-get update
+== [[install-RT-kernel]]Install a realtime kernel
 
-### Install an RT-PREEMPT realtime kernel (i686 and amd64)
+- <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
+- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i686 and amd64)>>
+- <<rt-kernel-rtai,RTAI realtime kernel (x86 and amd64)>>
 
-	sudo apt-get install linux-image-rt-686-pae   # i686
-	sudo apt-get install linux-image-rt-amd64     # amd64
+=== [[rt-kernel-xenomai]]Xenomai realtime kernel (all platforms)
 
-### Install a Xenomai realtime kernel (all platforms)
+Choose and copy and paste the following into a shell to
+install your kernel:
+[source,bash]
+----
+sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
+----
+[source,bash]
+----
+sudo apt-get install linux-image-xenomai.x86-686-pae      # i686
+----
+[source,bash]
+----
+sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
+----
+[source,bash]
+----
+sudo apt-get install linux-image-xenomai                  # raspberry
+----
+[cols="2*"]
+|===
+2+^|continue with (choose):
+| <<install-runtime-packages,install runtime packages>>
+|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|===
 
-	sudo apt-get install linux-image-xenomai.x86-amd64 	   # amd64
-	sudo apt-get install linux-image-xenomai.x86-686-pae      # i686
-	sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
-	sudo apt-get install linux-image-xenomai                  # raspberry
+=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i686 or amd64)
 
-### Install an RTAI realtime kernel (x86 and amd64)
+Choose and copy and paste the following into a shell to
+install your kernel:
 
-	sudo apt-get install linux-image-rtai.x86-686-pae # i686
-	sudo apt-get install linux-image-rtai.x86-amd64   # amd64
+[source,bash]
+----
+sudo apt-get install linux-image-rt-686-pae   # i686
+----
+[source,bash]
+----
+sudo apt-get install linux-image-rt-amd64     # amd64
+----
+[cols="2*"]
+|===
+2+^|continue with (choose):
+| <<install-runtime-packages,install runtime packages>>
+|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|===
 
-### Install run-time packages
+=== [[rt-kernel-rtai]]RTAI realtime kernel (x86 and amd64)
+
+Choose and copy and paste the following into a shell to
+install your kernel:
+
+[source,bash]
+----
+sudo apt-get install linux-image-rtai.x86-686-pae # i686
+----
+[source,bash]
+----
+sudo apt-get install linux-image-rtai.x86-amd64   # amd64
+----
+[cols="2*"]
+|===
+2+^|continue with (choose):
+| <<install-runtime-packages,install runtime packages>>
+|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|===
+
+== [[install-runtime-packages]]Install runtime packages
 
 For those wanting just Machinekit binaries, the following should
 install the main 'machinekit' package for your kernel choice (multiple
 kernels and flavors possible):
 
-    sudo apt-get install machinekit-rt-preempt
-    sudo apt-get install machinekit-xenomai
-    sudo apt-get install machinekit-rtai-kernel
-    sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
+[source,bash]
+----
+sudo apt-get install machinekit-rt-preempt
+----
+[source,bash]
+----
+sudo apt-get install machinekit-xenomai
+----
+[source,bash]
+----
+sudo apt-get install machinekit-rtai-kernel
+----
+[source,bash]
+----
+sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
+----
 
+== [[post-installation]]Post installation
 
-### Post-installation hints
+Some platforms need additional steps/instructions. Please see below for
+more information about specific platforms.
 
-#### Raspberry
+=== [[post-installation-raspberry]]Raspberry
 
 The kernel image needs to be copied to the boot partition like so:
+[source,bash]
+----
+sudo mv /boot/kernel.img /boot/kernel.img.bck
+sudo cp /boot/vmlinuz* /boot/kernel.img
+----
 
-    sudo mv /boot/kernel.img /boot/kernel.img.bck
-    sudo cp /boot/vmlinuz* /boot/kernel.img
+=== [[post-installation-beaglebone]]Beaglebone
 
-#### Beaglebone
+Please see link:https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Machinekit-Debian-Image[Alex's installation hints]
 
-Please see [Alex's installation hints](https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Machinekit-Debian-Image)
-
-### Install development environment packages
-
-For those wanting a development environment, run:
-
-    sudo apt-get install libczmq-dev python-zmq libjansson-dev \
-        libwebsockets-dev libxenomai-dev python-pyftpdlib
-
-Further more, add wheezy-backports in the package archive for cython 0.19:
-
-    sudo sh -c \
-        "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
-         /etc/apt/sources.list.d/wheezy-backports.list"
-    sudo apt-get update
-    sudo apt-get install -t wheezy-backports cython
-
-
-### Other things to do
-
-- Browse the Debian archive directly at
-  [http://deb.dovetail-automata.com/pool/](http://deb.dovetail-automata.com/pool/)
+[cols="3*"]
+|===
+|link:getting-started-platform.asciidoc[Back to Getting Started]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===

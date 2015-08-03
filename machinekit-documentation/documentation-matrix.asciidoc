@@ -6,15 +6,14 @@
 |===
 
 .Documentation Matrix
-[cols="7*", options="header", options="center"]
+[cols="6*", options="header", options="center"]
 |===
 |
 | Getting Started
-| Using
 | HAL
 | Setting up
 | Developing
-| Documentiation
+| Documentation
 
 | Platform specific
 | link:getting-started/getting-started-platform.asciidoc[Getting started
@@ -22,6 +21,12 @@
 |
 |
 |
+|
+
+| Developing
+|
+| Components
+| link:developing/developing.asciidoc[Setting up a development machine]
 |
 |
 
@@ -31,10 +36,8 @@
 |
 |
 |
-|
 
 | Examples
-|
 |
 |
 | link:setting-up/machine-setting-up-examples.asciidoc[Example machines]
@@ -42,7 +45,6 @@
 |
 
 | How to
-|
 |
 |
 |
@@ -55,10 +57,8 @@
 |
 |
 |
-|
 
 | setting up
-|
 |
 |
 |

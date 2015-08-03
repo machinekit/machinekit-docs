@@ -5,6 +5,21 @@
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
+These instructions are specifically targeted for developers and show you
+how to set up a minimal system.
+
+== Minimal development system
+
+starting at point 1 should lead you thru the next steps and return you to this page.
+
+. link:../getting-started/installing-packages.asciidoc#configure-apt[Configure Apt]
+. link:../getting-started/installing-packages.asciidoc#install-RT-kernel[Install the kernel of your choice]
+. link:machinekit-developing.asciidoc[Install developing packages for Machinekit]
+
+. building from source instructions can be found at link:http://www.machinekit.io/docs/building-from-source/[the machinekit.io website instructions].
+  These instructions will be transferred to this location.
+
+== Other instructions for specific development
 . link:CAN-developing.asciidoc[CAN developing for Machinekit]
 
 [cols="3*"]
