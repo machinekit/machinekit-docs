@@ -6,7 +6,13 @@ please make sure you have read:
 
 - link:getting-help.asciidoc[Getting help]
 
-This document gathers the locations of the current available manuals.
+There is a matrix so it's easier to find part of the documentation that
+is applicable to your project. This is at this moment very much a work
+in progress.
+
+- link:documentation-matrix.asciidoc[Documentation matrix]
+
+Further more the LinuxCNC legacy documents and manuals.
 this is a small rework of the links of the Linuxcnc Master* manuals at
 link:../src[]
 
@@ -20,8 +26,3 @@ the Documenting manual is new and is at this time a working document about
 the way the documenting is done.
 
 - link:index-documenting.asciidoc[Documenting manual]
-
-lastly here is a matrix so it's easier to find part of the documentation that
-is applicable to your project.
-
-- link:documentation-matrix.asciidoc[Documentation matrix]
