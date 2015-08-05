@@ -6,15 +6,13 @@
 |===
 
 .Documentation Matrix
-[cols="7*", options="header", options="center"]
-|===
+[cols="5*", options="header", options="center"]
+|===============================================================================
 |
 | Getting Started
-| Using
 | HAL
-| Setting up
 | Developing
-| Documentiation
+| Documentation
 
 | Platform specific
 | link:getting-started/getting-started-platform.asciidoc[Getting started
@@ -22,6 +20,14 @@
 |
 |
 |
+
+| Developing
+|
+a|
+* Components
+* realtime
+* userland
+* python
 |
 |
 
@@ -30,42 +36,33 @@
 |
 |
 |
-|
-|
 
 | Examples
-|
-|
-|
 | link:setting-up/machine-setting-up-examples.asciidoc[Example machines]
+|
 |
 |
 
 | How to
 |
 |
-|
-|
 | link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
-|
+| link:documenting/updating-your-fork.asciidoc[Update your github fork]
 
 | Tools
 |
 |
 |
 |
-|
-|
 
-| setting up
+| Setting up
 |
+a|
+* HAL configuration
+* Python configuration
+| link:developing/developing.asciidoc[Setting up a development machine]
 |
-|
-|
-| link:setting-up/developing-setting-up-examples.asciidoc[Example machines]
-|
-
-|===
+|===============================================================================
 
 [cols="3*"]
 |===
