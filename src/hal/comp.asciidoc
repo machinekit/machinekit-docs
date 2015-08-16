@@ -38,11 +38,11 @@ One method is to say following line in a terminal.
 
 .Installing Dev
 ----
-sudo apt-get install linuxcnc-dev
+sudo apt-get install machinekit-dev
 ----
 
 Another method is to use the Synaptic Package Manager from the main Ubuntu menu
-to install linuxcnc-dev.
+to install machinekit-dev.
 
 == Definitions
 
