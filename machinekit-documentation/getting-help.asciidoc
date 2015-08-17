@@ -54,7 +54,6 @@ So you did your homework as above, and still no resolution: file a  link:https:/
 
 .. platform. Add the output of the 'uname -a'.
 .. Paste the complete output of the shell command if any.
-.. Add /var/log/linuxcnc.log as a link to 
 ..  Use your text editor to *copy the contents of `/var/log/linuxcnc.log`* to
   link:http://pastebin.com[pastebin.com] and put the generated URL like this
   one link:http://pastebin.com/q3w7K4py[http://pastebin.com/q3w7K4py] into
