@@ -53,6 +53,7 @@ So you did your homework as above, and still no resolution: file a  link:https:/
 . Include all the relevant detail:
 
 .. platform. Add the output of the 'uname -a'.
+.. Before you run the program, set the debug level to increase the level of detail in the log: `export DEBUG=5` 
 .. Paste the complete output of the shell command if any.
 ..  Use your text editor to *copy the contents of `/var/log/linuxcnc.log`* to
   link:http://pastebin.com[pastebin.com] and put the generated URL like this
