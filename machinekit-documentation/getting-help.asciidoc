@@ -66,7 +66,7 @@ So you did your homework as above, and still no resolution: file a  link:https:/
 
 ... Other than pastebin of a file, the copy in github shows the change history - i.e. what was changed, and why. So it is much easier on readers to look through git changes than to look at say a hal file with hundreds of lines and no history.
 .. Report the *software version*. Depending if you have a
-... *package install*: add the output of `apt-cache showpkg machinekit` *FIXME PLEASE VERIFY AND CORRECT*
+... *package install*: add the output of `apt-cache showpkg machinekit|head -5`
 ... *install from source*: run `git log|head 5-` and include that in your report.
 
 . Please *avoid attaching screendumps* in the message if possible. Rather copy and paste text. This is why:
