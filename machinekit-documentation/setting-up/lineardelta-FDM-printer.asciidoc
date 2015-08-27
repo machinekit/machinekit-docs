@@ -1,6 +1,6 @@
 [cols="3*"]
 |===
-|link:setting-up-examples.asciidoc[Setting up examples]
+|link:machine-setting-up-examples.asciidoc[Setting up examples]
 |link:../documents-index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
@@ -11,13 +11,13 @@ Linear Delta FDM printer setup
 This guide is meant as a start for setting up the machine in a way that will enable
 you to get a machine running. Other instructions of guides, which focus on
 calibrating an extruder, temperature PID loops or working with a GUI will have a better
-place in a separate document. Preferrably linked to at the end of this one and
-in the link:setting-up-example.asciidoc[setting-up page summary].
+place in a separate document. Preferably linked to at the end of this one and
+in the link:machine-setting-up-examples.asciidoc[setting-up page summary].
 
 If this type of machine does not act as a FDM machine, but as a mill for example
 then this document also acts as a setup guide. Most information is equivalent.
 
-Whether you use some scripts or levelling feature later on to make re-calibrating
+Whether you use some scripts or leveling feature later on to make re-calibrating
 of endstops and/or delta radius easier / less time consuming, I would advice you
 to at least do a full setup and configuration manually to understand what happens
 exactly.
@@ -42,7 +42,7 @@ parts of the machine. Below you'll find a short summary of meaningful names.
 
 ===== Axes
 The axes which are mentioned are the cartesian `X`, `Y` and `Z` axis who together
-describe a coordinate in caresian space by (`X`,`Y`,`Z`).
+describe a coordinate in cartesian space by (`X`,`Y`,`Z`).
 
 ===== Tower
 The vertical actuator on which the carriage runs. To eliminate confusion between
@@ -63,11 +63,11 @@ something like a spindle or a timing belt.
 ===== Effector
 The moving platform which is connected to towers by 3 sets of rods.
 
-===== Paralellogram
+===== Parallelogram
 The 2 rods from each carriage together with a side of the effector form a
-paralellogram. The 3 paralellograms together constrain the machine in such a way
+parallelogram. The 3 parallelograms together constrain the machine in such a way
 that the effector cannot rotate around the `x`, `y` and `z` axes (roll `a`,
-pitch `b` and yaw `c`) degrees of dreedom
+pitch `b` and yaw `c`) degrees of freedom
 
 ===== Extruder
 The thing that drives the filament into the Hot End
@@ -93,13 +93,13 @@ distances from each other. The more the position corresponds with the theoretica
 position, the better the dimensions of the printed part will be.
 
 It's also important to have the 3 columns running parallel to each other. Without
-this paralellity the part dimensions will not be uniform in height. One way to
+this parallelity the part dimensions will not be uniform in height. One way to
 start would be to set the towers vertical with a level, and measure the distances
 from one to the other 2.
 
 ==== The Bed
 
-The bed should be perpendicular to the 3 parallel towers. Preferrably the bed
+The bed should be perpendicular to the 3 parallel towers. Preferably the bed
 is constrained on 3 points near the tower so adjusting a point directly influences
 the angle of the bed at the tower you are setting up.
 
@@ -109,7 +109,7 @@ the angle of the bed at the tower you are setting up.
   bed.
 
 +
-Preferrably, get a bright area after the gap between the angle and tower and move
+Preferably, get a bright area after the gap between the angle and tower and move
 the angle towards the tower. If the gap is not fully closed over the full length
 you should use the adjusting point to get close the gap.
 
@@ -120,7 +120,7 @@ Most important thing to do here is that we make a clear distinction of the namin
 of axes, joints, towers and connectors.
 
 When you use some sort of configuration (most likely a BeagleBone Black with
-a 3D printing cape) you probalbly have motor connections named on the board like
+a 3D printing cape) you probably have motor connections named on the board like
 `X`, `Y` and `Z`. I like to remember the mnemonic "CAB", like in "Taxi!".
 
 Here `CAB` uses the `XYZ` connectors. You just remember `CAB` and connect:
@@ -226,17 +226,17 @@ more info about `HOMING` can be found in link:../../src/config/ini_homing.asciid
 [NOTE]
 since this setup document is about calibrating the mechanics, the `INI` values
 that are needed for the extruder are better of in a separate setup document. Could
-be linked to from here if/whenever it exisists.
+be linked to from here if/whenever it exists.
 
 === HAL-file
 
 The `HAL` is the Hardware Abstraction Layer. If you are not familiar with this
 then please visit the link:../../machinekit-documentation/index-HAL.asciidoc[HAL index]
 with especially the link:../../src/hal/intro.asciidoc[HAL intro] before continuing.
-The `HALFILE` in the above mentionned `INI` settings contains all the "wiring logic"
+The `HALFILE` in the above mentioned `INI` settings contains all the "wiring logic"
 of the machine.
 
-We'll not dig deeple here, but some lines are worth mentionning
+We'll not dig deeply here, but some lines are worth mentioning
 
 [source,hal]
 ----
@@ -252,11 +252,11 @@ setp lineardeltakins.R [MACHINE]DELTA_R
 ==== net signal source target
 Reading a `HAL` file can be very energy draining. Just remember the following:
 
-A `signal` is the "wire" linking `pins`, where the `source pin` is mentionned after
-the `signal` and the `target pin` is mentionned after the `source pin`
+A `signal` is the "wire" linking `pins`, where the `source pin` is mentioned after
+the `signal` and the `target pin` is mentioned after the `source pin`
 
 Ych!.... just repeat 10 times _**NOW**_ and you'll know it the 11th time when
-you pull your hair and grind your teeth reding thru a `HAL` FILE:
+you pull your hair and grind your teeth reading thru a `HAL` FILE:
 
 => => [red]#**NET SIGNAL SOURCE TARGET**# <= <=
 
@@ -294,7 +294,7 @@ in the `world mode`. you can switch between them in the GUI.
 +
 [NOTE]
 `Y150` in the example should be your delta radius value. Furthermore the rods of the
-paralellogram should be as-good-as vertical. Big deviation means you have to look
+parallelogram should be as-good-as vertical. Big deviation means you have to look
 into the reason "why". A small deviation is no problem since the cosine part (`Z`)
 of the (`X`,`Y`) error is very small and has very little influence of the height
 (position of the tower)
@@ -306,7 +306,7 @@ of the (`X`,`Y`) error is very small and has very little influence of the height
   as `TOWER C` + 5 mm.
 . go down in little steps, and change from the terminal the joint debug pins. These
   pins move the effector lower/higher without effecting the joint[n] position or
-  Z-height readout value. Do like this and replace {n} with the joint you are workin
+  Z-height readout value. Do like this and replace {n} with the joint you are working
   on:
 
 +
@@ -370,7 +370,7 @@ halcmd sets lineardeltakins.R {value}
 . Increase this value if there is too much space between nozzle and bed.
   increasing means lowering the effector.
 . This value now will be changed, and is not effected by homing.
-. **change the value in your ini file!**
+. **change the value in your INI file!**
 
 ---
 
@@ -392,7 +392,7 @@ todo:
 
 [cols="3*"]
 |===
-|link:setting-up-examples.asciidoc[Setting up examples]
+|link:machine-setting-up-examples.asciidoc[Setting up examples]
 |link:../documents-index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

@@ -4,6 +4,17 @@ Welcome to the Machinekit Documentation
 Here you'll find the paths to information regarding building, working and
 collaborating on the Machinekit project and the Machinekit-docs.
 
+Getting Help
+==============
+
+If you're:
+- stuck
+- run into a problem
+- get errors
+- or similar
+you should ask a question on the google group Machinekit list.
+But before you ask a question, please do read the following link:machinekit-documentation/getting-help.asciidoc[getting help instruction].
+
 Place to start
 ==============
 

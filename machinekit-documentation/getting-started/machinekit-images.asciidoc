@@ -1,0 +1,15 @@
+[cols="3*"]
+|===
+|link:getting-started-platform.asciidoc[Back to Getting Started]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+=== work in progress
+
+[cols="3*"]
+|===
+|link:getting-started-platform.asciidoc[Back to Getting Started]
+|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
