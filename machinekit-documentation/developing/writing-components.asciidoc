@@ -4,7 +4,7 @@ Recommended pre-reading from the legacy docs.
 
 link:../../src/hal/intro.asciidoc[Introduction to HAL]
 
-link:../../src/hal/tutorial.asciidoc[Basic HAL turorial]
+link:../../src/hal/tutorial.asciidoc[Basic HAL tutorial]
 
 Quite often there are existing components that can achieve your ends, without the need to write 
 one yourself.
