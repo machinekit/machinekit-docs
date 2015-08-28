@@ -24,6 +24,7 @@ link:../src/common/GPLD_Copyright.asciidoc[]
 
 - link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
 - link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
+- link:developing/writing-components.asciidoc[Write HAL Components]
 
 [cols="3*"]
 |===

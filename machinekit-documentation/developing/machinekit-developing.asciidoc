@@ -6,7 +6,7 @@
 |===
 == [[packages-developing]]Development packages
 
-For those wanting a development environment, install developing packages:
+For those wanting to build Machinekit from sources and install a development environment, install developing packages:
 [source,bash]
 ----
 sudo apt-get install libczmq-dev python-zmq libjansson-dev \
@@ -23,6 +23,33 @@ sudo apt-get update
 sudo apt-get install -t wheezy-backports cython
 ----
 
+Full package listing for building and developing on Jessie (subject to constant update)
+[source,bash]
+----
+sudo apt-get install -y  build-essential debhelper kernel-package libpth-dev libgtk2.0-dev tcl8.6-dev tk8.6-dev \     
+
+bwidget python-old-doctools python-tk python-dev libglu1-mesa-dev libgtk2.0-dev libgnomeprintui2.2-dev \ 
+
+libncurses5-dev libxaw7-dev gettext libreadline-gplv2-dev lyx texlive-extra-utils imagemagick texinfo groff \ 
+
+libmodbus-dev;
+
+sudo apt-get install -y  libudev-dev libmodbus-dev libboost-python-dev libboost-serialization-dev \
+
+libboost-thread-dev libtk-img automake autoconf libtool libusb-dev;
+
+sudo apt-get install -y  automake1.11 libtool liburiparser-dev cmake libssl-dev  openssl python-setuptools \ 
+
+libusb-1.0-0-dev libudev-dev  uuid-dev libavahi-client-dev libavahi-compat-libdnssd-dev  avahi-daemon \
+
+libprotobuf-dev protobuf-compiler python-protobuf libprotoc-dev uuid-runtime python-avahi python-netifaces \ 
+
+avahi-discover;
+
+sudo apt-get install -y  python-nose check pyftpd libczmq-dev python-zmq libjansson-dev libwebsockets-dev \ 
+
+python-pyftpdlib libzmq3-dev ;
+----
 [cols="3*"]
 |===
 |link:developing.asciidoc[Back to Developing]
