@@ -31,6 +31,8 @@ link:../src/hal/parallel_port.asciidoc[]
 
 link:../src/hal/hal-examples.asciidoc[]
 
+link:../src/hal/instcomp.asciidoc[]
+
 link:../src/hal/comp.asciidoc[]
 
 link:../src/hal/halmodule.asciidoc[]
@@ -62,6 +64,10 @@ link:../src/drivers/servo_to_go.asciidoc[]
 link:../src/drivers/GM.asciidoc[]
 
 link:../src/common/GPLD_Copyright.asciidoc[]
+
+= Related topics
+
+link:developing/writing-components.asciidoc[Writing HAL Components]
 
 [cols="3*"]
 |===
