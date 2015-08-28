@@ -4,19 +4,26 @@
 
 == Introduction
 
-instcomp is the Machinekit component compiler for instantiable components (.icomp)
+instcomp is the Machinekit component pre-processor and compiler for instantiable components (.icomp)
 
 This manual describes its operation in respect to how it differs from comp,
 the default inherited Linuxcnc component compiler.
 
 A familiarity with comp is therefore necessary and assumed.
 
-The essential difference between normal realtime components and instantiable components
-is......KILLER EXPLANATION HERE..........................
+The essential difference between normal realtime components and instantiable components,
+is that 'normal components' are loaded once only and have to create as many copies of the
+component as they need, all at once, there and then.
+
+Instantiable components load the 'base component' and from that can create instances 
+of the component whenever they are required.
+So instances can be created in separate hal files, on-the-fly or whatever.
+
+Amoungst many advantages, it opens up huge flexibility in configuration.
 
 == Naming Conventions
 
-All instantiable components are named to differentiate them from normal components
+All instantiable components are named to differentiate them from 'normal components'
 
 The component files have the extension *'.icomp'*
 
@@ -32,6 +39,14 @@ produces a component called
 
 === component -
 A component is a single real-time base module, which is loaded with 'halcmd loadrt'.
+
+There are two parameters to *loadrt*
+
+*count=N*  where N is the number of numbered instances to create
+
+*names=name1,name2,name3*  where the instances are named instead of numbered
+
+By default *loadrt component* with no params or args, will create a single instance named *component.0*
 
 One '.icomp' file specifies one component.
 
@@ -63,11 +78,22 @@ If there are more than one function, they must all be declared and uniquely name
 
 eg.
 
-*'function read nofp;'*
+*'function read nofp;'*    ( specifying not a floating point thread - the default)
 
 *'function write;'*
 
 *';;'*
+
+If unnamed the function will be called, *component-name.0.funct*
+
+halcmd allows just the base component name to be added to a thread, to keep existing configs working
+
+So *addf component-name servo-thread* will work
+
+What it actually does however is add the *.funct* bit on the end.
+
+This is necessary to have unique naming of all pins, components and functions to assist in identifying when debugging.
+Otherwise the actual component and the function would have the same name.
 
 The function is exported as a xthread function.
 
@@ -87,7 +113,7 @@ The following accessors are available within the function:
 == Instance creation
 
 
-*'newinst somecomponent somenewname <iprefix=""> <pincount=0> <other_instanceparam=> extra_arg1 extra_arg2 ......'*
+*'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > --- extra_arg1 extra_arg2 ......'*
 
 Loads somecomponent and creates a new instance of somecomponent called somenewname
 
@@ -101,11 +127,46 @@ then
 
 adds the function to a thread
 
-If you just want a component with the default number of pins, you can either
+If you just want a component with the default number of pins, you can just use
 
 *newinst componentname newcomponentname*
 
 for a single named component instance with default pin numbers (if applicable)
+
+== Instanceparams
+
+These are a type of RTAPI_IP_xxx kernel module parameter used for passing values to the instance
+
+Only types of RTAPI_IP_INT and RTAPI_IP_UINT are supported in instcomp.
+
+These are declared in the .icomp file as for example
+
+*instanceparam int pincount = 2;*
+
+or
+
+*instanceparam u32 functn = 255;*
+
+Any instanceparam used for counting index or scaling should normally be of type RTAPI_IP_INT  (signed int)
+
+The UINT variant is provided for situations where conversion between hex and dec values and bit shifting for instance, can result
+in incorrect returns using a signed integer
+
+Strings are not supported as instanceparams.  Unlimited strings accessed by argc / argv mechanism can be passed using the extra_arg parameters.
+
+The reason for this is that kernel module parameters were never envisaged to be used repeatedly by new instances.  Therefore they persist for the life of the
+'base component' and are volatile, meaning the next instance will overwrite the values used by the previous one.
+
+Saving a numerical value for use is quite simple, but saving a string which could be any length would involve allocating memory to duplicate it,
+making it a wasteful process and requiring the explicit freeing of that memory when the instance exits.
+
+For this reason, do not use the instanceparam value directly, access it through a copy in the inst_data struct which is named *local_[instanceparamname]*
+
+The most common example is in those components which create variable pin numbers through the 'pincount=NN' parameter.
+
+The 'pincount' value is accessed via *local_pincount* in your component function body
+
+See multiswitch and lutn examples below
 
 
 == Backwards compatability
@@ -118,11 +179,21 @@ This includes the sim configs included with machinekit
 
 The singleton component is supported by changes to halcmd, which will prevent more than one instance being loaded
 
-Notes
+*Notes:*
 
-The parameters accepted are count=number. or names=name1,name2......
+=== 1
+Components with underscore separated names ( C style ) are created with the names as per the name of the component -
 
-The parameters cfg= or personality= are deprecated and have no meaning with instantiated components
+eg. *loadrt charge_pump* will create a module called *charge_pump.0*
+
+comp used to produce one called *charge-pump.0*
+
+The new naming is more logical, but may break a few configs
+
+To keep an existing config working, simply load with *newinst charge_pump charge-pump.0* and you get a module the same name as the rest of your hal file expects.
+
+=== 2
+The parameters 'cfg=' or 'personality=' are deprecated and have no meaning with instantiated components
 
 Those parameters will still work with the few legacy components that use them so heavily or in such a convoluted / obfuscated fashion, that they have not been converted to instantiable components
 
@@ -132,6 +203,7 @@ bldc.comp
 
 logic.comp
 
+=== 3
 Other components not converted, are those from C sources and those integral to the system and only ever intended to be loaded once per session
 
 examples are:
@@ -141,6 +213,9 @@ stepgen
 threads
 
 See the src/hal/components directory for the remaining legacy components
+
+It is likely that these remaining components will be converted in the future, when the next stage of SMP_SAFE components is introduced, which will allow components
+running in different threads, on different CPU's, to communicate and access each others data - but that is in the future right now :) 
 
 
 == Reserved declarations etc.
@@ -207,6 +282,12 @@ will result in a new instance of the component called newname, with 16 pins .inv
 
 Any additional args which do not match the RTAPI_IP_PARAM parameters expected, are passed through the argc / argv mechanism to the new component
 
+These should be separated from the instanceparam args with *---*
+
+eg:  *'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > --- extra_arg1 extra_arg2 ......'*
+
+This allows the use of 'arg=value' type arguments without newinst believing it should be an instanceparam argument
+
 Using in the comp file:-
 
 '*option extra_inst_setup; '*
@@ -214,9 +295,11 @@ Using in the comp file:-
 allows you to create a function in your component, EXTRA_INST_SETUP(), which will receive the argc / argv data.
 You can the parse and act upon extra arguments passed before the component is set 'ready'
 
+See the message.icomp file for an example of passing strings via this mechanism and printing them when triggered.
+
 A return value other than zero from this function will abort instance creation.
 
-See the lutn example
+See also the lutn example
 
 
 == Syntax and Options differences
@@ -251,9 +334,9 @@ The differing options are:
    automatically defined 'rtapi_app_exit', or if an error is detected
    in the automatically defined 'rtapi_app_main'.
 
-* *'instanceparam [int / string] param_name = <value>'*
+* *'instanceparam [int ] param_name = <value>'*
     Instanceparams that may be passed to the component at newinst
-    If value not set, will be set to 0 or "\0" respectively
+    If value not set, will be set to 0 
 
 *   *'singleton'*   will only allow one instance to be loaded anywhere within a single session
     This is contrary to the basic premise of instantiated components, but implemented for compatibility
@@ -302,7 +385,7 @@ differing option usages etc.
 Note this component is no different to the standard component.
 The C code that is created is different and allows instantiation
 but at comp file level, because arrays are not used and no need to
-preset an iprefix for the default pin numbers, it all looks the same
+preset an pincount for the default pin numbers, it all looks the same
 
 [source,c]
 ----
@@ -321,7 +404,7 @@ FUNCTION(_) {
 === multiswitch
 
 This component uses an array of bit pins indexed with pincount
-Maximum number of pins are 32 and the default is 6,
+Maximum number of pins are 16 and the default is 6,
 
 extra_inst_setup is used, but just for initialisation of values
 before entering the main loop
@@ -383,9 +466,9 @@ EXTRA_INST_SETUP(){
 === lutn
 
 This component has the same instanceparam features as before,
-with an extra instanceparam defined - functn which takes a hex value
+with an extra instanceparam defined - a unsigned int functn which takes a hex value
 
-It can take further args not defined as instanceparams, which are passed
+It shows how to take further args not defined as instanceparams, which are passed
 through the argc / argv mechanism and printed in extra_inst_setup()
 
 [source,c]
@@ -408,7 +491,7 @@ instanceparam int pincount = 2;
 
 option MAXCOUNT 5;
 
-instanceparam int functn = 0;
+instanceparam uint functn = 0;
 
 option extra_inst_setup;
 

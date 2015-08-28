@@ -28,7 +28,7 @@ a|
 * realtime
 * userland
 * python
-|
+| link:developing/writing-components.asciidoc[Writing HAL Components]
 |
 
 | Documenting
