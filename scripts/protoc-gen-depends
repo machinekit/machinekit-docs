@@ -93,4 +93,3 @@ if sys.version_info >= (3, 0):
     stdout.buffer.write(res.SerializeToString())
 else:
     stdout.write(res.SerializeToString())
-
