@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===
 
@@ -43,7 +43,9 @@ link:developing/writing-components.asciidoc[Writing HAL Components]
 | How to
 |
 |
-| link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+a| 
+* link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+* link:developing/rtfaults.asciidoc[Trace rt faults]
 | link:documenting/updating-your-fork.asciidoc[Update your github fork]
 
 | Tools
@@ -64,6 +66,6 @@ a|
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===

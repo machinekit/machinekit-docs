@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -13,12 +13,13 @@ specific applications for Machinekit. This page will collect relevant links and
 instructions.
 
 . link:CAN-developing-setup.asciidoc[Setup for CAN development]
+. link:../developing/machinekit-developing.asciidoc[General Development Setup and packages]
 . please add other sections / subjects / busses here.
 
 
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

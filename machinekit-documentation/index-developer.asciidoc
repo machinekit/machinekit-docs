@@ -1,34 +1,33 @@
 [cols="3*"]
 |===
-|link:
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===
 
 == Introduction
 
 
-link:../src/code/Code_Notes.asciidoc[]
+link:../src/code/Code_Notes.asciidoc[Code_Notes]
 
-link:../src/code/NML_Messages.asciidoc[]
+link:../src/code/NML_Messages.asciidoc[NML_Messages]
 
-link:../src/code/Style_Guide.asciidoc[]
+link:../src/code/Style_Guide.asciidoc[Style_Guide]
 
-link:../src/code/Contributing-to-LinuxCNC.asciidoc[]
+link:../src/common/Glossary.asciidoc[Glossary]
 
-link:../src/common/Glossary.asciidoc[]
+link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyrigh]
 
-link:../src/common/GPLD_Copyright.asciidoc[]
-
-== How To
+== Machinekit How To
 
 - link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+
 - link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
+
 - link:developing/writing-components.asciidoc[Write HAL Components]
 
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===

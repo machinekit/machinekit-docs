@@ -13,15 +13,14 @@ If you're:
 - get errors
 - or similar
 you should ask a question on the google group Machinekit list.
-But before you ask a question, please do read the following link:machinekit-documentation/getting-help.asciidoc[getting help instruction].
+But before you ask a question, please do read the following link:getting-help.asciidoc[getting help instruction].
 
 Place to start
 ==============
 
-The first place you'll want to start is link:machinekit-documentation[documentation location]
-and in particular link:machinekit-documentation/documents-index.asciidoc[documents index]
+The first place you'll want to start is link:../index.asciidoc[documents index]
 This location bundles copies with updated links of the legacy `Master_*.asciidoc`
-files in link:src[] that were being used to generate LinuxCNC `.pdf` pages and
+files in link:../src[] that were being used to generate LinuxCNC `.pdf` pages and
 `.html` files. These are currently no longer built and making these will require
 work.
 
@@ -32,10 +31,10 @@ One of the tasks for the splitting of the `docs` in a separate repo was that it
 should be easy for anybody to document something. Because of that we focus on
 `.asciidoc` files that can be read and improved upon. This is 2015 after all :)
 You can actually help improve this documentation without knowing anything of
-"git". Just read these link:machinekit-documentation/documenting/documenting.asciidoc[instructions] and
+"git". Just read these link:/documenting/documenting.asciidoc[instructions] and
 you'll be ready to go in the blink of an eye.
 
-Also have a look at link:machinekit-documentation/documentation-matrix.asciidoc[this matrix]
+Also have a look at link:documentation-matrix.asciidoc[this matrix]
 to see if the information you search is there. Or if there is something in
 particular worth improving.
 

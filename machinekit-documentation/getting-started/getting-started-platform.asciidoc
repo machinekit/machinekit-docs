@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -30,6 +30,6 @@ Installation options:
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

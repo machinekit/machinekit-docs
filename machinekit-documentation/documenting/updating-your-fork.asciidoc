@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |link:../index-documenting.asciidoc[Back to the Documenting index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:documenting.asciidoc[back]
 |===
 
@@ -57,6 +57,6 @@ editing a change and changing submitting a `PR` to the original repo.
 [cols="3*"]
 |===
 |link:../index-documenting.asciidoc[Back to the Documenting index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:documenting.asciidoc[back]
 |===

@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -22,6 +22,6 @@ Starting point also for other machines which use the lineardelta kinematics
 [cols="3*"]
 |===
 |
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
