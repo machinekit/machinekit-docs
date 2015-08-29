@@ -2,7 +2,7 @@
 |===
 |link:developing-setting-up.asciidoc[Back to setting up for development]
 |link:../developing/CAN-developing.asciidoc[Back to CAN developing]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -74,6 +74,6 @@ You are now ready to return to the the link:../developing/CAN-developing.asciido
 |===
 |link:developing-setting-up.asciidoc[Back to setting up for development]
 |link:../developing/CAN-developing.asciidoc[Back to CAN developing]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

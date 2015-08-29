@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |link:../index-developer.asciidoc[Back to the Developer index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -62,6 +62,6 @@ image::images/fix-error.png[]
 [cols="3*"]
 |===
 |link:../index-developer.asciidoc[Back to the Developer index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

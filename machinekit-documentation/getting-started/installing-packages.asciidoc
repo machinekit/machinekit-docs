@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |link:getting-started-platform.asciidoc[Back to Getting Started]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -184,6 +184,6 @@ Please see link:https://github.com/strahlex/asciidoc-sandbox/wiki/Creating-a-Mac
 [cols="3*"]
 |===
 |link:getting-started-platform.asciidoc[Back to Getting Started]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

@@ -2,7 +2,7 @@
 |===
 |link:developing.asciidoc[Developing section]
 |link:../index-developing.asciidoc[Back to the Developing index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
@@ -41,6 +41,6 @@ that we swap the driver to the real hardware.
 |===
 |link:developing.asciidoc[Developing index]
 |link:../index-developing.asciidoc[Back to the Developing index]
-|link:../documents-index.asciidoc[Back to the main Documents index]
+|link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

@@ -1,7 +1,7 @@
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===
 
@@ -11,28 +11,24 @@
 
 :leveloffset: 1
 
-link:../src/common/System_Requirements.asciidoc[]
+link:../src/common/System_Requirements.asciidoc[System Requirements]
 
-link:../src/common/Getting_LinuxCNC.asciidoc[]
+link:../src/quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
 
-link:../src/common/Updating_LinuxCNC.asciidoc[]
+link:../src/config/stepconf.asciidoc[Stepconf]
 
-link:../src/quickstart/stepper_quickstart.asciidoc[]
+link:../src/config/pncconf.asciidoc[Pncconf]
 
-link:../src/config/stepconf.asciidoc[]
+link:../src/config/copy_and_run.asciidoc[Starting Up]
 
-link:../src/config/pncconf.asciidoc[]
+link:../src/common/Linux_FAQ.asciidoc[Linux FAQ]
 
-link:../src/config/copy_and_run.asciidoc[]
-
-link:../src/common/Linux_FAQ.asciidoc[]
-
-link:../src/common/GPLD_Copyright.asciidoc[]
+link:../src/common/GPLD_Copyright.asciidoc[GPLD Copyright]
 
 [cols="3*"]
 |===
 |
-|link:documents-index.asciidoc[Back to the main Documents index]
+|link:../index.asciidoc[Back to the main Documents index]
 |
 |===
 
