@@ -24,9 +24,11 @@ else
 endif
 ECHO := @echo
 
+DESTDIR := /usr/local
 # all protobuf definitions live here
+NAMESPACEDIR=machinetalk/protobuf
 SRCDIR := src
-PROTODIR := $(SRCDIR)/machinetalk/protobuf
+PROTODIR := $(SRCDIR)/$(NAMESPACEDIR)
 
 BUILDDIR := build
 
@@ -215,3 +217,17 @@ docs: $(PROTO_DEPS) $(PROTO_DOC_TARGETS)
 
 clean:
 	rm -rf build
+
+install_proto: $(PROTO_SPECS)
+	mkdir -p $(DESTDIR)/include/$(NAMESPACEDIR)
+	for proto in $(PROTO_SPECS); do \
+		install -m 0644 $$proto $(DESTDIR)/include/$(NAMESPACEDIR); \
+	done
+
+install_cpp: $(PROTO_CXX_INCS)
+	mkdir -p $(DESTDIR)/include/$(NAMESPACEDIR)
+	for headerfile in $(PROTO_CXX_INCS); do \
+		install -m 0644 $$headerfile $(DESTDIR)/include/$(NAMESPACEDIR); \
+	done
+
+install: install_proto install_cpp
