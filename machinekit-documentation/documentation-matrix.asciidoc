@@ -23,8 +23,11 @@
 
 | Developing
 |
-a|
-link:developing/writing-components.asciidoc[Writing HAL Components]
+a|Writing HAL Components
+
+link:developing/writing-components.asciidoc[General]
+
+link:developing/toolchangers.asciidoc[Writing Toolchangers]
 | 
 |
 
