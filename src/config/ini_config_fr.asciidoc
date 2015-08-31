@@ -1,23 +1,23 @@
 :lang: fr
 :toc:
 
-= Configuration de LinuxCNC
+= Configuration de Machinekit
 
 [[cha:ini-configuration]] (((INI Configuration)))
 
 == Script de lancement
 
-LinuxCNC est lancé par le fichier de script _linuxcnc_.
+Machinekit est lancé par le fichier de script _machinekit_.
 
 ----
-linuxcnc [options] [<ini-file>]
+machinekit [options] [<ini-file>]
 ----
 
 Avec les options suivantes:
 * _-v_ = verbose - informations de fonctionnement
 * _-d_ = commande d'écho à l'écran pour le débogage
 
-Le fichier de script _linuxcnc_ lit le fichier ini puis lance LinuxCNC.
+Le fichier de script _machinekit_ lit le fichier ini puis lance Machinekit.
 La section [HAL] du fichier ini, spécifie l'ordre de chargement des fichiers
 de HAL, si plusieurs sont utilisés. Après que les fichiers HAL soient chargés,
 l'interface graphique est chargée à son tour puis le fichier HAL POSTGUI.
@@ -25,7 +25,7 @@ Si des objets pyvcp ont été créés avec des pins de HAL, le fichier _postgui.
 doit effectuer les raccordements à ces pins, se reporter à la section
 <<sub:Section-HAL,HAL>> pour plus de détails.
 
-Si aucun fichier ini n'est passé en argument au script _linuxcnc_, le sélecteur
+Si aucun fichier ini n'est passé en argument au script _machinekit_, le sélecteur
 de configuration est lancé pour permettre à l'utilisateur de choisir parmi les
 exemples de configuration existants.
 
@@ -37,7 +37,7 @@ image::../common/images/configuration-selector1_fr.png[align="center"]
 
 == Fichiers utilisés pour la configuration
 
-LinuxCNC est entièrement configuré avec des fichiers textes classiques.
+Machinekit est entièrement configuré avec des fichiers textes classiques.
 Tous ces fichiers peuvent être lus et modifiés dans n'importe quel
 éditeur de texte disponible dans toute distribution Linux.footnote:[Ne
 pas confondre un éditeur de texte et un traitement de texte. Un
@@ -48,19 +48,19 @@ avec des paragraphes, des mises en formes des mots. Ils ajoutent des
 codes de contrôles, des polices de formes et de tailles variées etc. Un
 éditeur de texte n'a rien de tout cela.]
 Soyez prudent lorsque vous modifierez ces fichiers, certaines
-erreurs pourraient empêcher le démarrage de LinuxCNC. Ces fichiers sont lus à
+erreurs pourraient empêcher le démarrage de Machinekit. Ces fichiers sont lus à
 chaque fois que le logiciel démarre. Certains d'entre eux sont lus de
-nombreuses fois pendant l'exécution de LinuxCNC.
+nombreuses fois pendant l'exécution de Machinekit.
 
 Les fichiers de configuration inclus:
 
 * _INI_ (((INI))) Le fichier ini écrase les valeurs par défaut compilées dans
-    le code de LinuxCNC. Il contient également des sections qui sont lues
+    le code de Machinekit. Il contient également des sections qui sont lues
     directement par HAL (Hardware Abstraction Layer, couche
     d'abstraction matérielle).
 
 * _HAL_ (((HAL))) Les fichiers hal installent les modules de process, ils
-    créent les liens entre les signaux de LinuxCNC et les broches spécifiques du
+    créent les liens entre les signaux de Machinekit et les broches spécifiques du
     matériel.
 
 * _VAR_ (((VAR))) Ce fichier contient une suite de numéros de variables. Ces
@@ -73,26 +73,26 @@ Les fichiers de configuration inclus:
     d'infos.
 
 * _NML_ (((NML))) Ce fichier configure les voies de communication utilisées
-    par LinuxCNC. Il est normalement réglé pour lancer toutes les communications
+    par Machinekit. Il est normalement réglé pour lancer toutes les communications
     avec un seul ordinateur, peut être modifié pour communiquer entre
     plusieurs ordinateurs.
 
-* _.linuxcncrc_ (((.linuxcncrc))) Ce fichier enregistre des informations
+* _.machinekitrc_ (((.machinekitrc))) Ce fichier enregistre des informations
     spécifiques à l'utilisateur, il a été créé pour enregistrer le nom du
     répertoire lorsque l'utilisateur choisit sa première configuration
-    de LinuxCNC.footnote:[Habituellement, ce fichier est dans le répertoire home
+    de Machinekit.footnote:[Habituellement, ce fichier est dans le répertoire home
     de l'utilisateur (ex: _/home/robert/_ )]
 
 Les éléments avec le repère _(hal)_ sont utilisés seulement pour les
 fichiers de HAL en exemples. C'est
 une bonne convention. D'autres éléments sont utilisés directement par
-LinuxCNC et doivent toujours avoir la section et le nom donné à l'item.
+Machinekit et doivent toujours avoir la section et le nom donné à l'item.
 
 == Double passe (TWOPASS) 
 
-LinuxCNC 2.5 supporte le processus dit TWOPASS des fichiers de configuration hal,
+Machinekit 2.5 supporte le processus dit TWOPASS des fichiers de configuration hal,
 ce qui aide à la modularité des fichiers hal et améliore leur lisibilité.
-(les fichiers Hal sont spécifiés dans le fichier ini de LinuxCNC, dans
+(les fichiers Hal sont spécifiés dans le fichier ini de Machinekit, dans
 l'instance HAL sous la forme _[HAL]HALFILE=nomdufichier_.
 
 Normalement, un jeu de un ou plusieurs fichiers de configuration HAL doivent
@@ -236,7 +236,7 @@ Les différentes parties d'un fichier .ini sont regroupées en sections.
 Une section commence par son nom en majuscules entre crochets [UNE_SECTION].
 L'ordre des sections est sans importance.
 
-Les sections suivantes sont utilisées par LinuxCNC:
+Les sections suivantes sont utilisées par Machinekit:
 
 * _[<<sub:Section-EMC,EMC>>]_ informations générales.
 * _[<<sub:Section-DISPLAY,DISPLAY>>]_ sélection du type d'interface graphique.
@@ -265,7 +265,7 @@ Les paragraphes suivants détaillent chaque section du fichier de
 configuration, en utilisant des exemples de variables dans les lignes
 de configuration.
 
-Certaines de ces variables sont utilisées par LinuxCNC. Elles doivent
+Certaines de ces variables sont utilisées par Machinekit. Elles doivent
 toujours utiliser le nom de section et le nom de variable dans leur
 appellation. D'autres variables ne sont utilisées que par HAL. Les noms
 des sections et les noms des variables indiquées, sont ceux qui sont
@@ -293,7 +293,7 @@ la section et la variable dans le fichier INI.
 OFFSET_1 = 0.1234
 ----
 
-Pour ajouter une variable utilisateur à une section LinuxCNC, inclure simplement
+Pour ajouter une variable utilisateur à une section Machinekit, inclure simplement
 cette variable dans la section souhaitée.
 
 .Exemple de variable utilisateur
@@ -337,7 +337,7 @@ le haut de la plupart des fenêtres. Vous pouvez insérer ce que vous voulez ici
 tant que ça reste sur une seule ligne.
 
 * _DEBUG = 0_ - Niveau de débogage 0 signifie qu'aucun message ne sera affiché
-dans le terminal pendant le fonctionnement de LinuxCNC. Les drapeaux de débogage
+dans le terminal pendant le fonctionnement de Machinekit. Les drapeaux de débogage
 ne sont généralement utiles que pour les développeurs.
 
 [[sub:Section-DISPLAY]]
@@ -345,15 +345,15 @@ ne sont généralement utiles que pour les développeurs.
 
 Les différentes interfaces graphiques utilisent différentes options
 qui ne sont pas supportées par toutes les interfaces utilisateur.
-Les deux principales interfaces pour LinuxCNC sont _AXIS_ et _Touchy_.
+Les deux principales interfaces pour Machinekit sont _AXIS_ et _Touchy_.
 Axis est une interface pour une utilisation avec un ordinateur classique et
 son moniteur, Touchy est à utiliser avec les ordinateurs à écran tactile.
 Pour plus d'informations, voire la section Interfaces du Manuel de l'utilisateur.
 
 * _DISPLAY = axis_ - Le nom de l'interface graphique à utiliser. Les options
 disponibles sont les suivantes: _axis_,(((axis))) _touchy_,(((touchy)))
-_keystick_, (((keystick))) _mini_,(((mini))) _tklinuxcnc_,(((tklinuxcnc)))
-_xlinuxcnc_, (((xlinuxcnc)))
+_keystick_, (((keystick))) _mini_,(((mini))) _tkmachinekit_,(((tkmachinekit)))
+_xmachinekit_, (((xmachinekit)))
 
 * _POSITION_OFFSET = RELATIVE_ - Le système de coordonnées (RELATIVE ou MACHINE)
 à utiliser au démarrage de l'interface utilisateur. Le système de coordonnées
@@ -361,7 +361,7 @@ RELATIVE reflète le G92 et le décalage d'origine G5x actuellement actifs.
 
 * _POSITION_FEEDBACK = ACTUAL_ - Valeur de la position (COMMANDED ou ACTUAL) à
 afficher au démarrage de l'interface utilisateur. La position COMMANDED est la
-position exacte requise par LinuxCNC. La position ACTUAL est la position
+position exacte requise par Machinekit. La position ACTUAL est la position
 retournée par l'électronique des moteurs.
 
 * _MAX_FEED_OVERRIDE = 1.2_ - La correction de vitesse maximum que l'opérateur
@@ -375,13 +375,13 @@ vitesse de broche trop basse).
 * _MAX_SPINDLE_OVERRIDE = 1.0_ - Correction de vitesse maximum de broche que
 l'opérateur pourra utiliser. 1.0 signifie 100% de la vitesse de broche programmée.
 
-* _PROGRAM_PREFIX = ~/linuxcnc/nc_files_ - Répertoire par défaut des fichiers
+* _PROGRAM_PREFIX = ~/machinekit/nc_files_ - Répertoire par défaut des fichiers
 de g-codes et emplacement des M-codes définis par l'utilisateur.
 Les recherches de fichiers s'effectueront d'abords dans cet emplacement,
 avant les chemins des sous-programmes et des fichiers M utilisateur, si
 il est spécifié dans la section [RS274NGC].
 
-* _INTRO_GRAPHIC = linuxcnc.gif_ - L'image affichée sur l'écran d'accueil.
+* _INTRO_GRAPHIC = machinekit.gif_ - L'image affichée sur l'écran d'accueil.
 
 * _INTRO_TIME = 5_ - Durée d'affichage de l'écran d'accueil.
 
@@ -463,7 +463,7 @@ meilleure précision à la pré-visualisation, mais sont plus lentes et donne un
 écran plus saccadé. Les petites valeurs sont moins précises mais plus rapides,
 l'affichage résultant est plus rapide. La valeur par défaut de 64
 signifie qu'un cercle de 3 pouces maximum sera affiché dans moins de 3
-centièmes de mm, (.03%).footnote:[ Dans LinuxCNC 2.4 et précédents,
+centièmes de mm, (.03%).footnote:[ Dans Machinekit 2.4 et précédents,
 la valeur par défaut était de 128.]
 
 * _MDI_HISTORY_FILE =_ - Le nom du fichier d'historique des commandes MDI.
@@ -487,7 +487,7 @@ Puis, spécifier le programme à exécuter pour chaque type de filtre. Ce
 programme reçoit le nom du fichier d'entrée dans son premier argument, il
 doit écrire le code RS274/NGC sur la sortie standard. C'est cette sortie qui
 sera affichée dans la zone de texte, pré-visualisée dans la zone du parcours
-d'outil et enfin, exécutée par LinuxCNC quand il sera mis en marche.
+d'outil et enfin, exécutée par Machinekit quand il sera mis en marche.
 ----
 PROGRAM_EXTENSION = .extension Description
 ----
@@ -499,7 +499,7 @@ PROGRAM_EXTENSION = .NGC XYZ Post Processor
 ----
 
 Les lignes suivantes ajoutent le support pour le convertisseur _image-to-gcode_
-fourni avec LinuxCNC:
+fourni avec Machinekit:
 ----
 PROGRAM_EXTENSION = .png,.gif,.jpg Greyscale Depth Image
     png = image-to-gcode
@@ -519,7 +519,7 @@ nc_files/holecircle.py.
 Ce script crée le G-code pour percer une série de trous séquents à la
 périphérie d'un cercle.
 De nombreux générateurs de G-code sont par ailleurs disponibles sur le wiki:
-http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Simple_LinuxCNC_G-Code_Generators[à la
+http://wiki.machinekit.org/cgi-bin/wiki.pl?Simple_Machinekit_G-Code_Generators[à la
 page des générateurs de G-code].
 
 Si la variable d'environnement AXIS_PROGRESS_BAR est activée, alors les lignes
@@ -702,9 +702,9 @@ Si _HAL_ est spécifié plusieurs fois, les commandes sont exécutées dans
 l'ordre où elles apparaissent dans le fichier ini. Les lignes _HAL_
 sont exécutées après toutes les lignes _HALFILE_.
 
-* _SHUTDOWN = shutdown.hal_ - Exécute le fichier _shutdown.hal_ quand LinuxCNC
+* _SHUTDOWN = shutdown.hal_ - Exécute le fichier _shutdown.hal_ quand Machinekit
 s'arrête. Selon les pilotes de matériel utilisés, il est ainsi possible de
-positionner les sorties sur des valeurs définies quand LinuxCNC s'arrête
+positionner les sorties sur des valeurs définies quand Machinekit s'arrête
 normalement. Cependant, parce qu'il n'y a aucune garantie que ce fichier sera
 exécuté (par exemple, dans le cas d'une panne de l'ordinateur), il ne
 remplace pas une véritable chaîne physique d'arrêt d'urgence ou
@@ -729,7 +729,7 @@ utilisant _halui.mdi-command-00_. Incrémente le nombre pour chaque commande
 
 La section [TRAJ] contient les paramètres généraux du module
 planificateur de trajectoires de EMCMOT. Vous n'aurez pas à modifier
-ces valeurs si vous utilisez LinuxCNC avec une machine à trois axes en
+ces valeurs si vous utilisez Machinekit avec une machine à trois axes en
 provenance des USA. Si vous êtes dans une zone métrique, utilisant des
 éléments matériels métriques, vous pourrez utiliser le fichier
 _stepper_mm.ini_ dans lequel les valeurs sont déjà configurées dans cette
@@ -795,9 +795,9 @@ de redémarrer avec les mêmes coordonnées que lors de l'arrêt, ce qui suppose
 que hors puissance, la machine ne fera aucun mouvement pendant tout son arrêt.
 C'est utile pour les petites machines sans contact d'origine machine.
 Si vide, les positions ne seront pas enregistrées et commenceront à 0 à
-chaque fois que LinuxCNC démarrera.
+chaque fois que Machinekit démarrera.
 
-* _NO_FORCE_HOMING = 1_ - LinuxCNC oblige implicitement l'utilisateur à
+* _NO_FORCE_HOMING = 1_ - Machinekit oblige implicitement l'utilisateur à
 référencer la machine par une prise d'origine machine avant de pouvoir lancer
 un programme ou exécuter une commande dans le MDI, seuls les mouvements de Jog
 sont autorisés avant les prises d'origines. Mettre NO_FORCE_HOMING = 1
@@ -867,7 +867,7 @@ _xscrew.comp_, par exemple, pour l'axe X. Les noms de fichiers sont sensibles
 sont des triplets par ligne séparés par un espace. La première valeur
 est nominale (où elle devrait l'être). Les deuxième et troisième valeurs
 dépendront du réglage de  COMP_FILE_TYPE. Actuellement la
-limite de LinuxCNC est de 256 triplets par axe. Si COMP_FILE est spécifié,
+limite de Machinekit est de 256 triplets par axe. Si COMP_FILE est spécifié,
 BACKLASH est ignoré. Les valeurs sont en unités machine.
 
 * _COMP_FILE_TYPE = 0 ou 1_ -
@@ -919,7 +919,7 @@ possibilités. L'utilitaire de calibration peut être utilisé pour les
 ajuster interactivement et vérifier les résultats, de sorte que les
 valeurs puissent être mises dans le fichier INI avec un minimum de
 difficultés. Cet utilitaire est accessible dans Axis depuis le menu
-_Machine_ puis _Calibration_ et dans TkLinuxCNC depuis le menu _Réglages_
+_Machine_ puis _Calibration_ et dans TkMachinekit depuis le menu _Réglages_
 puis _Calibration_.
 
 [[sub:Section-HOMING]]
@@ -1070,7 +1070,7 @@ valeur (facteur d'échelle), avant d'être écrite dans le convertisseur
 D/A. Les unités du facteur d'échelle sont des Volts réels par Volts en
 sortie de DAC. Les unités de la valeur d'offset sont en Volts. Ces
 valeurs peuvent être utilisées pour linéariser un DAC.
-Plus précisément, quand les sorties sont écrites, LinuxCNC converti d'abord
+Plus précisément, quand les sorties sont écrites, Machinekit converti d'abord
 les unités quasi-SI des sorties concernées en valeurs brutes, exemple:
 Volts pour un amplificateur DAC. Cette mise à l'échelle ressemble à cela: +
 *+raw = output-offset/scale+* la valeur d'échelle peut être obtenue par analyse

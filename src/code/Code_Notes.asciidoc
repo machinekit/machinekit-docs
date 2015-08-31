@@ -2,15 +2,15 @@
 
 == Intended audience
 
-This document is a collection of notes about the internals of LinuxCNC. It
+This document is a collection of notes about the internals of Machinekit. It
 is primarily of interest to developers, however much of the information
 here may also be of interest to system integrators and others who are
-simply curious about how LinuxCNC works. Much of this information is now
+simply curious about how Machinekit works. Much of this information is now
 outdated and has never been reviewed for accuracy.
 
 == Organization
 
-There will be a chapter for each of the major components of LinuxCNC, as
+There will be a chapter for each of the major components of Machinekit, as
 well as chapter(s) covering how they work together. This document is
 very much a work in progress, and its layout may change in the future.
 
@@ -40,7 +40,7 @@ very much a work in progress, and its layout may change in the future.
 
 * 'JOINT' - A joint is one of the movable parts of the machine. Joints are
     distinct from axes, although the two terms are sometimes (mis)used to
-    mean the same thing. In LinuxCNC, a joint is a physical thing that can be
+    mean the same thing. In Machinekit, a joint is a physical thing that can be
     moved, not a coordinate in space. For example, the quill, knee, saddle,
     and table of a Bridgeport mill are all joints. The shoulder, elbow, and
     wrist of a robot arm are joints, as are the linear actuators of a
@@ -57,12 +57,12 @@ very much a work in progress, and its layout may change in the future.
     be described as joint data, such as input and output scaling, etc.
 
 * 'POSE' - A pose is a fully specified position in 3-D Cartesian space. In the
-    LinuxCNC motion controller, when we refer to a pose we mean an EmcPose
+    Machinekit motion controller, when we refer to a pose we mean an EmcPose
     structure, containing three linear coordinates and three angular ones.
 
 == Architecture overview
 
-There are four components contained in the LinuxCNC Architecture: a motion
+There are four components contained in the Machinekit Architecture: a motion
 controller (EMCMOT), a discrete IO controller (EMCIO), a task executor
 which coordinates them (EMCTASK) and several text-mode and graphical
 User Interfaces. Each of them will be described in the current
@@ -70,9 +70,9 @@ document, both from the design point of view and from the developers
 point of view (where to find needed data, how to easily extend/modify
 things, etc.).
 
-image::LinuxCNC-block-diagram-small.png[align="center"]
+image::Machinekit-block-diagram-small.png[align="center"]
 
-LinuxCNC software architecture. At the coarsest level, LinuxCNC is a
+Machinekit software architecture. At the coarsest level, Machinekit is a
 hierarchy of three controllers: the task level command handler and program
 interpreter, the motion controller, and the discrete I/O controller. The
 discrete I/O controller is implemented as a hierarchy of controllers,
@@ -97,7 +97,7 @@ HAL Manual. Another chapter of this document will
 eventually go into the internals of the HAL itself, but in this
 chapter, we only use the HAL API as defined in src/hal/hal.h.
 
-image::LinuxCNC-motion-controller-small.png[align="center"]
+image::Machinekit-motion-controller-small.png[align="center"]
 
 == Block diagrams and Data Flow
 
@@ -690,10 +690,10 @@ nearly identical for every parameter.
 
 libnml is derived from the NIST rcslib without all the multi-platform
 support. Many of the wrappers around platform specific code has been
-removed along with much of the code that is not required by LinuxCNC. It is
+removed along with much of the code that is not required by Machinekit. It is
 hoped that sufficient compatibility remains with rcslib so that
 applications can be implemented on non-Linux platforms and still be
-able to communicate with LinuxCNC.
+able to communicate with Machinekit.
 
 This chapter is not intended to be a definitive guide to using libnml
 (or rcslib), instead, it will eventually provide an overview of each
@@ -868,7 +868,7 @@ whilst PHANTOM is only really useful in the testing stage of an
 application, likewise for FILEMEM. LOCMEM is of little use for a
 multi-process application, and only offers limited performance
 advantages over SHMEM. This leaves SHMEM as the only buffer type to use
-with LinuxCNC.
+with Machinekit.
 
 The neut option is only of use in a multi-processor system where
 different (and incompatible) architectures are sharing a block of
@@ -902,9 +902,9 @@ does not implement NML.
 UDP protocols have fewer checks on data and allows a percentage of
 packets to be dropped. TCP is more reliable, but is marginally slower.
 
-If LinuxCNC is to be connected to a network, one would hope that it is
+If Machinekit is to be connected to a network, one would hope that it is
 local and behind a firewall. About the only reason to allow access to
-LinuxCNC via the Internet would be for remote diagnostics - This can be
+Machinekit via the Internet would be for remote diagnostics - This can be
 achieved far more securely using other means, perhaps by a web
 interface.
 
@@ -998,7 +998,7 @@ therefor which buffer is to be used.
 
 == Adding custom NML commands
 
-LinuxCNC is pretty awesome, but some parts need some tweaking. As you know
+Machinekit is pretty awesome, but some parts need some tweaking. As you know
 communication is done through NML channels, the data sent through such
 a channel is one of the classes defined in emc.hh (implemented in
 emc.cc). If somebody needs a message type that doesn't exist, he should
@@ -1020,17 +1020,17 @@ and do some stuff with it.
 
 == The Tool Table and Toolchanger
 
-LinuxCNC interfaces with toolchanger hardware, and has an internal
-toolchanger abstraction.  LinuxCNC manages tool information in a tool
+Machinekit interfaces with toolchanger hardware, and has an internal
+toolchanger abstraction.  Machinekit manages tool information in a tool
 table file.
 
 
-=== Toolchanger abstraction in LinuxCNC
+=== Toolchanger abstraction in Machinekit
 
-LinuxCNC supports two kinds of toolchanger hardware,
+Machinekit supports two kinds of toolchanger hardware,
 called _nonrandom_ and _random_.  The ini setting
 <<sub:EMCIO-Section,[EMCIO]RANDOM_TOOLCHANGER>> controls which of
-these kinds of hardware LinuxCNC thinks it's connected to.
+these kinds of hardware Machinekit thinks it's connected to.
 
 
 ==== Nonrandom Toolchangers
@@ -1041,15 +1041,15 @@ originally loaded from.
 Examples of nonrandom toolchanger hardware are the "manual" toolchanger,
 lathe tool turrents, and rack toolchangers.
 
-When configured for a nonrandom toolchanger, LinuxCNC does not change the
+When configured for a nonrandom toolchanger, Machinekit does not change the
 pocket number in the tool table file as tools are loaded and unloaded.
-Internal to LinuxCNC, on tool change the tool information is *copied*
+Internal to Machinekit, on tool change the tool information is *copied*
 from the tool table's source pocket to pocket 0 (which represents the
 spindle), replacing whatever tool information was previously there.
 
-NOTE: In LinuxCNC configured for nonrandom toolchanger, tool 0 (T0) has
+NOTE: In Machinekit configured for nonrandom toolchanger, tool 0 (T0) has
 special meaning: "no tool".  T0 may not appear in the tool table file, and
-changing to T0 will result in LinuxCNC thinking it's got an empty spindle.
+changing to T0 will result in Machinekit thinking it's got an empty spindle.
 
 
 ==== Random Toolchangers
@@ -1060,16 +1060,16 @@ in changes as it is swapped in and out of the spindle.
 
 An example of random toolchanger hardware is a carousel toolchanger.
 
-When configured for a random toolchanger, LinuxCNC swaps the pocket number
+When configured for a random toolchanger, Machinekit swaps the pocket number
 of the old and the new tool in the tool table file when tools are loaded.
-Internal to LinuxCNC, on tool change, the tool information is *swapped*
+Internal to Machinekit, on tool change, the tool information is *swapped*
 between the tool table's source pocket and pocket 0 (which represents
 the spindle).  So after a tool change, pocket 0 in the tool table has
 the tool information for the new tool, and the pocket that the new tool
 came from has the tool information for the old tool (the tool that was
 in the spindle before the tool change), if any.
 
-NOTE: In LinuxCNC configured for random toolchanger, tool 0 (T0) has *no*
+NOTE: In Machinekit configured for random toolchanger, tool 0 (T0) has *no*
 special meaning.  It is treated exactly like any other tool in the tool
 table.  It is customary to use T0 to represent "no tool" (ie, a tool with
 zero TLO), so that the spindle can be conveniently emptied when needed.
@@ -1077,20 +1077,20 @@ zero TLO), so that the spindle can be conveniently emptied when needed.
 
 === The Tool Table
 
-LinuxCNC keeps track of tools in a file called the _tool table_.
+Machinekit keeps track of tools in a file called the _tool table_.
 The tool table records the following information for each tool:
 
 tool number::
 
     An integer that uniquely identifies this tool.  Tool numbers are
-    handled differently by LinuxCNC when configured for random and
+    handled differently by Machinekit when configured for random and
     nonrandom toolchangers:
 
-    * When LinuxCNC is configured for a nonrandom toolchanger this
+    * When Machinekit is configured for a nonrandom toolchanger this
         number must be positive.  T0 gets special handling and is not
         allowed to appear in the tool table.
 
-    * When LinuxCNC is configured for a random toolchanger this number
+    * When Machinekit is configured for a random toolchanger this number
         must be non-negative.  T0 is allowed in the tool table, and is
         usually used to represent "no tool", ie the empty pocket.
 
@@ -1098,17 +1098,17 @@ pocket number::
 
     An integer that identifies the pocket or slot in the toolchanger
     hardware where the tool resides.  Pocket numbers are handled
-    differently by LinuxCNC when configured for random and nonrandom
+    differently by Machinekit when configured for random and nonrandom
     toolchangers:
 
-    * When LinuxCNC is configured for a nonrandom toolchanger, the pocket
+    * When Machinekit is configured for a nonrandom toolchanger, the pocket
         number in the tool file can be any positive integer (pocket
-        0 is not allowed).  LinuxCNC silently compactifies the pocket
+        0 is not allowed).  Machinekit silently compactifies the pocket
         numbers when it loads the tool file, so there may be a difference
         between the pocket numbers in the tool file and the internal
-        pocket numbers used by LinuxCNC-with-nonrandom-toolchanger.
+        pocket numbers used by Machinekit-with-nonrandom-toolchanger.
 
-    * When LinuxCNC is configured for a random toolchanger, the pocket
+    * When Machinekit is configured for a random toolchanger, the pocket
         numbers in the tool file must be between 0 and 55, inclusive.
         Pockets 1-55 are in the toolchanger, pocket 0 is the spindle.
 
@@ -1330,7 +1330,7 @@ the tool table.
 === Internal state variables
 
 This is not an exhaustive list!  Tool information is spread through
-out LinuxCNC.
+out Machinekit.
 
 
 ==== IO

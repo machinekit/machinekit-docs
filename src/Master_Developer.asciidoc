@@ -21,7 +21,7 @@ include::code/NML_Messages.asciidoc[]
 
 include::code/Style_Guide.asciidoc[]
 
-include::code/Contributing-to-LinuxCNC.asciidoc[]
+include::code/Contributing-to-Machinekit.asciidoc[]
 
 include::common/Glossary.asciidoc[]
 

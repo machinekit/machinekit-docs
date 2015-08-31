@@ -10,22 +10,22 @@
 == Introduction
 
 Ce chapitre décrit quelques uns des réglages les plus fréquents, sur
-lesquels l'utilisateur aura à agir lors de la mise au point de LinuxCNC. En
-raison de l'adaptabilité de LinuxCNC, il serait très difficile de les
+lesquels l'utilisateur aura à agir lors de la mise au point de Machinekit. En
+raison de l'adaptabilité de Machinekit, il serait très difficile de les
 documenter tous en gardant ce document relativement concis.
 
-Le système rencontré le plus fréquemment chez les utilisateurs de LinuxCNC
+Le système rencontré le plus fréquemment chez les utilisateurs de Machinekit
 est un système à moteurs pas à pas. Les interfaces de pilotage de ces
-moteurs recoivent de LinuxCNC des signaux de pas et de direction.
+moteurs recoivent de Machinekit des signaux de pas et de direction.
 
 C'est le système le plus simple à mettre en oeuvre parce que les
 moteurs fonctionnent en boucle ouverte (pas d'information de retour des
 moteurs), le système nécessite donc d'être configuré correctement pour
 que les moteurs ne perdent pas de pas et ne calent pas.
 
-Ce chapitre s'appuie sur la configuration fournie d'origine avec LinuxCNC
+Ce chapitre s'appuie sur la configuration fournie d'origine avec Machinekit
 appelée _stepper_(((stepper))) et qui se trouve habituellement dans
-_/etc/linuxcnc/sample-configs/stepper_.
+_/etc/machinekit/sample-configs/stepper_.
 
 [[sec:Maximum-step-rate]]
 == Fréquence de pas maximale(((Frequence de pas maximale)))
@@ -53,13 +53,13 @@ STEPGEN_MAXVEL.
 Si aucune combinaison entre BASE_PERIOD, INPUT_SCALE et MAX_VELOCITY
 n'est fonctionnelle, il faut alors envisager un générateur de pas
 externe (parmis les contrôleurs de moteurs pas à pas universels
-supportés par LinuxCNC)
+supportés par Machinekit)
 
 [[sec:Brochage]]
 == Brochage
 (((brochage)))
 
-LinuxCNC est très flexible et grâce à la couche d'abstraction de HAL
+Machinekit est très flexible et grâce à la couche d'abstraction de HAL
 (Hardware Abstraction Layer) il est facile de spécifier que tel signal
 ira sur telle broche. 
 
@@ -140,7 +140,7 @@ net spindle-on motion.spindle-on => parport.0.pin-09-out
 ###
 ### A sample home switch on the X axis (axis 0).  make a signal,
 ### link the incoming parport pin to the signal, then link the signal
-### to LinuxCNC's axis 0 home switch input pin
+### to Machinekit's axis 0 home switch input pin
 ###
 # net Xhome parport.0.pin-10-in => axis.0.home-sw-in
 
@@ -163,7 +163,7 @@ net spindle-on motion.spindle-on => parport.0.pin-09-out
 
 ###
 ### Just like the shared home switches example, you can wire together
-### limit switches.  Beware if you hit one, LinuxCNC will stop but can't tell
+### limit switches.  Beware if you hit one, Machinekit will stop but can't tell
 ### you which switch/axis has faulted.  Use caution when recovering from this.
 ###
 # net Xlimits parport.0.pin-13-in => axis.0.neg-lim-sw-in axis.0.pos-lim-sw-in
@@ -183,7 +183,7 @@ standard_pinout.hal est lu par l'interpréteur:
    le Manuel de HAL pour plus de détails)
  . Les fonctions de lecture/écriture du pilote sont assignée au thread
    «Base thread» footnote:[Le thread le plus rapide parmis les réglages
-   de LinuxCNC, habituellement il
+   de Machinekit, habituellement il
    n'y a que quelques microsecondes entre les exécutions de ce code.]
  . Les signaux du générateur de pas et de direction des axes X,Y,Z...
    sont raccordés aux broches du port parallèle
@@ -276,7 +276,7 @@ Comme vous pouvez <<sec:standard-pinout.hal,le voir ici>>,
 par défaut la configuration standard n'utilise pas de bouton d'Arrêt
 d'Urgence externe. footnote:[Une explication complète sur la manière de
 gérer les circuiteries d'Arrêt d'Urgence se trouve sur le 
-http://wiki.linuxcnc.org/[ wiki(en)] et dans le Manuel de l'intégrateur.
+http://wiki.machinekit.org/[ wiki(en)] et dans le Manuel de l'intégrateur.
 
 Pour ajouter un simple bouton d'AU externe (ou plusieurs en série) vous
 devez remplacer la ligne suivante:
@@ -296,8 +296,8 @@ Ce qui implique qu'un bouton d'Arrêt d'Urgence soit connecté sur la
 broche 01 du port parallèle. Tant que le bouton est enfoncé (le contact
 ouvert)footnote:[Utiliser exclusivement des contacts normalement fermés
 pour les A/U.], 
-LinuxCNC restera dans l'état _Arrêt d'Urgence_ (ESTOP). Quand le bouton
-externe sera relâché, LinuxCNC passera immédiatement dans l'état 
+Machinekit restera dans l'état _Arrêt d'Urgence_ (ESTOP). Quand le bouton
+externe sera relâché, Machinekit passera immédiatement dans l'état 
 _Arrêt d'Urgence Relâché_ (ESTOP-RESET) vous pourrez ensuite mettre 
 la machine en marche en pressant le bouton _Marche machine_ (((marche machine)))
-et vous êtes alors prêt à continuer votre travail avec LinuxCNC.
+et vous êtes alors prêt à continuer votre travail avec Machinekit.

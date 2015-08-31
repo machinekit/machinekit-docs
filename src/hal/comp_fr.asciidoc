@@ -14,7 +14,7 @@ _hal_ et à contrôler les erreurs associées à ces fonctions. _comp_ va
 
 Compiler un composant de HAL est également beaucoup plus simple en
 utilisant _comp_ , que le composant fasse partie de l'arborescence
-de LinuxCNC, ou qu'il en soit extérieur.
+de Machinekit, ou qu'il en soit extérieur.
 
 Par exemple, cette portion des blocs _ddt_, codée en C, fait environ 80 lignes
 de code, alors que le composant équivalent est vraiment très court quand il est
@@ -36,14 +36,14 @@ old = tmp;
 
 == Installation
 
-Si une version pré-installée de LinuxCNC est utilisée, il sera nécessaire
+Si une version pré-installée de Machinekit est utilisée, il sera nécessaire
 d'installer les paquets de développement en passant par Synaptic depuis le menu
 _Système → Administration → Gestionnaire de paquets Synaptic_ ou en utilisant
 la commande suivante dans un terminal:
 
 .Installation des paquets de développement
 ----
-sudo apt-get install linuxcnc-dev
+sudo apt-get install machinekit-dev
 ----
 
 == Définitions
@@ -445,13 +445,13 @@ _xor_.
 
 == Compiler un fichier _.comp_ dans l'arborescence
 
-Placer le fichier _.comp_ dans le répertoire _linuxcnc/src/hal/components_
+Placer le fichier _.comp_ dans le répertoire _machinekit/src/hal/components_
 et lancer/relancer _make_. Les fichiers Comp sont automatiquement
 détectés par le système de compilation.
 
 Si un fichier _.comp_ est un pilote de périphérique, il peut être
-placé dans _linuxcnc/src/hal/components_  et il y sera construit excepté si
-LinuxCNC est configuré en mode
+placé dans _machinekit/src/hal/components_  et il y sera construit excepté si
+Machinekit est configuré en mode
 simulation.
 
 == Compiler un composant temps réel hors de l'arborescence[[sec:Compiler-composants-rt]]
@@ -460,7 +460,7 @@ simulation.
 _comp_ peut traiter, compiler et installer un composant temps réel en
 une
  seule étape, en plaçant _rtexample.ko_ dans le répertoire du module
-temps réel de LinuxCNC:
+temps réel de Machinekit:
 
     comp --install rtexample.comp
 
@@ -636,7 +636,7 @@ créer un tableau de taille variable et des pins optionnelles.
 
 [source,c]
 ----
-component logic "LinuxCNC HAL component providing experimental logic functions";
+component logic "Machinekit HAL component providing experimental logic functions";
 pin in bit in-##[16 : personality & 0xff];
 pin out bit and if personality & 0x100;
 pin out bit or if personality & 0x200;

@@ -33,8 +33,8 @@ Axis::
 
 Axis(GUI)::
      (((GUI))) One of the Graphical User Interfaces available to users of
-    LinuxCNC. It features the modern use of menus and mouse buttons while
-    automating and hiding some of the more traditional LinuxCNC controls. It is
+    Machinekit. It features the modern use of menus and mouse buttons while
+    automating and hiding some of the more traditional Machinekit controls. It is
     the only open-source interface that displays the entire tool path as
     soon as a file is opened.
 
@@ -78,7 +78,7 @@ CNC::
     to move the tool, based on a part program.
 
 Comp::
-     (((comp)))[[glo:comp]] A tool used to build, compile and install LinuxCNC HAL
+     (((comp)))[[glo:comp]] A tool used to build, compile and install Machinekit HAL
     components.
 
 Configuration(n)::
@@ -89,7 +89,7 @@ Configuration(n)::
     describe tools, parameters, and NML connections.
 
 Configuration(v)::
-     The task of setting up LinuxCNC so that it matches the hardware on a
+     The task of setting up Machinekit so that it matches the hardware on a
     machine tool.
 
 Coordinate Measuring Machine::
@@ -143,7 +143,7 @@ Encoder::
      (((encoder)))[[glo:Encoder]] A device to measure position. Usually a
     mechanical-optical device, which outputs a quadrature signal. The
     signal can be counted by special hardware, or directly by the parport
-    with LinuxCNC.
+    with Machinekit.
 
 Feed::
      (((feed)))[[glo:Feed]] Relatively slow, controlled motion of the tool used
@@ -156,7 +156,7 @@ Feed rate::
 
 Feedback::
      (((feedback)))[[glo:Feedback]] A method (e.g., quadrature encoder signals)
-    by which LinuxCNC receives information about the position of motors
+    by which Machinekit receives information about the position of motors
 
 Feedrate Override::
      (((feedrate override)))[[glo:FeedrateOveride]] A manual, operator controlled
@@ -276,7 +276,7 @@ Program Units::
     measured in degrees.
 
 Python::
-     General-purpose, very high-level programming language. Used in LinuxCNC
+     General-purpose, very high-level programming language. Used in Machinekit
     for the Axis GUI, the Stepconf configuration tool, and several G-code
     programming scripts.
 
@@ -340,13 +340,13 @@ Spindle Speed Override::
      A manual, operator controlled change in the rate at which the tool
     rotates while cutting. Often used to allow the operator to adjust for
     chatter caused by the cutter's teeth. Spindle Speed Override assumes
-    that the LinuxCNC software has been configured to control spindle speed.
+    that the Machinekit software has been configured to control spindle speed.
 
 Stepconf::
-     An LinuxCNC configuration wizard. It is able to handle many
+     An Machinekit configuration wizard. It is able to handle many
     step-and-direction motion command based machines. It writes a full
     configuration after the user answers a few questions about the computer
-    and machine that LinuxCNC is to run on.
+    and machine that Machinekit is to run on.
 
 Stepper Motor::
      (((stepper motor)))[[glo:StepperMotor]] A type of motor that turns in
@@ -360,7 +360,7 @@ TASK::
 
 Tcl/Tk::
      (((Tk)))[[glo:Tcl/Tk]] A scripting language and graphical widget toolkit
-    with which several of LinuxCNCs GUIs and selection wizards were
+    with which several of Machinekits GUIs and selection wizards were
     written.
 
 Traverse Move::

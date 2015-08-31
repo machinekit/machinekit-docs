@@ -8,7 +8,7 @@ las páginas del manual con el comando man.
 
 == Acceso automático (((Automatic Login)))
 
-Al instalar linuxCNC con el CD de Ubuntu por defecto se tiene que iniciar
+Al instalar linuxCNC con el CD de Debian por defecto se tiene que iniciar
 sesión cada vez que encienda el ordenador. Para activar autentificacion automática
 valla a 'System > Administration > Login Window'. Si se trata
 de una nueva instalación de la ventana de inicio de sesión puede tardar
@@ -236,8 +236,8 @@ Para borrar el mensaje de buffer tecle:
 sudo dmesg -c
 ----
 
-Esto puede ser útil de hacer justo antes del arranque de LinuxCNC, por lo que solo
-abra un registro de información relacionada con el lanzamiento actual de LinuxCNC.
+Esto puede ser útil de hacer justo antes del arranque de Machinekit, por lo que solo
+abra un registro de información relacionada con el lanzamiento actual de Machinekit.
 
 Para encontrar la direccion de un puerto paralelo integrado use grep para
 filtrar la información producida por dmesg.

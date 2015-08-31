@@ -9,35 +9,35 @@
 This is work in progress by Michael Haberler. Comments, fixes, and
 addenda are welcome, especially for PositionLogger (A bit of intent, purpose and usage would help here!)
 
-== The linuxcnc Python module
+== The machinekit Python module
 
-User interfaces control LinuxCNC activity by sending
-NML messages to the LinuxCNC task controller, and monitor results by
-observing the LinuxCNC status structure, as well as the error reporting channel.
+User interfaces control Machinekit activity by sending
+NML messages to the Machinekit task controller, and monitor results by
+observing the Machinekit status structure, as well as the error reporting channel.
 
 Programmatic access to NML is through a C++ API; however, the most
-important parts of the NML interface to LinuxCNC are also available to
-Python programs through the `linuxcnc` module.
+important parts of the NML interface to Machinekit are also available to
+Python programs through the `machinekit` module.
 
 Beyond the NML interface to the command, status and error channels,
-the `linuxcnc` module also contains:
+the `machinekit` module also contains:
 
 - support for reading values from ini files
 - support for position logging  (???)
 
 
-== Usage Patterns for the LinuxCNC NML interface
+== Usage Patterns for the Machinekit NML interface
 
-The general pattern for `linuxcnc` usage is roughly like this:
+The general pattern for `machinekit` usage is roughly like this:
 
-- import the `linuxcnc` module
+- import the `machinekit` module
 - establish connections to the command, status and error NML channels as needed
 - poll the status channel, either periodically or as needed
 - before sending a command, determine from status whether it is in
  fact OK to do so (for instance, there is no point in sending a 'Run'
  command if task is in the ESTOP state, or the interpreter is not
  idle)
-- send the command by using one of  the `linuxcnc`  command channel methods
+- send the command by using one of  the `machinekit`  command channel methods
 
 
 To retrieve messages from the error channel, poll the error channel
@@ -46,22 +46,22 @@ periodically, and process any messages retrieved.
 - poll the status channel, either periodically or as needed
 - print any error message FIXME: explore the exception code
 
-`linuxcnc` also defines the `error` Python exception type to support error reporting.
+`machinekit` also defines the `error` Python exception type to support error reporting.
 
-== Reading LinuxCNC status
+== Reading Machinekit status
 
 Here is a Python fragment to explore the contents of the
-`linuxcnc.stat` object which contains some 8ß0+ values (run while
-linuxcnc is running for typical values):
+`machinekit.stat` object which contains some 8ß0+ values (run while
+machinekit is running for typical values):
 
 [source,python]
 ---------------------------------------------------------------------
 import sys
-import linuxcnc
+import machinekit
 try:
-    s = linuxcnc.stat() # create a connection to the status channel
+    s = machinekit.stat() # create a connection to the status channel
     s.poll() # get current values 
-except linuxcnc.error, detail:
+except machinekit.error, detail:
     print "error", detail
     sys.exit(1)
 for x in dir(s):
@@ -69,12 +69,12 @@ for x in dir(s):
         print x, getattr(s,x)
 ---------------------------------------------------------------------
 
-Linuxcnc uses the default compiled-in path to the NML configuration
+Machinekit uses the default compiled-in path to the NML configuration
 file unless overridden, see <<sec:Python-reading-ini-values,Reading
 ini file values>> for an example.
 
 
-=== linuxcnc.stat attributes
+=== machinekit.stat attributes
 
 *acceleration* :: '(returns float)' -
 default acceleration, reflects the ini entry [TRAJ] DEFAULT_ACCELERATION.
@@ -361,8 +361,8 @@ of a particular axis:
 
 [source,python]
 ---------------------------------------------------------------------
-import linuxcnc
-s = linuxcnc.stat() 
+import machinekit
+s = machinekit.stat() 
 s.poll() 
 print 'Axis 1 homed: ', s.axis[1]['homed']
 ---------------------------------------------------------------------
@@ -443,7 +443,7 @@ current velocity.
 ==  Preparing to send  commands 
 
 Some commands can always be sent, regardless of mode and state; for
-instance, the `linuxcnc.command.abort()` method can always be called. 
+instance, the `machinekit.command.abort()` method can always be called. 
 
 Other commands may be sent only in appropriate state, and those tests
 can be a bit tricky. For instance, an MDI command can be sent only if:
@@ -455,52 +455,52 @@ can be a bit tricky. For instance, an MDI command can be sent only if:
 - the mode is set to `MDI mode`
 
 so an appropriate test before sending an MDI command through
-`linuxcnc.command.mdi()` could be:
+`machinekit.command.mdi()` could be:
 
 [source,python]
 ---------------------------------------------------------------------
-import linuxcnc
-s = linuxcnc.stat()
-c = linuxcnc.command() 
+import machinekit
+s = machinekit.stat()
+c = machinekit.command() 
 
 def ok_for_mdi():
     s.poll()
-    return not s.estop and s.enabled and s.homed and (s.interp_state == linuxcnc.INTERP_IDLE)
+    return not s.estop and s.enabled and s.homed and (s.interp_state == machinekit.INTERP_IDLE)
 
 if ok_for_mdi():
-   c.mode(linuxcnc.MODE_MDI)   
+   c.mode(machinekit.MODE_MDI)   
    c.wait_complete() # wait until mode switch executed
    c.mdi("G0 X10 Y20 Z30")
 ---------------------------------------------------------------------
 
-==  Sending commands through `linuxcnc.command`
+==  Sending commands through `machinekit.command`
 
 Before sending a command, initialize a command channel like so:
 
 [source,python]
 ---------------------------------------------------------------------
-import linuxcnc
-c = linuxcnc.command() 
+import machinekit
+c = machinekit.command() 
 
 # Usage examples for some of the commands listed below:
 c.abort()
 
-c.auto(linuxcnc.AUTO_RUN, program_start_line)
-c.auto(linuxcnc.AUTO_STEP)
-c.auto(linuxcnc.AUTO_PAUSE)
-c.auto(linuxcnc.AUTO_RESUME)
+c.auto(machinekit.AUTO_RUN, program_start_line)
+c.auto(machinekit.AUTO_STEP)
+c.auto(machinekit.AUTO_PAUSE)
+c.auto(machinekit.AUTO_RESUME)
 
-c.brake(linuxcnc.BRAKE_ENGAGE)
-c.brake(linuxcnc.BRAKE_RELEASE)
+c.brake(machinekit.BRAKE_ENGAGE)
+c.brake(machinekit.BRAKE_RELEASE)
 
-c.flood(linuxcnc.FLOOD_ON)
-c.flood(linuxcnc.FLOOD_OFF)
+c.flood(machinekit.FLOOD_ON)
+c.flood(machinekit.FLOOD_OFF)
 
 c.home(2)
 
-c.jog(linuxcnc.JOG_STOP, axis) 
-c.jog(linuxcnc.JOG_CONTINUOUS, axis, speed) 
-c.jog(linuxcnc.JOG_INCREMENT, axis, speed, increment)
+c.jog(machinekit.JOG_STOP, axis) 
+c.jog(machinekit.JOG_CONTINUOUS, axis, speed) 
+c.jog(machinekit.JOG_INCREMENT, axis, speed, increment)
 
 c.load_tool_table()
 
@@ -508,12 +508,12 @@ c.maxvel(200.0)
 
 c.mdi("G0 X10 Y20 Z30")
 
-c.mist(linuxcnc.MIST_ON)
-c.mist(linuxcnc.MIST_OFF)
+c.mist(machinekit.MIST_ON)
+c.mist(machinekit.MIST_OFF)
 
-c.mode(linuxcnc.MODE_MDI)   
-c.mode(linuxcnc.MODE_AUTO)   
-c.mode(linuxcnc.MODE_MANUAL)   
+c.mode(machinekit.MODE_MDI)   
+c.mode(machinekit.MODE_AUTO)   
+c.mode(machinekit.MODE_MANUAL)   
 
 c.override_limits()
 
@@ -525,12 +525,12 @@ c.set_home_parameters(jointnum, home_pos, home_offset, home_final_velocity, home
 
 c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orientation)
 ---------------------------------------------------------------------
-=== `linuxcnc.command` attributes
+=== `machinekit.command` attributes
 
 `serial`::
 	the current command serial number
 
-=== `linuxcnc.command` methods:
+=== `machinekit.command` methods:
 
 `abort()`::
 	send EMC_TASK_ABORT message.
@@ -556,9 +556,9 @@ c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orie
 `jog(int, int, [, int[,int]])`::
 	Syntax: +
 	jog(command, axis[, velocity[, distance]]) +
-	jog(linuxcnc.JOG_STOP, axis) +
-	jog(linuxcnc.JOG_CONTINUOUS, axis, velocity) +
-	jog(linuxcnc.JOG_INCREMENT, axis, velocity, distance) +
+	jog(machinekit.JOG_STOP, axis) +
+	jog(machinekit.JOG_CONTINUOUS, axis, velocity) +
+	jog(machinekit.JOG_INCREMENT, axis, velocity, distance) +
 	Constants: +
 	JOG_STOP (0) +
 	JOG_CONTINUOUS (1) +
@@ -576,8 +576,8 @@ c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orie
 `mist(int)`:: turn on/off mist. +
 	Syntax: +
 	mist(command) +
-	mist(linuxcnc.MIST_ON) [(1)] +
-	mist(linuxcnc.MIST_OFF) [(0)] +
+	mist(machinekit.MIST_ON) [(1)] +
+	mist(machinekit.MIST_OFF) [(0)] +
 	Constants: +
 	MIST_ON (1) +
 	MIST_OFF (0)
@@ -675,14 +675,14 @@ one error channel reader task in a setup.
 
 [source,python]
 ---------------------------------------------------------------------
-import linuxcnc
-e = linuxcnc.error_channel()
+import machinekit
+e = machinekit.error_channel()
 
 error = e.poll()
 
 if error: 
     kind, text = error
-    if kind in (linuxcnc.NML_ERROR, linuxcnc.OPERATOR_ERROR):
+    if kind in (machinekit.NML_ERROR, machinekit.OPERATOR_ERROR):
         typus = "error"
     else:
         typus = "info"
@@ -693,7 +693,7 @@ if error:
 == Reading ini file values [[sec:Python-reading-ini-values]]
 
 Here's an example for reading values from an ini file through the
-`linuxcnc.ini` object:
+`machinekit.ini` object:
 
 [source,python]
 ---------------------------------------------------------------------
@@ -701,9 +701,9 @@ Here's an example for reading values from an ini file through the
 # python ini-example.py ~/emc2-dev/configs/sim/axis/axis_mm.ini
 
 import sys
-import linuxcnc
+import machinekit
 
-inifile = linuxcnc.ini(sys.argv[1])
+inifile = machinekit.ini(sys.argv[1])
 
 # inifile.find() returns None if the key wasnt found - the
 # following idiom is useful for setting a default value:
@@ -720,10 +720,10 @@ print "extensions: ", extensions
 # override default NML file by ini parameter if given
 nmlfile = inifile.find("EMC", "NML_FILE")
 if nmlfile:
-    linuxcnc.nmlfile = os.path.join(os.path.dirname(sys.argv[1]), nmlfile)
+    machinekit.nmlfile = os.path.join(os.path.dirname(sys.argv[1]), nmlfile)
 ---------------------------------------------------------------------
 
-== The `linuxcnc.positionlogger` type
+== The `machinekit.positionlogger` type
 
 Some usage hints can be gleaned from
 `src/emc/usr_intf/gremlin/gremlin.py`.

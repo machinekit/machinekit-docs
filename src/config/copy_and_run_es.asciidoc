@@ -1,17 +1,17 @@
-= Ejecutando LinuxCNC
+= Ejecutando Machinekit
 
-[[cha:running-emc]] (((Ejecutando LinuxCNC)))
+[[cha:running-emc]] (((Ejecutando Machinekit)))
 
-== invocación de LinuxCNC
+== invocación de Machinekit
 
-Después de la instalación, LinuxCNC comienza como cualquier otro programa de Linux:
+Después de la instalación, Machinekit comienza como cualquier otro programa de Linux:
 Ejecutándolo desde la terminal con el comando `emc`,
 O seleccionandolo en el menu de aplicaciones -> CNC menu.
 
 == Selector de configuración
 
 De manera determinada, el dialogo de seleccion de configuracion
-Se muestra cuando se ejecuta LinuxCNC por primera vez.
+Se muestra cuando se ejecuta Machinekit por primera vez.
 Las configuraciones personalizadas se muestran en la parte superior de la lista,
 Seguida de ejemplos de configuraciones.
 Devido a que cada ejemplo de configuraciones es para un tipo diferente de interface de hardware.
@@ -19,10 +19,10 @@ Casi ninguna funcionara sin el hardware espcifico instalado.
 Las configuraciones que están en la categoría  "sim" se ejecutan completamente
 Sin ningun hardware conectado.
 
-Figura <<cap:LinuxCNC-Configuration-Selector>> muestra la apariencia
+Figura <<cap:Machinekit-Configuration-Selector>> muestra la apariencia
 De ventana de selección de configuración.
 
-.LinuxCNC seleccion de configuración[[cap:LinuxCNC-Configuration-Selector]]
+.Machinekit seleccion de configuración[[cap:Machinekit-Configuration-Selector]]
 
 image::images/configuration-selector.png[]
 
@@ -31,7 +31,7 @@ para mostrar información específica al respecto.
 De doble click en una configuración o haga click en aceptar
 para ejecutar la configuración.
 Seleccione "crear acceso directo en el escritorio" y luego de click en aceptar
-para añadir un icono en el escritorio de Ubuntu
+para añadir un icono en el escritorio de Debian
 para iniciar directamente esta configuración
 sin mostrar la pantalla de selección de configuración.
 

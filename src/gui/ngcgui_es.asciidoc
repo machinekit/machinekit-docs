@@ -19,7 +19,7 @@ image::images/ngcgui.png[]
 
 == Overview
     
-* 'NGCGUI' is a utility for using LinuxCNC subroutines.
+* 'NGCGUI' is a utility for using Machinekit subroutines.
 * 'NGCGUI' can run as a standalone application or be embedded in
    multiple tab pages in the axis gui
 * Multiple copies of the same subroutine can be created
@@ -36,8 +36,8 @@ locations on the part. Any valid g-code can be used in the subroutine.
 == Demo Configs
 
 Three demo configurations are are located in the sim directory of the
-LinuxCNC configuration picker. The configuration picker is on the main menu
-Applications > CNC > LinuxCNC.
+Machinekit configuration picker. The configuration picker is on the main menu
+Applications > CNC > Machinekit.
 
 * 'ngcgui' - a comprehensive example that contains these subroutines
 ** 'simp' - a simple subroutine example that creates two circles
@@ -74,7 +74,7 @@ before running on a real machine.
 == Libraries
 
 The simulation configs for ngcgui use links to non-user-writable
-LinuxCNC libraries for:
+Machinekit libraries for:
 
 * 'ngcgui-compatible subfiles' - ngcgui_lib
 * 'Helper subroutines' - ngcgui_lib/utilitysubs
@@ -122,7 +122,7 @@ USER_M_PATH     = /home/myusername/mymfiles:../../../nc_files/ngcgui_lib/mfiles
 NGCGUI_SUBFILE = example.ngc
 ----
 
-LinuxCNC and ngcgui use the first file found when searching
+Machinekit and ngcgui use the first file found when searching
 directories in a search path.  With this behavior, you can
 supersede an ngcgui_lib subfile by placing a subfile with an
 identical name in a directory that is found earlier in the path
@@ -132,7 +132,7 @@ Integrators Manual.
 
 == Embedding NGCGUI in Axis
 
-Several NGCGUI examples are included with LinuxCNC and are located in the sim/ngcgui
+Several NGCGUI examples are included with Machinekit and are located in the sim/ngcgui
 directory.
 
 === INI File
@@ -381,7 +381,7 @@ Note:    Multiple options are separated by blanks.
 
 An NGCGUI-compatible subfile contains a single subroutine definition. The name
 of the subroutine must be the same as the filename (not including the .ngc
-suffix). LinuxCNC supports named or numbered subroutines, but only named
+suffix). Machinekit supports named or numbered subroutines, but only named
 subroutines are compatible with NGCGUI. For more information see the
 <<cha:O-Codes,O-Codes>> Chapter.
 
@@ -408,7 +408,7 @@ each of these parameters (no omissions).
 #<zparm> = #3
 ----
 
-LinuxCNC considers all numbered parameters in the range #1 thru #30 to be calling
+Machinekit considers all numbered parameters in the range #1 thru #30 to be calling
 parameters so ngcgui provides entry boxes for any occurence of parameters in
 this range. It is good practice to avoid use of numbered parameters #1 through
 #30 anywhere else in the subroutine. Using local, named parameters is
@@ -443,7 +443,7 @@ instead of the parameter name.
 Notes on global named parameters (#<_globalname>) and ngcgui:
 
 As in many programming languages, use of globals is powerful but can often lead
-to unexpected consequences. In LinuxCNC, existing global named parameters will be
+to unexpected consequences. In Machinekit, existing global named parameters will be
 valid at subroutine execution and subroutines can modify or create global named
 parameters.
 
@@ -521,11 +521,11 @@ image file examp.png. Ngcgui attempts to resize large images by subsampling
 to a size with maximum width of 320 and maximum height of 240 pixels. 
 
 None of the conventions required for making an ngcgui-compatible subfile
-preclude its use as general purpose subroutine file for LinuxCNC.
+preclude its use as general purpose subroutine file for Machinekit.
 
-The LinuxCNC distribution includes a library (ngcgui_lib directory) that
+The Machinekit distribution includes a library (ngcgui_lib directory) that
 includes both example ngcgui-compatible subfiles and utility files
-to illustrate the features of LinuxCNC subroutines and ngcgui usage.
+to illustrate the features of Machinekit subroutines and ngcgui usage.
 
 Additional user sumitted subroutines can be found on the Forum in the
 Subroutines Section.

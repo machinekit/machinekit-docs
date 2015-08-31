@@ -1,7 +1,7 @@
 :lang: fr
 :toc:
 
-= Tout le G-code de LinuxCNC
+= Tout le G-code de Machinekit
 
 [[cha:Le-G-code]] (((Le G-code)))
 
@@ -560,7 +560,7 @@ Sample NURBs Code
 
 image::images/nurbs01.png[]
 
-http://wiki.linuxcnc.org/cgi-bin/wiki.pl?NURBS[D'autres informations sont
+http://wiki.machinekit.org/cgi-bin/wiki.pl?NURBS[D'autres informations sont
 disponible ici, sur le wiki].
 
 [[sec:G7-Mode-diametre]]
@@ -929,7 +929,7 @@ l'axe Z si les points d'arrivée des axes X et Y sont utilisés, par exemple pou
 réaliser un filetage conique.
 
 .Informations techniques[[g33-tech-info]]
-Au début de chaque passe G33, LinuxCNC utilise la vitesse de broche et les
+Au début de chaque passe G33, Machinekit utilise la vitesse de broche et les
 limites d'accélération de la machine pour calculer combien de temps prendra Z
 pour accélérer après chaque impulsion d'index et détermine de combien de degrés
 la broche tournera pendant ce temps là. Il ajoute alors cet angle à la position
@@ -1045,7 +1045,7 @@ erreur en cas de défaut.
 
 [IMPORTANT]
 Cette commande n'est pas utilisable si la machine n'a pas été configurée pour
-exploiter un signal de sonde entre HAL et LinuxCNC.
+exploiter un signal de sonde entre HAL et Machinekit.
 Le signal de la sonde doit être envoyé sur une broche d'entrée puis transmis à
 'motion.probe-entrée (bit, In)'. G38.x utilise la valeur de cette broche pour
 déterminer quand la sonde a touché ou perdu le contact. TRUE si le contact de
@@ -1945,7 +1945,7 @@ C'est une erreur si:
 == G84 Cycle de taraudage à droite
 (((G84 Cycle de taraudage)))
 
-Ce code n'est pas encore implémenté dans LinuxCNC. Il est accepté mais son
+Ce code n'est pas encore implémenté dans Machinekit. Il est accepté mais son
 comportement n'est pas défini. Voir le <<sec:G33_1-Taraudage-rigide, taraudage
 rigide>>.
 
@@ -1994,14 +1994,14 @@ erreur si:
 == G87 Alésage inverse
 (((G87 Alésage inverse)))
 
-Ce code n'est pas encore implémenté dans LinuxCNC. Il est accepté mais son
+Ce code n'est pas encore implémenté dans Machinekit. Il est accepté mais son
 comportement n'est pas défini.
 
 [[sec:G88-Alesage-Retrait-Manuel-Out]]
 == G88 Alésage, arrêt de broche, retrait en manuel
 (((G88 Cycle d'alésage)))
 
-Ce code n'est pas encore implémenté dans LinuxCNC. Il est accepté mais son
+Ce code n'est pas encore implémenté dans Machinekit. Il est accepté mais son
 comportement n'est pas défini.
 
 [[sec:G89-Alesage-Tempo]]
@@ -2151,7 +2151,7 @@ C'est une erreur si:
 
 * Tous les mots d'axes sont omis.
 
-LinuxCNC conserve les décalages G92 et les réutilise au prochain démarrage
+Machinekit conserve les décalages G92 et les réutilise au prochain démarrage
 du logiciel. Pour éviter cela, programmer un 'G92.1' qui les effacera, ou
 un G92.2 qui supprimera les valeurs enregistrées.
 
@@ -2232,7 +2232,7 @@ si G20 est actif, ou 'S' mètres par minute, si G21 est actif. D- est facultatif
 +
 Lorsque 'G96' est utilisé, s'assurer que 'X0' dans le système de coordonnées
 en cours (y compris les compensations d'outils) est bien le centre de
-rotation, sinon LinuxCNC ne donnera pas la vitesse de broche désirée.
+rotation, sinon Machinekit ne donnera pas la vitesse de broche désirée.
 'G96' n'est pas affecté par les mode rayon ou diamètre.
 
 * 'G97' - Vitesse de coupe en tr/mn.

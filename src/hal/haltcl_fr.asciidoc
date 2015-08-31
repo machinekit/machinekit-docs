@@ -15,7 +15,7 @@ pour les calculs, les boucles, les branchements, les procédures, etc dans les
 fichiers ini. Pour utiliser cette fonctionnalité, il est nécessaire d'utiliser
 le langage TCL ainsi que l'extension .tcl pour les fichiers de HAL.
 
-L'extension .tcl est comprise par le script principal (linuxcnc) qui traite
+L'extension .tcl est comprise par le script principal (machinekit) qui traite
 les fichiers ini. Les fichiers haltcl sont identifiés dans la section [HAL]
 des fichiers ini (comme les fichiers .hal).
 
@@ -37,7 +37,7 @@ sous-ensemble du puissant et polyvalent langage de script Tcl.
 == Commandes haltcl
 
 Les fichiers haltcl utilisent le langage de script Tcl, auquel s'ajoutent
-les commandes spécifiques de la couche d'abstraction matériel de LinuxCNC (HAL).
+les commandes spécifiques de la couche d'abstraction matériel de Machinekit (HAL).
 Les commandes spécifiques sont les suivantes:
 ....
 addf, alias,
@@ -70,7 +70,7 @@ list     hal list
 Les variables du fichier ini sont accessibles par halcmd comme par haltcl
 mais avec une syntaxe différente.
 
-Les fichiers ini de LinuxCNC utilisent des spécificateurs _SECTION_ et _ITEM_
+Les fichiers ini de Machinekit utilisent des spécificateurs _SECTION_ et _ITEM_
 pour identifier les items de configuration:
 
 ----

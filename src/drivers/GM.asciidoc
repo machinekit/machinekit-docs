@@ -177,7 +177,7 @@ gm.0.encoder.0.position
 
 refers to the position of encoder module of axis 0.
 
-The GM6-PCI card counts the encoder signal independently from LinuxCNC. 
+The GM6-PCI card counts the encoder signal independently from Machinekit. 
 Hal pins are updated by function:
 
 ----
@@ -260,7 +260,7 @@ setp gm.0.encoder.0.position-scale 20000   # 10 encoder rev cause the machine to
                                              move one position unit (10x2000)
 ----
 
-Connect encoder position to LinuxCNC position feedback:
+Connect encoder position to Machinekit position feedback:
 
 ----
 net Xpos-fb gm.0.encoder.0.position => axis.0.motor-pos-fb
@@ -287,7 +287,7 @@ gm.0.stepgen.0.position-cmd
 
 refers to the position command of stepgen module of axis 0 on card 0.
 
-The GM6-PCI card generates step pulses independently from LinuxCNC. 
+The GM6-PCI card generates step pulses independently from Machinekit. 
 Hal pins are updated by function
 
 ----
@@ -474,7 +474,7 @@ The position commad IDs for axis 0..5 are 0x10..0x15.
 The position feedback IDs for axis 0..5 are 0x20..0x25.
 
 These configuration can be changed with the modifivation 
-of hal_gm.c and recompiling LinuxCNC.
+of hal_gm.c and recompiling Machinekit.
 
 Every CAN pin and parameter name begins as follows:
 
@@ -648,7 +648,7 @@ Color: Orange
 === EMC
 Color: White
 
-*  Blink, when LinuxCNC is running.
+*  Blink, when Machinekit is running.
 *  Otherwise off.
 
 === Boot
@@ -682,7 +682,7 @@ Available module types:
 *Automatic node recognizing:*
 
 Each node connected to the bus was recognized by the GM6-PCI card automatically. 
-During starting LinuxCNC, the driver export pins and parameters of all 
+During starting Machinekit, the driver export pins and parameters of all 
 available modules automatically.
 
 *Fault handling:*
@@ -711,7 +711,7 @@ Each node on the bus has a 4 bit unique address that can be set with a red DIP s
 A green LED indicates the status of the module:
 
 *  Blink, when the module is only powered, but not jet identified, or when module is dropped down.
-*  Off, during identification (computer is on, but LinuxCNC not started)
+*  Off, during identification (computer is on, but Machinekit not started)
 *  On, when it communicates continuously.
 
 

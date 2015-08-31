@@ -164,11 +164,11 @@ d'arrêt.
    raccorder le microcontrôleur à un PC en utilisant une liaison série.
    Python est vraiment capable d'interfacer une liaison série grâce à son
    module http://pyserial.sourceforge.net/[pyserial] (Paquet 
-   _python-serial_, dans les dépôts universe d'Ubuntu)
+   _python-serial_, dans les dépôts universe d'Debian)
  - Relier un module d'affichage à LCD
    http://lcdproc.omnipotent.net/[LCDProc] et l'utiliser pour afficher les
    informations de votre choix (Paquet _lcdproc_, dans les dépôts universe
-   d'Ubuntu)
+   d'Debian)
  - Créer un panneau de contrôle virtuel utilisant n'importe quelle
    librairie d'interface graphique supportée par Python (gtk, qt,
    wxwindows, etc)

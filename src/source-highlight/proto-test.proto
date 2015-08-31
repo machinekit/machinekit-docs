@@ -5,7 +5,7 @@ import "value.proto";
 
 package pb;
 
-// describes a RTAPI/HAL/LinuxCNC instance
+// describes a RTAPI/HAL/Machinekit instance
 message Instance {
     optional string        name     = 30; //  [(nanopb).max_size = 41];
     optional sfixed32        id       = 40;

@@ -71,7 +71,7 @@ prochaine étape.
 
 === Choisir la valeur de BASE_PERIOD
 
-BASE_PERIOD est l'horloge de votre LinuxCNC. A chaque période, le
+BASE_PERIOD est l'horloge de votre Machinekit. A chaque période, le
 générateur d'impulsions de pas décide si il est temps pour une autre
 impulsion. Une période plus courte vous permettra de générer plus
 d'impulsions par seconde, dans les limites. Mais si vous la réglez trop
@@ -136,7 +136,7 @@ Mais ne commencez pas à célébrer celà. Notez que 13µs est une période
 très courte. Si vous essayez d'exécuter le générateur de pas toutes les
 13µs, il ne restera peut-être pas assez de temps pour faire autre chose
 et votre ordinateur se bloquera. Si vous visez des périodes de moins de
-25µs, vous devez commencer à 25µs ou plus, lancer LinuxCNC et voir comment
+25µs, vous devez commencer à 25µs ou plus, lancer Machinekit et voir comment
 les choses réagissent. Si tout va bien, vous pouvez réduire
 progressivement la période. Si le pointeur de la souris commence à être
 sacadé et que le reste du PC ralentit, votre période est un peu trop
@@ -168,7 +168,7 @@ que nous puissions faire. Mais la Gecko peut être ameliorées.
 
 Le problème avec le G202 est le temps de maintien demandé de 20µs. Ca
 plus la latence de 11µs nous oblige à utiliser une période longue de
-31µs. Mais le générateur de pas logiciel de LinuxCNC a un certain nombre de
+31µs. Mais le générateur de pas logiciel de Machinekit a un certain nombre de
 paramètres qui permettent d'augmenter les différentes durées d'une
 période à plusieurs autres. Par exemple, si _steplen_ passe de 1 à 2,
 alors il y aura deux périodes entre le début et la fin de l'impulsion.
@@ -215,7 +215,7 @@ dont les moteurs ont besoin.
 
 Pour rendre le calcul plus facile, j'ai créé une feuille de calcul
 Open Office: 
-http://wiki.linuxcnc.org/uploads/StepTimingCalculator.ods[Step Timing Calculator (en) - Calculatrice Calendrier étape (fr)].
+http://wiki.machinekit.org/uploads/StepTimingCalculator.ods[Step Timing Calculator (en) - Calculatrice Calendrier étape (fr)].
 Vous entrez les résultats du test de latence et les timing de votre
 carte de pilotage et la feuille calcule la meilleure BASE_PERIOD.
 Ensuite, vous testez la période pour vous assurer que votre PC ne sera

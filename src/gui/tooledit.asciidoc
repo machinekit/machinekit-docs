@@ -13,9 +13,9 @@ image::images/tooledit.png[align="center",width=640]
 The 'tooledit' program can update the tool table file with
 edited changes by using the SaveFile button.  The SaveFile button
 updates the system file but a separate action is required to
-update the tool table data used by a running LinuxCNC instance.
+update the tool table data used by a running Machinekit instance.
 With the axis GUI, both the file and the current tool table data
-used by LinuxCNC can be updated with the ReloadTable button.
+used by Machinekit can be updated with the ReloadTable button.
 This button is enabled only when the machine is ON and IDLE.
 
 == Column Sorting
@@ -26,7 +26,7 @@ is configured with the default tcl version >= 8.5.
 
 image::images/tooledit-sort.png[align="center"]
 
-On Ubuntu Lucid 10.04 tcl/tk8.4 is the default.  You can add tcl/tk8.5 with
+On Debian Lucid 10.04 tcl/tk8.4 is the default.  You can add tcl/tk8.5 with
 the commands:
 ----
 sudo apt-get install tcl8.5 tk8.5
@@ -72,11 +72,11 @@ tooledit filename
 tooledit [column_1 ... column_n] filename
 ----
 
-To synchronize a standalone 'tooledit' with a running LinuxCNC
+To synchronize a standalone 'tooledit' with a running Machinekit
 application, the filename must resolve to the same [EMCIO]TOOL_TABLE
-filename specified in the LinuxCNC ini file.
+filename specified in the Machinekit ini file.
 
-When using the program 'tooledit' while LinuxCNC is running,
+When using the program 'tooledit' while Machinekit is running,
 gcode command execution or other programs may alter tool table
 data and the tool table file.  File changes are detected by
 'tooledit' and a message is displayed:

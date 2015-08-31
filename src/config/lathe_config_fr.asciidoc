@@ -7,7 +7,7 @@
 
 == Plan par défaut
 
-Quand l'interpréteur de LinuxCNC à été créé, il à été écrit pour les
+Quand l'interpréteur de Machinekit à été créé, il à été écrit pour les
 fraiseuses. C'est pourquoi le plan par défaut est le plan XY (G17). Sur
 un tour standard on utilise seulement les axes du plan XZ (G18). Pour
 changer le plan par défaut d'un tour, mettez la ligne suivante dans la

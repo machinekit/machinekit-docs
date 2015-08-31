@@ -10,21 +10,21 @@ Manuel de l'intégrateur V{lversion}, {localdate}
 
 image::common/images/emc2-intro.png[]
 
-The LinuxCNC Team
+The Machinekit Team
 
 include::common/overleaf_fr.asciidoc[]
 
 include::common/outdated-notice_fr.asciidoc[]
 include::common/Integrator_Concepts_fr.asciidoc[]
 :leveloffset: 0
-= Configuration de LinuxCNC
+= Configuration de Machinekit
 :leveloffset: 1
 include::install/Latency_Test_fr.asciidoc[]
 include::config/ini_config_fr.asciidoc[]
 include::config/ini_homing_fr.asciidoc[]
 include::config/lathe_config_fr.asciidoc[]
 include::hal/haltcl_fr.asciidoc[]
-include::config/linuxcnc2hal_fr.asciidoc[]
+include::config/machinekit2hal_fr.asciidoc[]
 include::config/stepper_fr.asciidoc[]
 :leveloffset: 0
 = Interfaces graphiques utilisateur

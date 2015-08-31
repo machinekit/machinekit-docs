@@ -194,7 +194,7 @@ Après un changement de réglage, relancer Halscope pour visualiser l'effet.
 
 Pour terminer, taper _exit_ dans le terminal pour fermer halrun et halscope. 
 Ne pas refermer le terminal avec halrun en marche, la mémoire ne serait pas
-vidée proprement, ce qui pourrait empêcher LinuxCNC de se charger.
+vidée proprement, ce qui pourrait empêcher Machinekit de se charger.
 
 Pour tout savoir sur Halscope et Halrun <<sec:Intro-tutoriel, voir le
 tutoriel de HAL>>.

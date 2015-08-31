@@ -1,27 +1,27 @@
-= Contributing to LinuxCNC
+= Contributing to Machinekit
 
 
 == Introduction
 
-This document contains information for developers about LinuxCNC
+This document contains information for developers about Machinekit
 infrastructure, and describes the best practices for contributing code
-and documentation updates to the LinuxCNC project.
+and documentation updates to the Machinekit project.
 
 Throughout this document, "source" means both the source code to the
 programs and libraries, and the source text for the documentation.
 
 
-== Communication among LinuxCNC developers
+== Communication among Machinekit developers
 
 The two main ways that project developers communicate with each other are:
 
-* Via IRC, at #linuxcnc-devel on FreeNode.
+* Via IRC, at #machinekit-devel on FreeNode.
 
 * Via email, on the developers' mailing list:
   https://lists.sourceforge.net/lists/listinfo/emc-developers
 
 
-== The LinuxCNC Source Forge project
+== The Machinekit Source Forge project
 
 We use Source Forge for mailing lists and bug tracking.
 
@@ -32,32 +32,32 @@ Our SF bug tracker is here: http://sourceforge.net/p/emc/bugs/
 
 == The git Revision Control System
 
-All of the LinuxCNC source is maintained in the revision control system
+All of the Machinekit source is maintained in the revision control system
 git footnote:[http://git-scm.com/].
 
-=== LinuxCNC official git repo
+=== Machinekit official git repo
 
-The official LinuxCNC git repo is at http://git.linuxcnc.org.
+The official Machinekit git repo is at http://git.machinekit.org.
 
 The anonymous clone command is:
 
-`git clone git://git.linuxcnc.org/git/linuxcnc.git linuxcnc-dev`
+`git clone git://git.machinekit.org/git/machinekit.git machinekit-dev`
 
 If you are a registered developer with push access, the ssh clone
 command is:
 
-`git clone ssh://$YOU@git.linuxcnc.org/git/linuxcnc.git linuxcnc-dev`
+`git clone ssh://$YOU@git.machinekit.org/git/machinekit.git machinekit-dev`
 
-Note that both the clone commands put the local LinuxCNC repo in a
-directory called `linuxcnc-dev`, instead of the default `linuxcnc`.
-This is because the LinuxCNC software by default expects configs and
-G-code programs in a directory called `$HOME/linuxcnc`, and having the
+Note that both the clone commands put the local Machinekit repo in a
+directory called `machinekit-dev`, instead of the default `machinekit`.
+This is because the Machinekit software by default expects configs and
+G-code programs in a directory called `$HOME/machinekit`, and having the
 git repo there too is confusing.
 
-=== LinuxCNC on github
+=== Machinekit on github
 
 There is a regularly updated git clone on github:
-https://github.com/jepler/linuxcnc-mirror
+https://github.com/jepler/machinekit-mirror
 
 === git tutorials
 
@@ -110,7 +110,7 @@ like this:
 * Champion your patch
 
 ** Explain what problem it addresses and why it should be included
-   in LinuxCNC
+   in Machinekit
 
 ** Be receptive to questions and feedback from the developer community.
 
@@ -120,7 +120,7 @@ like this:
 
 == git configuration
 
-In order to be considered for inclusion in the LinuxCNC source, commits
+In order to be considered for inclusion in the Machinekit source, commits
 must have correct Author fields identifying the author of the commit.
 A good way to ensure this is to set your global git config:
 
@@ -222,7 +222,7 @@ There's an automatic way to check a branch for each commit being buildable
 Use as follows (in this case testing every commit from origin/master to
 HEAD, including running regression tests):
 
-`cd linuxcnc-dev`
+`cd machinekit-dev`
 
 `git-test-sequence origin/master..  '(cd src;make;runtests)'`
 
@@ -246,7 +246,7 @@ central repository.
 
 == Other ways to contribute
 
-There are many ways  to contribute to LinuxCNC, that are not addressed
+There are many ways  to contribute to Machinekit, that are not addressed
 by this document.  These ways include:
 
 * Answering questions on the forum, mailing lists, and in IRC

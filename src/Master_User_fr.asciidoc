@@ -10,7 +10,7 @@ Manuel de l'utilisateur V{lversion}, {localdate}
 
 image::common/images/emc2-intro.*[]
 
-The LinuxCNC Team
+The Machinekit Team
 
 include::common/overleaf_fr.asciidoc[]
 
@@ -23,12 +23,12 @@ include::common/user_intro_fr.asciidoc[]
 include::gui/axis_fr.asciidoc[]
 include::gui/ngcgui_fr.asciidoc[]
 include::gui/touchy_fr.asciidoc[]
-include::gui/tklinuxcnc_fr.asciidoc[]
+include::gui/tkmachinekit_fr.asciidoc[]
 include::gui/mini_fr.asciidoc[]
 include::gui/keystick_fr.asciidoc[]
 :leveloffset: 0
 
-= L'utilisation de LinuxCNC
+= L'utilisation de Machinekit
 :leveloffset: 1
 include::common/User_Concepts_fr.asciidoc[]
 include::gcode/machining_center_fr.asciidoc[]

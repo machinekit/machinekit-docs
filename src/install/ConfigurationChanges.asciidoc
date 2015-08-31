@@ -1,6 +1,6 @@
-= LinuxCNC Build Configuration changes
+= Machinekit Build Configuration changes
 
-[[cha:build-config]] (((LinuxCNC Build Configuration changes)))
+[[cha:build-config]] (((Machinekit Build Configuration changes)))
 
 :ini: {basebackend@docbook:'':ini}
 :hal: {basebackend@docbook:'':hal}
@@ -11,9 +11,9 @@
 //[source,{ngc}]
 
 
-== Rationale for reworking the LinuxCNC configuration options
+== Rationale for reworking the Machinekit configuration options
 
-Up to now configuration options for LinuxCNC regarding 'real time
+Up to now configuration options for Machinekit regarding 'real time
 environments' are:
 
 --enable-simulator:: - userland threads, HAL components are `.so` dynamic shared objects, 
@@ -38,7 +38,7 @@ These two platforms provide new options:
 * With RT_PREEMPT, the current 'simulator process' (rtapi_app) becomes
   'realtime fortified' (locking down memory, setting scheduling priorities etc) but otherwise remains a user process; see for instance the current hardened rtapi_app for rt-preempt:  http://git.mah.priv.at/gitweb/emc2-dev.git/blob/6640ed5d6ef20c582bf515a7ac7eb527ce486e19:/src/rtapi/linux_rtapi_app.cc
 
-* while the option so far has not explored in the context of LinuxCNC, it seems entirely reasonable to employ normal Linux kernel threads for RTAPI functions; this has been done in the past, for instance with KHTTPD (in-kernel HTTP server to improve performance), and would be an interesting route to explore with RT_PREEMPT.
+* while the option so far has not explored in the context of Machinekit, it seems entirely reasonable to employ normal Linux kernel threads for RTAPI functions; this has been done in the past, for instance with KHTTPD (in-kernel HTTP server to improve performance), and would be an interesting route to explore with RT_PREEMPT.
 
 * with Xenomai, both paradigms are possible: kernel RT threads and kernel modules,  as well as userland RT threads and .so shared object modules
 

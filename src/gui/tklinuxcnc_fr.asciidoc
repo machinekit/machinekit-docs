@@ -1,42 +1,42 @@
 :lang: fr
 :toc:
 
-= L'interface graphique TkLinuxCNC
+= L'interface graphique TkLinuxcnc
 
-[[cha:TkLinuxCNC]] (((TkLinuxCNC)))
+[[cha:TkLinuxcnc]] (((TkLinuxcnc)))
 
 == Introduction
 
-TkLinuxCNC(((tklinuxcnc))) est l'interface utilisateur graphique la plus
-populaire après Axis, c'est l'interface traditionnelle de LinuxCNC. Elle est
+TkLinuxcnc(((tklinuxcnc))) est l'interface utilisateur graphique la plus
+populaire après Axis, c'est l'interface traditionnelle de Machinekit. Elle est
 écrite en Tcl(((Tcl))) et utilise le toolkit Tk(((Tk))) pour
 l'affichage. Le fait d'être écrite en TCL la rend vraiment très
 portable (elle fonctionne sur une multitude de plateformes).
 
-[[cap:affichage-TkLinuxCNC]]
-.L'affichage de TkLinuxCNC
+[[cap:affichage-TkLinuxcnc]]
+.L'affichage de TkLinuxcnc
 
 image::images/tklinuxcnc_fr.png[]
 
-== Utiliser TkLinuxCNC
+== Utiliser TkLinuxcnc
 
-Pour sélectionner l'interface graphique TkLinuxCNC avec LinuxCNC, éditer le
+Pour sélectionner l'interface graphique TkLinuxcnc avec Machinekit, éditer le
 fichier .ini et dans la section [DISPLAY] modifier l'affichage comme
 ci-dessous:
 ----
 DISPLAY = tklinuxcnc
 ----
 
-Puis, lancer LinuxCNC et choisir ce fichier ini. La configuration qui se
-trouve dans _sim/tklinuxcnc/tklinuxcnc.ini_ est déjà configurée pour utiliser TkLinuxCNC
+Puis, lancer Machinekit et choisir ce fichier ini. La configuration qui se
+trouve dans _sim/tklinuxcnc/tklinuxcnc.ini_ est déjà configurée pour utiliser TkLinuxcnc
 comme interface utilisateur.
 
-Quand LinuxCNC est lancé avec TkLinuxCNC, une fenêtre 
-<<cap:affichage-TkLinuxCNC,comme celle-ci s'affiche>>.
+Quand Machinekit est lancé avec TkLinuxcnc, une fenêtre 
+<<cap:affichage-TkLinuxcnc,comme celle-ci s'affiche>>.
 
-=== Une session typique avec TkLinuxCNC
+=== Une session typique avec TkLinuxcnc
 
- . Lancer LinuxCNC et sélectionner un fichier de configuration.
+ . Lancer Machinekit et sélectionner un fichier de configuration.
  . Libérer l'_Arrêt d'Urgence_(((A/U))) et mettre la machine en marche
    (en pressant F1 puis F2).
  . Faire l'_Origine(((Origine Machine))) Machine_ de chacun des axes.
@@ -48,11 +48,11 @@ Quand LinuxCNC est lancé avec TkLinuxCNC, une fenêtre
  . Lancer le programme.
  . Pour refaire une autre pièce identique, reprendre à l'étape 6. Pour
    usiner une pièce différente, reprendre à l'étape 4. Quand c'est
-   terminé, quitter LinuxCNC.
+   terminé, quitter Machinekit.
 
-== Éléments affichés par TkLinuxCNC
+== Éléments affichés par TkLinuxcnc
 
-La fenêtre TkLinuxCNC contient les éléments suivants:
+La fenêtre TkLinuxcnc contient les éléments suivants:
 
  - Une barre de menu permettant diverses actions;
  - Un jeu de boutons permettant d'agir sur le mode de travail,
@@ -100,7 +100,7 @@ offsets de travail (ajustables par un clic droit sur les coordonnées).
 La partie principale affiche la position courante de l'outil. La
 couleur varie selon l'état de l'axe. Si l'axe n'est pas référencé il
 est affiché en caractères jaunes. Si il est référencé il s'affiche en
-vert. Si il est en erreur, TkLinuxCNC l'affiche en rouge pour montrer un
+vert. Si il est en erreur, TkLinuxcnc l'affiche en rouge pour montrer un
 défaut. (par exemple si un contact de fin de course est activé).
 
 Pour interpréter correctement les différentes valeurs, se référer aux
@@ -132,14 +132,14 @@ menu _Vues → Parcours d'outil_.
 
 === Contrôle en automatique
 
-[[cap:TkLinuxCNC-Interpreteur]]
-.Interpréteur de TkLinuxCNC
+[[cap:TkLinuxcnc-Interpreteur]]
+.Interpréteur de TkLinuxcnc
 
 image::images/tklinuxcnc_interp_fr.png[]
 
 ==== Boutons de contrôle
 
-Les boutons de contrôle de la partie inférieure de TkLinuxCNC, visibles sur
+Les boutons de contrôle de la partie inférieure de TkLinuxcnc, visibles sur
 l'image ci-dessus, sont utilisés pour l'exécution du
 programme:
 
@@ -163,7 +163,7 @@ montrer la ligne courante.
 
 ==== Touches implicites
 
-TkLinuxCNC permet les déplacements manuels de la machine. Cette action
+TkLinuxcnc permet les déplacements manuels de la machine. Cette action
 s'appelle le _jog_. Premièrement, sélectionner l'axe à déplacer en
 cliquant dessus. Puis, cliquer et maintenir les boutons *+* ou *-*
 selon la direction du mouvement souhaité. Les quatre premiers axes
@@ -257,7 +257,7 @@ cliquable. Un clic ouvre un dialogue permettant d'entrer un nombre.
 
 == Raccourcis clavier
 
-La plupart des actions de TkLinuxCNC peuvent être accomplies au clavier.
+La plupart des actions de TkLinuxcnc peuvent être accomplies au clavier.
 Beaucoup des raccourcis clavier ne sont pas accessibles en mode MDI.
 
 Les raccourcis clavier les plus fréquemment utilisés sont montrés dans

@@ -1,5 +1,5 @@
 
-= Extending LinuxCNC
+= Extending Machinekit
 
 :ini: {basebackend@docbook:'':ini}
 :hal: {basebackend@docbook:'':hal}
@@ -32,10 +32,10 @@ requires resorting to changes at the 'C/C\+\+' language level. The latter
 is unpopular for good reasons - changing internals requires in-depth
 understanding of interpreter internals, and moreover brings its own
 set of support issues. While it is conceivable that certain patches
-might make their way into the main LinuxCNC distribution, the result of
+might make their way into the main Machinekit distribution, the result of
 this approach is a hodge-podge of special-case solutions.
 
-A good example for this deficiency is tool change support in LinuxCNC:
+A good example for this deficiency is tool change support in Machinekit:
 while random toolchangers are well supported, it is next to impossible
 to reasonably define a configuration for a manual-toolchange machine
 with, for example, an automatic tool length offset switch being
@@ -107,11 +107,11 @@ somewhat cumbersome RS274NGC language at all.
 ==== A Word on Embedded Python
 
 Many people are familiar with 'extending' the Python interpreter by
-'C/C\+\+' modules, and this is heavily used in LinuxCNC to access Task,
+'C/C\+\+' modules, and this is heavily used in Machinekit to access Task,
 HAL and and Interpreter internals from Python scripts. 'Extending
 Python' basically means: your Python script executes as 'it is in the
 driver seat', and may access non-Python code by importing and using
-extension modules written in 'C/C\+\+'. Examples for this are the LinuxCNC
+extension modules written in 'C/C\+\+'. Examples for this are the Machinekit
 `hal`, `gcode` and `emc` modules.
 
 Embedded Python is a bit different and and less commonly known: The
@@ -607,7 +607,7 @@ file is `/home/user/xxx/xxx.ini`, execute the following commands.
 $ cd /home/user/xxx
 $ mkdir python
 $ cd python
-$ cp /usr/share/linuxcnc/examples/sample-configs/sim/remap/python-stdglue/stdglue.py .
+$ cp /usr/share/machinekit/examples/sample-configs/sim/remap/python-stdglue/stdglue.py .
 $ echo 'from stdglue import *' >remap.py
 $ echo 'import remap' >toplevel.py
 ---------------------------------------------------------------------
@@ -621,13 +621,13 @@ TOPLEVEL=/home/user/xxx/python/toplevel.py
 APPEND=/home/user/xxx/python
 ---------------------------------------------------------------------
 
-Now verify that LinuxCNC comes up with no error messages - from a
+Now verify that Machinekit comes up with no error messages - from a
 terminal window execute:
 
 [source,sh]
 ---------------------------------------------------------------------
 $ cd /home/user/xxx
-$ linuxcnc xxx.ini
+$ machinekit xxx.ini
 ---------------------------------------------------------------------
 
 
@@ -635,7 +635,7 @@ $ linuxcnc xxx.ini
 
 === Overview
 
-If you are unfamiliar with LinuxCNC internals, first read the
+If you are unfamiliar with Machinekit internals, first read the
 <<remap::how-toolchange-currently-works, How toolchange currently
 works>> section (dire but necessary).
 
@@ -1233,7 +1233,7 @@ configured, and hence has its own section `PYTHON` in the ini file.
 
 For ad-hoc execution of commands the Python 'hot comment' has been
 added. Python output by default goes to stdout, so you need to start
-LinuxCNC from a terminal window to see results. Example (eg. in the
+Machinekit from a terminal window to see results. Example (eg. in the
 MDI window):
 
   ;py,print 2*3
@@ -1889,8 +1889,8 @@ The following flags are relevant for remapping and Python - related execution:
  EMC_DEBUG_PYTHON            0x00008000  calls to the Python plugin
  EMC_DEBUG_NAMEDPARAM        0x00010000  trace named parameter access
  EMC_DEBUG_PYTHON_TASK       0x00040000  trace the task Python plugin
- EMC_DEBUG_USER1             0x10000000  user-defined - not interpreted by LinuxCNC
- EMC_DEBUG_USER2             0x20000000  user-defined - not interpreted by LinuxCNC
+ EMC_DEBUG_USER1             0x10000000  user-defined - not interpreted by Machinekit
+ EMC_DEBUG_USER2             0x20000000  user-defined - not interpreted by Machinekit
 
 'or' these flags into the `[EMC]DEBUG` variable as needed. For a current
 list of debug flags see 'src/emc/nml_intf/debugflags.h'.
@@ -1907,11 +1907,11 @@ feature].
 
 To use this approach:
 
-- install Eclipse via the the 'Ubuntu Software Center' (choose first
+- install Eclipse via the the 'Debian Software Center' (choose first
 selection)
 - install the PyDev plugin from the
 http://pydev.org/updates[Pydev Update Site]
-- setup the LinuxCNC source tree as an Eclipse project
+- setup the Machinekit source tree as an Eclipse project
 - start the Pydev Debug Server in Eclipse
 - make sure the embedded Python code can find the `pydevd.py` module
 which comes with that plugin - it's buried somewhere deep under the
@@ -1996,7 +1996,7 @@ Note that the use of M61 currently requires the use of iocontrol-v2.
 
 === Currently unallocated G-codes: [[remap:unallocated-g-codes]]
 
-These codes are currently undefined in the current implementation of LinuxCNC
+These codes are currently undefined in the current implementation of Machinekit
 and may be used to define new G-codes:
 
 FIXTHIS too verbose
@@ -2104,7 +2104,7 @@ G99.1 G99.2 G99.3 G99.4 G99.5 G99.6 G99.7 G99.8 G99.9
 
 === Currently unallocated M-codes: [[remap:unallocated-m-codes]]
 
-These codes are currently undefined in the current implementation of LinuxCNC
+These codes are currently undefined in the current implementation of Machinekit
 and may be used to define new M-codes:
 
  M10
@@ -2149,7 +2149,7 @@ foo
 
 // setup examples
 
-== A short survey of LinuxCNC program execution
+== A short survey of Machinekit program execution
 To understand remapping of codes it might be helpful to survey the
 execution  of task and interpreter as far as it relates to remapping.
 
@@ -2176,7 +2176,7 @@ Most of this state is aggregated in a - fairly unsystematic -
 
 === Task and Interpreter interaction, Queueing and Read-Ahead
 
-The task part of LinuxCNC is responsible for coordinating actual machine
+The task part of Machinekit is responsible for coordinating actual machine
 commands - movement, HAL interactions and so forth. It does not by
 itself handle the RS274NGC language. To do so, task calls upon the
 interpreter to parse and execute the next command - either from MDI or
@@ -2185,7 +2185,7 @@ the current file.
 The interpreter execution generates canonical machine operations, which
 actually move something. These are, however, not immediately executed but
 put on a queue. The actual execution of these codes happens in the task
-part of LinuxCNC: canon commands are pulled off that interpreter queue,
+part of Machinekit: canon commands are pulled off that interpreter queue,
 and executed resulting in actual machine movements.
 
 This means that typically the interpreter is far ahead of the actual
@@ -2325,7 +2325,7 @@ parsing and execution as long as there is still a procedure executing
 (call_level > 0).
 
 === How toolchange currently works [[remap::how-toolchange-currently-works]]
-The actions happening in LinuxCNC are a bit involved, but it's necessary
+The actions happening in Machinekit are a bit involved, but it's necessary
 to get the overall idea what currently happens before you set out to
 adapt those workings to your own needs.
 
@@ -2366,7 +2366,7 @@ To see fields in the global emcStatus structure, try this:
  ;py,print emcstat.io.tool.toolInSpindle
  ;py,print emcstat.io.tool.toolTable[0]
 
-You need to have LinuxCNC started from a terminal window to see the
+You need to have Machinekit started from a terminal window to see the
 results.
 
 === How Tx (Prepare Tool) works
@@ -2384,7 +2384,7 @@ variable for later, and  queues a canon command
 
 When task gets around to handle a SELECT_POCKET, it sends a
 EMC_TOOL_PREPARE message to the iocontrol process, which handles most
-tool-related actions in LinuxCNC.
+tool-related actions in Machinekit.
 
 In the current implementation, task actually waits for iocontrol to
 complete the changer positioning operation, which is not necessary IMO
@@ -2630,7 +2630,7 @@ changing a Python file.
 . M61 (remapped or not) is broken in iocontrol and requires
 iocontrol-v2 to actually work.
 
-// A short survey of LinuxCNC execution
+// A short survey of Machinekit execution
 // Interpreter internals access - Python view
 // Task internals access - Python view
 

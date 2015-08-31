@@ -6,30 +6,6 @@ These are some basic Linux commands and techniques for new to Linux
 users. More complete information can be found on the web or by using
 the man pages.
 
-== Automatic Login (((Automatic Login)))
-
-When you install LinuxCNC with the Ubuntu LiveCD the default is to have to
-log in each time you turn the computer on. To enable automatic login go
-to 'System > Administration > Login Window'. If it is a fresh install the
-Login Window might take a second or three to pop up. You will have to
-have your password that you used for the install to gain access to the
-Login Window Preferences window. In the Security tab check off Enable
-Automatic Login and pick a user name from the list (that would be you).
-
-== Automatic Startup (((Automatic Startup)))
-
-To have LinuxCNC start automatically with your config after turning on the
-computer go to 'System > Preferences > Sessions > Startup Applications',
-click Add. Browse to your config and select the .ini file. When the file
-picker dialog closes, add emc and a space in front of the path to your
-.ini file.
-
-Example:
-
-----
-emc /home/mill/emc2/config/mill/mill.ini
-----
-
 == Man Pages[[sec:Man-Pages]]
 
 (((Man Pages)))
@@ -104,7 +80,7 @@ Open the file with File > Open > Edit
 
 === Root Access
 
-In Ubuntu you can become root by typing in "sudo -i" in a terminal
+In Debian you can become root by typing in "sudo -i" in a terminal
 window then typing in your password. Be careful, because you can really 
 foul things up as root if you don't know what you're doing. 
 
@@ -188,7 +164,7 @@ And pwd might return the following result:
 With this information put the command together like this:
 
 ----
-find /home/joe/linuxcnc -name \*.ini -print
+find /home/joe/machinekit -name \*.ini -print
 ----
 
 The -name is the name of the file your looking for and the -print
@@ -233,8 +209,8 @@ To clear the message buffer type this:
 sudo dmesg -c
 ----
 
-This can be helpful to do just before launching LinuxCNC, so that there will
-only be a record of information related to the current launch of LinuxCNC.
+This can be helpful to do just before launching Machinekit, so that there will
+only be a record of information related to the current launch of Machinekit.
 
 To find the built in parallel port address use grep to filter the information
 out of dmesg.
@@ -264,16 +240,6 @@ terminal window type:
 ----
 lspci -v
 ----
-
-=== Monitor Resolution
-
-During installation Ubuntu attempts to detect the monitor settings. If
-this fails you are left with a generic monitor with a maximum
-resolution of 800x600.
-
-Instructions for fixing this are located here:
-
-https://help.ubuntu.com/community/FixVideoResolutionHowto[https://help.ubuntu.com/community/FixVideoResolutionHowto]
 
 == Paths
 

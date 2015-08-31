@@ -20,8 +20,8 @@ Axis::
 
 Axis(GUI)::
      (((GUI))) One of the Graphical User Interfaces available to users of
-    LinuxCNC. It features the modern use of menus and mouse buttons while
-    automating and hiding some of the more traditional LinuxCNC controls. It is
+    Machinekit. It features the modern use of menus and mouse buttons while
+    automating and hiding some of the more traditional Machinekit controls. It is
     the only open-source interface that displays the entire tool path as
     soon as a file is opened.
 
@@ -65,18 +65,18 @@ CNC::
     to move the tool, based on a part program.
 
 Comp::
-     (((comp)))[[glo:comp]] A tool used to build, compile and install LinuxCNC HAL
+     (((comp)))[[glo:comp]] A tool used to build, compile and install Machinekit HAL
     components.
 
 Configuration(n)::
      A directory containing a set of configuration files. Custom
-    configurations are normally saved in the users home/linuxcnc/configs
-    directory. These files include LinuxCNC's traditional INI file and HAL
+    configurations are normally saved in the users home/machinekit/configs
+    directory. These files include Machinekit's traditional INI file and HAL
     files. A configuration may also contain several general files that
     describe tools, parameters, and NML connections.
 
 Configuration(v)::
-     The task of setting up LinuxCNC so that it matches the hardware on a
+     The task of setting up Machinekit so that it matches the hardware on a
     machine tool.
 
 Coordinate Measuring Machine::
@@ -115,14 +115,14 @@ EDM::
 
 EMC::
      (((EMC)))[[glo:EMC]] The Enhanced Machine Controller. Initially a NIST
-    project. Renamed to LinuxCNC in 2012.
+    project. Renamed to Machinekit in 2012.
 
 EMCIO::
-     (((EMCIO)))[[glo:EMCIO]] The module within LinuxCNC that handles general
+     (((EMCIO)))[[glo:EMCIO]] The module within Machinekit that handles general
     purpose I/O, unrelated to the actual motion of the axes.
 
 EMCMOT::
-     (((EMCMOT)))[[glo:EMCMOT]] The module within LinuxCNC that handles
+     (((EMCMOT)))[[glo:EMCMOT]] The module within Machinekit that handles
     the actual motion of the cutting tool. It runs as a real-time program
     and directly controls the motors.
 
@@ -130,7 +130,7 @@ Encoder::
      (((encoder)))[[glo:Encoder]] A device to measure position. Usually a
     mechanical-optical device, which outputs a quadrature signal. The
     signal can be counted by special hardware, or directly by the parport
-    with LinuxCNC.
+    with Machinekit.
 
 Feed::
      (((feed)))[[glo:Feed]] Relatively slow, controlled motion of the tool used
@@ -143,7 +143,7 @@ Feed rate::
 
 Feedback::
      (((feedback)))[[glo:Feedback]] A method (e.g., quadrature encoder signals)
-    by which LinuxCNC receives information about the position of motors
+    by which Machinekit receives information about the position of motors
 
 Feedrate Override::
      (((feedrate override)))[[glo:FeedrateOveride]] A manual, operator controlled
@@ -157,7 +157,7 @@ Floating Point Number::
 G-Code::
      (((G-Code)))[[glo:G-Code]] The generic term used to refer to the most
     common part programming language. There are several dialects of G-code,
-    LinuxCNC uses RS274/NGC.
+    Machinekit uses RS274/NGC.
 
 GUI::
     [[glo:GUI]](((GUI))) Graphical User Interface.
@@ -166,7 +166,7 @@ GUI::
         and a human (in most cases) via the manipulation of icons and other
         elements (widgets) on a computer screen.
     
-    LinuxCNC;;
+    Machinekit;;
          An application that presents a graphical screen to the machine
         operator allowing manipulation of the machine and the corresponding
         controlling program.
@@ -185,7 +185,7 @@ Home::
 
 ini file::
      (((INI)))[[glo:inifile]] A text file that contains most of the information
-    that configures LinuxCNC for a particular machine.
+    that configures Machinekit for a particular machine.
 
 Instance::
      (((Instance)))[[glo:Instance]] One can have an instance of a class or a
@@ -253,7 +253,7 @@ Offsets::
 
 Part Program::
      (((part Program)))[[glo:PartProgram]] A description of a part,
-    in a language that the controller can understand. For LinuxCNC,
+    in a language that the controller can understand. For Machinekit,
     that language is RS-274/NGC, commonly known as G-code.
 
 Program Units::
@@ -263,7 +263,7 @@ Program Units::
     measured in degrees.
 
 Python::
-     General-purpose, very high-level programming language. Used in LinuxCNC
+     General-purpose, very high-level programming language. Used in Machinekit
     for the Axis GUI, the Stepconf configuration tool, and several G-code
     programming scripts.
 
@@ -288,12 +288,12 @@ Real-time::
 RTAI::
      (((RTAI)))[[glo:RTAI]] Real Time Application Interface, see
     https://www.rtai.org/[https://www.rtai.org/], the real-time extensions
-    for Linux that LinuxCNC can use to achieve real-time performance.
+    for Linux that Machinekit can use to achieve real-time performance.
 
 RTLINUX::
     (((RTLINUX)))[[glo:RTLINUX]] See
     https://en.wikipedia.org/wiki/RTLinux[https://en.wikipedia.org/wiki/RTLinux],
-    an older real-time extension for Linux that LinuxCNC used to use to
+    an older real-time extension for Linux that Machinekit used to use to
     achieve real-time performance.  Obsolete, replaced by RTAI.
 
 RTAPI::
@@ -302,7 +302,7 @@ RTAPI::
 
 RS-274/NGC::
      (((RS274NGC)))[[glo:RS274NGC]] The formal name for the language
-    used by LinuxCNC part programs.
+    used by Machinekit part programs.
 
 Servo Motor::
      (((servo motor)))[[glo:ServoMotor]] Generally, any motor that is used
@@ -328,13 +328,13 @@ Spindle Speed Override::
      A manual, operator controlled change in the rate at which the tool
     rotates while cutting. Often used to allow the operator to adjust for
     chatter caused by the cutter's teeth. Spindle Speed Override assumes
-    that the LinuxCNC software has been configured to control spindle speed.
+    that the Machinekit software has been configured to control spindle speed.
 
 Stepconf::
-     An LinuxCNC configuration wizard. It is able to handle many
+     An Machinekit configuration wizard. It is able to handle many
     step-and-direction motion command based machines. It writes a full
     configuration after the user answers a few questions about the computer
-    and machine that LinuxCNC is to run on.
+    and machine that Machinekit is to run on.
 
 Stepper Motor::
      (((stepper motor)))[[glo:StepperMotor]] A type of motor that turns in
@@ -343,12 +343,12 @@ Stepper Motor::
     motor, it will skip one or more steps, causing position errors.
 
 TASK::
-     (((TASK)))[[glo:TASK]] The module within LinuxCNC that coordinates
+     (((TASK)))[[glo:TASK]] The module within Machinekit that coordinates
     the overall execution and interprets the part program.
 
 Tcl/Tk::
      (((Tk)))[[glo:Tcl/Tk]] A scripting language and graphical widget toolkit
-    with which several of LinuxCNCs GUIs and selection wizards were
+    with which several of Machinekits GUIs and selection wizards were
     written.
 
 Traverse Move::

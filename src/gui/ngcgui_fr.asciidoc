@@ -10,7 +10,7 @@ image::images/ngcgui_fr.png[]
 == Vue d'ensemble
 
 * NGCGUI est un utilitaire pour écrire et utiliser les sous-programmes avec
-LinuxCNC.
+Machinekit.
 * NGCGUI peut être utilisé en autonome ou intégré, dans ce dernier cas,
 il crée des onglets multiples sur la page de l'interface graphique Axis.
 
@@ -27,8 +27,8 @@ fournir la même tâche à différents emplacements sur la même pièce.
 == Configurations fournies en exemple.
 
 Trois configurations sont fournies, elles se trouve dans le répertoire _sim_
-du sélecteur de configuration de LinuxCNC. Le sélecteur de configuration se
-trouve quand à lui dans le menu _Applications → CNC → LinuxCNC_.
+du sélecteur de configuration de Machinekit. Le sélecteur de configuration se
+trouve quand à lui dans le menu _Applications → CNC → Machinekit_.
 
 * _ngcgui_ - Un exemple facile à comprendre utilisant ces sous-programmes:
 ** _simp_ - Un exemple simple créant deux cercles.
@@ -66,7 +66,7 @@ de tenter de l'exécuter sur une machine réelle.
 == Librairies
 
 Les configurations en simulation pour ngcgui utilisent les liens suivants vers
-des librairies de LinuxCNC protégées en écriture:
+des librairies de Machinekit protégées en écriture:
 
 * _Sous-fichiers compatibles ngcgui_ - ngcgui_lib
 * _Sous-programme d'aide_ - ngcgui_lib/utilitysubs
@@ -114,7 +114,7 @@ USER_M_PATH     = /home/myusername/mymfiles:../../../nc_files/ngcgui_lib/mfiles
 NGCGUI_SUBFILE = exemple.ngc
 ----
 
-LinuxCNC et ngcgui utilisent le premier fichier trouvé lors d'une recherche
+Machinekit et ngcgui utilisent le premier fichier trouvé lors d'une recherche
 dans les répertoires du chemin de recherche. Avec ce comportement, Il est
 possible de substituer un sous-fichier ngcgui_lib en plaçant un sous-fichier
 avec un nom identique plus tôt dans le chemin de recherche pour qu'il soit 
@@ -159,7 +159,7 @@ doivent se trouver dans un répertoire spécifié par [RS274NGC]USER_M_PATH.
 
 [NOTE]
 Il ne s'agit pas d'un fichier ini complet, les items montrés sont ceux utilisés 
-par ngcgui. D'autres items sont requis par LinuxCNC pour obtenir un fichier ini
+par ngcgui. D'autres items sont requis par Machinekit pour obtenir un fichier ini
 complet.
 
 .Simple fichier.ini
@@ -232,7 +232,7 @@ les sous-fichiers créés par ttt.
 
 === Exemples d'INI
 
-Ngcgui utilise le chemin de recherche de LinuxCNC pour chercher les fichiers.
+Ngcgui utilise le chemin de recherche de Machinekit pour chercher les fichiers.
 
 Le chemin de recherche commence avec le répertoire standard spécifié par:
 
@@ -246,8 +246,8 @@ suivi par les répertoires multiples spécifiés par:
 Les répertoires peuvent être spécifiés comme des chemins absolus ou des
 chemins relatifs.
 ....
-Exemple: [DISPLAY]PROGRAM_PREFIX = /home/myname/linuxcnc/nc_files
-Exemple: [DISPLAY]PROGRAM_PREFIX = ~/linuxcnc/nc_files
+Exemple: [DISPLAY]PROGRAM_PREFIX = /home/myname/machinekit/nc_files
+Exemple: [DISPLAY]PROGRAM_PREFIX = ~/machinekit/nc_files
 Exemple: [DISPLAY]PROGRAM_PREFIX = ../../../nc_files
 ....
 
@@ -282,10 +282,10 @@ _[RS274NGC]SUBROUTINE_PATH = ../../../nc_files/ngcgui_lib:
 ../../../nc_files/ngcgui_lib/utilitysubs:/tmp/tmpngc_
 
 C'est une longue ligne, ne pas continuer sur de multiples lignes. Quand
-LinuxCNC et/ou Ngcgui cherchent un fichier, c'est le premier trouvé qui est
+Machinekit et/ou Ngcgui cherchent un fichier, c'est le premier trouvé qui est
 utilisé.
 
-LinuxCNC (et NGCGUI) doivent pouvoir trouver tous les sous-programmes avec
+Machinekit (et NGCGUI) doivent pouvoir trouver tous les sous-programmes avec
 les routines additionnelles qui sont appelées depuis les sous-fichiers NGCGUI.
 Il est pratique de placer les fichiers utilitaires dans un répertoire séparé
 comme indiqué dans l'exemple précédent.
@@ -318,7 +318,7 @@ ini:
 ....
 Item:    [DISPLAY]PROGRAM_PREFIX = dirname
 Exemple: [DISPLAY]PROGRAM_PREFIX = ../../../nc_files
-Note:    Obligatoire et nécessaire pour de nombreuses fonctions de LinuxCNC.
+Note:    Obligatoire et nécessaire pour de nombreuses fonctions de Machinekit.
          C'est le premier répertoire utilisé lors de la recherche de fichiers.
 
 Item:    [RS274NGC]SUBROUTINE_PATH = dirname1:dirname2:dirname3 ...
@@ -403,7 +403,7 @@ Note:    De multiples options séparées par des blancs.
 
 Un sous-fichiers compatible NGCGUI contient une simple définition de
 sous-programme. Le nom du sous-programme doit être le même que celui du
-fichier (non inclus l'extension .ngc). LinuxCNC supporte les sous-programmes
+fichier (non inclus l'extension .ngc). Machinekit supporte les sous-programmes
 nommés ou numérotés, mais seuls les sous-programmes nommés sont compatible
 avec NGCGUI. Pour plus d'informations voir le chapitre sur les 
 <<cha:O-codes,O-Codes>>.
@@ -432,7 +432,7 @@ utilisé. Les définitions doivent être fournies pour chacun de ces paramètres
 #<zparm> = #3
 ----
 
-LinuxCNC considère tous les paramètres numérotés entre #1 est #30 comme étant
+Machinekit considère tous les paramètres numérotés entre #1 est #30 comme étant
 des paramètres appelables, de même, ngcgui fourni des dialogues de saisie pour
 n'importe quel paramètres dans cette fourchette. Il est de bonne pratique 
 d'éviter d'utiliser un paramètre numéroté de #1 jusqu'à #30 n'importe où
@@ -469,7 +469,7 @@ Note sur les paramètres nommés globaux (#<nom_global>) avec ngcgui:
 
 Comme dans de nombreux langages de programmation, l'utilisation de variables
 globales est puissante, mais peut souvent mener à des conséquences inattendues.
-Dans LinuxCNC, les paramètres nommés globaux existants seront valides lors de
+Dans Machinekit, les paramètres nommés globaux existants seront valides lors de
 l'exécution du sous-programme et les sous-programmes peuvent les modifier ou 
 en créer.
 
@@ -483,7 +483,7 @@ Ngcgui supporte quelques entrées par paramètres nommés globaux mais leurs usa
 est obsolète et non documenté ici.
 
 Bien que les entrées par paramètres nommés globaux soient déconseillées, les
-sous-programmes LinuxCNC doivent utiliser des paramètres nommés globaux pour
+sous-programmes Machinekit doivent utiliser des paramètres nommés globaux pour
 retourner les résultats. Puisque les sous-fichiers compatibles ngcgui sont
 destinés à l'usage de l'interface graphique, les valeurs de retour n'ont pas
 d'exigence commune. Toutefois, ngcgui est utile comme outil de test pour les
@@ -558,11 +558,11 @@ une largeur maximale de 320 et une hauteur maximum de 240 pixels.
 
 Aucune des conventions nécessaires pour faire une sous-fichier compatible
 ngcgui n'empêche son utilisation en tant que fichier de sous-programme pour
-LinuxCNC.
+Machinekit.
 
-La distribution LinuxCNC inclus une librairie (répertoire ngcgui_lib) qui
+La distribution Machinekit inclus une librairie (répertoire ngcgui_lib) qui
 contient plusieurs exemples de sous-fichiers et de fichiers utilitaires
-compatibles ngcgui pour illustrer les fonctions des sous-programmes de LinuxCNC
+compatibles ngcgui pour illustrer les fonctions des sous-programmes de Machinekit
 et l'usage de ngcgui.
 
 Des sous-programmes additionnels soumis par les utilisateurs se trouvent dans

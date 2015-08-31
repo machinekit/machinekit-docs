@@ -45,13 +45,13 @@
 
 * 'M0' - Effectue une pause temporaire dans le programme en cours
 (quelle que soit la position du bouton d'arrêt facultatif).
-LinuxCNC reste en mode automatique afin que le MDI ou
+Machinekit reste en mode automatique afin que le MDI ou
 d'autres actions manuelles ne puissent pas être activés. Presser le départ
 cycle après cette commande relance le programme à la ligne suivante.
 
 * 'M1' - Stoppe temporairement le programme en cours
 (mais seulement si le bouton d'arrêt optionnel est activé).
-LinuxCNC reste en mode automatique afin que le MDI ou
+Machinekit reste en mode automatique afin que le MDI ou
 d'autres actions manuelles ne puissent pas être activés. Presser le départ
 cycle après cette commande relance le programme à la ligne suivante.
 
@@ -282,7 +282,7 @@ réglage de la vitesse de broche>>.
 Quand la vitesse adaptative est utilisée, certaines valeurs externes sont
 utilisées avec les correcteurs de vitesse de l'interface utilisateur et
 les vitesses programmées pour obtenir la vitesse travail.
-Dans LinuxCNC, la HAL pin 'motion.adaptive-feed' est utilisée dans ce but.
+Dans Machinekit, la HAL pin 'motion.adaptive-feed' est utilisée dans ce but.
 Les valeurs de 'motion.adaptive-feed' doivent être dans comprises
 entre 0 (vitesse nulle) et 1 (pleine vitesse).
 
@@ -292,7 +292,7 @@ entre 0 (vitesse nulle) et 1 (pleine vitesse).
 
 * 'M53 P1' - Autorise le bouton de coupure de vitesse. Le paramètre 'P1' est
 optionnel. Autoriser la coupure de vitesse permet d'interrompre les mouvements
-par le biais d'une coupure de vitesse. Dans LinuxCNC, la HAL pin
+par le biais d'une coupure de vitesse. Dans Machinekit, la HAL pin
 'motion.feed-hold' est utilisée pour cette fonctionnalité. Une valeur
 de 1 provoque un arrêt des mouvements quand 'M53' est actif.
 * 'M53 P0' - Inhibe le bouton de coupure de vitesse. L'état de
@@ -304,7 +304,7 @@ de 1 provoque un arrêt des mouvements quand 'M53' est actif.
 
 * 'M61 Q ' - Corrige le numéro de l'outil courant, en mode MDI ou après un
 changement manuel d'outil dans la fenêtre de données manuelles. Au démarrage
-de LinuxCNC avec un outil dans la broche, il est possible ainsi d'ajuster le
+de Machinekit avec un outil dans la broche, il est possible ainsi d'ajuster le
 numéro de l'outil courant sans faire de changement d'outil.
 
 C'est une erreur si:
@@ -326,7 +326,7 @@ Le mot 'P' spécifie le numéro du bit de sortie numérique. Le mot P doit
 être compris entre 0 et une valeur par défaut de 3. Si nécessaire, le
 nombre des entrées/sorties peut être augmenté en utilisant
 le paramètre 'num_dio' lors du chargement du contrôleur de mouvement.
-Voir le manuel de l'intégrateur et section "LinuxCNC et HAL", 
+Voir le manuel de l'intégrateur et section "Machinekit et HAL", 
 pour plus d'informations.
 
 Les commandes 'M62' et 'M63' seront mises en file d'attente.
@@ -382,7 +382,7 @@ entrée analogique et une numérique).
 Si nécessaire, le nombre des entrées/sorties peut être augmenté en
 utilisant les paramètres 'num_dio' ou 'num_aio' lors du chargement du
 contrôleur de mouvement. Voir le Manuel de l'intégrateur pour
-plus d'informations, section des configurations, paragraphes "LinuxCNC et HAL".
+plus d'informations, section des configurations, paragraphes "Machinekit et HAL".
 
 [NOTE]
 M66 ne sera opérationnel que si les pins motion.digital-in-nn ou
@@ -407,7 +407,7 @@ M67 fonctionne comme M62 à M63.
 
 Le nombre d'entrées/sorties peut être augmenté en utilisant le paramètre
 'num_aio' au chargement du contrôleur de mouvement. Voir les chapitres
-"LinuxCNC et HAL" dans la section configuration du Manuel de l'intégrateur
+"Machinekit et HAL" dans la section configuration du Manuel de l'intégrateur
 pour plus d'informations sur le contrôleur de mouvement.
 
 [NOTE]
@@ -431,7 +431,7 @@ M68 fonctionne comme M64 à M65.
 
 Le nombre d'entrées/sorties peut être augmenté en utilisant
 le paramètre 'num_aio' au chargement du contrôleur de mouvement. Voir le
-chapitre "LinuxCNC et HAL" dans le Manuel de l'intégrateur pour plus
+chapitre "Machinekit et HAL" dans le Manuel de l'intégrateur pour plus
 d'informations sur le contrôleur de mouvement.
 
 [NOTE]
@@ -678,7 +678,7 @@ erreur 'M-code inconnu' surviendra.
 Ne pas utiliser un traitement de texte pour créer ou éditer ces fichiers.
 Un traitement de texte ajoute des caractères invisibles qui causent des problèmes
 et empêchent les scripts bash ou Python de fonctionner. Pour ces raisons,
-utiliser un éditeur de texte tel que 'Gedit' dans Ubuntu ou le Notepad++ dans un
+utiliser un éditeur de texte tel que 'Gedit' dans Debian ou le Notepad++ dans un
 autre OS.
 
 Le message d'erreur 'M-code inconnu' signifie que:
@@ -693,7 +693,7 @@ Exemple d'utilisation, dans un programme G-code, on doit ouvrir et fermer un
 mandrin automatique via une broche du port parallèle, on appellera
 respectivement M101 pour ouvrir le mandrin et M102 pour le fermer. Les
 deux scripts bash correspondants, appelés M101 et M102 seront créés avant
-le lancement de LinuxCNC puis rendus exécutables, par exemple par un clic
+le lancement de Machinekit puis rendus exécutables, par exemple par un clic
 droit puis 'propriétés → permissions → Exécution'. S'assurer que cette
 broche du port parallèle n'est pas déjà utilisée dans un fichier de HAL.
 
@@ -738,7 +738,7 @@ reprendra.
 .Exemple pour M110, affichage d'un graphique avec passage en pause
 ----
 #!/bin/bash
-eog /home/robert/linuxcnc/nc_files/message.png
+eog /home/robert/machinekit/nc_files/message.png
 exit 0
 ----
 
@@ -748,7 +748,7 @@ G-code, ajouter un caractère esperluette à la commande.
 .Exemple pour M110, affichage d'un graphique sans passer en pause
 ----
 #!/bin/bash
-eog /home/robert/linuxcnc/nc_files/message.png &
+eog /home/robert/machinekit/nc_files/message.png &
 exit 0
 ----
 

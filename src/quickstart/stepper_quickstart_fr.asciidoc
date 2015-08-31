@@ -25,7 +25,7 @@ sur le test de latence>>.
 (((Sherline)))
 
 Si vous avez une machine Sherline plusieurs configurations prédéfinies sont fournies.
-Au premier démarrage de LinuxCNC, le sélecteur de configuration s'ouvre, sélectionnez 
+Au premier démarrage de Machinekit, le sélecteur de configuration s'ouvre, sélectionnez 
 alors le modèle correspondant à votre machine _Sherline_, puis acceptez d'enregistrer une copie. 
 
 [[sec:Xylotex]]
@@ -33,7 +33,7 @@ alors le modèle correspondant à votre machine _Sherline_, puis acceptez d'enre
 (((Xylotex)))
 
 Si vous avez une machine _Xylotex_ vous pouvez utiliser l'assistant graphique de 
-configuration fourni avec LinuxCNC et créer rapidement votre configuration 
+configuration fourni avec Machinekit et créer rapidement votre configuration 
 personnalisée <<cha:Assistant-graphique-StepConf, avec l'assistant Stepconf>>.
 
 == Informations relatives à la machine
@@ -46,7 +46,7 @@ caractéristiques les plus populaires sont incluses dans l'assistant
 graphique de configuration. Notez que les pilotes Gecko ont des timings
 différents les uns des autres. Une liste des caractéristiques courantes
 est également maintenue sur le Wiki 
-http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[de linuxcnc.org].
+http://wiki.machinekit.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[de machinekit.org].
 
 [width="90%", options="header"]
 |==============================================================================

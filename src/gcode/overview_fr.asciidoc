@@ -1,9 +1,9 @@
 :lang: fr
 :toc:
 
-= Vue générale du langage G-codes de LinuxCNC
+= Vue générale du langage G-codes de Machinekit
 
-[[cha:Vue-generale-G-code]] (((Vue générale du G-code de LinuxCNC)))
+[[cha:Vue-generale-G-code]] (((Vue générale du G-code de Machinekit)))
 
 :ini: {basebackend@docbook:'':ini}
 :hal: {basebackend@docbook:'':hal}
@@ -13,16 +13,16 @@
 //[source,{hal}]
 //[source,{ngc}]
 
-== Brève description du G-code de LinuxCNC
+== Brève description du G-code de Machinekit
 
 Le G-code est le langage de programmation des machines numériques. Le G-code
-utilisé par LinuxCNC est basé sur le langage RS274/NGC. Cette documentation le 
+utilisé par Machinekit est basé sur le langage RS274/NGC. Cette documentation le 
 décrit de manière exhaustive, c'est donc un gros morceau mais il contient 
 beaucoup de concepts qui seront assimilés par le lecteur dès la première lecture. 
 C'est notamment le cas de ce chapitre. Par la suite, l'utilisateur reviendra ici, 
 d'abord pour chaque détail de création de son G-code, puis plus tard, seulement 
 pour vérifier la syntaxe des codes les moins courants. Il aura alors perçu la 
-puissance de ce langage et de LinuxCNC qui le met à profit. 
+puissance de ce langage et de Machinekit qui le met à profit. 
 
 
 == Format des paramètres du G-code
@@ -237,14 +237,14 @@ paramètres prédéfinis, cela n'a pas de sens, ils sont alors en lecture seule.
 peuvent apparaître dans les expressions, mais pas sur le côté gauche d'une
 instruction d'affectation.
 
-La persistance:: Quand LinuxCNC s'arrête, les paramètres volatiles perdent leurs
+La persistance:: Quand Machinekit s'arrête, les paramètres volatiles perdent leurs
 valeurs. Tous les paramètres sont volatiles, excepté les paramètres numérotés
 dans l'étendue courante de persistance footnote:[L'étendue de persistance
 courante des paramètres évolue en même temps qu'évolue le développement. Cette
 étendue est actuellement de 5161 à 5390. Elle est définie par '_required_parameters array'
-dans le fichier src/linuxcnc/rs274ngc/interp_array.cc .].
+dans le fichier src/machinekit/rs274ngc/interp_array.cc .].
 Les paramètres persistants sont enregistrés dans un fichier '.var' et restaurés à
-leurs valeurs précédentes quand LinuxCNC est relancé. Les paramètres numérotés 
+leurs valeurs précédentes quand Machinekit est relancé. Les paramètres numérotés 
 volatiles sont remis à zéro.
 
 Utilisation prévue::
@@ -370,10 +370,10 @@ dans les expressions quelconques, par exemple pour contrôler le flux d'un
 programme avec les instructions 'if-then-else'.
 
 
-* '#<_vmajor>' - Version majeure de LinuxCNC. Si la version courante est 2.5.2,
+* '#<_vmajor>' - Version majeure de Machinekit. Si la version courante est 2.5.2,
 2.5 est retourné.
 
-* '#<_vminor>' - Version mineure du LinuxCNC. Si la version courante est 2.6.2,
+* '#<_vminor>' - Version mineure du Machinekit. Si la version courante est 2.6.2,
 0.2 est retourné.
 
 * '#<_line>' - Numéro de séquence. Si un fichier G-code est en cours, le numéro
@@ -1023,7 +1023,7 @@ les rends inutilisables comme programmes G-code.
 
 L'interpréteur et le gestionnaire de tâches ont été écrits, de sorte que la 
 taille des fichiers n'est limité que par la capacité du disque dur. Les 
-interfaces graphiques TkLinuxCNC et Axis affichent tous les deux le programme G-code
+interfaces graphiques TkMachinekit et Axis affichent tous les deux le programme G-code
 à l'écran pour l'utilisateur, cependant, la RAM devient un facteur limitant. 
 Dans Axis, parce-que l'aperçu du parcours d'outil est affiché par défaut, le
 rafraîchissement de l'écran devient une limite pratique à la taille des fichiers.
@@ -1145,10 +1145,10 @@ matériaux à enlever, souhaitée.
 == Messages d'erreur courants
 
 * 'G code hors d'étendue' - Un G-code supérieur à G99 a été utilisé. L'étendue
-des G-codes dans LinuxCNC est comprise entre 0 et 99. Toutefois, les valeurs
+des G-codes dans Machinekit est comprise entre 0 et 99. Toutefois, les valeurs
 entre 0 et 99 ne sont pas toutes celle d'un G-code valide.
 * 'Utilisation d'un G code inconnu' - Un G-code à été utilisé qui n'appartient
-pas aux langage G-code de LinuxCNC.
+pas aux langage G-code de Machinekit.
 * 'Mot i, j, k sans Gx l'utilisant' - Les mots i, j et k doivent être utilisés
 sur la même ligne que leur G-code.
 * 'Impossible d'employer des valeurs d'axe sans G code pour les utiliser' - Les 

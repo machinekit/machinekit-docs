@@ -19,7 +19,7 @@ Esta sección asume que una instalación estándar a partir de un LiveCd
 ha sido realizada. Posterior a la instalación es recomendable conectar 
 la computadora al internet y esperar por la aparición del manejador de 
 actualizaciones y obtener las ultimas actualizaciones para el EMC 
-y Ubuntu antes de continuar. Para instalaciones mas complejas vea el 
+y Debian antes de continuar. Para instalaciones mas complejas vea el 
 manual del integrador.
 
 == Prueba de Latencia
@@ -60,8 +60,8 @@ específicos para controladores populares están incluidos en el asistente de co
 de motores a pasos.
 Nota: Algunos controladores marca Gecko de nueva generación tienen tiempos 
 que difieren con los originales. Una lista con tiempos de diversos controladores es mantenida 
-en el sitio wiki del LinuxCNC que es administrado por los mismos usuarios, 
-en la siguiente dirección: http://wiki.linuxcnc.org/[list]
+en el sitio wiki del Machinekit que es administrado por los mismos usuarios, 
+en la siguiente dirección: http://wiki.machinekit.org/[list]
 
 [width="100%", options="header"]
 |====================================================================

@@ -6,11 +6,11 @@ Manual del Usuario V{lversion}, {localdate}
 
 :masterdir: {indir}
 
-The LinuxCNC Team
+The Machinekit Team
 
 :leveloffset: 0
 
-= LinuxCNC Introduction
+= Machinekit Introduction
 
 :leveloffset: 1
 
@@ -34,14 +34,14 @@ include::gui/ngcgui.asciidoc[]
 
 include::gui/touchy.asciidoc[]
 
-include::gui/tklinuxcnc.asciidoc[]
+include::gui/tkmachinekit.asciidoc[]
 
 include::gui/mini.asciidoc[]
 
 include::gui/keystick.asciidoc[]
 
 :leveloffset: 0
-= Using LinuxCNC
+= Using Machinekit
 :leveloffset: 1
 
 include::gcode/machining_center.asciidoc[]

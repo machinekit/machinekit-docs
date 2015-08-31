@@ -19,7 +19,7 @@ changements édités puis enregistrés avec le bouton _EnregistrerFichier_.
 Le bouton _EnregistrerFichier_ met à jour le fichier système mais une action
 manuelle dans le menu _Fichier -> Recharger la table d'outils_ est requise pour
 mettre à jour la table d'outils en cours d'utilisation par l'instance courante
-de LinuxCNC. Avec l'interface graphique Axis, il est toutefois possible, grâce
+de Machinekit. Avec l'interface graphique Axis, il est toutefois possible, grâce
 au bouton _RechargerTable_, de rafraichir le fichier tout en mettant à jour la
 table d'outils courante. Ce dernier bouton est disponible uniquement quand la
 machine est _En marche_ et inactive.
@@ -53,7 +53,7 @@ une version de TCL/TK >= 8.5
 
 image::images/tooledit-sort_fr.png[align="left"]
 
-Sous Ubuntu Lucid 10.04 tcl/tk8.4 est installé par défaut. Il est possible
+Sous Debian Lucid 10.04 tcl/tk8.4 est installé par défaut. Il est possible
 d'ajouter tcl/tk8.5 avec la commande suivante:
 ----
 sudo apt-get install tcl8.5 tk8.5
@@ -79,11 +79,11 @@ tooledit nomfichier
 tooledit [colonne_1 ... colonne_n] nomfichier
 ----
 
-Pour synchroniser un tooledit autonome avec l'application LinuxCNC courante,
+Pour synchroniser un tooledit autonome avec l'application Machinekit courante,
 le nom de fichier doit être le même que celui spécifié par le paramètre
 *[EMCIO]TOOL_TABLE* dans le fichier ini.
 
-Lors de l'utilisation de tooledit pendant la marche de LinuxCNC,
+Lors de l'utilisation de tooledit pendant la marche de Machinekit,
 l'exécution d'un g-code ou d'un autre programme peut altérer les données de la
 table d'outils. Toute modification est alors détectée par tooledit qui affiche
 le message: Attention: Fichier modifié par un autre process

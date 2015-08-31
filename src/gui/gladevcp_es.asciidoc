@@ -34,32 +34,32 @@ Make sure the documents build after translating.
 
 == What is GladeVCP?
 
-GladeVCP is an LinuxCNC component which adds the ability to add a new user
-interface panel to LinuxCNC user interfaces like Axis or Touchy. Unlike
+GladeVCP is an Machinekit component which adds the ability to add a new user
+interface panel to Machinekit user interfaces like Axis or Touchy. Unlike
 PyVCP, GladeVCP is not limitied to displaying and setting HAL pins, as
 arbitrary actions can be executed in Python code - in fact, a
-complete LinuxCNC user interface could be built with GladeVCP and Python.
+complete Machinekit user interface could be built with GladeVCP and Python.
 
 GladeVCP users the http://glade.gnome.org/[Glade] WYSIWYG user
 interface editor, which makes it easy to create visually pleasing
 panels. It relies on the http://www.pygtk.org/[PyGTK] bindings to the
 rich http://www.gtk.org/[GTK+] widget set, and in fact all of these
 may be used in a GladeVCP application - not just the specialized
-widgets for interacting with HAL and LinuxCNC, which are documented here.
+widgets for interacting with HAL and Machinekit, which are documented here.
 
 
 === PyVCP versus GladeVCP at a glance
 
 Both support the creation of panels with 'HAL widgets' - user
 interface elements like LED's, buttons, sliders etc whose values are
-linked to a HAL pin, which in turn interfaces to the rest of LinuxCNC.
+linked to a HAL pin, which in turn interfaces to the rest of Machinekit.
 
 *PyVCP:*
 
  - widget set: uses TkInter widgets
  - user interface creation: "edit XML file / run result / evaluate looks" cycle
  - no support for embedding user-defined event handling
- - no LinuxCNC interaction beyond HAL pin I/O supported
+ - no Machinekit interaction beyond HAL pin I/O supported
 
 *GladeVCP:*
 
@@ -67,7 +67,7 @@ linked to a HAL pin, which in turn interfaces to the rest of LinuxCNC.
  - user interface creation: uses the  http://glade.gnome.org/[Glade] WYSIWYG user interface editor
  - any HAL pin change may be directed to call back into a user-defined Python event handler
  - any GTK signal (key/button press, window, I/O, timer, network events) may be associated with user-defined handlers in Python
- - direct LinuxCNC interaction: arbitrary command execution, like initiating MDI
+ - direct Machinekit interaction: arbitrary command execution, like initiating MDI
 commands to call a G-code subroutine, plus support for status change operations through Action Widgets 
  - several independent GladeVCP panels may be run in different tabs
  - separation of user interface appearance and functionality: change appearance without touching any code
@@ -193,7 +193,7 @@ Verify the version number to be greater than 3.6.7:
  glade3 3.6.7
 
 === Running Glade to create a new user interface
-This section just outlines the initial LinuxCNC-specific steps. For more
+This section just outlines the initial Machinekit-specific steps. For more
 information and a tutorial on glade, see http://glade.gnome.org. Some
 glade tips & tricks may also be found on
 http://www.youtube.com[youtube].
@@ -201,8 +201,8 @@ http://www.youtube.com[youtube].
 Either modify an existing UI component by running +glade <file>.ui+
 or start a new one by just running the +glade+ command from the shell.
 
-- If LinuxCNC was not installed from a package, the LinuxCNC shell environment needs to be set up with
-+. <emcdir>/scripts/rip-environment+, otherwise glade won't find the LinuxCNC-specific widgets.
+- If Machinekit was not installed from a package, the Machinekit shell environment needs to be set up with
++. <emcdir>/scripts/rip-environment+, otherwise glade won't find the Machinekit-specific widgets.
 - When asked for unsaved Preferences, just accept the defaults and hit 'Close'.
 - From 'Toplevel' (left pane), pick 'Window' (first icon) as top level window, which
 by default will be named 'window1'. Do not change this name - GladeVCP relies on it.
@@ -222,7 +222,7 @@ older 'libglade' format correctly but there is no point in using it. The
 convention for GtkBuilder file extension is '.ui'.
 
 === Testing a panel
-You're now ready to give it a try (while LinuxCNC, e.g. Axis is running) it with:
+You're now ready to give it a try (while Machinekit, e.g. Axis is running) it with:
 
     gladevcp myui.ui
 
@@ -381,7 +381,7 @@ Options:
 
 -t THEME::
     set gtk theme. Default is system theme. Different panels can have different themes.
-    An example theme can be found in the http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl?GTK_Themes[EMC Wiki].
+    An example theme can be found in the http://wiki.machinekit.org/cgi-bin/emcinfo.pl?GTK_Themes[EMC Wiki].
 
 -x XID::
      Re-parent GladeVCP into an existing window XID instead of creating a
@@ -397,7 +397,7 @@ Options:
 
 GladeVcp includes a collection of Gtk widgets with attached HAL pins
 called HAL Widgets, intended to control, display or otherwise interact
-with the LinuxCNC HAL layer. They are intended to be used with the Glade
+with the Machinekit HAL layer. They are intended to be used with the Glade
 user interface editor. With proper installation, the HAL Widgets should
 show up in Glade's 'HAL Python' widget group. Many HAL specific fields
 in the Glade 'General' section have an associated mouse-over tool tip.
@@ -610,11 +610,11 @@ which control their look and feel:
 
 on_color::
    a String defining ON color of LED. May be any valid
-   gtk.gdk.Color name. Not working on Ubuntu 8.04.
+   gtk.gdk.Color name. Not working on Debian 8.04.
 off_color::
    String defining OFF color of LED. May be any valid
    gtk.gdk.Color name or special value `dark`. `dark` means that OFF color
-   will be set to 0.4 value of ON color. Not working on Ubuntu 8.04.
+   will be set to 0.4 value of ON color. Not working on Debian 8.04.
 pick_color_on, pick_color_off::
    Colors for ON and OFF states may be
    represented as `#RRRRGGGGBBBB` strings. These are optional properties
@@ -808,12 +808,12 @@ image:images/hal_meter.png[]
 === Gremlin tool path preview for .ngc files
 
 Gremlin is a plot preview widget similar to the Axis preview window.
-It assumes a running LinuxCNC environment like Axis or Touchy. To connect to
+It assumes a running Machinekit environment like Axis or Touchy. To connect to
 it, inspects the INI_FILE_NAME environment variable. Gremlin displays
 the current .ngc file - it does monitor for changes and reloads the ngc
 file if the file name in Axis/Touchy changes. If you run it in a
-GladeVCP application when LinuxCNC is not running, you might get a traceback
-because the Gremlin widget can't find LinuxCNC status, like the current file
+GladeVCP application when Machinekit is not running, you might get a traceback
+because the Gremlin widget can't find Machinekit status, like the current file
 name.
 
 Gremlin does not export any HAL pins. It has the following properties:
@@ -845,7 +845,7 @@ image:images/small-screenshot.png[]
 
 GladeVcp includes a collection of "canned actions" called EMC Action
 Widgets for the Glade user interface editor. Other than HAL widgets,
-which interact with HAL pins, EMC Actions interact with LinuxCNC and the
+which interact with HAL pins, EMC Actions interact with Machinekit and the
 G-code interpreter.
 
 EMC Action Widgets are derived from the Gtk.Action widget. The Action
@@ -883,7 +883,7 @@ ESTOP toggle button.
 
 Currently the following widgets are available:
 
- - The ESTOP toggle sends ESTOP or ESTOP_RESET commands to LinuxCNC depending
+ - The ESTOP toggle sends ESTOP or ESTOP_RESET commands to Machinekit depending
    on it's state.
  - The ON/OFF toggle sends STATE_ON and STATE_OFF commands.
  - Pause/Resume sends AUTO_PAUSE or AUTO_RESUME commands.
@@ -956,7 +956,7 @@ image::images/oword.png[]
 
 === Preparing for an MDI Action, and cleaning up afterwards
 
-The LinuxCNC G-Code interpreter has a single global set of variables, like
+The Machinekit G-Code interpreter has a single global set of variables, like
 feed, spindle speed, relative/absolute mode and others. If you use G
 code commands or O-word subs, some of these variables might get changed
 by the command or subroutine - for example, a probing subroutine will
@@ -965,16 +965,16 @@ your previous feed setting will be overwritten by the probing
 subroutine's value.
 
 To deal with this surprising and undesirable side effect of a given
-O-word subroutine or G-code statement executed with an LinuxCNC
+O-word subroutine or G-code statement executed with an Machinekit
 ToggleAction_MDI, you might associate pre-MDI and post-MDI handlers
-with a given LinuxCNC ToggleAction_MDI. These handlers are optional and
+with a given Machinekit ToggleAction_MDI. These handlers are optional and
 provide a way to save any state before executing the MDI Action, and to
 restore it to previous values afterwards. The signal names are +mdi-command-start+
 and +mdi-command-stop+; the handler names can be set in Glade like any
 other handler.
 
 Here's an example how a feed value might be saved and restored by such
-handlers (note that LinuxCNC command and status channels are available as
+handlers (note that Machinekit command and status channels are available as
 +self.emc+ and +self.stat+ through the EMC_ActionBase class:
 
 [source,python]
@@ -992,24 +992,24 @@ handlers (note that LinuxCNC command and status channels are available as
 Only the Action_MDI Toggle widget supports these signals.
 
 [NOTE]
-In a later release of LinuxCNC, the new M-codes M70-M72 are available which
+In a later release of Machinekit, the new M-codes M70-M72 are available which
 make it saving state before a subroutine call, and restoring state on return much easier.
 
-=== Using the LinuxCNC Stat object to deal with status changes
+=== Using the Machinekit Stat object to deal with status changes
 
-Many actions depend on LinuxCNC status - is it in manual, MDI or auto mode?
+Many actions depend on Machinekit status - is it in manual, MDI or auto mode?
 is a program running, paused or idle? You cannot start an MDI command
 while a G-code program is running, so this needs to be taken care of.
-Many LinuxCNC actions take care of this themselves, and related buttons and
+Many Machinekit actions take care of this themselves, and related buttons and
 menu entries are deactivated when the operation is currently
 impossible.
 
 When using Python event handlers - which are at a lower level than
 Actions - one needs to take care of dealing with status dependencies
-oneself. For this purpose, there's the LinuxCNC Stat widget: to associate
-LinuxCNC status changes with event handlers.
+oneself. For this purpose, there's the Machinekit Stat widget: to associate
+Machinekit status changes with event handlers.
 
-LinuxCNC Stat has no visible component - you just add it to your UI with
+Machinekit Stat has no visible component - you just add it to your UI with
 Glade. Once added, you can associate handlers with its following
 signals:
 
@@ -1018,7 +1018,7 @@ signals:
   - +state-estop-reset+
   - +state-on+,
   - +state-off+
-* mode-related:    emitted when LinuxCNC enters that particular mode
+* mode-related:    emitted when Machinekit enters that particular mode
   - +mode-manual+
   - +mode-mdi+
   - +mode-auto+
@@ -1293,7 +1293,7 @@ This should set debug to 2 and confirm that your module actually did it.
 A annoying aspect of GladeVCP in its earlier form and pyvcp is the
 fact that you may change values and HAL pins through text entry,
 sliders, spin boxes, toggle buttons etc, but their settings are not
-saved and restored at the next run of LinuxCNC - they start at the default
+saved and restored at the next run of Machinekit - they start at the default
 value as set in the panel or widget definition.
 
 GladeVCP has an easy-to-use mechanism to save and restore the state of
@@ -1502,7 +1502,7 @@ an on_destroy handler linked to the window destroy signal::
 // FIXME this is out of date
 == Troubleshooting
 
- -  make sure your have the development version of LinuxCNC installed. You
+ -  make sure your have the development version of Machinekit installed. You
    don't need the axisrc file any more, this was mentioned in the old
    GladeVcp wiki page.
  -  run GladeVCP or Axis from a terminal window. If you get Python errors,

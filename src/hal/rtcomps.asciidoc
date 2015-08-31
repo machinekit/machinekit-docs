@@ -809,7 +809,7 @@ To compute the hexadecimal number for the function starting from the top put
 a 1 or 0 to indicate if that row would be true or false. Next write down every
 number in the output column starting from the top and writing them from right
 to left. This will be the binary number. Using a calculator with a program
-view like the one in Ubuntu enter the binary number and then convert it to
+view like the one in Debian enter the binary number and then convert it to
 hexadecimal and that will be the value for function.
 
 .Look Up Table

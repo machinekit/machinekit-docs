@@ -20,9 +20,9 @@ installation et son fonctionnement.
 
 Halcmd est un outil en ligne de commande pour manipuler HAL. Il existe
 une man page plus complète pour halcmd, elle sera installée en même
-temps qu' LinuxCNC depuis ses sources ou depuis un paquet. Si LinuxCNC a été
+temps qu' Machinekit depuis ses sources ou depuis un paquet. Si Machinekit a été
 compilé en _run-in-place_, la man page n'est pas installée, mais elle
-est accessible, dans le répertoire principal de LinuxCNC, taper:
+est accessible, dans le répertoire principal de Machinekit, taper:
 ----
 $ man -M docs/man halcmd 
 ----
@@ -57,10 +57,10 @@ systèmes d'exploitation temps réel RTOS qui fournissent les extensions
 nécessaires à Linux. Malheureusement, chaque RTOS fait les choses
 différemment des autres.
 
-Pour remédier à ces différences, l'équipe de LinuxCNC a proposé RTAPI, qui
+Pour remédier à ces différences, l'équipe de Machinekit a proposé RTAPI, qui
 fournit une manière cohérente aux programmes de parler au RTOS. Si vous
-êtes un programmeur qui veut travailler à l'intérieur de LinuxCNC, vous
-pouvez étudier _linuxcnc/src/rtapi/rtapi.h_ pour comprendre l'API. Mais si
+êtes un programmeur qui veut travailler à l'intérieur de Machinekit, vous
+pouvez étudier _machinekit/src/rtapi/rtapi.h_ pour comprendre l'API. Mais si
 vous êtes une personne normale, tout
 ce que vous avez besoin de savoir à propos de RTAPI est qu'il doit être
 (avec le RTOS) chargé dans la mémoire de votre ordinateur avant de
@@ -74,14 +74,14 @@ pouvoir faire n'importe quoi avec HAL.
 
 Pour ce tutoriel, nous allons supposer que vous avez installé avec
 succès le CD-Live ou que vous avez compilé correctement l'arborescence
-linuxcnc/src. Si nécessaire, invoquez le script _rip-environment_ pour
+machinekit/src. Si nécessaire, invoquez le script _rip-environment_ pour
 préparer votre shell. Dans ce cas, tout ce que vous avez à faire
 est de charger le RTOS requis et les modules RTAPI dans la mémoire.
 Tapez juste les commandes suivantes dans une console:
 ----
-$cd linuxcnc
+$cd machinekit
  
-$linuxcnc halrun 
+$machinekit halrun 
 
 $halcmd: 
 ----
@@ -381,7 +381,7 @@ arrêté la session de HAL, pour l'arrêter correctement tapez:
 ----
 halcmd: exit 
 
-~/linuxcnc$
+~/machinekit$
 ----
 
 === Restaurer la configuration de HAL 
@@ -392,7 +392,7 @@ faire, nous utiliserons la commande _-f <filename>_ qui lit les
 commandes à partir d'un fichier, le _-I_ affichera le prompt halcmd
 après l'exécution des commandes:
 ----
-~/linuxcnc$ halrun -I -f saved.hal 
+~/machinekit$ halrun -I -f saved.hal 
 ----
 
 Noter qu'il n'y a pas de commande _start_ dans le fichier saved.hal.
@@ -402,7 +402,7 @@ halcmd: start
 
 halcmd: exit 
 
-~/linuxcnc$ 
+~/machinekit$ 
 ----
 
 === Suppression de la mémoire de HAL
@@ -411,7 +411,7 @@ Si un arrêt inattendu d'une session de HAL survient, il sera peut être
 nécessaire de décharger HAL de la mémoire avant de pouvoir lancer une autre 
 session. Pour cela, taper la commande suivante dans une fenêtre de terminal:
 ----
-~/linuxcnc$ halrun -U
+~/machinekit$ halrun -U
 ---- 
 
 [[sec:Tutoriel-halmeter]]
@@ -458,7 +458,7 @@ vérifier halmeter. Si vous avez fini l'exemple précédent, alors siggen
 est déjà chargé. Sinon, on peut charger tout comme nous l'avons fait
 précédemment:
 ----
-~/linuxcnc$ halrun 
+~/machinekit$ halrun 
 
 halcmd: loadrt siggen 
 
@@ -530,7 +530,7 @@ librairies de HAL en faisant:
 ----
 halcmd: exit 
 
-~/linuxcnc$ halrun 
+~/machinekit$ halrun 
 ----
 
 === Installation des composants

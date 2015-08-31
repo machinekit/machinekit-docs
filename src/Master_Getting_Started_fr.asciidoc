@@ -10,14 +10,14 @@ Guide de démarrage V{lversion}, {localdate}
 
 image::common/images/emc2-intro.*[]
 
-The LinuxCNC Team
+The Machinekit Team
 
 include::common/overleaf_fr.asciidoc[]
 
 include::common/outdated-notice_fr.asciidoc[]
 include::common/System_Requirements_fr.asciidoc[]
-include::common/Getting_linuxcnc_fr.asciidoc[]
-include::common/Updating_linuxcnc_fr.asciidoc[]
+include::common/Getting_machinekit_fr.asciidoc[]
+include::common/Updating_machinekit_fr.asciidoc[]
 include::quickstart/stepper_quickstart_fr.asciidoc[]
 include::config/stepconf_fr.asciidoc[]
 include::config/pncconf_fr.asciidoc[]
