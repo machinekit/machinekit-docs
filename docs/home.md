@@ -49,4 +49,4 @@ When running into trouble, please read these instructions on [getting help][1].
 - [Presentation on Machinekit and Machinetalk, IoT Vienna Mar 2015](https://youtu.be/VPaaXHBu7gE)
 
 [1]:  https://github.com/machinekit/machinekit-docs/blob/master/machinekit-documentation/getting-help.asciidoc
-[2]:  https://github.com/machinekit/machinekit-docs/blob/master/machinekit-documentation/documents-index.asciidoc
+[2]:  https://github.com/machinekit/machinekit-docs/blob/master/index.asciidoc
