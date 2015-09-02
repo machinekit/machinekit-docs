@@ -14,11 +14,11 @@ tuning. The following examples illustrate its setup and operation.
 
 Terminal commands are shown without the system prompt unless you are
 running 'HAL'. The terminal window is in 'Applications/Accessories'
-from the main Ubuntu menu bar.
+from the main Debian menu bar.
 
 .Terminal Command Example
 ----
-me@computer:~linuxcnc$ halrun
+me@computer:~machinekit$ halrun
 (will be shown like the following line)
 halrun
 
@@ -53,10 +53,10 @@ needs. Fortunately there are realtime operating systems (RTOS's) that
 provide the necessary extensions to Linux. Unfortunately, each RTOS
 does things a little differently.
 
-To address these differences, the LinuxCNC team came up with RTAPI, which
+To address these differences, the Machinekit team came up with RTAPI, which
 provides a consistent way for programs to talk to the RTOS. If you are
-a programmer who wants to work on the internals of LinuxCNC, you may want to
-study 'linuxcnc/src/rtapi/rtapi.h' to understand the API. But if you are a
+a programmer who wants to work on the internals of Machinekit, you may want to
+study 'machinekit/src/rtapi/rtapi.h' to understand the API. But if you are a
 normal person all you need to 
 know about RTAPI is that it (and the RTOS) needs to be loaded into the
 memory of your computer before you do anything with HAL.
@@ -77,7 +77,7 @@ following command from a terminal window:
 
 .Loading HAL
 ----
-cd linuxcnc
+cd machinekit
 halrun
 halcmd:
 ----

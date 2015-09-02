@@ -2,17 +2,17 @@
 
 [[cha:stepconf-wizard]] (((Stepconf Wizard)))
 
-LinuxCNC is capable of controlling a wide range of machinery 
+Machinekit is capable of controlling a wide range of machinery 
 using many different hardware interfaces.
 
-Stepconf is a program that generates configuration files for LinuxCNC
+Stepconf is a program that generates configuration files for Machinekit
 for a specific class of CNC machine:
 those that are controlled via a 'standard parallel port', and
 controlled by signals of type 'step & direction'.
 
-Stepconf is installed when you install LinuxCNC and is in the CNC menu.
+Stepconf is installed when you install Machinekit and is in the CNC menu.
 
-Stepconf places a file in the linuxcnc/config directory
+Stepconf places a file in the machinekit/config directory
 to store the choices for each configuration you create.
 When you change something, you need to pick the file
 that matches your configuration name.
@@ -72,16 +72,15 @@ driver's data sheet and enter them as 'nano seconds' in the 'Driver Timing
 Settings'. If the data sheet gives a value in microseconds, multiply by 1000.
 For example, enter 4.5us as 4500ns.
 
-A list of some popular drives, along with their timing values, is on the
-LinuxCNC.org Wiki under
-http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[Stepper Drive Timing].
+A list of some popular drives, along with their timing values, is at
+link:http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[Stepper Drive Timing].
 
 Additional signal conditioning or isolation such as optocouplers and RC filters
 on break out boards can impose timing constraints of their own, in addition
 to those of the driver. You may find it necessary to add some time to the
 drive requirements to allow for this.
 
-The LinuxCNC Configuration Selector has configs for Sherline already configured.
+The Machinekit Configuration Selector has configs for Sherline already configured.
 
 * 'Step Time' - How long the step pulse is 'on' in nano seconds. If your not
 sure about this setting a value of 10,000 will work with most drives.
@@ -101,7 +100,7 @@ step pulse in nanoseconds.  If your not sure about this setting a value of
 
 * 'Base Period Maximum Jitter' - Enter the result of the Latency Test here.
 To run a latency test press the 'Test Base Period Jitter' button. See the
-<<latency-test,Latency Test>> section for more details.
+link:../install/Latency_Test.asciidoc[Latency Test] section for more details.
 
 * 'Max Step Rate' -Stepconf automatically calculates the Max Step Rate based
 on the driver characteristics entered and the latency test result.
@@ -109,40 +108,10 @@ on the driver characteristics entered and the latency test result.
 * 'Min Base Period' - Stepconf automatically determines the Min Base Period
 based on the driver characteristics entered and latency test result.
 
-== Latency Test[[latency-test]](((Latency Test)))
-
-While the test is running, you should 'abuse' the computer. Move
-windows around on the screen. Surf the web. Copy some large files
-around on the disk. Play some music. Run an OpenGL program such as
-glxgears. The idea is to put the PC through its paces while the latency
-test checks to see what the worst case numbers are.  Run the test at least a few
-minutes. The longer you run the test the
-better it will be at catching events that might occour at less frequent
-intervals. This is a test for your computer only, so no hardware needs
-to be connected to run the test.
-
-[WARNING]
-Do not attempt run LinuxCNC while the latency test is running.
-
-.Latency Test[[cap:Latency-Test]]
-
-image::images/latency.png[align="center"]
-
-Latency is how long it takes the PC to stop what it is doing and
-respond to an external request. In our case, the request is the
-periodic 'heartbeat' that serves as a timing reference for the step
-pulses. The lower the latency, the faster you can run the heartbeat,
-and the faster and smoother the step pulses will be.
-
-Latency is far more important than CPU speed. The CPU isn't the only
-factor in determining latency. Motherboards, video cards, USB ports, 
-SMI issues, and a number of other things can hurt the latency.
-
-.Troubleshooting SMI Issues (LinuxCNC.org Wiki)
+.Troubleshooting SMI Issues (Machinekit.org Wiki)
 ************************************************************
-Fixing Realtime problems caused by SMI on Ubuntu
-
-http://wiki.linuxcnc.org/cgi-bin/wiki.pl?FixingSMIIssues
+Fixing Realtime problems caused by SMI on Debian is covered 
+link:http://wiki.linuxcnc.org/cgi-bin/wiki.pl?FixingSMIIssues[Here]
 ************************************************************
 
 The important numbers are the 'max jitter'. In the example above 9075
@@ -158,7 +127,7 @@ rate might be a little disappointing, especially if you use
 microstepping or have very fine pitch leadscrews. If the numbers are
 100 us  or more (100,000 nanoseconds), then the PC is not a good
 candidate for software stepping. Numbers over 1 millisecond (1,000,000
-nanoseconds) mean the PC is not a good candidate for LinuxCNC, regardless of
+nanoseconds) mean the PC is not a good candidate for Machinekit, regardless of
 whether you use software stepping or not.
 
 == Parallel Port Setup[[sec:Parallel-Port-Setup]](((Parallel Port Setup)))
@@ -385,7 +354,7 @@ values are not known, they can be determined. For more information see
 (((Spindle-synchronized motion)))(((Lathe Threading)))
 
 When the appropriate signals from a spindle encoder are connected to 
-LinuxCNC via HAL, LinuxCNC supports lathe threading.
+Machinekit via HAL, Machinekit supports lathe threading.
 These signals are:
 
 * 'Spindle Index' - Is a pulse that occurs once per revolution of the spindle.
@@ -400,7 +369,7 @@ direction sensing, increased noise immunity, and increased resolution.
 If 'Spindle Phase A' and 'Spindle Index' appear 
 on the pinout, the following information should be entered:
 
-* 'Use Spindle-At-Speed' - With encoder feedback one can choose to have linuxcnc
+* 'Use Spindle-At-Speed' - With encoder feedback one can choose to have machinekit
  wait for the spindle to reach the commanded speed before feed moves. Select this
 option and set the 'close enough' scale.
 
@@ -427,7 +396,7 @@ Enter the following values in the Spindle Configuration page:
 |============================
 
 Finish the remaining steps of the configuration process,
-then launch LinuxCNC with your configuration.
+then launch Machinekit with your configuration.
 Turn the machine on and select the MDI tab.
 Start the spindle turning by entering: 'M3 S100'.
 Change the spindle speed by entering a different S-number: 'S800'.
@@ -465,7 +434,7 @@ to work on. See the Integrator Manual for more information on pyVCP.
 (Programmable Logic Controller). See the Integrator Manual for more information
 on ClassicLadder.
 
-* 'Onscreen Prompt For Tool Change' - If this box is checked, LinuxCNC will
+* 'Onscreen Prompt For Tool Change' - If this box is checked, Machinekit will
 pause and prompt you to change the tool when 'M6' is encountered. This feature
 is usually only useful if you have presettable tools.
 
@@ -482,7 +451,7 @@ The physical end of travel is called the 'hard stop'.
 
 Before the 'hard stop' there is a 'limit switch'.
 If the limit switch is encountered during normal operation, 
-LinuxCNC shuts down the motor amplifier.
+Machinekit shuts down the motor amplifier.
 The distance between the 'hard stop' and 'limit switch'
 must be long enough to allow an unpowered motor to coast to a stop.
 
@@ -541,7 +510,7 @@ The figures below show the general idea of wiring multiple switches
 to a single input pin.
 In each case, when one switch is actuated,
 the value seen on INPUT goes from logic HIGH to LOW.
-However, LinuxCNC expects a TRUE value when a switch is closed,
+However, Machinekit expects a TRUE value when a switch is closed,
 so the corresponding 'Invert' box
 must be checked on the pinout configuration page.
 The pull up resistor show in the diagrams pulls the input high

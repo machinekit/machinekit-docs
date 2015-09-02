@@ -6,7 +6,7 @@ HAL Manual V{lversion}, {localdate}
 
 :masterdir: {indir}
 
-The LinuxCNC Team
+The Machinekit Team
 
 :leveloffset: 1
 

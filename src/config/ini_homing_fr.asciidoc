@@ -9,7 +9,7 @@
 
 La prise d'origine semble assez simple, il suffit de déplacer chaque
 axe à un emplacement connu et de positionner l'ensemble des variables
-internes de LinuxCNC en conséquence. Toutefois, les machines étant différentes
+internes de Machinekit en conséquence. Toutefois, les machines étant différentes
 les unes des autres, la prise d'origine est maintenant devenue assez complexe.
 
 == Séquences de prise d'origine
@@ -21,7 +21,7 @@ configuration associés, la figure suivante donne le détail de ces séquences.
 [[fig:Sequences-de-prise-d-origine]]
 .Les séquences de POM possibles
 
-image::images/linuxcnc-motion-homing-diag_fr.png[]
+image::images/machinekit-motion-homing-diag_fr.png[]
 
 
 . Comme on le voit sur la figure, les deux conditions de base sont les suivantes:
@@ -53,8 +53,8 @@ Toute autre combinaison produira une erreur.
 === Vitesse de recherche (HOME_SEARCH_VEL) (((Vitesse de recherche du contact d'origine)))
 
 Vitesse de la phase initiale de prise d'origine, pendant la recherche du
-contact d'origine machine. Une valeur différente de zéro indique à LinuxCNC
-la présence d'un contact d'origine machine. LinuxCNC va alors commencer par
+contact d'origine machine. Une valeur différente de zéro indique à Machinekit
+la présence d'un contact d'origine machine. Machinekit va alors commencer par
 vérifier si ce contact est déjà attaqué. Si oui, il le dégagera à la
 vitesse établie par _HOME_SEARCH_VEL_, la direction du dégagement sera
 de signe opposé à celui de _HOME_SEARCH_VEL_. Puis, il va revenir vers
@@ -87,7 +87,7 @@ L'acquisition de l'origine machine se fera sur la première
 impulsion de changement d'état du contact. Si _HOME_SEARCH_VEL_ et
 _HOME_LATCH_VEL_ sont de signes opposés, la phase de recherche précise
 s'effectuera dans le sens opposé à celui de la recherche initiale. Dans
-ce cas, LinuxCNC dégagera le contact à la vitesse définie ici. L'acquisition
+ce cas, Machinekit dégagera le contact à la vitesse définie ici. L'acquisition
 de l'origine machine se fera sur la première impulsion de
 changement d'état du contact lors de son dégagement. Si
 _HOME_SEARCH_VEL_ est à zéro, signifiant qu'il n'y a pas de contact et
@@ -99,11 +99,11 @@ l'opération de prise d'origine échouera. La valeur par défaut est zéro.
 
 === HOME_IGNORE_LIMITS (((HOME IGNORE LIMITS)))
 
-Peut contenir les valeurs YES ou NO. Cette variable détermine si LinuxCNC
+Peut contenir les valeurs YES ou NO. Cette variable détermine si Machinekit
 doit ignorer les fins de course de limites d'axe. Certaines machines
 n'utilisent pas un contact d'origine séparé, à la place, elles
 utilisent un des interrupteurs de fin de course comme contact
-d'origine. Dans ce cas, LinuxCNC doit ignorer l'activation de cette limite
+d'origine. Dans ce cas, Machinekit doit ignorer l'activation de cette limite
 de course pendant la séquence de prise d'origine. La valeur par défaut
 de ce paramètre est NO.
 
@@ -111,9 +111,9 @@ de ce paramètre est NO.
 
 Spécifie si une impulsion d'index doit être prise en compte (cas de
 règles de mesure ou de codeurs de positions). Si cette variable est
-vraie (HOME_USE_INDEX = YES), LinuxCNC fera l'acquisition de l'origine
+vraie (HOME_USE_INDEX = YES), Machinekit fera l'acquisition de l'origine
 machine sur le premier front de l'impulsion d'index. Si elle est fausse
-(=NO), LinuxCNC fera l'acquisition de l'origine sur le premier front produit
+(=NO), Machinekit fera l'acquisition de l'origine sur le premier front produit
 par le contact d'origine (dépendra des signes de _HOME_SEARCH_VEL_ et
 _HOME_LATCH_VEL_). La valeur par défaut est NO.
 
@@ -122,7 +122,7 @@ _HOME_LATCH_VEL_). La valeur par défaut est NO.
 Contient l'emplacement du point d'origine ou de l'impulsion d'index,
 en coordonnées relatives. Il peut aussi être traité comme le décalage
 entre le point d'origine machine et le zéro de l'axe. A la détection du point
-d'origine ou de l'impulsion d'origine, LinuxCNC ajuste les coordonnées de l'axe
+d'origine ou de l'impulsion d'origine, Machinekit ajuste les coordonnées de l'axe
 à la valeur de _HOME_OFFSET_. La valeur par défaut est zéro.
 
 === Position de l'origine (HOME) (((HOME)))

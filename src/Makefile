@@ -57,24 +57,24 @@ xref_en.links: $(patsubst %,%.db,$(SMALL))
 	mv $@.tmp $@
 
 %.html: %.asciidoc
-	asciidoc -a linksfile=xref_en.links -a stylesheet=$(shell pwd)/linuxcnc.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
+	asciidoc -a linksfile=xref_en.links -a stylesheet=$(shell pwd)/machinekit.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(DOCS_ES)) :: %.html: %.asciidoc
-#	asciidoc -a stylesheet=$(shell pwd)/linuxcnc.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
+#	asciidoc -a stylesheet=$(shell pwd)/machinekit.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(DOCS_FR)) :: %.html: %.asciidoc
-#	asciidoc -a stylesheet=$(shell pwd)/linuxcnc.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
+#	asciidoc -a stylesheet=$(shell pwd)/machinekit.css -f xhtml11.conf -d book -a toc -a numbered -b xhtml11 $< || (X=$$?; rm $@; exit $$X)
 
 %.pdf: %.asciidoc
 	$(A2X) -L -d book -f pdf $< || (X=$$?; rm $@; exit $$X)
 
 $(patsubst %,%.html,$(LARGE)) :: %.html: %.asciidoc
-	$(A2X) --stylesheet=./linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
+	$(A2X) --stylesheet=./machinekit.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(LARGE_ES)) :: %.html: %.asciidoc
-#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
+#	$(A2X) --stylesheet=../machinekit.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 #$(patsubst %,%.html,$(LARGE_FR)) :: %.html: %.asciidoc
-#	$(A2X) --stylesheet=../linuxcnc.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
+#	$(A2X) --stylesheet=../machinekit.css -L -d book -f xhtml $< || (X=$$?; rm $@; exit $$X)
 
 .PHONY: all docs htmldocs pdfdocs docclean clean

@@ -2,15 +2,15 @@
 
 [[cha:stepconf-wizard]] (((Stepconf Wizard)))
 
-LinuxCNC es capaz de controlar un vasto rango de diferentes tipos de maquinaria,
+Machinekit es capaz de controlar un vasto rango de diferentes tipos de maquinaria,
  utilizando diferentes interfaces de Hardware.
 
-Stepconf es un programa que genera archivos de configuracion para LinuxCNC
+Stepconf es un programa que genera archivos de configuracion para Machinekit
 para un tipo especifico de maquina CNC:
 Aquellas que son controladas atravez de un 'Puerto paralelo estandar', y 
 que son controladas utilizando las senales 'Paso y Direccion'
 
-Stepconf se instala automaticamente cuando instala LinuxCNC y se encuentra en el menu CNC.
+Stepconf se instala automaticamente cuando instala Machinekit y se encuentra en el menu CNC.
 
 Stepconf genera un archivo en el directorio emc2/config
 en el cual guarda las selecciones de cada configuracion que usted genere.
@@ -81,8 +81,8 @@ Driver Type::
     por ejemplo, si el manual marca 4.5us escriva 4500ns.
 
 Una lista de controladores populares, asi como sus tiempos
-puede ser consultada en la pagina wiki de LinuxCNC.org en la siguiente direccion
-http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl?Stepper_Drive_Timing[Stepper Drive Timing]. 
+puede ser consultada en la pagina wiki de Machinekit.org en la siguiente direccion
+http://wiki.machinekit.org/cgi-bin/emcinfo.pl?Stepper_Drive_Timing[Stepper Drive Timing]. 
 
 Acondicionamiento estra de senal o aislamiento electrico como el uso
 de optoacopladores y filtros RC en targetas de aislamiento
@@ -129,7 +129,7 @@ Min Base Period::
 
 Onscreen Prompt For Tool Change::
     (((Onscreen Prompt For Tool Change)))
-    Si esta casilla es seleccionada, LinuxCNC pausara la ejecucion de un programa y le preguntara
+    Si esta casilla es seleccionada, Machinekit pausara la ejecucion de un programa y le preguntara
     por el cambio de herramienta cuando el comando *M6* sea encontrado en el codigo G.
     Deje esta casilla sin checar amenos que usted planie agregar soporte
     para una torreta automatica de cambio de herramientas en un archivo HAL personalizado.
@@ -146,7 +146,7 @@ casos especiales que solo suceden en intervalos poco frecuentes. Esta prueba es 
 la computadora, no se requiere que conecte los controladores de motores o la maquina herramienta.
 
 [WARNING]
-No ejecute LinuxCNC mientras realiza la prueba de latencia.
+No ejecute Machinekit mientras realiza la prueba de latencia.
 
 .Prueba de Latencia[[cap:Latency-Test]]
 
@@ -164,12 +164,12 @@ del CPU no es el unico factor determinate en la latencia. Tahgetas madre, target
 USB, Problemas con SMI, y otra cantidad de coasas pueden afectar la latencia.
 
 
-.Troubleshooting SMI Issues (LinuxCNC.org Wiki)
+.Troubleshooting SMI Issues (Machinekit.org Wiki)
 ************************************************************
 
-Encuentre soluciones a algunos problemas de SMI comunes en Ubuntu
+Encuentre soluciones a algunos problemas de SMI comunes en Debian
 
-http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl?FixingSMIIssues
+http://wiki.machinekit.org/cgi-bin/emcinfo.pl?FixingSMIIssues
 ************************************************************
 
 Los numeros importantes son el "max jitter". en el ejemplo de abajo 9075
@@ -184,7 +184,7 @@ maxima de generacion de pulsos puede ser un poco desepcionante, especialmente si
 micropasos o un tornillo con un paso muy fino. si los numeros son
 100us o mas (100 000 nanosegundos), la PC no es una buena candidata para la generacion 
 de pulsos de paso por software. Numeros arriva de 1 milisegundo (1 000 000 nanosegundos)
-significan que la PC no es una buena candidata para ejecutar LinuxCNC, sin importar si se
+significan que la PC no es una buena candidata para ejecutar Machinekit, sin importar si se
 usa generacion de pulsos de paso por software o no.
 
 
@@ -447,8 +447,8 @@ Velocidad 1 y 2, PWM 1 y 2::
 (((Spindle-synchronized motion)))(((Lathe Threading)))
 
 Cuando son proporcionadas las señales correctas desde un encoder conectado
-a LinuxCNC utilizando los componentes del HAL (Capa de abstraccionde Hardware),
-LinuxCNC soportara el roscado en torno.
+a Machinekit utilizando los componentes del HAL (Capa de abstraccionde Hardware),
+Machinekit soportara el roscado en torno.
 Las señales requeridas son:
 
 
@@ -496,7 +496,7 @@ Introdusca los siguientes valores en la pagina de configuracion del husillo:
 |========================================
 
 Termine los pasos restantes del proceso de configuracion,
-posteriormente inicie LinuxCNC con la configuracion recien creada.
+posteriormente inicie Machinekit con la configuracion recien creada.
 Encienda la maquina y seleccione la pestaña MDI.
 Encienda el husillo entrando el comando: 'M3 S100'.
 Cambie la velocidad del husillo entrando un valor diferente de parametro S: 'S800'. 
@@ -618,7 +618,7 @@ La siguiente figura muestra la idea general de cablear varios interruptores
 a una unica entrada.
 En el caso ilustrado, cuando un interruptor es precionado,
 El valor mandado atraves de la entrada va de un valor logico ALTO a BAJO.
-Sin embargo LinuxCNC espera un valor logico ALTO cuando un interruptor es precionado,
+Sin embargo Machinekit espera un valor logico ALTO cuando un interruptor es precionado,
 Por lo tanto se devera seleccionar la opcion de invercion 'Invert' cuando se configure la entrada 
 del puerto paralelo en el Stepconf.
 

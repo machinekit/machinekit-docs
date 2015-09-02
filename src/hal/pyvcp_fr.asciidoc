@@ -150,9 +150,9 @@ configurée de cette manière.
 
 Cette section va décrire comment les panneaux PyVCP peuvent être
 affichés par eux même, par l'intermédiaire ou non des contrôleurs
-machine de LinuxCNC.
+machine de Machinekit.
 
-Pour charger un panneau PyVCP autonome avec LinuxCNC utiliser cette
+Pour charger un panneau PyVCP autonome avec Machinekit utiliser cette
 commande:
 
 ----
@@ -190,7 +190,7 @@ une interface graphique autre que Axis.
      Indique à PyVCP quel composant appeler et le titre de la fenêtre.
     Le nom du fichier _nompanneau_ peut être n'importe quel nom sans espace.
 
-Pour charger un panneau PyVCP autonome, sans LinuxCNC utiliser cette commande:
+Pour charger un panneau PyVCP autonome, sans Machinekit utiliser cette commande:
 
 ----
 loadusr -Wn monpanneau pyvcp -g 250x500+800+0 -c monpanneau monpanneau.xml
@@ -203,7 +203,7 @@ loadusr pyvcp monpanneau.xml
 ----
 
 Vous pourrez utiliser cette commande si vous voulez un panneau sans passer
-par un des contrôleurs machine de LinuxCNC, par exemple pour des tests ou
+par un des contrôleurs machine de Machinekit, par exemple pour des tests ou
 une visu autonome.
 
 La commande loadusr est utilisée quand vous chargez aussi un composant qui

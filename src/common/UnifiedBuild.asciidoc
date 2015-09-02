@@ -10,17 +10,17 @@
 This document describes the Unified RTOS Build, work by
 Michael Haberler, John Morris and Charles Steinkuehler
 that integrates new real-time thread flavors into
-Machinekit/LinuxCNC.
+Machinekit/Machinekit.
 
 == The Rationale for Multiple Realtime Operating Systems Support
 
 === Considerations
 
-A key aspect of LinuxCNC is its realtime capability. Up to about 2011, LinuxCNC
+A key aspect of Machinekit is its realtime capability. Up to about 2011, Machinekit
 essentially relied on a single realtime Linux extension, namely RTAI (http://www.rtai.org).
 Originally there was a second option, RT-Linux, but that product faded away over time and
-support for it in LinuxCNC has suffered substantial "bit rot." Realistically, RT-Linux
-has not been a viable option for LinuxCNC for years.
+support for it in Machinekit has suffered substantial "bit rot." Realistically, RT-Linux
+has not been a viable option for Machinekit for years.
 
 As the old adage goes, 'don\'t put all your eggs in one
 basket'. Reliance on RTAI has become a more pressing issue over time as some
@@ -28,32 +28,32 @@ question marks have arisen over RTAI's long term viability and the robustness
 of its community. Several alternatives - some of them freely
 available open source - have appeared, namely the RT-PREEMPT Linux
 realtime patch (https://rt.wiki.kernel.org) and the Xenomai Realtime kernel (http://www.xenomai.org). Regardless, there have
-been no coordinated attempts to widen the LinuxCNC support base for
+been no coordinated attempts to widen the Machinekit support base for
 other realtime operating systems (from here on called \'RTOS').
 
 There have been some isolated efforts to remedy this
 single-source situation a bit, namely the MiniEMC2 Project by Sergey
 Kaydalov (Xenomai-based) and work by Michael Büsch to support a
 RT-PREEMPT patched kernel, as well as several others. Various of them have
-been based on outdated versions of LinuxCNC or have relied on custom
+been based on outdated versions of Machinekit or have relied on custom
 kernels, making them rather less useful.
 
 The original focus of the RTOS work therefore has been to bring together these
 isolated efforts, bring them up to date,  integrate them into the
-LinuxCNC build process, and provide means to make the process of
+Machinekit build process, and provide means to make the process of
 supporting another future  RTOS option easier.
 
 A second aspect has been its reliance on the x86 architecture,
 largely driven by the fact that RTAI is not available for non-x86
 architectures. While mostly written in portable languages, some x86
 assumptions and inline assembly code have crept in over time into the
-LinuxCNC code base, meaning builds for other architectures were
+Machinekit code base, meaning builds for other architectures were
 challenging.
 
-A third aspect of LinuxCNC has been its packaging. While the current
+A third aspect of Machinekit has been its packaging. While the current
 method of distribution and installation continues to work for serious
 users, its relatively monolithic nature hinders the wider acceptance of
-LinuxCNC. Getting LinuxCNC into major software repositories
+Machinekit. Getting Machinekit into major software repositories
 has been hampered by the fact that a build based on a
 non-mainstream kernel extension is difficult to get accepted for
 inclusion in major distributions like Debian or Fedora. However, since
@@ -63,14 +63,14 @@ this is becoming an option which wasn't available before.
 
 === Evolution of the work
 
-The original focus of the recent RTOS work in LinuxCNC was to
+The original focus of the recent RTOS work in Machinekit was to
 bring together the isolated efforts mentioned above, bring them up to date,
-integrate them into the LinuxCNC build process, and provide means to make
+integrate them into the Machinekit build process, and provide means to make
 the process of supporting another future RTOS option easier.
 
 The result of this work has been branches which enable the use of
 RTAI, Xenomai or RT-PREEMPT kernels as a build-time option; that is,
-one had to build LinuxCNC for a particular kernel, and all the
+one had to build Machinekit for a particular kernel, and all the
 kernel-specific support would be linked into this binary. That binary
 would run only on the kernel it was built for, but not any others.
 
@@ -80,18 +80,18 @@ any package based on RTAI or Xenomai is still unlikely to be
 accepted. Second, the per-RTOS build approach increases the
 build-distribute-support burden: now there is one package per RTOS. Also, having
 only one option, but not others, being available through simple standard
-commands like `apt-get install linuxcnc` is less than helpful.
+commands like `apt-get install machinekit` is less than helpful.
 
 Viewing more closely, this was essentially a design and build system defect
-of LinuxCNC, which has used a monolithic build approach.
+of Machinekit, which has used a monolithic build approach.
 The supporting operating systems have for almost two decades
 provided a mechanism to separate the upgrade of supporting
 infrastructure - like runtime libraries - from the upgrade of
-applications proper, however, LinuxCNC has not made this transition
+applications proper, however, Machinekit has not made this transition
 until recently.
 
 Therefore, the driving factor for the 'unified build' work on
-LinuxCNC has been: separate out the specifics of a particular RTOS from the
+Machinekit has been: separate out the specifics of a particular RTOS from the
 rest of the software build by packaging the RTOS-specific parts into
 shared libraries and runtime-loadable modules. There is no
 particular magic behind this step, it is essentially tracking the
@@ -99,19 +99,19 @@ status quo how modern software packages are built.
 
 The aim of the 'unified build' work can be described as follows:
 
-- make LinuxCNC's major software components build without regard of
+- make Machinekit's major software components build without regard of
   any specific realtime operating system by providing an
   RTOS-independent abstraction layer
 - package those specifics as separately built loadable (and distributable,
   hence upgradable modules and libraries), likely as packages
-- provide hooks in LinuxCNC to determine the underlying RTOS, and load
+- provide hooks in Machinekit to determine the underlying RTOS, and load
   those parts of the RTOS-specific modules as needed.
 
 The upsides of such an approach are manifold:
 
-- the main LinuxCNC build, together with its Debian-compatible RTOS
+- the main Machinekit build, together with its Debian-compatible RTOS
  support, becomes amenable for major distro inclusion
-- the build and distribution logistics for the LinuxCNC project are
+- the build and distribution logistics for the Machinekit project are
  substantially simplified
 - bugs in the supporting infrastructure can be fixed by upgrading a
 support package, or maybe just a single file - without wholesale
@@ -232,7 +232,7 @@ single `./configure && make` run builds many RT options::
 	host without conflict.  In use, thread flavors applicable to
 	the current running environment are user-selectable with a
 	sensible default.  These features simplify distribution and
-	remove barriers for including LinuxCNC packages in the big
+	remove barriers for including Machinekit packages in the big
 	distributions.
 
 
@@ -443,12 +443,12 @@ rtai 2.6.32-122-rtai::
 
 rtai 3.5.7::
      Schooner/Arceye/Mick Private Bin kernel - reported to work, Axis
-     screenshot seen. See the LinuxCNC Forum (http://forum.linuxcnc.org)
+     screenshot seen. See the Machinekit Forum (http://forum.machinekit.org)
      and the emc-developer email list for ongoing discussions.
 
 xenomai 3.5.7-2.6.2.1 i686 and x86_64::
 	John's [JM] Xenomai kernel, see
-	http://wiki.linuxcnc.org/cgi-bin/wiki.pl?XenomaiKernelPackages
+	http://wiki.machinekit.org/cgi-bin/wiki.pl?XenomaiKernelPackages
 
 3.2.0-4-rt-amd64::
 	 as per wheezy distro (x86_64)
@@ -460,12 +460,12 @@ No attempt has been made, and none will be made, for the hardy RTAI kernel.
 
 === Tested Distros
 
-Ubuntu Lucid, Ubuntu Precise, Debian Wheezy
+Debian Lucid, Debian Precise, Debian Wheezy
 
 === i386/x86_64 Compatibility
 
 The OS architecture (i386/i686 versus x86_64) must be identical in the build and run environments -
-building LinuxCNC on say an i386 kernel and trying to run the result when
+building Machinekit on say an i386 kernel and trying to run the result when
 booting an x86_64 kernel will not work.
 
 === Universal Build Changes
@@ -495,9 +495,9 @@ RT flavors has its own separate configuration and its own set of RTAPI
 and support binaries that may not be mixed with other RT flavors.
 With support for multiple RT flavors installed on a single host, for
 example, it is possible for an operator to boot a Xenomai kernel and
-run LinuxCNC in any of the POSIX, Xenomai userland or Xenomai kernel
+run Machinekit in any of the POSIX, Xenomai userland or Xenomai kernel
 RT thread flavors (chosen at run-time).  She may then shut down and
-boot an RT_PREEMPT kernel, and then run LinuxCNC in either of the
+boot an RT_PREEMPT kernel, and then run Machinekit in either of the
 POSIX or RT_PREEMPT RT thread flavors.
 
 To make this possible requires compiling and installing binaries
@@ -507,7 +507,7 @@ initialization code to enable selecting a flavor and loading matching
 configuration and binaries.
 
 Flavor configuration is separated by replacing the old `rtapi.conf` shell
-script with an INI-style `etc/linuxcnc/rtapi.ini` containing
+script with an INI-style `etc/machinekit/rtapi.ini` containing
 per-flavor configuration sections.
 
 Per-flavor binary files are kept separate by adding flavor and kernel
@@ -523,8 +523,8 @@ It obtains run-time parameters from `flavor` executable output and the
 performing flavor-specific initialization, described next.
 
 For kernel threads systems, the script runs
-`libexec/linuxcnc_module_helper` to load each kernel module listed in
-`rtapi.ini`.  `linuxcnc_module_helper` looks for the named kernel
+`libexec/machinekit_module_helper` to load each kernel module listed in
+`rtapi.ini`.  `machinekit_module_helper` looks for the named kernel
 module in `rtlib/<flavor>/<kernel-version>`, and optionally in the
 `RTDIR` parameter from `rtapi.ini` (needed for RTAI), and loads the
 module.
@@ -536,7 +536,7 @@ modules directory, `rtlib/<flavor>` for run-in-place builds, so that
 `rtapi_app` may `dlopen()` the module with no need to read module path
 location from the configuration file.
 
-On the ULAPI side, `liblinuxcnchal.so` again is given an `rpath` to
+On the ULAPI side, `libmachinekithal.so` again is given an `rpath` to
 the `lib` directory so that `ulapi-<flavor>.so` may be loaded without
 reading external configuration.
 
@@ -573,7 +573,7 @@ thread flavors, the kernel source directories are listed by flavor in
 `RTAI_KERNEL_THREADS_KERNEL_DIRS`.
 
 Running `make` starts a top-level build that looks much the same for
-the parts of LinuxCNC not affected by the RT flavor.  The top-level
+the parts of Machinekit not affected by the RT flavor.  The top-level
 build `modules:` target, however, does not itself build any
 flavor-specific objects.  Instead, it executes second-level `make
 modules` runs, one run for each configured userland RT thread flavor
@@ -613,7 +613,7 @@ that e.g. `rtapi/rtapi_task.c` can instead be compiled from
 
 === Preparing Linux Logging
 
-All LinuxCNC-related log messages go through rtapi_msgd, which logs
+All Machinekit-related log messages go through rtapi_msgd, which logs
 them to the syslog 'LOCAL1' facility. This includes messages generated
 by kernel RT components; it does not include any messages which are
 generated by various supporting components which use 'printk' (I think
@@ -622,19 +622,19 @@ I caught most of these though; please report if you discover such a case).
 The `make` process will check if logging is properly configured; if
 not, you will get a message like this:
 
-    /etc/rsyslog.d/linuxcnc.conf does not exist - consider running 'sudo make log'
+    /etc/rsyslog.d/machinekit.conf does not exist - consider running 'sudo make log'
 
 In this case, just run:
 
    $ sudo make log
 
 This step does change the rsyslog configuration by copying
-rtapi/rsyslogd-linuxcnc.conf to /etc/rsyslog.d/linuxcnc.conf, and
+rtapi/rsyslogd-machinekit.conf to /etc/rsyslog.d/machinekit.conf, and
 restarting rsyslog.
 
 Once done, you can watch the logfile like so:
 
- $  tail -f /var/log/linuxcnc.log
+ $  tail -f /var/log/machinekit.log
 
 === Packages required
 
@@ -648,17 +648,17 @@ If you want to build the emcweb Web UI (--enable-emcweb), you also need these:
 
 === Configuring and Building: The Basic procedure
 
-In case you have an existing `linuxcnc` directory and want to add this
+In case you have an existing `machinekit` directory and want to add this
 branch, run this:
 
- $ cd linuxcnc
- $ git remote add github-mah https://github.com/mhaberler/linuxcnc.git
+ $ cd machinekit
+ $ git remote add github-mah https://github.com/mhaberler/machinekit.git
  $ git fetch github-mah
  $ git checkout -b unified-build-candidate-3  github-mah/unified-build-candidate-3
 
 To clone a new copy:
 
- $ git clone --branch unified-build-candidate-3 --origin github-mah https://github.com/mhaberler/linuxcnc.git [<directory>]
+ $ git clone --branch unified-build-candidate-3 --origin github-mah https://github.com/mhaberler/machinekit.git [<directory>]
 
 In case you want to check out a development branch other than
 unified-build-candidate-3, replace the name as appropriate (for
@@ -688,7 +688,7 @@ The simplest way to compile this package is:
 
 . Type `source scripts/rip-environment` to set up the environment.
 
-. Type `linuxcnc` to test the software.
+. Type `machinekit` to test the software.
 
 
 ==== The Configure script
@@ -707,7 +707,7 @@ debugging `configure`).
 
 To run a particular flavor, two conditions must be satisfied:
 
-. LinuxCNC must have been built to support this flavor
+. Machinekit must have been built to support this flavor
 . the running kernel must be compatible with the desired flavor.
 
 The following thread flavor names are understood (`FLAVOR` environment variable):
@@ -748,7 +748,7 @@ kernels (refer to the documentation of the project on how to do that).
 
 ====  Optional Features
 
-If multiple RT flavors are available, LinuxCNC will attempt to detect
+If multiple RT flavors are available, Machinekit will attempt to detect
 and build for all of them. A subset may be
 selected on the configure command line:
 
@@ -772,7 +772,7 @@ selected on the configure command line:
 `./configure --prefix=/usr/local`::
 
 	Specify a location for system installation.
-	By default, LinuxCNC will build to "run in place" out of the
+	By default, Machinekit will build to "run in place" out of the
 	build directory.
 
 `./configure --enable-build-documentation`::
@@ -820,7 +820,7 @@ To stop, execute
 
  $ realtime stop
 
-The realtime script reads default values from etc/linuxcnc/rtapi.ini;
+The realtime script reads default values from etc/machinekit/rtapi.ini;
 most values here will never need to be changed.
 
 The following defaults from rtapi.ini can be overridden via environment
@@ -828,10 +828,10 @@ variables:
 
 `DEBUG=<integer>`::
 	 set the rt and user logging level (0..5, the maximum). A lot of detail will be
-	 logged to /var/log/linuxcnc.log.
+	 logged to /var/log/machinekit.log.
 	 If you suspect problems, run `DEBUG=5 realtime start`.
 
-`FLAVOR=<flavor name> <linuxcnc command>`::
+`FLAVOR=<flavor name> <machinekit command>`::
 	 Start a particular (non-default) thread flavor. FLAVOR must
 	 be one of: `rtai-kernel`, `rt-preempt`, `xenomai`, `posix`,
 	 `xenomai-kernel`.
@@ -890,13 +890,13 @@ variables:
 ==== Status of Multiple Instance support
 
 The status of instance support for running several side-by-side instances of
-linuxcnc on a single host is:
+machinekit on a single host is:
 
 . support in RTAPI/HAL as well as startup/shutdown is feature complete
 . support for multiple instances in NML is currently at a 'gross hack'
   level - the issue is the TCP port number usage. It might not make
   sense to fix this as NML is being replaced anyway.
-. the linuxcnc script needs work - the first instance to shut down
+. the machinekit script needs work - the first instance to shut down
 kills the other instances too.
 
 ==== Running separate HAL/RTAPI instances
@@ -904,8 +904,8 @@ kills the other instances too.
 INSTANCE=2 realtime start::
 	   starts the instance #2 of RTAPI/HAL
 
-INSTANCE=3 linuxcnc::
-	   starts the instance #3 of RTAPI/HAL and Linuxcnc (see
+INSTANCE=3 machinekit::
+	   starts the instance #3 of RTAPI/HAL and Machinekit (see
 	   restrictions noted above)
 
 === Isolating and Reporting an error
@@ -916,8 +916,8 @@ INSTANCE=3 linuxcnc::
 - Make sure logging is set up as outlined in the 'Preparing Linux
   Logging' section above.
 
-- watch the file /var/log/linuxcnc.log, for instance with `tail -f
-  /var/log/linuxcnc.log` in a separate terminal window.
+- watch the file /var/log/machinekit.log, for instance with `tail -f
+  /var/log/machinekit.log` in a separate terminal window.
 
 - Verify that logging works - do a `realtime start` followed by a `realtime
 stop`. There should be a few lines of log entries added.
@@ -927,19 +927,19 @@ stop`. There should be a few lines of log entries added.
   if any. This can take a long time, it's more than 120 tests by now.
 
 - during the `runtests` step, log file entries should appear in
-  /var/log/linuxcnc.log.
+  /var/log/machinekit.log.
 
 - run the failed configuration with increased logging detail in a
-  terminal window like so: `DEBUG=5 linuxcnc <yourconfig.ini>` and
+  terminal window like so: `DEBUG=5 machinekit <yourconfig.ini>` and
   save the output to a file; running the configuration from the
-  linuxcnc config selector  will make you miss
+  machinekit config selector  will make you miss
   likely important output.
 
-- pastebin the list of failed tests, the console output, /var/log/linuxcnc.log and the
+- pastebin the list of failed tests, the console output, /var/log/machinekit.log and the
  configuration files if not using a stock configuration.
 
 - if the error is verified to be genuine *please add an issue to the
-  tracker: https://github.com/zultron/linuxcnc/issues?&state=open*.
+  tracker: https://github.com/zultron/machinekit/issues?&state=open*.
 
 == Man pages for exception handler, update_stats
 
@@ -972,7 +972,7 @@ can be ignored).
 
 The issue tracker for the Unified Build development is here:
 
-https://github.com/zultron/linuxcnc/issues?&state=open
+https://github.com/zultron/machinekit/issues?&state=open
 
 Feel free to add issues so they are not lost.
 
@@ -985,7 +985,7 @@ hal_lib.c::
 rtapi_msgd naming::
 	   this name rtapi_msgd is a bit misleading - it sets up the
 	   per-instance global data segment which is essential for
-	   LinuxCNC operation.
+	   Machinekit operation.
 
 history cleaning, and squashing out 'wip' and 'FIXME' commits::
 	DONE

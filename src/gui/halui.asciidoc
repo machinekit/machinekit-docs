@@ -4,7 +4,7 @@
 
 == Introduction[[sec:HaluiIntroduction]]
 
-Halui is a HAL based user interface for LinuxCNC, it connects HAL pins to
+Halui is a HAL based user interface for Machinekit, it connects HAL pins to
 NML commands. Most of the functionality (buttons, indicators etc.) that
 is provided by a traditional GUI (mini, Axis, etc.), is provided by HAL
 pins in Halui.
@@ -191,9 +191,9 @@ MDI_COMMAND = G0 X0
    to a maximum of 64 commands.
 * 'halui.mdi-command-<nn>' (bit, in) - halui will try to send the MDI
    command defined in the ini. This will not always succeed, depending on
-   the operating mode LinuxCNC is in (e.g. while in AUTO halui can't
+   the operating mode Machinekit is in (e.g. while in AUTO halui can't
    successfully send MDI commands). If the command succeeds then it will
-   place LinuxCNC in the MDI mode and then back to Manual mode. 
+   place Machinekit in the MDI mode and then back to Manual mode. 
 
 .Joint Selection
 

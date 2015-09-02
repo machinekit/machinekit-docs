@@ -23,7 +23,7 @@ The haltcl facility provides a means to use tcl scripting and its features for
 computation, looping, branching, procedures, etc. in ini files.  To use this
 functionality, you use the tcl language and the extension .tcl for halfiles.
 
-The .tcl extension is understood by the main script (linuxcnc) that processes
+The .tcl extension is understood by the main script (machinekit) that processes
 ini files.  Haltcl files are identified in the the HAL section of ini files
 (just like .hal files).
 
@@ -45,7 +45,7 @@ subset of the more powerful general-purpose tcl scripting language.
 == Haltcl Commands
 
 Haltcl files use the tcl scripting language augmented with the specific
-commands of the LinuxCNC hardware abstraction layer (HAL).  The hal-specific
+commands of the Machinekit hardware abstraction layer (HAL).  The hal-specific
 commands are.
 
 ....
@@ -79,7 +79,7 @@ list     hal list
 Inifile variables are accessible by both halcmd and haltcl but with
 differing syntax.
 
-LinuxCNC ini files use SECTION and ITEM specifiers to identify
+Machinekit ini files use SECTION and ITEM specifiers to identify
 configuration items.
 
 ----

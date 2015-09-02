@@ -15,11 +15,11 @@ Par exemple dans une console, tapez _man axis_ pour accéder aux informations de
 la man page d'Axis. Ou peut être _man 1 axis_, si le système exige le N° de
 section des man pages.
 
-* _axis_ - L'interface graphique AXIS pour LinuxCNC (The Enhanced Machine Controller).
+* _axis_ - L'interface graphique AXIS pour Machinekit (The Enhanced Machine Controller).
 * _axis-remote_ - Interface de télécommande d'AXIS.
 * _comp_ - Crée, compile et installe des composants de HAL.
-* _linuxcnc_ - LINUXCNC (The Enhanced Machine Controller).
-* _gladevcp_ - Panneau de contrôle virtuel pour LinuxCNC, repose sur Glade, Gtk et
+* _machinekit_ - LINUXCNC (The Enhanced Machine Controller).
+* _gladevcp_ - Panneau de contrôle virtuel pour Machinekit, repose sur Glade, Gtk et
 les widgets HAL.
 * _gs2_ - composant de l'espace utilisateur de HAL, pour le variateur de
 fréquence GS2 de la société _Automation Direct_.
@@ -30,12 +30,12 @@ matériel supporté par Linux, y compris les matériels USB HID.
 * _halrun_ - Manipulation de  HAL, depuis la ligne de commandes.
 * _halsampler_ - Échantillonner des données temps réel depuis HAL.
 * _halstreamer_ - Créer un flux de données temps réel dans HAL depuis un fichier.
-* _halui_ - Observer des pins de HAL et commander LinuxCNC au travers d'NML.
+* _halui_ - Observer des pins de HAL et commander Machinekit au travers d'NML.
 * _io_ - Accepte les commandes NML I/O, interagi avec HAL dans l'espace
 utilisateur.
 * _iocontrol_ - Accepte les commandes NML I/O, interagi avec HAL dans l'espace
 utilisateur.
-* _pyvcp_ - Panneau de Contrôle Virtuel pour LinuxCNC (Python Virtual Control Panel).
+* _pyvcp_ - Panneau de Contrôle Virtuel pour Machinekit (Python Virtual Control Panel).
 * _shuttlexpress_ - Contrôle des pins de HAL avec la manette ShuttleXpress, de
 la société _Contour Design_.
 
@@ -51,7 +51,7 @@ de détails.
 Si le composant requière un thread avec flottant, c'est normalement le plus
 lent, soit  _servo-thread_.
 
-=== Composants du coeur de LinuxCNC[[sec:Realtime-Components-coeur]] ===
+=== Composants du coeur de Machinekit[[sec:Realtime-Components-coeur]] ===
 
 * _motion_ - (((motion)))Accepte les commandes de mouvement NML, interagi en temps
 réel avec HAL.
@@ -221,7 +221,7 @@ numériques de port série avec circuits 8250 et 16550.
 
 === Composants cinématiques[[sec:Realtime-Components-cinematiques]] ===
 
-* _kins_ - (((kins)))Définition des cinématiques pour linuxcnc.
+* _kins_ - (((kins)))Définition des cinématiques pour machinekit.
 
 * _gantrykins_ - (((gantrykins)))Module de cinématique pour un seul axe à
 articulations multiples.

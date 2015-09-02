@@ -8,12 +8,12 @@
 
 Voici quelques commandes et techniques de base pour l'utilisateur
 débutant sous Linux. Beaucoup d'autres informations peuvent être
-trouvées sur http://www.linuxcnc.org/[le site web de LinuxCNC] ou dans les man
+trouvées sur http://www.machinekit.org/[le site web de Machinekit] ou dans les man
 pages.
 
 == Login automatique
 
-Quand vous installez LinuxCNC avec le CD-Live Ubuntu, par défaut vous
+Quand vous installez Machinekit avec le CD-Live Debian, par défaut vous
 devez passer par la fenêtre de connexion à chaque démarrage du PC. Pour
 activer le login automatique ouvrez le menu 
 _Système → Administration → Fenêtre de connexion_. 
@@ -121,9 +121,9 @@ Pour remonter de deux niveaux de répertoire, tapez dans le terminal:
 cd ../..
 ----
 
-Pour aller directement dans le sous-répertoire linuxcnc/configs tapez:
+Pour aller directement dans le sous-répertoire machinekit/configs tapez:
 ----
-cd linuxcnc/configs
+cd machinekit/configs
 ----
 
 === Lister les fichiers du répertoire courant
@@ -146,7 +146,7 @@ find répertoire_de_départ <paramètres> <actions>
 ----
 
 Par exemple, pour trouver tous les fichiers .ini dans votre répertoire
-linuxcnc utilisez d'abord la commande _pwd_ pour trouver le répertoire
+machinekit utilisez d'abord la commande _pwd_ pour trouver le répertoire
 courant. Ouvrez un nouveau terminal et tapez:
 ----
 pwd
@@ -159,7 +159,7 @@ il vous est retourné par exemple le résultat suivant:
 
 Avec cette information vous pouvez taper, par exemple, la commande:
 ----
-find /home/robert/linuxcnc -name *.ini -print
+find /home/robert/machinekit -name *.ini -print
 ----
 
 Le _-name_ est le nom du fichier que vous recherchez et le _-print_
@@ -202,8 +202,8 @@ Pour nettoyer le tampon des messages tapez cette commande:
 sudo dmesg -c
 ----
 
-C'est utile avant de lancer LinuxCNC, pour que ne soit enregistrés que les
-messages relatifs au fonctionnement courant de LinuxCNC.
+C'est utile avant de lancer Machinekit, pour que ne soit enregistrés que les
+messages relatifs au fonctionnement courant de Machinekit.
 
 Pour trouver les adresses des ports parallèles de la machine, tapez cette
 commande grep pour filtrer les informations contenues dans dmesg.
@@ -229,7 +229,7 @@ lsusb -v
 
 === Résolution du moniteur
 
-Lors de l'installation d'Ubuntu les réglages du moniteur sont automatiquement
+Lors de l'installation d'Debian les réglages du moniteur sont automatiquement
 détectés. Il peut arriver que la détection fonctionne mal et que la résolution
 ne soit que celle d'un moniteur générique en 800x600.
 

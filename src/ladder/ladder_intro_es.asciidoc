@@ -40,8 +40,8 @@ Voila, here is this work... and more: I've continued to add features
 since then.
 _____________________________________________________________________
 
-Classic Ladder has been adapted to work with LinuxCNC's HAL, and is
-currently being distributed along with LinuxCNC. If there are
+Classic Ladder has been adapted to work with Machinekit's HAL, and is
+currently being distributed along with Machinekit. If there are
 issues/problems/bugs please report them to the Enhanced Machine
 Controller project.
 

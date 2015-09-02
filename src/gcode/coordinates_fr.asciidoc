@@ -17,7 +17,7 @@ référence sur le brut ou la pièce et de faire travailler le programme à part
 de ce point, sans avoir à tenir compte d'où est placée la pièce sur la
 machine pendant l'usinage.
 Ce chapitre va donc introduire les décalages et comment ils sont utilisés
-par LinuxCNC:
+par Machinekit:
 
 * Les coordonnées machine.(G53)
 * Les neuf décalages d'origine pièce.(G54 à G59.3)
@@ -60,7 +60,7 @@ Un cas typique d'utilisation de cette fonctionnalité, pour usiner huit
 ilots identiques sur la même pièce, est illustré sur la figure ci-dessus.
 
 Les valeurs des décalages sont enregistrées dans le fichier VAR qui
-est requis par le fichier INI durant le démarrage de LinuxCNC. Dans l'exemple
+est requis par le fichier INI durant le démarrage de Machinekit. Dans l'exemple
 ci-dessous, qui utilise (((G55)))G55, la valeur de chacun des axes de G55
 est enregistrée dans une variable numérotée.
 
@@ -82,7 +82,7 @@ ce genre pour chacun des décalages pièce.
 
 Chacune des interfaces graphiques offre un moyen de fixer les valeurs
 de ces décalages. Vous pouvez également définir ces valeurs en
-modifiant le fichier VAR lui-même, puis faire un [reset], pour que LinuxCNC
+modifiant le fichier VAR lui-même, puis faire un [reset], pour que Machinekit
 lise les nouvelles valeurs. Pour notre exemple, nous allons éditer
 directement le fichier pour que G55 prenne les valeurs suivantes:
 
@@ -149,13 +149,13 @@ G59.3	utilise les réglages du système de coordonnées 9(((G59.3)))
 
 Une autre variable dans le fichier VAR joue un rôle important dans les
 décalages, c'est la variable 5220. Dans les fichiers par défaut, sa
-valeur est fixée à 1,00000. Ce qui signifie que lorsque LinuxCNC démarre, il
+valeur est fixée à 1,00000. Ce qui signifie que lorsque Machinekit démarre, il
 doit utiliser le premier système de coordonnées comme système par
 défaut. Si vous définissez celui-ci à 9,00000 le neuvième système
 décalé sera utilisé par défaut au démarrage du système et aux
 réinitialisations. Toute valeur autre qu'un entier compris entre 1 et
 9, ou l'absence de la variable 5220, provoquera au démarrage le retour
-de LinuxCNC à la valeur par défaut de 1.00000.
+de Machinekit à la valeur par défaut de 1.00000.
 
 === Réglage des décalages avec G10
 
@@ -176,7 +176,7 @@ courante devienne la position donnée en paramètre.
 == Décalages d'axes G92
 
 G92 est la plus incomprise et la plus maligne des commandes
-programmables avec LinuxCNC. La façon dont elle fonctionne a un peu changé
+programmables avec Machinekit. La façon dont elle fonctionne a un peu changé
 entre les premières versions et l'actuelle. Ces changements ont sans
 doute déconcerté de nombreux utilisateurs. Elle devrait être vue comme
 une commande produisant un décalage temporaire, qui s'applique à tous
@@ -211,7 +211,7 @@ actif. Toutefois, le G92 était toujours actif, pour toutes les
 coordonnées et il a produit les décalages attendus pour tous les autres
 systèmes de coordonnées.
 
-Lors du démarrage de LinuxCNC, si des offsets existent dans les variables de
+Lors du démarrage de Machinekit, si des offsets existent dans les variables de
 G92, ils seront appliqués lors de la prise d'origine des axes concernés.
 Il est donc de bonne pratique de mettre les offsets de G92 à zéro par G92.1 ou
 un G92.2 à la fin de leur utilisation.
@@ -221,7 +221,7 @@ un G92.2 à la fin de leur utilisation.
 Il y a au moins deux façons d'établir les valeurs de G92.
 
 * Par un clic droit de la souris sur les afficheurs de position de
-   tklinuxcnc, une fenêtre s'ouvre dans laquelle il est possible de saisir une
+   tkmachinekit, une fenêtre s'ouvre dans laquelle il est possible de saisir une
    valeur. 
 * Par la commande G92.
 
@@ -267,7 +267,7 @@ position lorsque vous démarrez, regardez ces variables dans le fichier
 VAR pour vérifier si elles contiennent des valeurs. Si c'est le cas,
 les mettre à zéro devrait solutionner le problème.
 
-Si des valeurs G92 existent dans le fichier VAR quand LinuxCNC démarre, ces 
+Si des valeurs G92 existent dans le fichier VAR quand Machinekit démarre, ces 
 valeurs seront appliquées aux valeurs courantes des emplacements d'axe. 
 Si c'est sa position d'origine et que l'origine est définie au zéro machine, tout
 sera correct. Une fois que l'origine machine a été établie en utilisant les 
@@ -277,7 +277,7 @@ appliqués. Si un X1 G92 est actif lors de la prise d'origine machine de l'axe X
 la visu affichera 'X: 1.000' au lieu du 'X: 0.000' attendu, c'est parce-que le 
 G92 a été appliqué à l'origine machine. Si vous passez un G92.1 et que la visu
 affiche tous à zéro, alors c'est que vous avez encore l'effet de l'offset G92 
-de la dernière session de LinuxCNC.
+de la dernière session de Machinekit.
 
 Sauf si votre intention est d'utiliser les mêmes décalages G92 dans le prochain
 programme, la meilleure pratique consiste à envoyer un G92.1 à la fin de tout 
@@ -357,7 +357,7 @@ et y avec G92. Si vous faites cela, vous devez ajouter une commande
 G92.1 juste avant le M2 qui termine le programme. Si vous ne le faites
 pas, les programmes que vous pourriez lancer après celui-ci,
 utiliseront également les décalages G92. En outre, cela permettrait
-d'éviter d'écrire les valeurs de G92 lorsque vous arrêtez LinuxCNC et donc,
+d'éviter d'écrire les valeurs de G92 lorsque vous arrêtez Machinekit et donc,
 d'éviter de les recharger quand vous démarrez à nouveau le programme.
 
 

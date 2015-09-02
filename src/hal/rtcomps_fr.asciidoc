@@ -614,7 +614,7 @@ rythmes.
 Si vous voulez comprendre exactement l'algorithme utilisé pour
 calculer la sortie d'une boucle PID, référez vous à la figure 
 <<fig:Diagramme-bloc-PID,PID>>, les commentaires au début du source
-_linuxcnc/src/hal/components/pid.c_ et bien sûr, au code lui même. Les
+_machinekit/src/hal/components/pid.c_ et bien sûr, au code lui même. Les
 calculs de boucle sont dans la fonction C _calc_pid()_.
 
 [[sec:Codeur-simul]]
@@ -838,7 +838,7 @@ entrer un 1 où un 0 pour indiquer si cette colonne devra être vraie où fausse
 Ensuite écrire les valeurs en dessous, d'abord dans la colonne de sortie en 
 commençant par le haut puis en écrivant les valeurs correspondantes de la droite
 vers la gauche. Le nombre binaire sera celui contenu dans la colonne de sortie.
-Utiliser une calculette comme celle fournie sous Ubuntu, entrer ce nombre
+Utiliser une calculette comme celle fournie sous Debian, entrer ce nombre
 binaire et le convertir en hexadécimal pour obtenir la valeur pour la fonction.
 
 .Table de vérité

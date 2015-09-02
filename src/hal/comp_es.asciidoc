@@ -22,7 +22,7 @@ calls to 'rtapi_' and 'hal_' functions and associated error checking.
 'comp' will write all this code for you, automatically.
 
 Compiling a HAL component is also much easier when using 'comp',
-whether the component is part of the LinuxCNC source tree, or outside it.
+whether the component is part of the Machinekit source tree, or outside it.
 
 For instance, when coded in C, a simple component such as "ddt" is around 80
 lines of code. The equivalent component is very short when written using the
@@ -44,9 +44,9 @@ old = tmp;
 
 == Installing
 
-If your working with an installed version of LinuxCNC you need to install
+If your working with an installed version of Machinekit you need to install
 the development packages by using the following line in a terminal or using the 
-Synaptic Package Manager from the main Ubuntu menu.
+Synaptic Package Manager from the main Debian menu.
 
 .Installing Dev
 ----
@@ -422,7 +422,7 @@ Place the '.comp' file in the source directory
 'Comp' files are automatically detected by the build system.
 
 If a '.comp' file is a driver for hardware, it may be placed in
-'emc2/src/hal/components' and will be built unless LinuxCNC is 
+'emc2/src/hal/components' and will be built unless Machinekit is 
 configured as a userspace simulator.
 
 [[sec:Compiling-realtime-components]]
@@ -430,7 +430,7 @@ configured as a userspace simulator.
 (((Compiling realtime components outside the source tree)))
 
 'comp' can process, compile, and install a realtime component 
-in a single step, placing 'rtexample.ko' in the LinuxCNC realtime 
+in a single step, placing 'rtexample.ko' in the Machinekit realtime 
 module directory:
 
 ----
@@ -649,7 +649,7 @@ variable-size arrays and optional pins.
 
 [source,c]
 ----
-component logic "LinuxCNC HAL component providing experimental logic functions";
+component logic "Machinekit HAL component providing experimental logic functions";
 pin in bit in-##[16 : personality & 0xff];
 pin out bit and if personality & 0x100;
 pin out bit or if personality & 0x200;

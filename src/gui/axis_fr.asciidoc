@@ -7,7 +7,7 @@
 
 == Introduction
 
-AXIS(((AXIS))) est une interface utilisateur graphique pour LinuxCNC, il
+AXIS(((AXIS))) est une interface utilisateur graphique pour Machinekit, il
 offre un aperçu permanent du parcours de l'outil. Il est écrit en
 Python(((Python))), utilise Tk(((Tk))) et OpenGL(((OpenGL))) pour
 l'affichage de l'interface graphique.
@@ -19,14 +19,14 @@ image::images/axis_25_fr.png[]
 
 == Commencer avec AXIS
 
-Pour choisir AXIS comme interface graphique de LinuxCNC, éditez le fichier
+Pour choisir AXIS comme interface graphique de Machinekit, éditez le fichier
 .ini et dans la section [DISPLAY] changez la ligne DISPLAY comme
 ceci:
 ----
 DISPLAY = axis
 ----
 
-Puis, lancez LinuxCNC et choisissez le fichier ini. La configuration
+Puis, lancez Machinekit et choisissez le fichier ini. La configuration
 simplifiée _sim/axis.ini_ est déjà configurée pour utiliser AXIS comme
 interface graphique.
 
@@ -35,7 +35,7 @@ Quand AXIS démarre, une fenêtre telle que celle de la figure
 
 === Une session typique avec AXIS
 
- . Lancer LinuxCNC et sélectionner un fichier de configuration.
+ . Lancer Machinekit et sélectionner un fichier de configuration.
  . Relâcher le bouton d'arrêt d'urgence _A/U_(((A/U))) et presser
    celui de _Marche_ machine.
  . Faire les prises d'origine machine _POM_ pour chacun des axes.
@@ -123,7 +123,7 @@ Recharger la table d'outils...::
      Si Classic Ladder a été chargé, il est possible de l'éditer ici.
 
 Quitter...::
-    Termine la session courante de LinuxCNC.
+    Termine la session courante de Machinekit.
 
 ==== Menu Machine
 
@@ -190,8 +190,8 @@ HAL Scope...::
      Ouvre un oscilloscope virtuel qui permet de tracer dans le temps,
     les valeurs de HAL.
 
-Afficher l'état de LinuxCNC...::
-     Ouvre une fenêtre montrant l'état de LinuxCNC.
+Afficher l'état de Machinekit...::
+     Ouvre une fenêtre montrant l'état de Machinekit.
 
 Choisir le niveau de Debug...::
      Ouvre une fenêtre dans laquelle les niveaux de débogage sont visibles
@@ -350,8 +350,8 @@ Rafraîchir le parcours d'outil...::
     parcours précédents peut être rafraîchie.
 
 Afficher la position commandée...::
-     C'est la position que LinuxCNC cherche à atteindre. Quand le mouvement est
-    stoppé, c'est la position que LinuxCNC cherchera à maintenir.
+     C'est la position que Machinekit cherche à atteindre. Quand le mouvement est
+    stoppé, c'est la position que Machinekit cherchera à maintenir.
 
 Afficher la position actuelle...::
      La position actuelle est la position mesurée grâce aux informations issues
@@ -639,7 +639,7 @@ autorisée à se déplacer au delà d'un contact de limite physique.
 Cette case à cocher n'est disponible que lorsqu'un fin de course est pressé.
 Elle est désactivée après chaque mouvement de jogging.
 Si l'axe est configuré avec des contacts positifs et négatifs séparés,
-LinuxCNC permettra le jogging uniquement dans le sens du dégagement.
+Machinekit permettra le jogging uniquement dans le sens du dégagement.
 _Dépassement de limite_ ne permettra pas un jogging au delà d'une limite
 logicielle. La seule façon de désactiver une limite logicielle sur un axe
 est d'annuler sa prise d'origine.
@@ -777,13 +777,13 @@ Les raccourcis clavier les plus fréquents sont visibles dans la table ci-dessou
 |Maj-PgUp, PgDn   | Axe Z vitesse rapide                        | Manuel
 |====================================================================
 
-== Affichage de l'état de LinuxCNC (LinuxCNCtop)
+== Affichage de l'état de Machinekit (Machinekittop)
 
-AXIS inclut un programme appelé _linuxcnctop_ qui affiche en détail l'état
-de LinuxCNC. Ce programme est accessible dans le menu Machine > Fenêtre
-d'état de LinuxCNC.
+AXIS inclut un programme appelé _machinekittop_ qui affiche en détail l'état
+de Machinekit. Ce programme est accessible dans le menu Machine > Fenêtre
+d'état de Machinekit.
 
-.Fenêtre d'état de LinuxCNC
+.Fenêtre d'état de Machinekit
 
 image::images/axis-emc-status.png[]
 
@@ -794,20 +794,20 @@ Si la valeur a changé récemment, elle s'affiche en surbrillance rouge.
 == Entrée de données en texte (MDI)
 
 AXIS inclut un programme appelé 'mdi', il permet d'envoyer des
-commandes à la session de LinuxCNC en cours, sous forme de lignes de texte.
+commandes à la session de Machinekit en cours, sous forme de lignes de texte.
 Vous pouvez lancer ce programme en ouvrant une console et en tapant:
 ----
-mdi /chemin/vers/linuxcnc.nml
+mdi /chemin/vers/machinekit.nml
 ----
 
 En cours d'exécution il affiche le prompt: _MDI>_. Quand une ligne
 vide est entrée, la position courante de la machine est affichée.
-Quand une commande est entrée, elle est passée à LinuxCNC qui l'exécute.
+Quand une commande est entrée, elle est passée à Machinekit qui l'exécute.
 
 C'est un exemple de session de MDI.
 
 ----
-$ MDI ~/linuxcnc/configs/sim/emc.nml
+$ MDI ~/machinekit/configs/sim/emc.nml
 MDI>
 (0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 MDI> G1 F5 X1
@@ -832,7 +832,7 @@ quitter le programme AXIS avec: (_--quit_).
 
 (((Changement D'Outil Manuel)))
 
-LinuxCNC inclut un composant userspace HAL de appelé _hal_manualtoolchange_,
+Machinekit inclut un composant userspace HAL de appelé _hal_manualtoolchange_,
 il ouvre une fenêtre d'appel d'outil visible ci-dessous,
 quand la commande *M6* est invoquée. Dés que le bouton _Continuer_ est
 pressé, l'exécution du programme reprend.
@@ -863,7 +863,7 @@ peuvent être très utiles. Pour des informations complètes sur ces
 modules, faites: _pydoc <nom du module_ ou lisez son code source.
 Modules inclus:
 
- - *LinuxCNC* fournit l'accès aux commandes de LinuxCNC, à son état et aux chaînes d'erreur
+ - *Machinekit* fournit l'accès aux commandes de Machinekit, à son état et aux chaînes d'erreur
  - *gcode* fournit l'accès à l'interpréteur RS274NGC
  - *rs274* fournit des outils supplémentaires pour travailler sur les fichiers RS274NGC
  - *hal* permet la création par l'utilisateur de composants de HAL écrits en Python
@@ -872,7 +872,7 @@ Modules inclus:
 
 Pour utiliser ces modules dans vos propres scripts, assurez-vous que
 le répertoire où ils se trouvent est dans le chemin d'accès des modules
-Python. Avec une version installée de LinuxCNC, ça se fera automatiquement.
+Python. Avec une version installée de Machinekit, ça se fera automatiquement.
 Avec une version installée en _in-place_, ça peut être fait avec l'aide
 de: _/scripts/rip-environment_.
 
@@ -921,10 +921,10 @@ doivent agir. Premièrement, pour chaque type de fichier, écrire une ligne
 type de fichier. Ce programme reçoit comme argument le nom du fichier d'entrée,
 il doit produire le G-code selon le standard rs274ngc, en sortie. Les lignes de
 cette sortie s'affichent alors dans la zone de texte, le parcours d'outil
-résultant est visible dans la zone graphique, enfin il sera exécuté quand LinuxCNC
+résultant est visible dans la zone graphique, enfin il sera exécuté quand Machinekit
 recevra la commande _Exécuter le programme_. Les lignes suivantes fournissent
 la possibilité d'utiliser _image-to-gcode_, le convertisseur d'images
-fourni avec LinuxCNC:
+fourni avec Machinekit:
 ----
 [FILTER]
 PROGRAM_EXTENSION = .png,.gif Greyscale Depth Image
@@ -966,9 +966,9 @@ il sert aussi de référence des éléments configurables dans l'écran graphiqu
 L'exemple de fichier _axis_big_dro_ évolution de la position de lecture
 à une police plus grande taille. Pour utiliser ces fichiers:
 ----
-xrdb -merge /usr/share/doc/linuxcnc/axis_light_background
+xrdb -merge /usr/share/doc/machinekit/axis_light_background
 
-xrdb -merge /usr/share/doc/linuxcnc/axis_big_dro
+xrdb -merge /usr/share/doc/machinekit/axis_big_dro
 ----
 
 Pour plus d'informations au sujet des éléments configurables dans les

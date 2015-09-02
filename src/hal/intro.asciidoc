@@ -6,7 +6,7 @@ HAL(((HAL))) stands for Hardware Abstraction Layer. At the highest
 level, it is simply a way to allow a number of 'building blocks' to be
 loaded and interconnected to assemble a complex system. The 'Hardware'
 part is because HAL was originally designed to make it easier to
-configure LinuxCNC for a wide variety of hardware devices. Many of the
+configure Machinekit for a wide variety of hardware devices. Many of the
 building blocks are drivers for hardware devices. However, HAL can do
 more than just configure hardware drivers.
 
@@ -88,7 +88,7 @@ changes as needed.
 
 This document is aimed at people who already know how to do this kind
 of hardware system integration, but who do not know how to connect the
-hardware to LinuxCNC. See the <<sec:Remote-Start-Example,Remote Start
+hardware to Machinekit. See the <<sec:Remote-Start-Example,Remote Start
 Example>> section in the HAL UI Examples documentation.
 
 image::images/remote-start.png[]
@@ -357,12 +357,12 @@ does - that is determined by which functions are
 connected to it. The real distinction is simply how often a thread
 runs.
 
-In LinuxCNC you might have a 50 us thread and a 1 ms thread. 
+In Machinekit you might have a 50 us thread and a 1 ms thread. 
 These would be created based on BASE_PERIOD and SERVO_PERIOD, the
 actual times depend on the values in your ini file. 
 
 The next step is to decide what each thread needs to do. Some of those
-decisions are the same in (nearly) any LinuxCNC system--For instance,
+decisions are the same in (nearly) any Machinekit system--For instance,
 motion-command-handler is always added to servo-thread.
 
 Other connections would be made by the integrator. These might include

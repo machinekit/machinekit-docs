@@ -16,11 +16,11 @@ man axis (or perhaps 'man 1 axis' if your system requires it.)
 ----
 
 
-axis:: AXIS LinuxCNC (The Enhanced Machine Controller) Graphical User Interface.
+axis:: AXIS Machinekit (The Enhanced Machine Controller) Graphical User Interface.
 axis-remote:: AXIS Remote Interface.
-comp:: Build, compile and install LinuxCNC HAL components.
-emc:: LinuxCNC (The Enhanced Machine Controller).
-gladevcp:: Virtual Control Panel for LinuxCNC based on Glade, Gtk and HAL widgets.
+comp:: Build, compile and install Machinekit HAL components.
+emc:: Machinekit (The Enhanced Machine Controller).
+gladevcp:: Virtual Control Panel for Machinekit based on Glade, Gtk and HAL widgets.
 gs2:: HAL userspace component for Automation Direct GS2 VFD's.
 halcmd:: Manipulate the Enhanced Machine Controller HAL from the command line.
 hal_input:: Control HAL pins with any Linux input device, including USB HID devices.
@@ -28,10 +28,10 @@ halmeter:: Observe HAL pins, signals, and parameters.
 halrun:: Manipulate the Enhanced Machine Controller HAL from the command line.
 halsampler:: Sample data from HAL in realtime.
 halstreamer:: Stream file data into HAL in real time.
-halui:: Observe HAL pins and command LinuxCNC through NML.
+halui:: Observe HAL pins and command Machinekit through NML.
 io:: Accepts NML I/O commands, interacts with HAL in userspace.
 iocontrol:: Accepts NML I/O commands, interacts with HAL in userspace.
-pyvcp:: Virtual Control Panel for LinuxCNC.
+pyvcp:: Virtual Control Panel for Machinekit.
 shuttlexpress:: control HAL pins with the ShuttleXpress device made by Contour Design.
 
 == Realtime Components List[[sec:Realtime-Components]]
@@ -45,7 +45,7 @@ get additional information in a terminal window.
 If the component requires a floating point thread that is usually the slower
 servo-thread.
 
-=== Core LinuxCNC components[[sec:Realtime-Components-core]] ===
+=== Core Machinekit components[[sec:Realtime-Components-core]] ===
 
 motion:: (((motion)))Accepts NML motion commands, interacts with HAL in realtime.
 
@@ -201,7 +201,7 @@ serport:: (((serport)))Hardware driver for the digital I/O bits of the 8250 and 
 
 
 
-kins:: (((kins)))kinematics definitions for LinuxCNC.
+kins:: (((kins)))kinematics definitions for Machinekit.
 
 gantrykins:: (((gantrykins)))A kinematics module that maps one axis to multiple joints.
 

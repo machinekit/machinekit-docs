@@ -4,13 +4,13 @@ Issues in RT components are harder to debug than normal user programs, but with 
 
 There are two key processes which are needed to run RT applications: "msgd" and "rtapi". 
 
-- msgd a process which starts first and prepares the RT environment, by setting up the global shared memory segment, initiating the log ringbuffer, and then retrieving any messages which might come out of RT components. msgd eventually writes these logs typically to /var/log/linuxcnc.log via syslog. So if something unusual happens, this log is the first place to look for issues in RT land.
+- msgd a process which starts first and prepares the RT environment, by setting up the global shared memory segment, initiating the log ringbuffer, and then retrieving any messages which might come out of RT components. msgd eventually writes these logs typically to /var/log/machinekit.log via syslog. So if something unusual happens, this log is the first place to look for issues in RT land.
 
 - rtapi_app is the process which actually loads RT components, and they live as shared libraries in its process space. This process also starts and runs RT threads, which is why it needs to have higher privileges (msgd doesnt); it is setuid root. rtapi_app starts after msgd.
 
 Neither runs without the other; the reason why there are two: different privileges. msgd is the same binary for all thread flavors; rtapi_app is actually a different binary for each flavor.
 
-Both programs are directly or indirectly started by the 'realtime' script; the 'linuxcnc' script does this behind the scenes. Those are background processes which dont write to the terminal session - they write to the log file.
+Both programs are directly or indirectly started by the 'realtime' script; the 'machinekit' script does this behind the scenes. Those are background processes which dont write to the terminal session - they write to the log file.
 
 === Naming
 
@@ -42,7 +42,7 @@ Note that rtapi_app (which is rtapi:0 in ps) logged its current directory; thats
 
 === Debugging strategy
 
-Ideally you narrow down the problem to for example loading a single component. It is best to do this without the "linuxcnc" script, but a minimal halcmd script which leads up to the error. 
+Ideally you narrow down the problem to for example loading a single component. It is best to do this without the "machinekit" script, but a minimal halcmd script which leads up to the error. 
 
 In this case, we can trap an error as it happens. If this is not possible, inspecting the core dump is needed.
 

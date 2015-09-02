@@ -6,7 +6,7 @@ image::images/ngcgui.png[]
 
 == Overview
     
-* 'NGCGUI' is a tcl application for using LinuxCNC subroutines.
+* 'NGCGUI' is a tcl application for using Machinekit subroutines.
 * 'NGCGUI' can run as a standalone application or can be embedded in
    multiple tab pages in the axis gui
 * 'PYNGCGUI' is an alternate, python implementation of ngcgui.
@@ -36,10 +36,10 @@ the tern NGCGUI generally refers to either application.
 == Demonstration Configurations
 
 A number of demonstration configurations are located in the sim directory
-of the Sample Configurations offered by the LinuxCNC configuration picker. The
+of the Sample Configurations offered by the Machinekit configuration picker. The
 configuration picker is on the system's main menu:
 
-  Applications > CNC > LinuxCNC
+  Applications > CNC > Machinekit
 
 Examples are included for the axis, touchy, gscreen, and gmoccapy guis.
 These examples demonstrate both 3-axis (XYZ) cartesian configurations
@@ -133,7 +133,7 @@ before running on a real machine.
 == Library Locations
 
 In linuxCNC installations installed from deb packages, the simulation configs
-for ngcgui use symbolic links to non-user-writable LinuxCNC libraries for:
+for ngcgui use symbolic links to non-user-writable Machinekit libraries for:
 
 * 'nc_files/ngcgui_lib'             ngcgui-compatible subfiles
 * 'nc_files/ngcgui_lib/lathe'       ngcgui-compatible lathe subfiles
@@ -187,7 +187,7 @@ NGCGUI_SUBFILE = example.ngc
 ...
 ----
 
-LinuxCNC (and ngcgui) use the first file found when searching
+Machinekit (and ngcgui) use the first file found when searching
 directories in the search path.  With this behavior, you can
 supersede an ngcgui_lib subfile by placing a subfile with an
 identical name in a directory that is found earlier in the path
@@ -203,7 +203,7 @@ ngcgui --help
 Usage:
   ngcgui --help | -?
   ngcgui [Options] -D nc_files_directory_name
-  ngcgui [Options] -i LinuxCNC_inifile_name
+  ngcgui [Options] -i Machinekit_inifile_name
   ngcgui [Options]
 
   Options:
@@ -384,7 +384,7 @@ PROGRAM_PREFIX    = ../../nc_files
 
 [NOTE]
 The above is not a complete axis gui INI -- the items show are those 
-used by ngcgui.  Many additional items are required by LinuxCNC to have
+used by ngcgui.  Many additional items are required by Machinekit to have
 a complete INI file.
 
 
@@ -427,8 +427,8 @@ followed by multiple directories specfied by:
 
 Directories may be specifed as absolute paths or relative paths.
 ....
-Example: [DISPLAY]PROGRAM_PREFIX = /home/myname/linuxcnc/nc_files
-Example: [DISPLAY]PROGRAM_PREFIX = ~/linuxcnc/nc_files
+Example: [DISPLAY]PROGRAM_PREFIX = /home/myname/machinekit/nc_files
+Example: [DISPLAY]PROGRAM_PREFIX = ~/machinekit/nc_files
 Example: [DISPLAY]PROGRAM_PREFIX = ../../nc_files
 ....
 
@@ -461,7 +461,7 @@ for multiple directories and shows the use of relative and absolute paths.
 This is one long line, do not continue on multiple lines.  When linuxCNC and/or
 ngcgui searches for files, the first file found in the search is used.
 
-LinuxCNC (and ngcgui) must be able to find all subroutines including helper routines
+Machinekit (and ngcgui) must be able to find all subroutines including helper routines
 that are called from within ngcgui subfiles.  It is convenient to place
 utility subs in a separate directory as indicated in the example above.
 
@@ -472,12 +472,12 @@ search path.  The first directory searched is [DISPLAY]PROGRAM_PREFIX.  You
 can use this directory but it is better practice to create dedicated
 directory(ies) and put them at the beginning of the [RS274NGC]SUBROUTINE_PATH.
 
-In the following example, files in /home/myname/linuxcnc/mysubs will be found before
+In the following example, files in /home/myname/machinekit/mysubs will be found before
 files in ../../nc_files/ngcgui_lib.
 
 .Adding User Directory Example: 
 ----
-[RS274NGC]SUBROUTINE_PATH = /home/myname/linuxcnc/mysubs:../../nc_files/ngcgui_lib:../../nc_files/ngcgui_lib/utilitysubs`
+[RS274NGC]SUBROUTINE_PATH = /home/myname/machinekit/mysubs:../../nc_files/ngcgui_lib:../../nc_files/ngcgui_lib/utilitysubs`
 ----
 
 New users may inadvertently try to use files that are not structured to be
@@ -605,7 +605,7 @@ Note:    Optional, each directory will be included when gcmc is invoked
 
 An NGCGUI-compatible subfile contains a single subroutine definition. The name
 of the subroutine must be the same as the filename (not including the .ngc
-suffix). LinuxCNC supports named or numbered subroutines, but only named
+suffix). Machinekit supports named or numbered subroutines, but only named
 subroutines are compatible with NGCGUI. For more information see the
 <<cha:O-Codes,O-Codes>> Chapter.
 
@@ -637,7 +637,7 @@ each of these parameters (no omissions).
 #<zparm> = #3
 ----
 
-LinuxCNC considers all numbered parameters in the range #1 thru #30 to be calling
+Machinekit considers all numbered parameters in the range #1 thru #30 to be calling
 parameters so ngcgui provides entry boxes for any occurence of parameters in
 this range. It is good practice to avoid use of numbered parameters #1 through
 #30 anywhere else in the subroutine. Using local, named parameters is
@@ -675,7 +675,7 @@ Notes on global named parameters and ngcgui:
 #<_someglobalname>)
 
 As in many programming languages, use of globals is powerful but can often lead
-to unexpected consequences. In LinuxCNC, existing global named parameters will be
+to unexpected consequences. In Machinekit, existing global named parameters will be
 valid at subroutine execution and subroutines can modify or create global named
 parameters.
 
@@ -750,11 +750,11 @@ image file examp.png. Ngcgui attempts to resize large images by subsampling
 to a size with maximum width of 320 and maximum height of 240 pixels.
 
 None of the conventions required for making an ngcgui-compatible subfile
-preclude its use as general purpose subroutine file for LinuxCNC.
+preclude its use as general purpose subroutine file for Machinekit.
 
-The LinuxCNC distribution includes a library (ngcgui_lib directory) that
+The Machinekit distribution includes a library (ngcgui_lib directory) that
 includes both example ngcgui-compatible subfiles and utility files
-to illustrate the features of LinuxCNC subroutines and ngcgui usage.
+to illustrate the features of Machinekit subroutines and ngcgui usage.
 Another libary (gcmc_lib) provides examples for subroutine files for
 the Gcode meta compiler (gcmc)
 

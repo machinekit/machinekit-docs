@@ -49,12 +49,12 @@ The tool is not changed until an 'M6' is programmed (see Section
 lines with no tool change. Only the the most recent T word will take
 effect at the next tool change.
 
-NOTE: When LinuxCNC is configured for a nonrandom toolchanger (see
+NOTE: When Machinekit is configured for a nonrandom toolchanger (see
 the entry for RANDOM_TOOLCHANGER in the <<sub:EMCIO-Section,EMCIO
 Section>>), 'T0' gets special handling: no tool will be selected. This
 is useful if you want the spindle to be empty after a tool change.
 
-NOTE: 'T0' When LinuxCNC is configured for a random toolchanger (see
+NOTE: 'T0' When Machinekit is configured for a random toolchanger (see
 the entry for RANDOM_TOOLCHANGER in the <<sub:EMCIO-Section,EMCIO
 Section>>), 'T0' does not get any special treatment: T0 is a valid
 tool like any other.  It is customary to use T0 on a random toolchanger

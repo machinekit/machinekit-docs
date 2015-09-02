@@ -1029,14 +1029,14 @@ Again if you used the Stepconf Wizard to add Classic Ladder you can
 skip this step.
 
 To manually add a ladder you need to add add a line to your custom.hal
-file that will load your ladder file. Close your LinuxCNC session and add
+file that will load your ladder file. Close your Machinekit session and add
 this line to your custom.hal file.
 
 ----
 loadusr -w classicladder --nogui MyLadder.clp
 ----
 
-Now if you start up your LinuxCNC config your ladder program will be
+Now if you start up your Machinekit config your ladder program will be
 running as well. If you select "File/Ladder Editor", the program you
 created will show up in the Section Display window.
 

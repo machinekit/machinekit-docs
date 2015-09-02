@@ -3,7 +3,7 @@
 [[cha:selector]] (((CONFIGURATION SELECTOR)))
 
 The Configuraton Selector gui is activated from the system main 
-menu when CNC / LinuxCNC is selected.
+menu when CNC / Machinekit is selected.
 
 The Configuration Selector offers a selection of configurations
 organized:
@@ -20,13 +20,22 @@ organized:
 
       by_machine ------------ configurations organized by machine
 
+      ARM  ------------------ configurations for BeagleBone Black
+                              and other ARM boards
+                              
       apps ------------------ applications that do not require
-                              starting linuxcnc but may be useful
+                              starting machinekit but may be useful
                               for testing or trying applications
                               like pyvcp or gladevcp
 
       attic ----------------- obsolete or historical configurations
 
+      hm2_stepper  ---------- example config using 5i25 PCI board
+                              in a stepper configuration
+                              
+      pru-examples ---------- examples using hal_pru_generic driver
+      
+      stepper  -------------- generic 3 axis stepper mill config
 
 The sim configurations are often the most useful starting point for
 new users and are organized around supported guis:
@@ -70,8 +79,8 @@ systems like:
 A complete system may be required to use these configurations.
 
 The apps items are typically 1) utilities that don't require
-starting linuxcnc or 2) demonstrations of applications that can
-be used with linuxcnc:
+starting machinekit or 2) demonstrations of applications that can
+be used with machinekit:
 
     info ------ creates a file with system information that
                 may be useful for problem diagnosis

@@ -68,7 +68,7 @@ A section name is enclosed in brackets like this '[THIS_SECTION]'
 The order of sections is unimportant. Sections begin at the section
 name and end at the next section name.
 
-The following sections are used by LinuxCNC:
+The following sections are used by Machinekit:
 
 * '[<<sub:EMC-section,EMC>>]' general information
 * '[<<sub:DISPLAY-section,DISPLAY>>]' settings related to the graphical user interface
@@ -93,7 +93,7 @@ often called a keyword.
 The following sections detail each section of the configuration file,
 using sample values for the configuration lines.
 
-Variables that are used by LinuxCNC must always use the section
+Variables that are used by Machinekit must always use the section
 names and variable names as shown. In the following example the variable
 'MACHINE' is assigned the value 'My Machine'.
 
@@ -117,7 +117,7 @@ variable to the INI file.
 OFFSET_1 = 0.1234
 ----
 
-To add a custom variable to a LinuxCNC section simply include the variable
+To add a custom variable to a Machinekit section simply include the variable
 in that section.
 
 .Custom Variable Example
@@ -158,7 +158,7 @@ component pin.
     of most graphical interfaces. You can put whatever you want here as
     long as you make it a single line long.
 
-* 'DEBUG = 0' - Debug level 0 means no messages will be printed when LinuxCNC is run from a
+* 'DEBUG = 0' - Debug level 0 means no messages will be printed when Machinekit is run from a
     terminal. Debug flags are usually only useful to developers. See
     src/emc/nml_intf/emcglb.h for other settings.
 
@@ -168,14 +168,14 @@ component pin.
 
 Different user interface programs use different options, and not every
 option is supported by every user interface. The main two interfaces
-for LinuxCNC are AXIS and Touchy. Axis is an interface for use with normal
+for Machinekit are AXIS and Touchy. Axis is an interface for use with normal
 computer and monitor, Touchy is for use with touch screens.
 Descriptions of the interfaces are in the Interfaces section of the
 User Manual.
 
 * 'DISPLAY = axis' - The name of the user interface to use. Valid options
     may include: axis,(((axis))) touchy,(((touchy))) keystick,(((keystick)))
-    mini,(((mini))) tklinuxcnc,(((tkLinuxCNC))) xemc,(((xemc)))
+    mini,(((mini))) tkmachinekit,(((tkMachinekit))) xemc,(((xemc)))
 
 * 'POSITION_OFFSET = RELATIVE' - The coordinate system (RELATIVE or MACHINE) to show when the user
     interface starts. The RELATIVE coordinate system reflects the G92 and
@@ -183,7 +183,7 @@ User Manual.
 
 * 'POSITION_FEEDBACK = ACTUAL' - The coordinate value (COMMANDED or ACTUAL) to show when the user
     interface starts. The COMMANDED position is the ideal position
-    requested by LinuxCNC. The ACTUAL position is the feedback position of the
+    requested by Machinekit. The ACTUAL position is the feedback position of the
     motors.
 
 * 'MAX_FEED_OVERRIDE = 1.2' - The maximum feed override the user may select. 1.2 means 120% of the
@@ -273,7 +273,7 @@ The following [DISPLAY] items are for the AXIS interface only.
     load and result in a more sluggish display. Smaller values give a less
     accurate preview, but take less time to load and may result in a faster
     display. The default value of 64 means a circle of up to 3 inches will
-    be displayed to within 1 mil (.03%).footnote:[In LinuxCNC 2.4 and earlier,
+    be displayed to within 1 mil (.03%).footnote:[In Machinekit 2.4 and earlier,
     the default value was 128.]
 
 * 'MDI_HISTORY_FILE =' - The name of a local MDI history file. If this is not specified Axis
@@ -282,7 +282,7 @@ The following [DISPLAY] items are for the AXIS interface only.
     computer.
 
 [NOTE]
-The following [DISPLAY] item is used by the TKLinuxCNC interface only.
+The following [DISPLAY] item is used by the TKMachinekit interface only.
 
 * 'HELP_FILE = tklinucnc.txt' - Path to help file.
 
@@ -300,7 +300,7 @@ Then, specify the program to execute for each type of file. This
 program is given the name of the input file as its first argument, and
 must write RS274NGC code to standard output. This output is what will
 be displayed in the text area, previewed in the display area, and
-executed by LinuxCNC when Run.
+executed by Machinekit when Run.
 
 * 'PROGRAM_EXTENSION = .extension Description'
 
@@ -310,7 +310,7 @@ the following line:
 * 'PROGRAM_EXTENSION = .NGC XYZ Post Processor'
 
 The following lines add support for the image-to-gcode converter
-included with LinuxCNC:
+included with Machinekit:
 
 * 'PROGRAM_EXTENSION = .png,.gif,.jpg Greyscale Depth Image'
 ** 'png = image-to-gcode'
@@ -326,8 +326,8 @@ In this way, any Python script can be opened, and its output is
 treated as g-code. One such example script is available at
 nc_files/holecircle.py. This script creates g-code for drilling a
 series of holes along the circumference of a circle. Many more g-code
-generators are on the LinuxCNC Wiki site
-http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl[http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl].
+generators are on the Machinekit Wiki site
+http://wiki.machinekit.org/cgi-bin/emcinfo.pl[http://wiki.machinekit.org/cgi-bin/emcinfo.pl].
 
 If the environment variable AXIS_PROGRESS_BAR is set, then lines
 written to stderr of the form
@@ -390,7 +390,7 @@ implemented and the results of using it are unpredictable.
 === [EMCMOT] Section
 (((EMCMOT (inifile section))))
 
-This section is a custom section and is not used by LinuxCNC directly. Most
+This section is a custom section and is not used by Machinekit directly. Most
 configurations use values from this section to load the motion controller. For
 more information on the motion controller see the <<sec:motion,Motion>>
 Section.
@@ -443,9 +443,9 @@ Section.
     they appear in the ini file. 'HALCMD' lines are executed after all
     'HALFILE' lines.
 
-* 'SHUTDOWN = shutdown.hal' - Execute the file 'shutdown.hal' when LinuxCNC is exiting.
+* 'SHUTDOWN = shutdown.hal' - Execute the file 'shutdown.hal' when Machinekit is exiting.
    Depending on the hardware drivers used, this may make it possible to set outputs to
-    defined values when LinuxCNC is exited normally. However, because there is
+    defined values when Machinekit is exited normally. However, because there is
     no guarantee this file will be executed (for instance, in the case of a
     computer crash) it is not a replacement for a proper physical e-stop
     chain or other protections against software failure.
@@ -529,10 +529,10 @@ planning module in 'motion'.
     runs in this file. This allows the machine to start with the same
     coordinates it had on shutdown. This assumes there was no movement of
     the machine while powered off. If unset, joint positions are not stored
-    and will begin at 0 each time LinuxCNC is started. This can help on smaller
+    and will begin at 0 each time Machinekit is started. This can help on smaller
     machines without home switches.
 
-* 'NO_FORCE_HOMING = 1' - The default behavior is for LinuxCNC to force the user to home the machine
+* 'NO_FORCE_HOMING = 1' - The default behavior is for Machinekit to force the user to home the machine
     before any MDI command or a program is run. Normally jogging only is
     allowed before homing. Setting NO_FORCE_HOMING = 1 allows the user to
     make MDI moves and run programs without homing the machine first.
@@ -603,7 +603,7 @@ Typically (but not always):
     names are case sensitive and can contain letters and/or numbers. The
     values are triplets per line separated by a space. The first value is
     nominal (where it should be). The second and third values depend on the
-    setting of COMP_FILE_TYPE. Currently the limit inside LinuxCNC is for 256
+    setting of COMP_FILE_TYPE. Currently the limit inside Machinekit is for 256
     triplets per axis. If COMP_FILE is specified, BACKLASH is ignored.
     Compensation file values are in machine units.
 
@@ -651,8 +651,8 @@ Typically (but not always):
     errors will always be present due to vibration, etc. The following
     polarity values determine how inputs are interpreted and how outputs
     are applied. They can usually be set via trial-and-error since there
-    are only two possibilities. The LinuxCNC Servo Axis Calibration utility
-    program (in the AXIS interface menu Machine/Calibration and in TkLinuxCNC it
+    are only two possibilities. The Machinekit Servo Axis Calibration utility
+    program (in the AXIS interface menu Machine/Calibration and in TkMachinekit it
     is under Setting/Calibration) can be used to set these and more
     interactively and verify their results so that the proper values can be
     put in the INI file with a minimum of trouble.
@@ -723,7 +723,7 @@ These parameters are Homing related, for a better explanation read the
 
 [WARNING]
 The following are custom INI file entries that you may find in a sample INI file
-or a wizard generated file. These are not used by the LinuxCNC software. They
+or a wizard generated file. These are not used by the Machinekit software. They
 are only there to put all the settings in one place. For more information on
 custom INI file entries see the
 <<sub:custom-variables,Custom Sections and Variables>> subsection.
@@ -827,7 +827,7 @@ image::images/encoder-counts-math.png[align="center"]
     factor), before being written to the D/A converters. The units on the
     scale value are in true volts per DAC output volts. The units on the
     offset value are in volts. These can be used to linearize a DAC.
-     Specifically, when writing outputs, the LinuxCNC first converts the desired
+     Specifically, when writing outputs, the Machinekit first converts the desired
     output in quasi-SI units to raw actuator values, e.g., volts for an
     amplifier DAC. This scaling
     looks like: image:images/output-offset.png[]
@@ -913,7 +913,7 @@ image::images/encoder-scale.png[align="center"]
 
 [WARNING]
 The following are custom INI file entries that you may find in a sample INI file
-or a wizard generated file. These are not used by the LinuxCNC software. They
+or a wizard generated file. These are not used by the Machinekit software. They
 are only there to put all the settings in one place. For more information on
 custom INI file entries see the
 <<sub:custom-variables,Custom Sections and Variables>> subsection.

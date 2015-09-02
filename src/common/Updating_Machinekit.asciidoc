@@ -1,18 +1,18 @@
-= Updating LinuxCNC
+= Updating Machinekit
 
 == Updating from 2.4.x to 2.5.x
 
 As of version 2.5.0, the name of the project has changed from EMC2
-to LinuxCNC. All programs with "emc" in the name have been changed to
-"linuxcnc" instead. All documentation has been updated.
+to Machinekit. All programs with "emc" in the name have been changed to
+"machinekit" instead. All documentation has been updated.
 
 Additionally, the name of the debian package containing the software
 has changed. Unfortunately this breaks automatic upgrades. To upgrade
-from emc2 2.4.X to linuxcnc 2.5.X, do the following:
+from emc2 2.4.X to machinekit 2.5.X, do the following:
 
-=== On Ubuntu Lucid 10.04
+=== On Debian Lucid 10.04
 
-First you need to tell your computer where to find the new LinuxCNC
+First you need to tell your computer where to find the new Machinekit
 software:
 
 * Click on the System menu in the top panel and select
@@ -22,16 +22,16 @@ software:
 
 * Select the entry that says
 
-    http://linuxcnc.org/lucid lucid base emc2.4
+    http://machinekit.org/lucid lucid base emc2.4
 
     or
 
-    http://linuxcnc.org/lucid lucid base emc2.4-sim
+    http://machinekit.org/lucid lucid base emc2.4-sim
 
     and click the Edit button.
 
-* In the Components field, change `emc2.4` to `linuxcnc2.5`, or change
-  `emc2.4-sim` to `linuxcnc2.5-sim`.
+* In the Components field, change `emc2.4` to `machinekit2.5`, or change
+  `emc2.4-sim` to `machinekit2.5-sim`.
 
 * Click the OK button.
 
@@ -47,17 +47,17 @@ it to install it:
 * Click on the System menu in the top panel and select
   Administration->Synaptic Package Manager
 
-* In the Quick Search bar at the top, type `linuxcnc`.
+* In the Quick Search bar at the top, type `machinekit`.
 
-* Click the check box to mark the new linuxcnc package for installation.
+* Click the check box to mark the new machinekit package for installation.
 
 * Click the Apply button, and let your computer install the new
   package. The old emc 2.4 package will be automatically removed to make
-  room for the new LinuxCNC 2.5 package.
+  room for the new Machinekit 2.5 package.
 
-=== On Ubuntu Hardy 8.04
+=== On Debian Hardy 8.04
 
-First you need to tell your computer where to find the new LinuxCNC software:
+First you need to tell your computer where to find the new Machinekit software:
 
 * Click on the System menu in the top panel and select Administration->Synaptic Package Manager
 
@@ -67,15 +67,15 @@ First you need to tell your computer where to find the new LinuxCNC software:
 
 * Select the entry that says
 
-    http://linuxcnc.org/hardy hard emc2.4
+    http://machinekit.org/hardy hard emc2.4
 
     or
 
-    http://linuxcnc.org/hardy hardy emc2.4-sim
+    http://machinekit.org/hardy hardy emc2.4-sim
 
     and click the Edit button.
 
-* In the Components field, change `emc2.4` to `linuxcnc2.5` or `emc2.4-sim` to `linuxcnc2.5-sim`.
+* In the Components field, change `emc2.4` to `machinekit2.5` or `emc2.4-sim` to `machinekit2.5-sim`.
 
 * Click the OK button.
 
@@ -88,21 +88,21 @@ Now your computer knows about the new software, next we need to tell it to insta
 
 * In the Synaptic Package Manager, click the Search button.
 
-* In the Find dialog window that pops up, type `linuxcnc` and click the
+* In the Find dialog window that pops up, type `machinekit` and click the
   Search button.
 
-* Click the check-box to mark the linuxcnc package for installation.
+* Click the check-box to mark the machinekit package for installation.
 
 * Click the Apply button, and let your computer install the new
   package. The old emc 2.4 package will be automatically removed to make
-  room for the new LinuxCNC 2.5 package.
+  room for the new Machinekit 2.5 package.
 
 == Config changes
 
-The user configs moved from $HOME/emc2 to $HOME/linuxcnc, so you will
+The user configs moved from $HOME/emc2 to $HOME/machinekit, so you will
 need to rename your directory, or move your files to the new place.
 
-The hostmot2 watchdog in LinuxCNC 2.5 does not start running until the
+The hostmot2 watchdog in Machinekit 2.5 does not start running until the
 HAL threads start running. This means it now tolerates a timeout on the
 order of the servo thread period, instead of requiring a timeout that's
 on the order of the time between loading the driver and starting the HAL
@@ -120,12 +120,12 @@ some sample configs (hm2-servo and hm2-stepper) that act as examples.
 
 == Upgrading from 2.3.x to 2.4.x
 
-The following instructions only apply to Ubuntu 8.04 "Hardy Heron". 
-LinuxCNC 2.4 is not available for older releases of Ubuntu.
+The following instructions only apply to Debian 8.04 "Hardy Heron". 
+Machinekit 2.4 is not available for older releases of Debian.
 
 Because there are several minor incompatibilities between 2.3.5 
 and 2.4.x, your existing install will not automatically be 
-updated to 2.4.x. If you want to run 2.4.x, change to the LinuxCNC-2.4 
+updated to 2.4.x. If you want to run 2.4.x, change to the Machinekit-2.4 
 repository by following these instructions:
 
 run System/Administration/Synaptic Package Manager
@@ -133,7 +133,7 @@ run System/Administration/Synaptic Package Manager
 go to Settings/Repositories
 
 In the list of Third-Party software there should be at least two 
-lines for linuxcnc.org.
+lines for machinekit.org.
 
 For each of them:
 

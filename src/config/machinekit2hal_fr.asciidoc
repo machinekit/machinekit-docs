@@ -1,10 +1,10 @@
 :lang: fr
 :toc:
 
-= LinuxCNC et HAL
+= Machinekit et HAL
 
-[[cha:LinuxCNC-et-HAL]]
-(((LinuxCNC et HAL)))
+[[cha:Machinekit-et-HAL]]
+(((Machinekit et HAL)))
 
 Voir également la man page _motion(9)_.
 
@@ -14,7 +14,7 @@ Voir également la man page _motion(9)_.
 
 Ces pins et paramètres sont créés par le module temps réel _motmod_.
 Ce module fourni une interface vers HAL pour le planificateur de mouvements de
- LinuxCNC. En gros, motmod prends dans une liste de points de cheminement
+ Machinekit. En gros, motmod prends dans une liste de points de cheminement
 et génère un flux de positions respectant les limites de contrainte des 
 articulations. Ce flux sera reçu simultanément par tous les pilotes de moteurs.
 
@@ -279,7 +279,7 @@ motion-command-handler::
     utilisateur.
 
 motion-controller::
-    Lance le contrôleur de mouvement de LinuxCNC.
+    Lance le contrôleur de mouvement de Machinekit.
 
 == axis.N (temps réel)
 
