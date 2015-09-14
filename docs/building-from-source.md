@@ -144,7 +144,7 @@ e.g., a Gmoccapy configuration.
 ### Adding rip-environment script to .bashrc
 To enable the use of Machinekit from every terminal without running the rip-environment script explicitly we can add it to the .bashrc using the following command:
 
-    sh -c "echo -e 'if [ -f ~/machinekit/scripts/rip-environment ]; then\n\
+    sh -c "echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then\n\
         source ~/machinekit/scripts/rip-environment\n\
         echo \"Environment set up for running Machinekit and LinuxCNC\"\n\
     fi\n' >> ~/.bashrc"
