@@ -18,7 +18,8 @@ check back here before installing a new kernel.
 ====
 
 . *<<configure-apt,Configure Apt>>*
-.. <<configure-APT-i686-amd64-arm7,Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
+.. <<configure-APT-i686-amd64-arm7-wheezy,`wheezy` Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
+.. <<configure-APT-i686-amd64-arm7-jessie,`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
 .. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
@@ -31,9 +32,17 @@ check back here before installing a new kernel.
 
 == [[configure-apt]]Configure Apt
 
-=== [[configure-APT-i686-amd64-arm7]]Configure Apt for i686, amd64 and arm7 (Beaglebone)
+[NOTE]
+====
+Different instructions exist for Debian Wheezy and Debian Jessie. Please choose
+your installation.
+====
+
+=== [[configure-APT-i686-amd64-arm7-wheezy]]`wheezy` Configure Apt for i686, amd64 and arm7 (Beaglebone)
+
 
 Copy and paste the following into a shell to configure the package archive:
+
 [source,bash]
 ----
 sudo sh -c \
@@ -48,6 +57,94 @@ continue with:
 |===
 |<<install-RT-kernel, install your kernel>>
 |===
+
+=== [[configure-APT-i686-amd64-arm7-jessie]]`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone)
+
+==== Create APT `preferences` file and add `sid` repository
+Because of the necessity of libczmq from the `sid` repository we need to
+add a preferences file for APT to know that it should not use `sid` packages
+*unless* it's been told to explicitly do so.
+
+This instruction assumes there is no `preferences` file. If there is we assume
+you know what you're doing and can adapt this info into your existing situation.
+
+[source,bash]
+----
+sudo sh -c \
+"echo 'Package: *
+Pin: release a=stable
+Pin-Priority: 900
+
+Package: *
+Pin: release o=Debian
+Pin-Priority: -10' > \
+/etc/apt/preferences;"
+----
+
+==== Add the `sid` repository to you debian sources list and update.
+
+open as a root `/etc/apt/sources.list` and search for the following lines
+
+[source,text]
+----
+deb http://ftp.nl.debian.org/debian/ jessie main
+deb-src http://ftp.nl.debian.org/debian/ jessie main
+----
+
+If you use a different mirror, change appropriately
+copy these lines and change `jessie` to `sid` which will look like (total)
+
+[source,text]
+----
+deb http://ftp.nl.debian.org/debian/ jessie main
+deb-src http://ftp.nl.debian.org/debian/ jessie main
+deb http://ftp.nl.debian.org/debian/ sid main
+deb-src http://ftp.nl.debian.org/debian/ sid main
+----
+
+
+==== Update your sources and install `libczmq` and `libczmq-dev`
+
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install -t sid libczmq libczmq-dev
+----
+
+==== Check correct version of libczmq-dev
+
+[source,bash]
+----
+sudo apt-get install apt-show-versions
+apt-show-versions | grep czmq
+----
+
+==== This should result in the following:
+
+[source,bash]
+----
+me@debian:~$ apt-show-versions | grep czmq
+libczmq-dev:amd64/sid 3.0.2-1 uptodate
+libczmq3:amd64/sid 3.0.2-1 uptodate
+----
+
+==== Add Dovetail automata repository
+
+[source,bash]
+----
+sudo sh -c \
+  "echo 'deb http://deb.dovetail-automata.com jessie main' > \
+  /etc/apt/sources.list.d/machinekit.list; \
+  apt-get update ; \
+  apt-get install dovetail-automata-keyring"
+sudo apt-get update
+----
+continue with:
+[cols="1*"]
+|===
+|<<install-RT-kernel, install your kernel>>
+|===
+
 
 === [[configure-APT-i686-arm6]]Configure Apt for arm6 (Raspberry)
 
