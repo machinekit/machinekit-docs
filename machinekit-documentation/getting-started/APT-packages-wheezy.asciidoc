@@ -1,0 +1,33 @@
+[cols="3*"]
+|===
+|link:installing-packages.asciidoc[Back to Getting Started]
+|
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
+
+= [[configure-APT-i686-amd64-arm7-wheezy]]Configure Apt for i686, amd64 and arm7 (Beaglebone) for `wheezy`
+
+
+Copy and paste the following into a shell to configure the package archive:
+
+[source,bash]
+----
+sudo sh -c \
+  "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
+  /etc/apt/sources.list.d/machinekit.list; \
+  apt-get update ; \
+  apt-get install dovetail-automata-keyring"
+sudo apt-get update
+----
+continue with:
+[cols="1*"]
+|===
+|link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
+|===
+
+[cols="3*"]
+|===
+|link:installing-packages.asciidoc[Back to Getting Started]
+|
+|link:../documentation-matrix.asciidoc[Documentation matrix]
+|===
