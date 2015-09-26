@@ -40,8 +40,22 @@ your installation.
 [cols="2*"]
 |===
 2+^|continue with (choose):
-|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
-|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
+a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
+
+`i686`
+
+`amd64`
+
+`arm7 (Beaglebone)`
+
+a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
+
+`i686`
+
+`amd64`
+
+`arm7 (Beaglebone)`
+
 |===
 
 

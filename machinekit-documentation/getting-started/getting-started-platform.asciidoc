@@ -5,8 +5,8 @@
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
-Getting Started
-===============
+Setting up machinekit on a platform
+===================================
 
 This document is intended to get Machinekit installed on the platform of your
 choice. Because of the multi-platform nature of the machinekit project there
@@ -14,7 +14,7 @@ can be some differences in the installation for a specific platform.
 
 [NOTE]
 ====
-You should have a working Debian Wheezy installation.
+You should have a working Debian installation.
 ====
 
 Installation options:
