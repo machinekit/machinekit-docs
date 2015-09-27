@@ -1,4 +1,4 @@
-= Building a rt-preempt kernel for Debian Jessie
+== Building a rt-preempt kernel for Debian Jessie - x86-amd64
 
 There are currently no stock Debian rt-preempt kernels available for Debian Jessie
 
