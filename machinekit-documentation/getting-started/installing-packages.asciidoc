@@ -102,6 +102,14 @@ sudo apt-get install linux-image-xenomai                  # raspberry
 
 === [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i686 or amd64)
 
+There is currently no stock Debian rt-preempt kernel for Jessie
+
+You will need to build your own kernel
+
+See link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
+
+The below instructions will work for Wheezy
+
 Choose and copy and paste the following into a shell to
 install your kernel:
 
