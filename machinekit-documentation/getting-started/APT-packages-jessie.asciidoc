@@ -55,7 +55,7 @@ deb-src http://ftp.nl.debian.org/debian/ sid main
 [source,bash]
 ----
 sudo apt-get update
-sudo apt-get install -t sid libczmq libczmq-dev
+sudo apt-get install -t sid libczmq-dev
 ----
 
 ==== Check correct version of libczmq-dev
