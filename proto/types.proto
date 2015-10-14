@@ -654,6 +654,7 @@ enum ContainerType {
 }
 
 enum OriginIndex {
+    ORIGIN_UNKNOWN = 0;
     ORIGIN_G54 = 1;
     ORIGIN_G55 = 2;
     ORIGIN_G56 = 3;
