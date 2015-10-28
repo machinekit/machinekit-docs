@@ -96,19 +96,20 @@ message EmcToolData {
 
     required int32          index       = 1;
     optional int32          id          = 2;
-    optional double         xOffset     = 3;
-    optional double         yOffset     = 4;
-    optional double         zOffset     = 5;
-    optional double         aOffset     = 6;
-    optional double         bOffset     = 7;
-    optional double         cOffset     = 8;
-    optional double         uOffset     = 9;
-    optional double         vOffset     = 10;
-    optional double         wOffset     = 11;
+    //optional double         xOffset     = 3; offsets replaced by Position message
+    //optional double         yOffset     = 4;
+    //optional double         zOffset     = 5;
+    //optional double         aOffset     = 6;
+    //optional double         bOffset     = 7;
+    //optional double         cOffset     = 8;
+    //optional double         uOffset     = 9;
+    //optional double         vOffset     = 10;
+    //optional double         wOffset     = 11;
     optional double         diameter    = 12;
     optional double         frontangle  = 13;
     optional double         backangle   = 14;
     optional int32          orientation = 15;
+    optional Position       offset      = 16;
 }
 
 message EmcStatusMotionAxis {
