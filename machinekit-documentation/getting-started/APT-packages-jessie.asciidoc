@@ -25,7 +25,7 @@ Pin-Priority: 900
 Package: *
 Pin: release o=Debian
 Pin-Priority: -10' > \
-/etc/apt/preferences/sid;"
+/etc/apt/preferences.d/sid;"
 ----
 
 ==== Add the `sid` repository to you debian sources list and update.
