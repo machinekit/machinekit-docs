@@ -11,6 +11,9 @@
 
 :leveloffset: 1
 
+link:./getting-started/getting-started-platform.asciidoc[Setting up Machinekit on different platforms]
+
+
 link:../src/common/System_Requirements.asciidoc[System Requirements]
 
 link:../src/quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
