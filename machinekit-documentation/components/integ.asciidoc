@@ -1,0 +1,82 @@
+INTEG(9) HAL Component INTEG(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-----------------------------------------------------
+   integ - Integrator with gain pin and windup limits
+-----------------------------------------------------
+
+SYNOPSIS
+
+--------
+   integ
+--------
+
+USAGE SYNOPSIS
+
+-------------------------------------------------------------------------------------------
+   loadrt integ
+
+   newinst integ <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   integ.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------------
+   integ.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   integ.N.gain  float in (default: 1.0)
+          ( OR <newinstname>.gain  float in (default: 1.0) )
+
+
+   integ.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   The discrete integral of 'gain * in' since 'reset' was deasserted
+
+   integ.N.reset  bit in
+          ( OR <newinstname>.reset  bit in  )
+
+
+   When asserted, set out to 0
+
+   integ.N.max_  float in (default: 1e20)
+          ( OR <newinstname>.max_  float in (default: 1e20) )
+
+
+   integ.N.min_  float in (default: -1e20)
+          ( OR <newinstname>.min_  float in (default: -1e20) )
+--------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 INTEG(9)

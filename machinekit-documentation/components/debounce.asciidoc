@@ -1,0 +1,82 @@
+DEBOUNCE(9) HAL Component DEBOUNCE(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+------------------------------------------------
+   debounce - Debounce filter for Machinekit HAL
+------------------------------------------------
+
+SYNOPSIS
+
+-----------
+   debounce
+-----------
+
+USAGE SYNOPSIS
+
+----------------------------------------------------------------------------------------------
+   loadrt debounce
+
+   newinst debounce <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+----------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   debounce.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+---------------------------------------------------------------
+   debounce.N.#.in  bit in (M=0..pincount)
+          ( OR <newinstname>.#.in  bit in (M=0..pincount)  )
+
+
+   debounce.N.#.out  bit out (M=0..pincount)
+          ( OR <newinstname>.#.out  bit out (M=0..pincount)  )
+
+
+   debounce.N.#.state  s32 io (M=0..pincount)
+          ( OR <newinstname>.#.state  s32 io (M=0..pincount)  )
+
+
+   debounce.N.delay  s32 io (default: 5)
+          ( OR <newinstname>.delay  s32 io (default: 5) )
+---------------------------------------------------------------
+
+INST_PARAMETERS
+
+----------------------------
+   pincount int (default: 8)
+----------------------------
+
+AUTHOR
+
+-----------------------------------
+   John Kasunich, adapted by ArcEye
+-----------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 DEBOUNCE(9)

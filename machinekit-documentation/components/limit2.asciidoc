@@ -1,0 +1,80 @@
+LIMIT2(9) HAL Component LIMIT2(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   limit2 - Limit the output signal to fall between min and max and limit its slew rate to less than maxv per second.  When the signal is a position, this means that position and velocity are limited.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SYNOPSIS
+
+---------
+   limit2
+---------
+
+USAGE SYNOPSIS
+
+--------------------------------------------------------------------------------------------
+   loadrt limit2
+
+   newinst limit2 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+--------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   limit2.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------
+   limit2.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   limit2.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   limit2.N.load  bit in
+          ( OR <newinstname>.load  bit in  )
+
+
+   When TRUE, immediately set out to in, ignoring maxv
+
+   limit2.N.min_  float io (default: -1e20)
+          ( OR <newinstname>.min_  float io (default: -1e20) )
+
+
+   limit2.N.max_  float io (default: 1e20)
+          ( OR <newinstname>.max_  float io (default: 1e20) )
+
+
+   limit2.N.maxv  float io (default: 1e20)
+          ( OR <newinstname>.maxv  float io (default: 1e20) )
+--------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 LIMIT2(9)

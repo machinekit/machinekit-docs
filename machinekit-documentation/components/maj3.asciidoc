@@ -1,0 +1,74 @@
+MAJ3(9) HAL Component MAJ3(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+------------------------------------------
+   maj3 - Compute the majority of 3 inputs
+------------------------------------------
+
+SYNOPSIS
+
+-------
+   maj3
+-------
+
+USAGE SYNOPSIS
+
+------------------------------------------------------------------------------------------
+   loadrt maj3
+
+   newinst maj3 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   maj3.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+----------------------------------------------
+   maj3.N.in1  bit in
+          ( OR <newinstname>.in1  bit in  )
+
+
+   maj3.N.in2  bit in
+          ( OR <newinstname>.in2  bit in  )
+
+
+   maj3.N.in3  bit in
+          ( OR <newinstname>.in3  bit in  )
+
+
+   maj3.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+
+
+   maj3.N.invert  bit io
+          ( OR <newinstname>.invert  bit io  )
+----------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 MAJ3(9)

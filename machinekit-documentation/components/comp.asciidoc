@@ -1,0 +1,90 @@
+COMP(9) HAL Component COMP(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+----------------------------------------------
+   comp - Two input comparator with hysteresis
+----------------------------------------------
+
+SYNOPSIS
+
+-------
+   comp
+-------
+
+USAGE SYNOPSIS
+
+------------------------------------------------------------------------------------------
+   loadrt comp
+
+   newinst comp <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   comp.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+
+   Update the comparator
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   comp.N.in0  float in
+          ( OR <newinstname>.in0  float in  )
+
+
+   Inverting input to the comparator
+
+   comp.N.in1  float in
+          ( OR <newinstname>.in1  float in  )
+
+
+   Non-inverting input to the comparator
+
+   comp.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+
+
+   Normal output. True when in1 > in0 (see parameter hyst for details)
+
+   comp.N.equal  bit out
+          ( OR <newinstname>.equal  bit out  )
+
+
+   Match output.  True when difference between in1 and in0 is less than hyst/2
+
+   comp.N.hyst  float in (default: 0.0)
+          ( OR <newinstname>.hyst  float in (default: 0.0) )
+
+
+   Hysteresis of the comparator (default 0.0)
+
+          With zero hysteresis, the output is true when in1 > in0.  With nonzero hysteresis, the output switches on and off at two different values, separated by distance hyst around the point where in1
+          = in0.  Keep in mind that floating point calculations are never absolute and it is wise to always set hyst if you intend to use equal
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 COMP(9)

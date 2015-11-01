@@ -1,0 +1,62 @@
+NEG(9) HAL Component NEG(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+---------------------------------------------------
+   neg - Changes the sign of a floating point value
+---------------------------------------------------
+
+SYNOPSIS
+
+------
+   neg
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt neg
+
+   newinst neg <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   neg.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------
+   neg.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   neg.N.out  float out
+          ( OR <newinstname>.out  float out  )
+----------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 NEG(9)

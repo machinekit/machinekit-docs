@@ -1,0 +1,202 @@
+THC(9) HAL Component THC(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-----------------------------
+   thc - Torch Height Control
+-----------------------------
+
+SYNOPSIS
+
+------
+   thc
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt thc
+
+   newinst thc <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Torch Height Control Mesa THC > Encoder > Machinekit THC component
+
+          The Mesa THC sends a frequency based on the voltage detected to the encoder.  The velocity from the encoder is converted to volts with the velocity scale parameter inside the THC component.
+
+          The THCAD card sends a frequency at 0 volts so the scale offset parameter is used to zero the calculated voltage.
+
+          Component Functions If enabled and torch is on and X + Y velocity is within tolerance of set speed allow the THC to offset the Z axis as needed to maintain voltage.
+
+          If enabled and torch is off and the Z axis is moving up remove any correction at a rate not to exceed the rate of movement of the Z axis.
+
+          If enabled and torch is off and there is no correction pass the Z position and feed back untouched.
+
+          If not enabled pass the Z position and feed back untouched.
+
+          Physical Connections
+          Plasma Torch Arc Voltage Signal => 6 x 487k 1% resistors => THC Arc Voltage In
+          THC Frequency Signal => Encoder #0, pin A (Input)
+          Plasma Torch Arc OK Signal => input pin
+          output pin => Plasma Torch Start Arc Contacts
+
+          HAL Plasma Connections
+          encoder.nn.velocity => thc.encoder-vel (tip voltage)
+          motion.spindle-on => output pin (start the arc)
+          thc.arc-ok <= motion.digital-in-00 <= input pin (arc ok signal)
+
+          HAL Motion Connections
+          thc.requested-vel <= motion.requested-vel
+          thc.current-vel <= motion.current-vel
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   thc.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+---------------------------------------------------------------------
+   thc.N.encoder_vel  float in
+          ( OR <newinstname>.encoder_vel  float in  )
+
+
+   Connect to hm2_5i20.0.encoder.00.velocity
+
+   thc.N.current_vel  float in
+          ( OR <newinstname>.current_vel  float in  )
+
+
+   Connect to motion.current-vel
+
+   thc.N.requested_vel  float in
+          ( OR <newinstname>.requested_vel  float in  )
+
+
+   Connect to motion.requested-vel
+
+   thc.N.volts_requested  float in
+          ( OR <newinstname>.volts_requested  float in  )
+
+
+   Tip Volts current_vel >= min_velocity requested
+
+   thc.N.vel_tol  float in
+          ( OR <newinstname>.vel_tol  float in  )
+
+
+   Velocity Tolerance (Corner Lock)
+
+   thc.N.torch_on  bit in
+          ( OR <newinstname>.torch_on  bit in  )
+
+
+   Connect to motion.spindle-on
+
+   thc.N.arc_ok  bit in
+          ( OR <newinstname>.arc_ok  bit in  )
+
+
+   Arc OK from Plasma Torch
+
+   thc.N.enable  bit in
+          ( OR <newinstname>.enable  bit in  )
+
+
+   Enable the THC, if not enabled Z position is passed through
+
+   thc.N.z_pos_in  float in
+          ( OR <newinstname>.z_pos_in  float in  )
+
+
+   Z Motor Position Command in from axis.n.motor-pos-cmd
+
+   thc.N.z_pos_out  float out
+          ( OR <newinstname>.z_pos_out  float out  )
+
+
+   Z Motor Position Command Out
+
+   thc.N.z_fb_out  float out
+          ( OR <newinstname>.z_fb_out  float out  )
+
+
+   Z Position Feedback to Axis
+
+   thc.N.volts  float out
+          ( OR <newinstname>.volts  float out  )
+
+
+   The Calculated Volts
+
+   thc.N.vel_status  bit out
+          ( OR <newinstname>.vel_status  bit out  )
+
+
+   When the THC thinks we are at requested speed
+
+   thc.N.vel_scale  float io
+          ( OR <newinstname>.vel_scale  float io  )
+
+
+   The scale to convert the Velocity signal to Volts
+
+   thc.N.scale_offset  float io
+          ( OR <newinstname>.scale_offset  float io  )
+
+
+   The offset of the velocity input at 0 volts
+
+   thc.N.velocity_tol  float io
+          ( OR <newinstname>.velocity_tol  float io  )
+
+
+   The deviation percent from planned velocity
+
+   thc.N.voltage_tol  float io
+          ( OR <newinstname>.voltage_tol  float io  )
+
+
+   The deviation of Tip Voltage before correction takes place
+
+   thc.N.correction_vel  float io
+          ( OR <newinstname>.correction_vel  float io  )
+
+
+   The amount of change in user units per period to move Z to correct
+---------------------------------------------------------------------
+
+AUTHOR
+
+----------------
+   John Thornton
+----------------
+
+LICENSE
+
+-------------------
+   GPLv2 or greater
+-------------------
+
+Machinekit Documentation 2015-11-01 THC(9)

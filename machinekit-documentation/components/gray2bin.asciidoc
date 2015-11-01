@@ -1,0 +1,79 @@
+GRAY2BIN(9) HAL Component GRAY2BIN(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-------------------------------------------------
+   gray2bin - convert a gray-code input to binary
+-------------------------------------------------
+
+SYNOPSIS
+
+-----------
+   gray2bin
+-----------
+
+USAGE SYNOPSIS
+
+----------------------------------------------------------------------------------------------
+   loadrt gray2bin
+
+   newinst gray2bin <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+----------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+-------------------------------------------------------------------
+   Converts a gray-coded number into the corresponding binary value
+-------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   gray2bin.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+--------------------------------------------
+   gray2bin.N.in  u32 in
+          ( OR <newinstname>.in  u32 in  )
+
+
+   gray code in
+
+   gray2bin.N.out  u32 out
+          ( OR <newinstname>.out  u32 out  )
+
+
+   binary code out
+--------------------------------------------
+
+AUTHOR
+
+------------
+   andy pugh
+------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 GRAY2BIN(9)

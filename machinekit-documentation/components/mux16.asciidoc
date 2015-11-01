@@ -1,0 +1,124 @@
+MUX16(9) HAL Component MUX16(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------------------------
+   mux16 - Select from one of sixteen input values
+--------------------------------------------------
+
+SYNOPSIS
+
+--------
+   mux16
+--------
+
+USAGE SYNOPSIS
+
+-------------------------------------------------------------------------------------------
+   loadrt mux16
+
+   newinst mux16 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   pin  in  bit  use_graycode  This  signifies  the  input will use Gray code instead of binary.  Gray code is a good choice when using physical switches because for each increment only one select input
+          changes at a time.
+
+          pin in bit suppress_no_input This suppresses changing the output if all select lines are false.  This stops unwanted jumps in output between transitions of input.  but make in00 unavaliable.
+
+          pin in float debounce_time sets debouce time in seconds.  eg. .10 = a tenth of a second input must be stable this long before outputs changes. This helps to ignore 'noisy' switches.
+
+          pin in bit sel#[4] Together, these determine which inN value is copied to out.
+
+          pin out float out_f pin out s32 out_s Follows the value of one of the inN values according to the four sel values and whether use-graycode is active.
+
+          The s32 value will be trunuated and limited to the max and min values of signed values.
+
+          sel3=false, sel2=false, sel1=false, sel0=false
+                 out follows in0
+
+          sel3=false, sel2=false, sel1=false, sel0=true
+                 out follows in1
+
+          etc.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   mux16.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------------
+   mux16.N.use_graycode  bit in
+          ( OR <newinstname>.use_graycode  bit in  )
+
+
+   mux16.N.suppress_no_input  bit in
+          ( OR <newinstname>.suppress_no_input  bit in  )
+
+
+   mux16.N.debounce_time  float in
+          ( OR <newinstname>.debounce_time  float in  )
+
+
+   mux16.N.sel#  bit in (M=0..4)
+          ( OR <newinstname>.sel#  bit in (M=0..4)  )
+
+
+   mux16.N.out_f  float out
+          ( OR <newinstname>.out_f  float out  )
+
+
+   mux16.N.out_s  s32 out
+          ( OR <newinstname>.out_s  s32 out  )
+
+
+   mux16.N.elapsed  float out
+          ( OR <newinstname>.elapsed  float out  )
+
+
+   Current value of the internal debounce timer
+           for debugging.
+
+   mux16.N.selected  s32 out
+          ( OR <newinstname>.selected  s32 out  )
+
+
+   Current value of the internal selection variable after conversion
+           for debugging
+
+   mux16.N.in##  float in (MM=00..16)
+          ( OR <newinstname>.in##  float in (MM=00..16)  )
+
+
+   array of selectable outputs
+--------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 MUX16(9)

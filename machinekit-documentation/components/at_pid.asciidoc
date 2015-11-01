@@ -1,0 +1,316 @@
+AT_PID(9) HAL Component AT_PID(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-------------------------------------------------------------------------------------------------------------------------
+   at_pid - HAL component that provides Proportional     Integeral/Derivative control loops.  It is a realtime component.
+-------------------------------------------------------------------------------------------------------------------------
+
+SYNOPSIS
+
+---------
+   at_pid
+---------
+
+USAGE SYNOPSIS
+
+--------------------------------------------------------------------------------------------
+   loadrt at_pid
+
+   newinst at_pid <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+--------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+--------------------------------------------------------------------------------------
+             This file, 'at_pid.icomp', is a HAL component that provides Proportional/
+            Integeral/Derivative control loops.  It is a realtime component.
+
+            In this documentation, it is assumed that we are discussing position
+            loops.  However this component can be used to implement other loops
+            such as speed loops, torch height control, and others.
+
+            The three most important pins are 'command', 'feedback', and
+            'output'.  For a position loop, 'command' and 'feedback' are
+            in position units.  For a linear axis, this could be inches,
+            mm, metres, or whatever is relavent.  Likewise, for a angular
+            axis, it could be degrees, radians, etc.  The units of the
+            'output' pin represent the change needed to make the feedback
+            match the command.  As such, for a position loop 'Output' is
+            a velocity, in inches/sec, mm/sec, degrees/sec, etc.
+
+            Each loop has several other pins as well.  'error' is equal to
+            'command' minus 'feedback'.  'enable' is a bit that enables
+            the loop.  If 'enable' is false, all integrators are reset,
+            and the output is forced to zero.  If 'enable' is true, the
+            loop operates normally.
+
+            The PID gains, limits, and other 'tunable' features of the
+            loop are implemented as parameters.  These are as follows:
+
+            Pgain        Proportional gain
+            Igain        Integral gain
+            Dgain        Derivative gain
+            bias         Constant offset on output
+            FF0          Zeroth order Feedforward gain
+            FF1          First order Feedforward gain
+            FF2          Second order Feedforward gain
+            deadband     Amount of error that will be ignored
+            maxerror     Limit on error
+            maxerrorI    Limit on error integrator
+            maxerrorD    Limit on error differentiator
+            maxcmdD      Limit on command differentiator
+            maxcmdDD     Limit on command 2nd derivative
+            maxoutput    Limit on output value
+
+            All of the limits (max____) are implemented such that if the
+            parameter value is zero, there is no limit.
+
+            A number of internal values which may be usefull for testing
+            and tuning are also available as parameters.  To avoid cluttering
+            the parameter list, these are only exported if "debug=1" is
+            specified on the insmod command line.
+
+            errorI       Integral of error
+            errorD       Derivative of error
+            cmdD     Derivative of the command
+            cmdDd    2nd derivative of the command
+
+            The PID loop calculations are as follows (see the code for
+            all the nitty gritty details):
+
+            error = command - feedback
+            if ( fabs(error) < deadband ) then error = 0
+            limit error to +/- maxerror
+            errorI += error * period
+            limit errorI to +/- maxerrorI
+            errorD = (error - previouserror) / period
+            limit errorD to +/- paxerrorD
+            cmdD = (command - previouscommand) / period
+            limit cmdD to +/- maxcmdD
+            cmdDd = (cmdD - previouscmdD) / period
+            limit cmdDd to +/- maxcmdDD
+            output = bias + error * Pgain + errorI * Igain +
+                     errorD * Dgain + command * FF0 + cmdD * FF1 +
+                     cmdDd * FF2
+            limit output to +/- maxoutput
+
+            This component exports one function called '<name>.do-pid-calcs'
+--------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+------------------------------------------------------------------------------------
+   at_pid.N.do_pid_calcs.funct
+          ( OR <newinstname>.do_pid_calcs.funct (requires a floating-point thread) )
+------------------------------------------------------------------------------------
+
+PINS
+
+------------------------------------------------------------------------------------------------------------------
+   at_pid.N.deadband  float in (default: 0.0)
+          ( OR <newinstname>.deadband  float in (default: 0.0) )
+
+
+   Amount of error that will be ignored
+
+   at_pid.N.maxerror  float in (default: 0.0)
+          ( OR <newinstname>.maxerror  float in (default: 0.0) )
+
+
+   Limit on error
+
+   at_pid.N.maxerrorI  float in (default: 0.0)
+          ( OR <newinstname>.maxerrorI  float in (default: 0.0) )
+
+
+   Limit on error integrator
+
+   at_pid.N.maxerrorD  float in (default: 0.0)
+          ( OR <newinstname>.maxerrorD  float in (default: 0.0) )
+
+
+   Limit on error differentiator
+
+   at_pid.N.maxcmdD  float in (default: 0.0)
+          ( OR <newinstname>.maxcmdD  float in (default: 0.0) )
+
+
+   Limit on command differentiator
+
+   at_pid.N.maxcmdDD  float in (default: 0.0)
+          ( OR <newinstname>.maxcmdDD  float in (default: 0.0) )
+
+
+   Limit on command 2nd derivative
+
+   at_pid.N.bias  float io (default: 0.0)
+          ( OR <newinstname>.bias  float io (default: 0.0) )
+
+
+   Constant offset on output
+
+   at_pid.N.Pgain  float io (default: 1.0)
+          ( OR <newinstname>.Pgain  float io (default: 1.0) )
+
+
+   Proportional gain
+
+   at_pid.N.Igain  float io (default: 0.0)
+          ( OR <newinstname>.Igain  float io (default: 0.0) )
+
+
+   Integral gain
+
+   at_pid.N.Dgain  float io (default: 0.0)
+          ( OR <newinstname>.Dgain  float io (default: 0.0) )
+
+
+   Derivative gain
+
+   at_pid.N.FF0  float io (default: 0.0)
+          ( OR <newinstname>.FF0  float io (default: 0.0) )
+
+
+   Zeroth order Feedfoioard gain
+
+   at_pid.N.FF1  float io (default: 0.0)
+          ( OR <newinstname>.FF1  float io (default: 0.0) )
+
+
+   First order Feedforward gain
+
+   at_pid.N.FF2  float io (default: 0.0)
+          ( OR <newinstname>.FF2  float io (default: 0.0) )
+
+
+   Second order Feedforward gain
+
+   at_pid.N.maxoutput  float io (default: 0.0)
+          ( OR <newinstname>.maxoutput  float io (default: 0.0) )
+
+
+   Limit on output value
+
+   at_pid.N.tuneEffort  float io (default: 0.5)
+          ( OR <newinstname>.tuneEffort  float io (default: 0.5) )
+
+
+
+           Control effort for limit cycle.
+
+   at_pid.N.tuneCycles  u32 io (default: 50)
+          ( OR <newinstname>.tuneCycles  u32 io (default: 50) )
+
+
+   at_pid.N.tuneType  u32 io (default: 0)
+          ( OR <newinstname>.tuneType  u32 io (default: 0) )
+
+
+   at_pid.N.errorI  float out
+          ( OR <newinstname>.errorI  float out  )
+
+
+   Integral of error
+
+   at_pid.N.errorD  float out
+          ( OR <newinstname>.errorD  float out  )
+
+
+   Derivative of error
+
+   at_pid.N.commandD  float out
+          ( OR <newinstname>.commandD  float out  )
+
+
+   Derivative of the command
+
+   at_pid.N.commandDD  float out
+          ( OR <newinstname>.commandDD  float out  )
+
+
+   2nd derivative of the command
+
+   at_pid.N.ultimateGain  float out
+          ( OR <newinstname>.ultimateGain  float out  )
+
+
+   Calc by auto-tune from limit cycle.
+
+   at_pid.N.ultimatePeriod  float io
+          ( OR <newinstname>.ultimatePeriod  float io  )
+
+
+   Calc by auto-tune from limit cycle.
+
+   at_pid.N.enable  bit in (default: 0)
+          ( OR <newinstname>.enable  bit in (default: 0) )
+
+
+   Enable/disabled the PID loop
+
+   at_pid.N.command  float in (default: 0.0)
+          ( OR <newinstname>.command  float in (default: 0.0) )
+
+
+   Commanded value
+
+   at_pid.N.feedback  float in (default: 0.0)
+          ( OR <newinstname>.feedback  float in (default: 0.0) )
+
+
+   Feedback input
+
+   at_pid.N.error  float out
+          ( OR <newinstname>.error  float out  )
+
+
+   Current error
+
+   at_pid.N.output  float out
+          ( OR <newinstname>.output  float out  )
+
+
+   Ouput value
+
+   at_pid.N.tuneMode  bit in (default: 0)
+          ( OR <newinstname>.tuneMode  bit in (default: 0) )
+
+
+   0=PID, 1=tune.
+
+   at_pid.N.tuneStart  bit io (default: 0)
+          ( OR <newinstname>.tuneStart  bit io (default: 0) )
+
+
+   Set to 1 to start an auto-tune cycle.                         Clears automatically when the cycle has finished.
+------------------------------------------------------------------------------------------------------------------
+
+AUTHOR
+
+----------------
+   John Kasunich
+----------------
+
+LICENSE
+
+---------
+   GPL v2
+---------
+
+Machinekit Documentation 2015-11-01 AT_PID(9)

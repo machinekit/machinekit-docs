@@ -1,0 +1,76 @@
+IDB(9) HAL Component IDB(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-------------------------
+   idb - Inverse Deadband
+-------------------------
+
+SYNOPSIS
+
+------
+   idb
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt idb
+
+   newinst idb <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   idb.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+------------------------------------------------
+   idb.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   Input
+
+   idb.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   Output
+
+   idb.N.amount  float io
+          ( OR <newinstname>.amount  float io  )
+------------------------------------------------
+
+AUTHOR
+
+----------------
+   Anders Wallin
+----------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 IDB(9)

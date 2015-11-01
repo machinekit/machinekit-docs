@@ -1,0 +1,140 @@
+BIQUAD(9) HAL Component BIQUAD(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-----------------------------
+   biquad - Biquad IIR filter
+-----------------------------
+
+SYNOPSIS
+
+---------
+   biquad
+---------
+
+USAGE SYNOPSIS
+
+--------------------------------------------------------------------------------------------
+   loadrt biquad
+
+   newinst biquad <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+--------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+------------------------------------------------------------------------------------------------------------------
+   Biquad IIR filter. Implements the following transfer function: H(z) = (n0 + n1z-1 + n2z-2) / (1+ d1z-1 + d2z-2)
+------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   biquad.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   biquad.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   Filter input.
+
+   biquad.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   Filter output.
+
+   biquad.N.enable  bit in (default: false)
+          ( OR <newinstname>.enable  bit in (default: false) )
+
+
+   Filter enable. When false, the in is passed to out without any filtering. A transition from false to true causes filter coefficients to be calculated according to parameters
+
+   biquad.N.valid  bit out (default: false)
+          ( OR <newinstname>.valid  bit out (default: false) )
+
+
+   When false, indicates an error occured when caclulating filter coefficients.
+
+   biquad.N.type_  u32 io (default: 0)
+          ( OR <newinstname>.type_  u32 io (default: 0) )
+
+
+   Filter type determines the type of filter coefficients calculated. When 0, coefficients must be loaded directly. When 1, a low pass filter is created. When 2, a notch filter is created.
+
+   biquad.N.f0  float io (default: 250.0)
+          ( OR <newinstname>.f0  float io (default: 250.0) )
+
+
+   The corner frequency of the filter.
+
+   biquad.N.Q  float io (default: 0.7071)
+          ( OR <newinstname>.Q  float io (default: 0.7071) )
+
+
+   The Q of the filter.
+
+   biquad.N.d1  float io (default: 0.0)
+          ( OR <newinstname>.d1  float io (default: 0.0) )
+
+
+   1st-delayed denominator coef
+
+   biquad.N.d2  float io (default: 0.0)
+          ( OR <newinstname>.d2  float io (default: 0.0) )
+
+
+   2nd-delayed denominator coef
+
+   biquad.N.n0  float io (default: 1.0)
+          ( OR <newinstname>.n0  float io (default: 1.0) )
+
+
+   non-delayed numerator coef
+
+   biquad.N.n1  float io (default: 0.0)
+          ( OR <newinstname>.n1  float io (default: 0.0) )
+
+
+   1st-delayed numerator coef
+
+   biquad.N.n2  float io (default: 0.0)
+          ( OR <newinstname>.n2  float io (default: 0.0) )
+
+
+   2nd-delayed numerator coef
+
+   biquad.N.s1  float io (default: 0.0)
+          ( OR <newinstname>.s1  float io (default: 0.0) )
+
+
+   biquad.N.s2  float io (default: 0.0)
+          ( OR <newinstname>.s2  float io (default: 0.0) )
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 BIQUAD(9)

@@ -1,0 +1,109 @@
+WCOMPN(9) HAL Component WCOMPN(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-------------------------------------
+   wcompn - N-range window comparator
+-------------------------------------
+
+SYNOPSIS
+
+---------
+   wcompn
+---------
+
+USAGE SYNOPSIS
+
+--------------------------------------------------------------------------------------------
+   loadrt wcompn
+
+   newinst wcompn <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+--------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   wcompn.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------------------------
+   wcompn.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   Value being compared
+
+   wcompn.N.value#  float in (M=0..pincount)
+          ( OR <newinstname>.value#  float in (M=0..pincount)  )
+
+
+   Boundary N for comparison
+
+   wcompn.N.default_out  s32 in (default: -1)
+          ( OR <newinstname>.default_out  s32 in (default: -1) )
+
+
+   Default output value when input is not in range
+
+   wcompn.N.out  s32 out
+          ( OR <newinstname>.out  s32 out  )
+
+
+   Returns the index of the window the in is currently in
+
+   wcompn.N.under  bit out
+          ( OR <newinstname>.under  bit out  )
+
+
+   True if in is less than value0
+
+   wcompn.N.over  bit out
+          ( OR <newinstname>.over  bit out  )
+
+
+   True if in is greater than or equal to alue<N-1>
+
+   wcompn.N.in_range  bit out
+          ( OR <newinstname>.in_range  bit out  )
+
+
+   True if in is strictly between value0 and value<N-1>
+----------------------------------------------------------------
+
+INST_PARAMETERS
+
+----------------------------
+   pincount int (default: 2)
+----------------------------
+
+NOTES
+
+--------------------------------------------------------------------------------------
+   If max <= min or value<x> are not in ascending orderthen the behavior is undefined.
+--------------------------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 WCOMPN(9)

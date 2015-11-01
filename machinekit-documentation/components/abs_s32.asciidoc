@@ -1,0 +1,85 @@
+ABS_S32(9) HAL Component ABS_S32(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------------------------------------------
+   abs_s32 - Compute the absolute value and sign of the input signal
+--------------------------------------------------------------------
+
+SYNOPSIS
+
+----------
+   abs_s32
+----------
+
+USAGE SYNOPSIS
+
+---------------------------------------------------------------------------------------------
+   loadrt abs_s32
+
+   newinst abs_s32 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+---------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   abs_s32.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+-------------------------------------------------------------
+   abs_s32.N.in  s32 in
+          ( OR <newinstname>.in  s32 in  )
+
+
+   input value
+
+   abs_s32.N.out  s32 out
+          ( OR <newinstname>.out  s32 out  )
+
+
+   output value, always non-negative
+
+   abs_s32.N.sign  bit out
+          ( OR <newinstname>.sign  bit out  )
+
+
+   Sign of input, false for positive, true for negative
+
+   abs_s32.N.is_positive  bit out
+          ( OR <newinstname>.is_positive  bit out  )
+
+
+   true if input is positive, false if input is 0 or negative
+
+   abs_s32.N.is_negative  bit out
+          ( OR <newinstname>.is_negative  bit out  )
+
+
+   true if input is negative, false if input is 0 or positive
+-------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 ABS_S32(9)

@@ -1,0 +1,62 @@
+NOT(9) HAL Component NOT(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-----------------
+   not - Inverter
+-----------------
+
+SYNOPSIS
+
+------
+   not
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt not
+
+   newinst not <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   not.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+--------------------------------------------
+   not.N.in  bit in
+          ( OR <newinstname>.in  bit in  )
+
+
+   not.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+--------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 NOT(9)

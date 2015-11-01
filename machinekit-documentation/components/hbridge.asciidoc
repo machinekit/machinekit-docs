@@ -1,0 +1,107 @@
+HBRIDGE(9) HAL Component HBRIDGE(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+-------------------------------------------------------------------------------
+   hbridge - generate driving signals for 2 PWM generators to drive an H-Bridge
+-------------------------------------------------------------------------------
+
+SYNOPSIS
+
+----------
+   hbridge
+----------
+
+USAGE SYNOPSIS
+
+---------------------------------------------------------------------------------------------
+   loadrt hbridge
+
+   newinst hbridge <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+---------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Together  with 2 PWM's, this comp can be used to drive a DC motor through an H-bridge.  If the H-bridge needs a PWM signal at full speed (e.g. for charge pumps), limit the output value by set‐
+          ting maxout.  See also: http://en.wikipedia.org/wiki/H_bridge .
+
+          Two output pins, up and down. For positive inputs, the PWM/PDM driving signal appears on up, while down is low. For negative inputs, the driving signal on down, while up is low.  Suitable  for
+          driving the two sides of an H-bridge to generate a bipolar output.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   hbridge.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------
+   hbridge.N.command  float in
+          ( OR <newinstname>.command  float in  )
+
+
+   target speed, < 0: reverse, > 0: forward
+
+   hbridge.N.down  float out
+          ( OR <newinstname>.down  float out  )
+
+
+   driving value for PWM1, 0..maxout
+
+   hbridge.N.up  float out
+          ( OR <newinstname>.up  float out  )
+
+
+   driving value for PWM2, 0..maxout
+
+   hbridge.N.enable-out  bit out
+          ( OR <newinstname>.enable-out  bit out  )
+
+
+   output to enable both half-bridges
+
+   hbridge.N.enable  bit in
+          ( OR <newinstname>.enable  bit in  )
+
+
+   let motor free run if false
+
+   hbridge.N.brake  bit in
+          ( OR <newinstname>.brake  bit in  )
+
+
+   brake motor if true; needs enable to be true
+
+   hbridge.N.maxout  float io (default: 1.0)
+          ( OR <newinstname>.maxout  float io (default: 1.0) )
+
+
+   limit for the up and down pins
+--------------------------------------------------------------
+
+LICENSE
+
+---------
+   GPL v2
+---------
+
+Machinekit Documentation 2015-11-01 HBRIDGE(9)

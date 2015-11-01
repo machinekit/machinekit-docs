@@ -1,0 +1,64 @@
+THREADTEST(9) HAL Component THREADTEST(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------------------------------------------
+   threadtest - Machinekit HAL component for testing thread behavior
+--------------------------------------------------------------------
+
+SYNOPSIS
+
+-------------
+   threadtest
+-------------
+
+USAGE SYNOPSIS
+
+------------------------------------------------------------------------------------------------
+   loadrt threadtest
+
+   newinst threadtest <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------
+   threadtest.N.increment.funct
+          ( OR <newinstname>.increment.funct  )
+
+
+
+
+   threadtest.N.reset.funct
+          ( OR <newinstname>.reset.funct  )
+-----------------------------------------------
+
+PINS
+
+----------------------------------------------
+   threadtest.N.count  u32 out
+          ( OR <newinstname>.count  u32 out  )
+----------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 THREADTEST(9)

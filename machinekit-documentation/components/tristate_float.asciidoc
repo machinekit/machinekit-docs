@@ -1,0 +1,75 @@
+TRISTATE_FLOAT(9) HAL Component TRISTATE_FLOAT(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+---------------------------------------------------------------------------------------------------------------
+   tristate_float - Place a signal on an I/O pin only when enabled, similar to a tristate buffer in electronics
+---------------------------------------------------------------------------------------------------------------
+
+SYNOPSIS
+
+-----------------
+   tristate_float
+-----------------
+
+USAGE SYNOPSIS
+
+----------------------------------------------------------------------------------------------------
+   loadrt tristate_float
+
+   newinst tristate_float <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+----------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   tristate_float.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+
+   If enable is TRUE, copy in to out.
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------
+   tristate_float.N.in_  float in
+          ( OR <newinstname>.in_  float in  )
+
+
+   Input value
+
+   tristate_float.N.out  float io
+          ( OR <newinstname>.out  float io  )
+
+
+   Output value
+
+   tristate_float.N.enable  bit in
+          ( OR <newinstname>.enable  bit in  )
+
+
+   When TRUE, copy in to out
+----------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 TRISTATE_FLOAT(9)
