@@ -13,6 +13,8 @@ Certainly, maths and logic components are very well catered for.
 
 link:../../src/hal/components.asciidoc[This] is a brief resume of the existing 'stock' components
 
+link:../index-instantiated-components.asciidoc[This] is an index of Instantiated Component man pages
+
 ==  C files
 
 The most powerful and flexible method of writing components, is to write them in C.

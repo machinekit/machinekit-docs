@@ -1,0 +1,80 @@
+IO_MUXN(9) HAL Component IO_MUXN(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+---------------------------------------
+   io_muxn - Gate one of N input values
+---------------------------------------
+
+SYNOPSIS
+
+----------
+   io_muxn
+----------
+
+USAGE SYNOPSIS
+
+---------------------------------------------------------------------------------------------
+   loadrt io_muxn
+
+   newinst io_muxn <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+---------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   io_muxn.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------------------------------------------------------------------------------------------
+   io_muxn.N.sel  s32 in (default: 0)
+          ( OR <newinstname>.sel  s32 in (default: 0) )
+
+
+   io_muxn.N.out  float io
+          ( OR <newinstname>.out  float io  )
+
+
+   Follows the value of in<M> whereas M is the value of the sel input. If sel is not in the range of available inputs 0 is output.
+
+   io_muxn.N.in#.  float io (M=0..pincount)
+          ( OR <newinstname>.in#.  float io (M=0..pincount)  )
+----------------------------------------------------------------------------------------------------------------------------------
+
+INST_PARAMETERS
+
+----------------------------
+   pincount int (default: 2)
+----------------------------
+
+AUTHOR
+
+---------------------
+   Alexander Roessler
+---------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 IO_MUXN(9)

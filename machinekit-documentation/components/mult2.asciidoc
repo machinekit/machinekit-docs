@@ -1,0 +1,69 @@
+MULT2(9) HAL Component MULT2(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------
+   mult2 - Product of two inputs
+--------------------------------
+
+SYNOPSIS
+
+--------
+   mult2
+--------
+
+USAGE SYNOPSIS
+
+-------------------------------------------------------------------------------------------
+   loadrt mult2
+
+   newinst mult2 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   mult2.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------
+   mult2.N.in0  float in
+          ( OR <newinstname>.in0  float in  )
+
+
+   mult2.N.in1  float in
+          ( OR <newinstname>.in1  float in  )
+
+
+   mult2.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   out = in0 * in1
+----------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 MULT2(9)

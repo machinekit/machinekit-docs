@@ -1,0 +1,100 @@
+MUX4(9) HAL Component MUX4(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+----------------------------------------------
+   mux4 - Select from one of four input values
+----------------------------------------------
+
+SYNOPSIS
+
+-------
+   mux4
+-------
+
+USAGE SYNOPSIS
+
+------------------------------------------------------------------------------------------
+   loadrt mux4
+
+   newinst mux4 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   mux4.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+-----------------------------------------------------------------------------
+   mux4.N.sel0  bit in
+          ( OR <newinstname>.sel0  bit in  )
+
+
+   mux4.N.sel1  bit in
+          ( OR <newinstname>.sel1  bit in  )
+
+
+   Together, these determine which inN value is copied to out.
+
+
+   mux4.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   Follows the value of one of the inN values according to the two sel values
+
+          sel1=FALSE, sel0=FALSE
+                 out follows in0
+
+          sel1=FALSE, sel0=TRUE
+                 out follows in1
+
+          sel1=TRUE, sel0=FALSE
+                 out follows in2
+
+          sel1=TRUE, sel0=TRUE
+                 out follows in3
+
+
+   mux4.N.in0  float in
+          ( OR <newinstname>.in0  float in  )
+
+
+   mux4.N.in1  float in
+          ( OR <newinstname>.in1  float in  )
+
+
+   mux4.N.in2  float in
+          ( OR <newinstname>.in2  float in  )
+
+
+   mux4.N.in3  float in
+          ( OR <newinstname>.in3  float in  )
+-----------------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 MUX4(9)

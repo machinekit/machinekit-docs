@@ -1,0 +1,141 @@
+TIME(9) HAL Component TIME(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------------------------
+   time - Time on in Hours, Minutes, Seconds
+--------------------------------------------
+
+SYNOPSIS
+
+-------
+   time
+-------
+
+USAGE SYNOPSIS
+
+------------------------------------------------------------------------------------------
+   loadrt time
+
+   newinst time <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Time
+
+          When the time.N.start bit goes true the cycle timer resets and starts to time until time.N.start goes false. If you connect time.N.start to halui.is-running as a cycle timer it will reset dur‐
+          ing a pause. See the example connections below to keep the timer timing during a pause.
+
+          Time returns the hours, minutes, and seconds that time.N.start is true.
+
+          Sample pyVCP code to display the hours:minutes:seconds.
+
+          <pyvcp>
+            <hbox>
+            <label>
+              <text>"Cycle Time"</text>
+              <font>("Helvetica",14)</font>
+            </label>
+            <u32>
+                <halpin>"time-hours"</halpin>
+                <font>("Helvetica",14)</font>
+                <format>"2d"</format>
+            </u32>
+            <label>
+              <text>":"</text>
+              <font>("Helvetica",14)</font>
+            </label>
+            <u32>
+                <halpin>"time-minutes"</halpin>
+                <font>("Helvetica",14)</font>
+                <format>"2d"</format>
+            </u32>
+            <label>
+              <text>":"</text>
+              <font>("Helvetica",14)</font>
+            </label>
+            <u32>
+                <halpin>"time-seconds"</halpin>
+                <font>("Helvetica",14)</font>
+                <format>"2d"</format>
+            </u32>
+            </hbox> </pyvcp>
+
+          In your post-gui.hal file you might use the following to connect it up
+
+           loadrt time
+           loadrt not
+           addf time.0 servo-thread
+           addf not.0 servo-thread
+           net prog-running not.0.in <= halui.program.is-idle
+           net cycle-timer time.0.start <= not.0.out
+           net cycle-seconds pyvcp.time-seconds <= time.0.seconds
+           net cycle-minutes pyvcp.time-minutes <= time.0.minutes
+           net cycle-hours pyvcp.time-hours <= time.0.hours
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   time.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+------------------------------------------------
+   time.N.start  bit in
+          ( OR <newinstname>.start  bit in  )
+
+
+   Timer On
+
+   time.N.seconds  u32 out
+          ( OR <newinstname>.seconds  u32 out  )
+
+
+   Seconds
+
+   time.N.minutes  u32 out
+          ( OR <newinstname>.minutes  u32 out  )
+
+
+   Minutes
+
+   time.N.hours  u32 out
+          ( OR <newinstname>.hours  u32 out  )
+
+
+   Hours
+------------------------------------------------
+
+AUTHOR
+
+----------------
+   John Thornton
+----------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 TIME(9)

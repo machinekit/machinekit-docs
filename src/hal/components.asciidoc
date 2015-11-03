@@ -15,6 +15,8 @@ To view the information in the man page, in a terminal window type:
 man axis (or perhaps 'man 1 axis' if your system requires it.)
 ----
 
+Now you can also view the Machinekit specific Instantiated Component man pages online
+link:../../machinekit-documentation/index-instantiated-components.asciidoc[Here]
 
 axis:: AXIS Machinekit (The Enhanced Machine Controller) Graphical User Interface.
 axis-remote:: AXIS Remote Interface.

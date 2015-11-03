@@ -1,0 +1,85 @@
+LIMIT3(9) HAL Component LIMIT3(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   limit3  - Limit the output signal to fall between min and max, limit its slew rate to less than maxv per second, and limit its second derivative to less than maxa per second squared.  When the signal
+          is a position, this means that the position, velocity, and acceleration are limited.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SYNOPSIS
+
+---------
+   limit3
+---------
+
+USAGE SYNOPSIS
+
+--------------------------------------------------------------------------------------------
+   loadrt limit3
+
+   newinst limit3 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+--------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   limit3.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+---------------------------------------------------------------
+   limit3.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   limit3.N.out  float out
+          ( OR <newinstname>.out  float out  )
+
+
+   limit3.N.load  bit in
+          ( OR <newinstname>.load  bit in  )
+
+
+   When TRUE, immediately set out to in, ignoring maxv and maxa
+
+   limit3.N.min_  float in (default: -1e20)
+          ( OR <newinstname>.min_  float in (default: -1e20) )
+
+
+   limit3.N.max_  float in (default: 1e20)
+          ( OR <newinstname>.max_  float in (default: 1e20) )
+
+
+   limit3.N.maxv  float in (default: 1e20)
+          ( OR <newinstname>.maxv  float in (default: 1e20) )
+
+
+   limit3.N.maxa  float in (default: 1e20)
+          ( OR <newinstname>.maxa  float in (default: 1e20) )
+---------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 LIMIT3(9)

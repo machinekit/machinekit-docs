@@ -1,0 +1,111 @@
+LINCURVE(9) HAL Component LINCURVE(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+------------------------------------------
+   lincurve - one-dimensional lookup table
+------------------------------------------
+
+SYNOPSIS
+
+-----------
+   lincurve
+-----------
+
+USAGE SYNOPSIS
+
+----------------------------------------------------------------------------------------------
+   loadrt lincurve
+
+   newinst lincurve <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+----------------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Performs a 1-dimensional lookup and interpolation. The x-val parameters must be monotonic, though identical adjacent values are allowed.  (for example 0,0,0,10) for a 4-element curve.
+
+          For  input values less than the x-val-00 breakpoint the y-val-00 is returned.  For x greater than the largest x-val-NN the yval corresponding to x-max is returned (ie, no extrapolation is per‐
+          formed.)
+
+          Sample usage: loadrt lincurve-inst
+                        newinst lincurve newone pincount=4 iprefix=lincurve4 for a 4-element curve.
+
+          The axis breakpoints should be set in the lincurve.x-val-NN parameters using "setp", as should the corresponding y values.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   lincurve.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+--------------------------------------------------------------------
+   lincurve.N.x-val-##  float io (MM=00..pincount)
+          ( OR <newinstname>.x-val-##  float io (MM=00..pincount)  )
+
+
+   axis breakpoints
+
+   lincurve.N.y-val-##  float io (MM=00..pincount)
+          ( OR <newinstname>.y-val-##  float io (MM=00..pincount)  )
+
+
+   output values to be interpolated
+
+   lincurve.N.in_  float in
+          ( OR <newinstname>.in_  float in  )
+
+
+   The input value
+
+   lincurve.N.out_  float out
+          ( OR <newinstname>.out_  float out  )
+
+
+   The output value
+
+   lincurve.N.out-io  float io
+          ( OR <newinstname>.out-io  float io  )
+
+
+   The output value, compatible with PID gains
+--------------------------------------------------------------------
+
+INST_PARAMETERS
+
+----------------------------
+   pincount int (default: 4)
+----------------------------
+
+AUTHOR
+
+------------
+   Andy Pugh
+------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 LINCURVE(9)

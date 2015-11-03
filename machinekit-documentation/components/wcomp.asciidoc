@@ -1,0 +1,97 @@
+WCOMP(9) HAL Component WCOMP(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+----------------------------
+   wcomp - Window comparator
+----------------------------
+
+SYNOPSIS
+
+--------
+   wcomp
+--------
+
+USAGE SYNOPSIS
+
+-------------------------------------------------------------------------------------------
+   loadrt wcomp
+
+   newinst wcomp <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-------------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-----------------------------------------------------------------------
+   wcomp.N.funct
+          ( OR <newinstname>.funct (requires a floating-point thread) )
+-----------------------------------------------------------------------
+
+PINS
+
+----------------------------------------------
+   wcomp.N.in  float in
+          ( OR <newinstname>.in  float in  )
+
+
+   Value being compared
+
+   wcomp.N.min_  float in
+          ( OR <newinstname>.min_  float in  )
+
+
+   Low boundary for comparison
+
+   wcomp.N.max_  float in
+          ( OR <newinstname>.max_  float in  )
+
+
+   High boundary for comparison
+
+   wcomp.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+
+
+   True if in is strictly between min and max
+
+   wcomp.N.under  bit out
+          ( OR <newinstname>.under  bit out  )
+
+
+   True if in is less than or equal to min
+
+   wcomp.N.over  bit out
+          ( OR <newinstname>.over  bit out  )
+
+
+   True if in is greater than or equal to max
+----------------------------------------------
+
+NOTES
+
+------------------------------------------------
+   If max <= min then the behavior is undefined.
+------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 WCOMP(9)

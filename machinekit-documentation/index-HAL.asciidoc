@@ -23,6 +23,8 @@ link:../src/hal/parallel_port.asciidoc[Parallel Port]
 
 link:../src/hal/components.asciidoc[HAL Components]
 
+link:index-instantiated-components.asciidoc[HAL Instantiated Component Man Pages]
+
 link:../src/hal/rtcomps.asciidoc[rtcomps]
 
 link:../src/hal/halmodule.asciidoc[halmodule]

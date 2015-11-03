@@ -1,0 +1,75 @@
+OR2(9) HAL Component OR2(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+--------------------------
+   or2 - Two-input OR gate
+--------------------------
+
+SYNOPSIS
+
+------
+   or2
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt or2
+
+   newinst or2 <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   or2.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+---------------------------------------------------------------------------------
+   or2.N.in0  bit in
+          ( OR <newinstname>.in0  bit in  )
+
+
+   or2.N.in1  bit in
+          ( OR <newinstname>.in1  bit in  )
+
+
+   or2.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+
+
+   out is computed from the value of in0 and in1 according to the following rule:
+
+          in0=FALSE in1=FALSE
+                 out=FALSE
+
+          Otherwise,
+                 out=TRUE
+---------------------------------------------------------------------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 OR2(9)

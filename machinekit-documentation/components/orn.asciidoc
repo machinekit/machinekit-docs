@@ -1,0 +1,80 @@
+ORN(9) HAL Component ORN(9)
+
+INSTANTIABLE COMPONENTS
+
+----------------------------------------------------------------------------------------------------
+   All instantiable components can be loaded in two manners
+
+
+   Using loadrt with or without count= | names= parameters as per legacy components
+
+
+   Using newinst, which names the instance and allows further parameters and arguments,
+
+
+   primarily pincount= which can set the number of pins created for that instance (where applicable)
+----------------------------------------------------------------------------------------------------
+
+NAME
+
+------------------------
+   orn - N input OR gate
+------------------------
+
+SYNOPSIS
+
+------
+   orn
+------
+
+USAGE SYNOPSIS
+
+-----------------------------------------------------------------------------------------
+   loadrt orn
+
+   newinst orn <newinstname> [ pincount=N | iprefix=prefix ] [instanceparamX=X | argX=X ]
+-----------------------------------------------------------------------------------------
+
+DESCRIPTION
+
+--------------------------------------------------------------------------
+    out is computed from the result of logic or applied to all input pins.
+--------------------------------------------------------------------------
+
+FUNCTIONS
+
+-------------------------------------
+   orn.N.funct
+          ( OR <newinstname>.funct  )
+-------------------------------------
+
+PINS
+
+------------------------------------------------------------
+   orn.N.in#.  bit in (M=0..pincount)
+          ( OR <newinstname>.in#.  bit in (M=0..pincount)  )
+
+
+   orn.N.out  bit out
+          ( OR <newinstname>.out  bit out  )
+------------------------------------------------------------
+
+INST_PARAMETERS
+
+----------------------------
+   pincount int (default: 2)
+----------------------------
+
+AUTHOR
+
+---------------------
+   Alexander Roessler
+---------------------
+
+LICENSE
+
+------
+   GPL
+------
+
+Machinekit Documentation 2015-11-01 ORN(9)
