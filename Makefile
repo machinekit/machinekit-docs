@@ -81,7 +81,7 @@ vpath %.proto  $(PROTODIR):$(GPBINCLUDE):$(DESCDIR)/compiler
 
 # machinetalk/proto/*.proto derived Python bindings
 PROTO_PY_TARGETS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(PYGEN)/%_pb2.py}
-PROTO_PY_EXTRAS := $(PYGEN)/setup.py $(PYGEN)/machinetalk/__init__.py
+PROTO_PY_EXTRAS := $(PYGEN)/setup.py $(PYGEN)/machinetalk/__init__.py $(PYGEN)/machinetalk/protobuf/__init__.py
 
 PROTO_DOC_TARGETS=${PROTO_SPECS:$(SRCDIR)/%.proto=$(DOCGEN)/%.md}
 
