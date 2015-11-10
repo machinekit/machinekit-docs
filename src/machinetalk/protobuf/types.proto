@@ -1,5 +1,5 @@
 // fundamental types
-import "nanopb.proto";
+import "machinetalk/protobuf/nanopb.proto";
 
 // see README.msgid
 // msgid base: 1400
