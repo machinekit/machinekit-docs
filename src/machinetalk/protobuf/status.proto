@@ -70,9 +70,27 @@ enum EmcTrajectoryModeType {
  * Types for EMC Canon units.
  */
 enum EmcCanonUnitsType {
-    CANON_UNITS_INCHES  = 1;  // Inches.
+    CANON_UNITS_INCHES  = 1;  /// Inches.
     CANON_UNITS_MM      = 2;  /// Millimeters.
     CANON_UNITS_CM      = 3;  /// Centimeters.
+}
+
+/**
+ * Types for EMC linear units.
+ */
+enum EmcLinearUnitsType {
+    LINEAR_UNITS_INCHES = 1;  /// Inches.
+    LINEAR_UNITS_MM     = 2;  /// Millimeters.
+    LINEAR_UNITS_CM     = 3;  /// Centimeters.
+}
+
+/**
+ * Types for EMC angular units.
+ */
+enum EmcAngularUnitsType {
+    ANGULAR_UNITS_DEGREES = 1;  /// Degrees.
+    ANGULAR_UNITS_RADIAN  = 2;  /// Radian.
+    ANGULAR_UNITS_GRAD    = 3;  /// Grad.
 }
 
 /**
@@ -191,7 +209,7 @@ message EmcStatusConfigAxis {
     optional double         max_position_limit  = 5;  /// Maximum position limit. Reflects [AXIS_N]MAX_LIMIT
     optional double         min_ferror          = 6;  /// Minimum following error. Reflects [AXIS_N]MIN_FERROR
     optional double         min_position_limit  = 7;  /// Minimum position limit. Reflects [AXIS_N]MIN_LIMIT
-    optional double         units               = 8;  /// Units per mm.
+    //optional double         units               = 8;  // Units per mm. field removed
     optional int32          home_sequence       = 9;  /// Homing sequence index. Reflects [AXIS_N]HOME_SEQUENCE
     optional double         max_acceleration    = 10; /// Maximum acceleration. Reflects [AXIS_N]MAX_ACCELERATION
     optional double         max_velocity        = 11; /// Maximum velocity. Reflects [AXIS_N]MAX_VELOCITY
@@ -283,17 +301,17 @@ message EmcStatusConfig {
     option (nanopb_msgopt).msgid = 1110;
 
     optional double                     default_acceleration     = 1;  /// Default acceleration. Reflects parameter [TRAJ]DEFAULT_ACCELERATION.
-    optional double                     angular_units            = 2;  /// Angular units scale. Reflects [TRAJ]ANGULAR_UNITS
+    //optional double                     angular_units            = 2;  // Angular units scale. Reflects [TRAJ]ANGULAR_UNITS field removed
     optional int32                      axes                     = 3;  /// Number of axes. Reflects [TRAJ]AXES
     repeated EmcStatusConfigAxis        axis                     = 4;  /// Per axis configuration values.
     optional int32                      axis_mask                = 5;  /// Mask of axes. Reflects [TRAJ]COORDINATES and returns the sum of the axes X=1, Y=2, Z=4, A=8, B=16, C=32, U=64, V=128, W=256.
     optional double                     cycle_time               = 6;  /// Polling cycle time. Reflects [TRAJ]CYCLE_TIME
     optional int32                      debug                    = 7;  /// Debug flag.
     optional EmcKinematicsType          kinematics_type          = 8;  /// Kinematics type.
-    optional double                     linear_units             = 9;  /// Linear units scale. Reflects [TRAJ]LINEAR_UNITS
+    //optional double                     linear_units             = 9;  // Linear units scale. Reflects [TRAJ]LINEAR_UNITS field removed
     optional double                     max_acceleration         = 10; /// Maximum acceleration. Reflects [TRAJ]MAX_ACCELERATION
     optional double                     max_velocity             = 11; /// Maximum velocity. Reflects [TRAJ]MAX_VELOCITY
-    optional EmcCanonUnitsType          program_units            = 12; /// Program units. TODO move to interpreter
+    optional EmcLinearUnitsType         linear_units             = 12; /// Linear machine units. Reflects [TRAJ]LINEAR_UNITS
     optional double                     default_velocity         = 13; /// Default velocity. Reflects [TRAJ]DEFAULT_VELOCITY
     repeated EmcProgramExtension        program_extension        = 14; /// List if program supported program extensions.
     optional EmcPositionOffsetType      position_offset          = 15; /// Position offset type. Reflects [DISPLAY]POSITION_OFFSET
@@ -320,6 +338,7 @@ message EmcStatusConfig {
     optional EmcTimeUnitsType           time_units               = 36; /// Time units type. Reflects [DISPLAY]TIME_UNITS
     optional string                     name                     = 37; /// Machine name. Reflects [EMC]MACHINE
     repeated EmcStatusUserCommand       user_command             = 38; /// List of user commands. Reflects [DISPLAY]USER_COMMAND
+    optional EmcAngularUnitsType        angular_units            = 39; /// Angular machine units. Reflects [TRAJ]ANGULAR_UNITS
 }
 
 /**
@@ -434,6 +453,7 @@ message EmcStatusInterp {
     optional EmcInterpExitCodeType  interpreter_errcode = 4;  /// Current RS274NGC interpreter return code.
     repeated EmcStatusMCode         mcodes              = 5;  /// Currently active MCodes.
     repeated EmcStatusSetting       settings            = 6;  /// Current interpreter settings. [0] = sequence number, [1] = feed rate, [2] = velocity
+    optional EmcCanonUnitsType      program_units       = 7;  /// Current interpreter program units.
 }
 
 /**
