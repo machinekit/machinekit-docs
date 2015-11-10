@@ -34,6 +34,9 @@ CXXGEN   := generated
 # generated Python files
 PYGEN    := python
 
+# generated Documentation files
+DOCGEN := doc
+
 # disable protobuf.js per default
 PROTOBUFJS := 0
 
@@ -76,6 +79,10 @@ vpath %.proto  $(PROTODIR):$(GPBINCLUDE):$(DESCDIR)/compiler
 PROTO_PY_TARGETS += $(subst $(PROTODIR)/, \
 	$(PYGEN)/, \
 	$(patsubst %.proto, %_pb2.py, $(PROTO_SPECS)))
+
+PROTO_DOC_TARGETS += $(subst $(PROTODIR)/, \
+	$(DOCGEN)/, \
+	$(patsubst %.proto, %.md, $(PROTO_SPECS)))
 
 # generated C++ includes
 PROTO_CXX_INCS := $(subst $(PROTODIR)/, \
@@ -144,6 +151,20 @@ $(PYGEN)/%_pb2.py: %.proto
 	--python_out=$(PYGEN)/ \
 	$<
 
+# ------------- protoc-gen-doc rules ------------
+#
+# see https://github.com/estan/protoc-gen-doc
+#
+# generate Markdown files from proto files
+$(DOCGEN)/%.md: %.proto
+	$(ECHO) "protoc create $@ from $<"
+	@mkdir -p $(DOCGEN)
+	$(Q)$(PROTOC) $(PROTOC_FLAGS) \
+	--proto_path=$(PROTODIR)/ \
+	--proto_path=$(GPBINCLUDE)/ \
+	--doc_out=markdown,$@:./ \
+	$<
+
 # ------------- ProtoBuf.js rules ------------
 #
 # see https://github.com/dcodeIO/ProtoBuf.js
@@ -191,5 +212,7 @@ ios_replace:
 
 all:  $(PROTO_DEPS) $(GENERATED)
 
+docs: $(PROTO_DEPS) $(PROTO_DOC_TARGETS)
+
 clean:
-	rm -rf $(OBJDIR) $(CXXGEN) $(PYGEN) $(PROTO_PROTOBUFJS_SRCS)
+	rm -rf $(OBJDIR) $(CXXGEN) $(PYGEN) $(DOCGEN) $(PROTO_PROTOBUFJS_SRCS)
