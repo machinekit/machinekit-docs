@@ -70,6 +70,11 @@ So you did your homework as above, and still no resolution: file a  link:https:/
 ... *package install*: add the output of `apt-cache showpkg machinekit|head -5`
 ... *install from source*: run `git log|head -5` and include that in your report.
 
+. If you are reporting an issue relating to interpreter, task or iocontrol:
+.. unfortunately this part still uses different flags to enable logging, and different log output. To see what is going on, do this:
+... modify the DEBUG value, EMC section your INI file - start with 0x7fffff
+... run machinekit from a terminal window like so: 'machinekit myconfig.ini |& tee /tmp/log.txt' . This will show the log both in your window as well as store it in /tmp/log.txt. When done, upload log.txt for others to see. Complete - no excerpts, no random copy and paste please.
+
 . Please *avoid attaching screendumps* in the message if possible. Rather copy and paste text. This is why:
 .. it is very hard to copy-paste when replying and pointing out
    stuff if somebody has to re-type from your screendump. So that won't
