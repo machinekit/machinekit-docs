@@ -10,13 +10,8 @@ permalink: /docs/building-from-source/
 Installing machinekit from packages is the quickest route to success but for
 any number of reasons you might want or need to build machinekit from source.
 
-Debian Linux is our recommended work environment; the following instructions have
-been tested on Debian Wheezy i386 and amd64 installations. They likely will
-work with little alteration on recent Debian-based distributions such as
-Ubuntu 14.04LTS and Linux Mint 17 but please, let's address the nuances of
-working in distributions other than Debian or releases other than Wheezy on
-supplemental pages so this page can remain focused on its primary goal of
-getting you to a working machinekit environment.
+Debian Linux is our sole supported work environment; the following instructions have
+been tested on Debian Wheezy i386 and amd64 installations.
 
 These instructions presume you have a basic proficiency working in the Linux
 bash shell from the command line in a terminal, know the difference between an
@@ -153,4 +148,4 @@ To enable the use of Machinekit from every terminal without running the rip-envi
 
 [material is forthcoming on the options which are available in this process,
 for example to build for multiple realtime environments, to install machinekit
-on the system, etc.]
+on the system, etc. Look for it in the machinekit-docs repository.]
