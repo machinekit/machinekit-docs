@@ -87,6 +87,7 @@ DOC_SRCS_EN := \
 	gui/selector.asciidoc \
 	gui/axis.asciidoc \
 	gui/gladevcp.asciidoc \
+    gui/gmoccapy.txt \
 	gui/halui.asciidoc \
 	gui/image-to-gcode.asciidoc \
 	gui/keystick.asciidoc \
