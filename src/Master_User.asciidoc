@@ -38,6 +38,8 @@ include::gui/ngcgui.asciidoc[]
 
 include::gui/touchy.asciidoc[]
 
+include::gui/gmoccapy.asciidoc[]
+
 include::gui/tkmachinekit.asciidoc[]
 
 include::gui/mini.asciidoc[]
