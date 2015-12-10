@@ -25,6 +25,8 @@ link:../src/gui/axis.asciidoc[Axis]
 
 link:../src/gui/ngcgui.asciidoc[ngcgui]
 
+link:../src/gui/gmoccapy.asciidoc[gmoccapy]
+
 link:../src/gui/touchy.asciidoc[touchy]
 
 link:../src/gui/tklinuxcnc.asciidoc[tklinuxcnc]
