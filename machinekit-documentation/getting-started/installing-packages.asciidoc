@@ -18,7 +18,8 @@ check back here before installing a new kernel.
 ====
 
 . *<<configure-apt,Configure Apt>>*
-.. <<configure-APT-i686-amd64-arm7,Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
+.. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
+.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
 .. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
@@ -31,23 +32,32 @@ check back here before installing a new kernel.
 
 == [[configure-apt]]Configure Apt
 
-=== [[configure-APT-i686-amd64-arm7]]Configure Apt for i686, amd64 and arm7 (Beaglebone)
+[NOTE]
+====
+Different instructions exist for Debian Wheezy and Debian Jessie. Please choose
+your installation.
+====
+[cols="2*"]
+|===
+2+^|continue with (choose):
+a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
 
-Copy and paste the following into a shell to configure the package archive:
-[source,bash]
-----
-sudo sh -c \
-  "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
-  /etc/apt/sources.list.d/machinekit.list; \
-  apt-get update ; \
-  apt-get install dovetail-automata-keyring"
-sudo apt-get update
-----
-continue with:
-[cols="1*"]
+`i686`
+
+`amd64`
+
+`arm7 (Beaglebone)`
+
+a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
+
+`i686`
+
+`amd64`
+
+`arm7 (Beaglebone)`
+
 |===
-|<<install-RT-kernel, install your kernel>>
-|===
+
 
 === [[configure-APT-i686-arm6]]Configure Apt for arm6 (Raspberry)
 
@@ -101,6 +111,14 @@ sudo apt-get install linux-image-xenomai                  # raspberry
 |===
 
 === [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i686 or amd64)
+
+There is currently no stock Debian rt-preempt kernel for Jessie
+
+You will need to build your own kernel
+
+See link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
+
+The below instructions will work for Wheezy
 
 Choose and copy and paste the following into a shell to
 install your kernel:
