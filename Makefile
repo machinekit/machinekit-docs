@@ -41,26 +41,8 @@ PYGEN    := $(BUILDDIR)/python
 # generated Documentation files
 DOCGEN := $(BUILDDIR)/doc
 
-# disable protobuf.js per default
-PROTOBUFJS := 0
-
-# directory for ProtoBuf.js generated files
-PROTOBUFJS_GEN := $(BUILDDIR)/js
-
-# the proto2js compiler
-PROTOJS := $(shell which proto2js)
-
 # pkg-config
 PKG_CONFIG := $(shell which pkg-config)
-
-# proto2js options - namespace
-#PROTOBUFJS_OPT := -commonjs=pb
-# http://en.wikipedia.org/wiki/Asynchronous_module_definition
-#PROTOBUFJS_OPT := -amd
-PROTOBUFJS_OPT := -class
-
-# protobuf namespace; all protos except nanopb.proto
-JSNAMESPACE := =pb
 
 # the set of all proto specs generated files depend on
 PROTO_SPECS := $(wildcard $(PROTODIR)/*.proto)
@@ -91,10 +73,6 @@ PROTO_CXX_INCS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.h}
 # generated C++ sources
 PROTO_CXX_SRCS  :=  ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.cc}
 
-# generated Javasript sources
-PROTO_PROTOBUFJS_SRCS  := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(PROTOBUFJS_GEN)/%.js}
-
-
 # ---- generate dependcy files for .proto files
 #
 # the list of .d dep files for .proto files:
@@ -106,7 +84,6 @@ PBDEP_OPT :=
 #PBDEP_OPT += --debug
 PBDEP_OPT += --cgen=$(CXXGEN)
 PBDEP_OPT += --pygen=$(PYGEN)
-PBDEP_OPT += --jsgen=$(PROTOBUFJS_GEN)
 # this path must match the vpath arrangement exactly or the deps will be wrong
 # unfortunately there is no way to extract the proto path in the code
 # generator plugin
@@ -120,10 +97,6 @@ GENERATED += \
 	$(PROTO_CXX_INCS) \
 	$(PROTO_PY_TARGETS) \
 	$(PROTO_PY_EXTRAS)
-
-ifeq ($(PROTOBUFJS),1)
-GENERATED += $(PROTO_PROTOBUFJS_SRCS) $(PROTOBUFJS_GEN)/nanopb.js
-endif
 
 $(OBJDIR)/%.d: $(SRCDIR)/%.proto
 	$(ECHO) "protoc create dependencies for $<"
@@ -179,32 +152,6 @@ $(DOCGEN)/%.md: $(SRCDIR)/%.proto
 	--proto_path=$(GPBINCLUDE)/ \
 	--doc_out=markdown,$@:./ \
 	$<
-
-# ------------- ProtoBuf.js rules ------------
-#
-# see https://github.com/dcodeIO/ProtoBuf.js
-#
-# generate Javascript modules from proto files
-#=$(filter-out %/butterfly.ngc,$(call GLOB,../nc_files/*))
-
-$(PROTOBUFJS_GEN)/%.js: $(SRCDIR)/%.proto
-	$(ECHO) $(PROTOJS)" create $@ from $<"
-	@mkdir -p $(PROTOBUFJS_GEN)
-	$(Q)$(PROTOJS) 	$< \
-	$(PROTOBUFJS_OPT)$(JSNAMESPACE) \
-	> $@
-
-# everything is namespace pb except nanopb.proto
-# # nanopb.proto needs different opts - no namespace argument
-ifeq ($(PROTOBUFJS),1)
-$(PROTOBUFJS_GEN)/nanopb.js: $(PROTODIR)/nanopb.proto
-	# $(ECHO) "HALLO"
-	# $(ECHO) $(PROTOJS)" create $@ from $<"
-	@mkdir -p $(PROTOBUFJS_GEN)
-	$(Q)$(PROTOJS) 	$< \
-	$(PROTOBUFJS_OPT) \
-	> $@
-endif
 
 # force create of %.proto-dependent files and their deps
 Makefile: $(GENERATED) $(PROTO_DEPS)
