@@ -42,4 +42,8 @@ var protosjson = protos.map(function(proto) {
 });
 
 mkdirp.sync(destinationPath);
-fs.writeFileSync(path.join(destinationPath, 'protonames.json'), JSON.stringify(protosjson));
+var text = '';
+protosjson.forEach(function(proto) {
+    text += 'module.exports[\'' + proto.name + '\'] = require(\'./' +  proto.fullname + '.js\').pb;\n';
+});
+fs.writeFileSync(path.join(destinationPath, 'protoexport.js'), text);
