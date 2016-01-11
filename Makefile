@@ -65,8 +65,6 @@ vpath %.proto  $(PROTODIR):$(GPBINCLUDE):$(DESCDIR)/compiler
 PROTO_PY_TARGETS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(PYGEN)/%_pb2.py}
 PROTO_PY_EXTRAS := $(PYGEN)/setup.py $(PYGEN)/machinetalk/__init__.py $(PYGEN)/machinetalk/protobuf/__init__.py
 
-PROTO_DOC_TARGETS=${PROTO_SPECS:$(SRCDIR)/%.proto=$(DOCGEN)/%.md}
-
 # generated C++ includes
 PROTO_CXX_INCS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.h}
 
@@ -144,14 +142,14 @@ $(PYGEN)/%.py: python/%.py
 # see https://github.com/estan/protoc-gen-doc
 #
 # generate Markdown files from proto files
-$(DOCGEN)/%.md: $(SRCDIR)/%.proto
-	$(ECHO) "protoc create $@ from $<"
+docs_base: $(PROTODIR)/*.proto
+	$(ECHO) "protoc create machinetalk-protobuf.md from *.proto"
 	@mkdir -p $(DOCGEN)
 	$(Q)$(PROTOC) $(PROTOC_FLAGS) \
 	--proto_path=$(SRCDIR)/ \
 	--proto_path=$(GPBINCLUDE)/ \
-	--doc_out=markdown,$@:./ \
-	$<
+	--doc_out=scripts/markdown.mustache,$(DOCGEN)/machinetalk-protobuf.md:./ \
+	$(PROTODIR)/*.proto
 
 # force create of %.proto-dependent files and their deps
 Makefile: $(GENERATED) $(PROTO_DEPS)
@@ -162,7 +160,7 @@ all: $(GENERATED) $(PROTO_DEPS)
 ios_replace:
 	sh scripts/ios-replace.sh $(CXXGEN)
 
-docs: $(PROTO_DEPS) $(PROTO_DOC_TARGETS)
+docs: $(PROTO_DEPS) docs_base
 
 clean:
 	rm -rf build
