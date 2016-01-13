@@ -203,7 +203,7 @@ message EmcStatusConfigAxis {
     option (nanopb_msgopt).msgid = 1102;
 
     required int32          index               = 1;  /// Axis index.
-    optional EmcAxisType    axisType            = 2;  /// Type of axis. Reflects [AXIS_N]TYPE
+    optional EmcAxisType    axis_type           = 2;  /// Type of axis. Reflects [AXIS_N]TYPE
     optional double         backlash            = 3;  /// Axis backlash. Reflects [AXIS_N]BACKLASH
     optional double         max_ferror          = 4;  /// Maximum following error. Reflects [AXIS_N]FERROR
     optional double         max_position_limit  = 5;  /// Maximum position limit. Reflects [AXIS_N]MAX_LIMIT

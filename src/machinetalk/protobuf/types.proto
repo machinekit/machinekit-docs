@@ -344,6 +344,10 @@ enum ContainerType {
     // generic error reply. note field contains explanation.
     MT_ERROR = 360;
 
+    // generic full update and incremental update
+    MT_FULL_UPDATE = 370;
+    MT_INCREMENTAL_UPDATE = 371;
+
     // task/client comms
     MT_TASK_REPLY     = 400;
     MT_TICKET_UPDATE  = 401;

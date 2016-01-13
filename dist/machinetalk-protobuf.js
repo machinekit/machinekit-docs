@@ -2057,6 +2057,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                             "id": 360
                         },
                         {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
+                        },
+                        {
                             "name": "MT_TASK_REPLY",
                             "id": 400
                         },
@@ -5131,6 +5139,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "name": "MT_ERROR",
                             "id": 360
+                        },
+                        {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
                         },
                         {
                             "name": "MT_TASK_REPLY",
@@ -9363,7 +9379,7 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "rule": "optional",
                             "type": "EmcAxisType",
-                            "name": "axisType",
+                            "name": "axis_type",
                             "id": 2
                         },
                         {
@@ -11968,6 +11984,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "name": "MT_ERROR",
                             "id": 360
+                        },
+                        {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
                         },
                         {
                             "name": "MT_TASK_REPLY",
@@ -17739,7 +17763,7 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "rule": "optional",
                             "type": "EmcAxisType",
-                            "name": "axisType",
+                            "name": "axis_type",
                             "id": 2
                         },
                         {
@@ -20366,6 +20390,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "name": "MT_ERROR",
                             "id": 360
+                        },
+                        {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
                         },
                         {
                             "name": "MT_TASK_REPLY",
@@ -24273,6 +24305,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                             "id": 360
                         },
                         {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
+                        },
+                        {
                             "name": "MT_TASK_REPLY",
                             "id": 400
                         },
@@ -27120,6 +27160,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                             "id": 360
                         },
                         {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
+                        },
+                        {
                             "name": "MT_TASK_REPLY",
                             "id": 400
                         },
@@ -29379,7 +29427,7 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "rule": "optional",
                             "type": "EmcAxisType",
-                            "name": "axisType",
+                            "name": "axis_type",
                             "id": 2
                         },
                         {
@@ -31280,6 +31328,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "name": "MT_ERROR",
                             "id": 360
+                        },
+                        {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
                         },
                         {
                             "name": "MT_TASK_REPLY",
@@ -34239,6 +34295,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                             "id": 360
                         },
                         {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
+                        },
+                        {
                             "name": "MT_TASK_REPLY",
                             "id": 400
                         },
@@ -36667,6 +36731,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                             "id": 360
                         },
                         {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
+                        },
+                        {
                             "name": "MT_TASK_REPLY",
                             "id": 400
                         },
@@ -38985,6 +39057,14 @@ module.exports = require("protobufjs").newBuilder({})['import']({
                         {
                             "name": "MT_ERROR",
                             "id": 360
+                        },
+                        {
+                            "name": "MT_FULL_UPDATE",
+                            "id": 370
+                        },
+                        {
+                            "name": "MT_INCREMENTAL_UPDATE",
+                            "id": 371
                         },
                         {
                             "name": "MT_TASK_REPLY",
