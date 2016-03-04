@@ -36,9 +36,7 @@ When running into trouble, please read these instructions on [getting help][1].
 
 - GitHub site:  <https://github.com/machinekit/machinekit/>
 
-- Buildbot grid:  <http://buildbot.dovetail-automata.com/grid>
-
-- Buildbot results:  <http://buildbot.dovetail-automata.com/results/>
+- Travis CI:  <https://travis-ci.org/machinekit/machinekit>
 
 ## Related material
 
