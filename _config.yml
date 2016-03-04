@@ -1,5 +1,5 @@
 name: Machinekit
-highlighter: pygments
+highlighter: rouge
 relative_permalinks: false
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
