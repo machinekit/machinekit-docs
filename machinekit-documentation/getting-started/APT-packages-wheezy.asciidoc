@@ -19,9 +19,11 @@ sudo apt-get update
 
 
 continue with:
-[cols="1*"]
+[cols="2*"]
 |===
 |link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
+|link:../developing/machinekit-developing.asciidoc#development-packages[return to development setup]
+
 |===
 
 [cols="3*"]
