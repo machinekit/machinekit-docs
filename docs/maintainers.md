@@ -2,7 +2,7 @@
 layout: docs
 title: Maintainers
 prev_section: contributing
-next_section: buildbot
+next_section: website
 permalink: /docs/maintainers/
 ---
 
@@ -56,10 +56,8 @@ following steps:
 - Review the patch to make sure it conforms to the Patch Requirements,
   above.
 
-- Ensure that the code builds successfully.  A third-party has
-  contributed a [Buildbot][3] to simplify this step: a successful
-  build on the Buildbot is sufficient.  See the [Buildbot
-  documentation][7] for more details.
+- Ensure that the code builds successfully.  The Tavis CI webhooks show
+  the status and results in the Pull Request
 
 - If the patch is not 'correct', the Maintainer will request changes
   to the pull request using the GitHub pull request discussion
@@ -79,8 +77,6 @@ following steps:
 
 [1]:  /docs/C4/
 [2]:  https://github.com/machinekit/machinekit/pulls/
-[3]:  http://buildbot.dovetail-automata.com/grid
 [4]:  https://help.github.com/articles/closing-issues-via-commit-messages
 [5]:  https://help.github.com/articles/merging-a-pull-request
 [6]:  https://help.github.com/articles/writing-on-github#references
-[7]:  /docs/buildbot/

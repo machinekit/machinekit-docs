@@ -1,20 +1,20 @@
 ---
 layout: docs
 title: Website
-prev_section: buildbot
+prev_section: maintainers
 next_section: C4
 permalink: /docs/website/
 ---
 
-This website is hosted on [Github Pages][1] and maintained in a 
+This website is hosted on [Github Pages][1] and maintained in a
 [github repository][3].
 
 To add or change this website:
 
-- fork the repository 
-- clone it locally 
+- fork the repository
+- clone it locally
 - edit content
-- preview the results with [Jekyll][2] 
+- preview the results with [Jekyll][2]
 - commit, push and send a Pull Request
 
 
