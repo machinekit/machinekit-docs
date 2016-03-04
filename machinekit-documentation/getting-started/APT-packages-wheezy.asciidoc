@@ -16,12 +16,14 @@ sudo sh -c \
   "echo 'deb http://deb.machinekit.io/debian wheezy main' > \
   /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
-
+----
 
 continue with:
-[cols="1*"]
+[cols="2*"]
 |===
 |link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
+|link:../developing/machinekit-developing.asciidoc#install-development-packages[return to development setup]
+
 |===
 
 [cols="3*"]

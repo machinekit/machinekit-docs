@@ -4,16 +4,28 @@
 |link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
-== [[packages-developing]]Development packages
+== [[packages-developing]]Setting up for development
 
-For those wanting to build Machinekit from sources and install a development environment, install developing packages:
+. <<install-development-packages,Install development packages>>
+. <<get-source-and-build,Get and build the source>>
+
+== [[install-development-packages]]Install development packages
+
+These instructions assume you have a pristine Debian installation, and you
+have made sure you have `sudo` rights. Do not build Machinekit as root.
+
+If you have previously installed the machinekit runtime packages, make sure
+you have completely removed all of the runtime packages before you continue.
+
+
 [source,bash]
 ----
 sudo apt-get install libczmq-dev python-zmq libjansson-dev \
-  libwebsockets-dev libxenomai-dev python-pyftpdlib
+  libwebsockets-dev libxenomai-dev python-pyftpdlib cython bwidget
 ----
 
-Further more, add wheezy-backports in the package archive for cython 0.19:
+If you are on Debian Wheezy then you need to add wheezy-backports in the
+package archive for cython 0.19:
 [source,bash]
 ----
 sudo sh -c \
@@ -23,33 +35,41 @@ sudo apt-get update
 sudo apt-get install -t wheezy-backports cython
 ----
 
-Full package listing for building and developing on Jessie (subject to constant update)
+== [[get-source-and-build]]Get and build the source
+
 [source,bash]
 ----
-sudo apt-get install -y  build-essential debhelper kernel-package libpth-dev libgtk2.0-dev tcl8.6-dev tk8.6-dev \     
-
-bwidget python-old-doctools python-tk python-dev libglu1-mesa-dev libgtk2.0-dev libgnomeprintui2.2-dev \ 
-
-libncurses5-dev libxaw7-dev gettext libreadline-gplv2-dev lyx texlive-extra-utils imagemagick texinfo groff \ 
-
-libmodbus-dev;
-
-sudo apt-get install -y  libudev-dev libmodbus-dev libboost-python-dev libboost-serialization-dev \
-
-libboost-thread-dev libtk-img automake autoconf libtool libusb-dev;
-
-sudo apt-get install -y  automake1.11 libtool liburiparser-dev cmake libssl-dev  openssl python-setuptools \ 
-
-libusb-1.0-0-dev libudev-dev  uuid-dev libavahi-client-dev libavahi-compat-libdnssd-dev  avahi-daemon \
-
-libprotobuf-dev protobuf-compiler python-protobuf libprotoc-dev uuid-runtime python-avahi python-netifaces \ 
-
-avahi-discover;
-
-sudo apt-get install -y  python-nose check pyftpd libczmq-dev python-zmq libjansson-dev libwebsockets-dev \ 
-
-python-pyftpdlib libzmq3-dev ;
+sudo apt-get install git dpkg-dev
+sudo apt-get install --no-install-recommends devscripts equivs
+git clone https://github.com/machinekit/machinekit.git
+cd machinekit
+debian/configure -px
+sudo mk-build-deps -ir
+cd src
+./autogen.sh
+./configure
+make
+sudo make setuid
 ----
+
+Add the next lines to your `.bashrc` file so that every new terminal is set up
+correctly for running Machinekit.
+
+[source,bash]
+----
+sh -c "echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then\n\
+    source ~/machinekit/scripts/rip-environment\n\
+    echo \"Environment set up for running Machinekit and LinuxCNC\"\n\
+fi\n' >> ~/.bashrc"
+----
+
+Users who wish to invoke machinekit (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
+
+[source,bash]
+----
+sudo adduser <username> xenomai
+----
+
 [cols="3*"]
 |===
 |link:developing.asciidoc[Back to Developing]
