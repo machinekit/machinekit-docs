@@ -75,15 +75,14 @@ libczmq-dev:amd64/sid 3.0.2-1 uptodate
 libczmq3:amd64/sid 3.0.2-1 uptodate
 ----
 
-==== Add Dovetail automata repository
+==== Add Machinekit repository
 
 [source,bash]
 ----
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 43DDF224
 sudo sh -c \
-  "echo 'deb http://deb.dovetail-automata.com jessie main' > \
-  /etc/apt/sources.list.d/machinekit.list; \
-  apt-get update ; \
-  apt-get install dovetail-automata-keyring"
+  "echo 'deb http://deb.machinekit.io/debian jessie main' > \
+  /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
 continue with:
