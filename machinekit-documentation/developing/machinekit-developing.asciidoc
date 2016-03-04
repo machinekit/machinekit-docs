@@ -6,35 +6,8 @@
 |===
 == [[packages-developing]]Setting up for development
 
-. <<configure-apt,Configure the APT repository>>
 . <<install-development-packages,Install development packages>>
 . <<get-source-and-build,Get and build the source>>
-
-== [[configure-apt]]Configure the APT repository
-
-Make sure you have followed the instructions on configuring your APT-repo
-and when you have done so return to here:
-
-[cols="2*"]
-|===
-2+^|continue with (choose):
-a|link:../getting-started/APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
-
-`i686`
-
-`amd64`
-
-`arm7 (Beaglebone)`
-
-a|link:../getting-started/APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
-
-`i686`
-
-`amd64`
-
-`arm7 (Beaglebone)`
-
-|===
 
 == [[install-development-packages]]Install development packages
 
