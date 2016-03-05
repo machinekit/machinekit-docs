@@ -19,8 +19,8 @@ check back here before installing a new kernel.
 
 . *<<configure-apt,Configure Apt>>*
 .. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
-.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
-.. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
+.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone, RPi2)]
+.. <<configure-APT-i686-arm6,Configure Apt for Raspbian arm7 (RPi2)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
 .. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i686 and amd64)>>
@@ -54,21 +54,21 @@ a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
 
 `amd64`
 
-`arm7 (Beaglebone)`
+`arm7 (Beaglebone, RPi2)`
 
 |===
 
 
-=== [[configure-APT-i686-arm6]]Configure Apt for arm6 (Raspberry)
+=== [[configure-APT-i686-arm6]]Configure Apt for Raspbian arm7 (RPi2)
 
 Copy and paste the following into a shell to configure the package
 archive:
 [source,bash]
 ----
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 43DDF224
 sudo sh -c \
-  "apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 49550439; \
-  echo 'deb http://0ptr.link/raspbian wheezy main' > \
-  /etc/apt/sources.list.d/rpi-machinekit.list"
+  "echo 'deb http://deb.machinekit.io/debian raspbian main' > \
+  /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
 continue with:

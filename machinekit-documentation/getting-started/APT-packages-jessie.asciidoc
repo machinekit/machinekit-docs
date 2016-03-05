@@ -5,7 +5,7 @@
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
-= [[configure-APT-i686-amd64-arm7-jessie]]Configure Apt for i686, amd64 and arm7 (Beaglebone) for `jessie`
+= [[configure-APT-i686-amd64-arm7-jessie]]Configure Apt for i686, amd64 and arm7 (Beaglebone, RPi2) for `jessie`
 
 ==== Create APT `preferences` file and add `sid` repository
 Because of the necessity of `libczmq` and `libczmq-dev` from the `sid`
