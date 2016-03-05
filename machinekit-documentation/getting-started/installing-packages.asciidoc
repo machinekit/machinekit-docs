@@ -78,7 +78,7 @@ continue with:
 == [[install-RT-kernel]]Install a realtime kernel
 
 - <<rt-kernel-xenomai,Xenomai realtime kernel (i386, amd64 and Beaglebone)>>
-- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Rpi2)>>
+- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64)>>
 
 === [[rt-kernel-xenomai]]Xenomai realtime kernel
 
@@ -108,7 +108,7 @@ sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenoma
 |link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
 |===
 
-=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64, Rpi2)
+=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64)
 
 Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
 
@@ -135,12 +135,6 @@ sudo apt-get install linux-image-4.1.15-rt17mah     # i386 Jessie
 sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
 # alternatively, a newer experimental kernel:
 sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
-----
-Gemi provides a Rpi2 RT-PREEMPT kernel  via the deb.machinekit.io.
-To list current RT kernels available, run `apt-get update; apt-cache search linux-image- |grep rt`. 
-[source,bash]
-----
-sudo apt-get install linux-firmware-image-rt-4.1.18-rt17-v7+  linux-image-rt-4.1.18-rt17-v7+ # Raspbian, rpi2
 ----
 
 [cols="2*"]
@@ -181,18 +175,6 @@ sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator m
 
 Some platforms need additional steps/instructions. Please see below for
 more information about specific platforms.
-
-=== [[post-installation-raspberry]]Raspberry2
-
-The kernel image needs to be explicitly copied to the boot partition like so:
-[source,bash]
-----
-sudo mv /boot/kernel7.img /boot/kernel7.img.bck
-# now copy the kernel img file just installed over /boot/kernel7.img
-# do a ls -lt /boot to see what was installed 
-# for the kernel described above the command would be:
-sudo cp /boot/kernel-4.1.18-rt17-v7+.img /boot/kernel7.img
-----
 
 === [[post-installation-beaglebone]]Beaglebone
 
