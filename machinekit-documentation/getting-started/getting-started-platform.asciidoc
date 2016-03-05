@@ -22,7 +22,7 @@ Installation options:
 
 . link:machinekit-images.asciidoc[Use a pre-made image] for Beaglebone Black
 . link:installing-packages.asciidoc[Set up the packages yourself]
-  for amd64, i686, arm7/Beaglebone or arm7/Raspberry Pi2. This means configuring
+  for amd64, i386, and arm7 (or later) systems like the Beaglebone Raspberry Pi2. This means configuring
   Apt, installing kernels and installing the runtime packages.
 . link:../developing/developing.asciidoc[Set up a development platform]
   when you want to develop for Machinekit.
