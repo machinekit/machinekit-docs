@@ -182,16 +182,16 @@ sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator m
 Some platforms need additional steps/instructions. Please see below for
 more information about specific platforms.
 
-=== [[post-installation-raspberry]]Raspberry
+=== [[post-installation-raspberry]]Raspberry2
 
 The kernel image needs to be explicitly copied to the boot partition like so:
 [source,bash]
 ----
-sudo mv /boot/kernel.img /boot/kernel.img.bck
-# now copy the kernel img file just installed over /boot/kernel.img
+sudo mv /boot/kernel7.img /boot/kernel7.img.bck
+# now copy the kernel img file just installed over /boot/kernel7.img
 # do a ls -lt /boot to see what was installed 
 # for the kernel described above the command would be:
-sudo cp /boot/kernel-4.1.18-rt17-v7+.img /boot/kernel.img
+sudo cp /boot/kernel-4.1.18-rt17-v7+.img /boot/kernel7.img
 ----
 
 === [[post-installation-beaglebone]]Beaglebone
