@@ -80,7 +80,7 @@ continue with:
 - <<rt-kernel-xenomai,Xenomai realtime kernel (i386, amd64 and Beaglebone)>>
 - <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Rpi2)>>
 
-=== [[rt-kernel-xenomai]]Xenomai realtime kernel (all platforms)
+=== [[rt-kernel-xenomai]]Xenomai realtime kernel
 
 Choose and copy and paste the following into a shell to
 install your kernel:
@@ -110,11 +110,12 @@ sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenoma
 
 === [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64, Rpi2)
 
-There is currently no stock Debian rt-preempt kernel for Jessie
+Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
 
-You will need to build your own kernel
+There is currently no stock Debian RT-PREEMPT kernel for Jessie; the machinekit apt repository provides
+several known-to work kernels. 
 
-See link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
+If you want to build your own kernel, see link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
 
 The below instructions will work for Wheezy
 
@@ -123,12 +124,20 @@ install your kernel:
 
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-686-pae   # i386
+sudo apt-get install linux-image-3.2.0-4-rt-686-pae # i386 Wheezy
+
+sudo apt-get install linux-image-rt-686-pae         # i386 Jessie
+# alternatively, a newer experimental kernel:
+sudo apt-get install linux-image-4.1.15-rt17mah     # i386 Jessie
 ----
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-amd64     # amd64
+sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
+# alternatively, a newer experimental kernel:
+sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
 ----
+
+linux-image-rt-4.1.18-rt17+
 [cols="2*"]
 |===
 2+^|continue with (choose):
@@ -152,15 +161,15 @@ kernels and flavors possible):
 
 [source,bash]
 ----
-sudo apt-get install machinekit-rt-preempt
+sudo apt-get install machinekit-rt-preempt machinekit-dev
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-xenomai
+sudo apt-get install machinekit-xenomai machinekit-dev
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
+sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator mode')
 ----
 
 == [[post-installation]]Post installation
