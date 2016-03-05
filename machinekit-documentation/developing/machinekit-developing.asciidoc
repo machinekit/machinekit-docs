@@ -63,6 +63,10 @@ cd src
 ./configure
 make
 sudo make setuid
+
+# this script checks for missing configuration files
+# and will give hints how to remedy:
+../scripts/check-system-configuration.sh
 ----
 
 Add the next lines to your `.bashrc` file so that every new terminal is set up
@@ -82,6 +86,8 @@ Users who wish to invoke machinekit (built with xenomai threads enabled) on a xe
 ----
 sudo adduser <username> xenomai
 ----
+
+Logout and login again therafter.
 
 [cols="3*"]
 |===
