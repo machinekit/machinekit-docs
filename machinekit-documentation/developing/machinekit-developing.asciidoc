@@ -6,10 +6,10 @@
 |===
 == [[packages-developing]]Setting up for development
 
-. <<install-development-packages,Install development packages>>
+. <<install-development-packages,Install packages required for building from source>>
 . <<get-source-and-build,Get and build the source>>
 
-== [[install-development-packages]]Install development packages
+== [[install-development-packages]]Install packages required for building from source
 
 These instructions assume you have a pristine Debian installation, and you
 have made sure you have `sudo` rights. Do not build Machinekit as root.
