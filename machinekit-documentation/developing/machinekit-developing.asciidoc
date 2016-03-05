@@ -89,6 +89,21 @@ sudo adduser <username> xenomai
 
 Logout and login again therafter.
 
+
+### Additional runtime packages you may need
+
+The above steps outline only the build requirements. There might be some 
+runtime support packages missing if machinekit was never installed before.
+
+The easiest way to fetch all the machinekit runtime packages is to install
+a current package, and then delete it - the process pulls in all current
+runtime prerequisites:
+[source,bash]
+----
+sudo apt-get install machinekit
+sudo apt-get remove --purge machinekit
+----
+
 [cols="3*"]
 |===
 |link:developing.asciidoc[Back to Developing]
