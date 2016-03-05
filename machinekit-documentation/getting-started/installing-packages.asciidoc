@@ -18,8 +18,8 @@ check back here before installing a new kernel.
 ====
 
 . *<<configure-apt,Configure Apt>>*
-.. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
-.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i686, amd64 and arm7 (Beaglebone)]
+.. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i386, amd64 and arm7 (Beaglebone)]
+.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i386, amd64 and arm7 (Beaglebone)]
 .. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
@@ -42,7 +42,7 @@ your installation.
 2+^|continue with (choose):
 a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
 
-`i686`
+`i386`
 
 `amd64`
 
@@ -50,7 +50,7 @@ a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
 
 a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
 
-`i686`
+`i386`
 
 `amd64`
 
@@ -125,7 +125,7 @@ install your kernel:
 
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-686-pae   # i686
+sudo apt-get install linux-image-rt-686-pae   # i386
 ----
 [source,bash]
 ----
@@ -145,7 +145,7 @@ install your kernel:
 
 [source,bash]
 ----
-sudo apt-get install linux-image-rtai.x86-686-pae # i686
+sudo apt-get install linux-image-rtai.x86-686-pae # i386
 ----
 [source,bash]
 ----
