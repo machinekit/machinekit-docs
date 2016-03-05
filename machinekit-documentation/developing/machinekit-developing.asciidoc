@@ -22,7 +22,7 @@ Note that a previous LinuxCNC package install will conflict with building from s
 so make sure LinuxCNC packages are removed by `sudo apt-get remove --purge linuxcnc` .
 
 First, install supporting packages - note you *must* have configured the deb.machinekit.io 
-apt repository already or the wrong package versions will be installed - see the instructons
+apt repository already or the wrong package versions will be installed - see the instructions
 link:../getting-started/installing-packages.asciidoc#configure-apt[here] to do so.
 
 [source,bash]
