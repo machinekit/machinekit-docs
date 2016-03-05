@@ -97,10 +97,6 @@ sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 ----
 sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
 ----
-[source,bash]
-----
-sudo apt-get install linux-image-xenomai                  # raspberry
-----
 [cols="2*"]
 |===
 2+^|continue with (choose):
