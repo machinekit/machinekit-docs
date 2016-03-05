@@ -16,7 +16,13 @@ have made sure you have `sudo` rights. Do not build Machinekit as root.
 
 If you have previously installed the machinekit runtime packages, make sure
 you have completely removed all of the runtime packages before you continue.
+To do so, execute `sudo apt-get remove --purge machinekit` .
 
+Note that a previous LinuxCNC package install will conflict with building from source,
+so make sure LinuxCNC packages are removed by `sudo apt-get remove --purge linuxcnc` .
+
+First, install supporting packages - note you *must* have configured the deb.machinekit.io 
+apt repository already or the wrong package versions will be installed.
 
 [source,bash]
 ----
@@ -43,10 +49,16 @@ sudo apt-get install git dpkg-dev
 sudo apt-get install --no-install-recommends devscripts equivs
 git clone https://github.com/machinekit/machinekit.git
 cd machinekit
-debian/configure -px
+# to add RT-PREEMPT support, add a 'p'
+# to add Xenomai support, add an 'x'
+# this builds for Posix, RT-PREEMPT, Xenomai:
+debian/configure -prx 
 sudo mk-build-deps -ir
 cd src
 ./autogen.sh
+# for the Beaglebone, add --with-platform-beaglebone to ./configure
+# for the Raspberry2, add --with-platform-raspberry to ./configure
+# for PC platforms, no options needed
 ./configure
 make
 sudo make setuid
