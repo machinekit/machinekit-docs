@@ -136,8 +136,13 @@ sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
 # alternatively, a newer experimental kernel:
 sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
 ----
+Gemi provides a Rpi2 RT-PREEMPT kernel  via the deb.machinekit.io.
+To list current RT kernels available, run `apt-get update; apt-cache search linux-image- |grep rt`. 
+[source,bash]
+----
+sudo apt-get install linux-firmware-image-rt-4.1.18-rt17-v7+  linux-image-rt-4.1.18-rt17-v7+ # Raspbian, rpi2
+----
 
-linux-image-rt-4.1.18-rt17+
 [cols="2*"]
 |===
 2+^|continue with (choose):
@@ -179,11 +184,14 @@ more information about specific platforms.
 
 === [[post-installation-raspberry]]Raspberry
 
-The kernel image needs to be copied to the boot partition like so:
+The kernel image needs to be explicitly copied to the boot partition like so:
 [source,bash]
 ----
 sudo mv /boot/kernel.img /boot/kernel.img.bck
-sudo cp /boot/vmlinuz* /boot/kernel.img
+# now copy the kernel img file just installed over /boot/kernel.img
+# do a ls -lt /boot to see what was installed 
+# for the kernel described above the command would be:
+sudo cp /boot/kernel-4.1.18-rt17-v7+.img /boot/kernel.img
 ----
 
 === [[post-installation-beaglebone]]Beaglebone
