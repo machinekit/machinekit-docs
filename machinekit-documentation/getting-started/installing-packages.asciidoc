@@ -23,7 +23,7 @@ check back here before installing a new kernel.
 .. <<configure-APT-i686-arm6,Configure Apt for Raspbian arm7 (RPi2)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
-.. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386 and amd64)>>
+.. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)>>
 . [[install-runtime-packs]]*<<install-runtime-packages,Install runtime packages>>*
 . *<<post-installation,Post installation>>*
 
@@ -78,7 +78,7 @@ continue with:
 == [[install-RT-kernel]]Install a realtime kernel
 
 - <<rt-kernel-xenomai,Xenomai realtime kernel (i386, amd64 and Beaglebone)>>
-- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64)>>
+- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)>>
 
 === [[rt-kernel-xenomai]]Xenomai realtime kernel
 
@@ -108,7 +108,7 @@ sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenoma
 |link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
 |===
 
-=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64)
+=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)
 
 Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
 
@@ -135,6 +135,21 @@ sudo apt-get install linux-image-4.1.15-rt17mah     # i386 Jessie
 sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
 # alternatively, a newer experimental kernel:
 sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
+----
+
+For Raspberry Pi using Raspbian:
+[source,bash]
+----
+sudo -s
+apt-get install linux-image-rpi2-rt
+cd /boot
+echo kernel=$(ls kernel_rt*.img) >> config.txt
+echo dtoverlay=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
+----
+Make sure to add the following entries to `/boot/cmdline.txt`:
+[source,bash]
+----
+dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
 ----
 
 [cols="2*"]
