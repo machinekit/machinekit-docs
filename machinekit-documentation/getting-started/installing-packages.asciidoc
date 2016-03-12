@@ -138,6 +138,14 @@ sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
 ----
 
 For Raspberry Pi using Raspbian:
+
+Updated `raspberrypi-bootloader` is needed:
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install -y raspberrypi-bootloader
+----
+Install kernel:
 [source,bash]
 ----
 sudo -s
@@ -146,7 +154,7 @@ cd /boot
 echo kernel=$(ls kernel_rt*.img) >> config.txt
 echo dtoverlay=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
 ----
-Make sure to add the following entries to `/boot/cmdline.txt`:
+Then add the following entries to `/boot/cmdline.txt`:
 [source,bash]
 ----
 dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
