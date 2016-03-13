@@ -59,8 +59,8 @@ cd src
 ./autogen.sh
 # for the Beaglebone, add --with-platform-beaglebone to ./configure
 # for the Raspberry2, add --with-platform-raspberry to ./configure
-# for PC platforms, no options needed
-./configure
+# for PC platforms, add --with-rt-preempt  --with-posix  --with-xenomai
+./configure  
 make
 sudo make setuid
 
