@@ -152,7 +152,7 @@ sudo -s
 apt-get install linux-image-rpi2-rt
 cd /boot
 echo kernel=$(ls kernel_rt*.img) >> config.txt
-echo dtoverlay=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
+echo device_tree=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
 ----
 Then add the following entries to `/boot/cmdline.txt`:
 [source,bash]
