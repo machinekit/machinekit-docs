@@ -26,8 +26,9 @@ ECHO := @echo
 
 DESTDIR := /usr/local
 # all protobuf definitions live here
-NAMESPACEDIR=machinetalk/protobuf
+NAMESPACEDIR := machinetalk/protobuf
 SRCDIR := src
+SRCDIRINV := $(shell realpath --relative-to=$(SRCDIR) .)
 PROTODIR := $(SRCDIR)/$(NAMESPACEDIR)
 
 BUILDDIR := build
@@ -70,6 +71,9 @@ PROTO_CXX_INCS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.h}
 
 # generated C++ sources
 PROTO_CXX_SRCS  :=  ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.cc}
+
+# generated doc file
+DOC_TARGET := $(DOCGEN)/machinetalk-protobuf.md
 
 # ---- generate dependcy files for .proto files
 #
@@ -137,30 +141,32 @@ $(PYGEN)/%_pb2.py: $(SRCDIR)/%.proto
 $(PYGEN)/%.py: python/%.py
 	cp "$<" "$@"
 
+# force create of %.proto-dependent files and their deps
+Makefile: $(GENERATED) $(PROTO_DEPS)
+-include $(PROTO_DEPS)
+
 # ------------- protoc-gen-doc rules ------------
 #
 # see https://github.com/estan/protoc-gen-doc
 #
 # generate Markdown files from proto files
-docs_base: $(PROTODIR)/*.proto
-	$(ECHO) "protoc create machinetalk-protobuf.md from *.proto"
+$(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto)
+#doc_base:
+	$(ECHO) "protoc create $@ from *.proto"
 	@mkdir -p $(DOCGEN)
-	$(Q)$(PROTOC) $(PROTOC_FLAGS) \
-	--proto_path=$(SRCDIR)/ \
+	$(Q)cd $(SRCDIR); \
+	$(PROTOC) $(PROTOC_FLAGS) \
+	--proto_path=./ \
 	--proto_path=$(GPBINCLUDE)/ \
-	--doc_out=scripts/markdown.mustache,$(DOCGEN)/machinetalk-protobuf.md:./ \
-	$(PROTODIR)/*.proto
-
-# force create of %.proto-dependent files and their deps
-Makefile: $(GENERATED) $(PROTO_DEPS)
--include $(PROTO_DEPS)
+	--doc_out=$(SRCDIRINV)/scripts/markdown.mustache,$(SRCDIRINV)/$@:./ \
+	$(NAMESPACEDIR)/*.proto
 
 all: $(GENERATED) $(PROTO_DEPS)
 
 ios_replace:
 	sh scripts/ios-replace.sh $(CXXGEN)
 
-docs: $(PROTO_DEPS) docs_base
+docs: $(PROTO_DEPS) $(DOC_TARGET)
 
 clean:
 	rm -rf build
