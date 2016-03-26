@@ -76,7 +76,7 @@ correctly for running Machinekit.
 ----
 sh -c "echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then\n\
     source ~/machinekit/scripts/rip-environment\n\
-    echo \"Environment set up for running Machinekit and LinuxCNC\"\n\
+    echo \"Environment set up for running Machinekit\"\n\
 fi\n' >> ~/.bashrc"
 ----
 
