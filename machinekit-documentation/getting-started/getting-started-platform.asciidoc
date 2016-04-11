@@ -1,12 +1,12 @@
 [cols="3*"]
 |===
-|
+|link:../index-getting-started.asciidoc[Back to the Getting started index]
 |link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===
 
-Getting Started
-===============
+Setting up machinekit on a platform
+===================================
 
 This document is intended to get Machinekit installed on the platform of your
 choice. Because of the multi-platform nature of the machinekit project there
@@ -14,22 +14,22 @@ can be some differences in the installation for a specific platform.
 
 [NOTE]
 ====
-You should have a working Debian Wheezy installation.
+You should have a working Debian installation.
 ====
 
 Installation options:
 ====================
 
 . link:machinekit-images.asciidoc[Use a pre-made image] for Beaglebone Black
-. link:installing-packages.asciidoc[Set up the packages yourself]
-  for amd64, i686, arm7/Beaglebone or arm6/Raspberry Pi. This means configuring
+. link:installing-packages.asciidoc[Install precompiled debian packages]
+  for amd64, i386, and arm7 (or later) systems like the Beaglebone Raspberry Pi2. This means configuring
   Apt, installing kernels and installing the runtime packages.
 . link:../developing/developing.asciidoc[Set up a development platform]
   when you want to develop for Machinekit.
 
 [cols="3*"]
 |===
-|
+|link:../index-getting-started.asciidoc[Back to the Getting started index]
 |link:../../index.asciidoc[Back to the main Documents index]
 |link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

@@ -18,12 +18,12 @@ check back here before installing a new kernel.
 ====
 
 . *<<configure-apt,Configure Apt>>*
-.. <<configure-APT-i686-amd64-arm7,Configure Apt for i686, amd64 and arm7 (Beaglebone)>>
-.. <<configure-APT-i686-arm6,Configure Apt for arm6 (Raspberry)>>
+.. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i386, amd64 and arm7 (Beaglebone)]
+.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i386, amd64 and arm7 (Beaglebone, RPi2)]
+.. <<configure-APT-i686-arm6,Configure Apt for Raspbian arm7 (RPi2)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
-.. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i686 and amd64)>>
-.. <<rt-kernel-rtai,RTAI realtime kernel (x86 and amd64)>>
+.. <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)>>
 . [[install-runtime-packs]]*<<install-runtime-packages,Install runtime packages>>*
 . *<<post-installation,Post installation>>*
 
@@ -31,34 +31,42 @@ check back here before installing a new kernel.
 
 == [[configure-apt]]Configure Apt
 
-=== [[configure-APT-i686-amd64-arm7]]Configure Apt for i686, amd64 and arm7 (Beaglebone)
-
-Copy and paste the following into a shell to configure the package archive:
-[source,bash]
-----
-sudo sh -c \
-  "echo 'deb http://deb.dovetail-automata.com wheezy main' > \
-  /etc/apt/sources.list.d/machinekit.list; \
-  apt-get update ; \
-  apt-get install dovetail-automata-keyring"
-sudo apt-get update
-----
-continue with:
-[cols="1*"]
+[NOTE]
+====
+Different instructions exist for Debian Wheezy and Debian Jessie. Please choose
+your installation.
+====
+[cols="2*"]
 |===
-|<<install-RT-kernel, install your kernel>>
+2+^|continue with (choose):
+a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
+
+`i386`
+
+`amd64`
+
+`arm7 (Beaglebone)`
+
+a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
+
+`i386`
+
+`amd64`
+
+`arm7 (Beaglebone, RPi2)`
+
 |===
 
-=== [[configure-APT-i686-arm6]]Configure Apt for arm6 (Raspberry)
+=== [[configure-APT-i686-arm6]]Configure Apt for Raspbian arm7 (RPi2)
 
 Copy and paste the following into a shell to configure the package
 archive:
 [source,bash]
 ----
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 43DDF224
 sudo sh -c \
-  "apt-key adv --keyserver hkp://keys.gnupg.net --recv-key 49550439; \
-  echo 'deb http://0ptr.link/raspbian wheezy main' > \
-  /etc/apt/sources.list.d/rpi-machinekit.list"
+  "echo 'deb http://deb.machinekit.io/debian raspbian main' > \
+  /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
 continue with:
@@ -69,11 +77,10 @@ continue with:
 
 == [[install-RT-kernel]]Install a realtime kernel
 
-- <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
-- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i686 and amd64)>>
-- <<rt-kernel-rtai,RTAI realtime kernel (x86 and amd64)>>
+- <<rt-kernel-xenomai,Xenomai realtime kernel (i386, amd64 and Beaglebone)>>
+- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)>>
 
-=== [[rt-kernel-xenomai]]Xenomai realtime kernel (all platforms)
+=== [[rt-kernel-xenomai]]Xenomai realtime kernel
 
 Choose and copy and paste the following into a shell to
 install your kernel:
@@ -83,15 +90,16 @@ sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
 ----
 [source,bash]
 ----
-sudo apt-get install linux-image-xenomai.x86-686-pae      # i686
+sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 ----
+
+Note the Beaglebone Xenomai kernel is distributed via http://repos.rcn-ee.com/debian/, 
+this repo should already be configured in /etc/apt/sources.list if you started with a Beaglebone Debian SD card.
+To list current Xenomai kernels available, run `apt-get update; apt-cache search linux-image-3.8 |grep xenomai`. 
+For now, stay with the `linux-image-3.8` Xenomai kernels.
 [source,bash]
 ----
-sudo apt-get install linux-image-xenomai.beaglebone-omap  # beaglebone
-----
-[source,bash]
-----
-sudo apt-get install linux-image-xenomai                  # raspberry
+sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenomai kernel.
 ----
 [cols="2*"]
 |===
@@ -100,19 +108,58 @@ sudo apt-get install linux-image-xenomai                  # raspberry
 |link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
 |===
 
-=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i686 or amd64)
+=== [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)
+
+Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
+
+There is currently no stock Debian RT-PREEMPT kernel for Jessie; the machinekit apt repository provides
+several known-to work kernels. 
+
+If you want to build your own kernel, see link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
+
+The below instructions will work for Wheezy
 
 Choose and copy and paste the following into a shell to
 install your kernel:
 
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-686-pae   # i686
+sudo apt-get install linux-image-3.2.0-4-rt-686-pae # i386 Wheezy
+
+sudo apt-get install linux-image-rt-686-pae         # i386 Jessie
+# alternatively, a newer experimental kernel:
+sudo apt-get install linux-image-4.1.15-rt17mah     # i386 Jessie
 ----
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-amd64     # amd64
+sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
+# alternatively, a newer experimental kernel:
+sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
 ----
+
+For Raspberry Pi using Raspbian:
+
+Updated `raspberrypi-bootloader` is needed:
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install -y raspberrypi-bootloader
+----
+Install kernel:
+[source,bash]
+----
+sudo -s
+apt-get install linux-image-rpi2-rt
+cd /boot
+echo kernel=$(ls kernel_rt*.img) >> config.txt
+echo device_tree=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
+----
+Then add the following entries to `/boot/cmdline.txt`:
+[source,bash]
+----
+dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
+----
+
 [cols="2*"]
 |===
 2+^|continue with (choose):
@@ -120,19 +167,7 @@ sudo apt-get install linux-image-rt-amd64     # amd64
 |link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
 |===
 
-=== [[rt-kernel-rtai]]RTAI realtime kernel (x86 and amd64)
 
-Choose and copy and paste the following into a shell to
-install your kernel:
-
-[source,bash]
-----
-sudo apt-get install linux-image-rtai.x86-686-pae # i686
-----
-[source,bash]
-----
-sudo apt-get install linux-image-rtai.x86-amd64   # amd64
-----
 [cols="2*"]
 |===
 2+^|continue with (choose):
@@ -148,34 +183,21 @@ kernels and flavors possible):
 
 [source,bash]
 ----
-sudo apt-get install machinekit-rt-preempt
+sudo apt-get install machinekit-rt-preempt machinekit-dev
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-xenomai
+sudo apt-get install machinekit-xenomai machinekit-dev
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-rtai-kernel
-----
-[source,bash]
-----
-sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
+sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator mode')
 ----
 
 == [[post-installation]]Post installation
 
 Some platforms need additional steps/instructions. Please see below for
 more information about specific platforms.
-
-=== [[post-installation-raspberry]]Raspberry
-
-The kernel image needs to be copied to the boot partition like so:
-[source,bash]
-----
-sudo mv /boot/kernel.img /boot/kernel.img.bck
-sudo cp /boot/vmlinuz* /boot/kernel.img
-----
 
 === [[post-installation-beaglebone]]Beaglebone
 
