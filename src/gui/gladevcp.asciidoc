@@ -214,18 +214,16 @@ GladeVCP Programming>> section.
 
 [[gladevcp:Prerequisites]]
 === Prerequisite: Glade installation
-To view or modify Glade UI files, you need glade installed - it is not
-needed just to run a GladeVCP panel. If the glade command is missing,
-install it with the command:
+To view or modify Glade UI files, you need glade 3.8.0 installed - it is not
+needed just to run a GladeVCP panel. If the glade command is missing, install
+it with the command:
 
- $ sudo apt-get install glade
+ $ sudo apt-get install glade-gtk2
 
-Verify the version number to be greater than 3.6.7:
+Verify the version number to be 3.8.5 or less
 
- $ glade --version
- glade3 3.6.7
-
-(On recent systems, the required glade package is glade-gtk2)
+ $ glade-gtk2 --version
+glade3 3.8.5
 
 === Running Glade to create a new user interface
 This section just outlines the initial Machinekit-specific steps. For more
@@ -323,7 +321,9 @@ might not be needed in your setup.  The relative path specifier ../../nc_files/g
 is constructed to work with directories copied by the configuration picker and when
 using a run-in-place setup.
 
-=== Integrating into Axis as a tab next to DRO and Preview
+[[gladevcp:embeding-tab]]
+
+=== Embeding as a Tab
 
 To do so, edit your .ini file and add to the DISPLAY and HAL sections of ini
 file as follows:
@@ -506,7 +506,7 @@ label your panel.
    <<gladevcp:HAL_ProgressBar,HAL_ProgressBar>>,
    <<gladevcp:HAL_Bars,HAL_HBar and HAL_VBar>>, <<gladevcp:HAL_Meter,HAL_Meter>>
  - Widgets for controlling "number" signals: <<gladevcp:HAL_SpinButton,HAL_SpinButton>>,
-   <<gladevcp:HAL_Scales,HAL_HScale and HAL_VScale>>, <<gladevcp:JogWheel, Jog Wheel>>
+   <<gladevcp:HAL_Scales,HAL_HScale and HAL_VScale>>, <<gladevcp:JogWheel, Jog Wheel>>, , <<gladevcp:speedcontrol, Speed Control>>
  - Sensitive control widgets: <<gladevcp:HAL_Table, State_Sensitive_Table HAL_Table and HAL_HBox>>
  - Tool Path preview: <<gladevcp:HAL_Gremlin,HAL_Gremlin>>
  - Widgets to show axis positions: <<gladevcp::DRO_widget, DRO Widget>>,
@@ -679,8 +679,106 @@ see above.
 
 Example SpinButton:
 image:images/spinbutton.png[]
-.
-[[gladevcp:JogWheel]]
+
+=== Hal_Dial
+
+The hal_dial widget simulates a jogwheel or adjustment dial. +
+It can be operated with the mouse. You can just use the mouse wheel, while the mouse cursor is over the Hal_Dial widget, +
+or you hold the left mouse button and move the cursor in circular direction to increase or degrease the counts. +
+By double clicking the left or right button the scale factor can be increased or decreased. +
+
+ * Counterclockwise   = reduce counts
+ * Clockwise          = increase counts
+ * Wheel up           = increase counts
+ * Wheel down         = reduce counts
+ * left Double Click  = x10 scale
+ * Right Double Click = /10 scale
+
+----
+Hal_Dial exports it's count value as hal pins:
+
+<widgetname>::
+   out S32 pin
+<widgetname>-scaled::
+   out FLOAT pin
+<widgetname>-delta-scaled::
+   out FLOAT pin
+----
+It has the following properties:
+
+cpr::
+    Sets the Counts per Revolution, allowed values are in the range from 25 to 360 +
+    default = 100
+show_counts::
+    Set this to False, if you want to hide the counts display in the middle of the widget. +
+    default = True
+label::
+    Set the content of the label witch may be shown over the counts value. +
+    If the label given is longer than 15 Characters, it will be cut to 15 Characters. +
+    default = blank
+center_color::
+    This allows one to change the color of the wheel. It uses a GDK color string. +
+    default = #bdefbdefbdef (gray)
+count_type_shown::
+    There are three counts available 0) Raw CPR counts 1) Scaled counts 2) Delta scaled counts. +
+    default = 1
+ * count is based on the CPR selected - it will count positive and negative. It is available as a S32 pin. +
+ * Scaled-count is CPR count times the scale - it can be positive and negative. +
+    If you change the scale the output will immediately reflect the change. It is available as a FLOAT pin. +
+ * Delta-scaled-count is cpr count CHANGE, times scale. +
+    If you change the scale, only the counts after that change will be scaled and then added to the current value. +
+    It is available as a FLOAT pin.
+scale_adjustable::
+    Set this to False if you want to disallow scale changes by double clicking the widget. +
+    If this is false the scale factor will not show on the widget. +
+    default = True
+scale::
+    Set this to scale the counts. +
+    default = 1.0
+
+
+Direct program control::
+
+    There are ways to directly control the widget using Python.
+
+    Using goobject to set the above listed properties:
+        [widget name].set_property("cpr",int(value))
+        [widget name].set_property("show_counts, True)
+        [widget name].set_property("center_color",gtk.gdk.Color('#bdefbdefbdef'))
+        [widget name].set_property('label', 'Test Dial 12345')
+        [widget name].set_property('scale_adjustable', True)
+        [widget name].set_property('scale', 10.5)
+        [widget name].set_property('count_type_shown', 0)
+
+    There are python methods:
+        [widget name].get_value()
+            Will return the counts value as a s32 integer
+        [widget name].get_scaled_value()
+            Will return the counts value as a float
+        [widget name].get_delta_scaled_value()
+            Will return the counts value as a float
+        [widget name].set_label("string")
+            Sets the label content with "string"
+
+    There are two GObject signals emitted:
+        count_changed
+            emitted when the widget's count changes eg. from being wheel scrolled.
+        scale_changed
+            emitted when the widget's scale changes eg. from double clicking. +
+        connect to these like so:
+            [widget name].connect('count_changed', [count function name])
+            [widget name].connect('scale_changed', [scale function name]) +
+        The callback functions would use this pattern:
+            def [count function name](widget, count,scale,delta_scale):
+        This will return: the widget, the current count, scale and delta scale of that widget.
+
+
+Example Hal_Dial:
+
+image::images/Hal_Dial.png[] 
+
+[[gladevcp:jogwheel]]
+
 === Jog Wheel
 
 The jogwheel widget simulates a real jogwheel. +
@@ -734,7 +832,129 @@ Example JogWheel:
 
 image::images/JogWheel.png[]
 
-[[gladevcp:HAL_Label]]
+[[gladevcp:speedcontrol]]
+
+=== Speed Control
+
+SpeedControl is a widget specially made to control an adjustment 
+with a touch screen. It is a replacement to the normal scale widget
+witch is difficult to slide on a touch screen.
+
+The value is controled with two button to increase or drecrease the value. 
+The Increment will change as long a button is pressed. The value of each increment 
+as well as the time between two changes can be set using the widget properties. 
+
+SpeedControl offers some hal pin:
+
+<widgetname>-value::
+   out float pin
+   The shown value of the widget
+
+<widgetname>-scaled-value::
+   out float pin
+   The shown value divided by the scale value, this is very usefull, if the 
+   velocity is shown in units / min, but linuxcnc expects it to be in units / second
+
+<widgetname>-scale::
+   in float pin
+   The scale to apply
+   Default is 60
+
+<widgetname>-increase::
+   in bit pin
+   As long as the pin is true, the value will increase
+   Very handy with connected momentary switch
+
+<widgetname>-decrease::
+   in bit pin
+   As long as the pin is true, the value will decrease
+   Very handy with connected momentary switch
+
+It has the following properties:
+
+size::
+	integer
+	The height of the widget in pixel
+	allowed values are 24 to 96
+	default is 36
+
+value::
+	float
+	The  start value to set
+	allowed values are in the range from 0.001 to 99999.0
+	default is 10.0
+
+min::
+	float
+	The min allowed value
+	allowed values are 0.0 to 99999.0
+	default is 0.0
+
+max::
+	float
+	The max allowed value
+	allowed values are 0.001, 99999.0
+	default is 100.0
+
+inc_speed::
+	integer
+	Sets the timer delay for the increment speed holding pressed the buttons
+	allowed values are 20 to 300
+	default is 100
+
+unit::
+	string
+	Sets the unit to be shown in the bar after the value
+	any string is allowed
+	default is ""
+
+color::
+	Color
+	Sets the color of the bar
+	any hex color is allowed
+	default is "#FF8116"
+
+template::
+	String
+	Text template to display the value Python formatting is used
+	Any allowed format
+	default is "%.1f"
+
+hide_button::
+	Boolean
+	Whether to show or hide the increment an devrement button
+	True or False
+	Default = False
+
+Direct program control::
+
+    There a couple ways to directly control the widget using Python.
+
+    Using gobject to set the above listed properties:
+        [widget name].set_property("hide_button",bool(value))
+        [widget name].set_property("color","#FF00FF")
+        [widget name].set_property("unit", "mm/min")
+		etc.
+
+    There are also python methods to modify the widget:
+        [widget name].set_adjustment(gtk-adjustment)
+        You can assign a existing adjustment to the control, that way it is easy to replace
+        existing sliders without many code changes.
+        [widget name].get_value()
+        Will return the counts value as float
+        [widget name].set_value(float(value))
+        Sets the widget to the commanded value
+        [widget name].set_digits(int(value))
+        Sets the digits of the value to be used
+        [widget name].hide_button(bool(value))
+        Hide or show the button
+
+Example Speedcontrol:
+
+image::images/SpeedControl.png[]
+
+[[gladevcp:hal-label]]
+
 === Label
 
 HAL_Label is a simple widget based on GtkLabel which represents a HAL
@@ -1052,6 +1272,9 @@ mouse_btn_mode ::
    3 =          left zoom,   middle rotate, right move
    4 =          left move,   middle zoom,   right rotate
    5 =          left rotate, middle zoom,   right move
+   6 =          left move,   middle zoom,   right zoom
+
+   mode 6 is reccomended for plasmas and lathes, as rotation is not needed for such machines
 
 Direct program control::
 
@@ -1189,8 +1412,9 @@ metric_units::
     Used to toggle the display units between metric and imperial.
 
 auto_units::
-    Units will toggle between metric and imperial according to the
-    active gcode being G20 or G21
+    Units will toggle between metric and imperial according to the 
+    active gcode being G20 or G21 +
+    default is TRUE
 
 diameter::
     Whether to display position as diameter or radius, in diameter mode
@@ -1228,13 +1452,17 @@ font_size::
     The font size of the big numbers, the small ones will be 2.5 times smaller,
     the value must be an integer in the range of 8 to 96, +
     default is 25
-====
+
+toggle_readout::
+    A left mouse click will toggle the DRO readout through the differnt modes ["Rel", "Abs", "DTG"]. +
+    By unchecking the box you can disable that behavior. The toogling can still be done with [widget name].toggle_readout() +
+    Value must be bool +    
+    default is TRUE
 
 Direct program control::
-======
-Using goobject to set the above listed properties:
+    Using gobject to set the above listed properties:
 
-    [widget name].set_property(property,value)
+    [widget name].set_property(property, value)
 
 There are several python methods to control the widget:
 
