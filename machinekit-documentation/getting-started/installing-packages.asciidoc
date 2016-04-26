@@ -63,7 +63,7 @@ Copy and paste the following into a shell to configure the package
 archive:
 [source,bash]
 ----
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 43DDF224
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 43DDF224
 sudo sh -c \
   "echo 'deb http://deb.machinekit.io/debian raspbian main' > \
   /etc/apt/sources.list.d/machinekit.list"
