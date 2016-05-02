@@ -27,7 +27,7 @@ link:../getting-started/installing-packages.asciidoc#configure-apt[here] to do s
 
 [source,bash]
 ----
-sudo apt-get install libczmq-dev python-zmq libjansson-dev \
+sudo apt-get install libczmq-dev python-zmq libjansson-dev pkg-config \
   libwebsockets-dev libxenomai-dev python-pyftpdlib cython bwidget lsb-release
 ----
 
