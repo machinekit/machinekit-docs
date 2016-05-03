@@ -50,7 +50,7 @@ sudo apt-get install git dpkg-dev
 sudo apt-get install --no-install-recommends devscripts equivs
 git clone https://github.com/machinekit/machinekit.git
 cd machinekit
-# to add RT-PREEMPT support, add a 'p'
+# to add RT-PREEMPT support, add a 'r'
 # to add Xenomai support, add an 'x'
 # this builds for Posix, RT-PREEMPT, Xenomai:
 debian/configure -prx 
