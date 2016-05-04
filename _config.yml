@@ -4,3 +4,12 @@ relative_permalinks: false
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
 repository: https://github.com/machinekit/machinekit
+
+gems:
+  - jekyll-asciidoc
+  - asciidoctor-diagram
+
+asciidoc: asciidoctor
+asciidoc_ext: adoc,ad
+
+#include: [src]
