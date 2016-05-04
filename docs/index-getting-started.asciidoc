@@ -1,39 +1,25 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
-
 :leveloffset: 0
 
-= Getting Started
+== Getting Started
 
 :leveloffset: 1
 
-link:./getting-started/getting-started-platform.asciidoc[Setting up Machinekit on different platforms]
+link:./getting-started/getting-started-platform[Setting up Machinekit on different platforms]
 
 
-link:../src/common/System_Requirements.asciidoc[System Requirements]
+link:../src/common/System_Requirements[System Requirements]
 
-link:../src/quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
+link:../src/quickstart/stepper_quickstart[Stepper Quickstart]
 
-link:../src/config/stepconf.asciidoc[Stepconf]
+link:../src/config/stepconf[Stepconf]
 
-link:../src/config/pncconf.asciidoc[Pncconf]
+link:../src/config/pncconf[Pncconf]
 
-link:../src/config/copy_and_run.asciidoc[Starting Up]
+link:../src/config/copy_and_run[Starting Up]
 
-link:../src/common/Linux_FAQ.asciidoc[Linux FAQ]
+link:../src/common/Linux_FAQ[Linux FAQ]
 
-link:../src/common/GPLD_Copyright.asciidoc[GPLD Copyright]
-
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
+link:../src/common/GPLD_Copyright[GPLD Copyright]
 
 // = Index
 

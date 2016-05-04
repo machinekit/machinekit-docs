@@ -1,16 +1,9 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
-
+:leveloffset: 1
 Integrator Manual
-=================
 
 :leveloffset: 0
 
-= Machinekit Introduction
+== Machinekit Introduction
 
 :leveloffset: 1
 
@@ -18,7 +11,7 @@ link:../src/common/Integrator_Concepts.asciidoc[Integrator_Concepts]
 
 :leveloffset: 0
 
-= Configuration
+== Configuration
 
 :leveloffset: 1
 
@@ -44,7 +37,7 @@ link:../src/remap/structure.asciidoc[Structure]
 
 :leveloffset: 0
 
-= GUI
+== GUI
 
 :leveloffset: 1
 

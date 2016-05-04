@@ -1,17 +1,12 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
+:leveloffset: 1
 
 = Machinekit Introduction
 
 :leveloffset: 1
 
-link:../src/common/user_intro.asciidoc[User Introduction]
+link:../src/common/user_intro[User Introduction]
 
-link:../src/common/User_Concepts.asciidoc[User Concepts]
+link:../src/common/User_Concepts[User Concepts]
 
 :leveloffset: 0
 
@@ -19,21 +14,21 @@ link:../src/common/User_Concepts.asciidoc[User Concepts]
 
 :leveloffset: 1
 
-link:../src/gui/selector.asciidoc[Configuration Selector]
+link:../src/gui/selector[Configuration Selector]
 
-link:../src/gui/axis.asciidoc[Axis]
+link:../src/gui/axis[Axis]
 
-link:../src/gui/ngcgui.asciidoc[ngcgui]
+link:../src/gui/ngcgui[ngcgui]
 
-link:../src/gui/gmoccapy.asciidoc[gmoccapy]
+link:../src/gui/gmoccapy[gmoccapy]
 
-link:../src/gui/touchy.asciidoc[touchy]
+link:../src/gui/touchy[touchy]
 
-link:../src/gui/tklinuxcnc.asciidoc[tklinuxcnc]
+link:../src/gui/tklinuxcnc[tklinuxcnc]
 
-link:../src/gui/mini.asciidoc[mini]
+link:../src/gui/mini[mini]
 
-link:../src/gui/keystick.asciidoc[keystick]
+link:../src/gui/keystick[keystick]
 
 :leveloffset: 0
 
@@ -41,37 +36,30 @@ link:../src/gui/keystick.asciidoc[keystick]
 
 :leveloffset: 1
 
-link:../src/gcode/machining_center.asciidoc[Machining Center]
+link:../src/gcode/machining_center[Machining Center]
 
-link:../src/gcode/coordinates.asciidoc[Coordinates]
+link:../src/gcode/coordinates[Coordinates]
 
-link:../src/gcode/tool_compensation.asciidoc[Tool Compensation]
+link:../src/gcode/tool_compensation[Tool Compensation]
 
-link:../src/gcode/overview.asciidoc[Gcode Overview]
+link:../src/gcode/overview[Gcode Overview]
 
-link:../src/gcode/gcode.asciidoc[GCode]
+link:../src/gcode/gcode[GCode]
 
-link:../src/gcode/m-code.asciidoc[M Codes]
+link:../src/gcode/m-code[M Codes]
 
-link:../src/gcode/o-code.asciidoc[O codes]
+link:../src/gcode/o-code[O codes]
 
-link:../src/gcode/other-code.asciidoc[Other Codes]
+link:../src/gcode/other-code[Other Codes]
 
-link:../src/examples/gcode.asciidoc[Gcode Examples]
+link:../src/examples/gcode[Gcode Examples]
 
-link:../src/lathe/lathe-user.asciidoc[Lathe User]
+link:../src/lathe/lathe-user[Lathe User]
 
-link:../src/gcode/rs274ngc.asciidoc[rs474ngc]
+link:../src/gcode/rs274ngc[rs474ngc]
 
-link:../src/gui/image-to-gcode.asciidoc[image2gcode]
+link:../src/gui/image-to-gcode[image2gcode]
 
-link:../src/common/Glossary.asciidoc[Glossary]
+link:../src/common/Glossary[Glossary]
 
-link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyright]
-
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
+link:../src/common/GPLD_Copyright[GPLD_Copyright]

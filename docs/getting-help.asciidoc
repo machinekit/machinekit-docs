@@ -1,17 +1,9 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
-
 . <<getting-help,Getting Help>>
 . <<start-investigating,Before you ask: try yourself>>
 . <<reporting-an-error,How to report an Error>>
 . <<before-you-hit-send,Before you hit: 'Submit new issue'>>
 
-[[getting-help]]Getting help
-============================
+== [[getting-help]]Getting help
 
 Nothing is more irritating
 
@@ -22,8 +14,7 @@ Nothing is more irritating
 So: please make it easy for others to help you - pose a smart question.
 And to do so, please stick to the following rules and recommendations:
 
-[[start-investigating]] Before you ask: try yourself
-====================================================
+== [[start-investigating]] Before you ask: try yourself
 
 . Search your soul: *did it work before?* If yes - what did I change? and if I did - what was the last known-to-work status, and what happened after that? It is remotely possible that cosmic rays caused the error. But usually it's something you did. What was it?
 . start the application from the shell/a terminal window.
@@ -43,8 +34,7 @@ And to do so, please stick to the following rules and recommendations:
 ** Reporting errors on the Machinekit list is NOT a replacement and not recommended, as it does not
 improve the issue tracker content. This is why you should create an issue. That is what the tracker ist is for: helping others later to resolve a similar problem like you just encountered, and to track all the steps needed to resolve an issue *in a single place*. The mailing list is unsuited to track complex issues, and resolutions are hard to find. Also, if it was a new problem, and got resolved, that problem and the resolution will not be in the tracker. So i
 
-[[reporting-an-error]]How to report an Error
-============================================
+== [[reporting-an-error]]How to report an Error
 
 So you did your homework as above, and still no resolution: file a  link:https://github.com/machinekit/machinekit/issues[new issue].
 
@@ -54,13 +44,13 @@ So you did your homework as above, and still no resolution: file a  link:https:/
 
 .. *platform*. Add the output of the `uname -a`.
 .. If you are running *Xenomai*, include the output of `dmesg |grep Xenomai` .
-.. Before you run the program, do this to *increase the level of detail in the log*: `export DEBUG=5` 
+.. Before you run the program, do this to *increase the level of detail in the log*: `export DEBUG=5`
 .. Paste the *complete output of the shell command* if any.
 ..  Use your text editor to *copy the contents of `/var/log/linuxcnc.log`* to
   link:http://pastebin.com[pastebin.com] and put the generated URL like this
   one link:http://pastebin.com/q3w7K4py[http://pastebin.com/q3w7K4py] into
   your message. *Only paste the last run which failed*, not all of the log file. You find the beginning of the last run by moving to the end of the log, then searching backwards for the string `startup pid=` . Include everything from there to the end of the log file.
-.. Report the *configuration*. If you used an unmodified stock configuration, past a link to the https://github.com/machinekit/machinekit[pathname on github]. 
+.. Report the *configuration*. If you used an unmodified stock configuration, past a link to the https://github.com/machinekit/machinekit[pathname on github].
 .. If you have a custom configuration, *fork the https://github.com/machinekit/machinekit[machinekit repository on github] and push your changes there*.
 ... This may sound daunting, but learning to use github is really easy - there are excellent online tutorials - and once you push you config, you have a remote backup. That can come really handy at times. So - instead of wasting a day on reinventing your config after a crash, invest some hours on learning the github basics - great payoff.
 ... if you cannot use github for some reason, include all pertinent files like HAL or INI: upload them on link:http://pastebin.com[pastebin.com] and add links in the error report.
@@ -83,8 +73,7 @@ So you did your homework as above, and still no resolution: file a  link:https:/
    to help you. And thus you won't get answered.
 
 
-[[before-you-hit-send]]Before you hit 'Submit new issue'
-========================================================
+== [[before-you-hit-send]]Before you hit 'Submit new issue'
 
 When you send an error report, you are asking for other people's time to look at it. Make it easy for them. And - if you make it easy for them, it will increase your chances of getting a quick, spot-on reply. So it's all in your enligthened self-interest to make it easy for them.
 
@@ -101,4 +90,3 @@ Whatever you write: *before hitting 'send', read your report through the eyes of
 . the first step in fixing an error is to reproduce it. That means *an error report should include all the details to actually run the failing configuration*.
 
 *If you have a conjecture what the cause of the error might be - say so, but AFTER reporting ALL the facts first*, and clearly marked it as your suspicion. For a reader trying to help, few things are more annoying than disentangling an inconclusive mixup of factoids and conjectures. One of them is: only conjectures, no facts.  Being clear helps - all of us.
-

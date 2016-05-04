@@ -1,4 +1,4 @@
-= Index of Instantiated HAL Components
+== Index of Instantiated HAL Components
 
 
 The essential difference between normal realtime components and instantiable components,
@@ -17,286 +17,285 @@ So instances can be created in separate hal files, on-the-fly or whatever.
 Amoungst many advantages, it opens up huge flexibility in configuration.
 
 
-Further info link:../src/hal/new-instantiated-components.asciidoc[here]
+Further info link:../src/hal/new-instantiated-components[here]
 
 
 == The available Instantiated HAL Components are:
 
 
-- link:components/abs.asciidoc[abs]
+- link:components/abs[abs]
 
 
-- link:components/abs_s32.asciidoc[abs_s32]
+- link:components/abs_s32[abs_s32]
 
 
-- link:components/and2.asciidoc[and2]
+- link:components/and2[and2]
 
 
-- link:components/andn.asciidoc[andn]
+- link:components/andn[andn]
 
 
-- link:components/at_pid.asciidoc[at_pid]
+- link:components/at_pid[at_pid]
 
 
-- link:components/bin2gray.asciidoc[bin2gray]
+- link:components/bin2gray[bin2gray]
 
 
-- link:components/biquad.asciidoc[biquad]
+- link:components/biquad[biquad]
 
 
-- link:components/bitslice.asciidoc[bitslice]
+- link:components/bitslice[bitslice]
 
 
-- link:components/bitwise.asciidoc[bitwise]
+- link:components/bitwise[bitwise]
 
 
-- link:components/bldc_hall3.asciidoc[bldc_hall3]
+- link:components/bldc_hall3[bldc_hall3]
 
 
-- link:components/blend.asciidoc[blend]
+- link:components/blend[blend]
 
 
-- link:components/clarke2.asciidoc[clarke2]
+- link:components/clarke2[clarke2]
 
 
-- link:components/clarke3.asciidoc[clarke3]
+- link:components/clarke3[clarke3]
 
 
-- link:components/clarkeinv.asciidoc[clarkeinv]
+- link:components/clarkeinv[clarkeinv]
 
 
-- link:components/comp.asciidoc[comp]
+- link:components/comp[comp]
 
 
-- link:components/constant.asciidoc[constant]
+- link:components/constant[constant]
 
 
-- link:components/ddt.asciidoc[ddt]
+- link:components/ddt[ddt]
 
 
-- link:components/deadzone.asciidoc[deadzone]
+- link:components/deadzone[deadzone]
 
 
-- link:components/debounce.asciidoc[debounce]
+- link:components/debounce[debounce]
 
 
-- link:components/div2.asciidoc[div2]
+- link:components/div2[div2]
 
 
-- link:components/edge.asciidoc[edge]
+- link:components/edge[edge]
 
 
-- link:components/estop_latch.asciidoc[estop_latch]
+- link:components/estop_latch[estop_latch]
 
 
-- link:components/feedcomp.asciidoc[feedcomp]
+- link:components/feedcomp[feedcomp]
 
 
-- link:components/flipflop.asciidoc[flipflop]
+- link:components/flipflop[flipflop]
 
 
-- link:components/gantry.asciidoc[gantry]
+- link:components/gantry[gantry]
 
 
-- link:components/gearchange.asciidoc[gearchange]
+- link:components/gearchange[gearchange]
 
 
-- link:components/gray2bin.asciidoc[gray2bin]
+- link:components/gray2bin[gray2bin]
 
 
-- link:components/hbridge.asciidoc[hbridge]
+- link:components/hbridge[hbridge]
 
 
-- link:components/hypot.asciidoc[hypot]
+- link:components/hypot[hypot]
 
 
-- link:components/idb.asciidoc[idb]
+- link:components/idb[idb]
 
 
-- link:components/ilowpass.asciidoc[ilowpass]
+- link:components/ilowpass[ilowpass]
 
 
-- link:components/integ.asciidoc[integ]
+- link:components/integ[integ]
 
 
-- link:components/invert.asciidoc[invert]
+- link:components/invert[invert]
 
 
-- link:components/io_muxn.asciidoc[io_muxn]
+- link:components/io_muxn[io_muxn]
 
 
-- link:components/joyhandle.asciidoc[joyhandle]
+- link:components/joyhandle[joyhandle]
 
 
-- link:components/knob2float.asciidoc[knob2float]
+- link:components/knob2float[knob2float]
 
 
-- link:components/latencybins.asciidoc[latencybins]
+- link:components/latencybins[latencybins]
 
 
-- link:components/led_dim.asciidoc[led_dim]
+- link:components/led_dim[led_dim]
 
 
-- link:components/lgantry.asciidoc[lgantry]
+- link:components/lgantry[lgantry]
 
 
-- link:components/limit1.asciidoc[limit1]
+- link:components/limit1[limit1]
 
 
-- link:components/limit2.asciidoc[limit2]
+- link:components/limit2[limit2]
 
 
-- link:components/limit3.asciidoc[limit3]
+- link:components/limit3[limit3]
 
 
-- link:components/lincurve.asciidoc[lincurve]
+- link:components/lincurve[lincurve]
 
 
-- link:components/lowpass.asciidoc[lowpass]
+- link:components/lowpass[lowpass]
 
 
-- link:components/lut5.asciidoc[lut5]
+- link:components/lut5[lut5]
 
 
-- link:components/lutn.asciidoc[lutn]
+- link:components/lutn[lutn]
 
 
-- link:components/maj3.asciidoc[maj3]
+- link:components/maj3[maj3]
 
 
-- link:components/match8.asciidoc[match8]
+- link:components/match8[match8]
 
 
-- link:components/minmax.asciidoc[minmax]
+- link:components/minmax[minmax]
 
 
-- link:components/mult2.asciidoc[mult2]
+- link:components/mult2[mult2]
 
 
-- link:components/multiclick.asciidoc[multiclick]
+- link:components/multiclick[multiclick]
 
 
-- link:components/multiswitch.asciidoc[multiswitch]
+- link:components/multiswitch[multiswitch]
 
 
-- link:components/mux16.asciidoc[mux16]
+- link:components/mux16[mux16]
 
 
-- link:components/mux2.asciidoc[mux2]
+- link:components/mux2[mux2]
 
 
-- link:components/mux4.asciidoc[mux4]
+- link:components/mux4[mux4]
 
 
-- link:components/mux8.asciidoc[mux8]
+- link:components/mux8[mux8]
 
 
-- link:components/muxn.asciidoc[muxn]
+- link:components/muxn[muxn]
 
 
-- link:components/muxn_u32.asciidoc[muxn_u32]
+- link:components/muxn_u32[muxn_u32]
 
 
-- link:components/near.asciidoc[near]
+- link:components/near[near]
 
 
-- link:components/neg.asciidoc[neg]
+- link:components/neg[neg]
 
 
-- link:components/not.asciidoc[not]
+- link:components/not[not]
 
 
-- link:components/offset.asciidoc[offset]
+- link:components/offset[offset]
 
 
-- link:components/oneshot.asciidoc[oneshot]
+- link:components/oneshot[oneshot]
 
 
-- link:components/or2.asciidoc[or2]
+- link:components/or2[or2]
 
 
-- link:components/orient.asciidoc[orient]
+- link:components/orient[orient]
 
 
-- link:components/orn.asciidoc[orn]
+- link:components/orn[orn]
 
 
-- link:components/out_to_io.asciidoc[out_to_io]
+- link:components/out_to_io[out_to_io]
 
 
-- link:components/pid.asciidoc[pid]
+- link:components/pid[pid]
 
 
-- link:components/reset.asciidoc[reset]
+- link:components/reset[reset]
 
 
-- link:components/safety_latch.asciidoc[safety_latch]
+- link:components/safety_latch[safety_latch]
 
 
-- link:components/sample_hold.asciidoc[sample_hold]
+- link:components/sample_hold[sample_hold]
 
 
-- link:components/scale.asciidoc[scale]
+- link:components/scale[scale]
 
 
-- link:components/select8.asciidoc[select8]
+- link:components/select8[select8]
 
 
-- link:components/selectn.asciidoc[selectn]
+- link:components/selectn[selectn]
 
 
-- link:components/sphereprobe.asciidoc[sphereprobe]
+- link:components/sphereprobe[sphereprobe]
 
 
-- link:components/stats.asciidoc[stats]
+- link:components/stats[stats]
 
 
-- link:components/sum2.asciidoc[sum2]
+- link:components/sum2[sum2]
 
 
-- link:components/thc.asciidoc[thc]
+- link:components/thc[thc]
 
 
-- link:components/thcud.asciidoc[thcud]
+- link:components/thcud[thcud]
 
 
-- link:components/threadtest.asciidoc[threadtest]
+- link:components/threadtest[threadtest]
 
 
-- link:components/time.asciidoc[time]
+- link:components/time[time]
 
 
-- link:components/timedelay.asciidoc[timedelay]
+- link:components/timedelay[timedelay]
 
 
-- link:components/toggle.asciidoc[toggle]
+- link:components/toggle[toggle]
 
 
-- link:components/toggle2nist.asciidoc[toggle2nist]
+- link:components/toggle2nist[toggle2nist]
 
 
-- link:components/tristate_bit.asciidoc[tristate_bit]
+- link:components/tristate_bit[tristate_bit]
 
 
-- link:components/tristate_float.asciidoc[tristate_float]
+- link:components/tristate_float[tristate_float]
 
 
-- link:components/updown.asciidoc[updown]
+- link:components/updown[updown]
 
 
-- link:components/wcomp.asciidoc[wcomp]
+- link:components/wcomp[wcomp]
 
 
-- link:components/wcompn.asciidoc[wcompn]
+- link:components/wcompn[wcompn]
 
 
-- link:components/weighted_sum.asciidoc[weighted_sum]
+- link:components/weighted_sum[weighted_sum]
 
 
-- link:components/xor2.asciidoc[xor2]
+- link:components/xor2[xor2]
 
 
 === This listing is manually generated when new components are added or removed
 
 To ensure your copy repo is up to date, do frequent pulls from the machinekit-docs master repo
-
