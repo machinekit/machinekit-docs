@@ -1,3 +1,4 @@
 _site/
 test/
 .DS_Store
+.adoc
