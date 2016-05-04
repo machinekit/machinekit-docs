@@ -1,0 +1,26 @@
+:leveloffset: 0
+
+== Getting Started
+
+:leveloffset: 1
+
+link:./getting-started/getting-started-platform[Setting up Machinekit on different platforms]
+
+
+link:../src/common/System_Requirements[System Requirements]
+
+link:../src/quickstart/stepper_quickstart[Stepper Quickstart]
+
+link:../src/config/stepconf[Stepconf]
+
+link:../src/config/pncconf[Pncconf]
+
+link:../src/config/copy_and_run[Starting Up]
+
+link:../src/common/Linux_FAQ[Linux FAQ]
+
+link:../src/common/GPLD_Copyright[GPLD Copyright]
+
+// = Index
+
+// vim: set syntax=asciidoc:

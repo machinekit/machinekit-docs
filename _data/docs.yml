@@ -1,0 +1,13 @@
+- title: Getting Started
+  docs:
+    - home
+    - packages-debian
+    - community
+
+- title: Development
+  docs:
+    - building-from-source
+    - contributing
+    - maintainers
+    - website
+    - C4

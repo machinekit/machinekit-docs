@@ -1,0 +1,21 @@
+== Machinekit Documentation
+
+Before asking questions on the google group Machinekit list,
+please make sure you have read:
+
+- link:getting-help[Getting help]
+
+== Navigating the documentation
+
+=== Machinekit specific documentation
+
+- link:index-getting-started[Getting started manual]
+- link:index-user[User manual]
+- link:index-HAL[HAL manual]
+- link:index-integrator[Integrator manual]
+- link:index-developer[Developer manual]
+- link:documenting/documenting[Documenting manual]
+
+=== Documenting
+the Documenting manual is new and is at this time a working document about
+the way the Machinekit project documenting is done.
