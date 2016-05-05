@@ -156,8 +156,13 @@ collide with reserved names or keywords (e.g., 'min') can be used.
     evaluates to less than 'MAXSIZE'. When the array is created its size
     will be 'CONDSIZE'.
 
-* 'DOC' - A string that documents the item. String can be a C-style "double
-    quoted" string, like: 
+* 'DOC' - A string that documents the item. 
+
+    NEW - comp now produces documentation manual pages in both groff and asciidoc format
+    asciidoc format is selected by building Machinekit with the configure option
+    *--enable-build-documentation=asciidoc*
+
+The string can be a C-style "double quoted" string, like: 
 +
 ----
 "Selects the desired edge: TRUE means falling, FALSE means rising"
@@ -173,15 +178,13 @@ will require at least two paragraphs to explain.
 Hopefully these paragraphs have allowed you to understand "zot"
 better."""
 ----
-+
-The documentation string is in "groff -man" format. For more
-information on this markup format, see 'groff_man(7)'. Remember that
-comp interprets backslash escapes in strings, so for instance 
-to set the italic font for the word 'example', write: 
-+
-----
-"\\fIexample\\fB"
-----
+
+    The documentation string is in plain text. Any groff formatting or asciidoc format
+    is applied by comp during the document generation phase.
+
+    Do NOT use any formatting within this string or your documentation will not
+    render correctly
+
 
 * 'TYPE' - One of the HAL types: 'bit', 'signed', 'unsigned', or 'float'. The old
     names 's32' and 'u32' may also be used, but 'signed' and 'unsigned' are
@@ -270,6 +273,19 @@ The currently defined options are:
    take other actions. Its return type is 'void'; it may call 'exit()'
    if it wishes to terminate rather than create a HAL component (for
    instance, because the commandline arguments were invalid).
+
+* 'option special_format_doc' (default: none)
+    The option will always be used in combination with the 'special_format_man' option below.
+    This option is to allow a piece of asciidoc text to be inserted in a formatted form immediately
+    after the main description in the asciidoc rendering of the manual page.
+    An example of when you might want to do this, is when wanting to display a table, the formatting of
+    which is completely different in groff and asciidoc, so you would have 2 different table formats
+    and the appropriate one is selected to render the required document.
+    An example is the *lutn5.icomp* component.
+    
+* 'option special_format_man' (default: none)
+    As previous, except contains formatting peculiar to groff man pages.
+    
 
 If an option's VALUE is not specified, then it is equivalent to 
 specifying 'option … yes'. 
