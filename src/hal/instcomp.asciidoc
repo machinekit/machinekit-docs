@@ -329,7 +329,7 @@ The differing options are:
    argc and argv are passed to this function, so it is a good place to parse
    additional arguments passed to the component in the newinst call
 
-* *'option extra_cleanup yes'* - (default: no)
+* *'option extra_inst_cleanup yes'* - (default: no)
    If specified, call the function defined by 'EXTRA_INST_CLEANUP' from the
    automatically defined 'rtapi_app_exit', or if an error is detected
    in the automatically defined 'rtapi_app_main'.
@@ -343,6 +343,25 @@ The differing options are:
 
 *   *'option MAXCOUNT'*
 
+New options:
+
+        NEW - instcomp now produces documentation manual pages in both groff and asciidoc format.
+        asciidoc format is selected by building Machinekit with the configure option
+        *--enable-build-documentation=asciidoc*
+
+* 'option special_format_doc' (default: none)
+    The option will always be used in combination with the 'special_format_man' option below.
+    This option is to allow a piece of asciidoc text to be inserted in a formatted form immediately
+    after the main description in the asciidoc rendering of the manual page.
+    An example of when you might want to do this, is when wanting to display a table, the formatting of
+    which is completely different in groff and asciidoc, so you would have 2 different table formats
+    and the appropriate one is selected to render the required document.
+    An example is the *lutn5.icomp* component.
+    
+* 'option special_format_man' (default: none)
+    As previous, except contains formatting peculiar to groff man pages.
+    
+    
 == Restrictions
 
 Though HAL permits a pin, a parameter, and a function to have the same
