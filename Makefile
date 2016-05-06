@@ -12,6 +12,7 @@ ADOC_FILES := $(patsubst %.asciidoc, %.adoc,  $(ASCIIDOC_FILES))
 # if the front matter changes, the .adoc files will be rebuilt
 %.adoc: %.asciidoc  frontmatter.txt
 	cat frontmatter.txt $< >$@
+	sed -i -e 's/.asciidoc\[/\[/g' $@
 
 # target - build the .adoc files
 adoc-files:  $(ADOC_FILES)
