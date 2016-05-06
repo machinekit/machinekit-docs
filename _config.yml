@@ -12,4 +12,7 @@ gems:
 asciidoc: asciidoctor
 asciidoc_ext: adoc,ad
 
-#include: [src]
+asciidoctor:
+  safe: 0
+  attributes:
+    - hardbreaks!
