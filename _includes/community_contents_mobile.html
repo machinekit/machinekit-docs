@@ -1,0 +1,10 @@
+<div class="community-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate community…</option>
+    {% for section in site.data.community %}
+    <optgroup label="{{ section.title }}">
+      {% include community_option.html items=section.community %}
+    </optgroup>
+    {% endfor %}
+  </select>
+</div>

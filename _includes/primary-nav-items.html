@@ -5,6 +5,12 @@
   <li class="{% if page.about %}current{% endif %}">
     <a href="/about/">About</a>
   </li>
+  <li class="{% if page.url contains '/community/' %}current{% endif %}">
+    <a href="/community/home">
+      <span class="hide-on-mobiles">Community</span>
+      <span class="show-on-mobiles">Community</span>
+    </a>
+  </li>
   <li class="{% if page.url contains '/docs/' %}current{% endif %}">
     <a href="/docs/">
       <span class="hide-on-mobiles">Documentation</span>
