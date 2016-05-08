@@ -1,13 +1,7 @@
-- title: Getting Started
+- title: Documentation
   docs:
-    - home
-    - packages-debian
-    - community
-
-- title: Development
-  docs:
-    - building-from-source
-    - contributing
-    - maintainers
-    - website
-    - C4
+    - index-user
+    - index-getting-started
+    - index-HAL
+    - index-integrator
+    - index-developer
