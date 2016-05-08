@@ -1,25 +1,26 @@
 ---
-layout: docs
+layout: community
 title: C4
-prev_section: website
-permalink: /docs/C4/
+next_section: contributing
+prev_section: community
+permalink: /community/c4/
 ---
+
+:toc:
 
 The Collective Code Construction Contract (C4) is an evolution of the
 github.com Fork + Pull Model, aimed at providing an optimal
 collaboration model for free software projects.  This is the
-Machinekit fork of [revision 1 of the C4 specification][1].  For a detailed explanation of the C4 rationale, see [Chapter Six of the ZeroMQ Guide][2]
+Machinekit fork of link:http://rfc.zeromq.org/spec:22[revision 1 of the C4 specification]
+For a detailed explanation of the C4 rationale, see http://zguide.zeromq.org/php:chapter6[Chapter Six of the ZeroMQ Guide]
 
-[1]: http://rfc.zeromq.org/spec:22
-[2]: http://zguide.zeromq.org/php:chapter6
-
-## Language
+== Language
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
 document are to be interpreted as described in RFC 2119.
 
-## Goals
+== Goals
 
 C4 is meant to provide a reusable optimal collaboration model for open
 source software projects. It has these specific goals:
@@ -47,9 +48,9 @@ source software projects. It has these specific goals:
   economic incentive to Contributors and reduces the risk of hijack by
   hostile entities.
 
-## Design
+== Design
 
-### Preliminaries
+=== Preliminaries
 
 - The project SHALL use the git distributed revision control system.
 
@@ -76,7 +77,7 @@ source software projects. It has these specific goals:
 - Everyone, without distinction or discrimination, SHALL have an equal
   right to become a Contributor under the terms of this contract.
 
-### Licensing and Ownership
+=== Licensing and Ownership
 
 - The project SHALL use a share-alike license, such as the GPLv3 or a
   variant thereof (LGPL, AGPL), or the MPLv2.
@@ -93,7 +94,7 @@ source software projects. It has these specific goals:
 - Each Contributor SHALL be responsible for identifying themselves in
   the project Contributor list.
 
-### Patch Requirements
+=== Patch Requirements
 
 - Maintainers and Contributors MUST have a Platform account and SHOULD
   use their real names or a well-known alias.
@@ -119,7 +120,7 @@ source software projects. It has these specific goals:
 
 - A "Correct Patch" is one that satisfies the above requirements.
 
-### Development Process
+=== Development Process
 
 - Change on the project SHALL be governed by the pattern of accurately
   identifying problems and applying minimal, accurate solutions to
@@ -183,7 +184,7 @@ source software projects. It has these specific goals:
 - Maintainers MAY commit changes to non-source documentation directly
   to the project.
 
-### Creating Stable Releases
+=== Creating Stable Releases
 
 - The project SHALL have one branch ("master") that always holds the
   latest in-progress version and SHOULD always build.
@@ -203,7 +204,7 @@ source software projects. It has these specific goals:
 - A patch to a stabilization project declared "stable" SHALL be
   accompanied by a reproducible test case.
 
-### Evolution of Public Contracts
+=== Evolution of Public Contracts
 
 - All Public Contracts (APIs or protocols) SHOULD be documented.
 
@@ -229,7 +230,7 @@ source software projects. It has these specific goals:
 - When old names are removed, their implementations MUST provoke an
   exception (assertion) if used by applications.
 
-### Project Administration
+=== Project Administration
 
 - The project founders SHALL act as Administrators to manage the set
   of project Maintainers.
@@ -244,7 +245,7 @@ source software projects. It has these specific goals:
   extended period of time, or who repeatedly fail to apply this
   process accurately.
 
-## Further Reading
+== Further Reading
 
 - Argyris' Models 1 and 2 - the goals of C4.1 are consistent with
   Argyris' Model 2.
@@ -253,11 +254,10 @@ source software projects. It has these specific goals:
   a time) and the Coaching Kata (helping others to learn the
   Improvement Kata).
 
-## Implementations
+== Implementations
 
 - The ZeroMQ community uses the C4.1 process for many projects.
 
 - OSSEC uses the C4.1 process.
 
 - The ZeroVM community uses a C4.1 fork for their work.
-

@@ -48,6 +48,21 @@ improve the issue tracker content. This is why you should create an issue. That 
 
 So you did your homework as above, and still no resolution: file a  link:https://github.com/machinekit/machinekit/issues[new issue].
 
+When pasting output, which may contain special characters interpreted
+as text formatting by [GitHub-flavored markdown][3], quote it using
+three backtick characters as in the following example:
+
+[code]
+====
+```
+MODPOST 1 modules
+WARNING: "rtapi_print_msg" [/tmp/tmpbbJkRv/test_define.ko] undefined!
+```
+====
+
+Before submitting, check the `Preview` tab above the edit window to
+make sure the output formatting is sane.
+
 . Make up a *descriptive title*: 'the foobar HAL component does not load' is a lot more helpful than 'Yikes, Machinekit bombs on startup'. Narrow things down a bit, at least to a particular subsystem - it will improve your chances for a quick resolution. For example, 'Gcode-interpreter does not add 1 to 1 properly' will likely raise the attention of persons familiar with the interpreter more reliably than stating 'Machinekit math broken'.
 
 . Include *all* the relevant detail:
