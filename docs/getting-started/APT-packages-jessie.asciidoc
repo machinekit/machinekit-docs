@@ -1,9 +1,3 @@
-[cols="3*"]
-|===
-|link:installing-packages.asciidoc[Back to Getting Started]
-|
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===
 
 = [[configure-APT-i686-amd64-arm7-jessie]]Configure Apt for i686, amd64 and arm7 (Beaglebone, RPi2) for `jessie`
 
@@ -90,12 +84,4 @@ continue with:
 |===
 |link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
 |link:../developing/machinekit-developing.asciidoc#install-development-packages[return to development setup]
-|===
-
-
-[cols="3*"]
-|===
-|link:installing-packages.asciidoc[Back to Getting Started]
-|
-|link:../documentation-matrix.asciidoc[Documentation matrix]
 |===

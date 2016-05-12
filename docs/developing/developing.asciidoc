@@ -1,9 +1,3 @@
-[cols="3*"]
-|===
-|link:../index-developer.asciidoc[Back to the Documenting index]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===
 
 These instructions are specifically targeted for developers and show you
 how to set up a minimal system.
@@ -18,10 +12,3 @@ starting at point 1 should lead you thru the next steps and return you to this p
 
 == Other instructions for specific development
 . link:CAN-developing.asciidoc[CAN developing for Machinekit]
-
-[cols="3*"]
-|===
-|link:../index-developer.asciidoc[Back to the Documenting index]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===

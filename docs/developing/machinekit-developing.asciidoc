@@ -1,9 +1,4 @@
-[cols="3*"]
-|===
-|link:developing.asciidoc[Back to Developing]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===
+
 == [[packages-developing]]Setting up for development
 
 . <<install-development-packages,Install packages required for building from source>>
@@ -103,10 +98,3 @@ runtime prerequisites:
 sudo apt-get install machinekit
 sudo apt-get remove --purge machinekit
 ----
-
-[cols="3*"]
-|===
-|link:developing.asciidoc[Back to Developing]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===

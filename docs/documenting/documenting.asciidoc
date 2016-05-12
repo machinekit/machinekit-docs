@@ -1,9 +1,3 @@
-[cols="3*"]
-|===
-|link:../index-documenting.asciidoc[Back to the Documenting index]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===
 
 Documenting
 ===========
@@ -68,11 +62,3 @@ image::images/create-PR-to-original.png[]
 
 - when you finished this the maintainers of the project will get a message and can
 review your change.
-
-
-[cols="3*"]
-|===
-|link:../index-documenting.asciidoc[Back to the Documenting index]
-|link:../../index.asciidoc[Back to the main Documents index]
-|link:../documentation-matrix.asciidoc[Documentation matrix]
-|===
