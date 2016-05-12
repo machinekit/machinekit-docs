@@ -10,7 +10,7 @@ gems:
   - asciidoctor-diagram
 
 asciidoc: asciidoctor
-asciidoc_ext: adoc,ad
+asciidoc_ext: asciidoc,ad
 
 asciidoctor:
   safe: 0
