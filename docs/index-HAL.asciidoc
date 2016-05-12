@@ -1,5 +1,9 @@
 
+:toc:
+
 = Hardware Abstract Layer
+
+:toc:
 
 :leveloffset: +1
 

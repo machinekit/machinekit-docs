@@ -1,5 +1,9 @@
 
+:toc:
+
 = Machinekit Introduction
+
+:toc:
 
 :leveloffset: +1
 

@@ -1,5 +1,9 @@
 
+:toc:
+
 = Getting Started
+
+:toc:
 
 :leveloffset: +1
 

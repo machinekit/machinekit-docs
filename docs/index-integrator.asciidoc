@@ -1,5 +1,9 @@
 
+:toc:
+
 = Integrator Manual
+
+:toc:
 
 == Machinekit Introduction
 
