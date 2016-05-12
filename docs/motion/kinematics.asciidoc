@@ -1,3 +1,6 @@
+
+:imagesdir: motion/images
+
 = Kinematics
 
 [[cha:kinematics]] (((Kinematics)))
@@ -99,7 +102,7 @@ version of the hexapod).
 
 .Bipod setup[[cap:Bipod-setup]]
 
-image::images/bipod.png[]
+image::bipod.png[]
 
 The Bipod we are talking about is a device that consists of 2 motors
 placed on a wall, from which a device is hung using some wire. The
@@ -129,15 +132,15 @@ likewise image:images/kinematics-math-02.png[]
 
 If we subtract one from the other we will get:
 
-image::images/kinematics-math-03.png[align="center"]
+image::kinematics-math-03.png[align="center"]
 
 and therefore:
 
-image::images/kinematics-math-04.png[align="center"]
+image::kinematics-math-04.png[align="center"]
 
 From there we calculate:
 
-image::images/kinematics-math-05.png[align="center"]
+image::kinematics-math-05.png[align="center"]
 
 ////////////////////////////////////////////////////////////////////
 we can easily see that latexmath:[$AD^{2}=x^{2}+y^{2}$], likewise
@@ -181,9 +184,9 @@ return 0;
 The inverse kinematics is lots easier in our example, as we can write
 it directly:
 
-image::images/kinematics-math-06.png[align="center"]
+image::kinematics-math-06.png[align="center"]
 
-image::images/kinematics-math-07.png[align="center"]
+image::kinematics-math-07.png[align="center"]
 
 /////////////////////////////////////////////////
 latexmath::[\[AD=\sqrt{x^{2}+y^{2}}\]]
@@ -251,5 +254,3 @@ These are the standard setup and tear-down functions of RTAPI modules.
 When they are contained in a single source file, kinematics modules
 may be compiled and installed by 'comp'. See the 'comp(1)' manpage or
 the HAL manual for more information.
-
-

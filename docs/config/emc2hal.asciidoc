@@ -1,3 +1,4 @@
+
 = Core Components
 
 [[cha:core-components]] (((Core Components)))
@@ -541,5 +542,3 @@ synchronized i/o provided by <<sec:motion,motion>> instead.
 
 * 'iocontrol.0.user-request-enable' - 
     (bit, out) TRUE when the user has requested that E-Stop be cleared. 
-
-

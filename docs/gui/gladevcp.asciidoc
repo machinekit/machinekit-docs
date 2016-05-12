@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = Glade Virtual Control Panel
 
 [[cha:glade-vcp]] (((Glade Virtual Control Panel)))
@@ -96,7 +99,7 @@ $ cd configs/sim/axis/gladevcp
 $ machinekit gladevcp_panel.ini
 ----
 
-image::images/example-panel-small.png[]
+image::example-panel-small.png[]
 
 Run the same panel, but as a tab inside Axis:
 
@@ -105,7 +108,7 @@ $ cd configs/sim/axis/gladevcp
 $ machinekit gladevcp_tab.ini
 ----
 
-image::images/example-tabbed-small.png[]
+image::example-tabbed-small.png[]
 
 ////
 To run this panel as a standalone toplevel window besides Axis, just
@@ -128,7 +131,7 @@ $ cd gladevcp
 $ gladevcp -c gladevcp -u ./hitcounter.py -H ./manual-example.hal ./manual-example.ui
 ----
 
-image::images/example-float-small.png[]
+image::example-float-small.png[]
 ////
 
 To run this panel inside 'Touchy':
@@ -138,7 +141,7 @@ $ cd configs/sim/touchy/gladevcp
 $ machinekit gladevcp_touchy.ini
 ----
 
-image::images/touchy-tab-33.png[]
+image::touchy-tab-33.png[]
 
 
 Functionally these setups are identical - they only differ in screen
@@ -245,7 +248,7 @@ by default will be named 'window1'. Do not change this name - GladeVCP relies on
 
 This will look like so:
 
-image::images/glade-manual-small.png[]
+image::glade-manual-small.png[]
 
 Glade tends to write a lot of messages to the shell window, which
 mostly can be ignored.  Select 'File→Save as', give it a name like
@@ -602,7 +605,7 @@ you know.
 Here is an example how to set a +hal-pin-changed+ signal for a HAL_LED
 in the Glade UI editor:
 
-image::images/hal-pin-change-66.png[]
+image::hal-pin-change-66.png[]
 The example in +configs/apps/gladevcp/complex+ shows how
 this is handled in Python.
 
@@ -775,7 +778,7 @@ Direct program control::
 
 Example Hal_Dial:
 
-image::images/Hal_Dial.png[] 
+image::Hal_Dial.png[] 
 
 [[gladevcp:jogwheel]]
 
@@ -830,7 +833,7 @@ Direct program control::
 ======  
 Example JogWheel:
 
-image::images/JogWheel.png[]
+image::JogWheel.png[]
 
 [[gladevcp:speedcontrol]]
 
@@ -951,7 +954,7 @@ Direct program control::
 
 Example Speedcontrol:
 
-image::images/SpeedControl.png[]
+image::SpeedControl.png[]
 
 [[gladevcp:hal-label]]
 
@@ -1552,7 +1555,7 @@ X = Relative Mode +
 Y = Absolute Mode +
 Z = DTG Mode +
 
-image::images/combi_dro.png[]
+image::combi_dro.png[]
 
 [[gladevcp::IconView]]
 === IconView (File selection) widget
@@ -1664,7 +1667,7 @@ The widget will emit the following signals:
 
 Example:
 
-image::images/iconview.png[]
+image::iconview.png[]
 
 === Calculator widget
 
@@ -1723,7 +1726,7 @@ Direct program control::
         [widget name].reload(None)
             Reloads the current toolfile
 
-image::images/gtk-tooledit.png[]
+image::gtk-tooledit.png[]
 
 [[gladevcp::Offsetpage]]
 === Offsetpage
@@ -1791,7 +1794,7 @@ Direct program control::
         The user name column is editable, so saving this list is user friendly.
         see set_names above.
 
-image::images/offsetpage.png[]
+image::offsetpage.png[]
 
 [[gladevcp::HAL_sourceview]]
 === HAL_sourceview widget
@@ -1827,7 +1830,7 @@ Direct program control::
         loads a file. Using None (not a filename string) will reload the same program.
     [widget name].get_filename()
 
-image::images/hal_sourceview.png[]
+image::hal_sourceview.png[]
 
 [[gladevcp:MDI_History]]
 === MDI history
@@ -1870,7 +1873,7 @@ widget in a nutshell:
 
 The appearance of EMC Actions in Glade is roughly as follows:
 
-image::images/emc-actions.png[]
+image::emc-actions.png[]
 
 Tooltip hovers provide a description.
 
@@ -1923,7 +1926,7 @@ this from a terminal window with `gladevcp whoareyou.ui`. See the
 executes +(MSG, "Hi, I'm an EMC_Action_MDI")+ so there should be a
 message popup in Axis like so:
 
-image::images/whoareyou.png[]
+image::whoareyou.png[]
 
 You'll notice that the button associated with the Action_MDI action is
 grayed out if the machine is off, in E-Stop or the interpreter is running.
@@ -1948,7 +1951,7 @@ names of HAL pins in the GladeVCP component. This is how it works:
 The example UI file is +configs/apps/gladevcp/mdi-command-example/speed.ui+. Here's what you get when running it:
 
 
-image::images/speed.png[]
+image::speed.png[]
 
 === An advanced example: Feeding parameters to an O-word subroutine
 
@@ -1959,7 +1962,7 @@ is in +configs/apps/gladevcp/mdi-command-example/owordsub.ui+.
 Place +nc_files/gladevcp_lib/oword.ngc+ so Axis can find it, and run `gladevcp owordsub.ui` from
 a terminal window. This looks like so:
 
-image::images/oword.png[]
+image::oword.png[]
 
 === Preparing for an MDI Action, and cleaning up afterwards
 

@@ -1,3 +1,4 @@
+
 = PCI Parallel Port
 
 [[cha:pci-parallel-port]] (((PCI Parallel Port)))
@@ -51,5 +52,3 @@ addf parport.1.write base-thread
 
 After doing the above then run your config and verify that the
 parallel port got loaded in Machine/Show HAL Configuration window.
-
-

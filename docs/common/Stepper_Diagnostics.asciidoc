@@ -1,3 +1,4 @@
+
 = Stepper Diagnostics
 
 [[cha:stepper-diagnostics]] (((Stepper Diagnostics)))
@@ -126,5 +127,3 @@ G0 lines.
     o101 endwhile 
     ( msg, Done...Z should be exactly .5" above table ) 
     M2
-
-

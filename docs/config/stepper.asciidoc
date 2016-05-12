@@ -1,3 +1,4 @@
+
 = Stepper Configuration
 
 [[stepper-config]] (((Stepper Configuration)))
@@ -275,5 +276,3 @@ When the external button gets
 released Machinekit will immediately switch to the ESTOP-RESET state, and all
 you need to do is switch to Machine On(((machine on))) and you'll be
 able to continue your work with Machinekit. 
-
-

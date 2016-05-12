@@ -1,3 +1,4 @@
+
 = GS2 Spindle
 
 [[cha:gs2-spindle]] (((GS2 Spindle)))
@@ -55,5 +56,3 @@ information on the drive parameters.
    8 data bits, no parity, 2 stop bits", 03
 
 A PyVCP panel based on this example is <<gs2-rpm-meter,here>>.
-
-

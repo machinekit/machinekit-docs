@@ -133,6 +133,8 @@ include::common/Glossary.asciidoc[Glossary]
 
 include::common/GPLD_Copyright.asciidoc[GPLD_Copyright]
 
+:leveloffset: -1
+
 == Machinekit Build Configuration
 
 :leveloffset: +1

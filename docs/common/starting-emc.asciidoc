@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = Starting Machinekit
 
 [[cha:starting-machinekit]] (((Starting Machinekit)))
@@ -33,7 +36,7 @@ configuration has been saved it can be modified to suit your application.
 
 .Configuration Selector
 
-image::images/configuration-selector.png[align="center"]
+image::configuration-selector.png[align="center"]
 
 == Files Used for Configuration
 

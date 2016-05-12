@@ -1,3 +1,6 @@
+
+:imagesdir: config/images
+
 = Homing Configuration
 
 [[cha:homing-configuration]] (((Homing Configuration)))
@@ -19,7 +22,7 @@ of what each configuration parameter does, see the following section.
 
 .Homing Sequences[[fig:motion-homing-sequence-diagram]]
 
-image::images/emc2-motion-homing-diag.png[align="center"]
+image::emc2-motion-homing-diag.png[align="center"]
 
 == Configuration
 
@@ -169,4 +172,3 @@ the following ini entries for that axis are needed.
 . LATCH_VEL = 0
 . USE_INDEX = NO
 . HOME_SEQUENCE = 0
-

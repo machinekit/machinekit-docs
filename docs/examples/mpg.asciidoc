@@ -1,3 +1,4 @@
+
 = MPG Pendant
 
 This example is to explain how to hook up the common MPG pendants
@@ -127,4 +128,3 @@ net encoder-counts => axis.0.jog-counts
 net encoder-counts => axis.1.jog-counts
 net encoder-counts => axis.2.jog-counts
 ----
-

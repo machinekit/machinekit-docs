@@ -1,3 +1,6 @@
+
+:imagesdir: config/images
+
 = INI Configuration
 
 [[cha:ini-configuration]] (((INI Configuration)))
@@ -902,7 +905,7 @@ latexmath:[ \frac{X\, inches}{1\, encoder\, count} =
 \frac{0.000050\, inches}{1\, encoder\, count} ]
 ///////////////////////////////////////////////////////////
 
-image::images/encoder-counts-math.png[align="center"]
+image::encoder-counts-math.png[align="center"]
 
 * 'BIAS = 0.000' - This is used by hm2-servo and some others.
     Bias is a constant amount
@@ -985,7 +988,7 @@ analysis, i.e., units are [output SI units]/[actuator units]. For
 example, on a machine with a velocity mode amplifier such that
 1 volt results in 250 mm/sec velocity.
 
-image::images/scale-math.png[align="center"]
+image::scale-math.png[align="center"]
 
 // latexmath:[$ amplifier [volts] = (output [\frac{mm}{sec}]
 // - offset [\frac{mm}{sec}]) / 250 \frac{mm}{sec\, volt} ] $]
@@ -1051,7 +1054,7 @@ For example, on a 2000 counts per rev encoder(((encoder))), and 10
 revs/inch gearing, and desired units of inch, we
 have:
 
-image::images/encoder-scale.png[align="center"]
+image::encoder-scale.png[align="center"]
 
 //latexmath:[ INPUT\_SCALE =
 //\frac{2000\, counts}{rev} \times \frac{10\, rev}{inch} =
@@ -1087,7 +1090,7 @@ For example, on a 1.8 degree stepper motor with half-stepping, and 10
 revs/inch gearing, and desired <<sub:TRAJ-section,machine units>> of inch, we
 have:
 
-image::images/stepper-scale.png[align="center"]
+image::stepper-scale.png[align="center"]
 
 //latexmath:[ scale = 
 //\frac{2\, steps}{1.8\, degree} \times \frac{360\, degree}{rev} \times \frac{10\, rev}{inch} =
@@ -1104,7 +1107,7 @@ For example, on a 2000 counts per rev encoder(((encoder))), and 10
 revs/inch gearing, and desired units of inch, we
 have: 
 
-image::images/encoder-scale.png[align="center"]
+image::encoder-scale.png[align="center"]
 
 //latexmath:[ ENCODER\_SCALE =
 //\frac{2000\, counts}{rev} \times \frac{10\, rev}{inch} =
@@ -1166,5 +1169,3 @@ image::images/encoder-scale.png[align="center"]
     This is for machines that cannot place the tool back into the pocket
     it came from. For example, machines that exchange the tool in the
     active pocket with the tool in the spindle.
-
-

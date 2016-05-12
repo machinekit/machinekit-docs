@@ -1,4 +1,6 @@
 
+:imagesdir: config/images
+
 = Extending Machinekit
 
 :ini: {basebackend@docbook:'':ini}
@@ -1932,7 +1934,7 @@ in `util.py` and its usage in `remap.involute` to set a breakpoint.
 Here's a screenshot of Eclipse/PyDevd debugging the `involute`
 procedure from above:
 
-image::images/debug_embedded_python.png[Debugging with Eclipse]
+image::debug_embedded_python.png[Debugging with Eclipse]
 
 See the Python code in `configs/sim/axis/remap/getting-started/python` for details.
 
@@ -2741,5 +2743,3 @@ automatically does 'the right thing' if needed.
   or oword subroutine. This sets the error message and aborts the
   progam. Previously there was no clean way to abort a Python oword
   subroutine.
-
-

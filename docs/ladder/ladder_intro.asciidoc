@@ -1,3 +1,6 @@
+
+:imagesdir: ladder/images
+
 = Classicladder Introduction
 
 [[cha:classicladder-introduction]] (((Classicladder Introduction)))
@@ -90,7 +93,7 @@ outputs and other), which get evaluated left to right.
 
 This example is the simplest rung:
 
-image::images/example_link_contact_coil.png[align="center"]
+image::example_link_contact_coil.png[align="center"]
 
 The input on the left, B0, a normally open contact, is connected to the
 coil (output) on the right, Q0. Now imagine a voltage gets applied to the
@@ -119,7 +122,7 @@ connect it across the B0 'pushbutton' contact from our earlier example.
 
 Let's take a look at it: 
 
-image::images/example_link_contact_coil2.png[align="center"]
+image::example_link_contact_coil2.png[align="center"]
 
 As before, when the user presses pushbutton B0, coil Q0 comes on. 
 And when coil Q0 comes on, switch Q0 comes on. Now the interesting 
@@ -144,7 +147,7 @@ interrupt the power to coil Q0. So let's add a normally-closed
 
 Here's how that would look: 
 
-image::images/example_link_contact_coil3.png[align="center"]
+image::example_link_contact_coil3.png[align="center"]
 
 Now we have added 'off' or 'stop' pushbutton B1. If the user 
 pushes it, contact from the rung to the coil is broken. 
@@ -165,5 +168,3 @@ the same time, the 'stop' function always wins.
 This is the basic building block of much of ladder programming, 
 so if you are new to it, you would do well to make sure that 
 you understand how this circuit operates. 
-
-

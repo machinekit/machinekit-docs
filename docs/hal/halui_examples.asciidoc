@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = Halui Examples
 
 For any Halui examples to work you need to add the following line to the [HAL]
@@ -22,7 +25,7 @@ If both the inputs to the `and2.0` component are on the
 `and2.0.out` will be on and this will start the program.
 
 .Remote Start Example
-image::images/remote-start.png[]
+image::remote-start.png[]
 
 The hal commands needed to accomplish the above are:
 
@@ -80,5 +83,3 @@ These timing problems could be avoided by using
 ClassicLadder to activate the "is-paused" output via a
 monostable timer to deliver one narrow output pulse.
 The "resume" pulse could also be received via a monostable timer.
-
-

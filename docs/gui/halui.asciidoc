@@ -1,3 +1,4 @@
+
 = HAL User Interface
 
 [[cha:hal-user-interface]] (((HAL User Interface)))
@@ -263,4 +264,3 @@ true when setting counts directly. The 'count-enable' pin must be true.
 
 * 'halui.tool.length-offset' (float, out) - indicates current applied tool-length-offset
 * 'halui.tool.number' (u32, out) - indicates current selected tool
-

@@ -1,3 +1,6 @@
+
+:imagesdir: ladder/images
+
 = Classicladder Programming
 
 [[cha:classicladder-programming]] (((Classicladder Programming)))
@@ -188,7 +191,7 @@ Manager window.
 
 .Sections Manager Default Window[[cap:Sections-Manager-Default]]
 
-image::images/Default_Sections_Manager.png[align="center"]
+image::Default_Sections_Manager.png[align="center"]
 
 This window allows you to name, create or delete sections and choose
 what language that section uses. This is also how you name a subroutine
@@ -201,7 +204,7 @@ Display window. Displayed is one empty rung.
 
 .Section Display Default Window[[cap:Section-Display-Default]]
 
-image::images/Default_Section_Display.png[align="center"]
+image::Default_Section_Display.png[align="center"]
 
 Most of the buttons are self explanatory:
 
@@ -243,7 +246,7 @@ display one, the other, both, then none of the variable windows.
 
 .Bit Status Window[[cap:Bit-Status-Window]]
 
-image::images/Bit_Status.png[align="center"]
+image::Bit_Status.png[align="center"]
 
 The Bit Status Window displays some of the boolean (on/off) variable data. 
 Notice all variables start with the % sign. The %I variables represent
@@ -261,7 +264,7 @@ unchecked if off.
 
 .Watch Window[[cap:Watch-Window]]
 
-image::images/watch_window.png[align="center"]
+image::watch_window.png[align="center"]
 
 The Watch Window displays variable status. The edit box beside it is
 the number stored in the variable and the drop-down box beside that
@@ -278,7 +281,7 @@ number/name and press the Enter Key.
 
 .Symbol Names window[[cap:Symbol-Names-window]]
 
-image::images/Default_Symbols_names.png[align="center"]
+image::Default_Symbols_names.png[align="center"]
 
 This is a list of 'symbol' names to use instead of variable names to
 be displayed in the section window when the 'display symbols' check box
@@ -296,7 +299,7 @@ ladder program is connected to!
 
 .Editor Window[[cap:Editor-Window]]
 
-image::images/Editor.png[align="center"]
+image::Editor.png[align="center"]
 
 * 'Add' - adds a rung after the selected rung
 * 'Insert' - inserts a rung before the selected rung
@@ -355,7 +358,7 @@ setup tabs.
 
 .Config Window[[cap:Config-Window]]
 
-image::images/Config.png[align="center"]
+image::Config.png[align="center"]
 
 == Ladder objects
 
@@ -570,11 +573,11 @@ will be set to True.
 
 .Assign/Compare Example[[cap:Assign/Compare-Example]]
 
-image::images/AssignCompare-Ladder.png[align="center"]
+image::AssignCompare-Ladder.png[align="center"]
 
-image::images/Assignment_Expression.png[align="center"]
+image::Assignment_Expression.png[align="center"]
 
-image::images/Comparison_Expression.png[align="center"]
+image::Comparison_Expression.png[align="center"]
 
 === COILS
 
@@ -786,11 +789,11 @@ program this page will not be displayed.
 
 .Config I/O[[cap:Config-I/O]]
 
-image::images/Config-io.png[align="center"]
+image::Config-io.png[align="center"]
 
 .Config Coms[[cap:Config-Coms]]
 
-image::images/Config-com.png[align="center"]
+image::Config-com.png[align="center"]
 
 * 'SERIAL PORT' - For IP blank. For serial the location/name of serial driver eg.
     /dev/ttyS0 ( or /dev/ttyUSB0 for a USB-to-serial converter).
@@ -954,7 +957,7 @@ Options page of Stepconf Wizard check off "Include Classic Ladder PLC".
 
 .Stepconf Classic Ladder[[cap:Stepconf-Classicladder]]
 
-image::images/stepconf_ladder.png[align="center"]
+image::stepconf_ladder.png[align="center"]
 
 === Add the Modules
 
@@ -990,20 +993,20 @@ circuit in a run the results are not predictable.
 
 .Section Display with Grid[[cap:Section-Display-with-Grid]]
 
-image::images/Section_Display_Grid.png[align="center"]
+image::Section_Display_Grid.png[align="center"]
 
 Now click on the N.O. Input in the Editor Window.
 
 .Editor Window[[cap:Editor-Window-NO]]
 
-image::images/Editor_NO_Input.png[align="center"]
+image::Editor_NO_Input.png[align="center"]
 
 Now click in the upper left grid to place the N.O. Input into the
 ladder.
 
 .Section Display with Input[[cap:Section-Display-with-Input]]
 
-image::images/Section_Display_Build01.png[align="center"]
+image::Section_Display_Build01.png[align="center"]
 
 Repeat the above steps to add a N.O. Output to the upper right grid
 and use the Horizontal Connection to connect the two. It should look
@@ -1011,14 +1014,14 @@ like the following. If not, use the Eraser to remove unwanted sections.
 
 .Section Display with Rung[[cap:Section-Display-with-Rung]]
 
-image::images/Section_Display_Build02.png[align="center"]
+image::Section_Display_Build02.png[align="center"]
 
 Now click on the OK button in the Editor window. Now your Section
 Display should look like this.
 
 .Section Display Finished[[cap:Section-Display-Finished]]
 
-image::images/Section_Display_Build03.png[align="center"]
+image::Section_Display_Build03.png[align="center"]
 
 To save the new file select Save As and give it a name. The .clp
 extension will be added automatically. It should default to the running
@@ -1026,7 +1029,7 @@ config directory as the place to save it.
 
 .Save As Dialog[[cap:Save-As-Dialog]]
 
-image::images/SaveAs.png[align="center"]
+image::SaveAs.png[align="center"]
 
 Again if you used the Stepconf Wizard to add Classic Ladder you can
 skip this step.
@@ -1042,5 +1045,3 @@ loadusr -w classicladder --nogui MyLadder.clp
 Now if you start up your Machinekit config your ladder program will be
 running as well. If you select "File/Ladder Editor", the program you
 created will show up in the Section Display window.
-
-
