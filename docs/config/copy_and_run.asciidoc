@@ -1,3 +1,6 @@
+
+:imagesdir: config/images
+
 = Running Machinekit
 
 [[cha:running-emc]] (((Running Machinekit)))
@@ -20,7 +23,7 @@ without attached hardware.
 
 .Machinekit Configuration Selector[[cap:Machinekit-Configuration-Selector]]
 
-image::images/configuration-selector.png[]
+image::configuration-selector.png[]
 
 Click any of the listed configurations 
 to display specific information about it. 
@@ -44,5 +47,3 @@ you can customize it according to the details of your machine.
 Refer to the Integrator Manual for topics on configuration.
 
 // vim: set syntax=asciidoc:
-
-

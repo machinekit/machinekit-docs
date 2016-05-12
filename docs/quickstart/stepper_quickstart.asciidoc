@@ -1,3 +1,6 @@
+
+:imagesdir: quickstart/images
+
 = Stepper Quickstart
 
 [[cha:stepper-quickstart]] (((Stepper Quickstart)))
@@ -129,16 +132,19 @@ From the above information, the leadscrew moves 0.200 inches per turn.
  - The drive needs 2000 steps to turn the stepper one revolution. 
 So the scale needed is: 
 
-image::images/step-calc-inch-math.png[align="center"]
+image::step-calc-inch-math.png[align="center"]
 
-////////////////////////////////////////////
+[NOTE]
+====
+fix this in the source
+
 latexmath:[ 
 \frac{200 motor steps}{1 motor rev} \times 
 \frac{10 microsteps}{1 motor step} \times
 \frac{2 motor revs}{1 leadscrew rev} \times 
 \frac{1 leadscrew revs}{0.2000 inch} 
 = \frac{20,000 microsteps}{inch} ]
-///////////////////////////////////////////
+====
 
 .Units mm
 ============================================
@@ -158,17 +164,18 @@ From the above information:
  - The drive needs 1600 steps to turn the stepper one revolution. 
 So the scale needed is: 
 
-image::images/step-calc-mm-math.png[align="center"]
+image::step-calc-mm-math.png[align="center"]
 
-//////////////////////////////////////////////
+[NOTE]
+====
+fix this in the source
+
 latexmath:[ 
 \frac{200 motor steps}{1 motor rev} \times 
 \frac{8 microsteps}{1 motor step} \times
 \frac{3 motor revs}{1 leadscrew rev} \times 
 \frac{1 leadscrew revs}{5.000 mm} 
 = \frac{960 microsteps}{mm} ]
-/////////////////////////////////////////////
+====
 
 // vim: set syntax=asciidoc:
-
-
