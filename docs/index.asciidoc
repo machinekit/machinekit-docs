@@ -1,7 +1,4 @@
 = Machinekit Main Index
-==============
-
-As with all linux projects always read the link:machinekit-documentation/README.asciidoc[README] file first
 
 Before asking questions on the google group Machinekit list,
 please make sure you have read:
