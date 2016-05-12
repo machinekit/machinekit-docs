@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 = Updating Machinekit
 
 == Updating from 2.4.x to 2.5.x

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LOWPASS(9) HAL Component LOWPASS(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 CONSTANT(9) HAL Component CONSTANT(9)
 
 INSTANTIABLE COMPONENTS

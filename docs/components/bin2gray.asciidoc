@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BIN2GRAY(9) HAL Component BIN2GRAY(9)
 
 INSTANTIABLE COMPONENTS

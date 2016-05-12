@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 :toc:
 
@@ -9,15 +13,15 @@
 
 :leveloffset: +1
 
-include::code/Code_Notes.asciidoc[]
+include::{{page.docs-dir}}/code/Code_Notes.asciidoc[]
 
-include::code/NML_Messages.asciidoc[]
+include::{{page.docs-dir}}/code/NML_Messages.asciidoc[]
 
-include::code/Style_Guide.asciidoc[]
+include::{{page.docs-dir}}/code/Style_Guide.asciidoc[]
 
-include::common/Glossary.asciidoc[]
+include::{{page.docs-dir}}/common/Glossary.asciidoc[]
 
-include::common/GPLD_Copyright.asciidoc[]
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
 
 :leveloffset: -1
 
@@ -25,10 +29,10 @@ include::common/GPLD_Copyright.asciidoc[]
 
 :leveloffset: +1
 
-- link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
+- link:../buildbot/interpret-buildbot-results[Interpret buildbot results]
 
-- link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
+- link:../setting-up/developing-setting-up[Setting up development environment]
 
-- link:developing/writing-components.asciidoc[Write HAL Components]
+- link:../developing/writing-components[Write HAL Components]
 
 :leveloffset: -1

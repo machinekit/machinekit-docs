@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 NEG(9) HAL Component NEG(9)
 
 INSTANTIABLE COMPONENTS

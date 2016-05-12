@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 PID(9) HAL Component PID(9)
 
 INSTANTIABLE COMPONENTS

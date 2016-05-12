@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 DEBOUNCE(9) HAL Component DEBOUNCE(9)
 
 INSTANTIABLE COMPONENTS

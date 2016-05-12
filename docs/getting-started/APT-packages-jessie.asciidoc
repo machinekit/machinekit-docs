@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 = [[configure-APT-i686-amd64-arm7-jessie]]Configure Apt for i686, amd64 and arm7 (Beaglebone, RPi2) for `jessie`
 

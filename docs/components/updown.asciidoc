@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 UPDOWN(9) HAL Component UPDOWN(9)
 
 INSTANTIABLE COMPONENTS

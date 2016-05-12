@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BLEND(9) HAL Component BLEND(9)
 
 INSTANTIABLE COMPONENTS

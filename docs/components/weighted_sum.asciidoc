@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 WEIGHTED_SUM(9) HAL Component WEIGHTED_SUM(9)
 
 INSTANTIABLE COMPONENTS

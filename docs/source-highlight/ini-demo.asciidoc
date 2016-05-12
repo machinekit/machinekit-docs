@@ -1,6 +1,10 @@
+---
+---
+
+:skip-front-matter:
 
 Source Hightlight Filter Test
-=============================
+//__=============================
 
 Details of the filter can be found in
 `./doc/source-highlight-filter.txt`.

@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: quickstart/images
+:skip-front-matter:
+
+:imagesdir: ../quickstart/images
 
 = Stepper Quickstart
 
@@ -17,7 +21,7 @@ The Latency Test determines how late your computer processor is in
 responding to a request. Some hardware can interrupt the processing
 which could cause missed steps when running a CNC machine. This is the
 first thing you need to do. Follow the instructions  
-link:../install/Latency_Test.asciidoc[here] to run the latency test.
+link:../../install/Latency_Test[here] to run the latency test.
 
 [[sec:Sherline]]
 == Sherline
@@ -116,7 +120,7 @@ The net result you're looking for is how many CNC-output-steps it takes
 to move one user unit (inches or mm).
 
 .Units inches
-============================================
+//__============================================
 ............................................
 Stepper         = 200 steps per revolution
 Drive           =  10 micro steps per step
@@ -124,7 +128,7 @@ Motor Teeth     =  20
 Leadscrew Teeth =  40
 Leadscrew Pitch =   0.2000 inches per turn
 ............................................
-============================================
+//__============================================
 
 From the above information, the leadscrew moves 0.200 inches per turn. 
  - The motor turns 2.000 times per 1 leadscrew turn. 
@@ -147,7 +151,7 @@ latexmath:[
 ====
 
 .Units mm
-============================================
+//__============================================
 ............................................
     Stepper         = 200 steps per revolution
     Drive           =   8 micro steps per step
@@ -155,7 +159,7 @@ latexmath:[
     Leadscrew Teeth =  90
     Leadscrew Pitch =   5.00 mm per turn
 ............................................
-============================================
+//__============================================
 
 From the above information: 
  - The leadscrew moves 5.00 mm per turn. 

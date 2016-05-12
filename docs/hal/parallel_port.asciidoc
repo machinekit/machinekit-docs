@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: hal/images
+:skip-front-matter:
+
+:imagesdir: ../hal/images
 
 = Parallel Port Driver
 
@@ -28,7 +32,7 @@ push-pull drivers and cannot be used as an input.
 
 .HAL and Open Collectors
 [NOTE]
-===========================================================
+//__===========================================================
 HAL cannot automatically determine if the 'x' mode bidirectional pins
 are actually open collectors (OC). If they are not, they cannot be used
 as inputs, and attempting to drive them LOW from an external source can
@@ -47,7 +51,7 @@ open collector gates (e.g., 74LS05).
 
 On some machines, BIOS settings may affect whether 'x' mode can be
 used. 'SPP' mode is most likely to work.
-===========================================================
+//__===========================================================
 
 No other combinations are supported, and a port cannot be changed from
 input to output once the driver is installed. The

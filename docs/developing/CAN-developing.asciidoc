@@ -1,14 +1,18 @@
+---
+---
+
+:skip-front-matter:
 
 CAN developing
-==============
+//__==============
 
 Contents
-========
+//__========
 
 . <<starting-with-socketcan,Starting with SocketCAN>>
 
 [[starting-with-socketcan]]Starting with socketcan
-==================================================
+//__==================================================
 
 The first things to do when starting to develop for CAN for HAL is to get
 comfortable with the CAN interface. SocketCAN is native to Linux, and
@@ -25,6 +29,6 @@ that we swap the driver to the real hardware.
   but it could as well be. You can use VirtualBox, or other VM's. Choice is up
   to you. For these examples Parallels 9, on a Macbook Pro was used for the
   Debian Jessie VM.
-. link:../setting-up/CAN-developing-setup.asciidoc[set up the environment so you can use socketcan]
+. link:../../setting-up/CAN-developing-setup[set up the environment so you can use socketcan]
   then return here.
 . more to come

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 NOT(9) HAL Component NOT(9)
 
 INSTANTIABLE COMPONENTS

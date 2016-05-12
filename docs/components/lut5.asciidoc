@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LUT5(9) HAL Component LUT5(9)
 
 INSTANTIABLE COMPONENTS

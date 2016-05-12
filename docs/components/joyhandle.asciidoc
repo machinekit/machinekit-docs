@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 JOYHANDLE(9) HAL Component JOYHANDLE(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ANDN(9) HAL Component ANDN(9)
 
 INSTANTIABLE COMPONENTS

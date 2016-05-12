@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 FEEDCOMP(9) HAL Component FEEDCOMP(9)
 
 INSTANTIABLE COMPONENTS

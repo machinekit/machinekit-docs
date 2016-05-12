@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: config/images
+:skip-front-matter:
+
+:imagesdir: ../config/images
 
 = Stepper Configuration Wizard
 
@@ -25,7 +29,7 @@ The Stepconf Wizard works best with at least 800 x 600 screen resolution.
 
 [float]
 Step by Step Instructions
-=========================
+//__=========================
 
 == Start Page[[sec:Entry-Page]]
 
@@ -103,7 +107,7 @@ step pulse in nanoseconds.  If your not sure about this setting a value of
 
 * 'Base Period Maximum Jitter' - Enter the result of the Latency Test here.
 To run a latency test press the 'Test Base Period Jitter' button. See the
-link:../install/Latency_Test.asciidoc[Latency Test] section for more details.
+link:../../install/Latency_Test[Latency Test] section for more details.
 
 * 'Max Step Rate' -Stepconf automatically calculates the Max Step Rate based
 on the driver characteristics entered and the latency test result.

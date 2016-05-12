@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 IDB(9) HAL Component IDB(9)
 
 INSTANTIABLE COMPONENTS

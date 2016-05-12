@@ -1,6 +1,10 @@
+---
+---
+
+:skip-front-matter:
 
 Buildbot
-========
+//__========
 
 The buildbot grid can be found link:http://buildbot.dovetail-automata.com/grid[buildbot.dovetail-automata.com/grid]
 and this knowledge is very usefull if you make a PR because you can see if or why

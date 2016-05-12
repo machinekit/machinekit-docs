@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 :toc:
 
@@ -9,7 +13,7 @@
 
 :leveloffset: +1
 
-include::common/Integrator_Concepts.asciidoc[Integrator_Concepts]
+include::{{page.docs-dir}}/common/Integrator_Concepts.asciidoc[]
 
 :leveloffset: -1
 
@@ -17,25 +21,25 @@ include::common/Integrator_Concepts.asciidoc[Integrator_Concepts]
 
 :leveloffset: +1
 
-include::install/Latency_Test.asciidoc[Latency_Test]
+include::{{page.docs-dir}}/install/Latency_Test.asciidoc[]
 
-include::common/starting-emc.asciidoc[Start Up]
+include::{{page.docs-dir}}/common/starting-emc.asciidoc[]
 
-include::config/ini_config.asciidoc[INI file config]
+include::{{page.docs-dir}}/config/ini_config.asciidoc[]
 
-include::config/ini_homing.asciidoc[INI file homing]
+include::{{page.docs-dir}}/config/ini_homing.asciidoc[]
 
-include::config/lathe_config.asciidoc[Lathe Config]
+include::{{page.docs-dir}}/config/lathe_config.asciidoc[]
 
-include::hal/haltcl.asciidoc[HAL tcl]
+include::{{page.docs-dir}}/hal/haltcl.asciidoc[]
 
-include::config/emc2hal.asciidoc[Core Components]
+include::{{page.docs-dir}}/config/emc2hal.asciidoc[]
 
-include::config/stepper.asciidoc[Steppers]
+include::{{page.docs-dir}}/config/stepper.asciidoc[]
 
-include::hal/basic_hal.asciidoc[Basic HAL]
+include::{{page.docs-dir}}/hal/basic_hal.asciidoc[]
 
-include::remap/structure.asciidoc[Structure]
+include::{{page.docs-dir}}/remap/structure.asciidoc[]
 
 :leveloffset: -1
 
@@ -43,15 +47,15 @@ include::remap/structure.asciidoc[Structure]
 
 :leveloffset: +1
 
-include::hal/pyvcp.asciidoc[pyVCP]
+include::{{page.docs-dir}}/hal/pyvcp.asciidoc[]
 
-include::hal/pyvcp_examples.asciidoc[pyVCP Examples]
+include::{{page.docs-dir}}/hal/pyvcp_examples.asciidoc[]
 
-include::gui/gladevcp.asciidoc[gladevcp]
+include::{{page.docs-dir}}/gui/gladevcp.asciidoc[]
 
-include::gui/halui.asciidoc[halui]
+include::{{page.docs-dir}}/gui/halui.asciidoc[]
 
-include::hal/halui_examples.asciidoc[halui Examples]
+include::{{page.docs-dir}}/hal/halui_examples.asciidoc[]
 
 :leveloffset: -1
 
@@ -59,27 +63,27 @@ include::hal/halui_examples.asciidoc[halui Examples]
 
 :leveloffset: +1
 
-include::hal/parallel_port.asciidoc[Parallel Port]
+include::{{page.docs-dir}}/hal/parallel_port.asciidoc[]
 
-include::drivers/AX5214H.asciidoc[AX5214H]
+include::{{page.docs-dir}}/drivers/AX5214H.asciidoc[]
 
-include::drivers/GS2.asciidoc[GS2]
+include::{{page.docs-dir}}/drivers/GS2.asciidoc[]
 
-include::drivers/hostmot2.asciidoc[hostmot2]
+include::{{page.docs-dir}}/drivers/hostmot2.asciidoc[]
 
-include::drivers/motenc.asciidoc[motenc]
+include::{{page.docs-dir}}/drivers/motenc.asciidoc[]
 
-include::drivers/opto22.asciidoc[opto22]
+include::{{page.docs-dir}}/drivers/opto22.asciidoc[]
 
-include::drivers/pico_ppmc.asciidoc[pico_ppmc]
+include::{{page.docs-dir}}/drivers/pico_ppmc.asciidoc[]
 
-include::drivers/pluto_p.asciidoc[pluto_p]
+include::{{page.docs-dir}}/drivers/pluto_p.asciidoc[]
 
-include::drivers/servo_to_go.asciidoc[servo_to_go]
+include::{{page.docs-dir}}/drivers/servo_to_go.asciidoc[]
 
-include::drivers/shuttlexpress.asciidoc[shuttlexpress]
+include::{{page.docs-dir}}/drivers/shuttlexpress.asciidoc[]
 
-include::drivers/GM.asciidoc[GM]
+include::{{page.docs-dir}}/drivers/GM.asciidoc[]
 
 :leveloffset: -1
 
@@ -87,15 +91,15 @@ include::drivers/GM.asciidoc[GM]
 
 :leveloffset: +1
 
-include::common/python-interface.asciidoc[python-interface]
+include::{{page.docs-dir}}/common/python-interface.asciidoc[]
 
-include::motion/kinematics.asciidoc[kinematics]
+include::{{page.docs-dir}}/motion/kinematics.asciidoc[]
 
-include::motion/tweaking_steppers.asciidoc[tweaking_steppers]
+include::{{page.docs-dir}}/motion/tweaking_steppers.asciidoc[]
 
-include::motion/pid_theory.asciidoc[pid_theory]
+include::{{page.docs-dir}}/motion/pid_theory.asciidoc[]
 
-include::common/UnifiedBuild.asciidoc[UnifiedBuild]
+include::{{page.docs-dir}}/common/UnifiedBuild.asciidoc[]
 
 :leveloffset: -1
 
@@ -103,11 +107,11 @@ include::common/UnifiedBuild.asciidoc[UnifiedBuild]
 
 :leveloffset: +1
 
-include::ladder/ladder_intro.asciidoc[ladder_intro]
+include::{{page.docs-dir}}/ladder/ladder_intro.asciidoc[]
 
-include::ladder/classic_ladder.asciidoc[classic_ladder]
+include::{{page.docs-dir}}/ladder/classic_ladder.asciidoc[]
 
-include::ladder/ladder_examples.asciidoc[ladder_examples]
+include::{{page.docs-dir}}/ladder/ladder_examples.asciidoc[]
 
 :leveloffset: -1
 
@@ -115,13 +119,13 @@ include::ladder/ladder_examples.asciidoc[ladder_examples]
 
 :leveloffset: +1
 
-include::examples/pci_parallel_port.asciidoc[pci_parallel_port]
+include::{{page.docs-dir}}/examples/pci_parallel_port.asciidoc[]
 
-include::examples/spindle.asciidoc[spindle]
+include::{{page.docs-dir}}/examples/spindle.asciidoc[]
 
-include::examples/mpg.asciidoc[mpg]
+include::{{page.docs-dir}}/examples/mpg.asciidoc[]
 
-include::examples/gs2_example.asciidoc[gs2_example]
+include::{{page.docs-dir}}/examples/gs2_example.asciidoc[]
 
 :leveloffset: -1
 
@@ -129,13 +133,13 @@ include::examples/gs2_example.asciidoc[gs2_example]
 
 :leveloffset: +1
 
-include::common/Stepper_Diagnostics.asciidoc[Stepper_Diagnostic]
+include::{{page.docs-dir}}/common/Stepper_Diagnostics.asciidoc[]
 
-include::common/Linux_FAQ.asciidoc[Linux_FAQ]
+include::{{page.docs-dir}}/common/Linux_FAQ.asciidoc[]
 
-include::common/Glossary.asciidoc[Glossary]
+include::{{page.docs-dir}}/common/Glossary.asciidoc[]
 
-include::common/GPLD_Copyright.asciidoc[GPLD_Copyright]
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
 
 :leveloffset: -1
 
@@ -143,6 +147,6 @@ include::common/GPLD_Copyright.asciidoc[GPLD_Copyright]
 
 :leveloffset: +1
 
-include::install/ConfigurationChanges.asciidoc[Configuration Changes]
+include::{{page.docs-dir}}/install/ConfigurationChanges.asciidoc[]
 
 :leveloffset: -1

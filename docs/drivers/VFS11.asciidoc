@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 = VFS11 VFD Driver
 

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 DIV2(9) HAL Component DIV2(9)
 
 INSTANTIABLE COMPONENTS

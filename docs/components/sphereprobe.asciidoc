@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SPHEREPROBE(9) HAL Component SPHEREPROBE(9)
 
 INSTANTIABLE COMPONENTS

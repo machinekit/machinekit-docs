@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: ladder/images
+:skip-front-matter:
+
+:imagesdir: ../ladder/images
 
 = Classicladder Introduction
 

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 OR2(9) HAL Component OR2(9)
 
 INSTANTIABLE COMPONENTS

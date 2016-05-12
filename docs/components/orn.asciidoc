@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ORN(9) HAL Component ORN(9)
 
 INSTANTIABLE COMPONENTS

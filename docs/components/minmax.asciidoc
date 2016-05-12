@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MINMAX(9) HAL Component MINMAX(9)
 
 INSTANTIABLE COMPONENTS

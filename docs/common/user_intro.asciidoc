@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: common/images
+:skip-front-matter:
+
+:imagesdir: ../common/images
 
 = Machinekit User Introduction
 

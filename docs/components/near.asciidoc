@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 NEAR(9) HAL Component NEAR(9)
 
 INSTANTIABLE COMPONENTS

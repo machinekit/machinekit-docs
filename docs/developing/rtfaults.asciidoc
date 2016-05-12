@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 Finding line number information for faults in realtime components
 
 1. Get a version of LinuxCNC which prints the faulting instruction address

@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: motion/images
+:skip-front-matter:
+
+:imagesdir: ../motion/images
 
 = Kinematics
 

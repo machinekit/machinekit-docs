@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MUXN(9) HAL Component MUXN(9)
 
 INSTANTIABLE COMPONENTS

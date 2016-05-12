@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 TOGGLE2NIST(9) HAL Component TOGGLE2NIST(9)
 
 INSTANTIABLE COMPONENTS

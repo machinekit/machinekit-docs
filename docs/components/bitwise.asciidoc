@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BITWISE(9) HAL Component BITWISE(9)
 
 INSTANTIABLE COMPONENTS

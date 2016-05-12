@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ONESHOT(9) HAL Component ONESHOT(9)
 
 INSTANTIABLE COMPONENTS

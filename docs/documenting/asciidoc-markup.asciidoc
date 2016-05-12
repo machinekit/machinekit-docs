@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 This document is a guide for using asciidoc markup
 
 
@@ -6,7 +10,7 @@ Master Document file Headers, first line replace en with two letter language cod
 
 :lversion: {sys: cat ../VERSION}
 Getting Started V{lversion}, {localdate}
-=================================
+//__=================================
 :lang: en
 :masterdir: {indir}
 :leveloffset: 1
@@ -22,13 +26,13 @@ http://www.methods.co.nz/asciidoc/userguide.html#_introduction
 8.2 Header
 
 Titles
-======
+//__======
 = Document Title (level 0) =  Note: level 0 can only be once per file!
 == Section title (level 1) ==  Note: trailing delimiter is optional.
 === Section title (level 2) ===
 
 Links
-=====
+//__=====
 [[anchor]]
 <<anchor,caption>>
 
@@ -41,7 +45,7 @@ only bombs will show in the text with an underline so always provide a caption f
 
 
 Listing Block for G Code and terminal output
-============================================
+//__============================================
 ---- < 4 dashes start of block
 lines of code
 ...
@@ -50,7 +54,7 @@ more code
      < 1 blank line after
 
 Literal blocks
-==============
+//__==============
 .... < 4 periods start the block
 literal block
 will show up
@@ -59,7 +63,7 @@ just as you type it.
      < 1 blank line after
 
 Lists
-=====
+//__=====
 * bullet
 ** bullet
 
@@ -80,7 +84,7 @@ bulleted list with the pin name emphasized by surrounding it with
 single quotes.
 
 Images
-======
+//__======
 put all images in the images subdirectory
 
 image::<target>[<attributes>]
@@ -93,14 +97,14 @@ If the image is small and displays too big in the pdf you can
 use the scaledwidth="60%" attribute
 
 Inline Images
-=============
+//__=============
 Same as images except only one : is used and no attributes are used between 
 the []
 
 My text has an image in it image:images/axisbutton.png[]
 
 Figures
-=======
+//__=======
 Use the following format for figures so any links to the anchor will move to
 correct place. Only create a link to a figure if it is somewhere else and not 
 the next thing you see when scrolling down. Just say something like "in the 
@@ -113,7 +117,7 @@ following figure..."
 image::images/parport-block-diag.png[align="center"]
 
 Notes and Warnings
-==================
+//__==================
 Inline example
 NOTE: This is an example note.
 
@@ -126,7 +130,7 @@ Styles include
 NOTE TIP IMPORTANT WARNING CAUTION
 
 Escaping a character
-====================
+//__====================
 Normally characters like ' and * would not print unless you use \' or \* then
 they will print as normal characters.
 

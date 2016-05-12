@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LGANTRY(9) HAL Component LGANTRY(9)
 
 INSTANTIABLE COMPONENTS

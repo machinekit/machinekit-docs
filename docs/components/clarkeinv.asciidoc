@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 CLARKEINV(9) HAL Component CLARKEINV(9)
 
 INSTANTIABLE COMPONENTS

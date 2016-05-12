@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ESTOP_LATCH(9) HAL Component ESTOP_LATCH(9)
 
 INSTANTIABLE COMPONENTS

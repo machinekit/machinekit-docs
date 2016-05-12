@@ -1,6 +1,10 @@
+---
+---
+
+:skip-front-matter:
 
 Setting up machinekit on a platform
-===================================
+//__===================================
 
 This document is intended to get Machinekit installed on the platform of your
 choice. Because of the multi-platform nature of the machinekit project there
@@ -12,11 +16,11 @@ You should have a working Debian installation.
 ====
 
 Installation options:
-====================
+//__====================
 
-. link:machinekit-images.asciidoc[Use a pre-made image] for Beaglebone Black
-. link:installing-packages.asciidoc[Install precompiled debian packages]
+. link:../machinekit-images[Use a pre-made image] for Beaglebone Black
+. link:../installing-packages[Install precompiled debian packages]
   for amd64, i386, and arm7 (or later) systems like the Beaglebone Raspberry Pi2. This means configuring
   Apt, installing kernels and installing the runtime packages.
-. link:../developing/developing.asciidoc[Set up a development platform]
+. link:../../developing/developing[Set up a development platform]
   when you want to develop for Machinekit.

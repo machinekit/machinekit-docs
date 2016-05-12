@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: examples/images
+:skip-front-matter:
+
+:imagesdir: ../examples/images
 
 = Spindle Control
 

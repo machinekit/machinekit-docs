@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 THCUD(9) HAL Component THCUD(9)
 
 INSTANTIABLE COMPONENTS

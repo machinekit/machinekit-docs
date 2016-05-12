@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 OFFSET(9) HAL Component OFFSET(9)
 
 INSTANTIABLE COMPONENTS

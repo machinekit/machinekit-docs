@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 :toc:
 
@@ -7,21 +11,21 @@
 
 :leveloffset: +1
 
-include::getting-started/getting-started-platform.asciidoc[Setting up Machinekit on different platforms]
+include::{{page.docs-dir}}/getting-started/getting-started-platform.asciidoc[]
 
 
-include::common/System_Requirements.asciidoc[System Requirements]
+include::{{page.docs-dir}}/common/System_Requirements.asciidoc[]
 
-include::quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
+include::{{page.docs-dir}}/quickstart/stepper_quickstart.asciidoc[]
 
-include::config/stepconf.asciidoc[Stepconf]
+include::{{page.docs-dir}}/config/stepconf.asciidoc[]
 
-include::config/pncconf.asciidoc[Pncconf]
+include::{{page.docs-dir}}/config/pncconf.asciidoc[]
 
-include::config/copy_and_run.asciidoc[Starting Up]
+include::{{page.docs-dir}}/config/copy_and_run.asciidoc[]
 
-include::common/Linux_FAQ.asciidoc[Linux FAQ]
+include::{{page.docs-dir}}/common/Linux_FAQ.asciidoc[]
 
-include::common/GPLD_Copyright.asciidoc[GPLD Copyright]
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
 
 :leveloffset: -1

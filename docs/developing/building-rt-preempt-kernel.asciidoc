@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 == Building a rt-preempt kernel for Debian Jessie - x86-amd64
 
 There are currently no stock Debian rt-preempt kernels available for Debian Jessie. Building your own is not difficult providing you have a full development system installed. The sample instructions below cover the building of kernel 3.8.11 with rt patch no 7

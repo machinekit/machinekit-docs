@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 TIME(9) HAL Component TIME(9)
 
 INSTANTIABLE COMPONENTS

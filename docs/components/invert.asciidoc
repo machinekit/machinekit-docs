@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 INVERT(9) HAL Component INVERT(9)
 
 INSTANTIABLE COMPONENTS

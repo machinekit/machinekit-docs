@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 EDGE(9) HAL Component EDGE(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 RESET(9) HAL Component RESET(9)
 
 INSTANTIABLE COMPONENTS

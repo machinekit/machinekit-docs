@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ORIENT(9) HAL Component ORIENT(9)
 
 INSTANTIABLE COMPONENTS

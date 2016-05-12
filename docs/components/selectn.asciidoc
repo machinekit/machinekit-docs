@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SELECTN(9) HAL Component SELECTN(9)
 
 INSTANTIABLE COMPONENTS

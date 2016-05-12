@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 = arm355x eQEP encoder driver
 

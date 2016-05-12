@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MUXN_U32(9) HAL Component MUXN_U32(9)
 
 INSTANTIABLE COMPONENTS

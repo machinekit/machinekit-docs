@@ -1,6 +1,10 @@
+---
+---
+
+:skip-front-matter:
 
 Source Hightlight Filter Test
-=============================
+//__=============================
 
 // for now, PDF's cant have highlighted ini,hal or ngc files
 // for brave souls: extend /usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty

@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: config/images
+:skip-front-matter:
+
+:imagesdir: ../config/images
 
 = Mesa Configuration Wizard
 
@@ -35,7 +39,7 @@ TIP: PNCconf's help page should have the most up to date info and has additional
 
 [float]
 Step by Step Instructions
-=========================
+//__=========================
 
 .PnCConf Splash
 

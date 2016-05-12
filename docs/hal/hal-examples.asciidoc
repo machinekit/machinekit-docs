@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: hal/images
+:skip-front-matter:
+
+:imagesdir: ../hal/images
 
 = HAL Examples
 

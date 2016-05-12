@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LINCURVE(9) HAL Component LINCURVE(9)
 
 INSTANTIABLE COMPONENTS

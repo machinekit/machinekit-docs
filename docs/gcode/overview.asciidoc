@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: gcode/images
+:skip-front-matter:
+
+:imagesdir: ../gcode/images
 
 = G Code Overview
 

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 TOGGLE(9) HAL Component TOGGLE(9)
 
 INSTANTIABLE COMPONENTS

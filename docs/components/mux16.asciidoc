@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MUX16(9) HAL Component MUX16(9)
 
 INSTANTIABLE COMPONENTS

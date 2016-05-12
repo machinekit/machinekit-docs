@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: gui/images
+:skip-front-matter:
+
+:imagesdir: ../gui/images
 
 = Glade Virtual Control Panel
 
@@ -638,7 +642,7 @@ image:button.png[]
 .
 
 [TIP]
-======================================
+//__======================================
 Defining radio button groups in Glade:
 
 - decide on default active button
@@ -648,7 +652,7 @@ button's name in the 'Choose a Radio Button in this project' dialog.
 
 See +configs/apps/gladevcp/by-widget/+ for a GladeVCP applications
 and UI file for working with radio buttons.
-======================================
+//__======================================
 
 [[gladevcp:HAL_Scales]]
 === Scales
@@ -803,7 +807,7 @@ JogWheel exports it's count value as hal pin:
 ====
 
 It has the following properties:
-=====
+//__=====
 size::
     Sets the size in pixel of the widget, allowed values are in the range of 100 to 500
     default = 200
@@ -814,10 +818,10 @@ show_counts::
     Set this to False, if you want to hide the counts display in the middle of the widget.
 label::
     Set the content of the label witch may be shown over the counts value. The purpose is to give the user an idea about the usage of that jogwheel. If the label given is longer than 12 Characters, it will be cut to 12 Characters.
-=====
+//__=====
 
 Direct program control::
-======
+//__======
     There a couple ways to directly control the widget using Python.
 
     Using goobject to set the above listed properties:
@@ -830,7 +834,7 @@ Direct program control::
         Will return the counts value as integer
         [widget name].set_label("string")
         Sets the label content with "string"
-======  
+//__======  
 Example JogWheel:
 
 image::JogWheel.png[]
@@ -1548,7 +1552,7 @@ There are some information you can get through commands, witch may be of ineters
     [widget name].machine_units
         0 if Imperial, 1 if Metric
 
-======
+//__======
 
 Example, Three Combi_DRO in a window +
 X = Relative Mode +
@@ -1598,7 +1602,7 @@ sortorder::
 ====
 
 Direct program control::
-======
+//__======
 Using goobject to set the above listed properties:
 
     [widget name].set_property(property,Value)
@@ -1663,7 +1667,7 @@ The widget will emit the following signals:
         This signal is Emmit, when the exit button has been pressed to close the IconView
         mostly needed if the application is started as stand alone.
 
-======
+//__======
 
 Example:
 

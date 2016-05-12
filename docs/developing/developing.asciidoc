@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 These instructions are specifically targeted for developers and show you
 how to set up a minimal system.
@@ -8,7 +12,7 @@ starting at point 1 should lead you thru the next steps and return you to this p
 
 . link:../getting-started/installing-packages.asciidoc#configure-apt[Configure Apt]
 . link:../getting-started/installing-packages.asciidoc#install-RT-kernel[Install the kernel of your choice]
-. link:machinekit-developing.asciidoc[Install developing packages for Machinekit]
+. link:../machinekit-developing[Install developing packages for Machinekit]
 
 == Other instructions for specific development
-. link:CAN-developing.asciidoc[CAN developing for Machinekit]
+. link:../CAN-developing[CAN developing for Machinekit]

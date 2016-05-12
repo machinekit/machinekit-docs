@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 = HAL Component Programming - Toolchangers
 
 An area which is ripe for custom HAL components, is the toolchanger used on many lathes and milling machines.

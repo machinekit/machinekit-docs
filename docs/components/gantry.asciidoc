@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 GANTRY(9) HAL Component GANTRY(9)
 
 INSTANTIABLE COMPONENTS

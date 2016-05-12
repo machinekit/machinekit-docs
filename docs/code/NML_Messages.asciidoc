@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 = NML Messages
 
 == EMC OPERATOR

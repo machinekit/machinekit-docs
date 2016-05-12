@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SCALE(9) HAL Component SCALE(9)
 
 INSTANTIABLE COMPONENTS

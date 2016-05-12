@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 FLIPFLOP(9) HAL Component FLIPFLOP(9)
 
 INSTANTIABLE COMPONENTS

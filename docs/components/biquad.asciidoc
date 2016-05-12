@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BIQUAD(9) HAL Component BIQUAD(9)
 
 INSTANTIABLE COMPONENTS

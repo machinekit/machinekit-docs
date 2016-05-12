@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 OUT_TO_IO(9) HAL Component OUT_TO_IO(9)
 
 INSTANTIABLE COMPONENTS

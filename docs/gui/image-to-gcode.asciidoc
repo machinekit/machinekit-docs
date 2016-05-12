@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: gui/images
+:skip-front-matter:
+
+:imagesdir: ../gui/images
 
 = Image to G Code
 

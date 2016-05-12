@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SAFETY_LATCH(9) HAL Component SAFETY_LATCH(9)
 
 INSTANTIABLE COMPONENTS

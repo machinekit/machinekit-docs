@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 DDT(9) HAL Component DDT(9)
 
 INSTANTIABLE COMPONENTS

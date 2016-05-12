@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ILOWPASS(9) HAL Component ILOWPASS(9)
 
 INSTANTIABLE COMPONENTS

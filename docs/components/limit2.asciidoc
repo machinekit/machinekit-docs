@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LIMIT2(9) HAL Component LIMIT2(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 HYPOT(9) HAL Component HYPOT(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MUX8(9) HAL Component MUX8(9)
 
 INSTANTIABLE COMPONENTS

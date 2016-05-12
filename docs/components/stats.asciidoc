@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 STATS(9) HAL Component STATS(9)
 
 INSTANTIABLE COMPONENTS

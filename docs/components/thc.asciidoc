@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 THC(9) HAL Component THC(9)
 
 INSTANTIABLE COMPONENTS

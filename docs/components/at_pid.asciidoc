@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 AT_PID(9) HAL Component AT_PID(9)
 
 INSTANTIABLE COMPONENTS

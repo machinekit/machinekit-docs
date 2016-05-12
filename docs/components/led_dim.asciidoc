@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LED_DIM(9) HAL Component LED_DIM(9)
 
 INSTANTIABLE COMPONENTS

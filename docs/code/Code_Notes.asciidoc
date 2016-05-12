@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: code
+:skip-front-matter:
+
+:imagesdir: ../code
 
 = Code Notes
 

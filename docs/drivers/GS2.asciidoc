@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 = GS2 VFD Driver
 

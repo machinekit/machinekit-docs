@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MULTICLICK(9) HAL Component MULTICLICK(9)
 
 INSTANTIABLE COMPONENTS

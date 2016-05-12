@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 WCOMPN(9) HAL Component WCOMPN(9)
 
 INSTANTIABLE COMPONENTS

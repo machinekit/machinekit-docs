@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 LATENCYBINS(9) HAL Component LATENCYBINS(9)
 
 INSTANTIABLE COMPONENTS

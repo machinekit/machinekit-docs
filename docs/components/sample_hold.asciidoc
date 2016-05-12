@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SAMPLE_HOLD(9) HAL Component SAMPLE_HOLD(9)
 
 INSTANTIABLE COMPONENTS

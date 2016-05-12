@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 == What's in the HAl instantiation branch
 
 === quick summary

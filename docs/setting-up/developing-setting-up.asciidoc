@@ -1,11 +1,15 @@
+---
+---
+
+:skip-front-matter:
 
 Setting up for development:
-===========================
+//__===========================
 
 This section will show examples of how to set up an environment for developing
 specific applications for Machinekit. This page will collect relevant links and
 instructions.
 
-. link:CAN-developing-setup.asciidoc[Setup for CAN development]
-. link:../developing/machinekit-developing.asciidoc[General Development Setup and packages]
+. link:../CAN-developing-setup[Setup for CAN development]
+. link:../../developing/machinekit-developing[General Development Setup and packages]
 . please add other sections / subjects / busses here.

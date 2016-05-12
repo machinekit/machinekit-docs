@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 XOR2(9) HAL Component XOR2(9)
 
 INSTANTIABLE COMPONENTS

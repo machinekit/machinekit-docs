@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: drivers/images
+:skip-front-matter:
+
+:imagesdir: ../drivers/images
 
 = Pluto P Driver
 

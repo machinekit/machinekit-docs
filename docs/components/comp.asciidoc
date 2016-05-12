@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 COMP(9) HAL Component COMP(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 #
 # Automatically generated file; DO NOT EDIT.
 # Linux/x86 3.18.11 Kernel Configuration

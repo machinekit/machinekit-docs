@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 Issues in RT components are harder to debug than normal user programs, but with the user thread styles it is in fact much easier than with RTAI. This note explains how to debug fatal errors in RT space, either "live" or "post-mortem", provided a core dump is available. I will focus exclusively on userland thread styles (posix, xenomai and rt-preempt).
 
 === The RT demons

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 = Coding Style
 
 This chapter describes the source code style preferred by the Machinekit team.

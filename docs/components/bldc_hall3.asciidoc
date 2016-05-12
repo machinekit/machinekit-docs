@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BLDC_HALL3(9) HAL Component BLDC_HALL3(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 TRISTATE_BIT(9) HAL Component TRISTATE_BIT(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MATCH8(9) HAL Component MATCH8(9)
 
 INSTANTIABLE COMPONENTS

@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: config/images
+:skip-front-matter:
+
+:imagesdir: ../config/images
 
 = Homing Configuration
 

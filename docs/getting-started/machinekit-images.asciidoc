@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 === BeagleBone Debian Machinekit image
 

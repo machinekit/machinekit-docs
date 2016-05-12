@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 BITSLICE(9) HAL Component BITSLICE(9)
 
 INSTANTIABLE COMPONENTS

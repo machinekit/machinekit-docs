@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 KNOB2FLOAT(9) HAL Component KNOB2FLOAT(9)
 
 INSTANTIABLE COMPONENTS

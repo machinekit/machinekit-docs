@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 TIMEDELAY(9) HAL Component TIMEDELAY(9)
 
 INSTANTIABLE COMPONENTS

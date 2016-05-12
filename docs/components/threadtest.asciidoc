@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 THREADTEST(9) HAL Component THREADTEST(9)
 
 INSTANTIABLE COMPONENTS

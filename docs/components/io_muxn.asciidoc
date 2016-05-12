@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 IO_MUXN(9) HAL Component IO_MUXN(9)
 
 INSTANTIABLE COMPONENTS

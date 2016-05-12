@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 = System Requirements
 
 [[cha:system-requirements]] (((System Requirements)))
@@ -11,7 +15,7 @@ Stepper systems in general require faster threads to generate step pulses than s
 Keep in mind that the Latency Test numbers are more important than the processor speed for
 software step generation. 
 
-More information on the Latency Test is link:../install/Latency_Test.asciidoc[Here]
+More information on the Latency Test is link:../../install/Latency_Test[Here]
 
 Machinekit and Debian should run reasonably well on a computer with the
 following minimum hardware specification. These numbers are not the

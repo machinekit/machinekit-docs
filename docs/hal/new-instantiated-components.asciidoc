@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 Using the new Machinekit Instantiated components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

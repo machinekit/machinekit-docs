@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 
 = instcomp HAL Component Generator
 

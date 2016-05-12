@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 INTEG(9) HAL Component INTEG(9)
 
 INSTANTIABLE COMPONENTS

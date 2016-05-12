@@ -1,5 +1,9 @@
+---
+---
 
-:imagesdir: common/images
+:skip-front-matter:
+
+:imagesdir: ../common/images
 
 = Important User Concepts
 

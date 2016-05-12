@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 SUM2(9) HAL Component SUM2(9)
 
 INSTANTIABLE COMPONENTS

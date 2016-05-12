@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MULT2(9) HAL Component MULT2(9)
 
 INSTANTIABLE COMPONENTS

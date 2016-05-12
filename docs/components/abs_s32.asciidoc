@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 ABS_S32(9) HAL Component ABS_S32(9)
 
 INSTANTIABLE COMPONENTS

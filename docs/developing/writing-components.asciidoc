@@ -1,19 +1,23 @@
+---
+---
+
+:skip-front-matter:
 = Writing HAL Components for Machinekit
 
 Recommended pre-reading from the legacy docs.
 
-link:../../src/hal/intro.asciidoc[Introduction to HAL]
+link:../../../src/hal/intro[Introduction to HAL]
 
-link:../../src/hal/tutorial.asciidoc[Basic HAL tutorial]
+link:../../../src/hal/tutorial[Basic HAL tutorial]
 
 Quite often there are existing components that can achieve your ends, without the need to write 
 one yourself.
 
 Certainly, maths and logic components are very well catered for.
 
-link:../../src/hal/components.asciidoc[This] is a brief resume of the existing 'stock' components
+link:../../../src/hal/components[This] is a brief resume of the existing 'stock' components
 
-link:../index-instantiated-components.asciidoc[This] is an index of Instantiated Component man pages
+link:../../index-instantiated-components[This] is an index of Instantiated Component man pages
 
 ==  C files
 
@@ -42,7 +46,7 @@ shortcuts to enlightenment.
 
 === comp
 
-link:../../src/hal/comp.asciidoc[comp] is the legacy (linuxcnc) component generator.
+link:../../../src/hal/comp[comp] is the legacy (linuxcnc) component generator.
 
 comp will generate and compile components for rt or userspace.
 
@@ -53,7 +57,7 @@ It also builds a full component.
 
 === instcomp
 
-link:../../src/hal/instcomp.asciidoc[instcomp] is the new Machinekit instantiated component generator, developed and extended from comp.
+link:../../../src/hal/instcomp[instcomp] is the new Machinekit instantiated component generator, developed and extended from comp.
 
 The essential difference between normal realtime components and instantiable components,
 is that 'normal components' are loaded once only and have to create as many copies of the
@@ -63,7 +67,7 @@ Instantiable components load the 'base component' and from that can create insta
 of the component whenever they are required.
 So instances can be created in separate hal files, on-the-fly or whatever.
 
-Further info link:../../src/hal/new-instantiated-components.asciidoc[here]
+Further info link:../../../src/hal/new-instantiated-components[here]
 
 Amoungst many advantages, it opens up huge flexibility in configuration.
 
@@ -83,7 +87,7 @@ It cannot be used for time sensitive or realtime components, because python is a
 language, but a lot of components have no need of milli-second poll timing and can quite happily be
 written as userspace using python
 
-This link:../../src/hal/halmodule.asciidoc[link] gives some basic information.
+This link:../../../src/hal/halmodule[link] gives some basic information.
 
 There are not that many examples,  some in [blue]#src/hal/user_comps#
 

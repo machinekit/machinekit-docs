@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 AND2(9) HAL Component AND2(9)
 
 INSTANTIABLE COMPONENTS

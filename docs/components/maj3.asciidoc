@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 MAJ3(9) HAL Component MAJ3(9)
 
 INSTANTIABLE COMPONENTS

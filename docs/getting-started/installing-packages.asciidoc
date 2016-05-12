@@ -1,6 +1,10 @@
+---
+---
+
+:skip-front-matter:
 
 Installing Packages
-===================
+//__===================
 
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
@@ -12,8 +16,8 @@ check back here before installing a new kernel.
 ====
 
 . *<<configure-apt,Configure Apt>>*
-.. link:APT-packages-wheezy.asciidoc[`wheezy` Configure Apt for i386, amd64 and arm7 (Beaglebone)]
-.. link:APT-packages-jessie.asciidoc[`jessie` Configure Apt for i386, amd64 and arm7 (Beaglebone, RPi2)]
+.. link:../APT-packages-wheezy[`wheezy` Configure Apt for i386, amd64 and arm7 (Beaglebone)]
+.. link:../APT-packages-jessie[`jessie` Configure Apt for i386, amd64 and arm7 (Beaglebone, RPi2)]
 .. <<configure-APT-i686-arm6,Configure Apt for Raspbian arm7 (RPi2)>>
 . [[install-kernels]]*<<install-RT-kernel,Install a realtime kernel>>*
 .. <<rt-kernel-xenomai,Xenomai realtime kernel (all platforms)>>
@@ -33,7 +37,7 @@ your installation.
 [cols="2*"]
 |===
 2+^|continue with (choose):
-a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
+a|link:../APT-packages-wheezy[Configure APT on Debian `wheezy`]
 
 `i386`
 
@@ -41,7 +45,7 @@ a|link:APT-packages-wheezy.asciidoc[Configure APT on Debian `wheezy`]
 
 `arm7 (Beaglebone)`
 
-a|link:APT-packages-jessie.asciidoc[Configure APT on Debian `jessie`]
+a|link:../APT-packages-jessie[Configure APT on Debian `jessie`]
 
 `i386`
 
@@ -99,7 +103,7 @@ sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenoma
 |===
 2+^|continue with (choose):
 | <<install-runtime-packages,install runtime packages>>
-|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|link:../../developing/machinekit-developing[install machinekit development packages]
 |===
 
 === [[rt-kernel-rt-preempt]]RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)
@@ -109,7 +113,7 @@ Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-
 There is currently no stock Debian RT-PREEMPT kernel for Jessie; the machinekit apt repository provides
 several known-to work kernels. 
 
-If you want to build your own kernel, see link:../developing/building-rt-preempt-kernel.asciidoc[this document] for details.
+If you want to build your own kernel, see link:../../developing/building-rt-preempt-kernel[this document] for details.
 
 The below instructions will work for Wheezy
 
@@ -158,7 +162,7 @@ dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
 |===
 2+^|continue with (choose):
 | <<install-runtime-packages,install runtime packages>>
-|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|link:../../developing/machinekit-developing[install machinekit development packages]
 |===
 
 
@@ -166,7 +170,7 @@ dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
 |===
 2+^|continue with (choose):
 | <<install-runtime-packages,install runtime packages>>
-|link:../developing/machinekit-developing.asciidoc[install machinekit development packages]
+|link:../../developing/machinekit-developing[install machinekit development packages]
 |===
 
 == [[install-runtime-packages]]Install runtime packages

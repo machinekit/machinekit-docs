@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 CLARKE3(9) HAL Component CLARKE3(9)
 
 INSTANTIABLE COMPONENTS

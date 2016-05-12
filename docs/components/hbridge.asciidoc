@@ -1,3 +1,7 @@
+---
+---
+
+:skip-front-matter:
 HBRIDGE(9) HAL Component HBRIDGE(9)
 
 INSTANTIABLE COMPONENTS
