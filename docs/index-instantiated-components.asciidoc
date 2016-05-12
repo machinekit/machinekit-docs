@@ -17,7 +17,7 @@ So instances can be created in separate hal files, on-the-fly or whatever.
 Amoungst many advantages, it opens up huge flexibility in configuration.
 
 
-Further info link:../src/hal/new-instantiated-components.asciidoc[here]
+Further info link:hal/new-instantiated-components.asciidoc[here]
 
 
 == The available Instantiated HAL Components are:
@@ -299,4 +299,3 @@ Further info link:../src/hal/new-instantiated-components.asciidoc[here]
 === This listing is manually generated when new components are added or removed
 
 To ensure your copy repo is up to date, do frequent pulls from the machinekit-docs master repo
-

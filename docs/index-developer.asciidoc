@@ -1,21 +1,30 @@
 
+= Developer manual
+
 == Introduction
 
+:leveloffset: +1
 
-link:../src/code/Code_Notes.asciidoc[Code_Notes]
+include::code/Code_Notes.asciidoc[]
 
-link:../src/code/NML_Messages.asciidoc[NML_Messages]
+include::code/NML_Messages.asciidoc[]
 
-link:../src/code/Style_Guide.asciidoc[Style_Guide]
+include::code/Style_Guide.asciidoc[]
 
-link:../src/common/Glossary.asciidoc[Glossary]
+include::common/Glossary.asciidoc[]
 
-link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyrigh]
+include::common/GPLD_Copyright.asciidoc[]
+
+:leveloffset: -1
 
 == Machinekit How To
+
+:leveloffset: +1
 
 - link:buildbot/interpret-buildbot-results.asciidoc[Interpret buildbot results]
 
 - link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
 
 - link:developing/writing-components.asciidoc[Write HAL Components]
+
+:leveloffset: -1

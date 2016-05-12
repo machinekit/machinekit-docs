@@ -1,144 +1,142 @@
 
-Integrator Manual
-=================
+= Integrator Manual
 
-:leveloffset: 0
+== Machinekit Introduction
 
-= Machinekit Introduction
+:leveloffset: +1
 
-:leveloffset: 1
+include::common/Integrator_Concepts.asciidoc[Integrator_Concepts]
 
-link:../src/common/Integrator_Concepts.asciidoc[Integrator_Concepts]
+:leveloffset: -1
 
-:leveloffset: 0
+== Configuration
 
-= Configuration
+:leveloffset: +1
 
-:leveloffset: 1
+include::install/Latency_Test.asciidoc[Latency_Test]
 
-link:../src/install/Latency_Test.asciidoc[Latency_Test]
+include::common/starting-emc.asciidoc[Start Up]
 
-link:../src/common/starting-emc.asciidoc[Start Up]
+include::config/ini_config.asciidoc[INI file config]
 
-link:../src/config/ini_config.asciidoc[INI file config]
+include::config/ini_homing.asciidoc[INI file homing]
 
-link:../src/config/ini_homing.asciidoc[INI file homing]
+include::config/lathe_config.asciidoc[Lathe Config]
 
-link:../src/config/lathe_config.asciidoc[Lathe Config]
+include::hal/haltcl.asciidoc[HAL tcl]
 
-link:../src/hal/haltcl.asciidoc[HAL tcl]
+include::config/emc2hal.asciidoc[Core Components]
 
-link:../src/config/emc2hal.asciidoc[Core Components]
+include::config/stepper.asciidoc[Steppers]
 
-link:../src/config/stepper.asciidoc[Steppers]
+include::hal/basic_hal.asciidoc[Basic HAL]
 
-link:../src/hal/basic_hal.asciidoc[Basic HAL]
+include::remap/structure.asciidoc[Structure]
 
-link:../src/remap/structure.asciidoc[Structure]
+:leveloffset: -1
 
-:leveloffset: 0
+== GUI
 
-= GUI
+:leveloffset: +1
 
-:leveloffset: 1
+include::hal/pyvcp.asciidoc[pyVCP]
 
-link:../src/hal/pyvcp.asciidoc[pyVCP]
+include::hal/pyvcp_examples.asciidoc[pyVCP Examples]
 
-link:../src/hal/pyvcp_examples.asciidoc[pyVCP Examples]
+include::gui/gladevcp.asciidoc[gladevcp]
 
-link:../src/gui/gladevcp.asciidoc[gladevcp]
+include::gui/halui.asciidoc[halui]
 
-link:../src/gui/halui.asciidoc[halui]
+include::hal/halui_examples.asciidoc[halui Examples]
 
-link:../src/hal/halui_examples.asciidoc[halui Examples]
+:leveloffset: -1
 
-:leveloffset: 0
+== Hardware Drivers
 
-= Hardware Drivers
+:leveloffset: +1
 
-:leveloffset: 1
+include::hal/parallel_port.asciidoc[Parallel Port]
 
-link:../src/hal/parallel_port.asciidoc[Parallel Port]
+include::drivers/AX5214H.asciidoc[AX5214H]
 
-link:../src/drivers/AX5214H.asciidoc[AX5214H]
+include::drivers/GS2.asciidoc[GS2]
 
-link:../src/drivers/GS2.asciidoc[GS2]
+include::drivers/hostmot2.asciidoc[hostmot2]
 
-link:../src/drivers/hostmot2.asciidoc[hostmot2]
+include::drivers/motenc.asciidoc[motenc]
 
-link:../src/drivers/motenc.asciidoc[motenc]
+include::drivers/opto22.asciidoc[opto22]
 
-link:../src/drivers/opto22.asciidoc[opto22]
+include::drivers/pico_ppmc.asciidoc[pico_ppmc]
 
-link:../src/drivers/pico_ppmc.asciidoc[pico_ppmc]
+include::drivers/pluto_p.asciidoc[pluto_p]
 
-link:../src/drivers/pluto_p.asciidoc[pluto_p]
+include::drivers/servo_to_go.asciidoc[servo_to_go]
 
-link:../src/drivers/servo_to_go.asciidoc[servo_to_go]
+include::drivers/shuttlexpress.asciidoc[shuttlexpress]
 
-link:../src/drivers/shuttlexpress.asciidoc[shuttlexpress]
+include::drivers/GM.asciidoc[GM]
 
-link:../src/drivers/GM.asciidoc[GM]
+:leveloffset: -1
 
-:leveloffset: 0
+== Advanced Topics
 
-= Advanced Topics
+:leveloffset: +1
 
-:leveloffset: 1
+include::common/python-interface.asciidoc[python-interface]
 
-link:../src/common/python-interface.asciidoc[python-interface]
+include::motion/kinematics.asciidoc[kinematics]
 
-link:../src/motion/kinematics.asciidoc[kinematics]
+include::motion/tweaking_steppers.asciidoc[tweaking_steppers]
 
-link:../src/motion/tweaking_steppers.asciidoc[tweaking_steppers]
+include::motion/pid_theory.asciidoc[pid_theory]
 
-link:../src/motion/pid_theory.asciidoc[pid_theory]
+include::common/UnifiedBuild.asciidoc[UnifiedBuild]
 
-link:../src/common/UnifiedBuild.asciidoc[UnifiedBuild]
+:leveloffset: -1
 
-:leveloffset: 0
+== Ladder Logic
 
-= Ladder Logic
+:leveloffset: +1
 
-:leveloffset: 1
+include::ladder/ladder_intro.asciidoc[ladder_intro]
 
-link:../src/ladder/ladder_intro.asciidoc[ladder_intro]
+include::ladder/classic_ladder.asciidoc[classic_ladder]
 
-link:../src/ladder/classic_ladder.asciidoc[classic_ladder]
+include::ladder/ladder_examples.asciidoc[ladder_examples]
 
-link:../src/ladder/ladder_examples.asciidoc[ladder_examples]
+:leveloffset: -1
 
-:leveloffset: 0
+== Hardware Examples
 
-= Hardware Examples
+:leveloffset: +1
 
-:leveloffset: 1
+include::examples/pci_parallel_port.asciidoc[pci_parallel_port]
 
-link:../src/examples/pci_parallel_port.asciidoc[pci_parallel_port]
+include::examples/spindle.asciidoc[spindle]
 
-link:../src/examples/spindle.asciidoc[spindle]
+include::examples/mpg.asciidoc[mpg]
 
-link:../src/examples/mpg.asciidoc[mpg]
+include::examples/gs2_example.asciidoc[gs2_example]
 
-link:../src/examples/gs2_example.asciidoc[gs2_example]
+:leveloffset: -1
 
-:leveloffset: 0
+== Diagnostics & FAQ
 
-= Diagnostics & FAQ
+:leveloffset: +1
 
-:leveloffset: 1
+include::common/Stepper_Diagnostics.asciidoc[Stepper_Diagnostic]
 
-link:../src/common/Stepper_Diagnostics.asciidoc[Stepper_Diagnostic]
+include::common/Linux_FAQ.asciidoc[Linux_FAQ]
 
-link:../src/common/Linux_FAQ.asciidoc[Linux_FAQ]
+include::common/Glossary.asciidoc[Glossary]
 
-link:../src/common/Glossary.asciidoc[Glossary]
+include::common/GPLD_Copyright.asciidoc[GPLD_Copyright]
 
-link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyright]
+== Machinekit Build Configuration
 
-= Machinekit Build Configuration
+:leveloffset: +1
 
+include::install/ConfigurationChanges.asciidoc[Configuration Changes]
 
-:leveloffset: 1
-
-link:../src/install/ConfigurationChanges.asciidoc[Configuration Changes]
+:leveloffset: -1

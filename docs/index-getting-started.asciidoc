@@ -1,23 +1,23 @@
 
-:leveloffset: 0
-
 = Getting Started
 
-:leveloffset: 1
+:leveloffset: +1
 
-link:./getting-started/getting-started-platform.asciidoc[Setting up Machinekit on different platforms]
+include::getting-started/getting-started-platform.asciidoc[Setting up Machinekit on different platforms]
 
 
-link:../src/common/System_Requirements.asciidoc[System Requirements]
+include::common/System_Requirements.asciidoc[System Requirements]
 
-link:../src/quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
+include::quickstart/stepper_quickstart.asciidoc[Stepper Quickstart]
 
-link:../src/config/stepconf.asciidoc[Stepconf]
+include::config/stepconf.asciidoc[Stepconf]
 
-link:../src/config/pncconf.asciidoc[Pncconf]
+include::config/pncconf.asciidoc[Pncconf]
 
-link:../src/config/copy_and_run.asciidoc[Starting Up]
+include::config/copy_and_run.asciidoc[Starting Up]
 
-link:../src/common/Linux_FAQ.asciidoc[Linux FAQ]
+include::common/Linux_FAQ.asciidoc[Linux FAQ]
 
-link:../src/common/GPLD_Copyright.asciidoc[GPLD Copyright]
+include::common/GPLD_Copyright.asciidoc[GPLD Copyright]
+
+:leveloffset: -1
