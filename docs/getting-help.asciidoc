@@ -1,11 +1,9 @@
 
-. <<getting-help,Getting Help>>
-. <<start-investigating,Before you ask: try yourself>>
-. <<reporting-an-error,How to report an Error>>
-. <<before-you-hit-send,Before you hit: 'Submit new issue'>>
+:toc:
 
-[[getting-help]]Getting help
-============================
+= Getting help
+
+:toc:
 
 Nothing is more irritating
 
@@ -16,8 +14,7 @@ Nothing is more irritating
 So: please make it easy for others to help you - pose a smart question.
 And to do so, please stick to the following rules and recommendations:
 
-[[start-investigating]] Before you ask: try yourself
-====================================================
+== Before you ask: try yourself
 
 . Search your soul: *did it work before?* If yes - what did I change? and if I did - what was the last known-to-work status, and what happened after that? It is remotely possible that cosmic rays caused the error. But usually it's something you did. What was it?
 . start the application from the shell/a terminal window.
@@ -37,8 +34,7 @@ And to do so, please stick to the following rules and recommendations:
 ** Reporting errors on the Machinekit list is NOT a replacement and not recommended, as it does not
 improve the issue tracker content. This is why you should create an issue. That is what the tracker ist is for: helping others later to resolve a similar problem like you just encountered, and to track all the steps needed to resolve an issue *in a single place*. The mailing list is unsuited to track complex issues, and resolutions are hard to find. Also, if it was a new problem, and got resolved, that problem and the resolution will not be in the tracker. So i
 
-[[reporting-an-error]]How to report an Error
-============================================
+== How to report an Error
 
 So you did your homework as above, and still no resolution: file a  link:https://github.com/machinekit/machinekit/issues[new issue].
 
@@ -92,8 +88,7 @@ make sure the output formatting is sane.
    to help you. And thus you won't get answered.
 
 
-[[before-you-hit-send]]Before you hit 'Submit new issue'
-========================================================
+== Before you hit 'Submit new issue'
 
 When you send an error report, you are asking for other people's time to look at it. Make it easy for them. And - if you make it easy for them, it will increase your chances of getting a quick, spot-on reply. So it's all in your enligthened self-interest to make it easy for them.
 
