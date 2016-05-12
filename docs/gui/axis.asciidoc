@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = AXIS GUI
 
 [[cha:axis-gui]] (((Axis GUI)))
@@ -10,7 +13,7 @@ Tk(((Tk))) and OpenGL(((OpenGL))) to display its user interface.
 
 .AXIS Window[[cap:AXIS-Window]]
 
-image::images/axis-2.5.png[align="center"]
+image::axis-2.5.png[align="center"]
 
 == Getting Started
 
@@ -436,7 +439,7 @@ jog to the left and Touch Off X again.
 
 .Soft Limit[[cap:Soft-Limit]]
 
-image::images/axis-outofrange.png[align="center"]
+image::axis-outofrange.png[align="center"]
 
 .Tool Cone
 When no tool is loaded, the location of the tip of the tool is
@@ -505,7 +508,7 @@ the text display will automatically scroll to show the current line.
 
 .Current and Selected Lines[[cap:Current-and-Selected]]
 
-image::images/axis-currentandselected.png[align="center"]
+image::axis-currentandselected.png[align="center"]
 
 === Manual Control
 (((Manual)))
@@ -577,7 +580,7 @@ resulting value is shown as a number.
 
 .Touch Off[[cap:Touch-Off]]
 
-image::images/touchoff.png[align="center"]
+image::touchoff.png[align="center"]
 
 See also the 'Tool touch off to workpiece' and 'Tool touch off to fixture' 
 options in the Machine menu.
@@ -621,7 +624,7 @@ running, the MDI controls are unavailable.
 
 .The MDI tab[[cap:The-MDI-tab]]
 
-image::images/axis-mdi.png[align="center"]
+image::axis-mdi.png[align="center"]
 
 * 'History' - This shows MDI commands that have been typed earlier in this session.
 
@@ -728,7 +731,7 @@ Show Machinekit Status
 
 .Machinekit Status Window[[cap:Machinekit-Status-Window]]
 
-image::images/axis-emc-status.png[align="center"]
+image::axis-emc-status.png[align="center"]
 
 The name of each item is shown in the left column. The current value
 is shown in the right column. If the value has recently changed, it is
@@ -792,7 +795,7 @@ program a G1 with no move after the T<n>.
 
 .The Manual Toolchange Window[[cap:The-Manual-Toolchange]]
 
-image::images/manual-tool-change.png[align="center"]
+image::manual-tool-change.png[align="center"]
 
 == Python modules 
 
@@ -875,7 +878,7 @@ series of holes along the circumference of a circle.
 
 .Circular Holes[[cap:Circular-Holes]]
 
-image::images/holes.png[align="center"]
+image::holes.png[align="center"]
 
 If the environment variable AXIS_PROGRESS_BAR is set, then lines
 written to stderr of the form
@@ -1021,5 +1024,3 @@ an ini file field
 DISABLE_DISPLAY = YES
 ----
 See the INI file docs for full details
-
-
