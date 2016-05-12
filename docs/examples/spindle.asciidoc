@@ -1,3 +1,6 @@
+
+:imagesdir: examples/images
+
 = Spindle Control
 
 [[cha:Spindle-Control]] (((Spindle Control)))
@@ -12,7 +15,7 @@ First you need to figure the scale of spindle speed to control signal.
 For this example the spindle top speed of 5000 RPM is equal to 10
 volts. 
 
-image::images/spindle-math.png[align="center"]
+image::spindle-math.png[align="center"]
 
 We have to add a scale component to the HAL file to scale the
 motion.spindle-speed-out to the 0 to 10 needed by the VFD if your DAC
@@ -231,4 +234,3 @@ net spindle-at-speed motion.spindle-at-speed <= near.0.out
 # set the spindle speed inputs to agree if within 1%
 setp near.0.scale 1.01
 ----
-

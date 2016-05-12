@@ -1,5 +1,5 @@
 
-:imagesdir: hal/images
+:imagesdir: common/images
 
 = Starting Machinekit
 

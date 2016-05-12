@@ -1,4 +1,6 @@
 
+:imagesdir: config/images
+
 = Latency Test
 
 [[cha:latency-test]] (((Latency Test)))
@@ -54,7 +56,7 @@ You should see something like this:
 
 .HAL Latency Test
 
-image::../config/images/latency.png[align="center"]
+image::latency.png[align="center"]
 
 While the test is running, you should 'abuse' the computer. 
 Move windows around on the screen. Surf the web. Copy some large files 

@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = Tool Edit GUI
 
 [[cha:tooledit-gui]] (((Tool Edit GUI)))
@@ -8,7 +11,7 @@ The following configurable features for 'tooledit' are available in versions
 2.5.1 and later. In 2.5.0 the 'tooledit' gui is without the configurable
 features.
 
-image::images/tooledit.png[align="center",width=640]
+image::tooledit.png[align="center",width=640]
 
 The 'tooledit' program can update the tool table file with
 edited changes by using the SaveFile button.  The SaveFile button
@@ -24,7 +27,7 @@ order by clicking on the column header.  A second click sorts
 in descending order.  Column sorting requires that the machine
 is configured with the default tcl version >= 8.5.
 
-image::images/tooledit-sort.png[align="center"]
+image::tooledit-sort.png[align="center"]
 
 On Debian Lucid 10.04 tcl/tk8.4 is the default.  You can add tcl/tk8.5 with
 the commands:
@@ -45,7 +48,7 @@ tool table parameter columns.  Since few machines use all
 parameters, the columns displayed can be limited with the
 following ini file setting:
 
-image::images/tooledit-columns.png[align="center"]
+image::tooledit-columns.png[align="center"]
 
 .INI File Syntax
 ----
@@ -102,4 +105,3 @@ By default, the program named 'tooledit' is used. This editor
 supports all tool table parameters, allows addition and deletion
 of tool entries, and performs a number of validity checks on
 parameter values.
-

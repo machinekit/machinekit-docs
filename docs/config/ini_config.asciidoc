@@ -920,7 +920,7 @@ image::encoder-counts-math.png[align="center"]
     error between commanded and actual position in machine units, resulting
     in a contribution to the computed voltage for the motor amplifier. The
     units on the P gain are volts per machine unit, e.g.,
-    image:images/p-term.png[height=25]
+    image:p-term.png[height=25]
 
 //latexmath:[$\frac{volt}{mu}$]. 
 
@@ -929,7 +929,7 @@ image::encoder-counts-math.png[align="center"]
     cumulative error between commanded and actual position in machine
     units, resulting in a contribution to the computed voltage for the
     motor amplifier. The units on the I gain are volts per machine unit
-    second, e.g., image:images/i-term.png[height=25]
+    second, e.g., image:i-term.png[height=25]
     
 //latexmath:[$\frac{volt}{mu\, s}$].
 
@@ -938,7 +938,7 @@ image::encoder-counts-math.png[align="center"]
     difference between the current and previous errors, resulting in a
     contribution to the computed voltage for the motor amplifier. The units
     on the D gain are volts per machine unit per second, e.g.,
-    image:images/i-term.png[height=25]
+    image:i-term.png[height=25]
 
 // latexmath:[$\frac{volt}{mu/s}$].
 
@@ -946,7 +946,7 @@ image::encoder-counts-math.png[align="center"]
     multiplied by the
     commanded position, resulting in a contribution to the computed voltage
     for the motor amplifier. The units on the FF0 gain are volts per
-    machine unit, e.g., image:images/p-term.png[height=25]
+    machine unit, e.g., image:p-term.png[height=25]
 
 // latexmath:[$\frac{volt}{mu}$].
 
@@ -954,7 +954,7 @@ image::encoder-counts-math.png[align="center"]
     multiplied by the
     change in commanded position per second, resulting in a contribution to
     the computed voltage for the motor amplifier. The units on the FF1 gain
-    are volts per machine unit per second, e.g., image:images/i-term.png[height=25]
+    are volts per machine unit per second, e.g., image:i-term.png[height=25]
 
 // latexmath:[$\frac{volt}{mu\, s}$].
 
@@ -963,7 +963,7 @@ image::encoder-counts-math.png[align="center"]
     change in commanded position per second per second, resulting in a
     contribution to the computed voltage for the motor amplifier. The units
     on the FF2 gain are volts per machine unit per second per second,
-    e.g., image:images/ff2.png[height=25]
+    e.g., image:ff2.png[height=25]
     
 // latexmath:[$\frac{volt}{mu\, s^{2}}$].
 
@@ -979,7 +979,7 @@ image::encoder-counts-math.png[align="center"]
      Specifically, when writing outputs, the Machinekit first converts the desired
     output in quasi-SI units to raw actuator values, e.g., volts for an
     amplifier DAC. This scaling
-    looks like: image:images/output-offset.png[]
+    looks like: image:output-offset.png[]
     
 // latexmath:[raw=\frac{output-offset}{scale}]
 
@@ -1009,11 +1009,11 @@ To do this, follow this procedure.
    desired voltage and measuring the result.
    
 . Do a least-squares linear fit to get coefficients a, b such
-   that image:images/calibration-1.png[]
+   that image:calibration-1.png[]
 . Note that we want raw output such that our measured result is
    identical to the commanded output. This means 
-.. image:images/calibration-2.png[]
-.. image:images/calibration-3.png[]
+.. image:calibration-2.png[]
+.. image:calibration-3.png[]
 . As a result, the a and b coefficients from the linear fit can be
    used as the scale and offset for the controller directly. 
 
