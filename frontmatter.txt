@@ -1,7 +1,4 @@
 ---
-layout: docs
 ---
-
-:docs-dir: docs
 
 :skip-front-matter:

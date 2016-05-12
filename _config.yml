@@ -16,3 +16,12 @@ asciidoctor:
   safe: 0
   attributes:
     - hardbreaks!
+
+defaults:
+  -
+    scope:
+# applies to all files under:
+      path: "docs"
+    values:
+      layout: "docs"
+      docs-dir: "docs"
