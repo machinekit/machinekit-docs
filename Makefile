@@ -14,12 +14,14 @@ ADOC_FILES := $(patsubst %.asciidoc, %.adoc,  $(ASCIIDOC_FILES))
 # fix links for includes and links to other pages
 %.adoc: %.asciidoc  frontmatter.txt
 	cat frontmatter.txt $< >$@
-	sed -i '/^=\{5,\}=*$=/d' $@
+	sed -i 's/\(^=\{5,\}=*$=\)/\/\/__\1/g' $@
 # fix includes
-	sed -i -e 's/\(^include::\)\(.*\)\(\.asciidoc\[.*\]\)/include::{{page.docs-dir}}\/\2\.adoc\[\]/g' $@
+	sed -i -e 's/\(^include::\)\(.*\)\(\.asciidoc\[.*\]\)/include::{{page.docs-dir}}\/\2\.asciidoc\[\]/g' $@
 # fix links for Jekyll
 	sed -i -e 's/\(link:\)\(.*\)\(\.asciidoc\)\(\[.*\]\)/link:..\/\2\4/g' $@
 	sed -i -e 's/^:imagesdir: /:imagesdir: ..\//g' $@
+	mv $@ $<
+	touch $@
 
 # target - build the .adoc files
 adoc-files:  $(ADOC_FILES)
