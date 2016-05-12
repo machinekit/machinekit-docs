@@ -25,3 +25,6 @@ defaults:
     values:
       layout: "docs"
       docs-dir: "docs"
+      edit-repo-branch: "https://github.com/mhaberler/machinekit-docs/edit/clean-jekyll-1/"
+
+
