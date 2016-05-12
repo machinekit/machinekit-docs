@@ -1,3 +1,4 @@
+
 = Opto22 Driver
 
 [[cha:opto22-driver]] (((Opto22 Driver)))
@@ -155,5 +156,3 @@ Note that Opto22 and Mesa use opposite numbering systems: Opto22
 position 23 = connector pin 1, and the position goes down as the 
 connector pin number goes up. Mesa Hostmot2 position 1 = connector pin 
 1, and the position number goes up as the connector pin number goes up. 
-
-

@@ -1,3 +1,4 @@
+
 = Pico Drivers
 
 [[cha:pico-drivers]] (((Pico PPMC Driver)))
@@ -226,5 +227,3 @@ can be specified.
    outputs, stepgens, PWMs) on one port. 
    These writes are organized into blocks of contiguous registers to be
    written in a block to minimize CPU overhead. 
-
-

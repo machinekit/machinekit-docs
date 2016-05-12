@@ -1,3 +1,4 @@
+
 = instcomp HAL Component Generator
 
 [[cha:instcomp-hal-component-generator]] (((instcomp HAL Component Generator)))

@@ -1,3 +1,6 @@
+
+:imagesdir: drivers/images
+
 = Mesa HostMot2 Driver 
 
 [[cha:mesa-hostmot2-driver]] (((Mesa HostMot2 Driver)))
@@ -259,7 +262,7 @@ configuration used above.
 
 .5i20 HAL Pins[[cap:5i20-HAL-Pins]]
 
-image::images/5i20-halpins.png[]
+image::5i20-halpins.png[]
 
 == Configurations
 

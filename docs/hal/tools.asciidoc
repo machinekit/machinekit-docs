@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = HAL Tools
 
 [[cha:hal-tools]] (((HAL Tools)))
@@ -68,9 +71,9 @@ See the man page for more options. See section <<sec:Halmeter,Halmeter>>.
   
 .Halmeter
 
-image::images/hal-meter01.png[]
+image::hal-meter01.png[]
 
-image::images/hal-meter02.png[]
+image::hal-meter02.png[]
 
 == Halscope[[sec:Halscope]]
 
@@ -79,4 +82,3 @@ value of pins, signals, and parameters as a function of time. Complete
 operating instructions should be located here eventually. For now,
 refer to section  <<sec:Tutorial-Halscope>> in the tutorial chapter,
 which explains the basics.
-

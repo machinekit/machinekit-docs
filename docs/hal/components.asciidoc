@@ -1,3 +1,4 @@
+
 = HAL Components
 
 [[cha:HAL-components]] (((HAL Components)))
@@ -429,4 +430,3 @@ rtapi_task_resume.3rtapi
 rtapi_task_start.3rtapi
 rtapi_task_wait.3rtapi
 ....
-

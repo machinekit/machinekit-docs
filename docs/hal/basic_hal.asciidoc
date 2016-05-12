@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = Basic HAL Tutorial
 
 [[cha:basic-hal-tutorial]] (((Basic HAL Tutorial)))
@@ -13,7 +16,7 @@ window.
 
 .HAL Configuration Window[[cap:HAL-Configuration-Window]]
 
-image::images/HAL_Configuration.png[align="center"]
+image::HAL_Configuration.png[align="center"]
 
 === loadrt [[sub:loadrt]] (((loadrt)))
 
@@ -123,7 +126,7 @@ additional pins, as long as the rules above are obeyed.
 
 .Signal Direction[[cap:Signal-Direction]]
 
-image::images/signal-direction.png[align="center"]
+image::signal-direction.png[align="center"]
 
 This example shows the signal xStep with the source being
 stepgen.0.out and with two readers, parport.0.pin-02-out and
@@ -520,5 +523,3 @@ Owner   Type  Dir         Value  Name
     10  s32   I/O             0  wsum.0.offset
     10  s32   Out             5  wsum.0.sum
 -----------------------------------------------------------
-
-

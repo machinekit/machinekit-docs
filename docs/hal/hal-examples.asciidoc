@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = HAL Examples
 
 All of these examples assume you are starting with a stepconf based
@@ -96,7 +99,7 @@ from either the abs.0.out pin or the X-IPM signal.
 
 .Velocity Example[[cap:Velocity-Example]]
 
-image::images/velocity-01.png[]
+image::velocity-01.png[]
 
 == Soft Start
 
@@ -170,7 +173,7 @@ then use the Pos slider in the Vertical box to set the positions.
 
 .Softstart[[cap:Softstart]]
 
-image::images/softstart-scope.png[]
+image::softstart-scope.png[]
 
 To see the effect of changing the set point values of any of the
 components you can change them in the terminal window. To see what
@@ -238,6 +241,3 @@ stop
 # unload HAL all components before exiting
 unloadrt all
 ----
-
-
-

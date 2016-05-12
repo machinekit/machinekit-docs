@@ -1,3 +1,4 @@
+
 = Motenc Driver
 
 [[cha:montec-driver]] (((Motenc Driver)))
@@ -96,5 +97,3 @@ watchdog enabled, cleared by dac-write).
 * '(funct) motenc.<board>.dac-write' - Writes the voltages to the DACs.
 * '(funct) motenc.<board>.digital-out-write' - Writes digital outputs.
 * '(funct) motenc.<board>.misc-update' - Updates misc stuff.
-
-

@@ -1,3 +1,4 @@
+
 = GS2 VFD Driver
 
 [[cha:gs2-vfd-driver]] (((GS2 VFD Driver)))
@@ -84,4 +85,3 @@ Where <n> is gs2_vfd or the name given during loading with the -n option.
 
 For an example of using this component to drive a spindle see the
 <<cha:gs2-spindle,GS2 Spindle>> example.
-

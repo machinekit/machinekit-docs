@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = HAL Component Descriptions
 
 [[cha:realtime-components]] (((Realtime Components)))
@@ -23,7 +26,7 @@ step type are set independently, and any combination can be selected.
 .Step Pulse Generator Block Diagram position mode
 (((Stepgen Block Diagram)))
 
-image::images/stepgen-block-diag.png[align="center"]
+image::stepgen-block-diag.png[align="center"]
 
 .Installing
 
@@ -160,7 +163,7 @@ the <<sub:parport-functions,parport reset>> function together with stepgen's
 [[fig:StepDir-timing]]
 .Step and Direction Timing
 
-image::images/stepgen-type0.png[align="center"]
+image::stepgen-type0.png[align="center"]
 
 .Step Type 1
 Step type 1 has two outputs, up and down. Pulses appear on one or the
@@ -188,19 +191,19 @@ limit.
 .Two-and-Three-Phase Step Types
 (((Two and Three Phase)))
 
-image::images/stepgen-type2-4.png[align="center"]
+image::stepgen-type2-4.png[align="center"]
 
 [[fig:Four-Phase]]
 .Four-Phase Step Types
 (((Four Phase)))
 
-image::images/stepgen-type5-10.png[align="center", width=800]
+image::stepgen-type5-10.png[align="center", width=800]
 
 [[fig:Five-Phase]]
 .Five-Phase Step Types
 (((Five Phase)))
 
-image::images/stepgen-type11-14.png[align="center"]
+image::stepgen-type11-14.png[align="center"]
 
 .Functions
 
@@ -361,7 +364,7 @@ diagram of one channel of encoder counter.
 .Encoder Counter Block Diagram
 (((Encoder Block Diagram)))
 
-image::images/encoder-block-diag.png[align="center"]
+image::encoder-block-diag.png[align="center"]
 
 .Installing
 
@@ -484,7 +487,7 @@ block diagram of a single PID loop.
 .PID Loop Block Diagram
 (((PID Block Diagram)))
 
-image::images/pid-block-diag.png[align="center"]
+image::pid-block-diag.png[align="center"]
 
 .Installing
 
@@ -870,5 +873,3 @@ when Bit 0 or Bit 0 and Bit1 is on and nothing else. The binary number is
 'b1010' (rotate the output 90 degrees CW). Enter this number into the
 calculator then change the display to hexadecimal and the number needed for
 function is '0xa'. The hexadecimal prefix is '0x'.
-
-

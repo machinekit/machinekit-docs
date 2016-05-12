@@ -1,3 +1,4 @@
+
 = Comp HAL Component Generator
 
 [[cha:comp-hal-component-generator]] (((Comp HAL Component Generator)))
@@ -718,5 +719,3 @@ which creates the following pins:
    logic.1.in-01, logic.1.in-02, logic.1.in-03, logic.1.in-04, 
  - 3-input AND and XOR gates: logic.2.and, logic.2.xor, logic.2.in-00,
    logic.2.in-01, logic.2.in-02
-
-

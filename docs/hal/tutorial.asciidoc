@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = Advanced HAL Tutorial
 
 [[cha:HAL-tutorial]] (((HAL Tutorial)))
@@ -445,7 +448,7 @@ The first window you will see is the 'Select Item to Probe' window.
 
 .Halmeter Select Window[[cap:HAL-Meter-Select-Window]]
 
-image::images/halmeter-select.png[align="center"]
+image::halmeter-select.png[align="center"]
 
 This dialog has three tabs. The first tab displays all of the HAL pins
 in the system. The second one displays all the signals, and the third
@@ -457,7 +460,7 @@ following figure.
 
 .Halmeter[[cap:Halmeter]]
 
-image::images/halmeter-1.png[align="center"]
+image::halmeter-1.png[align="center"]
 
 To change what the meter displays press the 'Select' button which
 brings back the 'Select Item to Probe' window.
@@ -817,7 +820,7 @@ figure.
 
 .Realtime function not linked dialog[[cap:Realtime-function-not-linked]]
 
-image::images/halscope-01.png[align="center"]
+image::halscope-01.png[align="center"]
 
 This dialog is where you set the sampling rate for the oscilloscope.
 For now we want to sample once per millisecond, so click on the 989 us
@@ -829,7 +832,7 @@ figure.
 
 .Initial scope window[[cap:Initial-scope-window]]
 
-image::images/halscope-02.png[align="center"]
+image::halscope-02.png[align="center"]
 
 === Hooking up the scope probes
 
@@ -850,7 +853,7 @@ of the signals in the HAL (only two for this example).
 
 .Select Channel Source[[cap:Select-Channel-Source]]
 
-image::images/halscope-03.png[align="center"]
+image::halscope-03.png[align="center"]
 
 To choose a signal, just click on it. In this case, we want channel 1
 to display the signal 'X-vel'. Click on the Signals tab then click on
@@ -858,7 +861,7 @@ to display the signal 'X-vel'. Click on the Signals tab then click on
 
 .Select Signal[[cap:Select-Signal]]
 
-image::images/halscope-04.png[align="center"]
+image::halscope-04.png[align="center"]
 
 The channel 1 button is pressed in, and channel number 1 and the name
 'X-vel' appear below the row of buttons. That display always indicates
@@ -868,7 +871,7 @@ position and scale always work on the selected one.
 
 .Halscope[[cap:HALScope]]
 
-image::images/halscope-05.png[align="center"]
+image::halscope-05.png[align="center"]
 
 To add a signal to channel 2, click the '2' button. When the dialog
 pops up, click the 'Signals' tab, then click on 'Y-vel'. We also want
@@ -894,7 +897,7 @@ something like the following figure.
 
 .Captured Waveforms[[cap:Captured-Waveforms]]
 
-image::images/halscope-06.png[align="center"]
+image::halscope-06.png[align="center"]
 
 The 'Selected Channel' box at the bottom tells you that the purple
 trace is the currently selected one, channel 4, which is displaying the
@@ -914,7 +917,7 @@ only. For larger adjustments the offset button should be used.
 
 .Vertical Adjustment[[cap:Vertical-Adjustment]]
 
-image::images/halscope-07.png[align="center"]
+image::halscope-07.png[align="center"]
 
 === Triggering
 
@@ -927,7 +930,7 @@ use channel 3, the triangle wave as shown in the following figure.
 
 .Trigger Source Dialog[[cap:Trigger-Source-Dialog]]
 
-image::images/halscope-08.png[align="center"]
+image::halscope-08.png[align="center"]
 
 After setting the trigger source, you can adjust the trigger level and
 trigger position using the sliders in the 'Trigger' box along the right
@@ -947,7 +950,7 @@ scope display looks something like the following figure.
 
 .Waveforms with Triggering[[cap:Waveforms-with-Triggering]]
 
-image::images/halscope-09.png[align="center"]
+image::halscope-09.png[align="center"]
 
 === Horizontal Adjustments
 
@@ -967,7 +970,7 @@ samples at 20KHz, or about 0.20 seconds.
 
 .Sample Rate Dialog[[cap:Sample-Rate-Dialog]]
 
-image::images/halscope-10.png[align="center"]
+image::halscope-10.png[align="center"]
 
 === More Channels
 
@@ -990,7 +993,7 @@ following figure.
 
 .Step Pulses[[cap:Step-Pulses]]
 
-image::images/halscope-11.png[align="center"]
+image::halscope-11.png[align="center"]
 
 === More samples
 
@@ -1007,4 +1010,3 @@ load it and request 80000 total samples, so that when sampling
 4 channels at a time there will be 20000 samples per channel. 
 (If 'scope_rt' was already loaded, the numeric argument to 
 halscope will have no effect).
-

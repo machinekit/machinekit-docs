@@ -1,3 +1,6 @@
+
+:imagesdir: hal/images
+
 = HAL Introduction
 
 [[cha:hal-introduction]] (((HAL Introduction)))
@@ -91,7 +94,7 @@ of hardware system integration, but who do not know how to connect the
 hardware to Machinekit. See the <<sec:Remote-Start-Example,Remote Start
 Example>> section in the HAL UI Examples documentation.
 
-image::images/remote-start.png[]
+image::remote-start.png[]
 
 The traditional hardware design as described above ends at the edge of
 the main control. Outside the control are a bunch of relatively simple
@@ -369,5 +372,3 @@ Other connections would be made by the integrator. These might include
 hooking the STG driver's encoder read and DAC write functions to the
 servo thread, or hooking stepgen's function to the base-thread, along
 with the parport function(s) to write the steps to the port.
-
-

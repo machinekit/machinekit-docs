@@ -1,3 +1,4 @@
+
 = Servo To Go Driver
 
 [[cha:servo-to-go-driver]] (((Servo To Go Driver)))
@@ -102,4 +103,3 @@ low.
    all HAL in-<pinnum> and in-<pinnum>-not pins.
 * 'stg.do-write' - Reads all HAL out-<pinnum> pins and updates all 
    physical output pins.
-

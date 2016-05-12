@@ -1,3 +1,4 @@
+
 = arm355x eQEP encoder driver
 
 [[cha:arm355xQEP-driver]] (((arm335x eQEP driver)))
@@ -54,5 +55,3 @@ to the names of the hardware instance specified on the loadrt line.
 
 * '(funct) eqep.update' - Reads all hardware counters and updates calculated
    values, for all decoders.
-
-
