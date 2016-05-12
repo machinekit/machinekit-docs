@@ -165,7 +165,7 @@ This driver features:
 
 .Pluto-Servo Pinout(((pluto-servo pinout)))[[fig:Pluto-Servo-Pinout]]
 
-image::images/pluto-pinout.png[align="center"]
+image::pluto-pinout.png[align="center"]
 
 .Pluto-Servo Alternate Pin Functions[[table:Pluto-Servo-Alternate-Pin]](((pluto-servo alternate pin functions)))
 
@@ -263,7 +263,7 @@ connector.
 
 .Pluto-Step Pinout[[fig:Pluto-Step-Pinout]](((pluto-step pinout)))
 
-image::images/pluto-step-pinout.png[align="center"]
+image::pluto-step-pinout.png[align="center"]
 
 === Input latching and output updating
 
@@ -284,7 +284,7 @@ step timings are always applied to all channels.
 
 .Pluto-Step Timings[[fig:Pluto-Step-Timings]](((pluto-step timings)))
 
-image::images/pluto_step_waveform.png[align="center"]
+image::pluto_step_waveform.png[align="center"]
 
 === HAL Functions, Pins and Parameters
 
