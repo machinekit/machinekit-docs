@@ -18,7 +18,7 @@ ADOC_FILES := $(patsubst %.asciidoc, %.adoc,  $(ASCIIDOC_FILES))
 # fix includes
 	sed -i -e 's/\(^include::\)\(.*\)\(\.asciidoc\[.*\]\)/include::{docs-dir}\/\2\.adoc\[\]/g' $@
 # fix links for Jekyll
-	sed -i -e 's/\(link:\)\(.*\)\(\.asciidoc\)\(\[.*\]\)/\1\2\4/g' $@
+	sed -i -e 's/\(link:\)\(.*\)\(\.asciidoc\)\(\[.*\]\)/link:..\/\2\4/g' $@
 	sed -i -e 's/^:imagesdir: /:imagesdir: ..\//g' $@
 	
 # target - build the .adoc files
