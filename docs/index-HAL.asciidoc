@@ -1,9 +1,3 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
 
 = Hardware Abstract Layer
 
@@ -68,10 +62,3 @@ link:../src/drivers/pluto_p.asciidoc[pluto_p]
 link:../src/drivers/servo_to_go.asciidoc[servo_to_go]
 
 link:../src/drivers/GM.asciidoc[GM]
-
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===

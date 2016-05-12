@@ -1,8 +1,3 @@
-[cols="3*"]
-|===
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
 
 == Introduction
 
@@ -24,10 +19,3 @@ link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyrigh]
 - link:setting-up/developing-setting-up.asciidoc[Setting up development environment]
 
 - link:developing/writing-components.asciidoc[Write HAL Components]
-
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===

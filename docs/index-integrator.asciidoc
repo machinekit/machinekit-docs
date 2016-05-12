@@ -1,9 +1,3 @@
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
 
 Integrator Manual
 =================
@@ -148,10 +142,3 @@ link:../src/common/GPLD_Copyright.asciidoc[GPLD_Copyright]
 :leveloffset: 1
 
 link:../src/install/ConfigurationChanges.asciidoc[Configuration Changes]
-
-[cols="3*"]
-|===
-|
-|link:../index.asciidoc[Back to the main Documents index]
-|
-|===
