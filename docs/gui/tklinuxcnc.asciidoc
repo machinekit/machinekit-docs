@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = TkLinuxcnc GUI
 
 [[cha:tklinuxcnc-gui]] (((TkLinuxcnc GUI)))
@@ -12,7 +15,7 @@ shown.
 
 .TkLinuxcnc Window[[cap:TkLinuxcnc-Window]]
 
-image::images/tkemc.png[align="center"]
+image::tkemc.png[align="center"]
 
 == Getting Started
 
@@ -130,7 +133,7 @@ optional stop switch (if the button is green the program execution will
 be stopped on any M1 encountered).
 
 .TkLinuxcnc Interpreter / program control[[cap:TkLinuxcnc-Interpreter]]
-image::images/tkemc-interp.png[align="center"]
+image::tkemc-interp.png[align="center"]
 
 ==== Text Program Display Area
 
@@ -167,7 +170,7 @@ color).
 
 .TkLinuxcnc Override Limits & Jogging increments example[[cap:Override-Limits]]
 
-image::images/tkemc-override-limits.png[align="center"]
+image::tkemc-override-limits.png[align="center"]
 
 ==== The Spindle group
 
@@ -192,7 +195,7 @@ on, and not set to MDI mode, the code entry controls are unavailable.
 
 .The Code Entry tab[[cap:The-Code-Entry]]
 
-image::images/tkemc-mdi.png[align="center"]
+image::tkemc-mdi.png[align="center"]
 
 ==== MDI:
 
@@ -258,5 +261,3 @@ following table.
 |[, ] | Jog fourth axis
 |ESC | Stop execution
 |========================================
-
-

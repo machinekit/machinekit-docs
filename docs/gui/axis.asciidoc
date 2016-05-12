@@ -327,43 +327,43 @@ Full details in the INI file docs
 
 From left to right in the Axis display, the toolbar buttons (keyboard shortcuts shown [in brackets]) are: 
 
-* image:images/tool_estop.gif[] Toggle Emergency Stop [F1] (also called E-Stop)(((ESTOP))))
+* image:tool_estop.gif[] Toggle Emergency Stop [F1] (also called E-Stop)(((ESTOP))))
 
-* image:images/tool_power.gif[] Toggle Machine Power [F2](((machine on)))
+* image:tool_power.gif[] Toggle Machine Power [F2](((machine on)))
 
-* image:images/tool_open.gif[] Open G Code file [O]
+* image:tool_open.gif[] Open G Code file [O]
 
-* image:images/tool_reload.gif[] Reload current file [Ctrl-R]
+* image:tool_reload.gif[] Reload current file [Ctrl-R]
 
-* image:images/tool_run.gif[] Begin executing the current file [R]
+* image:tool_run.gif[] Begin executing the current file [R]
 
-* image:images/tool_step.gif[] Execute next line [T]
+* image:tool_step.gif[] Execute next line [T]
 
-* image:images/tool_pause.gif[] Pause Execution [P] Resume Execution[S]
+* image:tool_pause.gif[] Pause Execution [P] Resume Execution[S]
 
-* image:images/tool_stop.gif[] Stop Program Execution [ESC]
+* image:tool_stop.gif[] Stop Program Execution [ESC]
 
-* image:images/tool_blockdelete.gif[] Toggle Skip lines with "/" [Alt-M-/]
+* image:tool_blockdelete.gif[] Toggle Skip lines with "/" [Alt-M-/]
 
-* image:images/tool_optpause.gif[] Toggle Optional Pause [Alt-M-1]
+* image:tool_optpause.gif[] Toggle Optional Pause [Alt-M-1]
 
-* image:images/tool_zoomin.gif[] Zoom In
+* image:tool_zoomin.gif[] Zoom In
 
-* image:images/tool_zoomout.gif[] Zoom Out
+* image:tool_zoomout.gif[] Zoom Out
 
-* image:images/tool_axis_z.gif[] Top view
+* image:tool_axis_z.gif[] Top view
 
-* image:images/tool_axis_z2.gif[] Rotated Top view
+* image:tool_axis_z2.gif[] Rotated Top view
 
-* image:images/tool_axis_x.gif[] Side view
+* image:tool_axis_x.gif[] Side view
 
-* image:images/tool_axis_y.gif[] Front view
+* image:tool_axis_y.gif[] Front view
 
-* image:images/tool_axis_p.gif[] Perspective view
+* image:tool_axis_p.gif[] Perspective view
 
-* image:images/tool_rotate.gif[] Toggle between Drag and Rotate Mode [D]
+* image:tool_rotate.gif[] Toggle between Drag and Rotate Mode [D]
 
-* image:images/tool_clear.gif[] Clear live backplot [Ctrl-K]
+* image:tool_clear.gif[] Clear live backplot [Ctrl-K]
 
 
 === Graphical Display Area
@@ -375,11 +375,11 @@ It shows the position of the machine.
 To the left of the axis name, an origin symbol is shown 
 if the axis has been homed. 
 
-image:images/axis-homed.png[] 
+image:axis-homed.png[] 
 
 A limit symbol is shown if the axis is on one of its limit switches.
 
-image:images/axis-limit.png[]
+image:axis-limit.png[]
 
 To properly interpret these numbers, refer to the 'Position:'
 indicator in the status bar. If the position is 'Absolute', then the
@@ -388,7 +388,7 @@ displayed number is in the machine coordinate system. If it is
 system. When the coordinates displayed are relative and an offset has
 been set, the display will include a cyan 'machine origin' marker. 
 
-image:images/axis-machineorigin.png[]
+image:axis-machineorigin.png[]
 
 If the position is 'Commanded', then it is the ideal position 
 --for instance, the exact coordinate given in a 'G0' command. 
@@ -833,7 +833,7 @@ When in lathe mode, the shape of the loaded tool (if any) is shown.
 
 .Lathe Tool Shape[[cap:Lathe-Tool-Shape]]
 
-image:images/axis-lathe-tool.png[align="center"]
+image:axis-lathe-tool.png[align="center"]
 
 == Advanced Configuration
 

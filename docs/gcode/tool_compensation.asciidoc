@@ -26,7 +26,7 @@ available when a tool is loaded with 'Tn M6'.
 
 .Touch Off Tool Table[[cap:Touch-Off-Tool]]
 
-image::images/ToolTable-TouchOff.png[align="center"]
+image::ToolTable-TouchOff.png[align="center"]
 
 === Using G10 L1/L10/L11
 
@@ -293,7 +293,7 @@ on the next move.
 
 .Compensation End Point[[cap:Compensation-End-Point]]
 
-image::images/comp-path.png[align="center"]
+image::comp-path.png[align="center"]
 
 === Overview
 
@@ -319,7 +319,7 @@ entry move.
 
 .Entry Move[[cap:Entry-Move]]
 
-image::images/comp02.png[]
+image::comp02.png[]
 
 .Z Motion
 
@@ -342,11 +342,10 @@ Rapid moves may be programed while compensation is turned on.
 
 .Outside Profile[[cap:Outside-Profile]]
 
-image::images/outside-comp.png[]
+image::outside-comp.png[]
 
 .Inside Profile
 
 .Inside Profile[[cap:Inside-Profile]]
 
-image::images/inside-comp.png[]
-
+image::inside-comp.png[]

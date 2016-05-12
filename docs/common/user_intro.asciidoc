@@ -1,3 +1,6 @@
+
+:imagesdir: common/images
+
 = Machinekit User Introduction
 
 [[cha:machinekit-user-introduction]] (((Machinekit User Introduction)))
@@ -29,7 +32,7 @@ which allows configuration of Machinekit without the need of recompiling.
 
 .Simple Machinekit Controlled Machine[[fig:Typical_machine]]
 
-image::images/whatstep1.png[align="center"]
+image::whatstep1.png[align="center"]
 
 The above figure shows a simple block diagram showing
 what a typical 3-axis Machinekit system might look like. This diagram shows a
@@ -52,13 +55,13 @@ interfaces:
 
 .Axis GUI[[fig:The-Axis-GUI]]
 
-image::images/axis-2.5.png[align="center"]
+image::axis-2.5.png[align="center"]
 
 * <<cha:touchy-gui,'Touchy'>>, a touch screen GUI.
 
 .Touchy GUI[[fig:touchy-gui]]
 
-image::images/touchy.png[align="center"]
+image::touchy.png[align="center"]
 
 * <<cha:ngcgui,'NGCGUI'>>, a subroutine GUI that provides 'fill in the blanks'
    programming of G code. It also supports concatenation of subroutine files
@@ -66,26 +69,26 @@ image::images/touchy.png[align="center"]
 
 .NGCGUI GUI embedded into Axis[[fig:ngcgui-gui]]
 
-image::images/ngcgui.png[align="center"]
+image::ngcgui.png[align="center"]
 
 * <<cha:mini-gui,'Mini'>>, a Tcl/Tk-based GUI 
 
 .The Mini GUI[[fig:The-Mini-GUI]]
 
-image::images/mini.png[align="center"]
+image::mini.png[align="center"]
 
 * <<cha:tkmachinekit-gui,'TkMachinekit'>>, a Tcl/Tk-based GUI
 
 .The TkMachinekit GUI[[fig:The-TkMachinekit-GUI]]
 
-image::images/tkemc.png[align="center"]
+image::tkemc.png[align="center"]
 
 * <<cha:keystick-gui,'Keystick'>>, a character-based screen graphics program
   suitable for minimal installations (without the X server running).
 
 .The Keystick GUI[[fig:The-Keystick-GUI]]
 
-image::images/keystick.png[align="center"]
+image::keystick.png[align="center"]
 
 
 * 'Xemc', an X-Windows program. A simulator configuration of Xemc can be 
@@ -105,14 +108,14 @@ image::images/keystick.png[align="center"]
 
 .PyVCP with Axis[[fig:pyvcp-with-axis]]
 
-image::images/axis-pyvcp.png[align="center"]
+image::axis-pyvcp.png[align="center"]
 
 * 'GladeVCP' - a glade based virtual control panel that can be added to
    the Axis GUI or be stand alone.
 
 .GladeVCP with Axis[[fig:gladevcp-with-axis]]
 
-image::images/axis-gladevcp.png[align="center"]
+image::axis-gladevcp.png[align="center"]
 
 See the Integrators manual for more information on Virtual Control Panels.
 
@@ -175,5 +178,3 @@ also blurs the distinction between Manual and MDI because some Manual
 commands like Touch Off are actually implemented by sending MDI
 commands. It does this by automatically changing to the mode that is
 needed for the action the user has requested.
-
-

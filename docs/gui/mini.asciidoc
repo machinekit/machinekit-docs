@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = MINI GUI
 
 [[cha:mini-gui]] (((Mini GUI)))
@@ -6,7 +9,7 @@
 
 .The Mini Graphical Interface (upon starting)[[fig:startmini]]
 
-image::images/mini01.png[align="center"]
+image::mini01.png[align="center"]
 
 Mini was designed to be a full screen graphical interface.
 It was first written for the Sherline(((Sherline))) CNC but is
@@ -24,7 +27,7 @@ Operators Manual.]
 
 .Mini Display for a Running Machinekit[[fig:runmini]]
 
-image::images/mini02.png[align="center"]
+image::mini02.png[align="center"]
 
 The Mini screen is laid out in several sections. These include a menu
 across the top, a set of main
@@ -162,7 +165,7 @@ through the available sizes.
 
 .Manual Mode Buttons[[cap:Manual-Mode-Buttons]]
 
-image::images/miniman.png[align="center"]
+image::miniman.png[align="center"]
 
 .From the Sherline CNC Operators Manual: 
 ***********************************************************************
@@ -225,7 +228,7 @@ the same as they do with the tkMachinekit graphical interface.
 
 .Auto Mode[[cap:Auto-Mode]]
 
-image::images/miniauto.png[align="center"]
+image::miniauto.png[align="center"]
 
 Auto mode does not normally display the active or modal codes. If the
 operator wishes to check these, use menu Info→Active_G-Codes. This
@@ -429,7 +432,7 @@ described in detail below.
 
 .Mini Text Editor[[cap:Mini-Text-Editor]]
 
-image::images/miniedit.png[align="center"]
+image::miniedit.png[align="center"]
 
 The editor is rather limited compared to many modern text editors. It
 does not have 'undo' nor 'paste' between windows with the clipboard. 
@@ -450,7 +453,7 @@ when you click on the editor button on the top menu.
 
 .Minis Backplotter[[cap:Minis-Backplotter]]
 
-image::images/minibkplot.png[align="center"]
+image::minibkplot.png[align="center"]
 
 Backplot [Backplot] will show the tool path that can be viewed from a
 chosen direction. '3-D' is the default. Other choices and controls are
@@ -487,7 +490,7 @@ is running or when the program is paused.
 
 .Mini Tool Display[[cap:Mini-Tool-Display]]
 
-image::images/minitool.png[align="center"]
+image::minitool.png[align="center"]
 
 The [Add Tools] and [Remove Tools] buttons work on the bottom of the
 tool list so you will want to fill in tool information in descending
@@ -508,7 +511,7 @@ an axis to a teach position.
 
 .Mini Offset Display[[cap:Mini-Offset-Display]]
 
-image::images/minioffsets.png[align="center"]
+image::minioffsets.png[align="center"]
 
 You can also teach using an edgefinder by adding the radius and length
 to the offset_by widgets. When you do this you may need to add or
@@ -588,5 +591,3 @@ The following only work with a machine using auxiliary I/O
 One of the features of Mini is that it displays any axis above number
 2 as a rotary and will display degree units for it. It also converts to
 degree units for incremental jogs when a rotary axis has the focus.
-
-

@@ -1,3 +1,4 @@
+
 = CONFIGURATION SELECTOR
 
 [[cha:selector]] (((CONFIGURATION SELECTOR)))
@@ -104,5 +105,3 @@ on the next invocation of the Configuration Selector.
 [NOTE]
 Under the Apps directory, only applications that are usefully modified
 by the user are offered for copying to the user's directory.
-
-

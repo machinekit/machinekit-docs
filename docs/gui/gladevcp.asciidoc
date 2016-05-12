@@ -630,11 +630,11 @@ base Gtk classes.
 
 // .Buttons
 Check button:
-image:images/checkbutton.png[]
+image:checkbutton.png[]
 Radio buttons:
-image:images/radiobutton.png[]
+image:radiobutton.png[]
 Toggle button:
-image:images/button.png[]
+image:button.png[]
 .
 
 [TIP]
@@ -664,7 +664,7 @@ values. Also, set adjustment 'Page size' and 'Page increment' to zero
 to avoid warnings.
 
 Example HAL_HScale:
-image:images/hscale.png[]
+image:hscale.png[]
 .
 
 [[gladevcp:HAL_SpinButton]]
@@ -681,7 +681,7 @@ To be useful, Spinbuttons need an adjustment value like scales,
 see above.
 
 Example SpinButton:
-image:images/spinbutton.png[]
+image:spinbutton.png[]
 
 === Hal_Dial
 
@@ -1041,7 +1041,7 @@ This will be called at any edge of the signal and also during program
 start up to report the current value.
 
 Example LEDs:
-image:images/leds.png[]
+image:leds.png[]
 .
 
 [[gladevcp:HAL_ProgressBar]]
@@ -1077,7 +1077,7 @@ text_template::
       +{"value":value}+
 
 Example HAL_ProgressBar:
-image:images/progressbar2.png[]
+image:progressbar2.png[]
 .
 
 [[gladevcp:HAL_ComboBox]]
@@ -1167,9 +1167,9 @@ z0_border, z1_border::
    from 0 to 1.
 
 Horizontal bar:
-image:images/hal_hbar.png[]
+image:hal_hbar.png[]
 Vertical bar:
-image:images/vscale.png[]
+image:vscale.png[]
 .
 
 [[gladevcp:HAL_Meter]]
@@ -1206,7 +1206,7 @@ z0_border, z1_border::
    last border to max. Borders are set as values in range min-max.
 
 Example HAL Meters:
-image:images/hal_meter.png[]
+image:hal_meter.png[]
 .
 === HAL_Graph
 
@@ -1324,7 +1324,7 @@ Hints::
     as rotation center point
     
 Example:
-image:images/gremlin.png[]
+image:gremlin.png[]
 
 [[gladevcp::HAL_Offset]]
 === HAL_Offset
@@ -1849,7 +1849,7 @@ and use the glade Fixed widget to position widgets on this image.
 
 The code for the below example can be found in +configs/apps/gladevcp/animated-backdrop+:
 
-image:images/small-screenshot.png[]
+image:small-screenshot.png[]
 
 == Action Widgets reference
 

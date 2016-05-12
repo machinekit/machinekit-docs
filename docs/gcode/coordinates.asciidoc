@@ -1,3 +1,6 @@
+
+:imagesdir: gcode/images
+
 = Coordinate System
 
 [[cha:coordinate-system]] (((Coordinate System)))
@@ -39,7 +42,7 @@ based upon absolute machine position is desired.
 
 == Fixture Offsets (G54-G59.3)
 
-image::images/offsets.png[]
+image::offsets.png[]
 
 .Fixture Offsets[[cap:Fixture-Offsets]]
 
@@ -337,5 +340,3 @@ m2 that ends the program. If you do not, other programs that you might
 run after this one will also use that G92 offset. Furthermore it would
 save the G92 values when you shut down the Machinekit and they will be
 recalled when you start up again.
-
-

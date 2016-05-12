@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = KEYSTICK GUI
 
 [[cha:keystick-gui]] (((KEYSTICK)))
@@ -6,7 +9,7 @@
 == Introduction
 
 .The Mini Graphical Interface[[fig:keystick]]
-image::images/keystick.png[align="center"]
+image::keystick.png[align="center"]
 
 Keystick is a minimal text based interface.
 
@@ -23,5 +26,3 @@ DISPLAY = keystick
 Keystick is very simple to use. In the MDI Mode you simply start
 typing the g code and it shows up in the bottom text area. The '?' key
 toggles help.
-
-

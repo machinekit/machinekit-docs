@@ -1,3 +1,6 @@
+
+:imagesdir: gcode/images
+
 = G Code Overview
 
 [[cha:g-code-overview]] (((G Code Overview)))
@@ -883,7 +886,7 @@ distance from the XY zero position increased with each line.
 
 .Polar Spiral[[fig:Polar-Spiral]]
 
-image::images/polar01.png[align="center"]
+image::polar01.png[align="center"]
 
 The following code will produce our square pattern.
 
@@ -901,7 +904,7 @@ end point distance is the same for each line.
 
 .Polar Square[[fig:Polar-Square]]
 
-image::images/polar02.png[align="center"]
+image::polar02.png[align="center"]
 
 It is an error if:
 
@@ -1273,14 +1276,3 @@ is written.
 |5161 | 0.0 
 |5162 | 0.0 
 |========================================
-
-
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 = Touchy GUI
 
 [[cha:touchy-gui]] (((Touchy GUI)))
@@ -10,7 +13,7 @@ with a wheel/MPG and a few buttons and switches.
 
 .Touchy
 
-image::images/touchy.png[]
+image::touchy.png[]
 
 == Panel Configuration
 

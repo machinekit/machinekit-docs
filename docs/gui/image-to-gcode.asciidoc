@@ -1,8 +1,11 @@
+
+:imagesdir: gui/images
+
 = Image to G Code
 
 [[cha:image-to-g-code]] (((Image to G Code)))
 
-image::images/image-to-gcode.png[align="center"]
+image::image-to-gcode.png[align="center"]
 
 == What is a depth map?
 
@@ -179,5 +182,4 @@ offset is 0.1 inches.
 
 .Roughing passes and final pass[[roughing-passes]]
 
-image::images/i2g-roughing.png[]
-
+image::i2g-roughing.png[]

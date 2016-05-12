@@ -1,3 +1,6 @@
+
+:imagesdir: common/images
+
 = Important User Concepts
 
 [[cha:important-user-concepts]] (((User Concepts)))
@@ -126,7 +129,7 @@ velocity as planned.
 
 .Naive Cam Detector
 
-image::images/naive-cam.png[align="center"]
+image::naive-cam.png[align="center"]
 
 === Planning Moves
 
@@ -293,10 +296,10 @@ shown by the 'Tool Direction' image. This makes the 'tool' move in the
 correct direction in relation to the material.
 
 .Mill Configuration
-image::images/mill-diagram.png[align="center"]
+image::mill-diagram.png[align="center"]
 
 The following diagram shows a typical lathe showing direction of travel
 of the tool and limit switches.
 
 .Lathe Configuration
-image::images/lathe-diagram.png[align="center"]
+image::lathe-diagram.png[align="center"]

@@ -1,3 +1,6 @@
+
+:imagesdir: gui/images
+
 [[cha:gmoccapy]](((GUI, GMOCCAPY)))
 
 = GMOCCAPY
@@ -29,7 +32,7 @@ other users. At the Moment it is available in English, German, Spanish, Polish,
 Serbian and Hungarian. Feel free to help me to introduce more languages,
 *nieson@web.de*. If you need help, don't hesitate to ask.
 
-image::images/gmoccapy_4_axis.png[align="left"]
+image::gmoccapy_4_axis.png[align="left"]
 
 == Requirements
 
@@ -58,7 +61,7 @@ You will receive updates with the regular deb packages.
 You will get a similar screen to the following:
 The design may variate depending on your config.
 
-image::images/gmoccapy_3_axis.png[align="left"]
+image::gmoccapy_3_axis.png[align="left"]
 
 == Basic Configuration
 
@@ -267,23 +270,23 @@ Here are some examples:
 
 .ntb_user_tabs - with integrated camview program
 
-image::images/gmoccapy_ntb_user_tab.png[align="left"]
+image::gmoccapy_ntb_user_tab.png[align="left"]
 
 .ntb_preview - as maximized version
 
-image::images/gmoccapy_ntb_preview_maximized_2.png[align="left"]
+image::gmoccapy_ntb_preview_maximized_2.png[align="left"]
 
 .ntb_preview
 
-image::images/gmoccapy_ntb_preview.png[align="left"]
+image::gmoccapy_ntb_preview.png[align="left"]
 
 .box_left - showing gmoccapy in edit mode
 
-image::images/gmoccapy_with_left_box_in_edit_mode.png[align="left"]
+image::gmoccapy_with_left_box_in_edit_mode.png[align="left"]
 
 .box_right - and gmoccapy in MDI mode
 
-image::images/gmoccapy_with_right_panel_in_MDI_mode.png[align="left"]
+image::gmoccapy_with_right_panel_in_MDI_mode.png[align="left"]
 
 .Configuration of User Created Messages
 
@@ -362,7 +365,7 @@ This will add 5 macros to the MDI button list.
 Please note, that maximal 9 macros will appear in the GUI, due to place
 reasons. But it is no error placing more in your INI file.
 
-image::images/gmoccapy_mdi_hidden_keyboard.png[align="left"]
+image::gmoccapy_mdi_hidden_keyboard.png[align="left"]
 
 The name of the file must be *exactly the same* as the name given in the MACRO
 line. So the macro '*i_am_lost*' will call the file '*i_am_lost.ngc*'.
@@ -425,7 +428,7 @@ After pushing the '*execute macro button*', you will be asked to enter the
 values for '*X-pos Y-pos Z-pos*' and the macro will only run if all values
 have been given.
 
-image::images/gmoccapy_getting_macro_info.png[align="left"]
+image::gmoccapy_getting_macro_info.png[align="left"]
 
 [[gmoccapy:traj-section]]
 
@@ -487,7 +490,7 @@ These pins are made available to be able to use the screen without an touch
 panel, or protect it from excessive use by placing hardware buttons around
 the panel.
 
-image::images/gmoccapy_0_9_7_sim_hardware_button.png[align="left"]
+image::gmoccapy_0_9_7_sim_hardware_button.png[align="left"]
 
 === Velocities And Overrides
 
@@ -717,7 +720,7 @@ get the message to change to 'tool number 3', but also the description of that
 tool like '7.5 mm 3 flute cutter'. The information is taken from the tool
 table, so it is up to you what to display.
 
-image::images/manual_toolchange.png[align="left"]
+image::manual-tool-change.png[align="left"]
 
 * gmoccapy.toolchange-number HAL_S32 The number of the tool to be changed
 * gmoccapy.toolchange-change HAL_BIT Indicate that a tool has to be changed
@@ -738,7 +741,7 @@ This pins allows you to show the active tool offset values for X and Z in the
 tool information frame. You should know that they are only active after G43
 has been sent.
 
-image::images/gmoccapy_0_9_7_tool_info.png[align="left"]
+image::gmoccapy_0_9_7_tool_info.png[align="left"]
 
 * gmoccapy.tooloffset-x
 * gmoccapy.tooloffset-z
@@ -783,7 +786,7 @@ You should follow these steps:
 
 here is a small sketch:
 
-image::images/sketch_auto_tool_measurement.png[align="left"]
+image::sketch_auto_tool_measurement.png[align="left"]
 
 With the first given tool change the tool will be measured and the offset will
 be set automatically to fit the block height. The advantage of the gmoccapy
@@ -926,14 +929,14 @@ net tool-prep-loop iocontrol.0.tool-prepare <= iocontrol.0.tool-prepared
 == The Settings Page
 
 To enter the page you will have to click on
-image:images/gmoccapy_settings_button.png[align="left"]
+image:gmoccapy_settings_button.png[align="left"]
 and give an unlock code, witch is *123* as default. If you want to change it
 at this time you will have to edit the hidden preference file, see
 <<gmoccapy:display-section,the display section>> for details.
 
 The page looks at the moment like so:
 
-image::images/gmoccapy_settings_appearance.png[align="left"]
+image::gmoccapy_settings_appearance.png[align="left"]
 
 The page is separated in three main tabs:
 
@@ -1128,7 +1131,7 @@ Jump to dir::
     you can set here the directory to jump to if you press the corresponding button 
     in the file selection dialog.
 
-image::images/gmoccapy_file_selection_dialog_with_keyboard.png[align="left"]
+image::gmoccapy_file_selection_dialog_with_keyboard.png[align="left"]
 
 Themes and Sounds::
     This lets the user select what desktop theme to apply and what error and messages sounds should be played.
@@ -1136,7 +1139,7 @@ Themes and Sounds::
 
 === Hardware
 
-image::images/gmoccapy_settings_hardware.png[align="left"]
+image::gmoccapy_settings_hardware.png[align="left"]
 
 Hardware MPG Scales::
 For the different Hal Pin to connect MPG Wheels to, you may select individual scales to be applied.
@@ -1227,7 +1230,7 @@ This button can be activated using the
 
 === Advanced Settings
 
-image::images/gmoccapy_settings_advanced.png[align="left"]
+image::gmoccapy_settings_advanced.png[align="left"]
 
 [[gmoccapy:tool-measurement]]
 
@@ -1341,11 +1344,11 @@ jog buttons will be arranged in a different order.
 
 .Normal Lathe
 
-image::images/gmoccapy_lathe.png[align="left"]
+image::gmoccapy_lathe.png[align="left"]
 
 .Back Tool Lathe
 
-image::images/gmoccapy_back_tool_lathe.png[align="left"]
+image::gmoccapy_back_tool_lathe.png[align="left"]
 
 As you see the R DRO has a black background and the D DRO is gray. This will
 change according to the active G-Code G7 or G8. The active mode is visible by
@@ -1376,7 +1379,7 @@ offset and the tool table is showing all lathe relevant information.
 
 == Plasma Specific Section
 
-image::images/gmoccapy_plasma_1.png[align="left"]
+image::gmoccapy_plasma_1.png[align="left"]
 
 There is a very good WIKI, which is actually growing, maintained by Marius
 see http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Gmoccapy_plasma[Plasma wiki page]
@@ -1425,7 +1428,7 @@ Auto Tool Measurement Machine = http://youtu.be/1arucCaDdX4
 
 If you get strange numbers in the info area of gmoccapy like:
 
-image::images/strange_numbers.png[align="left"]
+image::strange_numbers.png[align="left"]
 
 You have made your config file using an older version of StepConfWizard.
 It has made a wrong entry in the INI file under the [TRAJ] named

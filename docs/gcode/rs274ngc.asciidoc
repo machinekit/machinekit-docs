@@ -1,3 +1,4 @@
+
 = RS274/NGC Differences
 
 [[cha:rs274ngc-programs]] (((RS274/NGC Programs)))
@@ -113,4 +114,3 @@ U, V, and W axes::
 
 Machinekit allows machines with up to 9 axes by defining an additional 
 set of 3 linear axes known as U, V and W
-

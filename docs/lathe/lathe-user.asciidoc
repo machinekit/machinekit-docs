@@ -1,3 +1,6 @@
+
+:imagesdir: lathe/images
+
 = Lathe User Information
 
 [[cha:lathe-user-information]] (((Lathe User Information)))
@@ -61,23 +64,23 @@ The FRONTANGLE and BACKANGLE are clockwise starting at a line parallel to Z+.
 
 .Lathe Tool Orientations[[cap:Lathe-Tool-Orientations]]
 
-image::images/tool_positions.png[]
+image::tool_positions.png[]
 
 In AXIS the following figures show what the Tool Positions look like, as entered in the tool table.
 
 .Tool Positions 1, 2, 3 & 4[[fig:Tool-Positions-1-2-3-4]]
 
-image::images/tool_pos_1.png[] 
-image::images/tool_pos_2.png[] 
-image::images/tool_pos_3.png[] 
-image::images/tool_pos_4.png[]
+image::tool_pos_1.png[] 
+image::tool_pos_2.png[] 
+image::tool_pos_3.png[] 
+image::tool_pos_4.png[]
 
 .Tool Positions 5, 6, 7 & 8[[fig:Tool-Positions-5-6-7-8]]
 
-image::images/tool_pos_5.png[] 
-image::images/tool_pos_6.png[] 
-image::images/tool_pos_7.png[] 
-image::images/tool_pos_8.png[]
+image::tool_pos_5.png[] 
+image::tool_pos_6.png[] 
+image::tool_pos_7.png[] 
+image::tool_pos_8.png[]
 
 == Tool Touch Off
 
@@ -247,7 +250,7 @@ as you might assume.
 
 .Control Point[[fig:Control-Point]]
 
-image::images/control_point.png[]
+image::control_point.png[]
 
 === Cutting Angles without Cutter Comp
 
@@ -258,7 +261,7 @@ as we are moving in an X or Z direction only.
 
 .Ramp Entry
 
-image::images/ramp_entry.png[]
+image::ramp_entry.png[]
 
 Now as the control point progresses along the programmed path the
 actual cutter edge does not follow the programmed path as shown in the
@@ -267,7 +270,7 @@ adjusting your programmed path to compensate for tip radius.
 
 .Ramp Path
 
-image::images/ramp_cut.png[]
+image::ramp_cut.png[]
 
 In the above example it is a simple exercise to adjust the programmed
 path to give the desired actual path by moving the programmed path for
@@ -282,7 +285,7 @@ path and the tool is touching the OD of the part.
 
 .Turning Cut
 
-image::images/radius_1.png[]
+image::radius_1.png[]
 
 In this next figure you can see as the tool approaches the end of the
 part the control point still follows the path but the tool tip has left
@@ -291,14 +294,14 @@ has been programmed the part will actually end up with a square corner.
 
 .Radius Cut
 
-image::images/radius_2.png[]
+image::radius_2.png[]
 
 Now you can see as the control point follows the radius programmed the
 tool tip has left the part and is now cutting air.
 
 .Radius Cut
 
-image::images/radius_3.png[]
+image::radius_3.png[]
 
 In the final figure we can see the tool tip will finish cutting the
 face but leave a square corner instead of a nice radius. Notice also
@@ -309,7 +312,7 @@ past center at least the nose radius of the tool.
 
 .Face Cut
 
-image::images/radius_4.png[]
+image::radius_4.png[]
 
 === Using Cutter Comp
 
@@ -320,5 +323,3 @@ cutting straight lines on the lathe you might not want to use cutter
 comp. For example boring a hole with a tight fitting boring bar you may
 not have enough room to do the exit move. The entry move into a cutter
 comp arc is important to get the correct results.
-
-

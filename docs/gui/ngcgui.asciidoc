@@ -1,8 +1,11 @@
+
+:imagesdir: gui/images
+
 = NGCGUI
 
 [[cha:ngcgui]] (((NGCGUI)))
 
-image::images/ngcgui.png[]
+image::ngcgui.png[]
 
 == Overview
     
@@ -103,11 +106,11 @@ To try a demonstration, select a sim configuration and start
 the linuxCNC program.
 
 If using the axis gui, press the 'E-Stop'
-image:images/tool_estop.gif[] then 'Machine Power'
-image:images/tool_power.gif[] then 'Home All'. Pick a ngcgui tab, fill in
+image:tool_estop.gif[] then 'Machine Power'
+image:tool_power.gif[] then 'Home All'. Pick a ngcgui tab, fill in
 any empty blanks with sensible values and press
 'Create Feature' then 'Finalize'. Finally  press the 'Run'
-image:images/tool_run.gif[] button to watch it run.  Experiment
+image:tool_run.gif[] button to watch it run.  Experiment
 by creating multiple features and features from different tab pages.
 
 Other guis will have similar functionality but the buttons and names
@@ -864,14 +867,13 @@ GCMC_INCLUDE_PATH = ../../nc_files/gcmc_lib
 The following shows the DB25 subroutine. In the first photo you see where you
 fill in the blanks for each variable.
 
-image::images/ngcgui-db25-1.png[]
+image::ngcgui-db25-1.png[]
 
 This photo shows the backplot of the DB25 subroutine.
 
-image::images/ngcgui-db25-2.png[]
+image::ngcgui-db25-2.png[]
 
 This photo shows the use of the new button and the custom tab to create
 three DB25 cutouts in one program.
 
-image::images/ngcgui-db25-3.png[]
-
+image::ngcgui-db25-3.png[]
