@@ -8,6 +8,7 @@ repository: https://github.com/machinekit/machinekit
 gems:
   - jekyll-asciidoc
   - asciidoctor-diagram
+  - jekyll-sitemap
 
 asciidoc: asciidoctor
 asciidoc_ext: asciidoc,ad
