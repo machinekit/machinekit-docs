@@ -1,0 +1,18 @@
+---
+---
+
+:skip-front-matter:
+
+= Xenomai realtime kernel (arm7)
+
+Choose and copy and paste the following into a shell to install your kernel:
+
+Note the Beaglebone Xenomai kernel is distributed via http://repos.rcn-ee.com/debian/, 
+this repo should already be configured in /etc/apt/sources.list if you started with a Beaglebone Debian SD card.
+To list current Xenomai kernels available, run `apt-get update; apt-cache search linux-image-3.8 |grep xenomai`. 
+For now, stay with the `linux-image-3.8` Xenomai kernels.
+
+[source,bash]
+----
+sudo apt-get install linux-image-3.8.13-xenomai-r78  # current beaglebone xenomai kernel.
+----

@@ -3,9 +3,9 @@
 
 :skip-front-matter:
 
-= [[configure-APT-i686-amd64-arm7-wheezy]]Configure Apt for i686, amd64 and arm7 (Beaglebone) for `wheezy`
+= Configure Apt for `wheezy`
 
-==== Add Machinekit repository
+. Add Machinekit repository
 
 [source,bash]
 ----
@@ -15,11 +15,3 @@ sudo sh -c \
   /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
-
-continue with:
-[cols="2*"]
-|===
-|link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
-|link:../developing/machinekit-developing.asciidoc#install-development-packages[return to development setup]
-
-|===
