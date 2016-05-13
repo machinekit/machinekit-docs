@@ -27,4 +27,5 @@ defaults:
       docs-dir: "docs"
       edit-repo-branch: "https://github.com/mhaberler/machinekit-docs/edit/clean-jekyll-1/"
 
-
+# stage manpage sources here for comparison
+exclude:  [staging scripts]
