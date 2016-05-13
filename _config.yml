@@ -30,3 +30,9 @@ defaults:
 
 # stage manpage sources here for comparison
 exclude:  [staging scripts]
+
+# Google services - preview.machinekit.io
+google_analytics:   UA-48383649-2
+
+# for www.machinekit.io - activate on switch!
+#google_analytics:  UA-48383649-1
