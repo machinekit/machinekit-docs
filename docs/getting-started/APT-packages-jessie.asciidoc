@@ -3,9 +3,9 @@
 
 :skip-front-matter:
 
-= [[configure-APT-i686-amd64-arm7-jessie]]Configure Apt for i686, amd64 and arm7 (Beaglebone, RPi2) for `jessie`
+= Configure APT for `jessie`
 
-==== Create APT `preferences` file and add `sid` repository
+. Create APT `preferences` file and add `sid` repository
 Because of the necessity of `libczmq` and `libczmq-dev` from the `sid`
 repository we need to add a preferences file for APT to know that it should not
 use `sid` packages *unless* it's been told to explicitly do so.
@@ -26,14 +26,14 @@ Pin-Priority: -10' > \
 /etc/apt/preferences.d/sid;"
 ----
 
-==== Add the `sid` repository to you debian sources list and update.
+. Add the `sid` repository to you debian sources list and update.
 
 open as a root `/etc/apt/sources.list` and search for the following lines
 
 [source,text]
 ----
-deb http://ftp.nl.debian.org/debian/ jessie main
-deb-src http://ftp.nl.debian.org/debian/ jessie main
+deb http://httpredir.debian.org/debian/ jessie main
+deb-src http://httpredir.debian.org/debian/ jessie main
 ----
 
 If you use a different mirror, change appropriately
@@ -41,14 +41,14 @@ copy these lines and change `jessie` to `sid` which will look like (total)
 
 [source,text]
 ----
-deb http://ftp.nl.debian.org/debian/ jessie main
-deb-src http://ftp.nl.debian.org/debian/ jessie main
-deb http://ftp.nl.debian.org/debian/ sid main
-deb-src http://ftp.nl.debian.org/debian/ sid main
+deb http://httpredir.debian.org/debian/ jessie main
+deb-src http://httpredir.debian.org/debian/ jessie main
+deb http://httpredir.debian.org/debian/ sid main
+deb-src http://httpredir.debian.org/debian/ sid main
 ----
 
 
-==== Update your sources and install `libczmq` and `libczmq-dev`
+. Update your sources and install `libczmq` and `libczmq-dev`
 
 [source,bash]
 ----
@@ -56,7 +56,7 @@ sudo apt-get update
 sudo apt-get install -t sid libczmq-dev
 ----
 
-==== Check correct version of libczmq-dev
+. Check correct version of libczmq-dev
 
 [source,bash]
 ----
@@ -64,7 +64,7 @@ sudo apt-get install apt-show-versions
 apt-show-versions | grep czmq
 ----
 
-==== This should result in the following:
+. This should result in the following:
 
 [source,bash]
 ----
@@ -73,7 +73,7 @@ libczmq-dev:amd64/sid 3.0.2-1 uptodate
 libczmq3:amd64/sid 3.0.2-1 uptodate
 ----
 
-==== Add Machinekit repository
+. Add Machinekit repository
 
 [source,bash]
 ----
@@ -83,9 +83,3 @@ sudo sh -c \
   /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
-continue with:
-[cols="2*"]
-|===
-|link:installing-packages.asciidoc#install-RT-kernel[install your RT kernel]
-|link:../developing/machinekit-developing.asciidoc#install-development-packages[return to development setup]
-|===

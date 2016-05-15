@@ -1,0 +1,29 @@
+---
+---
+
+:skip-front-matter:
+
+= RT-PREEMPT realtime kernel (Raspberry Pi)
+
+For Raspberry Pi using Raspbian:
+
+Updated `raspberrypi-bootloader` is needed:
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install -y raspberrypi-bootloader
+----
+Install kernel:
+[source,bash]
+----
+sudo -s
+apt-get install linux-image-rpi2-rt
+cd /boot
+echo kernel=$(ls kernel_rt*.img) >> config.txt
+echo device_tree=dtbs_rt/bcm2709-rpi-2-b.dtb >> config.txt
+----
+Then add the following entries to `/boot/cmdline.txt`:
+[source,bash]
+----
+dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
+----

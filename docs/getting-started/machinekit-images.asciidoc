@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-=== BeagleBone Debian Machinekit image
+= BeagleBone Debian Machinekit image
 
 Robert C. Nelson kindly provides a 2-weekly build of a complete Debian with
 Machinekit image for a BeagleBone Black/White.
