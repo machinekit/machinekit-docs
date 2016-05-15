@@ -14,87 +14,91 @@ experience is accumulated, especially with ARM-based systems. Be sure to
 check back here before installing a new kernel.
 ====
 
+:sectnums:
+
 == Debian Wheezy on arm7 (BeagleBone)
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-wheezy.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-wheezy.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-arm7.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-arm7.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
 == Debian Wheezy on i386
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-wheezy.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-wheezy.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-i386.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-i386.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
 == Debian Wheezy on amd64
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-wheezy.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-wheezy.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-amd64.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-amd64.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
 
 == Debian Jessie on arm7 (BeagleBone)
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-jessie.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-jessie.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-arm7.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-arm7.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
 == Debian Jessie on arm7 (RPi2)
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-jessie.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-jessie.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-RPi2.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-RPi2.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
-=== Debian Jessie on i386
+== Debian Jessie on i386
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-jessie.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-jessie.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-i386.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-i386.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
 
 == Debian Jessie on amd64
 
-:leveloffset: +1
+:leveloffset: +2
 
-include::{{page.docs-dir}}/getting-started/APT-packages-jessie.asciidoc[]
+include::{docdir}/docs/getting-started/APT-packages-jessie.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-rt-kernel-amd64.asciidoc[]
+include::{docdir}/docs/getting-started/install-rt-kernel-amd64.asciidoc[]
 
-include::{{page.docs-dir}}/getting-started/install-runtime-packages.asciidoc[]
+include::{docdir}/docs/getting-started/install-runtime-packages.asciidoc[]
 
-:leveloffset: -1
+:leveloffset: -2
+
+:sectnums!:

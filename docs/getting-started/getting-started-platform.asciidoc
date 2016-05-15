@@ -14,25 +14,25 @@ can be some differences in the installation for a specific platform.
 You should have a working Debian installation.
 ====
 
-= Installation options:
+== Installation options:
 
-== Images
-
-:leveloffset: +1
-
-include::{{page.docs-dir}}/getting-started/machinekit-images.asciidoc[]
-
-:leveloffset: -1
-
-== Installing packages
+=== Images
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/getting-started/installing-packages.asciidoc[]
+include::{docdir}/docs/getting-started/machinekit-images.asciidoc[]
 
 :leveloffset: -1
 
-== Development packages
+=== Installing packages
+
+:leveloffset: +1
+
+include::{docdir}/docs/getting-started/installing-packages.asciidoc[]
+
+:leveloffset: -1
+
+=== Development packages
 
 In addition to the configuring of the APT repository, installation of the
 kernel, there are some additional steps to take to install a development

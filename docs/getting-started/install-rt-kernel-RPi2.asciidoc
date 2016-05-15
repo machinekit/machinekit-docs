@@ -3,10 +3,6 @@
 
 :skip-front-matter:
 
-= Install a realtime kernel
-
-- <<rt-kernel-rt-preempt,RT-PREEMPT realtime kernel (i386, amd64 and Raspberry Pi)>>
-
 = RT-PREEMPT realtime kernel (Raspberry Pi)
 
 For Raspberry Pi using Raspbian:

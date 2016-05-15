@@ -5,6 +5,8 @@
 
 :toc:
 
+:toclevels: 4
+
 = Getting Started
 
 :toc:
