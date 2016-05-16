@@ -1,7 +1,6 @@
 ---
 layout: community
 title: Community
-next_section: community
 permalink: /community/home/
 ---
 
@@ -11,7 +10,7 @@ Please browse the topics in the navigation bar on the right.
 
 Some quick links for cenvenience:
 
-- link:/community/community[Machinekit channels, get in touch and stay up to date]
+- link:/community/channels[Machinekit channels, get in touch and stay up to date]
 - link:/community/c4[The C4 process]
 - link:/community/contributing[Contributing]
 - link:/community/maintainers[Maintainers]

@@ -1,7 +1,6 @@
 ---
 layout: community
 title: Maintainers
-prev_section: contributing
 permalink: /community/maintainers/
 ---
 
