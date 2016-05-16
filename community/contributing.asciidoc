@@ -1,8 +1,6 @@
 ---
 layout: community
 title: Contributing
-next_section: maintainers
-prev_section: c4
 permalink: /community/contributing/
 ---
 
@@ -76,14 +74,14 @@ short version is:
 
 - link:https://help.github.com/articles/creating-a-pull-request[Submit a pull request].
 
-Your patch will be reviewed by a link:maintainers[Maintainer], and if it is 'correct'
+Your patch will be reviewed by a link:../maintainers[Maintainer], and if it is 'correct'
 the Maintainer will merge it. Maintainers do not provide value
 judgment, and they are not responsible for testing your code to make
 sure it actually fixes the problem you defined on the issue
 tracker.  This is your responsibility. If the Maintainer has an issue
 with your patch, he or she SHOULD ask for improvements to incorrect
 patches and SHOULD reject incorrect patches if you do not respond
-constructively (see link:community[C4]).
+constructively (see link:../c4[C4]).
 
 == Development quick links
 

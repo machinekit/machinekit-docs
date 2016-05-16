@@ -1,8 +1,6 @@
 ---
 layout: community
 title: C4
-next_section: contributing
-prev_section: community
 permalink: /community/c4/
 ---
 

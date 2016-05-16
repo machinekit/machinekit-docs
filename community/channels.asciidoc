@@ -1,9 +1,7 @@
 ---
 layout: community
 title: Channels
-next_section: c4
-prev_section: home
-permalink: /community/community/
+permalink: /community/channels/
 ---
 
 = Community channels
@@ -34,7 +32,7 @@ Both means are equivalent, and give access to the same postings.
 
 Report problems with Machinekit on the
 link:https://github.com/machinekit/machinekit/issues[GitHub issue tracker].
-Please read up on link:../docs/getting-help#reporting-an-error[how to get help]
+Please read up on link:/docs/getting-help[how to get help]
 for some pointers about this.
 
 == Gitter channel
