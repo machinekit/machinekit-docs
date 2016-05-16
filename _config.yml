@@ -21,13 +21,18 @@ asciidoctor:
 defaults:
   -
     scope:
+      path: ""
+    values:
+      edit-repo: "https://github.com/mhaberler/machinekit-docs/"
+      edit-branch: "clean-jekyll-1"
+  -
+    scope:
 # applies to all files under:
       path: "docs"
     values:
       layout: "docs"
       docs-dir: "docs"
-      edit-repo: "https://github.com/mhaberler/machinekit-docs/"
-      edit-branch: "clean-jekyll-1"
+
 
 # stage manpage sources here for comparison
 exclude:  [staging scripts]
