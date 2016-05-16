@@ -3,7 +3,6 @@ edit-branch: "master"
 edit-repo: "https://github.com/mhaberler/machinekit"
 edit-path: "src/hal/user_comps/adxl345.comp"
 ---
-
 edit-path from frontmatter={{page.edit-path}}
 
 edit-repo from frontmatter={{page.edit-repo}}
