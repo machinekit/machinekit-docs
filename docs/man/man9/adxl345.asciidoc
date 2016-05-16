@@ -1,0 +1,57 @@
+= Machinekit Documentation
+
+== HAL Component -- ADXL345
+
+=== NAME
+
+==== adxl345 -- read an ADXL345 3-axis accelerometer
+
+=== SYNOPSIS
+
+*adxl345*
+
+=== USAGE SYNOPSIS
+
+adxl345 [-W]
+
+
+=== DESCRIPTION
+
+
+reads the X,Y,Z acceleration values from an ADXL345 via the i2c bus.
+
+computes the roll, pitch and yaw rotations about the X, Y and Z axis. See also: https://en.wikipedia.org/wiki/Aircraft_principal_axes
+
+Options:
+    -t msec       polling interval in msec, default 10ms
+    -b number     use /dev/i2c-<number>, default /dev/i2c-0
+    -g range      gravity range, default 3 - +/- 16g
+                  0: +/- 2g
+                  1: +/- 4g
+                  2: +/- 8g
+                  3: +/- 16g
+    -N            normal resolution (10bit), default 13bit
+
+
+=== PINS
+
+*x-accel* s32 out  - X acceleration value
+
+*y-accel* s32 out  - Y acceleration value
+
+*z-accel* s32 out  - Z acceleration value
+
+*roll* float out  - rotation about X axis, -180..180 deg
+
+*pitch* float out  - rotation about Y axis, -180..180 deg
+
+*yaw* float out  - rotation about Z axis, -180..180 deg
+
+
+
+
+=== LICENCE
+
+GPL
+
+( Generated from source file: hal/user_comps/adxl345.comp on 2016-05-12 )
