@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HM2_PCI(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/hm2_pci.9.asciidoc

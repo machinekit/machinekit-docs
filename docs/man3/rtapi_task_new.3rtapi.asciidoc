@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = rtapi_task_new(3rtapi)
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_task_new.3rtapi.asciidoc

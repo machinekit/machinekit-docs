@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = funct(3)
 :manmanual: HAL Components
 :mansource: ../man/man3/PM_ROTATION_VECTOR.3.asciidoc

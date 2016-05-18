@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HOSTMOT2(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/hostmot2.9.asciidoc
@@ -1219,7 +1223,7 @@ pins between the stepgen instances in the dmesg/log hardware pin list then
 the option may be available.
 
 In Quadrature mode (step_type=2), the stepgen outputs one complete Gray
-cycle (00 → 01 → 11 → 10 → 00) for each "step" it takes. In table mode
+cycle (00  01  11  10  00) for each "step" it takes. In table mode
 up to 6 IO pins are individually controlled in an arbitrary sequence up to 16
 phases long. 
 ====

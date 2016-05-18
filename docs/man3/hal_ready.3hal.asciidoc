@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = funct(3hal)
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_ready.3hal.asciidoc

@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HALSAMPLER(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/halsampler.1.asciidoc

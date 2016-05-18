@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HM2_7I43(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/hm2_7i43.9.asciidoc

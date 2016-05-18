@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = MOTION(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/motion.9.asciidoc

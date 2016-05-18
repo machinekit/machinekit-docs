@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = SAMPLER(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/sampler.9.asciidoc

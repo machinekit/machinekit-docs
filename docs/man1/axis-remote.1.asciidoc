@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = axis-remote(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/axis-remote.1.asciidoc

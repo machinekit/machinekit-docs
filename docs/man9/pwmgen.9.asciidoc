@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = PWMGEN(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/pwmgen.9.asciidoc

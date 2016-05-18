@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = PYVCP(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/pyvcp.1.asciidoc

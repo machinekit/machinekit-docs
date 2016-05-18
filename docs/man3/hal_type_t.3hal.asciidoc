@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = hal_type_t(3hal)
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_type_t.3hal.asciidoc

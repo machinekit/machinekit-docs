@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = GANTRYKINS(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/gantrykins.9.asciidoc

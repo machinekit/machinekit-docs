@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HALSTREAMER(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/halstreamer.1.asciidoc

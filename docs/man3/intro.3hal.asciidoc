@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = intro(3hal)
 :manmanual: HAL Components
 :mansource: ../man/man3/intro.3hal.asciidoc

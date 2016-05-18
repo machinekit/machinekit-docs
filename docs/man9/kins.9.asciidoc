@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = KINS(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/kins.9.asciidoc

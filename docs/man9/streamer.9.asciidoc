@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = STREAMER(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/streamer.9.asciidoc

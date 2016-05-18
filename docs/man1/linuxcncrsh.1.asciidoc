@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = linuxcncrsh(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/linuxcncrsh.1.asciidoc

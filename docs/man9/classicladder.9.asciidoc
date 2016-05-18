@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = CLASSICLADDER(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/classicladder.9.asciidoc

@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = COUNTER(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/counter.9.asciidoc

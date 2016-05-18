@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = DELAYLINE(9)
 :manmanual: HAL Components
 :mansource: ../man/man9/delayline.9.asciidoc

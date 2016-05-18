@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = undocumented(3rtapi)
 :manmanual: HAL Components
 :mansource: ../man/man3/undocumented.3rtapi.asciidoc

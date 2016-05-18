@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = rtapi_div_u64(3rtapi)
 \" Copyright (C) 2013 Jeff Epler <jepler@unpythonic.net>
 \"

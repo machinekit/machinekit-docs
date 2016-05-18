@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = comp(1)
 :manmanual: HAL Components
 :mansource: ../man/man1/comp.1.asciidoc

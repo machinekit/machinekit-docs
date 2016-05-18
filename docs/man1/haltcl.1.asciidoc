@@ -1,3 +1,7 @@
+---
+---
+:skip-front-matter:
+
 = HALTCL(1)
 .de URL
 \\$2 \(laURL: \\$1 \(ra\\$3
