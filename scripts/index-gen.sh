@@ -12,13 +12,10 @@ echo ":skip front matter:"  >> $DOC
 
 echo "\n= $2 Man Pages\n\n" >> $DOC
 echo "" >> $DOC
-echo "" >> $DOC
-echo "== Available $2 Man Pages are:" >> $DOC
-echo "" >> $DOC
 for i in docs/man/$1/*.asciidoc ; do
     compname=$(basename -s .asciidoc "$i") ;
     if [ $compname != "index" ] ; then        
-	echo "- link:$compname[$compname]\n\n" >> $DOC    
+	echo "- link:../man/$1/$compname[$compname]\n\n" >> $DOC    
     fi
 done
 echo "" >> $DOC
