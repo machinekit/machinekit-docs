@@ -35,13 +35,16 @@ defaults:
 
 
 # stage manpage sources here for comparison
-exclude: [staging,
+exclude: [Makefile,
+	 staging,
 	 scripts,
-	 'docs/man/man1/*.1',
-	 'docs/man/man1/*.1.in',
-	 'docs/man/man3/*.3hal',
-	 'docs/man/man3/*.3rtapi',
-	 'docs/man/man9/*.9' ]
+	 src,
+	 README.md,
+	 '*/*.1',
+	 '*/*.1.in',
+	 '*/*.3hal',
+	 '*/*.3rtapi',
+	 '*/*.9' ]
 
 # Google services - preview.machinekit.io
 google_analytics:   UA-48383649-2
