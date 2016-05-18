@@ -4,14 +4,16 @@
 :skip-front-matter:
 = Machinekit Main Index
 
-Before asking questions on the google group Machinekit list,
-please make sure you have read:
-
-- link:../docs/getting-help[Getting help]
+- link:../docs/index-getting-started[Getting Started]
 
 - link:../docs/index-user[User manual]
-- link:../docs/index-getting-started[Getting started manual]
 - link:../docs/index-HAL[HAL manual]
 - link:../docs/index-integrator[Integrator manual]
 - link:../docs/index-developer[Developer manual]
 - link:../docs/documenting/documenting[Documenting manual]
+
+Before asking questions on the google group Machinekit list,
+please make sure you have read:
+
+- link:../docs/getting-help[Getting Help]
+

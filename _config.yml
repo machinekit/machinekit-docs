@@ -18,6 +18,8 @@ asciidoctor:
   attributes:
     - hardbreaks!
 
+incremental: yes
+
 defaults:
   -
     scope:
