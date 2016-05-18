@@ -35,7 +35,6 @@ defaults:
 
 
 # stage manpage sources here for comparison
-exclude:  [staging scripts]
 exclude:
   - staging
   - scripts
