@@ -1,4 +1,4 @@
-[![Jenkins Build Status](https://jenkins.machinekit.io/job/machinekit-docs-playout/badge/icon)](https://jenkins.machinekit.io/job/machinekit-docs-playout)
+[![Build Status](https://jenkins.machinekit.io/buildStatus/icon?job=machinekit-docs-playout)](https://jenkins.machinekit.io/job/machinekit-docs-playout)
 
 # Machinekit Documentation
 
