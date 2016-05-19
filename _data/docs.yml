@@ -7,3 +7,6 @@
     - index-integrator
     - index-developer
     - documenting/documenting
+    - man/man1
+    - man/man3
+    - man/man9
