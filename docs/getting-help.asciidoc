@@ -36,7 +36,7 @@ And to do so, please stick to the following rules and recommendations:
 . If you're *not sure* if you should ask on the list, then *open a new issue first* and *then ask* on the Machinekit list. Follow the steps outlined under <<reporting-an-error,How to report an Error>>.
 
 ** Reporting errors on the Machinekit list is NOT a replacement and not recommended, as it does not
-improve the issue tracker content. This is why you should create an issue. That is what the tracker ist is for: helping others later to resolve a similar problem like you just encountered, and to track all the steps needed to resolve an issue *in a single place*. The mailing list is unsuited to track complex issues, and resolutions are hard to find. Also, if it was a new problem, and got resolved, that problem and the resolution will not be in the tracker. So i
+improve the issue tracker content. This is why you should create an issue. That is what the tracker ist is for: helping others later to resolve a similar problem like you just encountered, and to track all the steps needed to resolve an issue *in a single place*. The mailing list is unsuited to track complex issues, and resolutions are hard to find. Also, if it was a new problem, and got resolved, that problem and the resolution will not be in the tracker.
 
 == How to report an Error
 
@@ -104,7 +104,7 @@ Whatever you write: *before hitting 'send', read your report through the eyes of
 .. what configuration you are running. Tell them.
 .. which modifications, if any, you made. Tell them. Make them available for others to see, by pushing them to your github machinekit fork, and referring to them.
 
-. so please help sour readers, by including *all* the facts. The readers are not a Forensics Team equipped to figure those facts out because you omitted them, and you are wasting *their* time, which is impolite. If you are appealing to other folk's Crystal Ball: it is known to be a very erratic and extremely slow diagnostic device.
+. so please help our readers, by including *all* the facts. The readers are not a Forensics Team equipped to figure those facts out because you omitted them, and you are wasting *their* time, which is impolite. If you are appealing to other folk's Crystal Ball: it is known to be a very erratic and extremely slow diagnostic device.
 
 . the first step in fixing an error is to reproduce it. That means *an error report should include all the details to actually run the failing configuration*.
 
