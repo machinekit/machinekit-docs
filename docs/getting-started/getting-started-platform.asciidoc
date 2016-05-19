@@ -38,5 +38,5 @@ In addition to the configuring of the APT repository, installation of the
 kernel, there are some additional steps to take to install a development
 setup.
 
-. link:../../developing/developing[Set up a development platform]
+. link:../developing/developing[Set up a development platform]
   when you want to develop for Machinekit.

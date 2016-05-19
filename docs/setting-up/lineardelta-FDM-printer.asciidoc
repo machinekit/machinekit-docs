@@ -218,7 +218,7 @@ HOME_LATCH_VEL =    -1.0
 ----
 
 [NOTE]
-more info about `HOMING` can be found in link:../../../src/config/ini_homing[]
+more info about `HOMING` can be found in link:../config/ini_homing[]
 
 [NOTE]
 since this setup document is about calibrating the mechanics, the `INI` values
@@ -228,8 +228,8 @@ be linked to from here if/whenever it exists.
 === HAL-file
 
 The `HAL` is the Hardware Abstraction Layer. If you are not familiar with this
-then please visit the link:../../../machinekit-documentation/index-HAL[HAL index]
-with especially the link:../../../src/hal/intro[HAL intro] before continuing.
+then please visit the link:./index-HAL[HAL index]
+with especially the link:../hal/intro[HAL intro] before continuing.
 The `HALFILE` in the above mentioned `INI` settings contains all the "wiring logic"
 of the machine.
 

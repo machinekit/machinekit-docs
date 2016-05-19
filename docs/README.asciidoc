@@ -22,7 +22,7 @@ But before you ask a question, please do read the following link:../getting-help
 Place to start
 //__==============
 
-The first place you'll want to start is link:../../index[documents index]
+The first place you'll want to start is link:../index[documents index]
 This location bundles copies with updated links of the legacy `Master_*.asciidoc`
 files in link:../src[] that were being used to generate LinuxCNC `.pdf` pages and
 `.html` files. These are currently no longer built and making these will require

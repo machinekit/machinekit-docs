@@ -65,4 +65,4 @@ Return to Wireshark and note that the you see the communication.
 
 image::images/captured-can-packet.png[align="center"]
 
-You are now ready to return to the the link:../../developing/CAN-developing[CAN developing page]
+You are now ready to return to the the link:../developing/CAN-developing[CAN developing page]

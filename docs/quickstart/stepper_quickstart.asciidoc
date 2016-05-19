@@ -21,7 +21,7 @@ The Latency Test determines how late your computer processor is in
 responding to a request. Some hardware can interrupt the processing
 which could cause missed steps when running a CNC machine. This is the
 first thing you need to do. Follow the instructions  
-link:../../install/Latency_Test[here] to run the latency test.
+link:../install/Latency_Test[here] to run the latency test.
 
 [[sec:Sherline]]
 == Sherline
