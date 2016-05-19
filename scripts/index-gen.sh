@@ -15,7 +15,7 @@ echo "" >> $DOC
 for i in docs/man/$1/*.asciidoc ; do
     compname=$(basename -s .asciidoc "$i") ;
     if [ $compname != "index" ] ; then        
-	echo "- link:../man/$1/$compname[$compname]\n\n" >> $DOC    
+	echo "- link:http://preview.machinekit.io/docs/man/$1/$compname[$compname]\n\n" >> $DOC    
     fi
 done
 echo "" >> $DOC
