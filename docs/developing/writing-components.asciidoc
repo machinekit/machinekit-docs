@@ -17,7 +17,7 @@ Certainly, maths and logic components are very well catered for.
 
 link:../../../src/hal/components[This] is a brief resume of the existing 'stock' components
 
-link:../../index-instantiated-components[This] is an index of Instantiated Component man pages
+link:../../man/man9/index.html[This] is an index of all component man pages, most of which are now instantiated.
 
 ==  C files
 
