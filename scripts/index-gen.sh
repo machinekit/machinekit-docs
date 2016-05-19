@@ -8,9 +8,9 @@ DOC="docs/man/$1/index.asciidoc"
 touch $DOC
 echo "---" > $DOC
 echo "---" >> $DOC
-echo ":skip front matter:"  >> $DOC
+echo ":skip-front-matter:"  >> $DOC
 
-echo "\n= $2 Man Pages\n\n" >> $DOC
+echo "\n= $2\n\n" >> $DOC
 echo "" >> $DOC
 for i in docs/man/$1/*.asciidoc ; do
     compname=$(basename -s .asciidoc "$i") ;
