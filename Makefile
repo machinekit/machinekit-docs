@@ -13,4 +13,5 @@ all:
 	scripts/index-gen.sh man1 'HAL Utilities and GUIs'
 	scripts/index-gen.sh man3 'RTAPI and HAL Functions'
 	scripts/index-gen.sh man9 'HAL Components'
-
+	scripts/filenums
+	
