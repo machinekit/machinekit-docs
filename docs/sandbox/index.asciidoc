@@ -32,12 +32,12 @@ you edited visible.
 
 Once the PR is approved and site has regenerated, return to this page.
 
-Your link will be visible, so click on it and you will get a blank page.
+Your link will be visible, so click on it and you will get a blank template page.
 
 Use the 'Edit this Page' link again to edit the page and enter your article
 in asciidoc format.
 
-Commit as a PR again and before long your article will be visible to all
+Commit as a PR again and before long your article will be visible to all !
 
 
 === Sandbox Articles
@@ -45,21 +45,21 @@ Commit as a PR again and before long your article will be visible to all
 
 - link:unused01[Test article - 20-05-2016]
 
-// - link:unused02[Title link of page here - date here]
+//- link:unused02[Title link of page here - date here]
 
-// - link:unused03[Title link of page here - date here]
+//- link:unused03[Title link of page here - date here]
 
-// - link:unused04[Title link of page here - date here]
+//- link:unused04[Title link of page here - date here]
 
-// - link:unused05[Title link of page here - date here]
+//- link:unused05[Title link of page here - date here]
 
-// - link:unused06[Title link of page here - date here]
+//- link:unused06[Title link of page here - date here]
 
-// - link:unused07[Title link of page here - date here]
+//- link:unused07[Title link of page here - date here]
 
-// - link:unused08[Title link of page here - date here]
+//- link:unused08[Title link of page here - date here]
 
-// - link:unused09[Title link of page here - date here]
+//- link:unused09[Title link of page here - date here]
 
-// - link:unused10[Title link of page here - date here]
+//- link:unused10[Title link of page here - date here]
 
