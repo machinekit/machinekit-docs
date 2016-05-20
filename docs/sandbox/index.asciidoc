@@ -43,23 +43,23 @@ Commit as a PR again and before long your article will be visible to all !
 === Sandbox Articles
 
 
-- link:unused01[Test article - 20-05-2016]
+- link:000001[Test article - 20-05-2016]
 
-//- link:unused02[Title link of page here - date here]
+//- link:000002[Title link of page here - date here]
 
-//- link:unused03[Title link of page here - date here]
+//- link:000003[Title link of page here - date here]
 
-//- link:unused04[Title link of page here - date here]
+//- link:000004[Title link of page here - date here]
 
-//- link:unused05[Title link of page here - date here]
+//- link:000005[Title link of page here - date here]
 
-//- link:unused06[Title link of page here - date here]
+//- link:000006[Title link of page here - date here]
 
-//- link:unused07[Title link of page here - date here]
+//- link:000007[Title link of page here - date here]
 
-//- link:unused08[Title link of page here - date here]
+//- link:000008[Title link of page here - date here]
 
-//- link:unused09[Title link of page here - date here]
+//- link:000009[Title link of page here - date here]
 
-//- link:unused10[Title link of page here - date here]
+//- link:000010[Title link of page here - date here]
 
