@@ -2,19 +2,11 @@
 ---
 
 :skip-front-matter:
-= Article Title
+= This is a Test Article
 
-Insert a summary of the document here
+Testing the process of article posting using only a github log in
+and clicking on the 'Edit this Page' link
 
-== Article Sub-Title
-
-More detail here
-
-You can use
-
-=== Article Minor Headings
-
-to further sub divide the text
 
 
 
