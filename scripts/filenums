@@ -48,6 +48,8 @@ if [[ $num == 0 ]] ; then
 	echo "=== Article Minor Headings" >> $filenum.asciidoc
 	echo "" >> $filenum.asciidoc
 	echo "to further sub divide the text" >> $filenum.asciidoc
+	echo "" >> index.asciidoc
+	echo "//- link:$filenum[Title link of page here - date here]" >> index.asciidoc
         lastnum=$((lastnum+1))
     done
     echo "Less than 5 templates remaining, 5 more created"
