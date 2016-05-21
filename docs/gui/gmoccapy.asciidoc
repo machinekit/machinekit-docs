@@ -790,7 +790,7 @@ You should follow these steps:
 
 here is a small sketch:
 
-image::sketch_auto_tool_measurement.png[align="left"]
+image::http://preview.machinekit.io/docs/gui/images/sketch_auto_tool_measurement.png[align="left"]
 
 With the first given tool change the tool will be measured and the offset will
 be set automatically to fit the block height. The advantage of the gmoccapy
@@ -1432,7 +1432,7 @@ Auto Tool Measurement Machine = http://youtu.be/1arucCaDdX4
 
 If you get strange numbers in the info area of gmoccapy like:
 
-image::strange_numbers.png[align="left"]
+image::http://preview.machinekit.io/docs/gui/images/strange_numbers.png[align="left"]
 
 You have made your config file using an older version of StepConfWizard.
 It has made a wrong entry in the INI file under the [TRAJ] named
