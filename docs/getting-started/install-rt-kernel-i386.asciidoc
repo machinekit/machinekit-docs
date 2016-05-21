@@ -16,7 +16,7 @@ sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 
 Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
 
-If you want to build your own kernel, see link:http://preview.machinekit.io/docs/developing/building-rt-preempt-kernel[this document] for details.
+If you want to build your own kernel, see the Developing section for more details.
 
 Choose and copy and paste the following into a shell to
 install your kernel:
