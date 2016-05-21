@@ -10,6 +10,8 @@ gems:
   - asciidoctor-diagram
   - jekyll-sitemap
 
+url: http://preview.machinekit.io
+
 asciidoc: asciidoctor
 asciidoc_ext: asciidoc,ad
 
