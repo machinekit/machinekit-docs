@@ -67,7 +67,7 @@ Instantiable components load the 'base component' and from that can create insta
 of the component whenever they are required.
 So instances can be created in separate hal files, on-the-fly or whatever.
 
-Further info link:http://preview.machinekit.io/docshal/new-instantiated-components[here]
+Further info link:http://preview.machinekit.io/docs/hal/new-instantiated-components[here]
 
 Amoungst many advantages, it opens up huge flexibility in configuration.
 

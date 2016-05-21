@@ -22,7 +22,7 @@ so make sure LinuxCNC packages are removed by `sudo apt-get remove --purge linux
 
 First, install supporting packages - note you *must* have configured the deb.machinekit.io 
 apt repository already or the wrong package versions will be installed - see the instructions
-link:../getting-started/installing-packages.asciidoc#configure-apt[here] to do so.
+link:../getting-started/installing-packages#configure-apt[here] to do so.
 
 [source,bash]
 ----

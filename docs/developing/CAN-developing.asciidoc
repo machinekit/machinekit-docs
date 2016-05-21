@@ -29,6 +29,6 @@ that we swap the driver to the real hardware.
   but it could as well be. You can use VirtualBox, or other VM's. Choice is up
   to you. For these examples Parallels 9, on a Macbook Pro was used for the
   Debian Jessie VM.
-. link:http://preview.machinekit.io/docs/developing/setting-up/CAN-developing-setup[set up the environment so you can use socketcan]
+. link:http://preview.machinekit.io/docs/setting-up/CAN-developing-setup[set up the environment so you can use socketcan]
   then return here.
 . more to come
