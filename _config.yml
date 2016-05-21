@@ -20,7 +20,7 @@ asciidoctor:
   attributes:
     - hardbreaks!
 
-incremental: yes
+#incremental: yes
 
 defaults:
   -
