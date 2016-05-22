@@ -2,23 +2,21 @@
 ---
 
 :skip-front-matter:
-= Developing Index
 
-link:../developing[General links inc. setting up the environment]
+= Various developing links
 
-link:../machinekit-developing[Specific building from source stuff]
+- link:../developing[General links inc. setting up the environment]
 
-link:../rtfaults[How to debug rt faults]
+- link:../machinekit-developing[Specific building from source stuff]
 
-link:../building-rt-preempt-kernel[Building your own rt-preempt kernel]
+- link:../rtfaults[How to debug rt faults]
 
-link:../rt-kernel-config[The actual kernel config to use as a start for rt-preempt kernel]
+- link:../building-rt-preempt-kernel[Building your own rt-preempt kernel]
 
-link:../writing-components[General info and links re writing components]
+- link:../rt-kernel-config[The actual kernel config to use as a start for rt-preempt kernel]
 
-link:../toolchangers[Specific info on writing toolchanger components]
+- link:../writing-components[General info and links re writing components]
 
-link:../CAN-developing[Information on developing using CAN]
+- link:../toolchangers[Specific info on writing toolchanger components]
 
-
-
+- link:../CAN-developing[Information on developing using CAN]
