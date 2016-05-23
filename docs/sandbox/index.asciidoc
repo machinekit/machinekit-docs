@@ -21,7 +21,7 @@ and change it to relate to your article
 eg.
 [source, html]
 ----
-- link:unused01[Robohand Blog - 20-05-2016]
+- link:000001[Robohand Blog - 20-05-2016]
 ----
 
 Then submit the change via the Pull Request button.
