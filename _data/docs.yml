@@ -1,9 +1,9 @@
 - title: For starters
   docs:
-    - getting-help
-    - index-user
     - index-getting-started
-    - index-HAL
+    - index-user
+    - index-HAL    
+    - getting-help
 
 - title: Developing
   docs:
