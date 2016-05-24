@@ -1,0 +1,15 @@
+---
+---
+
+:skip-front-matter:
+= This is a Test Article
+
+Testing the process of article posting
+
+Using only a github log in and clicking on the 
+
+'Edit this Page' link
+
+
+
+

@@ -1,0 +1,68 @@
+---
+---
+
+:skip-front-matter:
+
+install can-utils and wireshark by opening a terminal.
+[source,shell]
+----
+me@VM:~$ sudo apt-get install can-utils wireshark
+----
+
+Next action will be to start the can interface when starting up.
+[source,shell]
+----
+me@VM:~$ sudo gedit /etc/modules
+----
+
+and add `vcan` to this file
+then save and exit.
+
+then add the following to the next file
+[source,shell]
+----
+me@VM:~$ sudo gedit /etc/rc.local
+----
+
+and add
+```
+ip link add dev vcan0 type vcan
+ip link set up vcan0
+```
+
+Make sure that Wireshark can sniff packets without running as a root. This
+information tells us all what we need to know.
+[source,shell]
+----
+me@VM:~$ less /usr/share/doc/wireshark-common/README.Debian
+----
+
+so when we have read this we do:
+[source,shell]
+----
+me@VM:~$ dpkg-reconfigure wireshark-common
+me@VM:~$ sudo usermod -a -G wireshark me
+----
+
+You should have typed {yes} when doing the reconfigure and substituted
+"me" with your {own username}.
+
+Reboot your machine, log in, and start wireshark.
+you should see the following screen. Notice "vcan0"
+
+image::http://preview.machinekit.io/docs/setting-up/images/wireshark-startup.png[align="center"]
+
+start capturing the vcan0 interface by selecting the `vcan0` interface and
+clicking `start`.
+
+Open a terminal and give the following command:
+[source,shell]
+----
+me@VM:~$ cansend vcan0 001#04.01.00.00.0f.ff.e7.00
+----
+
+Return to Wireshark and note that the you see the communication.
+
+image::http://preview.machinekit.io/docs/setting-up/images/captured-can-packet.png[align="center"]
+
+You are now ready to return to the the link:http://preview.machinekit.io/docs/developing/CAN-developing[CAN developing page]

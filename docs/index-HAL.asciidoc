@@ -1,0 +1,80 @@
+---
+---
+
+:skip-front-matter:
+
+:toc:
+
+= Hardware Abstract Layer
+
+:toc:
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/hal/intro.asciidoc[]
+
+include::{{page.docs-dir}}/hal/basic_hal.asciidoc[]
+
+include::{{page.docs-dir}}/hal/tutorial.asciidoc[]
+
+include::{{page.docs-dir}}/hal/hal-examples.asciidoc[]
+
+include::{{page.docs-dir}}/hal/general_ref.asciidoc[]
+
+include::{{page.docs-dir}}/hal/parallel_port.asciidoc[]
+
+include::{{page.docs-dir}}/hal/rtcomps.asciidoc[]
+
+// include::{{page.docs-dir}}/man/man9/index.asciidoc[]
+
+include::{{page.docs-dir}}/hal/halmodule.asciidoc[]
+
+include::{{page.docs-dir}}/hal/canonical-devices.asciidoc[]
+
+include::{{page.docs-dir}}/hal/tools.asciidoc[]
+
+include::{{page.docs-dir}}/hal/halshow.asciidoc[]
+
+// include::{{page.docs-dir}}/man/man1/index.asciidoc[]
+
+:leveloffset: -1
+
+== Developing
+
+:leveloffset: +1
+
+link:../developing/writing-components[Writing HAL Components]
+
+include::{{page.docs-dir}}/hal/instcomp.asciidoc[]
+
+include::{{page.docs-dir}}/hal/comp.asciidoc[]
+
+// include::{{page.docs-dir}}/man/man3/index.asciidoc[]
+
+:leveloffset: -1
+
+= Hardware Drivers
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/drivers/AX5214H.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/GS2.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/VFS11.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/hostmot2.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/motenc.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/opto22.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/pico_ppmc.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/pluto_p.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/servo_to_go.asciidoc[]
+
+include::{{page.docs-dir}}/drivers/GM.asciidoc[]
+
+:leveloffset: -1

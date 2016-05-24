@@ -1,0 +1,30 @@
+---
+---
+
+:skip-front-matter:
+
+= Xenomai realtime kernel (amd64)
+
+Choose and copy and paste the following into a shell to
+install your kernel:
+[source,bash]
+----
+sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
+----
+
+= RT-PREEMPT realtime kernel (amd64)
+
+There is currently no stock Debian RT-PREEMPT kernel for Jessie; the machinekit apt repository provides
+several known-to work kernels. 
+
+If you want to build your own kernel, see the developing section for more details.
+
+Choose and copy and paste the following into a shell to
+install your kernel:
+
+[source,bash]
+----
+sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
+# alternatively, a newer experimental kernel:
+sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
+----

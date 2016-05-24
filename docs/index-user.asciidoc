@@ -1,0 +1,74 @@
+---
+---
+
+:skip-front-matter:
+
+:toc:
+
+= Machinekit Introduction
+
+:toc:
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/common/user_intro.asciidoc[]
+
+include::{{page.docs-dir}}/common/User_Concepts.asciidoc[]
+
+:leveloffset: -1
+
+== User Interfaces
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/gui/selector.asciidoc[]
+
+include::{{page.docs-dir}}/gui/axis.asciidoc[]
+
+include::{{page.docs-dir}}/gui/ngcgui.asciidoc[]
+
+include::{{page.docs-dir}}/gui/gmoccapy.asciidoc[]
+
+include::{{page.docs-dir}}/gui/touchy.asciidoc[]
+
+include::{{page.docs-dir}}/gui/tklinuxcnc.asciidoc[]
+
+include::{{page.docs-dir}}/gui/mini.asciidoc[]
+
+include::{{page.docs-dir}}/gui/keystick.asciidoc[]
+
+:leveloffset: -1
+
+== Using Machinekit
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/gcode/machining_center.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/coordinates.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/tool_compensation.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/overview.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/gcode.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/m-code.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/o-code.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/other-code.asciidoc[]
+
+include::{{page.docs-dir}}/examples/gcode.asciidoc[]
+
+include::{{page.docs-dir}}/lathe/lathe-user.asciidoc[]
+
+include::{{page.docs-dir}}/gcode/rs274ngc.asciidoc[]
+
+include::{{page.docs-dir}}/gui/image-to-gcode.asciidoc[]
+
+include::{{page.docs-dir}}/common/Glossary.asciidoc[]
+
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+
+:leveloffset: -1

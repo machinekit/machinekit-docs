@@ -1,0 +1,40 @@
+---
+layout: community
+title: Channels
+permalink: /community/channels/
+---
+
+= Community channels
+
+There are various ways to stay up to date, or get in toutch if you
+use, or are planning to use Machinekit. These channels are listed below
+
+:toc:
+
+== Machinekit Google group
+
+Users and developers discuss Machinekit in the
+link:http://groups.google.com/group/machinekit[Machinekit Google group].
+The group can be accessed via the web or subscribed to as
+an email list:
+
+- View the group in a web-based forum-like format at
+  link:http://groups.google.com/group/machinekit[]
+
+- Subscribe in list format by sending an email to
+  link:mailto:machinekit+subscribe@googlegroups.com[machinekit+subscribe@googlegroups.com].
+  (Be sure to reply to Google's join request confirmation email.)
+
+Both means are equivalent, and give access to the same postings.
+
+
+== Machinekit GitHub issue tracker
+
+Report problems with Machinekit on the
+link:https://github.com/machinekit/machinekit/issues[GitHub issue tracker].
+Please read up on link:/docs/getting-help[how to get help]
+for some pointers about this.
+
+== Gitter channel
+
+There's a Gitter channel at link:https://gitter.im/machinekit/machinekit[]

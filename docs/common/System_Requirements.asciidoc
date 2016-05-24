@@ -1,0 +1,50 @@
+---
+---
+
+:skip-front-matter:
+= System Requirements
+
+[[cha:system-requirements]] (((System Requirements)))
+
+== Minimum Requirements (((Minimum Requirements)))
+
+The minimum system to run Machinekit and Debian may vary depending on the
+exact usage. 
+
+Stepper systems in general require faster threads to generate step pulses than servo systems. 
+Keep in mind that the Latency Test numbers are more important than the processor speed for
+software step generation. 
+
+More information on the Latency Test is link:../install/Latency_Test[Here]
+
+Machinekit and Debian should run reasonably well on a computer with the
+following minimum hardware specification. These numbers are not the
+absolute minimum but will give reasonable performance for most stepper
+systems.
+
+* 1.2 GHz x86 processor
+* 512 MB RAM up to 2 GB recommended
+* 8 GB hard disk space minimum
+* Graphics card capable of at least 1024x768 resolution, which is not
+   using the NVidia or ATI fglrx proprietary drivers, and which is not an
+   onboard video chipset that shares main memory with the CPU
+* A network or Internet connection (not strictly needed, but very useful
+   for updates and for communicating with the Machinekit community)
+
+== Problematic Hardware
+
+=== Laptops
+
+Laptops are not generally suited to real time software step
+generation. Again a Latency Test run for an extended time will give you
+the info you need to determine suitability.
+
+=== Video Cards
+
+If your installation pops up with 800 x 600 screen resolution then
+most likely Debian does not recognize your video card or monitor.
+Onboard video many times causes bad real time performance.
+
+// vim: set syntax=asciidoc:
+
+

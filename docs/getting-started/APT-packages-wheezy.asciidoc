@@ -1,0 +1,17 @@
+---
+---
+
+:skip-front-matter:
+
+= Configure Apt for `wheezy`
+
+. Add Machinekit repository
+
+[source,bash]
+----
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 43DDF224
+sudo sh -c \
+  "echo 'deb http://deb.machinekit.io/debian wheezy main' > \
+  /etc/apt/sources.list.d/machinekit.list"
+sudo apt-get update
+----

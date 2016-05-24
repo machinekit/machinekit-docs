@@ -1,0 +1,38 @@
+---
+---
+
+:skip-front-matter:
+
+:toc:
+
+= Developer manual
+
+:toc:
+
+== Introduction
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/code/Code_Notes.asciidoc[]
+
+include::{{page.docs-dir}}/code/NML_Messages.asciidoc[]
+
+include::{{page.docs-dir}}/code/Style_Guide.asciidoc[]
+
+include::{{page.docs-dir}}/common/Glossary.asciidoc[]
+
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+
+:leveloffset: -1
+
+== Machinekit How To
+
+:leveloffset: +1
+
+- link:../buildbot/interpret-buildbot-results[Interpret buildbot results]
+
+- link:../setting-up/developing-setting-up[Setting up development environment]
+
+- link:../developing/writing-components[Write HAL Components]
+
+:leveloffset: -1

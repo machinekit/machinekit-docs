@@ -1,0 +1,65 @@
+---
+---
+
+:skip-front-matter:
+= Machinekit Sandbox
+
+This is a try out zone for articles, blogs, wiki type docs
+on any Machinekit related subject that does not easily fit
+into the existing document tree.
+
+It allows them to be visible and shared, whilst the 
+maintainers decide upon the best home for them.
+
+== How to contribute.
+
+Whilst on this page click on the 'Edit this Page' link
+
+Uncomment (remove the // preceding) the next free link template
+and change it to relate to your article
+
+eg.
+[source, html]
+----
+- link:000001[Robohand Blog - 20-05-2016]
+----
+
+Then submit the change via the Pull Request button.
+
+This will let the maintainers know you will be posting an article soon
+on that link and the regeneration of the site will make the link
+you edited visible.
+
+Once the PR is approved and site has regenerated, return to this page.
+
+Your link will be visible, so click on it and you will get a blank template page.
+
+Use the 'Edit this Page' link again to edit the page and enter your article
+in asciidoc format.
+
+Commit as a PR again and before long your article will be visible to all !
+
+
+=== Sandbox Articles
+
+
+- link:000001[Test article - 20-05-2016]
+
+//- link:000002[Title link of page here - date here]
+
+//- link:000003[Title link of page here - date here]
+
+//- link:000004[Title link of page here - date here]
+
+//- link:000005[Title link of page here - date here]
+
+//- link:000006[Title link of page here - date here]
+
+//- link:000007[Title link of page here - date here]
+
+//- link:000008[Title link of page here - date here]
+
+//- link:000009[Title link of page here - date here]
+
+//- link:000010[Title link of page here - date here]
+

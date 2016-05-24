@@ -1,0 +1,11 @@
+
+
+{% if page.edit-path %}
+
+<a href={{page.edit-repo}}/edit/{{page.edit-branch}}/{{page.edit-path}}>Edit this page</a>
+
+{% else %}
+<a href={{page.edit-repo}}/edit/{{page.edit-branch}}/{{page.path}}>Edit this page</a>
+
+{% endif %}
+

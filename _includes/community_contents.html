@@ -1,0 +1,9 @@
+<div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    {% for section in site.data.community %}
+    <h4>{{ section.title }}</h4>
+    {% include community_ul.html items=section.community %}
+    {% endfor %}
+    {% include edit-me.html %}
+  </aside>
+</div>

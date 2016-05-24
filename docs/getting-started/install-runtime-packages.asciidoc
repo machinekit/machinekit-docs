@@ -1,0 +1,23 @@
+---
+---
+
+:skip-front-matter:
+
+= Install runtime packages
+
+For those wanting just Machinekit binaries, the following should
+install the main 'machinekit' package for your kernel choice (multiple
+kernels and flavors possible) Choose the same one as the kernel you use:
+
+[source,bash]
+----
+sudo apt-get install machinekit-rt-preempt machinekit-dev
+----
+[source,bash]
+----
+sudo apt-get install machinekit-xenomai machinekit-dev
+----
+[source,bash]
+----
+sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator mode')
+----

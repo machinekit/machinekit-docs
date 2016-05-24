@@ -1,0 +1,62 @@
+#!/bin/bash
+
+templates=0
+oldpwd=$PWD
+
+cd docs/sandbox
+
+for i in $(find ./ -name '*.asciidoc') ; do
+    compname=$(basename -s .asciidoc "$i") ;
+    if [ $compname != "index" ] ; then
+        templates=$((templates+1))        
+    fi
+done
+
+lastnum=$templates
+lastnum=$((lastnum-5))
+
+filenum="$(printf "%06d" $lastnum)"
+str="= Article Title"
+num=0
+
+while read LINE; do
+    if printf -- '%s' "$LINE" | egrep -q -- "$str" ; then
+	num=1 
+    fi
+done < $filenum.asciidoc
+
+if [[ $num == 0 ]] ; then
+    lastnum=$((lastnum+6))
+    templates=$((templates+5))
+    while [ ${lastnum} -le ${templates} ] ; do
+        filenum="$(printf "%06d" $lastnum)"
+        touch $filenum.asciidoc
+        echo "---" >> $filenum.asciidoc
+	echo "---" >> $filenum.asciidoc
+        echo "" >> $filenum.asciidoc
+	echo ":skip-front-matter:" >> $filenum.asciidoc
+	echo "= Article Title" >> $filenum.asciidoc
+        echo "" >> $filenum.asciidoc
+	echo "Insert a summary of the document here" >> $filenum.asciidoc
+        echo "" >> $filenum.asciidoc
+	echo "== Article Sub-Title" >> $filenum.asciidoc
+        echo "" >> $filenum.asciidoc
+	echo "More detail here" >> $filenum.asciidoc
+        echo "" >> $filenum.asciidoc
+	echo "You can use" >> $filenum.asciidoc
+	echo "" >> $filenum.asciidoc
+	echo "=== Article Minor Headings" >> $filenum.asciidoc
+	echo "" >> $filenum.asciidoc
+	echo "to further sub divide the text" >> $filenum.asciidoc
+	echo "" >> index.asciidoc
+	echo "//- link:$filenum[Title link of page here - date here]" >> index.asciidoc
+        lastnum=$((lastnum+1))
+    done
+    echo "Less than 5 templates remaining, 5 more created"
+else
+    echo "Sufficient templates at present"
+fi
+
+cd $oldpwd
+
+

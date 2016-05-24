@@ -1,0 +1,20 @@
+---
+---
+
+:skip-front-matter:
+= Article Title
+
+Insert a summary of the document here
+
+== Article Sub-Title
+
+More detail here
+
+You can use
+
+=== Article Minor Headings
+
+to further sub divide the text
+
+
+

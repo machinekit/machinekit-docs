@@ -1,0 +1,905 @@
+---
+---
+
+:skip-front-matter:
+= HAL Component Programming - Toolchangers
+
+An area which is ripe for custom HAL components, is the toolchanger used on many lathes and milling machines.
+
+Below are 3 examples of such toolchange components.
+
+They can be used as the basis for the toolchangers on other machines.
+
+The Orac toolchanger for instance is very similar to the one found on the Emco 120, except that the 120 has 4 greyscale sensors intead of 3.
+
+* State Machine Programming
+
+The programming technique used in all 3 toolchangers is known as state machine
+
+When the component is polled by the thread it is attached to, it needs to do something
+as quickly as possible and then return to allow other processes to function.
+
+The basis of it, is to use a flag to set the current progress level in the program.
+When the component is polled it goes to the level or state, that the flag indicates.
+It then does a task, sets the flag to the new state and returns.
+
+It is a common technique in realtime components with many variables, inputs and possible
+states in the program.
+
+If a pause is required to allow mechanical components to engage for instance,
+the same state is polled repeatedly, each time incrementing a counter, until sufficient
+time has passed and then the flow moves to the next state.
+
+Functions such as sleep() cannot be used in real time components, they are blocking calls
+and would prevent anything else working until the period expired.
+
+=== Boxford Lathe ATC toolchanger component
+This component controls 8 station ATC fitted to Boxford 240, 160 and 125
+
+Works on degrees of movement, with ATC defined as rotary axis, so does not require index sensors.
+
+Should be able to be adapted for any lathe using a 'rotate past pawl and reverse to lock' methodology.
+
+The amount of rotation is configurable for fine tuning
+
+link:http://mgware.co.uk/LinuxCNC/Boxford.tar.gz[Download full file]
+
+[code, C]
+----
+component toolchanger               """This component controls the Boxford 240
+                                    Lathe Auto Tool Changer. M6 calls this""";
+
+pin in bit toolchange               "Receives signal that tool change required";
+pin in s32 toolnumber               "Receives Tx data (tool number requested)
+                                    Only allows 1-8";
+pin in s32 currenttoolnumber        "Receives old tool number";
+pin out float position_cmd          "Sends location required";
+
+pin out bit toolchanged =false      "Sends signal when tool change finished";
+pin in bit ishomed = false          "Status of A axis homing";
+
+pin in bit jog_forward = false       "Facilitate jogging of stepgen via component";
+pin in bit jog_back = false          "Facilitate jogging of stepgen via component";
+pin in float jog_move = 0            "distance to jog";
+
+// allow parameters to be changed by setp for fine tuning
+param rw float odd_move = 22.2      "distance from odd tool station to even one";
+param rw float even_move = 24       "distance from even tool station to odd one";
+param rw float divisor = 2          "used in calculating reverse move to lock";
+param rw float fudge_factor = 1     "additional move to ensure locking";
+
+// internal variables
+
+variable int progress_level = 0;    // tracks the progress of the toolchange
+variable int moves = 0;             // number of moves to reach tool station
+variable int index = 0;             // Counter used for comparison with moves
+variable bool bEven = false;        // Odd or Even station requested
+variable bool bToggle = false;      // Status of current move as Odd or Even
+variable float position_req = 0;    // Where we want to be
+variable float position_accum = 0;  // Moves are incremental but stepgen is
+                                    // absolute so add them up
+
+variable bool bWarn = false;        // one shot warning no tool set
+variable int delay = 0;             // delay before lock back
+variable int delay_index = 0;       // counter for above
+variable bool fjog = false;         // use internal flags for jogging after initial
+                                    // signal to ensure that one command is
+variable bool bjog = false;         // carried out at a time - should not be
+                                    // possible to be otherwise but paranoia rules
+variable float jmove = 0;
+
+option singleton yes;               // makes no sense to have more than one of
+                                    // these components running - only one ATC
+function _;
+author "ArcEye <arceyeATmgwareDOTcoDOTuk>";
+license "GPL";
+;;
+
+
+float rnd2(float in)
+{
+float num = in;
+long roundy;
+
+    num *= 100;
+    if(num >= 0)
+        num += 0.5;
+    else
+        num -= 0.5;
+    roundy = num;
+    num = roundy;
+    num /= 100;
+    return num;
+}
+
+FUNCTION(_)
+{
+    switch (progress_level)
+        {
+        case 0:  // idle waiting for toolchange request
+                if(jog_forward && ! fjog)
+                    {
+                    fjog = true;
+                    bjog = false;
+                    jmove = rnd2(jog_move);
+                    position_req = jmove;
+                    position_req += position_accum;
+                    if(position_req > 360)
+                                position_req -= 360;
+                    position_cmd = position_req;
+                    progress_level = 1;
+                    break;
+                    }
+                else if(jog_back && !bjog)
+                    {
+                    bjog = true;
+                    fjog = false;
+                    jmove = rnd2(jog_move);
+                    position_req = position_accum - jmove;
+                    if(position_req < 0)
+                            position_req += 360;
+                    position_cmd = position_req;
+                    progress_level = 3;
+                    break;
+                    }
+                else
+                    {
+                    // axis does not remember the current tool number,
+                    // so prompt for it when A axis homed
+                    if(ishomed && !currenttoolnumber && !bWarn)
+                        {
+                        bWarn = true;
+                        // just warn once, its not an error as such but INFO
+                        // won't display unless debugging is set 3+
+                        rtapi_print_msg(RTAPI_MSG_ERR,
+                                "No tool selected. Use M6Tx to set current tool");
+                        break;
+                        }
+                    if(toolchange && !toolchanged)
+                        // prevent cycling after change done
+                        {
+                        if(currenttoolnumber && toolnumber != currenttoolnumber
+                            && toolnumber > 0 && toolnumber < 9)
+                            // if a valid number
+                            {
+                            if(currenttoolnumber == 2 || currenttoolnumber == 4
+                                || currenttoolnumber == 6 || currenttoolnumber == 8)
+                                bEven = true;
+                            if(currenttoolnumber < toolnumber)
+                                moves = toolnumber - currenttoolnumber;
+                            else
+                                moves = (8 - currenttoolnumber) + toolnumber;
+
+                            bToggle = bEven;
+
+                            while(index < moves)
+                                {
+                                if(bToggle)
+                                    position_req += even_move;
+                                else
+                                    position_req += odd_move;
+                                index++;
+                                bToggle = !bToggle;
+                                }
+                            if(position_req >= 70)
+                                delay = 70;
+                            else
+                                delay = position_req;
+
+                            position_req += position_accum;
+                            if(position_req > 360)
+                                position_req -= 360;
+                            position_cmd = position_accum;
+                            position_cmd = position_req;
+                            progress_level = 1;
+                            }
+
+                         else
+                         // if tool requested is out of range or already selected
+                         // just set the toolchanged flag and exit
+                            progress_level = 5;
+                         }
+                    if(!toolchange)
+                        toolchanged = 0;
+                        // reset once toolchange flag reset by system
+                    if(toolchange && !currenttoolnumber)
+                    // if no tool is set - set to tool requested so that
+                    // can work next time
+                        progress_level = 5;
+                        } // end else
+                break;
+
+        case 1: // Forward move
+                if(position_cmd < position_req)  // have we got there yet?
+                    {
+                    break;
+                    }
+                if(!fjog  && (delay_index < (delay * 100)) )
+                // this figure depends upon the speed of the servo thread etc
+                    delay_index++;
+                else
+                    {
+                    if(fjog)
+                        {
+                        fjog = bjog = false;
+                        progress_level = 5;
+                        }
+                    else
+                        {
+                        position_req -= ((moves / divisor) + fudge_factor);
+                        if(position_req < 0)
+                            position_req += 360;
+                        position_cmd = position_req;
+                        progress_level = 3;
+                        }
+                    }
+                break;
+
+
+
+        case 3: // Backward locking move or backward jog
+                if(position_cmd > position_req) // have we got there yet?
+                    {
+                    break;
+                    }
+                if(bjog)
+                    {
+                    bjog = fjog = false;
+                    }
+                progress_level = 5;
+                break;
+
+
+        case 5: // clean up ready for next toolchange
+                position_accum = position_cmd;
+                position_req = 0;
+                delay_index = 0;
+                moves = 0;
+                index = 0;
+                bEven = false;
+                bToggle = false;
+                progress_level = 0;
+                toolchanged = 1;   // signal finished
+                break;
+
+        case 10:   break;
+        // should never get here but if we do then loop endlessly doing nothing
+
+        default:
+                progress_level = 10;
+                rtapi_print_msg(RTAPI_MSG_ERR,
+                "Error state in toolchanger - now disabled - unload toolchanger");
+
+        }
+
+}
+----
+
+=== Denford Orac Lathe ATC toolchanger component
+This component controls 8 station ATC fitted to Orac lathe
+
+It reads greyscale optical disc and compares to 3 sensor truth table to determine tool position
+
+The lathe has a DC motor which rotates the ATC to position and then reverses back
+against the pawl and holds, using a lower voltage winding in the motor.
+
+The greyscale sensors are resolved using a truth table.
+
+link:http://mgware.co.uk/LinuxCNC/oracchanger.comp[Download full file]
+
+[code, C]
+----
+component oracchanger                   """This component controls the Orac Lathe
+                                        Auto Tool Changer. M6 calls this""";
+
+pin in bit toolchange                   "Receives signal that tool change required";
+pin in s32 toolnumber                   """Receives Tx data (tool number requested)
+                                        Only allows 1-8""";
+pin in s32 currenttoolnumber            "Receives old tool number";
+pin out bit toolchanged = false         "Sends signal when tool change finished";
+
+pin out bit delaystart = false          "Starts timerdelay";
+pin in bit delaydone =false             "Signals timer finished";
+
+pin in bit opto1 = false                "State of opto sensor 1";
+pin in bit opto2 = false                "State of opto sensor 2";
+pin in bit opto3 = false                "State of opto sensor 3";
+
+pin out bit forward = false             "Direction signal";
+pin out bit run = false                 "Motor command";
+
+pin in bit ishomedX = false             "Status of X axis homing";
+pin in bit ishomedZ = false             "Status of Z axis homing";
+
+pin out s32 position = 0
+"Initialised as a pin for debugging so we can check where it thinks it is";
+
+param rw float times = 500
+        """Number of polls of progress_levels 1 & 3 before beginning next move
+            - gives delay for relays""";
+
+// Internal and debugging stuff
+pin out s32 progress_level = 0;
+// tracks the progress of the toolchange, just here so it can be read easily
+param rw s32 tnumber = 0;
+// Internal toolnumber to allow overrun of quadrant by 1 then reverse back onto it
+
+variable bool bWarn = false;            // first toolnumber reminder
+
+variable float sleeptime = 0;
+// our own timer to set delay between progress levels 1 and 2
+
+option singleton yes;
+// makes no sense to have more than one of these components running - only one ATC
+function _;
+author "ArcEye <arceyeATmgwareDOTcoDOTuk>";
+license "GPL";
+;;
+
+
+FUNCTION(_)
+{
+    switch (progress_level)
+        {
+        case 0: // idle waiting for toolchange request
+                // axis does not remember the current tool number,
+                // so prompt for it once homed
+                if((!currenttoolnumber && !bWarn)&&(ishomedX)&&(ishomedZ))
+                    {
+                    bWarn = true;
+                    // just warn once, its not an error as such but INFO won't
+                    // display unless debugging is set 3+
+                    rtapi_print_msg(RTAPI_MSG_ERR,
+                      "No tool selected. Use M6Tx to set current tool");
+                    break;
+                    }
+                if(toolchange && !toolchanged)
+                // prevent cycling after change done
+                    {
+                    if(currenttoolnumber && toolnumber != currenttoolnumber
+                      && toolnumber > 0 && toolnumber < 9) // if a valid number
+                        {
+                        run = false; // switch off motor if already on
+                        tnumber = toolnumber + 1;
+                        if(tnumber > 8)
+                        // add 1 so that stops on sector after required
+                        // & reverses back to it
+                            tnumber = tnumber - 8;
+
+                        delaystart = false;   //new toolchange - reset comp
+                        forward = true;
+                        sleeptime = 0;
+                        progress_level = 1;
+                        break;
+                        }
+                    else
+            // if tool requested is out of range set the toolchanged flag and exit
+            // should only get this if tool table has more tools than ATC can have
+            // otherwise emc will error the M6 command
+                        {
+                        progress_level = 5;
+                        run = false;  // switch off motor if already on
+                        }
+                    }
+                 if(!toolchange && toolchanged)
+                     toolchanged = false;
+                     // reset once toolchange flag reset by system
+
+                 if(toolchange && !currenttoolnumber)
+                 // if no tool is set in axis -
+                 // set axis to tool requested so that can work next time
+                     {
+                     forward = false;
+                     run = false;
+                     progress_level = 5;
+                     }
+                 if(delaydone) // turn off motor after a delay to lock
+                    {
+                    run=false;
+                    delaystart=false;
+                    }
+                 break;
+
+
+        case 1: // programmed delay to allow relays time to change over
+                 if(sleeptime < times)
+                    {
+                    sleeptime++;
+                    break;
+                    }
+                run = true;
+                progress_level = 2;
+                break;
+
+        case 2: // Forward move - read the truth table to determine position
+                if(opto1 && opto2 && opto3)
+                    position = 1;
+                else if(opto1 && opto2 && !opto3)
+                    position =  2;
+                else if(!opto1 && opto2 && !opto3)
+                    position =  3;
+                else if(!opto1 && !opto2 && !opto3)
+                    position =  4;
+                else if(opto1 && !opto2 && !opto3)
+                    position =  5;
+                else if(opto1 && !opto2 && opto3)
+                    position =  6;
+                else if(!opto1 && !opto2 && opto3)
+                    position =  7;
+                else if(!opto1 && opto2 && opto3)
+                    position =  8;
+                else
+                    position = 0;
+
+                if(!position)  // if returning 0 something is wrong
+                    {
+                    rtapi_print_msg(RTAPI_MSG_ERR,
+                      "Error - opto inputs do not match truth table");
+                    progress_level = 12;
+                    // doesn't exist so will go to default, output msg and
+                    // then sit in level 10
+                    break;
+                    }
+
+                if(position != tnumber)  // wait for next tool + 1 to come around
+                    break;
+
+                run = false;
+                forward = false;
+                sleeptime = 0;
+                delaystart = true;
+                progress_level = 3;
+                break;
+
+        case 3: // programmed delay to allow relays time to change over
+                if(sleeptime < times)
+                    {
+                    sleeptime++;
+                    break;
+                    }
+                run = true;         // Backward locking move
+                delaystart = true;
+                progress_level = 5;
+                // after first toolchange or update of tool number this is
+                // default, reverse with 12v applied to lock
+                break;
+
+        case 5: // clean up ready for next toolchange
+                delaystart = true;
+                // start the 5 second delay relay component to give time to latch
+                progress_level = 0;
+                toolchanged = true;   // signal finished
+                break;
+
+        case 10:   break;
+        // should never get here but if we do then loop endlessly doing nothing
+
+        default:
+                progress_level = 10;
+                rtapi_print_msg(RTAPI_MSG_ERR,
+                  "Error state in oracchanger - now disabled - unload oracchanger");
+                break;
+        }
+
+}
+
+----
+
+=== Triac Mill carousel toolchanger component
+
+The Triac mill has a tool carousel operated by 2 pneumatic rams, one to bring it
+into line with the spindle and the other to raise and lower it.
+
+A stepper motor rotates the carousel in either direction.
+
+The tool changer component homes the carousel once the mill has been homed, to establish where tool 1 index is and from that which tool is in the spindle.
+
+Thereafter a M6Tn command prompts the removal of the current tool from the spindle, rotation of the carousel to the tool requested and the insertion of that tool in the spindle.
+
+The component uses a modified version of ioControl.cc to automatically update the toolnumber held by linuxcnc and displayed in Axis
+
+This realistically makes the component most easily used within a RIP environment where the new iocontrol can be built in the source tree
+
+The main tuning considerations, in common with many components interfacing with electro-mechanical / pneumatic
+tool changers, are appropriate delays to allow relays to open, rams to move to their full extent etc.
+
+The figures in the config files are for cncbashers own machine in conjunction with Mesa boards
+
+If software stepping were used and a normal BOB, the delays may require to be longer.
+
+These can be set using the 3 param pins, shortdelay, longdelay and extralongdelay
+
+link:http://mgware.co.uk/LinuxCNC/triac_toolchanger.zip[Download full file]
+
+[code, C]
+----
+component triacchanger          """This component controls the Denford Triac
+                                carousel Tool Changer - iocontrol calls this""";
+
+pin in bit toolchange           "Receives signal that tool change required";
+pin in s32 toolnumber           "Receives Tx data (tool number requested) 1-6";
+pin in s32 currenttoolnumber    "Receives old tool number";
+pin out float position_cmd      """Sends number required,
+                              positive for forward and negative for backward""";
+pin out bit toolchanged         "Sends signal when tool change finished";
+
+pin out float position_req = 0  "Where we want the axis to go to";
+
+pin in bit bishomed             "Linked to halui.joint.4.is-homed";
+pin in bit zonhome              """Linked to signal for Z Home switch to ensure
+                                spindle up before moving""";
+
+pin in bit toolone = 0          "Linked to tool 1 position sensor";
+pin out s32 toolposition = 0    "Links to modified iocontrol.currenttool pin";
+pin out bit update = 0          "Trigger pin for update of tool number in iocontrol";
+
+pin out bit spindle_on = 0      """Activating bit for spindle relay,
+                                prevent rotation during toolchange""";
+
+pin in bit vram_up_sw = 0       "Vertical ram in up position";
+pin in bit vram_down_sw = 0     "Vertical ram in down position";
+pin in bit hram_in_sw = 0       "Horizontal ram in withdrawn position";
+pin in bit hram_out_sw = 0      "Horizontal ram in engaged position";
+
+pin out bit vram_on = 0         "Activating signal to move vram in";
+pin out bit hram_on = 0         "Activating signal to move hram down";
+
+pin out bit drawbar_off = 0
+                    "Activating signal to hold drawbar in released position";
+
+param rw float longdelay = 50   "Delay between tools";
+param rw float shortdelay = 10   "Delay between increments";
+param rw float extralongdelay = 300
+                        "Longer delay for drawbar and initial number update";
+
+// internal variables
+
+variable int progress_level = 0;
+//  switches execution according to state of the toolchange
+variable int return_level = 0;
+//  flag to indicate original positional moves made and carousel in home position
+variable int homed = 0;
+//  "Status of carousel homing - home = tool No1";
+variable int once_warn = 0;
+//  warning flag for rams being in unknown state
+
+variable int moves = 0;
+//  number of moves to reach tool station
+variable int index = 0;
+//  Counter used for comparison with moves
+variable float checkindex = 0;
+variable int starttool = 0;
+//  Holds number of tool at startup (calculated)
+
+variable int delay_index = 0;
+//  counter
+
+variable bool bWarn = false;
+ //  warning re no tool selected made?
+
+variable bool bReverse = false;
+// are we doing a reverse to tool position
+
+option singleton yes;
+// makes no sense to have more than one of these components running - only one ATC
+function _;
+author "ArcEye <arceyeATmgwareDOTcoDOTuk>";
+license "GPL";
+;;
+
+FUNCTION(_)
+{
+    switch (progress_level)
+        {
+        case 0: if(!bishomed || !zonhome)
+        // do nothing until carousel axis is 'homed' by Axis and Z is fully up
+                    break;
+                // do nothing until checked rams in correct place
+                if(!started)
+                    {
+                    if(hram_in_sw && vram_up_sw) // rams in home position
+                        started = 1;
+                    else
+                        {
+                        if(!once_warn)
+                            {
+                            rtapi_print_msg(RTAPI_MSG_ERR,
+                              "Toolchanger rams in unknown state");
+                            once_warn = 1;
+                            }
+                        }
+                    }
+                // now check if already at tool 1 - if not rotate carousel to find it
+                else
+                    {
+                    if(toolone && !homed) // already aligned to tool 1
+                        {
+                        homed = 1;
+                        progress_level = 4;
+                        }
+                    else if(!homed)
+                        {
+                        position_req += 75;  // move 60deg
+                        index++;             // counts the moves to find 1
+                        progress_level = 1;
+                        }
+                    }
+                break;
+
+        case 1: // move carousel 60 deg
+                 if(toolone)
+                    {
+                    homed = 1;
+                    progress_level = 4;
+                    }
+                else
+                    {
+                    if(position_cmd < position_req)
+                        {
+                        position_cmd += 0.1;
+                        progress_level = 2; //short delay
+                        }
+                    else
+                        progress_level = 3; //long delay
+                    break;
+                    }
+
+                break;
+
+        case 2: // delay to prevent overrun
+                if(toolone)
+                    {
+                    homed = 1;
+                    progress_level = 4;
+                    break;
+                    }
+                if(delay_index < shortdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                progress_level = 1;
+                break;
+
+       case 3: // delay between 60 degs
+                if(toolone)
+                    {
+                    homed = 1;
+                    progress_level = 4;
+                    }
+                if(delay_index < longdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                progress_level = 0;
+                break;
+
+        case 4: // now at tool1 need to get back to where we started
+                if(index)
+                    {
+                    checkindex = (position_cmd / 75) + 0.5;
+                    // round up to remove small underruns
+                    index = checkindex;
+                    starttool =  (index + 1);
+                    moves = (6 - index);  // number to return
+                    position_req = position_cmd;
+              // having indexed use current position as base for all future ones
+                    position_req += (75 * moves);
+                    position_cmd = position_req;
+                    progress_level = 5;
+                    }
+                else // we haven't moved so were homed from start
+                    {
+                    progress_level = 6;
+                    }
+                break;
+
+
+        case 5: // rotate back to original place
+                if(position_cmd < position_req )
+                    break;
+
+                return_level = 27;
+                progress_level = 26;
+                break;
+
+///////////////////////////////////////////////////////////////////////////////
+        case 6: // after homing this is default level
+                spindle_on = 0;
+                if(toolchange && !toolchanged)
+                // prevent cycling after change done
+                    {
+                    update = 0;
+                    if(toolnumber > 0 && toolnumber <= 6) // if a valid number
+                        {
+                        if(currenttoolnumber != toolnumber)
+                            {
+                            spindle_on = 0;
+                            hram_on = 1; // move carousel in
+                            progress_level = 7;
+                            }
+                        else
+                            toolchanged = 1;
+                        }
+                    }
+
+                if(!toolchange && toolchanged)
+                     toolchanged = false;
+                     // reset once toolchange flag reset by system
+                break;
+
+///////////////////////////////////////////////////////////////////////////////
+
+        case 7: // drawbar release
+                if(hram_out_sw)
+                    {
+                    drawbar_off = 1;
+                    progress_level = 8;
+                    }
+                break;
+
+        case 8: // delay for drawbar release
+                if(delay_index < extralongdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                vram_on = 1; // move carousel down
+                progress_level = 9;
+                break;
+
+        case 9:  // move carousel down and remove tool from spindle
+                if(!vram_down_sw)
+                    break;
+                hram_on = 0;
+                progress_level = 10;
+                break;
+
+        case 10: //  move away from spindle
+                if(!hram_in_sw)
+                    break;
+                vram_on = 0;
+                progress_level = 11;
+                break;
+
+        case 11: // move up to parked position
+                if(!vram_up_sw)
+                    break;
+                progress_level = 12;
+                break;
+
+        case 12: // calculate moves in parked position
+                if(toolnumber > toolposition)
+                    moves = (6 - (toolnumber - toolposition));
+                else
+                    moves = (toolposition - toolnumber);
+
+                if(moves > 3)
+                // if 4 or 5 moves, quicker to move back 1 or 2 sectors
+                    {
+                    moves = (6 - moves);
+                    position_req -= (75 * moves);
+                    bReverse = true;
+                    }
+                else
+                    {
+                    position_req += (75 * moves);
+                    bReverse = false;
+                    }
+                progress_level = 14;
+                break;
+
+        case 14: // rotate to selected tool
+                if(bReverse)
+                    {
+                    if(position_cmd > position_req )
+                        {
+                        position_cmd -= 1;
+                        progress_level = 25;
+                        return_level = 14;
+                        break;
+                        }
+                    }
+                else
+                    {
+                    if(position_cmd < position_req )
+                        {
+                        position_cmd += 1;
+                        progress_level = 25;
+                        return_level = 14;
+                        break;
+                        }
+                    }
+                bReverse = false;
+                toolposition = toolnumber;
+                vram_on = 1; // move carousel down
+                progress_level = 15 ;
+                break;
+
+        case 15:// move carousel down and back out
+                if(!vram_down_sw)
+                    break;
+                hram_on= 1;
+                progress_level = 16;
+                break;
+
+        case 16: // move carousel across
+                if(!hram_out_sw)
+                    break;
+                vram_on  = 0;
+                progress_level = 17;
+                break;
+
+        case 17: // move up into spindle
+                if(!vram_up_sw)
+                    break;
+                drawbar_off = 0;
+
+                progress_level = 18;
+                break;
+
+        case 18:// pause to allow drawbar to fully home
+                if(delay_index < extralongdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                hram_on = 0;
+                progress_level = 19;
+                break;
+
+        case 19: // hram back home and finish
+                if(!hram_in_sw)
+                    break;
+                toolchanged = 1;
+                toolposition = toolnumber;
+                progress_level = 6;
+                break;
+
+
+        case 25: //
+                if(delay_index < shortdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                progress_level = return_level;
+                break;
+
+       case 26:
+                if(delay_index < extralongdelay)
+                    {
+                    delay_index++;
+                    break;
+                    }
+                delay_index = 0;
+                progress_level = return_level;
+                break;
+
+        case 27: // special level only for initial toolnumber setting on startup
+                toolposition = starttool;
+                update = 1;
+                toolchanged = 1;
+                progress_level = 6;
+                break;
+
+        case 30:
+                break;
+        // should never get here but if we do then loop endlessly doing nothing
+
+        default:
+                progress_level = 30;
+                rtapi_print_msg(RTAPI_MSG_ERR,
+      "Unsupported state in triacchanger - now disabled - unload triacchanger");
+
+        }
+
+}
+
+----

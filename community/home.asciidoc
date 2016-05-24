@@ -1,0 +1,16 @@
+---
+layout: community
+title: Community
+permalink: /community/home/
+---
+
+This section will cover topics about getting help and community participation.
+
+Please browse the topics in the navigation bar on the right.
+
+Some quick links for cenvenience:
+
+- link:/community/channels[Machinekit channels, get in touch and stay up to date]
+- link:/community/c4[The C4 process]
+- link:/community/contributing[Contributing]
+- link:/community/maintainers[Maintainers]

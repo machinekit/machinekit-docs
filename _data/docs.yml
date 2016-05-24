@@ -1,0 +1,19 @@
+- title: For starters
+  docs:
+    - index-getting-started
+    - index-user
+    - index-HAL    
+    - getting-help
+
+- title: Developing
+  docs:
+    - index-integrator
+    - index-developer
+    - documenting/documenting
+    - developing/develop-index
+    
+- title: Manpages
+  docs:
+    - man/man1
+    - man/man3
+    - man/man9

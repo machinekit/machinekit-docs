@@ -1,0 +1,9 @@
+_site/
+test/
+.DS_Store
+*.adoc
+*.*~
+.jekyll-metadata
+docs/man/man1/index.asciidoc
+docs/man/man3/index.asciidoc
+docs/man/man9/index.asciidoc

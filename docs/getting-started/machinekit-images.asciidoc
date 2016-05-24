@@ -1,0 +1,16 @@
+---
+---
+
+:skip-front-matter:
+
+= BeagleBone Debian Machinekit image
+
+Robert C. Nelson kindly provides a 2-weekly build of a complete Debian with
+Machinekit image for a BeagleBone Black/White.
+
+Head over to link:http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#BBW.2FBBB_.28All_Revs.29_Machinekit[elinux.org/Beagleboard:BeagleBoneBlack_Debian#BBW.2FBBB_.28All_Revs.29_Machinekit]
+and download and install the image on a microSD card and run the image from
+that, or install the image on the eMMC.
+
+Instructions on writing a microSD card link:https://encrypted.google.com/search?q=beaglebone+black+flashing+SD+card[can be found here] by doing a Google search. There are plenty examples and tutorials
+around also for writing the image to the eMMC.

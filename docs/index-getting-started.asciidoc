@@ -1,0 +1,33 @@
+---
+---
+
+:skip-front-matter:
+
+:toc:
+
+:toclevels: 4
+
+= Getting Started
+
+:toc:
+
+:leveloffset: +1
+
+include::{{page.docs-dir}}/getting-started/getting-started-platform.asciidoc[]
+
+
+include::{{page.docs-dir}}/common/System_Requirements.asciidoc[]
+
+include::{{page.docs-dir}}/quickstart/stepper_quickstart.asciidoc[]
+
+include::{{page.docs-dir}}/config/stepconf.asciidoc[]
+
+include::{{page.docs-dir}}/config/pncconf.asciidoc[]
+
+include::{{page.docs-dir}}/config/copy_and_run.asciidoc[]
+
+include::{{page.docs-dir}}/common/Linux_FAQ.asciidoc[]
+
+include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+
+:leveloffset: -1
