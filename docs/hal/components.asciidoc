@@ -21,7 +21,7 @@ man axis (or perhaps 'man 1 axis' if your system requires it.)
 ----
 
 Now you can also view the Machinekit specific component Man Pages on-line
-link:http://preview.machinekit.io/docs/man/man9/index.html[Here]
+link:http://machinekit.io/docs/man/man9/index.html[Here]
 
 axis:: AXIS Machinekit (The Enhanced Machine Controller) Graphical User Interface.
 axis-remote:: AXIS Remote Interface.
