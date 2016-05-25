@@ -548,7 +548,7 @@ set up and read a dial indicator to see if you are loosing steps.
 *Stepper Timing*
 Stepper timing needs to be tailored to the step controller's requirements. 
 Pncconf supplies some default controller timing or allows custom timing settings
-. See link:http://wiki.machinekit.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[here] for
+. See link:http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Stepper_Drive_Timing[here] for
 some more known timing numbers (feel free to add ones you have figured out). If 
 in doubt use large numbers such as 5000 this will only limit max speed.
 

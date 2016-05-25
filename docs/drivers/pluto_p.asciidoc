@@ -26,7 +26,7 @@ The Pluto P board  will work on some computers and not on others.
 There is no known pattern to which computers work and which don't work.
 
 For more information on PCI EPP compatible parallel port cards see the 
-http://wiki.machinekit.org/cgi-bin/wiki.pl?Machinekit_Supported_Hardware[Machinekit
+http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Machinekit_Supported_Hardware[Machinekit
 Supported Hardware] page on the wiki.
 
 === Connectors

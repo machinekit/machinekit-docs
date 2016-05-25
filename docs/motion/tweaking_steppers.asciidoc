@@ -224,7 +224,7 @@ measurements on your computer, and do the math to ensure that your
 drives get the signals they need.
 
 To make the math easier, I've created an Open Office spreadsheet  
-http://wiki.machinekit.org/uploads/StepTimingCalculator.ods 
+http://wiki.linuxcnc.org/uploads/StepTimingCalculator.ods 
  You enter your latency test result and your stepper drive timing
 requirements and the spreadsheet calculates the optimum BASE_PERIOD.
 Next, you test the period to make sure it won't slow down or lock up

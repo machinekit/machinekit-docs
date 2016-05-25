@@ -112,7 +112,7 @@ that anyone can add to or edit.
 The user maintained Machinekit Wiki site contains a 
 wealth of information and tips at:
 
-link:http://wiki.machinekit.org/[http://wiki.machinekit.org]
+link:http://wiki.linuxcnc.org/[http://wiki.machinekit.org]
 
 == Getting Machinekit
 

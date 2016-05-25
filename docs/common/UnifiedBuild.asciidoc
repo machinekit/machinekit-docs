@@ -453,7 +453,7 @@ rtai 3.5.7::
 
 xenomai 3.5.7-2.6.2.1 i686 and x86_64::
 	John's [JM] Xenomai kernel, see
-	http://wiki.machinekit.org/cgi-bin/wiki.pl?XenomaiKernelPackages
+	http://wiki.linuxcnc.org/cgi-bin/wiki.pl?XenomaiKernelPackages
 
 3.2.0-4-rt-amd64::
 	 as per wheezy distro (x86_64)
