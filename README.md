@@ -5,5 +5,3 @@ Website PR Builder Status [![Website PR Build Status](https://jenkins.machinekit
 Manpage Build Status: [![Manpage Build Status](https://jenkins.machinekit.io/buildStatus/icon?job=machinekit-manpages)](https://jenkins.machinekit.io/job/machinekit-manpages/)
 
 # Machinekit Documentation
-
-
