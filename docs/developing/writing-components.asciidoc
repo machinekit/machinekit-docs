@@ -6,18 +6,18 @@
 
 Recommended pre-reading from the legacy docs.
 
-link:http://preview.machinekit.io/docs/hal/intro[Introduction to HAL]
+link:http://machinekit.io/docs/hal/intro[Introduction to HAL]
 
-link:http://preview.machinekit.io/docs/hal/tutorial[Basic HAL tutorial]
+link:http://machinekit.io/docs/hal/tutorial[Basic HAL tutorial]
 
 Quite often there are existing components that can achieve your ends, without the need to write 
 one yourself.
 
 Certainly, maths and logic components are very well catered for.
 
-link:http://preview.machinekit.io/docs/hal/components[This] is a brief resume of the existing 'stock' components
+link:http://machinekit.io/docs/hal/components[This] is a brief resume of the existing 'stock' components
 
-link:http://preview.machinekit.io/docs/man/man9/index.html[This] is an index of all component man pages, most of which are now instantiated.
+link:http://machinekit.io/docs/man/man9/index.html[This] is an index of all component man pages, most of which are now instantiated.
 
 ==  C files
 
@@ -46,7 +46,7 @@ shortcuts to enlightenment.
 
 === comp
 
-link:http://preview.machinekit.io/docs/hal/comp[comp] is the legacy (linuxcnc) component generator.
+link:http://machinekit.io/docs/hal/comp[comp] is the legacy (linuxcnc) component generator.
 
 comp will generate and compile components for rt or userspace.
 
@@ -57,7 +57,7 @@ It also builds a full component.
 
 === instcomp
 
-link:http://preview.machinekit.io/docs/hal/instcomp[instcomp] is the new Machinekit instantiated component generator, developed and extended from comp.
+link:http://machinekit.io/docs/hal/instcomp[instcomp] is the new Machinekit instantiated component generator, developed and extended from comp.
 
 The essential difference between normal realtime components and instantiable components,
 is that 'normal components' are loaded once only and have to create as many copies of the
@@ -67,7 +67,7 @@ Instantiable components load the 'base component' and from that can create insta
 of the component whenever they are required.
 So instances can be created in separate hal files, on-the-fly or whatever.
 
-Further info link:http://preview.machinekit.io/docs/hal/new-instantiated-components[here]
+Further info link:http://machinekit.io/docs/hal/new-instantiated-components[here]
 
 Amoungst many advantages, it opens up huge flexibility in configuration.
 
@@ -87,7 +87,7 @@ It cannot be used for time sensitive or realtime components, because python is a
 language, but a lot of components have no need of milli-second poll timing and can quite happily be
 written as userspace using python
 
-This link:http://preview.machinekit.io/docs/hal/halmodule[link] gives some basic information.
+This link:http://machinekit.io/docs/hal/halmodule[link] gives some basic information.
 
 There are not that many examples,  some in [blue]#src/hal/user_comps#
 

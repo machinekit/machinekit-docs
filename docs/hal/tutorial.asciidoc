@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: http://preview.machinekit.io/docs/hal/images
+:imagesdir: http://machinekit.io/docs/hal/images
 
 = Advanced HAL Tutorial
 
