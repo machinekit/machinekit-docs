@@ -60,7 +60,7 @@ You should see something like this:
 
 .HAL Latency Test
 
-image::http://machinekit.io/docs/config/images/latency.png[align="center"]
+image::/docs/config/images/latency.png[align="center"]
 
 While the test is running, you should 'abuse' the computer. 
 Move windows around on the screen. Surf the web. Copy some large files 

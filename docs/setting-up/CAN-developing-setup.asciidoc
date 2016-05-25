@@ -50,7 +50,7 @@ You should have typed {yes} when doing the reconfigure and substituted
 Reboot your machine, log in, and start wireshark.
 you should see the following screen. Notice "vcan0"
 
-image::http://machinekit.io/docs/setting-up/images/wireshark-startup.png[align="center"]
+image::/docs/setting-up/images/wireshark-startup.png[align="center"]
 
 start capturing the vcan0 interface by selecting the `vcan0` interface and
 clicking `start`.
@@ -63,6 +63,6 @@ me@VM:~$ cansend vcan0 001#04.01.00.00.0f.ff.e7.00
 
 Return to Wireshark and note that the you see the communication.
 
-image::http://machinekit.io/docs/setting-up/images/captured-can-packet.png[align="center"]
+image::/docs/setting-up/images/captured-can-packet.png[align="center"]
 
-You are now ready to return to the the link:http://machinekit.io/docs/developing/CAN-developing[CAN developing page]
+You are now ready to return to the the link:/docs/developing/CAN-developing[CAN developing page]

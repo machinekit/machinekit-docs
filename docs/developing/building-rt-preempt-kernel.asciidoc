@@ -11,7 +11,7 @@ The best way to approach this is to:
 - Go to link:http://www.kernel.org/pub/linux/kernel/projects/rt/[www.kernel.org/pub/linux/kernel/projects/rt/] and select the latest stable patch
 - Then download the matching vanilla kernel from link:http://www.kernel.org[www.kernel.org]
 - Substitute the kernel version you have for 3.8.11 and the rt-patch version you have for 3.8.11-rt7 in the below instructions
-- Cut and Paste link:http://machinekit.io/docs/developing/rt-kernel-config[this] config to a file called .config in the root directory of the kernel sources. Meaning the `linux-3.18.11` directory that got created after unpacking. All the recent rt x86-amd64 patches up to kernel 4.1.5 have been tested and all worked well.
+- Cut and Paste link:/docs/developing/rt-kernel-config[this] config to a file called .config in the root directory of the kernel sources. Meaning the `linux-3.18.11` directory that got created after unpacking. All the recent rt x86-amd64 patches up to kernel 4.1.5 have been tested and all worked well.
 
 == Commands from a terminal
 
