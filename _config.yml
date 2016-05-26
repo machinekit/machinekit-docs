@@ -52,7 +52,7 @@ exclude: [Makefile,
 	 '*/*.9' ]
 
 # Google services - preview.machinekit.io
-google_analytics:   UA-48383649-2
+#google_analytics:   UA-48383649-2
 
 # for www.machinekit.io - activate on switch!
-#google_analytics:  UA-48383649-1
+google_analytics:  UA-48383649-1
