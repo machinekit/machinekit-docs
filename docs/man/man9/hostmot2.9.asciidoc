@@ -1259,7 +1259,7 @@ Typically these would be written in the "comp" pre-processing language
 
 For comp details see:
 
-* see http://linuxcnc.org/docs/html/hal_comp.html
+* see link:/docs/index-HAL/#comp-hal-component-generator[the comp component generator]
 * man comp 
 
 For details of a typical sub-driver see:
@@ -1284,7 +1284,8 @@ hm2_<board name>.<board index>.bspi.<index> For example hm2_5i23.0.bspi.0
 The UART driver also does not create any HAL pins, instead it declares two 
 simple read/write functions and a setup function to be utilised by user-written
 code.  Typically this would be written in the "comp"
-pre-processing language: see http://linuxcnc.org/docs/html/hal_comp.html or man
+pre-processing language: see link:/docs/index-HAL/#comp-hal-component-generator[the comp component generator]
+or man
 comp for further details. See man mesa_uart and the source of mesa_uart.comp for
 details of a typical sub-driver.
 See man hm2_uart_setup_chan, man hm2_uart_send, man hm2_uart_read and man 

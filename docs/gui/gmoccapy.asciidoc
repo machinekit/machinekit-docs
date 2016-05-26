@@ -54,7 +54,7 @@ The minimum screen resolution for gmoccapy, using it without side panels is
 
 Beginning with LinuxCNC 2.6 gmoccapy is included in the standard installation.
 So the easiest way to get gmoccapy on you controlling PC, is just to get the
-http://www.linuxcnc.org/index.php/english/download[ISO] and install
+http://linuxcnc.org/docs/2.7/html/getting-started/getting-linuxcnc.html[ISO] and install
 from the CD / DVD /USB-Stick.
 
 If you do have already installed an earlier LinuxCNC version, check how to
