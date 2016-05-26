@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../hal/images
+:imagesdir: /docs/hal/images
 
 = Parallel Port Driver
 

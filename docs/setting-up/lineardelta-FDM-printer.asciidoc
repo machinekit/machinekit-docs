@@ -9,7 +9,7 @@ This guide is meant as a start for setting up the machine in a way that will ena
 you to get a machine running. Other instructions of guides, which focus on
 calibrating an extruder, temperature PID loops or working with a GUI will have a better
 place in a separate document. Preferably linked to at the end of this one and
-in the link:../machine-setting-up-examples[setting-up page summary].
+in the link:/docs/machine-setting-up-examples[setting-up page summary].
 
 If this type of machine does not act as a FDM machine, but as a mill for example
 then this document also acts as a setup guide. Most information is equivalent.
@@ -218,7 +218,7 @@ HOME_LATCH_VEL =    -1.0
 ----
 
 [NOTE]
-more info about `HOMING` can be found in link:../config/ini_homing[]
+more info about `HOMING` can be found in link:/docs/config/ini_homing[]
 
 [NOTE]
 since this setup document is about calibrating the mechanics, the `INI` values
@@ -228,8 +228,8 @@ be linked to from here if/whenever it exists.
 === HAL-file
 
 The `HAL` is the Hardware Abstraction Layer. If you are not familiar with this
-then please visit the link:./index-HAL[HAL index]
-with especially the link:../hal/intro[HAL intro] before continuing.
+then please visit the link:/docs/index-HAL[HAL index]
+with especially the link:/docs/hal/intro[HAL intro] before continuing.
 The `HALFILE` in the above mentioned `INI` settings contains all the "wiring logic"
 of the machine.
 
@@ -389,7 +389,7 @@ todo:
 
 [cols="3*"]
 |===
-|link:../machine-setting-up-examples[Setting up examples]
-|link:../../../index[Back to the main Documents index]
-|link:../../documentation-matrix[Documentation matrix]
+|link:/docs/machine-setting-up-examples[Setting up examples]
+|link:/docs/index[Back to the main Documents index]
+|link:/docs/documentation-matrix[Documentation matrix]
 |===

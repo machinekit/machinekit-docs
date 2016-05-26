@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../examples/images
+:imagesdir: /docs/examples/images
 
 = Spindle Control
 

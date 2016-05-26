@@ -3,6 +3,8 @@
 
 :skip-front-matter:
 
+:imagesdir: /docs/buildbot/images
+
 Buildbot
 //__========
 

@@ -11,7 +11,7 @@ machine moving. This will be examples where in some cases hardware specific
 steps are mentioned. But it should be generic enough to set up a machine
 with different hardware.
 
-. link:../lineardelta-FDM-printer[Linear Delta FDM printer]
+. link:/docs/lineardelta-FDM-printer[Linear Delta FDM printer]
 
 +
 Starting point also for other machines which use the lineardelta kinematics

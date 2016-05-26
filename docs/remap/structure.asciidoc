@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../config/images
+:imagesdir:: /docs/remap/images
 
 = Extending Machinekit
 

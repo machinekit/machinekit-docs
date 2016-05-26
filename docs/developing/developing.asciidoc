@@ -12,7 +12,7 @@ starting at point 1 should lead you thru the next steps and return you to this p
 
 . link:/docs/getting-started/installing-packages#configure-apt[Configure Apt]
 . link:/docs/getting-started/installing-packages#install-RT-kernel[Install the kernel of your choice]
-. link:../machinekit-developing[Install developing packages for Machinekit]
+. link:/docs/machinekit-developing[Install developing packages for Machinekit]
 
 == Other instructions for specific development
-. link:../CAN-developing[CAN developing for Machinekit]
+. link:/docs/CAN-developing[CAN developing for Machinekit]

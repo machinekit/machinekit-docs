@@ -2,6 +2,9 @@
 ---
 
 :skip-front-matter:
+
+:imagesdir: /docs/gcode/images
+
 = Tool Compensation
 
 [[cha:tool-compensation]] (((Tool Compensation)))

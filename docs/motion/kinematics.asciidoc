@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../motion/images
+:imagesdir: /docs/motion/images
 
 = Kinematics
 

@@ -39,4 +39,4 @@ _How can i help documenting?_
 . read up on link:http://www.machinekit.io/docs/contributing/[contributing].
 . get a Github user account.
 . fork the machinekit-docs repo.
-. read link:../documenting/documenting[these instructions].
+. read link:/docs/documenting/documenting[these instructions].
