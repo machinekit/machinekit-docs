@@ -5,7 +5,7 @@
 #  originally based on the Highlight-mode file for gedit,
 #  written by Jan Van Gilsen <janvangilsen(at)gmail(dot)com>
 #  Installation instructions can be found at:
-#  http://wiki.machinekit.org/cgi-bin/emcinfo.pl?Highlighting_In_Gedit
+#  http://wiki.linuxcnc.org/cgi-bin/emcinfo.pl?Highlighting_In_Gedit
 #  Version		: 0.3
 #  Last Edit	: 10Th Nov 2007, by Jan Van Gilsen
 #  Comment 	: added probing and rigid tapping G-codes (new in 2.2)

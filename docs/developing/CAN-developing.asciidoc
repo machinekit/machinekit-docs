@@ -19,16 +19,14 @@ comfortable with the CAN interface. SocketCAN is native to Linux, and
 we can use SocketCAN when developing so there is no need for hardware
 or devices.
 
-You should probably have a go at this link:http://www.can-cia.org/fileadmin/cia/files/icc/13/kleine-budde.pdf[document which describes socketcan]
-to get a little background of what SocketCAN is. When we have used
-SocketCAN then the real hardware works in the same way. Only difference will be
-that we swap the driver to the real hardware.
+Here are http://events.linuxfoundation.org/sites/events/files/slides/elce2013-Kleine-Budde.pdf[good overview of the SocketCAN Linux subsystem], and a  http://www.can-cia.org/fileadmin/resources/documents/proceedings/2012_kleine-budde.pdf[more detailed article]
+You should probably have a go at this link:http://www.can-cia.org/fileadmin/cia/files/icc/13/kleine-budde.pdf[document which describes socketcan]. Note that much development work can be done without real hardware - just using a virtual can interface.
 
 
 . Install a Virtual Machine. The one used in these examples is Debian Jessie,
   but it could as well be. You can use VirtualBox, or other VM's. Choice is up
   to you. For these examples Parallels 9, on a Macbook Pro was used for the
   Debian Jessie VM.
-. link:http://machinekit.io/docs/setting-up/CAN-developing-setup[set up the environment so you can use socketcan]
+. link:/docs/setting-up/CAN-developing-setup[set up the environment so you can use socketcan]
   then return here.
 . more to come

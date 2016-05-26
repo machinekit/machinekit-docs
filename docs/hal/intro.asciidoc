@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: http://machinekit.io/docs/hal/images
+:imagesdir: /docs/hal/images
 
 = HAL Introduction
 
