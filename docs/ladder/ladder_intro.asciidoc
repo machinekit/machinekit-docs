@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../ladder/images
+:imagesdir: /docs/ladder/images
 
 = Classicladder Introduction
 

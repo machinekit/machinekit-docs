@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../drivers/images
+:imagesdir: /docs/drivers/images
 
 = Pluto P Driver
 

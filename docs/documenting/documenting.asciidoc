@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../images
+:imagesdir: /docs/images
 
 = Documenting
 

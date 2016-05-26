@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../config/images
+:imagesdir: /docs/config/images
 
 = Homing Configuration
 

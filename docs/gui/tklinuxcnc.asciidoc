@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../gui/images
+:imagesdir: /docs/gui/images
 
 = TkLinuxcnc GUI
 

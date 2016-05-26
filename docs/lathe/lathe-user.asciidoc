@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../lathe/images
+:imagesdir: /docs/lathe/images
 
 = Lathe User Information
 

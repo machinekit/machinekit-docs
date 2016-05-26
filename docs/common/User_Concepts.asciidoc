@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../common/images
+:imagesdir: /docs/common/images
 
 = Important User Concepts
 

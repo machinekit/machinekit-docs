@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../quickstart/images
+:imagesdir: /docs/quickstart/images
 
 = Stepper Quickstart
 

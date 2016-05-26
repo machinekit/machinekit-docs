@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: ../gcode/images
+:imagesdir: /docs/gcode/images
 
 = G Codes
 
