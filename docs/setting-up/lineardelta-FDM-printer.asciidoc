@@ -228,7 +228,7 @@ be linked to from here if/whenever it exists.
 === HAL-file
 
 The `HAL` is the Hardware Abstraction Layer. If you are not familiar with this
-then please visit the link:./index-HAL[HAL index]
+then please visit the link:/docs/index-HAL[HAL index]
 with especially the link:/docs/hal/intro[HAL intro] before continuing.
 The `HALFILE` in the above mentioned `INI` settings contains all the "wiring logic"
 of the machine.
@@ -390,6 +390,6 @@ todo:
 [cols="3*"]
 |===
 |link:/docs/machine-setting-up-examples[Setting up examples]
-|link:/docs/../../index[Back to the main Documents index]
-|link:/docs/../documentation-matrix[Documentation matrix]
+|link:/docs/index[Back to the main Documents index]
+|link:/docs/documentation-matrix[Documentation matrix]
 |===
