@@ -43,7 +43,7 @@ include::{{page.docs-dir}}/hal/halshow.asciidoc[]
 
 :leveloffset: +1
 
-link:../developing/writing-components[Writing HAL Components]
+link:/docs/developing/writing-components[Writing HAL Components]
 
 include::{{page.docs-dir}}/hal/instcomp.asciidoc[]
 

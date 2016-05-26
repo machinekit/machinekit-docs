@@ -34,7 +34,7 @@ above is to link:https://github.com/join[get a Github user account].
 
 - If this is the first time with a freshly forked repo, go to the next point. If
 the original has changed then you probably need to have your fork updated. Read the
-link:../updating-your-fork[updating your fork] instructions.
+link:/docs/updating-your-fork[updating your fork] instructions.
 
 - click on the file you want to change and edit the contents.
 

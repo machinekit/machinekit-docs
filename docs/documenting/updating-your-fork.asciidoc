@@ -50,5 +50,5 @@ image::merged-PR-and-updated-fork.png[]
 
 image::merge-and-update-fork.png[]
 
-Now that you're up-to-date you can do link:../documenting[back] to
+Now that you're up-to-date you can do link:/docs/documenting[back] to
 editing a change and changing submitting a `PR` to the original repo.

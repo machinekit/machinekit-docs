@@ -29,10 +29,10 @@ include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
 
 :leveloffset: +1
 
-- link:../buildbot/interpret-buildbot-results[Interpret buildbot results]
+- link:/docs/buildbot/interpret-buildbot-results[Interpret buildbot results]
 
-- link:../setting-up/developing-setting-up[Setting up development environment]
+- link:/docs/setting-up/developing-setting-up[Setting up development environment]
 
-- link:../developing/writing-components[Write HAL Components]
+- link:/docs/developing/writing-components[Write HAL Components]
 
 :leveloffset: -1
