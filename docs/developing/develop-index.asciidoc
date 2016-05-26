@@ -5,18 +5,18 @@
 
 = Various developing links
 
-- link:/docs/developing[General links inc. setting up the environment]
+- link:/docs/developing/developing[General links inc. setting up the environment]
 
-- link:/docs/machinekit-developing[Specific building from source stuff]
+- link:/docs/developing/machinekit-developing[Specific building from source stuff]
 
-- link:/docs/rtfaults[How to debug rt faults]
+- link:/docs/developing/rtfaults[How to debug rt faults]
 
-- link:/docs/building-rt-preempt-kernel[Building your own rt-preempt kernel]
+- link:/docs/developing/building-rt-preempt-kernel[Building your own rt-preempt kernel]
 
-- link:/docs/rt-kernel-config[The actual kernel config to use as a start for rt-preempt kernel]
+- link:/docs/developing/rt-kernel-config[The actual kernel config to use as a start for rt-preempt kernel]
 
-- link:/docs/writing-components[General info and links re writing components]
+- link:/docs/developing/writing-components[General info and links re writing components]
 
-- link:/docs/toolchangers[Specific info on writing toolchanger components]
+- link:/docs/developing/toolchangers[Specific info on writing toolchanger components]
 
-- link:/docs/CAN-developing[Information on developing using CAN]
+- link:/docs/developing/CAN-developing[Information on developing using CAN]

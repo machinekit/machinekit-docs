@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: /docs/images
+:imagesdir: /docs/documenting/images
 
 = Updating your fork
 
