@@ -65,3 +65,4 @@ Returns a HAL status code.
 
 == SEE ALSO
 **hal_create_thread(3hal)**, **hal_add_funct_to_thread(3hal)**
+
