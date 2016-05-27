@@ -3,7 +3,7 @@
 
 :skip-front-matter:
 
-:imagesdir: /docs/hal/images
+:imagesoutdir: docs/hal/images
 
 = Basic HAL Tutorial
 
@@ -94,29 +94,51 @@ loadusr halui
 loadusr -Wn spindle gs2_vfd -n spindle
 ----
 
-In English it means 'loadusr wait for name spindle component gs2_vfd name spindle'.
+In English it means `loadusr wait for name spindle component gs2_vfd name spindle`.
 
 === net [[sub:net]] (((net)))
 
-The command 'net' creates a 'connection' between a signal and and one
+The command `net` creates a 'connection' between a signal and and one
 or more pins. If the signal does not exist net creates the new signal.
 This replaces the need to use the command newsig. The optional direction
-indicators '<=', '=>' and '<=>' are only to make it easier for humans to follow
-the logic and are not used by the net command.
+indicators `<=`, `=>` and `<=>` are not used by the net command.
+
+We would encourage you not to use these at all, because instead of making this 
+more readable, when wrongly used, they instead can give you a false sense of
+direction.
+
+You can see the `signal` as the traces on a PCB, connecting an output
+pin of a component with zero or more input pins. A signal is a variable, and the
+inputs and outputs of components are pointers to this variable.
 
 .Syntax and Example:
 ----
 net signal-name <pin-name> <optional direction> (<pin-name>|<direction>)
 
-net home-x axis.0.home-sw-in <= parport.0.pin-11-in
+net home-x axis.0.home-sw-in parport.0.pin-11-in
 ----
 
-In the above example 'home-x' is the signal name, 'axis.0.home-sw-in' is a
-'Direction IN' pin, '<=' is the optional direction indicator, and 
-'parport.0.pin-11-in' is a 'Direction OUT' pin. This may seem confusing but
+In the above example `home-x` is the signal name, `axis.0.home-sw-in` is a
+`Direction IN` pin, `<=` is the optional direction indicator, and 
+`parport.0.pin-11-in` is a `Direction OUT` pin. This may seem confusing but
 the in and out labels for a parallel port pin indicates the physical way the
 pin works not how it is handled in HAL.
 
+One way to remember this: The Alphabet
+
+**n** (_net_) comes before the **s** (_signal_ and _source_) who come
+before the **t** (_target_) in the Alphabet. If you have trouble with the
+order of _signal_ and _source_ remember that **i** (_s_**i**_gnal_)
+also comes before the **o** (_s_**o**_urce_) in the Alphabet.
+
+A second way to remember this:
+
+(It sounds silly, but it really helps) is saying this line for 10 times :
+
+[NOTE]
+====
+__net signal source target1 target2__
+====
 
 A pin can be connected to a signal if it obeys the following rules:
 
@@ -130,20 +152,31 @@ additional pins, as long as the rules above are obeyed.
 
 .Signal Direction[[cap:Signal-Direction]]
 
-image::signal-direction.png[align="center"]
+[blockdiag, "signal-direction", "svg"]
+----
+blockdiag {
+  A [label = "Signal Source"];
+  B [label = "Signal"];
+  C [label = "Signal Target 1"];
+  D [label = "Signal Target 2"];
+  A -> B [label = "Dir Out"];
+  B -> C [label = "Dir In"];
+  B -> D [label = "Dir In"];
+}
+----
 
-This example shows the signal xStep with the source being
-stepgen.0.out and with two readers, parport.0.pin-02-out and
-parport.0.pin-08-out. Basically the value of stepgen.0.out is sent to
-the signal xStep and that value is then sent to parport.0.pin-02-out
-and parport.0.pin-08-out.
+This example shows the signal `xStep` with the source being
+`stepgen.0.out` and with two readers, `parport.0.pin-02-out` and
+`parport.0.pin-08-out`. Basically the value of `stepgen.0.out` is written to
+the signal `xStep` and that value is then read by `parport.0.pin-02-out`
+and `parport.0.pin-08-out`.
 
 ----
 #   signal    source            destination          destination
 net xStep stepgen.0.out => parport.0.pin-02-out parport.0.pin-08-out
 ----
 
-Since the signal xStep contains the value of stepgen.0.out (the
+Since the signal `xStep` contains the value of `stepgen.0.out` (the
 source) you can use the same signal again to send the value to another
 reader. To do this just use the signal with the readers on another
 line.
