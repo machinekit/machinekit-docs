@@ -3,7 +3,8 @@
 
 :skip-front-matter:
 
-:imagesoutdir: docs/hal/images
+:imagesdir: /docs/hal/images
+:imagesoutdir: /docs/hal/images
 
 = Basic HAL Tutorial
 
