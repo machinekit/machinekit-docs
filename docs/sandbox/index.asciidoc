@@ -24,18 +24,14 @@ eg.
 - link:000001[Robohand Blog - 20-05-2016]
 ----
 
-Then submit the change via the Pull Request button.
+Then click on *Propose FileChange* and then click on the *Pull Request* button.
 
-This will let the maintainers know you will be posting an article soon
-on that link and the regeneration of the site will make the link
-you edited visible.
-
-Once the PR is approved and site has regenerated, return to this page.
-
-Your link will be visible, so click on it and you will get a blank template page.
+Once the PR is approved and site has regenerated the link will be visible on this page.
+Click on it and you will get a blank template page.
 
 Use the 'Edit this Page' link again to edit the page and enter your article
 in asciidoc format.
+(link:http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[This is a good guide])
 
 Commit as a PR again and before long your article will be visible to all !
 
