@@ -10,36 +10,34 @@
 
 == NAME
 
-hal_init -- Sets up HAL and RTAPI
+hal_init -- initialize a component
 
 
 
 == SYNTAX
- int hal_init(const char *__modname__)
+ int hal_init(const char *__compname__)
 
 
 
 == ARGUMENTS
-.IP __modname__
-The name of this hal module
+__modname__
+The name of this hal component
 
 
 
 == DESCRIPTION
 
-**hal_init** sets up HAL and RTAPI.  It must be called by any
-module that intends to use the API, before any other RTAPI
-calls.
+**hal_init** creates a HAL component.
 
-__modname__ can optionally point to a string that identifies
-the module.  The string may be no longer than **RTAPI_NAME_LEN**
-characters.  If __modname__ is **NULL**, the system will assign a
+__compname__ a string that identifies the component.
+The string may be no longer than **RTAPI_NAME_LEN**
+characters.  If __compname__ is **NULL**, the system will assign a
 name.
 
 
 
 == REALTIME CONSIDERATIONS
-Call only from within user or init/cleanup code, not from relatime tasks.
+Call only from within user or init/cleanup code, not from realtime tasks.
 
 
 
