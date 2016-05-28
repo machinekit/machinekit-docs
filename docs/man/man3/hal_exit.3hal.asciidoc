@@ -10,7 +10,7 @@
 
 == NAME
 
-hal_exit -- Shut down HAL
+hal_exit -- terminate a component
 
 
 
@@ -20,15 +20,15 @@ int hal_exit(int __comp_id__)
 
 
 == ARGUMENTS
-.IP __comp_id__
+__comp_id__
 A HAL component identifier returned by an earlier call to **hal_init**.
 
 
 
 == DESCRIPTION
-**hal_exit** shuts down and cleans up HAL and RTAPI.  It must be
-called prior to exit by any module that called **hal_init**.
-
+**hal_exit** terminates a component, and unlinks and removes all
+its pins and parameters.  It also removes any thread functions currently added to a thread.
+ 
 
 
 == REALTIME CONSIDERATIONS
