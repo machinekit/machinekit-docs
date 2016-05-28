@@ -9,9 +9,24 @@ endif
 .SUFFIXES:
 .PHONY: all
 
-all:
+all:	docs/man/man1/index.asciidoc \
+	docs/man/man3/index.asciidoc \
+	docs/man/man9/index.asciidoc
+
+# this should be made minimal
+#	scripts/filenums
+
+
+# all asciidoc documents in this repo
+MAN1 := $(filter-out docs/man/man1/index.asciidoc, $(wilcard docs/man/man1/*.asciidoc))
+MAN3 := $(filter-out docs/man/man3/index.asciidoc, $(wilcard docs/man/man3/*.asciidoc))
+MAN9 := $(filter-out docs/man/man9/index.asciidoc, $(wilcard docs/man/man9/*.asciidoc))
+
+docs/man/man1/index.asciidoc: $(MAN1)
 	scripts/index-gen.sh man1 'HAL Utilities and GUIs'
+
+docs/man/man3/index.asciidoc: $(MAN3)
 	scripts/index-gen.sh man3 'RTAPI and HAL Functions'
+
+docs/man/man9/index.asciidoc: $(MAN9)
 	scripts/index-gen.sh man9 'HAL Components'
-	scripts/filenums
-	
