@@ -10,7 +10,7 @@
 
 == NAME
 
-hal_add_funct_to_thread -- cause a function to be executed at regular intervals
+XXXX  hal_add_funct_to_thread -- cause a function to be executed at regular intervals
 
 
 
