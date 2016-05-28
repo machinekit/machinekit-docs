@@ -26,8 +26,7 @@ A HAL component identifier returned by an earlier call to **hal_init**.
 
 
 == DESCRIPTION
-**hal_exit** shuts down and cleans up HAL and RTAPI.  It must be
-called prior to exit by any module that called **hal_init**.
+**hal_exit** exits a component, and deletes all its pins, params, and functs.
 
 
 
