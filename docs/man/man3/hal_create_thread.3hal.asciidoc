@@ -23,17 +23,17 @@ int hal_thread_delete(const char *__name__)
 
 
 == ARGUMENTS
-.IP __name__
+__name__
 The name of the thread
 
-.IP __period__
+__period__
 The interval, in nanoseconds, between iterations of the thread
 
-.IP __uses_fp__
+__uses_fp__
 Must be nonzero if a function which uses floating-point will be attached
 to this thread.
 
-.IP __cpu_id__
+__cpu_id__
 Make the RTAPI layer bind this thread to a particular CPU core.
 
 
