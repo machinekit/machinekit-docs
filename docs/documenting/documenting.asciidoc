@@ -7,48 +7,75 @@
 
 = Documenting
 
-The quick-start guide for the impatiant.
-
 Remember: no change is too small!
 
 Helping out can be done in various ways. You should choose the one that best fits you.
 No matter what you do, to get your changes into the master branch you need to
 work via these link:/community/contributing/[instructions.]
 
-The original documents that originated in LinuxCNC were split in a separate repo
-so that we have a way of getting the documentation more accessible via the web
-and make it as easy as possible for people who are `fresh' to start getting up
-to speed with the workflow of contributing.
+== 2 click editing with "edit me" button
 
-These instructions are for `basic' use.
-Assuming that you're fresh below are some instructions on setting up stuff so
-you can start to do what you want to do. And share your changes.
+On the side of this website is a button called "edit me". When you push this
+button you will be taken to the GitHub page of the document you want to
+improve. This works almost like a wiki, but we can still work with the 
+link:/community/c4[C4] Fork + Pull model
 
-== Getting it
+1. Make the changes in the source.
+2. when you're done, describe your commit with an understandable tekst
+like "thispage.asciidoc: Fix an inconsistency about yadayada information"
+3. If you need to elaborate, please do so in the area for adding an optional
+extended description.
+4. Make sure you tick the radiobutton so you make a new branch in your
+personal repository (your fork). This is especially important for people who
+have write access to the machinekit organisation repository.
+5. Tick the button "propose new file change" which will get you to submit a 
+PR (Pull Request) against the machinekit repository
+
+image::edit-me-new-branch.png[scale="50%" align="center"]
+
+== Extending documentation locally
+
+For more extensive work you might find that the editing thru the "edit me"
+button is not a satisfactory way of working.
+In that situation you will have to work from a local copy of the repository
+and make a PR from your personal GitHub fork after you pushed your changes.
+These instructions will show you how.
+
+=== Getting it
 
 - The easiest way to start after reading the link:/community/contributing/[instructions]
 above is to link:https://github.com/join[get a Github user account].
 - log into your new account and fork the `machinekit-docs` repo.
 
-== Do what you intend to do
+=== Set up locally
 
-- If this is the first time with a freshly forked repo, go to the next point. If
-the original has changed then you probably need to have your fork updated. Read the
-link:/docs/documenting/updating-your-fork[updating your fork] instructions.
+- Set up your local system by cloning your github fork, and make a new branch
+for your changes.
 
-- click on the file you want to change and edit the contents.
+:source-highlighter: pygments
+[source,bash]
+----
+git clone https://github.com/youraccount/machinekit-docs.git
+cd machinekit-docs
+git checkout -b new-branch-with-improvement
+----
 
-image::editing-a-file.png[]
-- when you're done scroll down.
-  * give a good commit message, like `<the file you changed>: <what you did>`
-  * optionally more info.
-  * push the `commit` button
+- Make sure you've set up git correctly (your name and email who are needed
+for the commit message)
 
-image::committing-changes.png[]
+=== Do what you intend to do (Local)
 
-- this will make the commit in your forked repo.
+After you've done the changes you need add the changed files and commit them
+before you push your local branch to your github account.
 
-== Share!
+[source,bash]
+----
+git push origin new-branch-with-improvement
+----
+
+You'll see that the branch is now aso in your GitHub account.
+
+=== Share!
 
 Next thing is to get your changes in the master branch of `machinkit-docs` (or
 maybe in `machinekit` or some other original repo you forked from). This is done
