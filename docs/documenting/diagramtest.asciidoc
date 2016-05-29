@@ -33,7 +33,7 @@ See the link:https://github.com/asciidoctor/asciidoctor-diagram[Asciidoctor Diag
      +-----------------------------------+
 ----
 
-== link:http://www.graphviz.org/content/dot-language[Graphviz] Graphviz examples
+== link:http://www.graphviz.org/content/dot-language[Graphviz]  examples
 
 [graphviz, "dot_example", "svg"]
 ----
@@ -141,17 +141,6 @@ seqdiag {
 ----
 
 
-== Highlighting sourcecode using pygments
-:source-highlighter: pygments
-:pygments-style: monokai
-
-[source,python,linenums]
-----
-def foo(bar):
-    pass    # a comment
-----
-
-
 == link:http://wavedrom.com/[wavedrom] example
 
 ["wavedrom",  "svg"]
@@ -175,3 +164,17 @@ def foo(bar):
   ]
 ]}
 ---------------------------------------------------------------------
+
+
+== Highlighting sourcecode using link:http://pygments.org[pygments]
+
+// still broken
+:source-highlighter: pygments
+:pygments-style: monokai
+
+[source,python,linenums]
+----
+def foo(bar):
+    pass    # a comment
+----
+
