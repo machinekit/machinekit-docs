@@ -9,6 +9,9 @@ gems:
   - jekyll-asciidoc
   - asciidoctor-diagram
   - jekyll-sitemap
+  - jekyll-asciinema
+  - jekyll-youtube
+  - jekyll-toc
 
 #url: http://machinekit.io
 baseurl: /
