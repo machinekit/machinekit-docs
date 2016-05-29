@@ -1,7 +1,7 @@
 ---
 layout: docs
 ---
-:imagesoutdir: docs/documenting/diagramtest
+:imagesoutdir: docs/documenting/diagram-examples
 
 
 == How to created embedded diagrams for this website
