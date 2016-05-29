@@ -3,40 +3,13 @@
 
 :skip-front-matter:
 
-GOAL: The Best Documented Project Ever
-//__======================================
+= Documentation
 
-We aim to make this project the best documented project ever...
 
-At this point in time the documentation is a big work in progress and will probably
-change a good deal in layout and structure. Improving as we go.
-So please update your copy frequently.
+== link:/docs/documenting/contributing-documentation[Contributing to documentation]
 
-_Why documentation?_
-//__====================
+== link:/docs/documenting/updating-your-fork[Updating your fork (Github)]
 
-Because that will help speed up the development of Machinekit...
+== link:/docs/documenting/diagram-examples[Examples of the use of diagrams]
 
-If the documentation of this project can help a *Person* get started, a *User* get better, an
-*Integrator* working faster and help a *Developer* maintaining focus and
-better reference then everybody can benefit from this wonderfull project.
-
-_What is Machinekit?_
-//__=====================
-Machinekit is a fast evolving project. The development of recent years have
-resulted in smaller and faster processors, different OS'es and a lot of applications
-that were not possible before. Think about the reprap project for example.
-
-This fast evolving time asks for:
-
-- Up-to-date instructions.
-- Up-to-date examples.
-- Up-to-date references.
-- Up-to-date knowledge.
-
-_How can i help documenting?_
-//__=============================
-. read up on link:http://www.machinekit.io/docs/contributing/[contributing].
-. get a Github user account.
-. fork the machinekit-docs repo.
-. read link:/docs/documenting/documenting[these instructions].
+== link:/docs/documenting/plugins[Plugins that can be used]
