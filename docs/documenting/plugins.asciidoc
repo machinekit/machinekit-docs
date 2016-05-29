@@ -1,0 +1,36 @@
+---
+layout: docs
+---
+:imagesoutdir: docs/documenting/asciinema
+
+
+== How to  embed an asciicast recording
+
+link:https://github.com/mnuessler/jekyll-asciinema[Jekyll  plugin description]
+
+link:https://asciinema.org/[Asciinema website]
+
+// http://asciinema.org/a/47175
+++++
+{% asciicast 47175 %}
+++++
+
+== Embedding Youtube videos
+
+doesnt work yet, something with permissions, ID, cache, cookie - who knows
+
+++++
+
+{% youtube ON9m2xwWonM %}
+++++
+
+=== Including a gist
+
+++++
+<p>
+Content in a passthrough block is passed to the output unprocessed.
+That means you can include raw HTML, like this embedded Gist:
+</p>
+
+<script src="http://gist.github.com/mojavelinux/5333524.js">
+</script>
