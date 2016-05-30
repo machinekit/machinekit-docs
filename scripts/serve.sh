@@ -3,12 +3,12 @@
 echo edit-me-first please
 exit 1
 
-if [! test -f Guardfile ] ; then
+if [ !  -f Guardfile ] ; then
     echo this script must be run from the machinekit-doc directory
     exit 1
 fi
 
-if [! test -f _host.yml ] ; then
+if [ !  -f _host.yml ] ; then
     echo you need to create a _host.yml file containing the IP address
     echo of the serving box like so:
     echo "host: <IP address>\nurl: http://<IP address>\n"
