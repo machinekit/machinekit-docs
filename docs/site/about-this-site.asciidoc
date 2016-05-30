@@ -30,3 +30,33 @@ slightly longer - but typically less than two minutes - as it runs a http://www.
 step to analyze the site for broken links.
 
 
+=== Contributing a new page: use the link:http://www.machinekit.io/docs/sandbox/index.html[sandbox] to get started!
+
+Mick came up with this neat idea - just follow the instructions there and commit as PR!
+
+=== Contributing a large chunk of material: editing and previewing locally
+
+The 'Edit this page' process is great for small changes. For big chunks of material - not so much. In this case it is best to set up jekyll-asciidoctor locally. The edit-preview turnaround is very quick - Instructions will follow here hortly !
+
+
+=== Discussing improvements: use the link:https://github.com/machinekit/machinekit-docs/issues[docs tracker]
+
+Please go straight to these anchor issues depending on topic:
+
+- link:https://github.com/machinekit/machinekit-docs/issues/117[overall site structure, content categories, navigation]
+- link:https://github.com/machinekit/machinekit-docs/issues/118[style/formatting/css etc issues]
+- link:https://github.com/machinekit/machinekit-docs/issues/103[Documentation and manual organisation]
+- link:https://github.com/machinekit/machinekit-docs/issues/119[Documentation/manpage errors/unclear]
+
+=== How this site is built
+
+The docs repo is formatted by link:https://github.com/asciidoctor/jekyll-asciidoc[jekyll-asciidoctor]; the resulting
+HTML is automatically pushed to link:https://github.com/machinekit/machinekit.github.io[Github to serve static content].
+
+The jekyll installation is packaged into a link:https://github.com/mhaberler/docker-jekyll-asciidoctor[docker container]
+which contains a series of tools for embedded diagrams and source highlighting, for instance link:https://github.com/asciidoctor/asciidoctor-diagram[asciidoctor-diagram] and link:http://pygments.org/[pygments].
+
+Some examples:
+
+- http://www.machinekit.io/docs/documenting/diagram-examples/[embedding various diagrams and highlighting source code fragments]
+- http://www.machinekit.io/docs/documenting/plugins/[embedding Asciinema, Youtube videos, and gists]
