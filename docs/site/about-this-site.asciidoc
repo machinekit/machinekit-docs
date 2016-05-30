@@ -4,13 +4,13 @@ layout: docs
 :imagesoutdir: docs/site/about-this-site
 
 
-== How to use this website
+= How to use this website
 
-=== Search
+== Search
 
 This is a custom Google search engine covering the www.machinekit.io website and the http://blog.machinekit.io/[blog].
 
-=== Editing pages
+== Editing pages
 
 The site source is hosted on link:https://github.com/machinekit/machinekit-docs[github] - if you want to edit content,
 you first need a github account. Changing the website works like any other change to machinekit - using the normal http://www.machinekit.io/community/c4/[C4 process]: you create a Pull Request, which is merged by
@@ -19,11 +19,11 @@ one of the maintainers, after which the changes are incorporated into the source
 You will find that allmost all pages have an link:https://github.com/machinekit/machinekit-docs//edit/master/docs/site/about-this-site.asciidoc[Edit this page] link in the right column. Clicking link leads you directly into edit mode on github - after you have made your changes, describe what they are about in the 'Commit changes' box at the bottom, 'Create a new branch for this commit and start a pull request', then click
 'Propose file change'
 
-=== Previewing changes
+== Previewing changes
 
 Opening a Pull Request triggers an update of the link:http://preview.machinekit.io[preview.machinekit.io Pull Request Preview site] and your change should be online within minutes. This process is capable of only showing the latest PR - but the status of the preview formatting run is recorded in the PR status.
 
-=== Going live: merge by maintainers
+== Going live: merge by maintainers
 
 As soon as a maintainer gets around to merge your PR, the result is rendered
 on http://www.machinekit.io[www.machinekit.io] . This step takes
@@ -32,17 +32,17 @@ it runs a http://www.machinekit.io/linkchecker.html[linkchecker]
 step to analyze the site for broken links.
 
 
-=== Contributing a new page: use the link:http://www.machinekit.io/docs/sandbox/index.html[sandbox] to get started!
+== Contributing a new page: use the link:http://www.machinekit.io/docs/sandbox/index.html[sandbox] to get started!
 
 Mick came up with this neat idea - just follow the instructions there and commit as PR!
 See the Sandbox link on the right above the Search box.
 
-=== Contributing a large chunk of material: editing and previewing locally
+== Contributing a large chunk of material: editing and previewing locally
 
 The 'Edit this page' process is great for small changes. For big chunks of material - not so much. In this case it is best to set up jekyll-asciidoctor locally. The edit-preview turnaround is very quick - Instructions will follow here hortly !
 
 
-=== Discussing improvements: use the link:https://github.com/machinekit/machinekit-docs/issues[docs tracker]
+== Discussing improvements: use the link:https://github.com/machinekit/machinekit-docs/issues[docs tracker]
 
 Please go straight to these anchor issues depending on topic:
 
@@ -51,7 +51,7 @@ Please go straight to these anchor issues depending on topic:
 - link:https://github.com/machinekit/machinekit-docs/issues/103[Documentation and manual organisation]
 - link:https://github.com/machinekit/machinekit-docs/issues/119[Documentation/manpage errors/unclear]
 
-=== How this site is built
+== How this site is built
 
 The docs repo is formatted by link:https://github.com/asciidoctor/jekyll-asciidoc[jekyll-asciidoctor]; the resulting
 HTML is automatically pushed to link:https://github.com/machinekit/machinekit.github.io[Github to serve static content].
