@@ -2,12 +2,13 @@
 layout: docs
 ---
 
-== Embedding video, screen caste and gists
-
 :toc:
 
+== Embedding video, screen caste and gists
 
-== Embedding Youtube videos
+Here's how to beef up your page!
+
+=== Embedding Youtube videos
 
 In Youtube, click 'Share->Embed' and copy the HTML fragment, then insert into a passthrough block.
 
@@ -21,7 +22,7 @@ That means you can include raw HTML, like this embedded Youtube video:
 ++++
 
 
-== How to  embed an link:https://asciinema.org[Asciinema] recording
+=== How to  embed an link:https://asciinema.org[Asciinema] recording
 
 Record and upload the recording; make sure it is public. Click 'Share' and insert
 the HTML fragment into a passthrough block.
@@ -31,10 +32,13 @@ See link:https://asciinema.org/docs/embedding[here for customization options].
 <script type="text/javascript" src="https://asciinema.org/a/465mxe7ab0mguggtirvooch6w.js" id="asciicast-465mxe7ab0mguggtirvooch6w" async></script>
 ++++
 
-== Including a gist
+=== Including a gist
+
+
+Exapmple taken from link:https://gist.github.com/mhaberler/8fa89bbc12ac93b2de15[here].
 
 ++++
-{% gist 5333524 %}
+{% gist 8fa89bbc12ac93b2de15 %}
 ++++
 
 
