@@ -2,8 +2,6 @@
 layout: docs
 ---
 :imagesoutdir: docs/site/about-this-site
-
-
 = How to use this website
 
 == Search
