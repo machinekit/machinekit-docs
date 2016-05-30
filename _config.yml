@@ -12,6 +12,9 @@ gems:
   - jekyll-asciinema
   - jekyll-youtube
   - jekyll-toc
+  - jekyll-gist
+  - jekyll-seo-tag
+  - jekyll-mermaid
 
 #url: http://machinekit.io
 baseurl: /
