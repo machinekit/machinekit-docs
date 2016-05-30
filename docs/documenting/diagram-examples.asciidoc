@@ -4,14 +4,20 @@ layout: docs
 :imagesoutdir: docs/documenting/diagram-examples
 
 
+:toc:
+
 == How to created embedded diagrams for this website
 
-
+Besides inserting your locally created images, the
+link:https://github.com/mhaberler/docker-jekyll-asciidoctor/tree/master/jekyll-asciidoctor-base[formatting engine]
+used for the machinekit website supports a variety of embedded diagram types:
+Diagrams can be created by embedded markup and will be rendered to images in the website automatically.
 
 See the link:https://github.com/asciidoctor/asciidoctor-diagram[Asciidoctor Diagram manual] for details.
 
+=== ditaa - DIagrams Through Ascii Art
 
-== A link:http://ditaa.sourceforge.net/[ditaa] diagram:
+See the link:http://ditaa.sourceforge.net/[ditaa website] for details.
 
 [ditaa, "ditaa-test"]
 ----
@@ -33,22 +39,63 @@ See the link:https://github.com/asciidoctor/asciidoctor-diagram[Asciidoctor Diag
      +-----------------------------------+
 ----
 
-== link:http://www.graphviz.org/content/dot-language[Graphviz]  examples
+=== shaape -  Ascii drawings
 
-[graphviz, "dot_example", "svg"]
+See the link:https://github.com/christiangoltz/shaape[shaape manual].
+
+[shaape, "shaape-example5", "svg", width=80%]
 ----
-graph ethane {
-     C_0 -- H_0 [type=s];
-     C_0 -- H_1 [type=s];
-     C_0 -- H_2 [type=s];
-     C_0 -- C_1 [type=s];
-     C_1 -- H_3 [type=s];
-     C_1 -- H_4 [type=s];
-     C_1 -- H_5 [type=s];
-}
+      ^  ^  b  a   v           |        in>---+-----+-----> out1
+      |  |  |  |   |           +              |     |
+   >--[--[--|--|---|          /|\             |     *----->'out 2'
+      |  |  |  |   |lower    +'c'+            |
+      +--+--(--(---|         |   |            |    +------>'3'
+            |  |   |        'd' 'e'           |   /
+            |  +---~--->                      +--+-------->'v'    
+            |      |                 
+            +------~--->
+                   |
+                   v
+                                                              
+ +-->->->->-+        +---------------------------------------+                                                         
+ |          |        | +------------+ stacked +------------+ |                 
+ ^ arrowbox v        | | inner1     |         | inner2     | |                 
+ |          | +--+   | | +-------++ +--**     | +--------+ | |                  
+ ^          v |  |   | | |inner3  | |    **-->+ |inner4  | | |                  
+ |          | *  |   | | |        | |         | |        | | |                  
+ +--<-<-<-<-+ *  *   | | |        +-------------+        | | |                 
+              *  *   | | +--------+ |         | +--------+ | | 
+        +--***   *   | +------------+         +------------+ |                         
+        | flat   *   +---------------------------------------+              
+        +----****                                                                      
+   /\               *********               +-----+     +-----+       
+  /  \    +------+ + top     +   ********   |     |\    +--+--+                                
+ /flat\  /      /  |*********|  * shape3 *  |     +-+   +--+--+                     
+ \    / /shape1/   | shape2  |  *        *  |overlap|                                       
+  \  / +------+    +         +   ********   +-------+                    
+   \/               *********                                       
+options:
+- ".*": {fill:[[0.6, 0.8, 0.8], flat], frame:[[0.2, 0.5, 0.4, 1], solid, 2], text:[[0.1, 0.3, 0.2]]}
+- "_line_": {fill:[[0.1, 0.1, 0.1], solid, 2]}
+- "(flat)|(top)": {fill:[[0.1, 0.1, 0.1, 1], no-shadow, flat], frame:[[0.3, 0.8, 0], dotted, 3], text:[[0.9, 0.9, 0.9]]}
+- "arrowbox": {fill:[[0.7, 0.7, 0, 0.5], no-shadow, flat], frame:[[0.3, 0.8, 0], dashed, 3], text:[[0, 0, 0]]}
+- "shape[0-9]": {fill:[[0.2, 0.2, 0.2], gradient], frame:[[0.1, 0.5, 0], dotted, 3]}
+- "stacked": {fill:[[0.15, 0.3, 0.3], flat], text:[[0, 0, 0]]}
+- "inner[34]": {frame:[[0, 0, 0], 1, dotted], text:[[0, 0, 0]]}
+- "inner[12]": {fill:[[0.3, 0.6, 0.6], flat], frame:[[0, 0, 0], dashed, 1], text:[[0, 0, 0,]]}
+- "a": {fill:[[0.5, 0.0, 0.0, 0.5], 4]}
+- "b": {fill:[[0.5, 0.0, 0.5, 0.5], 4]}
+- "lower": {fill:[[0.0, 0.5, 0.0, 0.5], 4]}
+- "_arrow_": {fill:[[0.5, 0.0, 0.0, 1], flat]}
+
 ----
 
-["graphviz", "graphviz_example", "png"]
+
+=== Graphviz - Graph Visualization Software
+
+See the link:http://www.graphviz.org/content/dot-language[Graphviz website].
+
+["graphviz", "graphviz_example", "svg"]
 ---------------------------------------------------------------------
 digraph automata_0 {
   size ="8.5, 11";
@@ -65,10 +112,11 @@ digraph automata_0 {
 }
 ---------------------------------------------------------------------
 
-== http://blockdiag.com/en/blockdiag[blockdiag] example
+=== blockdiag -  block diagrams
 
+See the http://blockdiag.com/en/blockdiag[blockdiag manual].
 
-[blockdiag, "blockdiag_example", "svg"]
+[blockdiag, "blockdiag_example", "svg", width=90%]
 ----
 blockdiag {
    A -> B -> C -> D;
@@ -76,9 +124,11 @@ blockdiag {
 }
 ----
 
-== link:http://blockdiag.com/en/actdiag/index.html[actdiag] example:
+=== actdiag - activity diagrams
 
-[actdiag, "actdiag_example"]
+See the link:http://blockdiag.com/en/actdiag/index.html[actdiag manual].
+
+[actdiag, "actdiag_example", "svg"]
 ----
 actdiag {
   write -> convert -> image
@@ -94,9 +144,11 @@ actdiag {
 }
 ----
 
-== link:http://blockdiag.com/en/nwdiag/index.html[nwdiag] example
+=== nwdiag - network diagrams
 
-[nwdiag, "nwdiag_example"]
+See the link:http://blockdiag.com/en/nwdiag/index.html[nwdiag manual].
+
+[nwdiag, "nwdiag_example", "svg", width=90%]
 ----
 nwdiag {
   network dmz {
@@ -116,9 +168,11 @@ nwdiag {
 }
 ----
 
-== link:http://blockdiag.com/en/seqdiag/index.html[seqdiag] example:
+=== seqdiag - sequence diagrams
 
-[seqdiag, "seqdiag_example"]
+See the link:http://blockdiag.com/en/seqdiag/index.html[seqdiag manual].
+
+[seqdiag, "seqdiag_example", "svg"]
 ----
 seqdiag {
   // normal edge and doted edge
@@ -140,8 +194,40 @@ seqdiag {
 }
 ----
 
+=== mermaid - sequence diagrams and flowchars
 
-== link:http://wavedrom.com/[wavedrom] example
+See the link:http://knsv.github.io/mermaid/[mermaid website].
+
+These come out too wide, for some reason this plugin
+does not respect the link:https://github.com/asciidoctor/asciidoctor-pdf/issues/76[width= parameter discussed here].
+
+[mermaid, "mermaid_seqdiag_example", "svg"]
+----
+%% Sequence diagram code
+sequenceDiagram
+    Alice ->> Bob: Hello Bob, how are you?
+    Bob-->>John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+    Bob-->Alice: Checking with John...
+    Alice->John: Yes... John, how are you?
+----
+
+[mermaid, "mermaid_flowchart_example", "svg"]
+----
+graph LR
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D
+----
+
+
+=== wavedrom - Digital Timing Diagrams
+
+See the link:http://wavedrom.com/[wavedrom website].
 
 ["wavedrom",  "svg"]
 ---------------------------------------------------------------------
@@ -166,10 +252,14 @@ seqdiag {
 ---------------------------------------------------------------------
 
 
-== Highlighting sourcecode using link:http://pygments.org[pygments]
+=== pygments - highlighting sourcecode
+
+See the link:http://pygments.org[pygments website] .
 
 Default hightlighing style is {pygments-css} using {source-highlighter} as highlighting engine.
 These link:https://github.com/jwarby/jekyll-pygments-themes[css themes] are available.
+
+Hightlighting for HAL and G-Code: contributors welcome!
 
 A bit of Python:
 
