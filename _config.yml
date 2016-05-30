@@ -1,5 +1,5 @@
 name: Machinekit
-highlighter: rouge
+highlighter: pygments
 relative_permalinks: false
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
@@ -23,6 +23,8 @@ asciidoctor:
   safe: 0
   attributes:
     - hardbreaks!
+    - source-highlighter=pygments
+    - pygments-css=pastie
 
 #incremental: yes
 
@@ -53,9 +55,6 @@ exclude: [Makefile,
 	 '*/*.3hal',
 	 '*/*.3rtapi',
 	 '*/*.9' ]
-
-# Google services - preview.machinekit.io
-#google_analytics:   UA-48383649-2
 
 # for www.machinekit.io - activate on switch!
 google_analytics:  UA-48383649-1
