@@ -13,7 +13,7 @@ This is a custom Google search engine covering the www.machinekit.io website and
 === Editing pages
 
 The site source is hosted on link:https://github.com/machinekit/machinekit-docs[github] - if you want to edit content,
-you need to have a github account. Changing the website works like any other change to machinekit - using the normal http://www.machinekit.io/community/c4/[C4 process]: you create a Pull Request, which is merged by
+you first need a github account. Changing the website works like any other change to machinekit - using the normal http://www.machinekit.io/community/c4/[C4 process]: you create a Pull Request, which is merged by
 one of the maintainers, after which the changes are incorporated into the source of machinekit, or - in this case - the website.
 
 You will find that allmost all pages have an link:https://github.com/machinekit/machinekit-docs//edit/master/docs/site/about-this-site.asciidoc[Edit this page] link in the right column. Clicking link leads you directly into edit mode on github - after you have made your changes, describe what they are about in the 'Commit changes' box at the bottom, 'Create a new branch for this commit and start a pull request', then click
@@ -25,14 +25,17 @@ Opening a Pull Request triggers an update of the link:http://preview.machinekit.
 
 === Going live: merge by maintainers
 
-As soon as a maintainer gets around to merge your PR, the result is rendered on link:http://www.machinekit.io . This step takes
-slightly longer - but typically less than two minutes - as it runs a http://www.machinekit.io/linkchecker.html[linkchecker]
+As soon as a maintainer gets around to merge your PR, the result is rendered
+on http://www.machinekit.io[www.machinekit.io] . This step takes
+slightly longer - but typically less than two minutes - as
+it runs a http://www.machinekit.io/linkchecker.html[linkchecker]
 step to analyze the site for broken links.
 
 
 === Contributing a new page: use the link:http://www.machinekit.io/docs/sandbox/index.html[sandbox] to get started!
 
 Mick came up with this neat idea - just follow the instructions there and commit as PR!
+See the Sandbox link on the right above the Search box.
 
 === Contributing a large chunk of material: editing and previewing locally
 
