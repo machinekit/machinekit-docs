@@ -1,5 +1,6 @@
 - title: For starters
   docs:
+    - site/about-this-site
     - index-getting-started
     - index-user
     - index-HAL    
