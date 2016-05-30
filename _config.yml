@@ -49,6 +49,7 @@ defaults:
 
 # stage manpage sources here for comparison
 exclude: [Makefile,
+	 Guardfile,
 	 staging,
 	 scripts,
 	 src,
@@ -59,5 +60,5 @@ exclude: [Makefile,
 	 '*/*.3rtapi',
 	 '*/*.9' ]
 
-# for www.machinekit.io - activate on switch!
+# for www.machinekit.io
 google_analytics:  UA-48383649-1
