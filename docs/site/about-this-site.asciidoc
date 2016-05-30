@@ -21,11 +21,11 @@ You will find that allmost all pages have an link:https://github.com/machinekit/
 
 === Previewing changes
 
-Opening a Pull Request triggers an update of preview.machinekit.io and your change should be online within minutes. This process is capable of only showing the latest PR - but the status of the preview formatting run is recorded in the PR status.
+Opening a Pull Request triggers an update of the link:http://preview.machinekit.io[preview.machinekit.io Pull Request Preview site] and your change should be online within minutes. This process is capable of only showing the latest PR - but the status of the preview formatting run is recorded in the PR status.
 
 === Going live: merge by maintainers
 
-As soon as a maintainer gets around to merge your PR, the result is rendered on www.machinekit.io. This step takes
+As soon as a maintainer gets around to merge your PR, the result is rendered on link:http://www.machinekit.io . This step takes
 slightly longer - but typically less than two minutes - as it runs a http://www.machinekit.io/linkchecker.html[linkchecker]
 step to analyze the site for broken links.
 
