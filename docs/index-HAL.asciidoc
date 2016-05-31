@@ -3,39 +3,34 @@
 
 :skip-front-matter:
 
-:toc:
 
-= Hardware Abstract Layer
+= Hardware Abstraction Layer
 
-:toc:
 
+== Using HAL 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/hal/intro.asciidoc[]
+link:../hal/intro[Introduction]
 
-include::{{page.docs-dir}}/hal/basic_hal.asciidoc[]
+link:../hal/basic_hal[Hal Basics]
 
-include::{{page.docs-dir}}/hal/tutorial.asciidoc[]
+link:../hal/tutorial[Hal Tutorial]
 
-include::{{page.docs-dir}}/hal/hal-examples.asciidoc[]
+link:../hal/hal-examples[Hal Examples]
 
-include::{{page.docs-dir}}/hal/general_ref.asciidoc[]
+link:../hal/general_ref[Hal General reference]
 
-include::{{page.docs-dir}}/hal/parallel_port.asciidoc[]
+link:../hal/parallel_port[Parallel Port]
 
-include::{{page.docs-dir}}/hal/rtcomps.asciidoc[]
+link:../hal/rtcomps[RT components]
 
-// include::{{page.docs-dir}}/man/man9/index.asciidoc[]
+link:../hal/halmodule[Halmodule]
 
-include::{{page.docs-dir}}/hal/halmodule.asciidoc[]
+link:../hal/canonical-devices[Canonical devices]
 
-include::{{page.docs-dir}}/hal/canonical-devices.asciidoc[]
+link:../hal/tools[Tools]
 
-include::{{page.docs-dir}}/hal/tools.asciidoc[]
-
-include::{{page.docs-dir}}/hal/halshow.asciidoc[]
-
-// include::{{page.docs-dir}}/man/man1/index.asciidoc[]
+link:../hal/halshow[HalShow]
 
 :leveloffset: -1
 
@@ -43,38 +38,36 @@ include::{{page.docs-dir}}/hal/halshow.asciidoc[]
 
 :leveloffset: +1
 
-link:/docs/developing/writing-components[Writing HAL Components]
+link:../developing/writing-components[Writing HAL Components]
 
-include::{{page.docs-dir}}/hal/instcomp.asciidoc[]
+link:../hal/comp[Comp Component Generator]
 
-include::{{page.docs-dir}}/hal/comp.asciidoc[]
-
-// include::{{page.docs-dir}}/man/man3/index.asciidoc[]
+link:../hal/instcomp[Instcomp Component Generator]
 
 :leveloffset: -1
 
-= Hardware Drivers
+== Hardware Drivers
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/drivers/AX5214H.asciidoc[]
+link:../drivers/AX5214H[AX5214H]
 
-include::{{page.docs-dir}}/drivers/GS2.asciidoc[]
+link:../drivers/GS2[GS2]
 
-include::{{page.docs-dir}}/drivers/VFS11.asciidoc[]
+link:../drivers/VFS11[VFS11]
 
-include::{{page.docs-dir}}/drivers/hostmot2.asciidoc[]
+link:../drivers/hostmot2[hostmot2]
 
-include::{{page.docs-dir}}/drivers/motenc.asciidoc[]
+link:../drivers/motenc[motenc]
 
-include::{{page.docs-dir}}/drivers/opto22.asciidoc[]
+link:../drivers/opto22[opto22]
 
-include::{{page.docs-dir}}/drivers/pico_ppmc.asciidoc[]
+link:../drivers/pico_ppmc[pico_ppmc]
 
-include::{{page.docs-dir}}/drivers/pluto_p.asciidoc[]
+link:../drivers/pluto_p[pluto_p]
 
-include::{{page.docs-dir}}/drivers/servo_to_go.asciidoc[]
+link:../drivers/servo_to_go[servo_to_go]
 
-include::{{page.docs-dir}}/drivers/GM.asciidoc[]
+link:../drivers/GM[GM]
 
 :leveloffset: -1
