@@ -93,7 +93,7 @@ If unnamed the function will be called, *component-name.0.funct*
 
 halcmd allows just the base component name to be added to a thread, to keep existing configs working
 
-So *addf component-name servo-thread* will work
+So *addf component-name.0 servo-thread* will work
 
 What it actually does however is add the *.funct* bit on the end.
 
@@ -128,7 +128,7 @@ eg
 
 then
 
-*'addf somecomp8 servo-thread'*
+*'addf somenewcomp8 servo-thread'*
 
 adds the function to a thread
 
@@ -165,11 +165,11 @@ The reason for this is that kernel module parameters were never envisaged to be 
 Saving a numerical value for use is quite simple, but saving a string which could be any length would involve allocating memory to duplicate it,
 making it a wasteful process and requiring the explicit freeing of that memory when the instance exits.
 
-For this reason, do not use the instanceparam value directly, access it through a copy in the inst_data struct which is named *local_[instanceparamname]*
+For this reason, do not use the instanceparam value directly, access it through a copy in the inst_data struct which is named *local[instanceparamname]*
 
 The most common example is in those components which create variable pin numbers through the 'pincount=NN' parameter.
 
-The 'pincount' value is accessed via *local_pincount* in your component function body
+The 'pincount' value is accessed via *localpincount* in your component function body
 
 See multiswitch and lutn examples below
 
