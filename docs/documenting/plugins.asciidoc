@@ -6,7 +6,7 @@ layout: docs
 
 == Embedding video, screen caste and gists
 
-Here's how to beef up your page!
+Here are some more embedding examples.
 
 === Embedding Youtube videos
 
