@@ -16,7 +16,7 @@ The site source is hosted on link:https://github.com/machinekit/machinekit-docs[
 you first need a github account. Changing the website works like any other change to machinekit - using the normal http://www.machinekit.io/community/c4/[C4 process]: you create a Pull Request, which is merged by
 one of the maintainers, after which the changes are incorporated into the source of machinekit, or - in this case - the website.
 
-You will find that allmost all pages have an link:https://github.com/machinekit/machinekit-docs//edit/master/docs/site/about-this-site.asciidoc[Edit this page] link in the right column. Clicking link leads you directly into edit mode on github - after you have made your changes, describe what they are about in the 'Commit changes' box at the bottom, 'Create a new branch for this commit and start a pull request', then click
+You will find that almost all pages have an link:https://github.com/machinekit/machinekit-docs//edit/master/docs/site/about-this-site.asciidoc[Edit this page] link in the right column. Clicking the link leads you directly into edit mode on github - after you have made your changes, describe what they are about in the 'Commit changes' box at the bottom, 'Create a new branch for this commit and start a pull request', then click
 'Propose file change'
 
 == Previewing changes
