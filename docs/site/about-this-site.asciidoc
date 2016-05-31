@@ -61,5 +61,5 @@ which contains a series of tools for embedded diagrams and source highlighting, 
 
 Some examples:
 
-- http://www.machinekit.io/docs/documenting/diagram-examples/[embedding various diagrams and highlighting source code fragments]
-- http://www.machinekit.io/docs/documenting/plugins/[embedding Asciinema, Youtube videos, and gists]
+- link:/docs/documenting/diagram-examples/[embedding various diagrams and highlighting source code fragments]
+- link:/docs/documenting/plugins/[embedding Asciinema, Youtube videos, and gists]
