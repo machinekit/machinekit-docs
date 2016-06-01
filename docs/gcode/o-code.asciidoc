@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = O Codes
-
+:toc:
 [[cha:O-Codes]] (((O Codes)))
 
 O-codes provide for flow control in NC programs. Each block has an

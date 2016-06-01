@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = Image to G Code
-
+:toc:
 [[cha:image-to-g-code]] (((Image to G Code)))
 
 image::image-to-gcode.png[align="center"]

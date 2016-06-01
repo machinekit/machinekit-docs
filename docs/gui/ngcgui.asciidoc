@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = NGCGUI
-
+:toc:
 [[cha:ngcgui]] (((NGCGUI)))
 
 image::ngcgui.png[]

@@ -4,6 +4,7 @@
 :skip-front-matter:
 
 = CNC Machine Overview
+:toc:
 
 [[cha:cnc-machine-overview]] (((CNC Machine Overview)))
 

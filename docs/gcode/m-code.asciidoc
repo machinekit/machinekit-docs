@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = M Codes
-
+:toc:
 [[cha:m-codes]] (((M Codes)))
 
 :ini: {basebackend@docbook:'':ini}
