@@ -6,7 +6,7 @@
 :imagesdir: /docs/drivers/images
 
 = Mesa HostMot2 Driver 
-
+:toc:
 [[cha:mesa-hostmot2-driver]] (((Mesa HostMot2 Driver)))
 
 == Introduction 
