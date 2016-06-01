@@ -6,6 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = Halshow
+:toc:
 
 [[cha:halshow]] (((Halshow)))
 

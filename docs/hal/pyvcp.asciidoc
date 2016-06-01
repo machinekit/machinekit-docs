@@ -2,6 +2,7 @@
 :imagesdir: hal/images
 
 = Python Virtual Control Panel
+:toc:
 
 [[cha:pyvcp]] (((Python Virtual Control Panel)))
 

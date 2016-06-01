@@ -3,6 +3,7 @@
 
 :skip-front-matter:
 = NML Messages
+:toc:
 
 == EMC OPERATOR
 

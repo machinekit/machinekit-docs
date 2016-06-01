@@ -6,7 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = HAL Tools
-
+:toc:
 [[cha:hal-tools]] (((HAL Tools)))
 
 == Halcmd[[sec:Halcmd]]
