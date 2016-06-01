@@ -23,7 +23,7 @@ absolute minimum but will give reasonable performance for most stepper
 systems.
 
 * 1.2 GHz x86 processor
-* 512 MB RAM up to 2 GB recommended
+* 1GB RAM minimum recommended
 * 8 GB hard disk space minimum
 * Graphics card capable of at least 1024x768 resolution, which is not
    using the NVidia or ATI fglrx proprietary drivers, and which is not an

@@ -2,6 +2,7 @@
 :imagesdir: hal/images
 
 = Halui Examples
+:toc:
 
 For any Halui examples to work you need to add the following line to the [HAL]
 section of the ini file.

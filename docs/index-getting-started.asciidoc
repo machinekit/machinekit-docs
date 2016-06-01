@@ -3,31 +3,24 @@
 
 :skip-front-matter:
 
-:toc:
-
-:toclevels: 4
-
 = Getting Started
-
-:toc:
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/getting-started/getting-started-platform.asciidoc[]
+link:../getting-started/getting-started-platform[Setting up machinekit on a platform]
 
+link:../common/System_Requirements[System Requirements]
 
-include::{{page.docs-dir}}/common/System_Requirements.asciidoc[]
+link:../quickstart/stepper_quickstart[Stepper Quickstart]
 
-include::{{page.docs-dir}}/quickstart/stepper_quickstart.asciidoc[]
+link:../config/stepconf[Stepper Configuration Wizard]
 
-include::{{page.docs-dir}}/config/stepconf.asciidoc[]
+link:../config/pncconf[Mesa Configuration Wizard]
 
-include::{{page.docs-dir}}/config/pncconf.asciidoc[]
+link:../config/copy_and_run[Running Machinekit]
 
-include::{{page.docs-dir}}/config/copy_and_run.asciidoc[]
+link:../common/Linux_FAQ[Linux FAQ]
 
-include::{{page.docs-dir}}/common/Linux_FAQ.asciidoc[]
-
-include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+link:../common/GPLD_Copyright[GPLD Copyright]
 
 :leveloffset: -1

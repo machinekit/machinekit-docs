@@ -7,7 +7,7 @@
 :imagesoutdir: docs/hal/images
 
 = Basic HAL Tutorial
-
+:toc:
 [[cha:basic-hal-tutorial]] (((Basic HAL Tutorial)))
 
 == HAL Commands [[sec:Hal-Commands]]

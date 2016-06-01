@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = AXIS GUI
-
+:toc:
 [[cha:axis-gui]] (((Axis GUI)))
 
 == Introduction

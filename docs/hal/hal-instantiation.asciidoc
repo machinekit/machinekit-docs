@@ -2,9 +2,11 @@
 ---
 
 :skip-front-matter:
-== What's in the HAl instantiation branch
+= What's in the HAl instantiation branch
+:toc:
 
-=== quick summary
+
+== quick summary
 
 - a backwards-compatible extension of the C HAL API and halcmd and to support
  creation and deletion of components at run time
@@ -13,16 +15,16 @@
 - several migrated and new components
 - demo components for the new features
 
-=== in a nutshell - what can I do with it:
+== in a nutshell - what can I do with it:
 
-==== before you had to know in advance how many copies of a comp you need:
+=== before you had to know in advance how many copies of a comp you need:
 
  loadrt or2 count=2
 
 and that was it, you need one more - go back to the loadrt statement
 and fix it, wherever that was
 
-==== after: create instances as needed
+=== after: create instances as needed
 
 (for the lutn component, see the man page for lut5 - it's just a more
 flexible version of lut5: variable number of pins, and instantiable -
@@ -92,7 +94,7 @@ All hal/i_components have been modified to adhere to this new convention.
 
 legacy vs instantiable: cd field in show comp
 
-=== Overview of changes relevant for developers
+== Overview of changes relevant for developers
 
 - Previously pins, params and functs were owned by components. The API
 functions hence had a 'int comp_id' parameter.
@@ -122,7 +124,7 @@ macros.
 RTAPI_MP_STRING macros. Other types as well as arrays are currently not supported (and
 unlikely to be needed).
 
-=== instantiable component example
+== instantiable component example
 
 Some examples can be found in hal/icomp-example:
 
@@ -130,7 +132,7 @@ Some examples can be found in hal/icomp-example:
 - icomp.c shows all variations of the instantiation API, not all of
    which might be needed for every component
 
-=== HAL userfunct objects
+== HAL userfunct objects
 
 userfuncts are a similar to normal functs, but cannot be addf'd to a thread.
 
@@ -195,7 +197,7 @@ relevant part of machinekit.log:
  Mar 12 21:25:53 nwheezy msgd:0: hal_lib:1768:rt     argv[1] = "bar"
  Mar 12 21:25:53 nwheezy msgd:0: hal_lib:1768:rt     argv[2] = "baz"
 
-=== thread API extensions
+== thread API extensions
 
 This branch also contains work on a generalized thread API, which was
 required for the userfunct feature to work.

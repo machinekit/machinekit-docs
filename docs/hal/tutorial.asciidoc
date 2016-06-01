@@ -6,7 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = Advanced HAL Tutorial
-
+:toc:
 [[cha:HAL-tutorial]] (((HAL Tutorial)))
 
 == Introduction[[sec:Tutorial-Intro]]

@@ -6,7 +6,7 @@
 :imagesdir: /docs/common/images
 
 = Important User Concepts
-
+:toc:
 [[cha:important-user-concepts]] (((User Concepts)))
 
 This chapter covers important user concepts that should be understood

@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = RS274/NGC Differences
-
+:toc:
 [[cha:rs274ngc-programs]] (((RS274/NGC Programs)))
 
 == Changes from RS274/NGC

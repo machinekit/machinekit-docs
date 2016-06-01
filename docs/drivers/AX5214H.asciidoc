@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = AX5214H Driver
-
+:toc:
 [[cha:ax5214-driver]] (((AX5214H Driver)))
 
 The Axiom Measurement & Control AX5214H is a 48 channel digital I/O

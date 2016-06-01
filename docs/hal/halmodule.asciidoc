@@ -4,6 +4,8 @@
 :skip-front-matter:
 
 = Creating Userspace Python Components
+:toc:
+
 
 == Basic usage
 

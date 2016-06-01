@@ -6,7 +6,7 @@
 :imagesdir: /docs/config/images
 
 = Stepper Configuration Wizard
-
+:toc:
 [[cha:stepconf-wizard]] (((Stepconf Wizard)))
 
 Machinekit is capable of controlling a wide range of machinery 

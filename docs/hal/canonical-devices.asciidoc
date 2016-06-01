@@ -4,6 +4,7 @@
 :skip-front-matter:
 
 = Canonical Device Interfaces
+:toc:
 
 .Note
 *********************************************************************
@@ -12,6 +13,7 @@ match these specs. Send an email if you spot any problems.
 ********************************************************************* 
 
 [[cha:Canonical-Device-Interfaces]]
+
 == Introduction
 The following sections show the pins, parameters, and functions that 
 are supplied by “canonical devices”. All HAL device drivers should 
