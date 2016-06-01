@@ -5,7 +5,7 @@
 
 = RT-PREEMPT realtime kernel (Raspberry Pi)
 
-For Raspberry Pi using Raspbian:
+For Raspberry Pi 2/3 using Raspbian:
 
 Updated `raspberrypi-bootloader` is needed:
 [source,bash]
