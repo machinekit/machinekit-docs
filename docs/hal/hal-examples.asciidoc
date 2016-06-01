@@ -6,6 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = HAL Examples
+:toc:
 
 All of these examples assume you are starting with a stepconf based
 configuration and have two threads base-thread and servo-thread. The

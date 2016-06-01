@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = Other Codes
-
+:toc:
 [[cha:other-codes]] (((Other Codes)))
 
 [[sec:F-feed-rate]]

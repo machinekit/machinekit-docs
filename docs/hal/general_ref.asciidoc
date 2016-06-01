@@ -4,6 +4,7 @@
 :skip-front-matter:
 
 = General Reference
+:toc:
 
 [[cha:general-reference]]
 

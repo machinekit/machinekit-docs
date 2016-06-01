@@ -6,7 +6,7 @@
 :imagesdir: /docs/common/images
 
 = Machinekit User Introduction
-
+:toc:
 [[cha:machinekit-user-introduction]] (((Machinekit User Introduction)))
 
 == This Manual

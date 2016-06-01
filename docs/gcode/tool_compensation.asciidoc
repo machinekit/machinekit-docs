@@ -6,7 +6,7 @@
 :imagesdir: /docs/gcode/images
 
 = Tool Compensation
-
+:toc:
 [[cha:tool-compensation]] (((Tool Compensation)))
 
 == Tool Length Offsets

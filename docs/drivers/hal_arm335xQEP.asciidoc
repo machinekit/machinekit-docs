@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = arm355x eQEP encoder driver
-
+:toc:
 [[cha:arm355xQEP-driver]] (((arm335x eQEP driver)))
 
 hal_arm335xQEP is a driver for the 3 hardware quadrature decoders

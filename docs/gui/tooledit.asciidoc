@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = Tool Edit GUI
-
+:toc:
 [[cha:tooledit-gui]] (((Tool Edit GUI)))
 
 == Tool Edit Version Requirements

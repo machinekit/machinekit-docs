@@ -6,7 +6,7 @@
 :imagesdir: /docs/gcode/images
 
 = G Codes
-
+:toc:
 [[cha:g-codes]] (((G Codes)))
 
 :ini: {basebackend@docbook:'':ini}

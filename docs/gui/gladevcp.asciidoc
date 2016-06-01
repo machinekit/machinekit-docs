@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = Glade Virtual Control Panel
-
+:toc:
 [[cha:glade-vcp]] (((Glade Virtual Control Panel)))
 
 // TODO:

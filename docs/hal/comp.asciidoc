@@ -4,6 +4,7 @@
 :skip-front-matter:
 
 = Comp HAL Component Generator
+:toc:
 
 [[cha:comp-hal-component-generator]] (((Comp HAL Component Generator)))
 

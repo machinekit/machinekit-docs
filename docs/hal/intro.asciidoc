@@ -6,6 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = HAL Introduction
+:toc:
 
 [[cha:hal-introduction]] (((HAL Introduction)))
 

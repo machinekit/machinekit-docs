@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = GS2 VFD Driver
-
+:toc:
 [[cha:gs2-vfd-driver]] (((GS2 VFD Driver)))
 
 This is a userspace HAL program for the GS2 series of VFD's at

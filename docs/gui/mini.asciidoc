@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = MINI GUI
-
+:toc:
 [[cha:mini-gui]] (((Mini GUI)))
 
 == Introduction

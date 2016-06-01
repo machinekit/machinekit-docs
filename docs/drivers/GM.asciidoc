@@ -6,7 +6,7 @@
 :imagesdir: /docs/drivers/images
 
 = General Mechatronics Driver
-
+:toc:
 [[cha:gm-driver]] (((General Mechatronics Driver)))
 
 General Mechatronics GM6-PCI card based motion control system

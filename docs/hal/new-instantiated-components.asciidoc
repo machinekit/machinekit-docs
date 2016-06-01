@@ -2,7 +2,8 @@
 ---
 
 :skip-front-matter:
-Using the new Machinekit Instantiated components
+
+= Using the new Machinekit Instantiated components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A lot of changes to the codebase have occurred recently, +

@@ -6,7 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = HAL Component Descriptions
-
+:toc:
 [[cha:realtime-components]] (((Realtime Components)))
 
 [[sec:Stepgen]]

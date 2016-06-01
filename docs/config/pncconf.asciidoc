@@ -6,7 +6,7 @@
 :imagesdir: /docs/config/images
 
 = Mesa Configuration Wizard
-
+:toc:
 [[cha:PNCconf-wizard]]
 (((Point n Click Configuration Wizard)))
 (((Mesa Configuration Wizard)))

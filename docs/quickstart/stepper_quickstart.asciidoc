@@ -6,7 +6,7 @@
 :imagesdir: /docs/quickstart/images
 
 = Stepper Quickstart
-
+:toc:
 [[cha:stepper-quickstart]] (((Stepper Quickstart)))
 
 This section assumes you have done a standard install from the Live

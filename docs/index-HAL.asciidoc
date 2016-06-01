@@ -3,39 +3,133 @@
 
 :skip-front-matter:
 
-:toc:
 
-= Hardware Abstract Layer
+= Hardware Abstraction Layer
 
-:toc:
 
+== Using HAL 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/hal/intro.asciidoc[]
+link:../hal/intro[Introduction]
 
-include::{{page.docs-dir}}/hal/basic_hal.asciidoc[]
+- link:../hal/intro#hal-introduction[HAL Introduction]
+  
+- link:../hal/intro#hal-concepts-a-id-sec-hal-concepts-a[HAL Concepts]
+  
+- link:../hal/intro#hal-components-a-id-sec-intro-hal-components-a[HAL Components]
 
-include::{{page.docs-dir}}/hal/tutorial.asciidoc[]
+- link:../hal/intro#timing-issues-in-hal-a-id-sec-timing-issues-a[Timing Issues]
 
-include::{{page.docs-dir}}/hal/hal-examples.asciidoc[]
+link:../hal/basic_hal[Hal Basics]
 
-include::{{page.docs-dir}}/hal/general_ref.asciidoc[]
+- link:../hal/basic_hal#sec:Hal-Commands[HAL Commands]
 
-include::{{page.docs-dir}}/hal/parallel_port.asciidoc[]
+- link:../hal/basic_hal#sec:Hal-Data[HAL Data]
 
-include::{{page.docs-dir}}/hal/rtcomps.asciidoc[]
+- link:../hal/basic_hal#hal-files[HAL Files]
 
-// include::{{page.docs-dir}}/man/man9/index.asciidoc[]
+- link:../hal/basic_hal#hal-components[HAL Components]
 
-include::{{page.docs-dir}}/hal/halmodule.asciidoc[]
+- link:../hal/basic_hal#logic-components[Logic Components]
 
-include::{{page.docs-dir}}/hal/canonical-devices.asciidoc[]
+- link:../hal/basic_hal#conversion-components[Conversion Components]
 
-include::{{page.docs-dir}}/hal/tools.asciidoc[]
+link:../hal/tutorial[Hal Tutorial]
 
-include::{{page.docs-dir}}/hal/halshow.asciidoc[]
+- link:../hal/tutorial#introduction-a-id-sec-tutorial-intro-a[Introduction]
 
-// include::{{page.docs-dir}}/man/man1/index.asciidoc[]
+- link:../hal/tutorial#a-simple-example-a-id-sec-tutorial-simple-example-a[A Simple Example]
+
+- link:../hal/tutorial#halmeter-a-id-sec-tutorial-halmeter-a[Halmeter]
+
+- link:../hal/tutorial#stepgen-example[Stepgen Example]
+
+- link:../hal/tutorial#halscope-a-id-sec-tutorial-halscope-a[Halscope]
+
+link:../hal/hal-examples[Hal Examples]
+
+- link:../hal/hal-examples#manual-toolchange[Manual toolchange]
+
+- link:../hal/hal-examples#compute-velocity[Compute-Velocity]
+
+- link:../hal/hal-examples#soft-start[Soft Start]
+
+- link:../hal/hal-examples#stand-alone-hal[Stand Alone HAL]
+
+link:../hal/general_ref[Hal General reference]
+
+- link:../hal/general_ref#cha:general-reference[General Naming Conventions]
+
+- link:../hal/general_ref#sec:GR-Driver-Naming[Hardware Driver Naming Conventions]
+
+link:../hal/parallel_port[Parallel Port]
+
+- link:../hal/parallel_port#parport[parport]
+
+- link:../hal/parallel_port#sec:probe_parport[probe_parport]
+
+link:../hal/rtcomps[RT components]
+
+- link:../hal/rtcomps#sec:Stepgen[Stepgen]
+
+- link:../hal/rtcomps#sec:PWMgen[PWMgen]
+
+- link:../hal/rtcomps#sec:Encoder[Encoder]
+
+- link:../hal/rtcomps#sec:PID[PID]
+
+- link:../hal/rtcomps#simulated-encoder-a-id-sec-simulated-encoder-a[Simulated Encoder]
+
+- link:../hal/rtcomps#sec:Debounce[Debounce]
+
+- link:../hal/rtcomps#siggen-a-id-sec-siggen-a[Siggen]
+
+- link:../hal/rtcomps#sec:lut5[lut5]
+
+link:../hal/halmodule[Creating Userspace Python Components]
+
+- link:../hal/halmodule#basic-usage[Basic Usage]
+
+- link:../hal/halmodule#userspace-components-and-delays[Userspace Components and Delays]
+
+- link:../hal/halmodule#create-pins-and-parameters[Create pins and parameters]
+
+- link:../hal/halmodule#reading-and-writing-pins-and-parameters[Reading and Writing pins and parameters]
+
+- link:../hal/halmodule#exiting[Exiting]
+
+- link:../hal/halmodule#project-ideas[Project Ideas]
+
+link:../hal/canonical-devices[Canonical devices]
+
+- link:../hal/canonical-devices#cha:Canonical-Device-Interfaces[Introduction]
+
+- link:../hal/canonical-devices#digital-input-a-id-sec-canondigin-a[Digital Input]
+
+- link:../hal/canonical-devices#digital-output-a-id-sec-canondigout-a[Digital Output]
+
+- link:../hal/canonical-devices#analog-input[Analog Input]
+
+- link:../hal/canonical-devices#analog-output[Analog Output]
+
+link:../hal/tools[Tools]
+
+- link:../hal/tools#halcmd-a-id-sec-halcmd-a[Halcmd]
+
+- link:../hal/tools#halmeter-a-id-sec-halmeter-a[Halmeter]
+
+- link:../hal/tools#halscope-a-id-sec-halscope-a[Halscope]
+
+link:../hal/halshow[HalShow]
+
+- link:../hal/halshow#starting-halshow[Starting Halshow]
+
+- link:../hal/halshow#hal-tree-area[HAL Tree area]
+
+- link:../hal/halshow#hal-show-area[HAL Show area]
+
+- link:../hal/halshow#hal-watch-area[HAL Watch area]
+
 
 :leveloffset: -1
 
@@ -43,38 +137,36 @@ include::{{page.docs-dir}}/hal/halshow.asciidoc[]
 
 :leveloffset: +1
 
-link:/docs/developing/writing-components[Writing HAL Components]
+- link:../developing/writing-components[Writing HAL Components]
 
-include::{{page.docs-dir}}/hal/instcomp.asciidoc[]
+- link:../hal/comp[Comp Component Generator]
 
-include::{{page.docs-dir}}/hal/comp.asciidoc[]
-
-// include::{{page.docs-dir}}/man/man3/index.asciidoc[]
+- link:../hal/instcomp[Instcomp Component Generator]
 
 :leveloffset: -1
 
-= Hardware Drivers
+== Hardware Drivers
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/drivers/AX5214H.asciidoc[]
+- link:../drivers/AX5214H[AX5214H]
 
-include::{{page.docs-dir}}/drivers/GS2.asciidoc[]
+- link:../drivers/GS2[GS2]
 
-include::{{page.docs-dir}}/drivers/VFS11.asciidoc[]
+- link:../drivers/VFS11[VFS11]
 
-include::{{page.docs-dir}}/drivers/hostmot2.asciidoc[]
+- link:../drivers/hostmot2[hostmot2]
 
-include::{{page.docs-dir}}/drivers/motenc.asciidoc[]
+- link:../drivers/motenc[motenc]
 
-include::{{page.docs-dir}}/drivers/opto22.asciidoc[]
+- link:../drivers/opto22[opto22]
 
-include::{{page.docs-dir}}/drivers/pico_ppmc.asciidoc[]
+- link:../drivers/pico_ppmc[pico_ppmc]
 
-include::{{page.docs-dir}}/drivers/pluto_p.asciidoc[]
+- link:../drivers/pluto_p[pluto_p]
 
-include::{{page.docs-dir}}/drivers/servo_to_go.asciidoc[]
+- link:../drivers/servo_to_go[servo_to_go]
 
-include::{{page.docs-dir}}/drivers/GM.asciidoc[]
+- link:../drivers/GM[GM]
 
 :leveloffset: -1

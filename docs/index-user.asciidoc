@@ -3,17 +3,14 @@
 
 :skip-front-matter:
 
-:toc:
+= Machinekit Introduction 
 
-= Machinekit Introduction
-
-:toc:
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/common/user_intro.asciidoc[]
+- link:../common/user_intro[Introduction]
 
-include::{{page.docs-dir}}/common/User_Concepts.asciidoc[]
+- link:../common/User_Concepts[User Concepts]
 
 :leveloffset: -1
 
@@ -21,21 +18,21 @@ include::{{page.docs-dir}}/common/User_Concepts.asciidoc[]
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/gui/selector.asciidoc[]
+- link:../gui/selector[Configuration Selector]
 
-include::{{page.docs-dir}}/gui/axis.asciidoc[]
+- link:../gui/axis[Axis]
 
-include::{{page.docs-dir}}/gui/ngcgui.asciidoc[]
+- link:../gui/ngcgui[ngcgui]
 
-include::{{page.docs-dir}}/gui/gmoccapy.asciidoc[]
+- link:../gui/gmoccapy[Gmoccapy]
 
-include::{{page.docs-dir}}/gui/touchy.asciidoc[]
+- link:../gui/touchy[Touchy]
 
-include::{{page.docs-dir}}/gui/tklinuxcnc.asciidoc[]
+- link:../gui/tklinuxcnc[TkLinuxcnc]
 
-include::{{page.docs-dir}}/gui/mini.asciidoc[]
+- link:../gui/mini[Mini]
 
-include::{{page.docs-dir}}/gui/keystick.asciidoc[]
+- link:../gui/keystick[Keystick]
 
 :leveloffset: -1
 
@@ -43,32 +40,32 @@ include::{{page.docs-dir}}/gui/keystick.asciidoc[]
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/gcode/machining_center.asciidoc[]
+- link:../gcode/machining_center[CNC Machine Overview]
 
-include::{{page.docs-dir}}/gcode/coordinates.asciidoc[]
+- link:../gcode/coordinates[Coordinates]
 
-include::{{page.docs-dir}}/gcode/tool_compensation.asciidoc[]
+- link:../gcode/tool_compensation[Tool Compensation]
 
-include::{{page.docs-dir}}/gcode/overview.asciidoc[]
+- link:../gcode/overview[GCode Overview]
 
-include::{{page.docs-dir}}/gcode/gcode.asciidoc[]
+- link:../gcode/gcode[G Codes]
 
-include::{{page.docs-dir}}/gcode/m-code.asciidoc[]
+- link:../gcode/m-code[M Codes]
 
-include::{{page.docs-dir}}/gcode/o-code.asciidoc[]
+- link:../gcode/o-code[O Codes]
 
-include::{{page.docs-dir}}/gcode/other-code.asciidoc[]
+- link:../gcode/other-code[Other Codes]
 
-include::{{page.docs-dir}}/examples/gcode.asciidoc[]
+- link:../examples/gcode[GCode Examples]
 
-include::{{page.docs-dir}}/lathe/lathe-user.asciidoc[]
+- link:../lathe/lathe-user[Lathe User]
 
-include::{{page.docs-dir}}/gcode/rs274ngc.asciidoc[]
+- link:../gcode/rs274ngc[rs274/NGC differences]
 
-include::{{page.docs-dir}}/gui/image-to-gcode.asciidoc[]
+- link:../gui/image-to-gcode[image2gcode]
 
-include::{{page.docs-dir}}/common/Glossary.asciidoc[]
+- link:../common/Glossary[Glossary]
 
-include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+- link:../common/GPLD_Copyright[GPLD Copyright]
 
 :leveloffset: -1

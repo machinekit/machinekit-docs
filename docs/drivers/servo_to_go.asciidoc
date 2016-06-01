@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = Servo To Go Driver
-
+:toc:
 [[cha:servo-to-go-driver]] (((Servo To Go Driver)))
 
 The Servo-To-Go (STG) is one of the first PC motion control cards supported
