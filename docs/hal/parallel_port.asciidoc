@@ -65,6 +65,7 @@ hal_parport.c). The ports are numbered starting at zero.
 
 === Installing
 
+[source]
 ----
 loadrt hal_parport cfg="<config-string>"
 ----
@@ -76,6 +77,7 @@ simplest way to install the parport driver and cooperates with the
 Linux parport_pc driver if it is loaded. This will use the address
 Linux has detected for parport 0.
 
+[source]
 ----
 loadrt hal_parport cfg="0"
 ----
@@ -89,6 +91,7 @@ through 9, and whether to create input HAL pins for the physical
 control pins. If the direction is not specified, the data group
 defaults to output. For example:
 
+[source]
 ----
 loadrt hal_parport cfg="0x278 0x378 in 0x20A0 out"
 ----
@@ -193,6 +196,7 @@ same time.
 
 If loading the module reports
 
+[source]
 ----
 insmod: error inserting '/home/jepler/emc2/rtlib/hal_parport.ko':
 -1 Device or resource busy
@@ -217,6 +221,7 @@ specificed by parport.n.reset-time.
 
 For example:
 
+[source]
 ----
 loadrt hal_parport cfg="0x378 out"
 setp parport.0.reset-time 5000
@@ -245,6 +250,7 @@ loaded but has no effect.
 
 === Installing
 
+[source]
 ----
 loadrt probe_parport
 
@@ -253,6 +259,7 @@ loadrt hal_parport ...
 
 If the Linux kernel prints a message similar to
 
+[source]
 ----
 parport: PnPBIOS parport detected.
 ----

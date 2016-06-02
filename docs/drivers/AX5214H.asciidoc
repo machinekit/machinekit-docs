@@ -15,6 +15,7 @@ of the work is already done.
 
 == Installing
 
+[source]
 ----
 loadrt hal_ax5214h cfg="<config-string>"
 ----

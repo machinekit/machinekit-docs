@@ -2,9 +2,9 @@
 ---
 
 :skip-front-matter:
-
+:source-highlighter: pygments
 = Stepper Configuration
-
+:toc:
 [[stepper-config]] (((Stepper Configuration)))
 
 == Introduction[[sec:Introduction]]
@@ -67,6 +67,7 @@ NOTE: We are presenting one axis to keep it short, all others are similar.
 
 The ones relevant for our pinout are:
 
+[source,bash]
 ----
 signals: Xstep, Xdir & Xen
 pins: parport.0.pin-XX-out & parport.0.pin-XX-in
@@ -81,6 +82,7 @@ on we'll investigate the standard_pinout.hal.
 
 This file contains several HAL commands, and usually looks like this:
 
+[source,bash]
 ----
 # standard pinout config file for 3-axis steppers
 # using a parport for I/O
@@ -189,6 +191,7 @@ If you want for example to change the pin for the X-axis Step &
 Directions signals, all you need to do is to change the number in the
 'parport.0.pin-XX-out' name:
 
+[source,bash]
 ----
 net Xstep parport.0.pin-03-out 
 net Xdir  parport.0.pin-02-out
@@ -196,6 +199,7 @@ net Xdir  parport.0.pin-02-out
 
 can be changed to:
 
+[source,bash]
 ----
 net Xstep parport.0.pin-02-out 
 net Xdir  parport.0.pin-03-out
@@ -212,6 +216,7 @@ If external hardware expects an “active low” signal, set the
 corresponding '-invert' parameter. For instance, to invert the spindle
 control signal:
 
+[source,bash]
 ----
 setp parport.0.pin-09-invert TRUE
 ----
@@ -221,6 +226,7 @@ setp parport.0.pin-09-invert TRUE
 If your spindle can be controlled by a PWM signal, use the 'pwmgen'
 component to create the signal:
 
+[source,bash]
 ----
 loadrt pwmgen output_type=0
 addf pwmgen.update servo-thread
@@ -244,6 +250,7 @@ defined signals called 'Xen', 'Yen', 'Zen'.
 
 To connect them use the following example:
 
+[source,bash]
 ----
 net Xen parport.0.pin-08-out
 ----
@@ -263,12 +270,14 @@ in the wiki.machinekit.org and elsewhere in the Integrator Manual]
 
 To add a simple external button you need to replace the line:
 
+[source,bash]
 ----
 net estop-loop iocontrol.0.user-enable-out iocontrol.0.emc-enable-in
 ----
 
 with
 
+[source,bash]
 ----
 net estop-loop parport.0.pin-01-in iocontrol.0.emc-enable-in
 ----

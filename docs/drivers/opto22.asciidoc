@@ -33,7 +33,7 @@ This driver is for the PCI AC5 card and will not work with the ISA AC5
 card. The HAL driver is a realtime module. It will support 4 cards as
 is (more cards are possible with a change in the source code). Load the 
 basic driver like so: 
-
+[source]
 ----
 loadrt opto_ac5
 ----
@@ -88,13 +88,13 @@ points and LEDs.
 
 For example the pin names for the default I/O setting of port 0 would
 be:
-
+[source]
 ----
 opto_ac5.0.port0.in-00
 ----
 
 They would be numbered from 00 to 11
-
+[source]
 ----
 opto_ac5.0.port0.out-12
 ----
@@ -104,7 +104,7 @@ They would be numbered 12 to 23 port 1 would be the same.
 == Configuring I/O Ports
 
 To change the default setting load the driver something like so:
-
+[source]
 ----
 loadrt opto_ac5 portconfig0=0xffff portconfig1=0xff0000
 ----

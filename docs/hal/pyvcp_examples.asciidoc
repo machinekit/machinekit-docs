@@ -182,6 +182,7 @@ image::xyz_buttons.png[]
 To make the connections needed open up your custom_postgui.hal file
 and add the following.
 
+[source]
 ----
 # connect the X PyVCP buttons 
 net my-jogxminus halui.jog.0.minus <= pyvcp.x-minus 
@@ -301,6 +302,7 @@ start
 
 To run the HAL file we use the following command from a terminal window.
 
+[source]
 ----
 ~$ halrun -I -f ptest.hal
 ----
@@ -317,6 +319,7 @@ To add the rest of the parallel port pins just modify the .xml and
 To show the pins after running the HAL script use the following
 command at the halcmd prompt:
 
+[source]
 ----
 halcmd: show pin
 Component Pins:
@@ -462,6 +465,7 @@ image::gs2_panel.png[]
 To make it work we add the following code to the custom_postgui.hal
 file.
 
+[source]
 ----
 # display the rpm based on freq * rpm per hz 
 loadrt mult2 

@@ -1,4 +1,7 @@
-
+---
+---
+    
+:skip-front-matter:
 :imagesdir: hal/images
 
 = Halui Examples
@@ -7,6 +10,7 @@
 For any Halui examples to work you need to add the following line to the [HAL]
 section of the ini file.
 
+[source]
 ----
 HALUI = halui
 ----

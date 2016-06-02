@@ -299,6 +299,7 @@ A tool table is required to use the Interpreter. The file tells which
 tools are in which tool changer slots and what the size and type of 
 each tool is. The name of the tool table is defined in the ini file: 
 
+[source]
 ----
 [EMCIO]
 
@@ -310,12 +311,14 @@ The default filename probably looks something like the above, but
 you may prefer to give your machine its own tool table, using the 
 same name as your ini file, but with a tbl extension: 
 
+[source]
 ----
 TOOL_TABLE = acme_300.tbl
 ----
 
 or
 
+[source]
 ----
 TOOL_TABLE = EMC-AXIS-SIM.tbl
 ----

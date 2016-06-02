@@ -24,7 +24,7 @@ Any user interaction with the ShuttleXpress device will generate an event, infor
 == Setup
 
 The shuttlexpress module needs read permission on the /dev/hidraw* device files. This can be accomplished by adding a file /etc/udev/rules.d/99-shuttlexpress.rules, with the following contents:
-
+[source]
 ----
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0b33", ATTRS{idProduct}=="0020", MODE="0444"
 ----

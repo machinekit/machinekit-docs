@@ -20,6 +20,7 @@ In the custom.hal file we place the following to connect Machinekit to the
 GS2 and have Machinekit control the drive.
 
 .GS2 Example
+[source]
 ----
 # load the user space component for the Automation Direct GS2 VFD's 
 loadusr -Wn spindle-vfd gs2_vfd -r 9600 -p none -s 2 -n spindle-vfd

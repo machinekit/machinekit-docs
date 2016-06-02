@@ -1,44 +1,38 @@
 ---
 layout: docs
 ---
-
+:imagesoutdir: docs/documenting/asciinema
+= Plugins
 :toc:
 
-== Embedding video, screen caste and gists
+== How to  embed an asciicast recording
 
-Here's how to beef up your page!
+link:https://github.com/mnuessler/jekyll-asciinema[Jekyll  plugin description]
 
-=== Embedding Youtube videos
+link:https://asciinema.org/[Asciinema website]
 
-In Youtube, click 'Share->Embed' and copy the HTML fragment, then insert into a passthrough block.
+// http://asciinema.org/a/47175
+++++
+{% asciicast 47175 %}
+++++
+
+== Embedding Youtube videos
+
+doesnt work yet, something with permissions, ID, cache, cookie - who knows
+
+++++
+
+{% youtube ON9m2xwWonM %}
+++++
+
+== Including a gist
 
 ++++
 <p>
 Content in a passthrough block is passed to the output unprocessed.
-That means you can include raw HTML, like this embedded Youtube video:
+That means you can include raw HTML, like this embedded Gist:
 </p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ON9m2xwWonM" frameborder="0" allowfullscreen></iframe>
+<script src="http://gist.github.com/mojavelinux/5333524.js">
+</script>
 ++++
-
-
-=== How to  embed an link:https://asciinema.org[Asciinema] recording
-
-Record and upload the recording; make sure it is public. Click 'Share' and insert
-the HTML fragment into a passthrough block.
-
-See link:https://asciinema.org/docs/embedding[here for customization options].
-++++
-<script type="text/javascript" src="https://asciinema.org/a/465mxe7ab0mguggtirvooch6w.js" id="asciicast-465mxe7ab0mguggtirvooch6w" async></script>
-++++
-
-=== Including a gist
-
-
-Exapmple taken from link:https://gist.github.com/mhaberler/8fa89bbc12ac93b2de15[here].
-
-++++
-{% gist 8fa89bbc12ac93b2de15 %}
-++++
-
-

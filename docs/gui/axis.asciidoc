@@ -755,6 +755,7 @@ When a command is entered, it is sent to Machinekit to be executed.
 
 This is a sample session of mdi.
 
+[source]
 ----
 $ mdi
 MDI>
@@ -861,6 +862,7 @@ will be displayed in the text area, previewed in the display area, and
 executed by Machinekit when 'Run'. The following lines add support for the
 'image-to-gcode' converter included with Machinekit:
 
+[source]
 ----
 [FILTER]
 PROGRAM_EXTENSION = .png,.gif Greyscale Depth Image
@@ -870,6 +872,7 @@ gif = image-to-gcode
 
 It is also possible to specify an interpreter:
 
+[source]
 ----
 PROGRAM_EXTENSION = .py Python Script
 py = python
@@ -887,6 +890,7 @@ image::holes.png[align="center"]
 If the environment variable AXIS_PROGRESS_BAR is set, then lines
 written to stderr of the form
 
+[source]
 ----
 FILTER_PROGRESS=%d
 ----
@@ -904,6 +908,7 @@ background' scheme, and also serves as a reference for the configurable
 items in the display area. The sample file 'axis_big_dro' changes the
 position readout to a larger size font. To use these files:
 
+[source]
 ----
 xrdb -merge /usr/share/doc/emc2/axis_light_background
 
@@ -918,6 +923,7 @@ settings are ignored. To make the X Resource Database items override
 AXIS defaults, include the following line in your X Resources:
 
 // These asterisks are not for bold, 
+[source]
 ----
     *Axis*optionLevel: widgetDefault
 ----
@@ -948,6 +954,7 @@ to change during the development cycle.
 
 The following adds Control-Q as a keyboard shortcut for Quit.
 
+[source]
 ----
 root_window.bind("<Control-q>", "destroy .")
 help2.append(("Control-Q", "Quit"))
@@ -1023,6 +1030,7 @@ comments are not displayed.
 The preview display can be completely disabled for all loaded files by
 an ini file field
 
+[source]
 ----
 [USER_COMMANDS]
 DISABLE_DISPLAY = YES

@@ -31,6 +31,7 @@ Regardless of any offsets that may be in effect, putting a G53 in a
 block of code tells the interpreter to go to the real or absolute axis
 positions commanded in the block. For example
 
+[source]
 ----
 G53 G0 X0 Y0 Z0 
 ----
@@ -108,6 +109,7 @@ reference for each of the locations and all of the work to be done
 there. The following code is offered as an example of making a square
 using the G55 offsets that we set above.
 
+[source]
 ----
 G55 G0 X0 Y0 Z0
 G1 F2 Z-0.2000
@@ -133,6 +135,7 @@ still be in effect.
 // Note for some strange reason a single tab is required to make the following
 // ListingBlock format correctly.
 
+[source]
 ----
 G54	use preset work coordinate system 1
 G55	use preset work coordinate system 2
@@ -276,6 +279,7 @@ This sample engraving project mills a set of four .1 radius circles in
 roughly a star shape around a center circle. We can setup the
 individual circle pattern like this.
 
+[source]
 ---------------------------------------------------------------------
 G10 L2 P1 X0 Y0 Z0 (ensure that G54 is set to machine zero) 
 G0 X-0.1 Y0 Z0
@@ -283,20 +287,24 @@ G1 F1 Z-0.25
 G3 X-0.1 Y0 I0.1 J0
 G0 Z0
 M2
+[source]
 ---------------------------------------------------------------------
 
 We can issue a set of commands to create offsets for the four other
 circles like this.
 
+[source]
 -----------------------------------------------------------
 G10 L2 P2 X0.5 (offsets G55 X value by 0.5 inch) 
 G10 L2 P3 X-0.5 (offsets G56 X value by -0.5 inch) 
 G10 L2 P4 Y0.5 (offsets G57 Y value by 0.5 inch) 
 G10 L2 P5 Y-0.5 (offsets G58 Y value by -0.5 inch) 
+[source]
 -----------------------------------------------------------
 
 We put these together in the following program:
 
+[source]
 ---------------------------------------------------------------------
 (a program for milling five small circles in a diamond shape)
 
@@ -332,6 +340,7 @@ G3 X-0.1 Y0 I0.1 J0
 G54 G0 X0 Y0 Z0
 
 M2
+[source]
 ---------------------------------------------------------------------
 
 Now comes the time when we might apply a set of G92 offsets to this

@@ -3,150 +3,112 @@
 
 :skip-front-matter:
 
-:toc:
-
 = Integrator Manual
 
-:toc:
 
 == Machinekit Introduction
 
-:leveloffset: +1
-
-include::{{page.docs-dir}}/common/Integrator_Concepts.asciidoc[]
-
-:leveloffset: -1
+link:../common/Integrator_Concepts[Integrator Concepts]
 
 == Configuration
 
-:leveloffset: +1
+link:../install/Latency_Test[Latency Test]
 
-include::{{page.docs-dir}}/install/Latency_Test.asciidoc[]
+link:../common/starting-emc[Starting Machinekit]
 
-include::{{page.docs-dir}}/common/starting-emc.asciidoc[]
+link:../config/ini_config[INI config]
 
-include::{{page.docs-dir}}/config/ini_config.asciidoc[]
+link:../config/ini_homing[INI Homing]
 
-include::{{page.docs-dir}}/config/ini_homing.asciidoc[]
+link:../config/lathe_config[Lathe config]
 
-include::{{page.docs-dir}}/config/lathe_config.asciidoc[]
+link:../hal/haltcl[Haltcl]
 
-include::{{page.docs-dir}}/hal/haltcl.asciidoc[]
+link:../config/emc2hal[Emc2hal]
 
-include::{{page.docs-dir}}/config/emc2hal.asciidoc[]
+link:../config/stepper[Stepper]
 
-include::{{page.docs-dir}}/config/stepper.asciidoc[]
+link:../hal/basic_hal[Basic HAL]
 
-include::{{page.docs-dir}}/hal/basic_hal.asciidoc[]
-
-include::{{page.docs-dir}}/remap/structure.asciidoc[]
-
-:leveloffset: -1
+link:../remap/structure[Remap structure]
 
 == GUI
 
-:leveloffset: +1
+link:../hal/pyvcp[pyVCP]
 
-include::{{page.docs-dir}}/hal/pyvcp.asciidoc[]
+link:../hal/pyvcp_examples[pyVCP Examples]
 
-include::{{page.docs-dir}}/hal/pyvcp_examples.asciidoc[]
+link:../gui/gladevcp[gladevcp]
 
-include::{{page.docs-dir}}/gui/gladevcp.asciidoc[]
+link:../gui/halui[halui]
 
-include::{{page.docs-dir}}/gui/halui.asciidoc[]
-
-include::{{page.docs-dir}}/hal/halui_examples.asciidoc[]
-
-:leveloffset: -1
+link:../hal/halui_examples[halui examples]
 
 == Hardware Drivers
 
-:leveloffset: +1
+link:../hal/parallel_port[Parallel Port]
 
-include::{{page.docs-dir}}/hal/parallel_port.asciidoc[]
+link:../drivers/AX5214H[AX5214H]
 
-include::{{page.docs-dir}}/drivers/AX5214H.asciidoc[]
+link:../drivers/GS2[GS2]
 
-include::{{page.docs-dir}}/drivers/GS2.asciidoc[]
+link:../drivers/hostmot2[hostmot2]
 
-include::{{page.docs-dir}}/drivers/hostmot2.asciidoc[]
+link:../drivers/motenc[motenc]
 
-include::{{page.docs-dir}}/drivers/motenc.asciidoc[]
+link:../drivers/opto22[opto22]
 
-include::{{page.docs-dir}}/drivers/opto22.asciidoc[]
+link:../drivers/pico_ppmc[pico_ppmc]
 
-include::{{page.docs-dir}}/drivers/pico_ppmc.asciidoc[]
+link:../drivers/pluto_p[pluto_p]
 
-include::{{page.docs-dir}}/drivers/pluto_p.asciidoc[]
+link:../drivers/servo_to_go[servo_to_go]
 
-include::{{page.docs-dir}}/drivers/servo_to_go.asciidoc[]
+link:../drivers/shuttlexpress[shuttlexpress]
 
-include::{{page.docs-dir}}/drivers/shuttlexpress.asciidoc[]
-
-include::{{page.docs-dir}}/drivers/GM.asciidoc[]
-
-:leveloffset: -1
+link:../drivers/GM[GM]
 
 == Advanced Topics
 
-:leveloffset: +1
+link:../common/python-interface[Python Interface]
 
-include::{{page.docs-dir}}/common/python-interface.asciidoc[]
+link:../motion/kinematics[Kinematics]
 
-include::{{page.docs-dir}}/motion/kinematics.asciidoc[]
+link:../motion/tweaking_steppers[Tweaking Steppers]
 
-include::{{page.docs-dir}}/motion/tweaking_steppers.asciidoc[]
+link:../motion/pid_theory[PID Theory]
 
-include::{{page.docs-dir}}/motion/pid_theory.asciidoc[]
-
-include::{{page.docs-dir}}/common/UnifiedBuild.asciidoc[]
-
-:leveloffset: -1
+link:../common/UnifiedBuild[Unified Build]
 
 == Ladder Logic
 
-:leveloffset: +1
+link:../ladder/ladder_intro[Ladder Intro]
 
-include::{{page.docs-dir}}/ladder/ladder_intro.asciidoc[]
+link:../ladder/classic_ladder[Classic Ladder]
 
-include::{{page.docs-dir}}/ladder/classic_ladder.asciidoc[]
-
-include::{{page.docs-dir}}/ladder/ladder_examples.asciidoc[]
-
-:leveloffset: -1
+link:../ladder/ladder_examples[Ladder Examples]
 
 == Hardware Examples
 
-:leveloffset: +1
+link:../examples/pci_parallel_port[PCI Parallel Port]
 
-include::{{page.docs-dir}}/examples/pci_parallel_port.asciidoc[]
+link:../examples/spindle[Spindle]
 
-include::{{page.docs-dir}}/examples/spindle.asciidoc[]
+link:../examples/mpg[MPG]
 
-include::{{page.docs-dir}}/examples/mpg.asciidoc[]
-
-include::{{page.docs-dir}}/examples/gs2_example.asciidoc[]
-
-:leveloffset: -1
+link:../examples/gs2_example[GS2 Example]
 
 == Diagnostics & FAQ
 
-:leveloffset: +1
+link:../common/Stepper_Diagnostics[Stepper Diagnostics]
 
-include::{{page.docs-dir}}/common/Stepper_Diagnostics.asciidoc[]
+link:../common/Linux_FAQ[Linux FAQ]
 
-include::{{page.docs-dir}}/common/Linux_FAQ.asciidoc[]
+link:../common/Glossary[Glossary]
 
-include::{{page.docs-dir}}/common/Glossary.asciidoc[]
-
-include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
-
-:leveloffset: -1
+link:../common/GPLD_Copyright[GPLD Copyright]
 
 == Machinekit Build Configuration
 
-:leveloffset: +1
+link:../install/ConfigurationChanges[Configuration Changes]
 
-include::{{page.docs-dir}}/install/ConfigurationChanges.asciidoc[]
-
-:leveloffset: -1

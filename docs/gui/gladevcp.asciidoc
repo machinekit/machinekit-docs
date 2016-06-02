@@ -98,6 +98,7 @@ More information about a git checkout is on the machinekit wiki page.
 
 Run the sample GladeVCP panel integrated into Axis like PyVCP as follows:
 
+[source]
 ----
 $ cd configs/sim/axis/gladevcp
 $ machinekit gladevcp_panel.ini
@@ -107,6 +108,7 @@ image::example-panel-small.png[]
 
 Run the same panel, but as a tab inside Axis:
 
+[source]
 ----
 $ cd configs/sim/axis/gladevcp
 $ machinekit gladevcp_tab.ini
@@ -128,6 +130,7 @@ FIXME: there is a conflict for motion.spindle-speed-out since it is used by both
 
 commit cd36e2 Jan 5 2012 added sim_spindle_encoder.hal to axis.ini
 probably after creation of manual-example.ui
+[source]
 ----
 $ cd configs/sim/axis
 $ machinekit axis.ini &
@@ -140,6 +143,7 @@ image::example-float-small.png[]
 
 To run this panel inside 'Touchy':
 
+[source]
 ----
 $ cd configs/sim/touchy/gladevcp
 $ machinekit gladevcp_touchy.ini
@@ -295,6 +299,7 @@ Place the GladeVCP panel in the righthand side panel by specifying the
 following in the ini file:
 
 [source,{ini}]
+[source]
 ----
 [DISPLAY]
 # add GladeVCP panel where PyVCP used to live:
@@ -336,6 +341,7 @@ To do so, edit your .ini file and add to the DISPLAY and HAL sections of ini
 file as follows:
 
 [source,{ini}]
+[source]
 ----
 [DISPLAY]
 # add GladeVCP panel as a tab next to Preview/DRO:
@@ -375,6 +381,7 @@ both the +GLADEVCP=+ and +EMBED_TAB_COMMAND=+ statements.
 To do add a GladeVCP tab to 'Touchy', edit your .ini file as follows:
 
 [source,{ini}]
+[source]
 ----
 [DISPLAY]
 # add GladeVCP panel as a tab
@@ -701,6 +708,7 @@ By double clicking the left or right button the scale factor can be increased or
  * left Double Click  = x10 scale
  * Right Double Click = /10 scale
 
+[source]
 ----
 Hal_Dial exports it's count value as hal pins:
 
@@ -1036,9 +1044,11 @@ changed, then connect this signal to a handler, for example
 +on_led_pin_changed+ and provide the handler as follows:
 
 [source,python]
+[source]
 ----------------------------------
 def on_led_pin_changed(self,hal_led,data=None):
     print "on_led_pin_changed() - HAL pin value:",hal_led.hal_pin.get()
+[source]
 ----------------------------------
 
 This will be called at any edge of the signal and also during program
@@ -1992,6 +2002,7 @@ handlers (note that Machinekit command and status channels are available as
 +self.machinekit+ and +self.stat+ through the EMC_ActionBase class:
 
 [source,python]
+[source]
 ----------------------------------
     def on_mdi_command_start(self, action, userdata=None):
         action.stat.poll()
@@ -2001,6 +2012,7 @@ handlers (note that Machinekit command and status channels are available as
         action.machinekit.mdi('F%.1f' % (self.start_feed))
         while action.machinekit.wait_complete() == -1:
             pass
+[source]
 ----------------------------------
 
 Only the Action_MDI Toggle widget supports these signals.
@@ -2089,10 +2101,12 @@ others, to execute MDI commands. Here's how you do it:
 Write a Python module like so and save as e.g. handlers.py:
 
 [source,python]
+[source]
 ----------------------------------
 nhits = 0
 def on_button_press(gtkobj,data=None):
     global nhits nhits += 1 gtkobj.set_label("hits: %d" % nhits)
+[source]
 ----------------------------------
 
 In Glade, define a button or HAL button, select the 'Signals' tab, and
@@ -2158,12 +2172,14 @@ that the 'pressed' signal of a Gtk Button or HAL Button is linked to a
 callback called 'on_button_press':
 
 [source,python]
+[source]
 ----------------------------------
 nhits = 0
 def on_button_press(gtkobj,data=None):
     global nhits
     nhits += 1
     gtkobj.set_label("hits: %d" % nhits)
+[source]
 ----------------------------------
 
 Add this function to a Python file and run as follows:
@@ -2190,6 +2206,7 @@ write:
 Here is a minimum user-defined handler example module:
 
 [source,python]
+[source]
 ----------------------------------
 class MyCallbacks :
     def on_this_signal(self,obj,data=None):
@@ -2197,6 +2214,7 @@ class MyCallbacks :
 
 def get_handlers(halcomp,builder,useropts):
     return [MyCallbacks ()]
+[source]
 ----------------------------------
 
 Now, 'on_this_signal' will be available as signal handler to your
@@ -2289,6 +2307,7 @@ strings as you see fit. An possible usage would be to pass them to the
 Python exec function in your `get_handlers()` as follows:
 
 [source,python]
+[source]
 ----------------------------------
 debug = 0
 ...
@@ -2297,6 +2316,7 @@ def get_handlers(halcomp,builder,useropts):
     global debug # assuming there's a global var
     for cmd in useropts:
         exec cmd in globals()
+[source]
 ----------------------------------
 
 This way you can pass arbitrary Python statements to your module
@@ -2347,6 +2367,7 @@ invocations, proceed as follows:
    through a nested dictionary as follows:
 
 [source,python]
+[source]
 ----------------------------------
 def __init__(self, halcomp,builder,useropts):
     self.halcomp = halcomp
@@ -2362,26 +2383,31 @@ def __init__(self, halcomp,builder,useropts):
         # a sensible alternative might be to retain only all HAL output widgets' state:
         # IniFile.widgets: widget_defaults(select_widgets(self.builder.get_objects(), hal_only=True,output_only = True)),
     }
+[source]
 ----------------------------------
 
 Then associate an .ini file with this descriptor:
 
 [source,python]
+[source]
 ----------------------------------
 self.ini_filename = __name__ + '.ini'
 self.ini = IniFile(self.ini_filename,self.defaults,self.builder)
 self.ini.restore_state(self)
+[source]
 ----------------------------------
 
 After `restore_state()`, self will have attributes set if as running the
 following:
 
 [source,python]
+[source]
 ----------------------------------
 self.nhits = 0
 self.a = 1.67
 self.d = True
 self.c = "a string"
+[source]
 ----------------------------------
 
 Note that types are saved and preserved on restore. This example
@@ -2412,11 +2438,13 @@ signal in the first column.
 - add a Python handler like below:
 
 [source,python]
+[source]
 ----------------------------------
 import gtk
 ...
 def on_destroy(self,obj,data=None):
     self.ini.save_state(self)
+[source]
 ----------------------------------
 
 This will save state and shutdown GladeVCP properly, regardless
@@ -2446,10 +2474,12 @@ on Ctrl-C (actuall on the SIGINT and SIGTERM signals). Example
 
 
 [source,python]
+[source]
 ----------------------------------
 def on_unix_signal(self,signum,stack_frame):
     print "on_unix_signal(): signal %d received, saving state" % (signum)
     self.ini.save_state(self)
+[source]
 ----------------------------------
 
 === Hand-editing .ini files
@@ -2467,29 +2497,35 @@ If you need HAL pins which are not associated with a specific HAL
 widget, add them as follows:
 
 [source,python]
+[source]
 ----------------------------------
 import hal_glib
 ...
 # in your handler class __init__():
 self.example_trigger = hal_glib.GPin(halcomp.newpin('example-trigger', hal.HAL_BIT, hal.HAL_IN))
+[source]
 ----------------------------------
 
 To get a callback when this pin's value changes, associate a
 +value-change+ callback with this pin, add:
 
 [source,python]
+[source]
 ----------------------------------
 self.example_trigger.connect('value-changed', self._on_example_trigger_change)
+[source]
 ----------------------------------
 
 and define a callback method (or function, in this case leave out the
 +self+ parameter):
 
 [source,python]
+[source]
 ----------------------------------
 # note '_' - this method will not be visible to the widget tree
 def _on_example_trigger_change(self,pin,userdata=None):
     print "pin value changed to:" % (pin.get())
+[source]
 ----------------------------------
 
 === Adding timers
@@ -2500,6 +2536,7 @@ base class, the full glib functionally is available. Here is an
 example for a timer callback:
 
 [source,python]
+[source]
 ----------------------------------
 def _on_timer_tick(self,userdata=None):
     ...
@@ -2509,6 +2546,7 @@ def _on_timer_tick(self,userdata=None):
 # for a faster timer (granularity 1 ms), use this:
 # glib.timeout_add(100, self._on_timer_tick,userdata) # 10Hz
 glib.timeout_add_seconds(1, self._on_timer_tick)
+[source]
 ----------------------------------
 
 === Setting HAL widget properties programmatically
@@ -2524,6 +2562,7 @@ meter's min value is set from an INI file parameter at startup, and the max valu
 is set via a HAL pin, which causese the widget's scale to readjust dynamically:
 
 [source,python]
+[source]
 ----------------------------------
 import machinekit
 import os
@@ -2552,6 +2591,7 @@ class HandlerClass:
 
 def get_handlers(halcomp,builder,useropts):
     return [HandlerClass(halcomp,builder,useropts)]
+[source]
 ----------------------------------
 
 

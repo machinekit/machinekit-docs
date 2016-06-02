@@ -11,6 +11,7 @@ hal_arm335xQEP is a driver for the 3 hardware quadrature decoders
 built into the Beaglebone.
 
 Installing:
+[source]
 ----
 loadrt hal_arm335xQEP encoders=eQEP{0-2}[,eQEP{0-2}][,eQEP{0-2}]
 ----

@@ -6,7 +6,7 @@
 :imagesdir:: /docs/remap/images
 
 = Extending Machinekit
-
+:toc:
 :ini: {basebackend@docbook:'':ini}
 :hal: {basebackend@docbook:'':hal}
 :ngc: {basebackend@docbook:'':ngc}
