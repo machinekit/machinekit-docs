@@ -4,6 +4,7 @@
 :skip-front-matter:
 
 = HAL Components
+:toc:
 
 [[cha:HAL-components]] (((HAL Components)))
 

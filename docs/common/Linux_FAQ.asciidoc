@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = Linux FAQ 
-
+:toc:
 [[cha:linux-faq]] (((Linux FAQ)))
 
 These are some basic Linux commands and techniques for new to Linux

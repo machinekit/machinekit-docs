@@ -6,7 +6,7 @@
 :imagesdir: /docs/drivers/images
 
 = Pico Drivers
-
+:toc:
 [[cha:pico-drivers]] (((Pico PPMC Driver)))
 
 Pico Systems has a family of boards for doing analog servo, stepper,

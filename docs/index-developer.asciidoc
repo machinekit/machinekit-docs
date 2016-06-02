@@ -3,25 +3,61 @@
 
 :skip-front-matter:
 
-:toc:
-
 = Developer manual
 
-:toc:
 
 == Introduction
 
 :leveloffset: +1
 
-include::{{page.docs-dir}}/code/Code_Notes.asciidoc[]
+link:../code/Code_Notes[Code Notes]
 
-include::{{page.docs-dir}}/code/NML_Messages.asciidoc[]
+- link:../code/Code_Notes#intended-audience[Intended Audience]
 
-include::{{page.docs-dir}}/code/Style_Guide.asciidoc[]
+- link:../code/Code_Notes#organization[Organisation]
 
-include::{{page.docs-dir}}/common/Glossary.asciidoc[]
+- link:../code/Code_Notes#terms-and-definitions[Terms and Definitions]
 
-include::{{page.docs-dir}}/common/GPLD_Copyright.asciidoc[]
+- link:../code/Code_Notes#architecture-overview[Architecture Overview]
+
+- link:../code/Code_Notes#motion-controller-introduction[Motion Controller Introduction]
+
+- link:../code/Code_Notes#block-diagrams-and-data-flow[Block Diagrams]
+
+- link:../code/Code_Notes#commands[Commands]
+
+- link:../code/Code_Notes#backlash-and-screw-error-compensation[Backlash and Screw error Compensation]
+
+- link:../code/Code_Notes#task-controller-emctask[Task Controller EMCTASK]
+
+- link:../code/Code_Notes#io-controller-emcio[IO Controller EMCIO]
+
+- link:../code/Code_Notes#user-interfaces[User Interfaces]
+
+- link:../code/Code_Notes#libnml-introduction[libNML Introduction]
+
+- link:../code/Code_Notes#linkedlist[LinkedList]
+
+- link:../code/Code_Notes#linkedlistnode[LinkedListNode]
+
+- link:../code/Code_Notes#sharedmemory[Shared Memory]
+
+- link:../code/Code_Notes#shmbuffer[SHM Buffer]
+
+- link:../code/Code_Notes#timer[Timer]
+
+- link:../code/Code_Notes#semaphore[Semaphore]
+
+- link:../code/Code_Notes#cms[CMS]
+
+
+link:../code/NML_Messages[NML Messages]
+
+link:../code/Style_Guide[Style Guide]
+
+link:../common/Glossary[Glossary]
+
+link:../common/GPLD_Copyright[GPLD Copyright]
 
 :leveloffset: -1
 

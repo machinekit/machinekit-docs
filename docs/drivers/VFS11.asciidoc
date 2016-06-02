@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = VFS11 VFD Driver
-
+:toc:
 
 :ini: {basebackend@docbook:'':ini}
 :hal: {basebackend@docbook:'':hal}

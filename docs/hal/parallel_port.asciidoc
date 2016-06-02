@@ -6,7 +6,7 @@
 :imagesdir: /docs/hal/images
 
 = Parallel Port Driver
-
+:toc:
 [[cha:Parport]] (((Parallel Port Driver)))
 
 == Parport

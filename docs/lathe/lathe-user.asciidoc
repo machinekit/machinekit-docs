@@ -6,7 +6,7 @@
 :imagesdir: /docs/lathe/images
 
 = Lathe User Information
-
+:toc:
 [[cha:lathe-user-information]] (((Lathe User Information)))
 
 This chapter attempts to bring together all the lathe specific

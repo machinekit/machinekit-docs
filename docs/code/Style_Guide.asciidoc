@@ -3,6 +3,7 @@
 
 :skip-front-matter:
 = Coding Style
+:toc:
 
 This chapter describes the source code style preferred by the Machinekit team.
 

@@ -8,7 +8,7 @@
 [[cha:gmoccapy]](((GUI, GMOCCAPY)))
 
 = GMOCCAPY
-
+:toc:
 == Introduction
 
 'GMOCCAPY' is a GUI for LinuxCNC, designed to be used with a touch screen,

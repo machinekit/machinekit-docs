@@ -6,7 +6,7 @@
 :imagesdir: /docs/gui/images
 
 = TkLinuxcnc GUI
-
+:toc:
 [[cha:tklinuxcnc-gui]] (((TkLinuxcnc GUI)))
 
 == Introduction
