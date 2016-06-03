@@ -636,7 +636,9 @@ blockquote {
 
 table {
   width: 100%;
-  background: #555;
+/* this seems to change the background for all the note types not just the tables */
+/*  background: #555; */
+  background: #DDE;
   margin: .5em 0;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -729,15 +731,16 @@ code.option, code.flag, code.filter, code.output {
   border-radius: 0 5px 5px 0;
   position: relative;
   box-shadow: 0 1px 5px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(0,0,0,.2), inset 0 -1px 0 rgba(255,255,255,.3);
-  background: #dddd00;
+/*  background: #dddd00;   Now graduated from a light to darker blue, much easier on the eyes*/
+  background: #9ac8ec;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdlNmQ0MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1YzRlMzUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top,  #dddd00 0%, #5c4e35 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddd00), color-stop(100%,#5c4e35));
-  background: -webkit-linear-gradient(top,  #dddd00 0%,#5c4e35 100%);
-  background: -o-linear-gradient(top,  #dddd00 0%,#5c4e35 100%);
-  background: -ms-linear-gradient(top,  #dddd00 0%,#5c4e35 100%);
-  background: linear-gradient(to bottom,  #dddd00 0%,#5c4e35 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddd00', endColorstr='#5c4e35',GradientType=0 );
+  background: -moz-linear-gradient(top,  #9ac8ec 0%, #4195d5 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9ac8ec), color-stop(100%,#4195d5));
+  background: -webkit-linear-gradient(top,  #9ac8ec 0%,#4195d5 100%);
+  background: -o-linear-gradient(top,  #9ac8ec 0%,#4195d5 100%);
+  background: -ms-linear-gradient(top,  #9ac8ec 0%,#4195d5 100%);
+  background: linear-gradient(to bottom,  #9ac8ec 0%,#4195d5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ac8ec', endColorstr='#4195d5',GradientType=0 );
 }
 
 @media (max-width: 568px){
@@ -792,16 +795,24 @@ code.option, code.flag, code.filter, code.output {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0389aa', endColorstr='#00617f',GradientType=0 );
 }
 
+/* expanded to give a proper bookmark type flag to warnings */
 .warning {
-  background: #9e2812;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzllMjgxMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZjBkMGQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top,  #9e2812 0%, #6f0d0d 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9e2812), color-stop(100%,#6f0d0d));
-  background: -webkit-linear-gradient(top,  #9e2812 0%,#6f0d0d 100%);
-  background: -o-linear-gradient(top,  #9e2812 0%,#6f0d0d 100%);
-  background: -ms-linear-gradient(top,  #9e2812 0%,#6f0d0d 100%);
-  background: linear-gradient(to bottom,  #9e2812 0%,#6f0d0d 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e2812', endColorstr='#6f0d0d',GradientType=0 );
+  margin: 30px 0;
+  margin-left: -30px;
+  padding: 20px 20px 24px;
+  padding-left: 50px;
+  border-radius: 0 5px 5px 0;
+  position: relative;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(0,0,0,.2), inset 0 -1px 0 rgba(255,255,255,.3);
+  background: #ed6363;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdlNmQ0MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1YzRlMzUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #ed6363 0%, #ab1313 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed6363), color-stop(100%,#ab1313));
+  background: -webkit-linear-gradient(top,  #ed6363 0%,#ab1313 100%);
+  background: -o-linear-gradient(top,  #ed6363 0%,#ab1313 100%);
+  background: -ms-linear-gradient(top,  #ed6363 0%,#ab1313 100%);
+  background: linear-gradient(to bottom,  #ed6363 0%,#ab1313 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed6363', endColorstr='#ab1313',GradientType=0 );
 }
 
 .unreleased {
