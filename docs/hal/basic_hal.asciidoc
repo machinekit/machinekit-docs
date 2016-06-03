@@ -32,6 +32,7 @@ real time space.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 loadrt <component> <options>
 
@@ -57,6 +58,7 @@ have two threads.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 addf <component> <thread>
 
@@ -87,6 +89,7 @@ Flags may be one or more of the following:
 
 The syntax and examples:
 
+[source, {hal}]
 ----
 loadusr <component> <options>
 
@@ -113,6 +116,7 @@ pin of a component with zero or more input pins. A signal is a variable, and the
 inputs and outputs of components are pointers to this variable.
 
 .Syntax and Example:
+[source, {hal}]
 ----
 net signal-name <pin-name> <optional direction> (<pin-name>|<direction>)
 
@@ -172,6 +176,7 @@ This example shows the signal `xStep` with the source being
 the signal `xStep` and that value is then read by `parport.0.pin-02-out`
 and `parport.0.pin-08-out`.
 
+[source, {hal}]
 ----
 #   signal    source            destination          destination
 net xStep stepgen.0.out => parport.0.pin-02-out parport.0.pin-08-out
@@ -182,6 +187,7 @@ source) you can use the same signal again to send the value to another
 reader. To do this just use the signal with the readers on another
 line.
 
+[source, {hal}]
 ----
 net xStep => parport.0.pin-02-out
 ----
@@ -202,6 +208,7 @@ use setp on a pin that is connected to a signal.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 setp <pin/parameter-name> <value>
 
@@ -214,6 +221,7 @@ The command 'sets' sets the value of a signal.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 sets <signal-name> <value>
 
@@ -236,6 +244,7 @@ happens. The 'unlinkp' command is useful for trouble shooting.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 unlinkp <pin-name>
 
@@ -255,6 +264,7 @@ pin.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 linksp <signal-name> <pin-name>
 linksp X-step parport.0.pin-02-out
@@ -269,6 +279,7 @@ signal. It is the same as linksp but the arguments are reversed.
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 linkps <pin-name> <signal-name>
 
@@ -285,6 +296,7 @@ and the data type of <type>. Type must be 'bit', 's32', 'u32' or
 
 The syntax and an example:
 
+[source, {hal}]
 ----
 newsig <signame> <type>
 
@@ -375,6 +387,7 @@ shows the output based on each combination of input.
 
 Syntax
 
+[source, {hal}]
 ----
 and2 [count=N] | [names=name1[,name2...]]
 ----
@@ -406,6 +419,7 @@ The 'not' component is a bit inverter.
 
 Syntax
 
+[source, {hal}]
 ----
 not [count=n] | [names=name1[,name2...]]
 ----
@@ -435,6 +449,7 @@ The 'or2' component is a two input OR gate.
 
 Syntax
 
+[source, {hal}]
 ----
 or2[count=n] | [names=name1[,name2...]]
 ----
@@ -466,6 +481,7 @@ The 'xor2' component is a two input XOR (exclusive OR)gate.
 
 Syntax
 
+[source, {hal}]
 ----
 xor2[count=n] | [names=name1[,name2...]]
 ----
@@ -495,6 +511,7 @@ Truth Table
 
 An 'and2' example connecting two inputs to one output.
 
+[source, {hal}]
 ----
 loadrt and2 count=1
 
@@ -526,6 +543,7 @@ input changes so the 'sum' will not change.
 
 The following syntax is used to load the weighted_sum component.
 
+[source, {hal}]
 ----
 loadrt weighted_sum wsum_sizes=size[,size,...]
 ----
@@ -535,6 +553,7 @@ Creates weighted sum groups each with the given number of input bits
 
 To update the weighted_sum you need to attach process_wsums to a thread.
 
+[source, {hal}]
 ----
 addf process_wsums servo-thread
 ----
@@ -546,6 +565,7 @@ Axis the bits '0' and '2' are true and there is no offset. The 'weight'
 of 0 is 1 and the 'weight' of 2 is 4 so the sum is 5.
 
 .weighted_sum
+[source, {hal}]
 -----------------------------------------------------------
 Component Pins: 
 Owner   Type  Dir         Value  Name

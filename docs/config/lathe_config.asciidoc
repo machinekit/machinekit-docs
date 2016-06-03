@@ -2,9 +2,10 @@
 ---
 
 :skip-front-matter:
+:source-highlighter: pygments
 
 = Lathe Configuration
-
+:toc:
 [[cha:lathe-configuration]] (((Lathe Configuration)))
 
 == Default Plane
@@ -14,6 +15,7 @@ That is why the default plane is XY (G17). A normal lathe only uses the
 XZ plane (G18). To change the default plane place the following line in
 the .ini file in the RS274NGC section.
 
+[source,bash]
 ----
 RS274NGC_STARTUP_CODE = G18
 ----
@@ -26,6 +28,7 @@ in the preamble of the g code file.
 The following .ini settings are needed for lathe mode in Axis in addition to
 or replacing normal settings in the .ini file.
 
+[source,bash]
 ----
 [DISPLAY]
 DISPLAY = axis

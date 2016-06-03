@@ -34,6 +34,7 @@ image::stepgen-block-diag.png[align="center"]
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt stepgen step_type=<type-array> [ctrl_type=<ctrl_array>]
 ----
@@ -48,6 +49,7 @@ will be position
 mode. 
 
 For example:
+[source]
 ----
 halcmd: loadrt stepgen step_type=0,0,2 ctrl_type=p,p,v
 ----
@@ -64,6 +66,7 @@ is the number of a specific generator. The first generator is number 0.
 (((Stepgen Block Diagram)))
 .Removing
 
+[source]
 ----
 halcmd: unloadrt stepgen
 ----
@@ -242,6 +245,7 @@ perhaps 10KHz with limited resolution.
 
 .Installing
 
+[source]
 ----
 loadrt pwmgen output_type=<config-array>
 ----
@@ -257,12 +261,14 @@ descriptions, '<chan>' is the number of a specific generator. The first
 generator is number 0.
 
 .Example
+[source]
 ----
 loadrt pwmgen output_type=0,1,2
 ----
 
 .Removing
 
+[source]
 ----
 unloadrt pwmgen
 ----
@@ -372,6 +378,7 @@ image::encoder-block-diag.png[align="center"]
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt encoder [num_chan=<counters>]
 ----
@@ -386,6 +393,7 @@ of a specific counter. The first counter is number 0.
 
 .Removing
 
+[source]
 ----
 halcmd: unloadrt encoder
 ----
@@ -495,6 +503,7 @@ image::pid-block-diag.png[align="center"]
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt pid [num_chan=<loops>] [debug=1]
 ----
@@ -514,6 +523,7 @@ cluttering the parameter list.
 
 .Removing
 
+[source]
 ----
 halcmd: unloadrt pid
 ----
@@ -614,6 +624,7 @@ for testing.
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt sim-encoder num_chan=<number>
 ----
@@ -624,6 +635,7 @@ defined by MAX_CHAN in sim_encoder.c).
 
 .Removing
 
+[source]
 ----
 halcmd: unloadrt sim-encoder
 ----
@@ -669,6 +681,7 @@ applications where short pulses are to be rejected.
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt debounce cfg=<config-string>
 ----
@@ -680,6 +693,7 @@ filters are in the group.
 
 For example:
 
+[source]
 ----
 halcmd: loadrt debounce cfg=1,4,2
 ----
@@ -699,6 +713,7 @@ filter 0.
 
 .Removing
 
+[source]
 ----
 halcmd: unloadrt debounce
 ----
@@ -741,6 +756,7 @@ sine waves. It is primarily used for testing.
 
 .Installing
 
+[source]
 ----
 halcmd: loadrt siggen [num_chan=<chans>]
 ----
@@ -755,6 +771,7 @@ start at 0).
 
 .Removing
 
+[source]
 ----
 halcmd: unloadrt siggen
 ----
@@ -804,6 +821,7 @@ The lut5 component is a 5 input logic component based on a look up table.
 
 .Installing
 
+[source]
 ----
 loadrt lut5 [count=N|names=name1[,name2...]]
 addf lut5.N servo-thread | base-thread

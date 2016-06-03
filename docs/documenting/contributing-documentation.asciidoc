@@ -6,37 +6,39 @@
 :imagesdir: /docs/documenting/images
 
 = Documenting
-
+:toc:
 Remember: no change is too small!
 
 Helping out can be done in various ways. You should choose the one that best fits you.
 No matter what you do, to get your changes into the master branch you need to
 work via these link:/community/contributing/[instructions.]
 
-== 2 click editing with "edit me" button
+== 2 click editing with "Edit This Page" link
 
-On the side of this website is a button called "edit me". When you push this
-button you will be taken to the GitHub page of the document you want to
+On the right sidebar of this website is a link called "Edit This Page". When you click this
+you will be taken to the GitHub page of the document you want to
 improve. This works almost like a wiki, but we can still work with the 
 link:/community/c4[C4] Fork + Pull model
 
 1. Make the changes in the source.
-2. when you're done, describe your commit with an understandable tekst
+2. When you're done, describe your commit with an understandable text
 like "thispage.asciidoc: Fix an inconsistency about yadayada information"
 3. If you need to elaborate, please do so in the area for adding an optional
 extended description.
-4. Make sure you tick the radiobutton so you make a new branch in your
-personal repository (your fork). This is especially important for people who
+4. Make sure you tick the radiobutton so you make a new temporary branch in
+the repository. 
+This is especially important for people who
 have write access to the machinekit organisation repository.
-5. Tick the button "propose new file change" which will get you to submit a 
+5. Tick the button "Propose file change" which will get you to submit a 
 PR (Pull Request) against the machinekit repository
 
-image::edit-me-new-branch.png[scale="50%" align="center"]
+image::edit-me-new-branch.png[height=300 width=600]
 
 == Extending documentation locally
 
-For more extensive work you might find that the editing thru the "edit me"
-button is not a satisfactory way of working.
+For more extensive work you might find that the editing thru the "Edit this page"
+link is not a satisfactory way of working.
+
 In that situation you will have to work from a local copy of the repository
 and make a PR from your personal GitHub fork after you pushed your changes.
 These instructions will show you how.
@@ -77,20 +79,20 @@ You'll see that the branch is now aso in your GitHub account.
 
 === Share!
 
-Next thing is to get your changes in the master branch of `machinkit-docs` (or
+Next thing is to get your changes in the master branch of `machinekit-docs` (or
 maybe in `machinekit` or some other original repo you forked from). This is done
-by creating a ``Pull Request'' or `PR` for short.
+by creating a ``Pull Request or PR`` for short.
 
 - notice the green button to compare for a pull request below?
 
-image::compare-for-PR.png[]
+image::compare-for-PR.png[height=500 width=800]
 
 - Pushing this button will get you to the next screen where you can create your comments
 for the `PR`. Also remember to describe this in the way you did when you created
 your commit. this will help a maintainer understand what you did, and why. So then
 the review will be much easier to understand.
 
-image::create-PR-to-original.png[]
+image::create-PR-to-original.png[height=500 width=800]
 
 - when you finished this the maintainers of the project will get a message and can
 review your change.

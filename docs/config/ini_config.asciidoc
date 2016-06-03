@@ -5,8 +5,10 @@
 
 :imagesdir: /docs/config/images
 
-= INI Configuration
+:source-highlighter: pygments
 
+= INI Configuration
+:toc:
 [[cha:ini-configuration]] (((INI Configuration)))
 
 == The INI File Components
@@ -27,6 +29,8 @@ sees either of these marks at the start a line, the rest of the line is
 ignored by the software. Comments can be used to describe what an INI
 element will do.
 
+
+[source,bash]
 ----
 ; This is my mill configuration file.
 # I set it up on January 12, 2012
@@ -35,6 +39,7 @@ element will do.
 Comments can also be used to 'turn off' a variable. This makes it easier
 to pick between different variables.
 
+[source,bash]
 ----
 DISPLAY = axis
 # DISPLAY = touchy
@@ -48,6 +53,7 @@ will be used.
 Note that inside a variable, the "#" and ";" characters do not denote
 comments:
 
+[source,bash]
 ----
 INCORRECT = value     # and a comment
 
@@ -92,6 +98,7 @@ names and variable names as shown. In the following example the variable
 'MACHINE' is assigned the value 'My Machine'.
 
 .Variable Example
+[source,bash]
 ----
 MACHINE = My Machine
 ----
@@ -106,6 +113,7 @@ To use a custom section variable in your HAL file add the section and
 variable to the INI file.
 
 .Custom Section Example
+[source,bash]
 ----
 [OFFSETS]
 OFFSET_1 = 0.1234
@@ -115,6 +123,7 @@ To add a custom variable to a Machinekit section simply include the variable
 in that section.
 
 .Custom Variable Example
+[source,bash]
 ----
 [AXIS_0]
 TYPE = LINEAR
@@ -126,6 +135,7 @@ To use the custom variables in your HAL file put the section and variable
 name in place of the value. 
 
 .HAL Example
+[source,bash]
 ----
 setp offset.1.offset [OFFSETS]OFFSET_1
 setp stepgen.0.position-scale [AXIS_0]SCALE
@@ -141,6 +151,7 @@ An INI file may include the contents of another file by using a #INCLUDE
 directive.
 
 .#INCLUDE Format
+[source,bash]
 ----
 #INCLUDE filename
 ----
@@ -155,6 +166,7 @@ The filename can be specified as:
 Multiple #INCLUDE directives are supported.
 
 .#INCLUDE Examples
+[source,bash]
 ----
 #INCLUDE axis_0.inc
 #INCLUDE ../parallel/axis_1.inc
@@ -369,6 +381,7 @@ Python filters should use the print function to output the result to Axis.
 This example program filters a file and adds a W axis to match the Z axis.
 It depends on there being a space between each axis word to work.
 
+[source,bash]
 ----
 #! /usr/bin/env python
 

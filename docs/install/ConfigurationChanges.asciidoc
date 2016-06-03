@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = Machinekit Build Configuration changes
-
+:toc:
 [[cha:build-config]] (((Machinekit Build Configuration changes)))
 
 :ini: {basebackend@docbook:'':ini}

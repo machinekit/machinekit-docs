@@ -17,6 +17,7 @@ have installed Machinekit from either source or a package. If you have
 compiled Machinekit for “run-in-place”, the man page is not installed, but it
 is accessible. From the main Machinekit directory, do:
 
+[source]
 ----
 man -M docs/man halcmd
 ----
@@ -67,6 +68,7 @@ a script to open multiple Halmeters you can set the position of each
 one with -g X Y relative to the upper left corner of your screen. 
 For example: 
 
+[source]
 ----
 loadusr halmeter pin hm2.0.stepgen.00.velocity-fb -g 0 500
 ----

@@ -6,7 +6,7 @@
 :imagesdir: /docs/motion/images
 
 = Kinematics
-
+:toc:
 [[cha:kinematics]] (((Kinematics)))
 
 == Introduction
@@ -54,6 +54,7 @@ along one of the Cartesian axes. On these machines the mapping from
 Cartesian space (the G-code program) to the joint space (the actual
 actuators of the machine) is trivial. It is a simple 1:1 mapping:
 
+[source]
 ----
 pos->tran.x = joints[0];
 pos->tran.y = joints[1];
@@ -70,6 +71,7 @@ direction of the transformation).
 The next code snippet refers to the inverse kinematics (or the 
 inverse direction of the transformation):
 
+[source]
 ----
 joints[0] = pos->tran.x;
 joints[1] = pos->tran.y;
@@ -171,6 +173,7 @@ return -1.
 
 Translated to actual code:
 
+[source]
 ----
 double AD2 = joints[0] * joints[0];
 double BD2 = joints[1] * joints[1];
@@ -200,6 +203,7 @@ latexmath::[\[BD=\sqrt{(Bx-x)^{2}+y^{2}}\]]
 
 or translated to actual code:
 
+[source]
 ----
 double x2 = pos->tran.x * pos->tran.x;
 double y2 = pos->tran.y * pos->tran.y;
@@ -214,6 +218,7 @@ A kinematics module is implemented as a HAL component, and is
 permitted to export pins and parameters. It consists of several “C”
 functions (as opposed to HAL functions):
 
+[source]
 ----
 int kinematicsForward(const double *joint, EmcPose *world,
 const KINEMATICS_FORWARD_FLAGS *fflags,
@@ -222,6 +227,7 @@ KINEMATICS_INVERSE_FLAGS *iflags)
 
 Implements the forward kinematics function.
 
+[source]
 ----
 int kinematicsInverse(const EmcPose * world, double *joints,
 const KINEMATICS_INVERSE_FLAGS *iflags,
@@ -230,12 +236,14 @@ KINEMATICS_FORWARD_FLAGS *fflags)
 
 Implements the inverse kinematics function.
 
+[source]
 ----
 KINEMATICS_TYPE kinematicsType(void)
 ----
 
 Returns the kinematics type identifier, typically 'KINEMATICS_BOTH'.
 
+[source]
 ----
 int kinematicsHome(EmcPose *world, double *joint,
 KINEMATICS_FORWARD_FLAGS *fflags,
@@ -248,6 +256,7 @@ when known, to initial values, e.g., from an INI file. If the home
 kinematics can accept arbitrary starting points, these initial values
 should be used.
 
+[source]
 ----
 int rtapi_app_main(void)
 void rtapi_app_exit(void)

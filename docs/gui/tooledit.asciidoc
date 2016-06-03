@@ -35,12 +35,14 @@ image::tooledit-sort.png[align="center"]
 
 On Debian Lucid 10.04 tcl/tk8.4 is the default.  You can add tcl/tk8.5 with
 the commands:
+[source]
 ----
 sudo apt-get install tcl8.5 tk8.5
 ----
 
 Depending upon other applications installed on the system, it may be
 necessary to enable tcl/tk8.5 with the commands:
+[source]
 ----
 sudo update-alternatives --config tclsh  ;# select the option for tclsh8.5
 sudo update-alternatives --config wish   ;# select the option for wish8.5
@@ -55,12 +57,14 @@ following ini file setting:
 image::tooledit-columns.png[align="center"]
 
 .INI File Syntax
+[source]
 ----
 [DISPLAY]
 TOOL_EDITOR = tooledit column_name column_name ...
 ----
 
 .Example for Z and DIAM columns
+[source]
 ----
 [DISPLAY]
 TOOL_EDITOR = tooledit Z DIAM
@@ -72,6 +76,7 @@ program. For example, if the program is in the user PATH, typing
 'tooledit' will show the usage syntax:
 
 .Stand Alone
+[source]
 ----
 tooledit
 Usage:

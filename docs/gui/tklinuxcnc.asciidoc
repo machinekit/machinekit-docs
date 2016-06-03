@@ -26,6 +26,7 @@ image::tkemc.png[align="center"]
 To select TkLinuxcnc as the front-end for Machinekit, edit the .ini file. In the
 section '[DISPLAY]' change the 'DISPLAY' line to read
 
+[source]
 ----
 DISPLAY = tklinuxcnc
 ----

@@ -4,15 +4,17 @@
 :skip-front-matter:
 
 :imagesdir: /docs/common/images
+:source-highlighter: pygments
 
 = Starting Machinekit
-
+:toc:
 [[cha:starting-machinekit]] (((Starting Machinekit)))
 
 == Running Machinekit
 
 Machinekit is started with the script file 'machinekit'.
 
+[source,bash]
 ----
 machinekit [options] [<ini-file>]
 ----
@@ -91,7 +93,17 @@ the section and item names given.
 
 == TWOPASS
 
-Machinekit 2.5 supports TWOPASS processing of hal configuration files
+[NOTE]
+====
+Twopass parsing of .hal files is retained for backward compatibility.
+It could be removed without notice.
+
+Since the introduction of link:../../hal/new-instantiated-components[Instantiated Components] 
+which can be created at any time during the start up period or even later,
+it has been rendered redundant.
+====
+
+Machinekit supports TWOPASS processing of hal configuration files
 that can help in the modularization and readability of hal files.
 (Hal files are specified in an Machinekit ini file in the HAL stanza 
 as [HAL]HALFILE=filename).
@@ -103,6 +115,7 @@ use a two input AND gate component (and2) in three different
 places in your setup, you would need to have a single line
 somewhere to specify:
 
+[source,bash]
 ----
    loadrt and2 count=3
 ----
@@ -112,6 +125,7 @@ resulting in components and2.0, and2.1, and2.2.
 Configurations are more readable if you specify with the
 names=option for components where it is supported, e.g.,:
 
+[source,bash]
 ----
 loadrt and2 names=aa,ab,ac
 ----
@@ -126,6 +140,7 @@ the component.
 TWOPASS processing is enabled by including an ini file parameter in
 the [HAL] section:
 
+[source,bash]
 ----
 [HAL]
 
@@ -135,6 +150,7 @@ TWOPASS = anystring
 Where "anystring" can be any non-null string.
 With this setting, you can have multiple specifications like:
 
+[source,bash]
 ----
 loadrt and2 names=aa
 ...
@@ -152,6 +168,7 @@ The options are separated with commas.
 
 Example:
 
+[source,bash]
 ----
 [HAL]
 
@@ -188,6 +205,7 @@ ddt.1, ddt.2, etc.
 
 Alternatively, using the names= option like:
 
+[source,bash]
 ----
 loadrt ddt names=xvel,yvel,zvel
 ...
@@ -211,6 +229,7 @@ Twopass processing occurs before the loading of a gui.  When using a
 statements for components needed in a halfile that is loaded earlier.
 
 Example of a HAL section when using a POSTGUI_HALFILE :
+[source,bash]
 ----
 [HAL]
 

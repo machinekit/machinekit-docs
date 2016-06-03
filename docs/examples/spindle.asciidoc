@@ -6,7 +6,7 @@
 :imagesdir: /docs/examples/images
 
 = Spindle Control
-
+:toc:
 [[cha:Spindle-Control]] (((Spindle Control)))
 
 == 0-10v Spindle Speed (((0-10v Spindle Speed)))
@@ -25,6 +25,7 @@ We have to add a scale component to the HAL file to scale the
 motion.spindle-speed-out to the 0 to 10 needed by the VFD if your DAC
 card does not do scaling.
 
+[source]
 ----
 loadrt scale count=1
 addf scale.0 servo-thread
@@ -38,6 +39,7 @@ net spindle-speed-DAC scale.0.out => <your DAC pin name>
 If your spindle can be controlled by a PWM signal, 
 use the pwmgen component to create the signal:
 
+[source]
 ----
 loadrt pwmgen output_type=0 
 addf pwmgen.update servo-thread
@@ -62,6 +64,7 @@ To link these pins to a parallel port pin put something like
 the following in your .hal file, making sure you pick the
 pin that is connected to your control device.
 
+[source]
 ----
 net spindle-enable motion.spindle-on => parport.0.pin-14-out
 ----
@@ -77,6 +80,7 @@ To link these pins to a parallel port pin, put something like the
 following in your .hal file making sure you pick the pin that is
 connected to your control device.
 
+[source]
 ----
 net spindle-fwd motion.spindle-forward => parport.0.pin-16-out
 net spindle-rev motion.spindle-reverse => parport.0.pin-17-out
@@ -113,6 +117,7 @@ More info is available in the documentation for HAL components,
 or from the man pages, just say 'man limit2' or 'man near' in a terminal. 
 *********************************************************************
 
+[source]
 ----
 # load real time a limit2 and a near with names so it is easier to follow
 loadrt limit2 names=spindle-ramp
@@ -174,6 +179,7 @@ footnote:[It is because we selected 'non-quadrature simple counting...' above
 that we can get away with 'quadrature' counting without having any 
 B quadrature input.] 
 
+[source]
 ----
 # add the encoder to HAL and attach it to threads.
 loadrt encoder num_chan=1
@@ -221,6 +227,7 @@ file to enable Spindle At Speed. If you already have near in your HAL
 file then increase the count and adjust code to suit. Check to make
 sure the signal names are the same in your HAL file.
 
+[source]
 ----
 # load a near component and attach it to a thread
 loadrt near

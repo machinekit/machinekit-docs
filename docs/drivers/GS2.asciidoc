@@ -11,6 +11,7 @@ This is a userspace HAL program for the GS2 series of VFD's at
 Automation Direct.
 
 This component is loaded using the halcmd "loadusr" command:
+[source]
 ----
 loadusr -Wn spindle-vfd gs2_vfd -n spindle-vfd 
 ----

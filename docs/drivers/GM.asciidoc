@@ -37,6 +37,7 @@ system:
 image::GMsystem.png[align="center", scaledwidth="70%",alt="GM servo control system"]
 
 Installing:
+[source]
 ----
 loadrt hal_gm
 ----
@@ -78,12 +79,14 @@ GM6-PCI motion control card has 4 general purpose I/O
 (GPIO) connectors, with eight configurable I/O on each. 
 Every GPIO pin and parameter name begins as follows:
 
+[source]
 ----
 gm.<nr. of card>.gpio.<nr of gpio con>
 ----
 
 ,where <nr of gpio con> is form 0 to 3. For example:
 
+[source]
 ----
 gm.0.gpio.0.in-0
 ----
@@ -91,6 +94,7 @@ gm.0.gpio.0.in-0
 indicates the state of the first pin of the first GPIO 
 connector on the GM6-PCI card. Hal pins are updated by function
 
+[source]
 ----
 gm.<nr of card>.read
 ----
@@ -172,12 +176,14 @@ RJ50 axis connector.
 
 Every encoder pin and parameter name begins as follows:
 
+[source]
 ----
 gm.<nr. of card>.encoder.<nr of axis>
 ----
 
 ,where <nr of axis> is form 0 to 5. For example:
 
+[source]
 ----
 gm.0.encoder.0.position
 ----
@@ -187,6 +193,7 @@ refers to the position of encoder module of axis 0.
 The GM6-PCI card counts the encoder signal independently from Machinekit. 
 Hal pins are updated by function:
 
+[source]
 ----
 gm.<nr of card>.read
 ----
@@ -257,6 +264,7 @@ gm.<nr of card>.read
 
 Setting encoder module of axis 0 to receive 500 CPR quadrature encoder signal and use reset to round position.
 
+[source]
 ----
 setp gm.0.encoder.0.counter-mode 0         # 0: quad, 1: stepDir
 setp gm.0.encoder.0.index-mode 1           # 0: reset pos at index, 1:round pos at index
@@ -269,6 +277,7 @@ setp gm.0.encoder.0.position-scale 20000   # 10 encoder rev cause the machine to
 
 Connect encoder position to Machinekit position feedback:
 
+[source]
 ----
 net Xpos-fb gm.0.encoder.0.position => axis.0.motor-pos-fb
 ----
@@ -282,12 +291,14 @@ to the pins of the corresponding RJ50 axis connector.
 
 Every stepgen pin and parameter name begins as follows:
 
+[source]
 ----
 gm.<nr. of card>.stepgen.<nr of axis>
 ----
 
 ,where nr of axis is form 0 to 5. For example:
 
+[source]
 ----
 gm.0.stepgen.0.position-cmd
 ----
@@ -297,6 +308,7 @@ refers to the position command of stepgen module of axis 0 on card 0.
 The GM6-PCI card generates step pulses independently from Machinekit. 
 Hal pins are updated by function
 
+[source]
 ----
 gm.<nr of card>.write
 ----
@@ -354,6 +366,7 @@ image::GM_RefSignals.png[align="center", scaledwidth="70%"]
 
 Setting stepgen module of axis 0 to generate 1000 step pulse per position unit:
 
+[source]
 ----
 setp gm.0.stepgen.0.step-type 0         # 0:stepDir, 1:UpDown, 2:Quad
 setp gm.0.stepgen.0.control-type 0      # 0:Pos. control, 1:Vel. Control
@@ -371,6 +384,7 @@ setp gm.0.stepgen.0.dirdelay 2000       # 2000 ns = 2 us
 
 Connect stepgen to axis 0 position reference and enable pins:
 
+[source]
 ----
 net Xpos-cmd axis.0.motor-pos-cmd => gm.0.stepgen.0.position-cmd
 net Xen axis.0.amp-enable-out => gm.0.stepgen.0.enable
@@ -384,6 +398,7 @@ and to the CAN connector.
 
 Hal pins are updated by function:
 
+[source]
 ----
 gm.<nr of card>.read
 ----
@@ -410,20 +425,20 @@ The GM6-PCI motion control card has six serial axis DAC driver modules,
 one for each axis. Each module is connected to the pin of the 
 corresponding RJ50 axis connector.
 Every axis DAC pin and parameter name begins as follows:
-
+[source]
 ----
 gm.<nr. of card>.dac.<nr of axis>
 ----
 
 ,where nr of axis is form 0 to 5. For example:
-
+[source]
 ----
 gm.0.dac.0.value
 ----
 
 refers to the output voltage of DAC module of axis 0.
 Hal pins are updated by function:
-
+[source]
 ----
 gm.<nr of card>.write
 ----
@@ -485,12 +500,14 @@ of hal_gm.c and recompiling Machinekit.
 
 Every CAN pin and parameter name begins as follows:
 
+[source]
 ----
 gm.<nr. of card>.can-gm.<nr of axis>
 ----
 
 ,where <nr of axis> is form 0 to 5. For example:
 
+[source]
 ----
 gm.0.can-gm.0.position
 ----
@@ -499,6 +516,7 @@ refers to the output position of axis 0 in position units.
 
 Hal pins are updated by function:
 
+[source]
 ----
 gm.<nr of card>.write
 ----
@@ -531,6 +549,7 @@ gm.<nr of card>.write
 
 Watchdog timer resets at function:
 
+[source]
 ----
 gm.<nr of card>.read
 ----
@@ -590,12 +609,13 @@ image::GM_ENDSWpinout.png[align="center"]
 
 The GM6-PCI motion control card has two limit- and one homing switch input for each axis. All the names of these pins begin as follows:
 
+[source]
 ----
 gm.<nr. of card>.axis.<nr of axis>
 ----
 
 ,where nr of axis is form 0 to 5. For example:
-
+[source]
 ----
 gm.0.axis.0.home-sw-in
 ----
@@ -603,7 +623,7 @@ gm.0.axis.0.home-sw-in
 indicates the state of the axis 0 home switch.
 
 Hal pins are updated by function:
-
+[source]
 ----
 gm.<nr of card>.read
 ----
@@ -728,7 +748,7 @@ For pinout, connection and electrical charasteristics of the module, please refe
 http://www.generalmechatronics.com/data/products/robot_controller/PCI_UserManual_eng.pdf[System integration manual].
 
 All the pins and parameters are updated by the following function:
-
+[source]
 ----
 gm.<nr. of card>.rs485
 ----
@@ -736,7 +756,7 @@ gm.<nr. of card>.rs485
 It should be added to servo thread or other thread with 
 larger period to avoid CPU overload.
 Every RS485 module pin and parameter name begins as follows:
-
+[source]
 ----
 gm.<nr. of card>.rs485.<modul ID>
 ----
@@ -764,7 +784,7 @@ gm.<nr. of card>.rs485.<modul ID>
 |========================================
 
 ==== HAL example
-
+[source]
 ----
 gm.0.rs485.0.relay-0 # First relay of the node.
 gm.0                 # Means the first GM6-PCI motion control card (PCI card address = 0)
@@ -778,7 +798,7 @@ For pinout, connection and electrical charasteristics of the module, please refe
 http://www.generalmechatronics.com/data/products/robot_controller/PCI_UserManual_eng.pdf[System integration manual].
 
 All the pins and parameters are updated by the following function:
-
+[source]
 ----
 gm.<nr. of card>.rs485
 ----
@@ -786,6 +806,7 @@ gm.<nr. of card>.rs485
 It should be added to servo thread or other thread with larger period to avoid CPU overload.
 Every RS485 module pin and parameter name begins as follows:
 
+[source]
 ----
 gm.<nr. of card>.rs485.<modul ID>
 ----
@@ -804,7 +825,7 @@ gm.<nr. of card>.rs485.<modul ID>
 |========================================
 
 ==== HAL example
-
+[source]
 ----
 gm.0.rs485.0.in-0 # First input of the node.
 # gm.0     - Means the first GM6-PCI motion control card (PCI card address = 0)
@@ -818,14 +839,14 @@ For pinout, connection and electrical charasteristics of the module, please refe
 http://www.generalmechatronics.com/data/products/robot_controller/PCI_UserManual_eng.pdf[System integration manual].
 
 All the pins and parameters are updated by the following function:
-
+[source]
 ----
 gm.<nr. of card>.rs485
 ----
 
 It should be added to servo thread or other thread with larger period to avoid CPU overload.
 Every RS485 module pin and parameter name begins as follows:
-
+[source]
 ----
 gm.<nr. of card>.rs485.<modul ID>
 ----
@@ -862,7 +883,7 @@ gm.<nr. of card>.rs485.<modul ID>
 |========================================
 
 ==== HAL example
-
+[source]
 ----
 gm.0.rs485.0.adc-0 # First analogue channel of the node.
 # gm.0     - Means the first GM6-PCI motion control card (PCI card address = 0)
@@ -876,14 +897,14 @@ For pinout, connection and electrical charasteristics of the module, please refe
 http://www.generalmechatronics.com/data/products/robot_controller/PCI_UserManual_eng.pdf[System integration manual].
 
 All the pins and parameters are updated by the following function:
-
+[source]
 ----
 gm.<nr. of card>.rs485
 ----
 
 It should be added to servo thread or other thread with larger period to avoid CPU overload.
 Every RS485 module pin and parameter name begins as follows:
-
+[source]
 ----
 gm.<nr. of card>.rs485.<modul ID>
 ----
@@ -921,7 +942,7 @@ gm.<nr. of card>.rs485.<modul ID>
 |========================================
 
 ==== HAL example
-
+[source]
 ----
 gm.0.rs485.0.adc-0 # First analogue channel of the node.
 # gm.0     - Means the first GM6-PCI motion control card (PCI card address = 0)

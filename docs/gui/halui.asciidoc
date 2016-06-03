@@ -17,6 +17,7 @@ pins in Halui.
 The easiest way to add halui is to add the following to the [HAL]
 section of the ini file.
 
+[source]
 ----
 HALUI = halui
 ----
@@ -24,6 +25,7 @@ HALUI = halui
 An alternate way to invoke it is to include the following in your .hal
 file. Make sure you use the actual path to your ini file.
 
+[source]
 ----
 loadusr halui -ini /path/to/inifile.ini
 ----
@@ -186,6 +188,7 @@ MDI commands scheme:
 
 * The MDI_COMMAND is added to the ini file in the [HALUI] section. 
 
+[source]
 ----
 [HALUI] 
 MDI_COMMAND = G0 X0

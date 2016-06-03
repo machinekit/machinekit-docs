@@ -13,6 +13,7 @@ out the address before you can use it with Machinekit.
 To find the address of your parallel port card open a terminal window
 and type
 
+[source]
 ----
 lspci -v
 ----
@@ -20,6 +21,7 @@ lspci -v
 You will see something similar to this as well as info on everything
 else on the PCI bus:
 
+[source]
 ----
 0000:00:10.0 Communication controller: \
         NetMos Technology PCI 1 port parallel adapter (rev 01)  
@@ -35,12 +37,14 @@ else on the PCI bus:
 
 In my case the address was the first one so I changed my .hal file from
 
+[source]
 ----
 loadrt hal_parport cfg=0x378
 ----
 
 to
 
+[source]
 ----
 loadrt hal_parport cfg="0x378 0xa800 in"
 ----
@@ -49,6 +53,7 @@ loadrt hal_parport cfg="0x378 0xa800 in"
 
 and then added the following lines so the parport will be read and written: 
 
+[source]
 ----
 addf parport.1.read base-thread  
 addf parport.1.write base-thread

@@ -255,6 +255,7 @@ to by this integer, and its value is whatever number is stored in the
 parameter.
 
 A value is stored in a parameter with the = operator; for example:
+[source]
 ----
 #3 = 15 (set parameter 3 to 15)
 ----
@@ -404,18 +405,21 @@ Examples:
 
 * Declaration of named global variable
 
+[source]
 ----
 #<_endmill_dia> = 0.049 
 ----
 
 * Reference to previously declared global variable
 
+[source]
 ----
 #<_endmill_rad> = [#<_endmill_dia>/2.0] 
 ----
 
 * Mixed literal and named parameters
 
+[source]
 ----
 o100 call [0.0] [0.0] [#<_inside_cutout>-#<_endmill_dia>] [#<_Zcut>] [#<_feedrate>]
 ----
@@ -771,6 +775,7 @@ numbered parameter or an expression. Here is an example for the usage
 of the EXISTS function:
 
 [source,{ngc}]
+[source]
 ---------------------------------------------------------------------
 o<test> sub
 o10 if [EXISTS[#<_global>]]
@@ -784,6 +789,7 @@ o<test> call
 #<_global> = 4711
 o<test> call
 m2
+[source]
 ---------------------------------------------------------------------
 
 == Repeated Items
@@ -875,6 +881,7 @@ This can be confusing at first how this works in incremental mode.
 For example if you have the following program you might expect it to
 be a square pattern.
 
+[source]
 ----
 F100 G1 @.5 ^90 
 G91 @.5 ^90 
@@ -894,6 +901,7 @@ image::polar01.png[align="center"]
 
 The following code will produce our square pattern.
 
+[source]
 ----
 F100 G1 @.5 ^90 
 G91 ^90
@@ -999,10 +1007,12 @@ corresponding parameter. So, 'S100(set speed)F200(feed)' is OK while
 'S(speed)100F(feed)' is not.
 
 [source,{ngc}]
+[source]
 ---------------------------------------------------------------------
 G0 (Rapid to start) X1 Y1
 G0 X1 Y1 (Rapid to start; but don't forget the coolant)
 M2 ; End of program.
+[source]
 ---------------------------------------------------------------------
 
 There are several 'active' comments which look like comments but cause
@@ -1029,6 +1039,7 @@ on that line, and will always be interpreted for active comment syntax.
              of the user interface if provided.
 
 .Message Example
+[source]
 ----
 (MSG, This is a message)
 ----
@@ -1082,6 +1093,7 @@ For example: to print a named global variable to stderr (the default
 console window) add a line to your G code like...
 
 .Parameters Example
+[source]
 ----
 (print,endmill dia = #<_endmill_dia>)
 (print,value of variable 123 is: #123)
@@ -1183,8 +1195,10 @@ As a good preventative measure, put a line similar to the following at
 the top of all your programs:
 
 [source,{ngc}]
+[source]
 ---------------------------------------------------------------------
     G17 G20 G40 G49 G54 G80 G90 G94 
+[source]
 ---------------------------------------------------------------------
 
 (XY plane, inch mode, cancel diameter compensation, cancel length

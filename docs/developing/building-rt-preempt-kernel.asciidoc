@@ -17,7 +17,7 @@ The best way to approach this is to:
 
 - Commands below should be replaced with the kernel you looked for in the instructions above.
 
-[code]
+[source]
 ----
 cd ~
 sudo apt-get install build-essential libncurses5-dev
@@ -35,7 +35,7 @@ make menuconfig
 
 - this will make a screen like this one below pop-up
 
-[code]
+[source]
 ----
  .config - Linux/x86 3.18.11 Kernel Configuration
  ──────────────────────────────────────────────────────────────────────────────
@@ -65,14 +65,14 @@ make menuconfig
 - press 2x <ESC> to exit
 - then continue
 
-[code]
+[source]
 ----
 make -j$(nproc)
 ----
 
 - go and have a coffee. When finished do:
 
-[code]
+[source]
 ----
 sudo make modules_install
 sudo make install

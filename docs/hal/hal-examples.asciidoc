@@ -31,6 +31,7 @@ external input to indicate the tool change is complete.
 This is an example of manual toolchange 'with' 
 the HAL Manual Toolchange component: 
 
+[source]
 ----
 loadusr -W hal_manualtoolchange 
 net tool-change iocontrol.0.tool-change => hal_manualtoolchange.change
@@ -43,6 +44,7 @@ net tool-prepare-loopback iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
 This is an example of manual toolchange 'without' 
 the HAL Manual Toolchange component: 
 
+[source]
 ----
 net tool-number <= iocontrol.0.tool-prep-number 
 net tool-change-loopback iocontrol.0.tool.-change => iocontrol.0.tool-changed 
@@ -64,6 +66,7 @@ correct value. Add the following to your custom.hal file.
 
 Load the realtime components.
 
+[source]
 ----
 loadrt ddt count=1 
 loadrt mult2 count=1 
@@ -72,6 +75,7 @@ loadrt abs count=1
 
 Add the functions to a thread so it will get updated.
 
+[source]
 ----
 addf ddt.0 servo-thread 
 addf mult2.0 servo-thread 
@@ -80,6 +84,7 @@ addf abs.0 servo-thread
 
 Make the connections.
 
+[source]
 ----
 setp mult2.in1 60 
 net xpos-cmd ddt.0.in 
@@ -131,6 +136,7 @@ To find more information on these HAL components check the man pages.
 Place the following in a text file called softstart.hal. If you're not
 familiar with Linux place the file in your home directory.
 
+[source]
 ----
 loadrt threads period1=1000000 name1=thread  
 loadrt siggen  
@@ -156,6 +162,7 @@ loadusr halscope
 
 Open a terminal window and run the file with the following command.
 
+[source]
 ----
 halrun -I softstart.hal
 ----
@@ -185,6 +192,7 @@ components you can change them in the terminal window. To see what
 different gain settings do for lowpass just type the following in the
 terminal window and try different settings.
 
+[source]
 ----
 setp lowpass.0.gain *.01
 ----
@@ -208,6 +216,7 @@ application so no need to load up and configure a full blown CNC application.
 In the following example we have created a simple GladeVCP panel with one 
 
 .Basic Syntax
+[source]
 ----
 # load the winder.glade GUI and name it winder
 loadusr -Wn winder gladevcp -c winder -u handler.py winder.glade

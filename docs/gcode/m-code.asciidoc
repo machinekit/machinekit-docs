@@ -345,6 +345,7 @@ connected in your hal file to outputs.
 == M66 Wait on Input
 (((M66 Input Control)))
 
+[source]
 ----
 M66 P- | E- <L->
 ----
@@ -365,6 +366,7 @@ M66 P- | E- <L->
 * Mode 0 is the only one permitted for an analog input.
 
 .M66 Example Lines
+[source]
 ----
 M66 P0 L3 Q5 (wait up to 5 seconds for digital input 0 to turn on)
 ----
@@ -386,6 +388,7 @@ M66 will not function unless the appropriate motion.digital-in-nn pins or
 motion.analog-in-nn pins are connected in your hal file to an input.
 
 .Example HAL Connection
+[source]
 ----
 net signal-name motion.digital-in-00 <= parport.0.pin10-in
 ----
@@ -394,6 +397,7 @@ net signal-name motion.digital-in-00 <= parport.0.pin10-in
 == M67 Synchronized Analog Output
 (((M67 Analog Motion Output Control)))
 
+[source]
 ----
 M67 E- Q-
 ----
@@ -419,6 +423,7 @@ connected in your hal file to outputs.
 == M68 Analog Output
 (((M68 Analog Aux Output Control)))
 
+[source]
 ----
 M68 E- Q-
 ----
@@ -636,12 +641,14 @@ O<restore_abs> endif
 ;
 O<measure> endsub
 
+[source]
 ---------------------------------------------------------------------
 
 [[sec:M100-to-M199]]
 == M100 to M199 User Defined Commands
 (((M100 to M199 User Defined Commands)))(((User Defined Commands M100-M199)))
 
+[source]
 ----
 M1-- <P- Q->
 ----
@@ -682,6 +689,7 @@ right click/properties/permissions) before running Machinekit. Make sure the
 parallel port pin is not connected to anything in a HAL file.
 
 .M101 Example File
+[source]
 ----
 #!/bin/bash
 # file to turn on parport pin 14 to open the collet closer
@@ -690,6 +698,7 @@ exit 0
 ----
 
 .M102 Example File
+[source]
 ----
 #!/bin/bash
 # file to turn off parport pin 14 to open the collet closer
@@ -699,11 +708,13 @@ exit 0
 
 To pass a variable to a M1nn file you use the P and Q option like this:
 
+[source]
 ----
 M100 P123.456 Q321.654
 ----
 
 .M100 Example file
+[source]
 ----
 #!/bin/bash
 voltage=$1
@@ -718,6 +729,7 @@ use a graphic display program like Eye of Gnome to display the graphic
 file. When you close it the program will resume.
 
 .M110 Example file
+[source]
 ----
 #!/bin/bash
 eog /home/john/machinekit/nc_files/message.png
@@ -728,6 +740,7 @@ To display a graphic message and continue processing the G code file
 suffix an ampersand to the command.
 
 .M110 Example display and keep going
+[source]
 ----
 #!/bin/bash
 eog /home/john/machinekit/nc_files/message.png &

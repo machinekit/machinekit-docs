@@ -24,6 +24,7 @@ See the INI Configuration section of the Integrator Manual for
 more details but you will probably want to make an entry like this 
 to set up AXIS for Lathe Mode. 
 
+[source]
 ---------------------------------------
 [DISPLAY]
 
@@ -35,6 +36,7 @@ Lathe Mode in Axis does not set your default plane to G18 (XZ). You
 must program that in the preamble of each gcode file or 
 (better) add it to your ini file, like this: 
 
+[source]
 ---------------------------------------
 [RS274NGC]
 

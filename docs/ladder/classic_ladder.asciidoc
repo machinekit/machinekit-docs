@@ -6,7 +6,7 @@
 :imagesdir: /docs/ladder/images
 
 = Classicladder Programming
-
+:toc:
 [[cha:classicladder-programming]] (((Classicladder Programming)))
 
 == Ladder Concepts
@@ -67,6 +67,7 @@ first line loads real time the Classic Ladder module. The second line
 adds the function classicladder.0.refresh to the servo thread. This
 line makes Classic Ladder update at the servo thread rate.
 
+[source]
 ----
 loadrt classicladder_rt 
 addf classicladder.0.refresh servo-thread
@@ -124,6 +125,7 @@ HAL signed integers (+- integer range) pins are available.
 
 For example (you don't need all of these to change just a few):
 
+[source]
 ----
 loadrt classicladder_rt numRungs=12 numBits=100 numWords=10
 numTimers=10 numMonostables=10 numCounters=10 numPhysInputs=10
@@ -133,6 +135,7 @@ numS32in=5 numS32out=5
 
 To load the default number of objects:
 
+[source]
 ----
 loadrt classicladder_rt
 ----
@@ -146,6 +149,7 @@ file.
 
 To load the user module:
 
+[source]
 ----
 loadusr classicladder
 ----
@@ -155,6 +159,7 @@ use Sections.
 
 To load a ladder file:
 
+[source]
 ----
 loadusr classicladder myladder.clp
 ----
@@ -170,6 +175,7 @@ Classic Ladder Loading Options
 
 To use Classic Ladder with HAL without EMC: 
 
+[source]
 ----
 loadusr -w classicladder
 ----
@@ -527,12 +533,14 @@ be sure and delete the # symbol when you enter a compare.
 To find out if word variable #1 is less than 2 times the current value
 of counter #0 the syntax would be:
 
+[source]
 ----
 %W1<2*%C0.V
 ----
 
 To find out if S32in bit 2 is equal to 10 the syntax would be:
 
+[source]
 ----
 %IW2=10
 ----
@@ -553,12 +561,14 @@ When a new variable assignment block is opened be sure to delete the
 To assign a value of 10 to the timer preset of IEC Timer 0 the syntax
 would be:
 
+[source]
 ----
 %TM0.P=10
 ----
 
 To assign the value of 12 to s32out bit 3 the syntax would be:
 
+[source]
 ----
 %QW3=12
 ----
@@ -769,6 +779,7 @@ To get MODBUS to initialize you must specify that when loading the
 Classic Ladder userspace program.
 
 .Loading Modbus
+[source]
 ----
 loadusr -w classicladder --modmaster myprogram.clp 
 ----
@@ -973,12 +984,14 @@ done by adding a couple of lines to the custom.hal file.
 
 This line loads the real time module:
 
+[source]
 ----
 loadrt classicladder_rt
 ----
 
 This line adds the Classic Ladder function to the servo thread:
 
+[source]
 ----
 addf classicladder.0.refresh servo-thread
 ----
@@ -1042,6 +1055,7 @@ To manually add a ladder you need to add add a line to your custom.hal
 file that will load your ladder file. Close your Machinekit session and add
 this line to your custom.hal file.
 
+[source]
 ----
 loadusr -w classicladder --nogui MyLadder.clp
 ----

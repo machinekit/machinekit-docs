@@ -50,6 +50,7 @@ The best way to find out how well your PC will run Machinekit
 is to run the HAL latency test. 
 To run the test, open a terminal window 
 
+[source]
 ----
 latency-test  ( for just a servo_thread test )
 
@@ -121,12 +122,14 @@ It has good +5V signals, and can come in a single or dual ports.
 To find the I/O addresses for these cards open a terminal window 
 and use the list pci command:
 
+[source]
 ----
 lspci -v
 ----
 
 Look for the entry with "Netmos" in it. Example of a 2-port card:
 
+[source]
 ----
 0000:01:0a.0 Communication controller: \
       Netmos Technology PCI 9815 Multi-I/O Controller (rev 01)
@@ -148,6 +151,7 @@ address listed (b800).
 You can then open an editor and put the addresses into the 
 appropriate place in your .hal file.
 
+[source]
 ----
 loadrt hal_parport cfg="0x378 0xc000"
 ----
@@ -155,6 +159,7 @@ loadrt hal_parport cfg="0x378 0xc000"
 You must also direct Machinekit to run the 'read' and 'write' functions 
 for the second card. For example,
 
+[source]
 ----
 addf parport.1.read base-thread 1
 addf parport.1.write base-thread -1

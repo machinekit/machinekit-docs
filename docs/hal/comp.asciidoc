@@ -22,6 +22,7 @@ lines of code. The equivalent component is very short when written using the
 'comp' preprocessor:
 
 .Simple Comp Example [[code:simple-comp-example]]
+[source, c]
 ----
 component ddt "Compute the derivative of the input function";
 pin in float in;
@@ -43,6 +44,7 @@ the development packages.
 One method is to say following line in a terminal.
 
 .Installing Dev
+[source, bash]
 ----
 sudo apt-get install machinekit-dev
 ----
@@ -170,6 +172,8 @@ collide with reserved names or keywords (e.g., 'min') can be used.
 
 The string can be a C-style "double quoted" string, like: 
 +
+
+[source, c]
 ----
 "Selects the desired edge: TRUE means falling, FALSE means rising"
 ----
@@ -177,6 +181,7 @@ The string can be a C-style "double quoted" string, like:
 or a Python-style "triple quoted" string, which 
 may include embedded newlines and quote characters, such as: 
 +
+[source, c]
 ----
 """The effect of this parameter, also known as "the orb of zot",
 will require at least two paragraphs to explain.
@@ -334,12 +339,14 @@ If a variable is to be of a pointer type, there may not be any space
 between the "*" and the variable name. 
 Therefore, the following is acceptable: 
 +
+[source, c]
 ----
 variable int *example;
 ----
 +
 but the following are not: 
 +
+[source, c]
 ----
 variable int* badexample;
 variable int * badexample;
@@ -463,6 +470,7 @@ configured as a userspace simulator.
 in a single step, placing 'rtexample.ko' in the Machinekit realtime
 module directory:
 
+[source, c]
 ----
 comp --install rtexample.comp
 ----
@@ -470,12 +478,14 @@ comp --install rtexample.comp
 Or, it can process and compile in one step, leaving 'example.ko' (or
 'example.so' for the simulator) in the current directory:
 
+[source, c]
 ----
 comp --compile rtexample.comp
 ----
 
 Or it can simply process, leaving 'example.c' in the current directory:
 
+[source, c]
 ----
 comp rtexample.comp
 ----
@@ -483,6 +493,7 @@ comp rtexample.comp
 'comp' can also compile and install a component written in C, using
 the '--install' and '--compile' options shown above:
 
+[source, c]
 ----
 comp --install rtexample2.c
 ----
@@ -490,12 +501,14 @@ comp --install rtexample2.c
 man-format documentation can also be created from the information in
 the declaration section:
 
+[source, c]
 ----
 comp --document rtexample.comp
 ----
 
 The resulting manpage, 'example.9' can be viewed with
 
+[source, c]
 ----
 man ./example.9
 ----
@@ -506,6 +519,7 @@ or copied to a standard location for manual pages.
 
 'comp' can process, compile, install, and document userspace components:
 
+[source, c]
 ----
 comp usrexample.comp
 comp --compile usrexample.comp
@@ -714,6 +728,7 @@ FUNCTION(_) {
 
 A typical load line for this component might be
 
+[source, c]
 ----
 loadrt logic count=3 personality=0x102,0x305,0x503
 ----

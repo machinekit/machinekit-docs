@@ -70,6 +70,7 @@ pins and parameters that show more than one reply. This is due to the
 nature of the search routines in halcmd itself. If you search one pin
 you may get two, like this:
 
+[source]
 ----
 Component Pins: 
 Owner  Type  Dir  Value  Name 
@@ -107,6 +108,7 @@ blocks, add it to the servo thread, then connect it to the position pin
 of an axis. Once that is done we can find the output of the
 differentiator in halscope. So let's go. (Yes, I looked this one up.)
 
+[source]
 ----
 loadrt blocks ddt=1
 ----
@@ -114,6 +116,7 @@ loadrt blocks ddt=1
 Now look at the components node and you should see blocks in there
 someplace.
 
+[source]
 ----
 Loaded HAL Components: 
 ID Type        Name 
@@ -130,6 +133,7 @@ ID Type        Name
 Sure enough there it is. Notice that its ID is 08. Next we need to
 find out what functions are available with it so we look at functions:
 
+[source]
 ----
 Exported Functions: 
 Owner  CodeAddr      Arg  FP Users Name 
@@ -152,6 +156,7 @@ will do its math each time the servo thread is updated. Once again we
 look up the addf command and find that it uses three arguments like
 this:
 
+[source]
 ----
 addf <functname> <threadname> [<position>]
 ----
@@ -161,6 +166,7 @@ by expanding the thread node in the tree. Here we see two threads,
 servo-thread and base-thread. The position of ddt.0 in the thread is
 not critical. So we add the function ddt.0 to the servo-thread:
 
+[source]
 ----
 addf ddt.0 servo-thread
 ----
@@ -177,6 +183,7 @@ Next we need to connect this block to something. But how do we know
 what pins are available? The answer is to look under pins. There we
 find ddt and see this:
 
+[source]
 ----
 Component Pins: 
 Owner Type  Dir Value       Name 
@@ -188,6 +195,7 @@ That looks easy enough to understand, but what signal or pin do we
 want to connect to it? It could be an axis pin, a stepgen pin, or a
 signal. We see this when we look at axis.0:
 
+[source]
 ----
 Component Pins: 
 Owner Type  Dir Value       Name 
@@ -197,6 +205,7 @@ Owner Type  Dir Value       Name
 So it looks like Xpos-cmd should be a good signal to use. Back to the
 editor where we enter the following command:
 
+[source]
 ----
 linksp Xpos-cmd ddt.0.in
 ----
@@ -204,6 +213,7 @@ linksp Xpos-cmd ddt.0.in
 Now if we look at the Xpos-cmd signal using the tree node we'll see
 what we've done:
 
+[source]
 ----
 Signals: 
 Type Value Name 

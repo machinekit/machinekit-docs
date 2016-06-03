@@ -151,6 +151,7 @@ for ngcgui use symbolic links to non-user-writable Machinekit libraries for:
 These libraries are located by ini file items that specify the search
 paths used by linuxCNC (and ngcgui):
 
+[source]
 ----
 [RS274NGC]
 SUBROUTINE_PATH = ../../nc_files/ngcgui_lib:../../nc_files/gcmc_lib:../../nc_files/ngcgui_lib/utilitysubs
@@ -167,6 +168,7 @@ A user can create new directories for their own subroutines and
 M-files and add them to the search path(s).
 
 For example, a user could create directories from the terminal with the commands:
+[source]
 ----
 mkdir /home/myusername/mysubs
 mkdir /home/myusername/mymfiles
@@ -175,6 +177,7 @@ mkdir /home/myusername/mymfiles
 And then create or copy system-provided files to these user-writable directories.
 For instance, a user might create a ngcgui-compatible subfile named:
 
+[source]
 ----
 /home/myusername/mysubs/example.ngc
 ----
@@ -182,6 +185,7 @@ For instance, a user might create a ngcgui-compatible subfile named:
 To use files in new directories, the ini file must be edited to include the new
 subfiles and to augment the search path(s).  For this example:
 
+[source]
 ----
 [RS274NGC]
 ...
@@ -205,6 +209,7 @@ Integrators Manual.
 == Standalone Usage
 === Standalone NGCGUI
 For usage, type in a terminal:
+[source]
 ----
 ngcgui --help
 Usage:
@@ -235,6 +240,7 @@ can be started independently.
 
 === Standalone PYNGCGUI
 For usage, type in a terminal:
+[source]
 ----
 pyngcgui --help
 Usage:
@@ -349,6 +355,7 @@ the directory containing the linuxCNC ini file.  Additional directories can be
 prepended to the gcmc search order with the GCMC_INCLUDE_PATH item.
 
 .Sample axis-gui-based INI
+[source]
 ----
 [RS274NGC]
 ...
@@ -461,6 +468,7 @@ separating them with colons.  The following example illustrates the format
 for multiple directories and shows the use of relative and absolute paths.
 
 .Multiple Directories Example:
+[source]
 ----
 [RS274NGC]SUBROUTINE_PATH = ../../nc_files/ngcgui_lib:../../nc_files/ngcgui_lib/utilitysubs:/tmp/tmpngc`
 ----
@@ -483,6 +491,7 @@ In the following example, files in /home/myname/machinekit/mysubs will be found 
 files in ../../nc_files/ngcgui_lib.
 
 .Adding User Directory Example: 
+[source]
 ----
 [RS274NGC]SUBROUTINE_PATH = /home/myname/machinekit/mysubs:../../nc_files/ngcgui_lib:../../nc_files/ngcgui_lib/utilitysubs`
 ----
@@ -620,6 +629,7 @@ The first non-comment line should be a sub statement.
 The last non-comment line should be a endsub statement.
 
 .examp.ngc:
+[source]
 ----
 (info: info_text_to_appear_at_top_of_tab_page)
 ; comment line beginning with semicolon
@@ -638,6 +648,7 @@ ending with the last used parameter number. Definitions must be provided for
 each of these parameters (no omissions).
 
 .Parameter Numbering
+[source]
 ----
 #<xparm> = #1
 #<yparm> = #2
@@ -654,6 +665,7 @@ Each defining statement may optionally include a special comment and a default
 value for the parameter.
 
 .Statement Prototype
+[source]
 ----
 #<vname> = #n (=default_value)
 or
@@ -663,6 +675,7 @@ or
 ----
 
 .Parameter Examples
+[source]
 ----
 #<xparm> = #1 (=0.0)
 #<yparm> = #2 (Ystart)
@@ -704,6 +717,7 @@ colon (:) character in their name. Use of the colon (:) in the name prevents
 ngcgui from making entryboxes for these parameters.
 
 .Global Named Parameters
+[source]
 ----
 o<examp> sub
 ...
@@ -736,6 +750,7 @@ Its value begins with a value of 0 and is incremented for each added feature.
 A special 'info' comment can be included anywhere in an ngcgui-compatible
 subfile. The format is:
 
+[source]
 ----
 (info: info_text)
 ----
@@ -745,6 +760,7 @@ The info_text is displayed near the top of the ngcgui tab page in axis.
 Files not intended for use as subfiles can include a special comment
 so that ngcgui will reject them automatically with a relevant message.
 
+[source]
 ----
 (not_a_subfile)
 ----
@@ -781,6 +797,7 @@ The variables identified for  inclusion in ngcgui are tagged with lines
 that will appear as comments to the gcmc compiler.
 
 .Example variable tags formats
+[source]
 ----
 //ngcgui: varname1 = 
 //ngcgui: varname2 = value2
@@ -788,6 +805,7 @@ that will appear as comments to the gcmc compiler.
 ----
 
 .Examples:
+[source]
 ----
 //ngcgui: zsafe =
 //ngcgui: feedrate = 10
@@ -805,11 +823,13 @@ it is often makes it possible to just add the //ngcgui: tag to
 existing lines in a .gcmc file.
 
 .Alternate variable tag formats
+[source]
 ----
 //ngcgui: varname2 = value2;
 //ngcgui: varname3 = value3; //, label3;
 ----
 .Examples:
+[source]
 ----
 //ngcgui: feedrate = 10;
 //ngcgui: xl = 0; //, x limit
@@ -819,6 +839,7 @@ An info line that will appear at the top of a tab page may be optionally
 included with a line tagged as:
 
 .Info tag
+[source]
 ----
 //ngcgui: info: text_to_appear_at_top_of_tab_page
 ----
@@ -826,10 +847,12 @@ included with a line tagged as:
 When required, options can be passed to the gcmc compiler with a line tagged:
 
 .Option line tag format
+[source]
 ----
 //ngcgui: -option_name [ [=] option_value]
 ----
 .Examples:
+[source]
 ----
 //ngcgui: -I
 //ngcgui: --imperial
@@ -838,6 +861,7 @@ When required, options can be passed to the gcmc compiler with a line tagged:
 ----
 
 Options for gcmc are available with the terminal command:
+[source]
 ----
 gcmc --help
 ----
@@ -845,6 +869,7 @@ gcmc --help
 A gcmc program by default uses metric mode.  The mode can be
 set to inches with the option setting:
 
+[source]
 ----
 //ngcgui: --imperial
 ----
@@ -854,6 +879,7 @@ conflicts with the mode used by a gcmc file.  To ensure that
 the gcmc program mode is in effect, include the following 
 statement in the .gcmc file:
 
+[source]
 ----
 include("ensure_mode.gcmc")
 ----
@@ -861,6 +887,7 @@ include("ensure_mode.gcmc")
 and provide a proper path for gcmc include_files in the ini file,
 for example:
 
+[source]
 ----
 [DISPLAY]
 GCMC_INCLUDE_PATH = ../../nc_files/gcmc_lib

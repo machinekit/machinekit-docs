@@ -6,7 +6,7 @@
 :imagesdir: /docs/config/images
 
 = Homing Configuration
-
+:toc:
 [[cha:homing-configuration]] (((Homing Configuration)))
 
 == Overview

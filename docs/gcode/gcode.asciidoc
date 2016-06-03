@@ -118,6 +118,7 @@ as the 'L number', and so on for any other letter.
 == G0 Rapid Move
 (((G0 Rapid Move)))(((Rapid Move)))
 
+[source]
 -------------------
 G0 axes
 -------------------
@@ -140,6 +141,7 @@ section if an axis MAX_VELOCITY or trajectory constraints limit it.
 
 
 .G0 Example
+[source]
 ----
 G90 (set absolute distance mode)
 G0 X1 Y-2.3 (Rapid linear move from current location to X1 Y-2.3)
@@ -166,6 +168,7 @@ It is an error if:
 == G1 Linear Move
 (((G1 Linear Move)))(((Linear Move)))
 
+[source]
 -------------------
 G1 axes
 -------------------
@@ -177,6 +180,7 @@ produce coordinated linear motion to the destination point at the current feed
 rate (or slower if the machine will not go that fast).
 
 .G1 Example
+[source]
 ----
 G90 (set absolute distance mode)
 G1 X1.2 Y-3 F10 (linear move at a feed rate of 10 from current position to X1.2 Y-3)
@@ -203,6 +207,7 @@ It is an error if:
 == G2, G3 Arc Move
 (((G2, G3 Arc Move)))(((Arc Move)))
 
+[source]
 ----
 G2 or G3 axes offsets (center format)
 G2 or G3 axes R- (radius format)
@@ -299,6 +304,7 @@ For more information on 'Absolute Arc Distance Mode see the
 <<sec:G90_1-G91_1,G90.1>> section.
 
 .XY-plane (G17)
+[source]
 ----
 G2 or G3 <X- Y- Z- I- J- P->
 ----
@@ -308,6 +314,7 @@ G2 or G3 <X- Y- Z- I- J- P->
 * 'P' - number of turns
 
 .XZ-plane (G18)
+[source]
 ----
 G2 or G3 <X- Z- Y- I- K- P->
 ----
@@ -317,6 +324,7 @@ G2 or G3 <X- Z- Y- I- K- P->
 * 'P' - number of turns
 
 .YZ-plane (G19)
+[source]
 ----
 G2 or G3 <Y- Z- X- J- K- P->
 ----
@@ -396,6 +404,7 @@ G17 G2 X10 Y16 I3 J4 Z-1 (helix arc with Z added)
 ----
 
 .P word Example
+[source]
 ----
 G0 X0 Y0 Z0
 G2 X0 Y1 Z-1 I1 J0.5 P2 F25
@@ -416,6 +425,7 @@ either the current point or the end point of the arc.
 
 === Radius Format Arcs
 
+[source]
 ----
 G2 or G3 axes R-
 ----
@@ -464,6 +474,7 @@ otherwise it is a helical arc.
 == G4 Dwell
 (((G4 Dwell)))
 
+[source]
 ----
 G4 P-
 ----
@@ -474,6 +485,7 @@ The P number is a floating point number so fractions of a second may be used.
 G4 does not affect spindle, coolant and any I/O.
 
 .G4 Example Line
+[source]
 ----
 G4 P0.5 (wait for 0.5 seconds before proceeding)
 ----
@@ -486,6 +498,7 @@ It is an error if:
 == G5.1 Quadratic B-spline
 (((G5.1 Quadratic B-spline)))
 
+[source]
 ----
 G5.1 X- Y- I- J-
 ----
@@ -507,6 +520,7 @@ It is an error if:
 == G5.2 G5.3 NURBs Block
 (((G5.2 G5.3 NURBs Block)))
 
+[source]
 ----
 G5.2 X- Y- P- <L->
 X- Y- P- <L->
@@ -530,6 +544,7 @@ weights.
 
 .G5.2 Example
 [source,{ngc}]
+[source]
 ---------------
 G0 X0 Y0 (rapid move)
 F10 (set feed rate)
@@ -544,6 +559,7 @@ G0 X0 Y1
    X2 Y0
    X0 Y0
 M2
+[source]
 ---------------
 
 .Sample NURBs Output
@@ -558,6 +574,7 @@ http://wiki.linuxcnc.org/cgi-bin/wiki.pl?NURBS[http://wiki.linuxcnc.org/cgi-bin/
 == G7 Lathe Diameter Mode
 (((G7 Lathe Diameter Mode)))
 
+[source]
 ----
 G7
 ----
@@ -571,6 +588,7 @@ to the center of the lathe. For example X1 would move the cutter to
 == G8 Lathe Radius Mode
 (((G8 Lathe Radius Mode)))
 
+[source]
 ----
 G8
 ----
@@ -584,6 +602,7 @@ G8 is default at power up.
 == G10 L1 Set Tool Table
 (((G10 L1 Tool Table)))
 
+[source]
 ----
 G10 L1 P- axes <R- I- J- Q->
 ----
@@ -598,6 +617,7 @@ G10 L1 sets the tool table for the 'P' tool number to the values of the words.
 A valid G10 L1 rewrites and reloads the tool table.
 
 .G10 L1 Example Line
+[source]
 ----
 G10 L1 P1 Z1.5 (set tool 1 Z offset from the machine origin to 1.5)
 G10 L1 P2 R0.015 Q3 (lathe example setting tool 2 radius to 0.015 and orientation to 3)
@@ -617,6 +637,7 @@ see the <<lathe-tool-orientation,Lathe Tool Orientation>> diagram.
 == G10 L2 Set Coordinate System
 (((G10 L2 Coordinate System)))
 
+[source]
 ----
 G10 L2 P- <axes R->
 ----
@@ -697,6 +718,7 @@ The coordinate system is described in the <<cha:coordinate-system,Coordinate Sys
 == G10 L10 Set Tool Table
 (((G10 L10 Set Tool Table)))
 
+[source]
 ----
 G10 L10 P- axes <R- I- J- Q->
 ----
@@ -714,6 +736,7 @@ not specified in the G10 L10 command will not be changed. This could be
 useful with a probe move as described in the <<sec:G38-probe,G38>> section.
 
 .G10 L10 Example
+[source]
 ----
 T1 M6 G43 (load tool 1 and tool length offsets)
 G10 L10 P1 Z1.5 (set the current position for Z to be 1.5)
@@ -734,6 +757,7 @@ It is an error if:
 == G10 L11 Set Tool Table
 (((G10 L11 Set Tool Table)))
 
+[source]
 ----
 G10 L11 P- axes <R- I- J- Q->
 ----
@@ -754,7 +778,8 @@ fixed point on the machine, and then use that fixture to measure tools
 without regard to other currently-active offsets.
 
 // .G10 L11 Example FIX ME!
-// ----
+// [source]
+----
 // G10 L11 P1
 // ----
 
@@ -769,6 +794,7 @@ It is an error if:
 == G10 L20 Set Coordinate System
 (((G10 L20 Set Coordinate System)))
 
+[source]
 ----
 G10 L20 P- axes
 ----
@@ -779,6 +805,7 @@ offset/entry to the given value, it is set to a calculated value that
 makes the current coordinates become the given value.
 
 .G10 L20 Example Line
+[source]
 ----
 G10 L20 P1 X1.5 (set the X axis current location in coordinate system 1 to 1.5)
 ----
@@ -844,6 +871,7 @@ a G28 is issued.
 * 'G28.1' - stores the current 'absolute' position into parameters 5161-5166.
 
 .G28 Example Line
+[source]
 ----
 G28 Z2.5 (rapid to Z2.5 then to location specified in the G28 stored parameters)
 ----
@@ -881,6 +909,7 @@ if [TOOL_CHANGE_AT_G30]=1 is in the [EMCIO] section of the ini file.
 * 'G30.1' - stores the current absolute position into parameters 5181-5186.
 
 .G30 Example Line
+[source]
 ----
 G30 Z2.5 (rapid to Z2.5 then to the location specified in the G30 stored parameters)
 ----
@@ -893,6 +922,7 @@ It is an error if :
 == G33 Spindle Synchronized Motion
 (((G33 Spindle Synchronized Motion)))
 
+[source]
 ----
 G33 X- Y- Z- K-
 ----
@@ -933,6 +963,7 @@ spindle must be connected in your HAL file before G33 will work.
 See the Integrators Manual for more information on spindle synchronized motion.
 
 .G33 Example
+[source]
 ----
 G90 (absolute distance mode)
 G0 X1 Z0.1 (rapid to position)
@@ -955,6 +986,7 @@ It is an error if:
 == G33.1 Rigid Tapping
 (((G33.1 Rigid Tapping)))
 
+[source]
 ----------------
 G33.1 X- Y- Z- K-
 ----------------
@@ -1012,6 +1044,7 @@ It is an error if:
 == G38.x Straight Probe
 (((G38.x Probe)))
 
+[source]
 ----
 G38.x axes
 ----
@@ -1082,6 +1115,7 @@ It is an error if:
           It is OK to turn compensation off when it is already off.
 
 .G40 Example
+[source]
 ----
 ; current location is X1 after finishing cutter compensated move
 G40 (turn compensation off)
@@ -1099,6 +1133,7 @@ It is an error if:
 == G41, G42 Cutter Compensation
 (((G41 G42 Cutter Compensation)))
 
+[source]
 ----
 G41 <D-> (left of programmed path)
 G42 <D-> (right of programmed path)
@@ -1152,6 +1187,7 @@ It is an error if:
 == G41.1, G42.1 Dynamic Cutter Compensation
 (((G41.1 G42.1 Dynamic Compensation)))
 
+[source]
 ----
 G41.1 D- <L-> (left of programmed path)
 G42.1 D- <L-> (right of programmed path)
@@ -1173,6 +1209,7 @@ It is an error if:
 == G43 Tool Length Offset
 (((G43 Tool Length Offset)))
 
+[source]
 ----
 G43 <H->
 ----
@@ -1198,6 +1235,7 @@ machines, 'G43 H0' applies the TLO of the tool T0 defined in the tool
 table file (or causes an error if T0 is not defined in the tool table).
 
 .G43 H- Example Line
+[source]
 ----
 G43 H1 (set tool offsets using the values from tool 1 in the tool table)
 ----
@@ -1217,6 +1255,7 @@ It is an error if:
 == G43.1: Dynamic Tool Length Offset
 (((G43.1 Dynamic Tool Length Offset)))
 
+[source]
 ----
 G43.1 axes
 ----
@@ -1227,6 +1266,7 @@ G43.1 axes
    endpoint is the compensated location.
 
 .G43.1 Example
+[source]
 ----
 G90 (set absolute mode)
 T1 M6 G43 (load tool 1 and tool length offsets, Z is at machine 0 and DRO shows Z1.500)
@@ -1254,6 +1294,7 @@ used.
 == G53 Move in Machine Coordinates
 (((G53 Machine Coordinates)))
 
+[source]
 ----
 G53 axes
 ----
@@ -1267,6 +1308,7 @@ position even if the currently
 selected coordinate system has offsets in effect.
 
 .G53 Example Line
+[source]
 ----
 G53 G0 X0 Y0 Z0 (rapid linear move to the machine origin)
 G53 X2 (rapid linear move to absolute coordinate X2)
@@ -1332,6 +1374,7 @@ systems.
 == G64 Path Blending
 (((G64 Path Blending)))
 
+[source]
 ----
 G64 <P- <Q->>
 ----
@@ -1365,6 +1408,7 @@ If Q is not specified then it will have the same behavior as before and
 use the value of P-.
 
 .G64 P- Example Line
+[source]
 ----
 G64 P0.015 (set path following to be within 0.015 of the actual path)
 ----
@@ -1376,6 +1420,7 @@ of each G code file.
 == G73 Drilling Cycle with Chip Breaking
 (((G73 Drilling Cycle Chip Break)))
 
+[source]
 ----
 G73 X- Y- Z- R- Q- <L-> 
 ----
@@ -1406,6 +1451,7 @@ It is an error if:
 
 (((G76 Threading)))
 
+[source]
 ----
 G76 P- Z- I- J- R- K- Q- H- E- L-
 ----
@@ -1652,6 +1698,7 @@ it drill in the same order as the earlier example. But the program
 writing economy of a good canned cycle should be obvious.
 
 .Eight Holes
+[source]
 ----
 G90 G0 X0 Y0 Z0 (move coordinate home)
 G1 F10 X0 G4 P0.1
@@ -1676,6 +1723,7 @@ incremental drill cycles for successive blocks of code within the same
 G81 motion mode. Here we produce 12 holes using five lines of code in
 the canned motion mode.
 
+[source]
 ----
 G90 G0 X0 Y0 Z0 (move coordinate home)
 G1 F50 X0 G4 P0.1
@@ -1710,6 +1758,7 @@ It is an error if:
 *  Axis words are programmed when G80 is active.
 
 .G80 Example
+[source]
 ----
 G90 G81 X1 Y1 Z1.5 R2.8 (absolute distance canned cycle)
 G80 (turn off canned cycle motion)
@@ -1720,6 +1769,7 @@ The following code produces the same final position and machine state as
 the previous code.
 
 .G0 Example
+[source]
 ----
 G90 G81 X1 Y1 Z1.5 R2.8 (absolute distance canned cycle)
 G0 X0 Y0 Z0 (rapid move to coordinate home)
@@ -1736,6 +1786,7 @@ that contains an X, Y, or Z word. The following file drills (G81) a set
 of eight holes as shown in the following caption. 
 
 .G80 Example 1
+[source]
 ----
 N100 G90 G0 X0 Y0 Z0 (coordinate home)
 N110 G1 X0 G4 P0.1
@@ -1774,6 +1825,7 @@ to the canned cycle.
 
 (((G81 Drilling Cycle)))
 
+[source]
 ----
 G81 (X- Y- Z-) or (U- V- W-) R- L-
 ----
@@ -1876,6 +1928,7 @@ image::G81ex2.png[align="center"]
 Now suppose that you execute the first G81 block of code but from (X0,
 Y0, Z0) rather than from (X1, Y2, Z3).
 
+[source]
 ----
 G90 G98 G81 X4 Y5 Z1.5 R2.8
 ----
@@ -1891,6 +1944,7 @@ image::G81.png[align="center"]
 
 This is a plot of the path of motion for the second g81 block of code.
 
+[source]
 ----
 G91 G98 G81 X4 Y5 Z-0.6 R1.8 L3
 ----
@@ -1904,6 +1958,7 @@ image::G81a.png[align="center"]
 
 .Example 5 - Relative position R > Z
 
+[source]
 ----
 G90 G98 G81 X4 Y5 Z-0.6 R1.8
 ----
@@ -1918,6 +1973,7 @@ in the same location again.
 == G82 Drilling Cycle, Dwell
 (((G82 Drilling Cycle Dwell)))
 
+[source]
 ----
 G82 (X- Y- Z-) or (U- V- W-) R- L- P-
 ----
@@ -1939,6 +1995,7 @@ the dwell is specified by a 'P-' word in the G82 block.
 == G83 Peck Drilling Cycle
 (((G83 Peck Drilling)))
 
+[source]
 ----
 G83 (X- Y- Z-) or (U- V- W-) R- L- Q-
 ----
@@ -1978,6 +2035,7 @@ behavior is undefined. See section <<sec:G33_1-Rigid-Tapping,G33.1>>
 == G85 Boring Cycle, Feed Out
 (((G85 Boring, Feed Out)))
 
+[source]
 ----
 G85 (X- Y- Z-) or (U- V- W-) R- L-
 ----
@@ -1997,6 +2055,7 @@ for drilling or milling.
 == G86 Boring Cycle, Spindle Stop, Rapid Move Out
 (((G86 Boring, Spindle Stop, Rapid Move Out)))
 
+[source]
 ----
 G86 (X- Y- Z-) or (U- V- W-) R- L- P-
 ----
@@ -2035,6 +2094,7 @@ behavior is undefined.
 == G89 Boring Cycle, Dwell, Feed Out
 (((G89 Boring, Dwell, Feed Out)))
 
+[source]
 ----
 G89 (X- Y- Z-) or (U- V- W-) R- L- P-
 ----
@@ -2064,12 +2124,14 @@ where P specifies the number of seconds to dwell.
   increments from the current coordinate.
 
 .G90 Example
+[source]
 ----
 G90 (set absolute distance mode)
 G0 X2.5 (rapid move to coordinate X2.5 including any offsets in effect)
 ----
 
 .G91 Example
+[source]
 ----
 G91 (set incremental distance mode)
 G0 X2.5 (rapid move 2.5 from current position along the X axis)
@@ -2092,6 +2154,7 @@ G0 X2.5 (rapid move 2.5 from current position along the X axis)
 == G92 Coordinate System Offset
 (((G92 Coordinate System Offset)))
 
+[source]
 ----
 G92 axes
 ----
@@ -2191,6 +2254,7 @@ It is an error if:
 == G96, G97 Spindle Control Mode
 (((G96, G97 Spindle Control Mode)))
 
+[source]
 ----
 G96 <D-> S- (Constant Surface Speed)
 G97 (RPM Mode)
@@ -2211,6 +2275,7 @@ G96 is not affected by radius or diameter mode.
 * 'G97' selects RPM mode.
 
 .G96 Example Line
+[source]
 ----
 G96 D2500 S250 (set CSS with a max rpm of 2500 and a surface speed of 250)
 ----
@@ -2236,6 +2301,7 @@ used. The R word has different meanings in absolute distance mode and
 incremental distance mode.
 
 .G98 Retract to Origin
+[source]
 ----
 G0 X1 Y2 Z3
 G90 G98 G81 X4 Y5 Z-0.6 R1.8 F10

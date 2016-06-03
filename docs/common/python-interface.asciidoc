@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = Python Interface
-
+:toc:
 [[cha:python-interface]] (((Python Interface)))
 
 :ini: {basebackend@docbook:'':ini}
@@ -66,7 +66,7 @@ Here is a Python fragment to explore the contents of the
 machinekit is running for typical values):
 
 [source,python]
----------------------------------------------------------------------
+----
 import sys
 import linuxcnc
 try:
@@ -78,7 +78,7 @@ except linuxcnc.error, detail:
 for x in dir(s):
     if not x.startswith('_'):
         print x, getattr(s,x)
----------------------------------------------------------------------
+----
 
 Machinekit uses the default compiled-in path to the NML configuration
 file unless overridden, see <<sec:Python-reading-ini-values,Reading
@@ -371,12 +371,12 @@ of per-axis dictionaries. Here's an example how to access an attribute
 of a particular axis:
 
 [source,python]
----------------------------------------------------------------------
+----
 import linuxcnc
 s = linuxcnc.stat() 
 s.poll() 
 print 'Axis 1 homed: ', s.axis[1]['homed']
----------------------------------------------------------------------
+----
 
 For each axis, the following dictionary keys are available:
 

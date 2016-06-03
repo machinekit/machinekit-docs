@@ -4,7 +4,7 @@
 :skip-front-matter:
 
 = PID Tuning
-
+:toc:
 == PID Controller
 
 A proportional-integral-derivative controller (PID controller) is a

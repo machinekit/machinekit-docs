@@ -18,6 +18,7 @@ and 8 analog outputs. The driver automatically identifies the installed
 board and exports the appropriate HAL objects.
 
 Installing:
+[source]
 ----
 loadrt hal_motenc
 ----

@@ -2,9 +2,10 @@
 ---
 
 :skip-front-matter:
+:source-highlighter: pygments
 
 = Core Components
-
+:toc:
 [[cha:core-components]] (((Core Components)))
 
 See also the man pages 'motion(9)'.
@@ -28,6 +29,7 @@ They are read and updated by the motion-controller function.
 Motion is loaded with the motmod command. A kins should be loaded
 before motion.
 
+[source, bash]
 ----
 loadrt motmod [base_period_nsec=period] [servo_period_nsec=period] 
 [traj_period_nsec=period] [num_joints=[0-9] ([num_dio=1-64] num_aio=1-16])] 

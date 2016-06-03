@@ -6,10 +6,10 @@
 = Documentation
 
 
-== link:/docs/documenting/contributing-documentation[Contributing to documentation]
+- link:/docs/documenting/contributing-documentation[Contributing to documentation]
 
-== link:/docs/documenting/updating-your-fork[Updating your fork (Github)]
+- link:/docs/documenting/updating-your-fork[Updating your fork (Github)]
 
-== link:/docs/documenting/diagram-examples[Examples of the use of diagrams]
+- link:/docs/documenting/diagram-examples[Examples of the use of diagrams]
 
-== link:/docs/documenting/plugins[Plugins that can be used]
+- link:/docs/documenting/plugins[Plugins that can be used]

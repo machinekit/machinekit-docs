@@ -22,6 +22,7 @@ Control.  There is also the Universal Stepper Controller, abbreviated the
 USC.  And the Universal PWM Controller, or UPC.
 
 Installing:
+[source]
 ----
 loadrt hal_ppmc port_addr=<addr1>[,<addr2>[,<addr3>...]]
 ----

@@ -44,7 +44,7 @@ The amount of rotation is configurable for fine tuning
 
 link:http://mgware.co.uk/LinuxCNC/Boxford.tar.gz[Download full file]
 
-[code, C]
+[source, C]
 ----
 component toolchanger               """This component controls the Boxford 240
                                     Lathe Auto Tool Changer. M6 calls this""";
@@ -287,7 +287,7 @@ The greyscale sensors are resolved using a truth table.
 
 link:http://mgware.co.uk/LinuxCNC/oracchanger.comp[Download full file]
 
-[code, C]
+[source, C]
 ----
 component oracchanger                   """This component controls the Orac Lathe
                                         Auto Tool Changer. M6 calls this""";
@@ -511,7 +511,7 @@ These can be set using the 3 param pins, shortdelay, longdelay and extralongdela
 
 link:http://mgware.co.uk/LinuxCNC/triac_toolchanger.zip[Download full file]
 
-[code, C]
+[source, C]
 ----
 component triacchanger          """This component controls the Denford Triac
                                 carousel Tool Changer - iocontrol calls this""";

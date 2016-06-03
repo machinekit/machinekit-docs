@@ -20,6 +20,7 @@ See the <<sub:HAL-section,HAL Ini Section>> of the manual for more
 information on adding a hal file.
 
 .jog.hal
+[source]
 ----
 # Jog Pendant 
 loadrt encoder num_chan=1 
@@ -78,6 +79,7 @@ for each click of the MPG use the <<ilowpass,ilowpass>> component to
 limit the acceleration.
 
 .jog.hal with ilowpass
+[source]
 ----
 loadrt encoder num_chan=1 
 loadrt mux4 count=1 

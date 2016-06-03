@@ -29,8 +29,8 @@ And to do so, please stick to the following rules and recommendations:
 . Search the Machinekit google group for a question already asked.
    There is link:https://groups.google.com/forum/#!searchin/machinekit/please$20type$20your$20keywords$20here$20![a
    search field where you can type your keywords].
-. Do a search in the link:https://github.com/machinekit/machinekit-docs/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit-docs search bar].
-. Do a search in the link:https://github.com/machinekit/machinekit/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=Code[Machinekit search bar].
+. Do a search in the link:https://github.com/machinekit/machinekit-docs/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=source[Machinekit-docs search bar].
+. Do a search in the link:https://github.com/machinekit/machinekit/search?utf8=%E2%9C%93&q=Please+type+in+as+much+of+your+keywords+as+you+know+of!&type=source[Machinekit search bar].
 . Have a look and the link:https://github.com/machinekit/machinekit/issues?utf8=%E2%9C%93&q=Please+use+this+box+to+search+the+issue+tracker+list[search the issue tracker]
 . If no answer for your problem can be found *please report an issue  link:https://github.com/machinekit/machinekit/issues[here]*.
 . If you're *not sure* if you should ask on the list, then *open a new issue first* and *then ask* on the Machinekit list. Follow the steps outlined under <<reporting-an-error,How to report an Error>>.
@@ -46,7 +46,7 @@ When pasting output, which may contain special characters interpreted
 as text formatting by [GitHub-flavored markdown][3], quote it using
 three backtick characters as in the following example:
 
-[code]
+[source]
 ====
 ```
 MODPOST 1 modules

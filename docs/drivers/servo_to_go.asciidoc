@@ -16,6 +16,7 @@ information see the http://www.servotogo.com/[Servo To Go] web page.
 
 == Installing
 
+[source]
 ----
 loadrt hal_stg [base=<address>] [num_chan=<nr>] [dio="<dio-string>"] [model=<model>]
 ----
@@ -36,7 +37,7 @@ autodetect the right card version.
 hint: after starting up the driver, 'dmesg' can be consulted for
 messages relevant to the driver (e.g. autodetected version number and
 base address). For example:
-
+[source]
 ----
 loadrt hal_stg base=0x300 num_chan=4 dio="IOIO"
 ----
@@ -47,7 +48,7 @@ along with 32 bits of I/O configured like this: the first 8 (Port A)
 configured as Input, the next 8 (Port B) configured as Output, the next
 8 (Port C) configured as Input, and the last 8 (Port D) configured as
 Output
-
+[source]
 ----
 loadrt hal_stg
 ----

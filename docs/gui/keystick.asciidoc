@@ -21,6 +21,7 @@ Keystick is a minimal text based interface.
 
 To use keystick change the 'DISPLAY' setting in the ini file setting to:
 
+[source]
 ----
 DISPLAY = keystick
 ----
