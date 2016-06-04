@@ -141,9 +141,7 @@ A second way to remember this:
 (It sounds silly, but it really helps) is saying this line for 10 times :
 
 [NOTE]
-====
 __net signal source target1 target2__
-====
 
 A pin can be connected to a signal if it obeys the following rules:
 

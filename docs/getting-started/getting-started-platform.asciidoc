@@ -10,9 +10,7 @@ choice. Because of the multi-platform nature of the machinekit project there
 can be some differences in the installation for a specific platform.
 
 [NOTE]
-====
 You should first have a working Debian installation.
-====
 
 == Installation options:
 

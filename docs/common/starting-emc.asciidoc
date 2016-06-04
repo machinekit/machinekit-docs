@@ -94,14 +94,12 @@ the section and item names given.
 == TWOPASS
 
 [NOTE]
-====
 Twopass parsing of .hal files is retained for backward compatibility.
 It could be removed without notice.
-
 Since the introduction of link:../../hal/new-instantiated-components[Instantiated Components] 
 which can be created at any time during the start up period or even later,
 it has been rendered redundant.
-====
+
 
 Machinekit supports TWOPASS processing of hal configuration files
 that can help in the modularization and readability of hal files.
