@@ -9,11 +9,9 @@
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
 [NOTE]
-====
 The kernel-naming convention used in these packages may change as
 experience is accumulated, especially with ARM-based systems. Be sure to
 check back here before installing a new kernel.
-====
 
 :sectnums:
 

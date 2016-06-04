@@ -122,20 +122,16 @@ may be different.
 
 .Notes
 [NOTE]
-//__===============================
 The demonstration configs create tab pages for just a few of the provided
 examples.  Any gui with a Custom tab page can open any of the library
 example subroutines or any user file if it is in the linuxCNC subroutine
 path.
-
 To see special key bindings, click inside an ngcgui tab page to get
 focus and then presss Control-k.
-
 The demonstration subroutines should run on the simulated
 machine configurations included in the distribution.  A user
 should always understand the behavior and purpose of a program
 before running on a real machine.
-//__===============================
 
 == Library Locations
 
