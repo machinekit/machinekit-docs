@@ -300,7 +300,7 @@ So be familiar with your machine's design and interpret the display as needed.
     
 * 'Show Relative Position' - This is the Machine Position modified by 'G5x', 'G92', and 'G43' offsets.
     
-*User Menu*
+=== User Menu
     
 * 'User0' - User defined command number 1 - to
    
@@ -318,7 +318,7 @@ Ten user commands can be specified in the ini file.
 * No prefix before a gcode instruction
 
 The commands can optionally be bound to the 0 - 9 keys on the keyboard
-Full details in the INI file docs
+Full details in the link:../axis-machinekit-enhancements[Axis Machinekit Enhancements]
     
 *Help Menu*
 
@@ -1035,4 +1035,7 @@ an ini file field
 [USER_COMMANDS]
 DISABLE_DISPLAY = YES
 ----
-See the INI file docs for full details
+
+Full details in the below 
+
+== link:../axis-machinekit-enhancements[Machinekit Specific Axis Enhancements]
