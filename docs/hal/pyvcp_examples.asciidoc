@@ -3,7 +3,8 @@
 
 :skip-front-matter:
 
-:imagesdir: /docs/config/images
+:imagesdir: /docs/hal/images
+:imagesoutdir: docs/hal/images
 
 = PyVCP Examples
 :toc:
