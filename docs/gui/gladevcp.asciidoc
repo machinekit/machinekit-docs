@@ -31,10 +31,10 @@
 GladeVCP is an Machinekit component which adds the ability to add a new user
 interface panel to Machinekit user interfaces like:
 
-    -Axis
-    -Touchy
-    -Gscreen
-    -Gmoccapy
+- Axis
+- Touchy
+- Gscreen
+- Gmoccapy
 
 Unlike PyVCP, GladeVCP is not limited to displaying and setting HAL pins,
 as arbitrary actions can be executed in Python code - in fact, a
@@ -143,7 +143,7 @@ image::example-float-small.png[]
 
 To run this panel inside 'Touchy':
 
-[source]
+[source,bash]
 ----
 $ cd configs/sim/touchy/gladevcp
 $ machinekit gladevcp_touchy.ini
@@ -298,8 +298,7 @@ section, this will not have the desired effect - see the following sections.
 Place the GladeVCP panel in the righthand side panel by specifying the
 following in the ini file:
 
-[source,{ini}]
-[source]
+[source,ini]
 ----
 [DISPLAY]
 # add GladeVCP panel where PyVCP used to live:
@@ -340,8 +339,7 @@ using a run-in-place setup.
 To do so, edit your .ini file and add to the DISPLAY and HAL sections of ini
 file as follows:
 
-[source,{ini}]
-[source]
+[source,ini]
 ----
 [DISPLAY]
 # add GladeVCP panel as a tab next to Preview/DRO:
@@ -380,8 +378,7 @@ both the +GLADEVCP=+ and +EMBED_TAB_COMMAND=+ statements.
 === Integrating into Touchy
 To do add a GladeVCP tab to 'Touchy', edit your .ini file as follows:
 
-[source,{ini}]
-[source]
+[source,ini]
 ----
 [DISPLAY]
 # add GladeVCP panel as a tab
@@ -1044,11 +1041,9 @@ changed, then connect this signal to a handler, for example
 +on_led_pin_changed+ and provide the handler as follows:
 
 [source,python]
-[source]
 ----------------------------------
 def on_led_pin_changed(self,hal_led,data=None):
     print "on_led_pin_changed() - HAL pin value:",hal_led.hal_pin.get()
-[source]
 ----------------------------------
 
 This will be called at any edge of the signal and also during program
@@ -2002,17 +1997,15 @@ handlers (note that Machinekit command and status channels are available as
 +self.machinekit+ and +self.stat+ through the EMC_ActionBase class:
 
 [source,python]
-[source]
 ----------------------------------
-    def on_mdi_command_start(self, action, userdata=None):
-        action.stat.poll()
-        self.start_feed = action.stat.settings[1]
+def on_mdi_command_start(self, action, userdata=None):
+    action.stat.poll()
+    self.start_feed = action.stat.settings[1]
     
-    def on_mdi_command_stop(self, action, userdata=None):
-        action.machinekit.mdi('F%.1f' % (self.start_feed))
-        while action.machinekit.wait_complete() == -1:
-            pass
-[source]
+def on_mdi_command_stop(self, action, userdata=None):
+    action.machinekit.mdi('F%.1f' % (self.start_feed))
+    while action.machinekit.wait_complete() == -1:
+        pass
 ----------------------------------
 
 Only the Action_MDI Toggle widget supports these signals.
@@ -2101,12 +2094,10 @@ others, to execute MDI commands. Here's how you do it:
 Write a Python module like so and save as e.g. handlers.py:
 
 [source,python]
-[source]
 ----------------------------------
 nhits = 0
 def on_button_press(gtkobj,data=None):
     global nhits nhits += 1 gtkobj.set_label("hits: %d" % nhits)
-[source]
 ----------------------------------
 
 In Glade, define a button or HAL button, select the 'Signals' tab, and
@@ -2172,14 +2163,12 @@ that the 'pressed' signal of a Gtk Button or HAL Button is linked to a
 callback called 'on_button_press':
 
 [source,python]
-[source]
 ----------------------------------
 nhits = 0
 def on_button_press(gtkobj,data=None):
     global nhits
     nhits += 1
     gtkobj.set_label("hits: %d" % nhits)
-[source]
 ----------------------------------
 
 Add this function to a Python file and run as follows:
@@ -2206,7 +2195,6 @@ write:
 Here is a minimum user-defined handler example module:
 
 [source,python]
-[source]
 ----------------------------------
 class MyCallbacks :
     def on_this_signal(self,obj,data=None):
@@ -2214,7 +2202,6 @@ class MyCallbacks :
 
 def get_handlers(halcomp,builder,useropts):
     return [MyCallbacks ()]
-[source]
 ----------------------------------
 
 Now, 'on_this_signal' will be available as signal handler to your
@@ -2497,35 +2484,29 @@ If you need HAL pins which are not associated with a specific HAL
 widget, add them as follows:
 
 [source,python]
-[source]
 ----------------------------------
 import hal_glib
 ...
 # in your handler class __init__():
 self.example_trigger = hal_glib.GPin(halcomp.newpin('example-trigger', hal.HAL_BIT, hal.HAL_IN))
-[source]
 ----------------------------------
 
 To get a callback when this pin's value changes, associate a
 +value-change+ callback with this pin, add:
 
 [source,python]
-[source]
 ----------------------------------
 self.example_trigger.connect('value-changed', self._on_example_trigger_change)
-[source]
 ----------------------------------
 
 and define a callback method (or function, in this case leave out the
 +self+ parameter):
 
 [source,python]
-[source]
 ----------------------------------
 # note '_' - this method will not be visible to the widget tree
 def _on_example_trigger_change(self,pin,userdata=None):
     print "pin value changed to:" % (pin.get())
-[source]
 ----------------------------------
 
 === Adding timers
@@ -2536,7 +2517,6 @@ base class, the full glib functionally is available. Here is an
 example for a timer callback:
 
 [source,python]
-[source]
 ----------------------------------
 def _on_timer_tick(self,userdata=None):
     ...
@@ -2546,7 +2526,6 @@ def _on_timer_tick(self,userdata=None):
 # for a faster timer (granularity 1 ms), use this:
 # glib.timeout_add(100, self._on_timer_tick,userdata) # 10Hz
 glib.timeout_add_seconds(1, self._on_timer_tick)
-[source]
 ----------------------------------
 
 === Setting HAL widget properties programmatically
@@ -2562,7 +2541,6 @@ meter's min value is set from an INI file parameter at startup, and the max valu
 is set via a HAL pin, which causese the widget's scale to readjust dynamically:
 
 [source,python]
-[source]
 ----------------------------------
 import machinekit
 import os
@@ -2588,10 +2566,8 @@ class HandlerClass:
         self.meter = self.builder.get_object('meter')
         self.meter.min = mmin
 
-
 def get_handlers(halcomp,builder,useropts):
     return [HandlerClass(halcomp,builder,useropts)]
-[source]
 ----------------------------------
 
 
@@ -2601,10 +2577,9 @@ Visit +machinekit_root_directory/configs/apps/gladevcp+ for running
 examples and starters for your own projects.
 
 
-== FAQ
+=== FAQ
 
 [qanda]
-
 I get an unexpected unmap event in my handler function right after startup. What's this?::
 
    This is a consequence of your Glade UI file
@@ -2673,7 +2648,7 @@ I defined a `hal_spinbutton` widget in glade, and set a default `value` property
   See the example in `configs/apps/gladevcp/by-widget/spinbutton.{ui,py}`.
 
 
-== Troubleshooting
+=== Troubleshooting
 
  -  make sure you have the development version of Machinekit installed. You
    don't need the axisrc file any more, this was mentioned in the old
@@ -2690,7 +2665,7 @@ I defined a `hal_spinbutton` widget in glade, and set a default `value` property
    an HAL pin associated with it which is off by default. This pin
    controls whether these container's children are active or not.
 
-== Implementation note: Key handling in Axis
+=== Implementation note: Key handling in Axis
 
 We believe key handling works OK, but since it is new code, we're
 telling about it you so you can watch out for problems; please let us
