@@ -2,7 +2,8 @@
 ---
     
 :skip-front-matter:
-:imagesdir: hal/images
+:imagesdir: /docs/hal/images
+:imagesoutdir: docs/hal/images
 
 = Python Virtual Control Panel
 :toc:
