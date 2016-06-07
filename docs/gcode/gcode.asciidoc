@@ -777,12 +777,6 @@ This allows the user to set the G59.3 coordinate system according to a
 fixed point on the machine, and then use that fixture to measure tools
 without regard to other currently-active offsets.
 
-// .G10 L11 Example FIX ME!
-// [source]
-----
-// G10 L11 P1
-// ----
-
 It is an error if:
 
 * Cutter Compensation is on
