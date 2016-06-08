@@ -6,7 +6,7 @@ layout: docs
 
 :toc:
 
-
+:toclevels: 3
 
 == How to create embedded diagrams for this website
 
@@ -227,6 +227,281 @@ graph LR
     C --> D
 ----
 
+=== PlantUML 
+
+==== PlantUML Sequence Diagrams
+
+See the PlantUML website for link:http://plantuml.com/sequence.html[more examples]
+
+[plantuml, plantuml_sequencediagram_example, png]
+----
+@startuml
+Alice -> Bob: Authentication Request
+
+alt successful case
+
+    Bob -> Alice: Authentication Accepted
+    
+else some kind of failure
+
+    Bob -> Alice: Authentication Failure
+    group My own label
+      Alice -> Log : Log attack start
+        loop 1000 times
+            Alice -> Bob: DNS Attack
+        end
+      Alice -> Log : Log attack end
+    end
+    
+else Another type of failure
+
+   Bob -> Alice: Please repeat
+   
+end
+@enduml
+----
+
+==== PlantUML Usecase Diagram
+
+See the PlantUML website for link:http://plantuml.com/usecase.html[more examples]
+
+[plantuml, plantuml_usecasediagram_example, png]
+----
+@startuml
+:Main Admin: as Admin
+(Use the application) as (Use)
+
+User -> (Start)
+User --> (Use)
+
+Admin ---> (Use)
+
+note right of Admin : This is an example.
+
+note right of (Use)
+  A note can also
+  be on several lines
+end note
+
+note "This note is connected\nto several objects." as N2
+(Start) .. N2
+N2 .. (Use)
+@enduml
+
+----
+
+==== PlantUML Class Diagram
+
+See the PlantUML website for link:http://plantuml.com/classes.html[more examples]
+
+[plantuml, plantuml_classdiagram_example, png]
+----
+@startuml
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+  Object[] elementData
+  size()
+}
+
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+
+annotation SuppressWarnings
+
+@enduml
+----
+
+==== PlantUML State Diagram
+
+See the PlantUML website for link:http://plantuml.com/state.html[more examples]
+
+[plantuml, plantuml_statediagram_example, png]
+----
+@startuml
+scale 600 width
+
+[*] -> State1
+State1 --> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> State3 : Succeeded
+State2 --> [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] --> long1
+  long1 --> long1 : New Data
+  long1 --> ProcessData : Enough Data
+}
+State3 --> State3 : Failed
+State3 --> [*] : Succeeded / Save Result
+State3 --> [*] : Aborted
+ 
+@enduml
+----
+
+==== PlantUML Activity Diagram
+
+See the PlantUML website for link:http://plantuml.com/activity2.html[more examples]
+
+[plantuml, plantuml_activitydiagram_example, png]
+----
+@startuml
+
+start
+:ClickServlet.handleRequest();
+:new page;
+if (Page.onSecurityCheck) then (true)
+  :Page.onInit();
+  if (isForward?) then (no)
+    :Process controls;
+    if (continue processing?) then (no)
+      stop
+    endif
+    
+    if (isPost?) then (yes)
+      :Page.onPost();
+    else (no)
+      :Page.onGet();
+    endif
+    :Page.onRender();
+  endif
+else (false)
+endif
+
+if (do redirect?) then (yes)
+  :redirect process;
+else
+  if (do forward?) then (yes)
+    :Forward request;
+  else (no)
+    :Render page template;
+  endif
+endif
+
+stop
+
+@enduml
+----
+
+==== PlantUML Component Diagram
+
+See the PlantUML website for link:http://plantuml.com/component.html[more examples]
+
+[plantuml, plantuml_componentdiagram_example, png]
+----
+@startuml
+
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+ 
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
+----
+
+==== PlantUML Deployment Diagram
+
+See the PlantUML website for link:http://plantuml.com/deployment.html[more examples]
+
+[plantuml, plantuml_deploymentdiagram_example1, png]
+----
+@startuml
+artifact Foo1 {
+  folder Foo2
+}
+
+folder Foo3 {
+  artifact Foo4
+}
+
+frame Foo5 {
+  database Foo6
+}
+
+@enduml
+----
+
+[plantuml, plantuml_deploymentdiagram_example2, png]
+----
+@startuml
+node Foo7 {
+ cloud Foo8 
+}
+
+cloud Foo9 {
+  frame Foo10
+}
+
+database Foo11  {
+  storage Foo12
+}
+
+storage Foo13 {
+  storage Foo14
+}
+@enduml
+----
+
+==== PlantUML Salt Diagram
+
+See the PlantUML website for link:http://plantuml.com/salt.html[more examples]
+
+[plantuml, plantuml_saltdiagram_example, png]
+----
+@startsalt
+{+
+{* File | Edit | Source | Refactor 
+ Refactor | New | Open File | - | Close | Close All }
+{/ General | Fullscreen | Behavior | Saving }
+{
+  { Open image in: | ^Smart Mode^ }
+  [X] Smooth images when zoomed
+  [X] Confirm image deletion
+  [ ] Show hidden images 
+}
+[Close]
+}
+@endsalt
+----
 
 === wavedrom - Digital Timing Diagrams
 
