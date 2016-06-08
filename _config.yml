@@ -15,6 +15,7 @@ gems:
   - jekyll-gist
   - jekyll-seo-tag
   - jekyll-mermaid
+  - jekyll-plantuml
 
 #url: http://machinekit.io
 baseurl: /
