@@ -40,6 +40,11 @@ CXXGEN   := $(BUILDDIR)/cpp
 PYGEN    := $(BUILDDIR)/python
 
 # generated Documentation files
+DOCFORMAT := asciidoc
+DOCEXT := asciidoc
+#DOCFORMAT := markdown
+#DOCEXT := md
+
 DOCGEN := $(BUILDDIR)/doc
 
 # pkg-config
@@ -73,7 +78,7 @@ PROTO_CXX_INCS := ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.h}
 PROTO_CXX_SRCS  :=  ${PROTO_SPECS:$(SRCDIR)/%.proto=$(CXXGEN)/%.pb.cc}
 
 # generated doc file
-DOC_TARGET := $(DOCGEN)/machinetalk-protobuf.md
+DOC_TARGET := $(DOCGEN)/machinetalk-protobuf.$(DOCEXT)
 
 # ---- generate dependcy files for .proto files
 #
@@ -149,8 +154,8 @@ Makefile: $(GENERATED) $(PROTO_DEPS)
 #
 # see https://github.com/estan/protoc-gen-doc
 #
-# generate Markdown files from proto files
-$(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto)
+# generate $(DOCFORMAT) files from proto files
+$(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto) scripts/$(DOCFORMAT).mustache
 #doc_base:
 	$(ECHO) "protoc create $@ from *.proto"
 	@mkdir -p $(DOCGEN)
@@ -158,7 +163,7 @@ $(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto)
 	$(PROTOC) $(PROTOC_FLAGS) \
 	--proto_path=./ \
 	--proto_path=$(GPBINCLUDE)/ \
-	--doc_out=$(SRCDIRINV)/scripts/markdown.mustache,$(SRCDIRINV)/$@:./ \
+	--doc_out=$(SRCDIRINV)/scripts/$(DOCFORMAT).mustache,$(SRCDIRINV)/$@:./ \
 	$(NAMESPACEDIR)/*.proto
 
 all: $(GENERATED) $(PROTO_DEPS)
