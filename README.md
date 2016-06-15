@@ -19,6 +19,21 @@ git subtree merge --prefix=src/machinetalk/proto machinetalk-protobuf/master --s
 
 Now create a PR against the machinekit repo.
 
+## Python
+
+### Installation
+
+To use the Machinetalk protobuf Python modules in your projects, use:
+
+```sh
+cd python
+python setup.py build
+sudo python setup.py install
+```
+
+### Usage
+See [examples](python/examples). 
+
 ## JavaScript (NPM/NodeJS)
 
 ### Installation
