@@ -28,7 +28,7 @@ To use the Machinetalk protobuf Python modules in your projects, use:
 ```sh
 cd python
 python setup.py build
-sudo python setup.py
+sudo python setup.py install
 ```
 
 ### Usage
