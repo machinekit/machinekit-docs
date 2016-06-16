@@ -4,35 +4,49 @@ layout: docs
 :imagesoutdir: docs/documenting/asciinema
 = Plugins
 :toc:
+:toc-title:
+=  Embedding video, screen casts, images and gists
 
-== How to  embed an asciicast recording
+== Embedding Youtube videos
+
+In Youtube, click 'Share->Embed' to see the values of width and height, then insert like so:
+
+video::ON9m2xwWonM[youtube,width="560",height="315"]
+
+
+== Scaling images
+
+[.text-center]
+.image scaled at 20% (click image for source site)
+image:/docs/documenting/images/24021476673_d65d275d1a_k.jpg[link="https://c2.staticflickr.com/2/1638/24021476673_d65d275d1a_k.jpg",
+	,title="A winter balloon ride", width=20%]
+
+
+[.text-center]
+.image scaled at 50% (click image for local copy on server)
+image:/docs/documenting/images/24021476673_d65d275d1a_k.jpg[link="/docs/documenting/images/24021476673_d65d275d1a_k.jpg",
+	,title="A winter balloon ride", width=50%]
+
+
+
+== How to  embed an link:https://asciinema.org[Asciinema] recording
+
 
 link:https://github.com/mnuessler/jekyll-asciinema[Jekyll  plugin description]
 
-link:https://asciinema.org/[Asciinema website]
 
 // http://asciinema.org/a/47175
 ++++
 {% asciicast 47175 %}
 ++++
 
-== Embedding Youtube videos
 
-doesnt work yet, something with permissions, ID, cache, cookie - who knows
+== Including a gist  
 
-++++
-
-{% youtube ON9m2xwWonM %}
-++++
-
-== Including a gist
+This https://gist.github.com/mhaberler/ede68eae275c38a5364734c065a1b9c0[gist]
+might actually be useful for working on documentation:
 
 ++++
-<p>
-Content in a passthrough block is passed to the output unprocessed.
-That means you can include raw HTML, like this embedded Gist:
-</p>
-
-<script src="http://gist.github.com/mojavelinux/5333524.js">
-</script>
+{% gist ede68eae275c38a5364734c065a1b9c0 %}
 ++++
+
