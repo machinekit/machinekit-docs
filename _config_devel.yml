@@ -1,0 +1,4 @@
+# this will include livereload support in the rendered HTML
+# see _includes/livreload.html
+
+environment: development
