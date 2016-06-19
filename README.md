@@ -8,4 +8,3 @@ Manpage Build Status: [![Manpage Build Status](https://jenkins.machinekit.io/bui
 
 This repository contains the source for the Machinekit website and
 documentation which are available at [machinekit.io/docs](http://www.machinekit.io/docs/)
-
