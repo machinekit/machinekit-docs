@@ -40,6 +40,9 @@ CXXGEN   := $(BUILDDIR)/cpp
 PYGEN    := $(BUILDDIR)/python
 
 # generated Documentation files
+# default to asciidoc template
+# for mk-docs formatting, pass in TEMPLATE pointing to the mk-docs template
+TEMPLATE := $(SRCDIRINV)/scripts/asciidoc.mustache
 DOCFORMAT := asciidoc
 DOCEXT := asciidoc
 #DOCFORMAT := markdown
@@ -155,7 +158,7 @@ Makefile: $(GENERATED) $(PROTO_DEPS)
 # see https://github.com/estan/protoc-gen-doc
 #
 # generate $(DOCFORMAT) files from proto files
-$(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto) scripts/$(DOCFORMAT).mustache
+$(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto) $(TEMPLATE) Makefile
 #doc_base:
 	$(ECHO) "protoc create $@ from *.proto"
 	@mkdir -p $(DOCGEN)
@@ -163,7 +166,7 @@ $(DOC_TARGET): $(wildcard $(SRCDIR)/*.proto) scripts/$(DOCFORMAT).mustache
 	$(PROTOC) $(PROTOC_FLAGS) \
 	--proto_path=./ \
 	--proto_path=$(GPBINCLUDE)/ \
-	--doc_out=$(SRCDIRINV)/scripts/$(DOCFORMAT).mustache,$(SRCDIRINV)/$@:./ \
+	--doc_out=$(TEMPLATE),$(SRCDIRINV)/$@:./ \
 	$(NAMESPACEDIR)/*.proto
 
 all: $(GENERATED) $(PROTO_DEPS)
