@@ -1,0 +1,113 @@
+---
+layout: docs
+---
+
+
+== highlighting sourcecode
+
+The website formatter supports halcmd scripts and RS274NGC
+G-code syntax on top of the other http://pygments.org/languages/[languages supported by Pygments].
+
+
+=== Halcmd scripts
+
+[source,halcmd]
+---------------
+# first load all the RT modules that will be needed
+# kinematics
+loadrt trivkins
+# trajectory planner
+loadrt tp
+# motion controller, get name and thread periods from ini file
+loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES kins=trivkins tp=tp
+# load 6 differentiators (for velocity and accel signals
+loadrt ddt names=ddt_x,ddt_xv,ddt_y,ddt_yv,ddt_z,ddt_zv
+# load additional blocks
+loadrt hypot names=vel_xy,vel_xyz
+
+# add motion controller functions to servo thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+# link the differentiator functions into the code
+addf ddt_x servo-thread
+addf ddt_xv servo-thread
+---------------
+
+=== RS274NGC G-code
+
+[source,rs274]
+----
+n099	(This is a test plot nc program to be run on backplot)
+n100	(Author Ray Henry 10-Feb-2000)
+n101	g20
+n102	g0 x0 y0 z0 f30
+n103	x1 y1(start xy circle)
+n104	g17 g02 i.5 j.5
+n106	g0 z.1 (add xy lettering)
+n107	y1.75
+n108	z0
+n109	g1 y1.25 x1.4
+----
+
+=== Python
+Languages from here and below come stock with pygmentize.
+
+[source,python]
+----
+def foo(bar):
+    pass    # a comment
+----
+
+=== Ini files
+
+[source,ini]
+----
+# Hardware Abstraction Layer section
+[HAL]
+
+# list of hal config files to run through halcmd
+# files are executed in the order in which they appear
+HALFILE = core_sim.hal
+HALFILE = sim_spindle_encoder.hal
+HALFILE = axis_manualtoolchange.hal
+HALFILE = simulated_home.hal
+----
+
+=== Protobuf descriptors
+
+[source,protobuf]
+---------------
+import "nanopb.proto";
+
+// see README.msgid
+// msgid base: 100
+
+import "types.proto";
+import "emcclass.proto";
+import "motcmds.proto";
+
+package pb;
+
+message Emc_Traj_Set_G5x {
+
+    option (nanopb_msgopt).msgid = 100; // see README.msgid
+
+    required EmcPose         origin = 10;
+    required OriginIndex   g5x_index = 20;
+}
+---------------
+
+
+== Improving highlighting
+
+The current hightlighters for
+https://github.com/mhaberler/pygments/blob/machinekit/pygments/lexers/halcmd.py[halcmd] and
+https://github.com/mhaberler/pygments/blob/machinekit/pygments/lexers/rs274.py[rs274]
+are less than perfect. To improve upon them or add new languages:
+
+- fork https://github.com/mhaberler/pygments/tree/machinekit
+- file a PR
+- make sure the https://github.com/mhaberler/docker-jekyll-asciidoctor/blob/master/jekyll-asciidoctor-base/Dockerfile[website formatting docker container] is rebuilt as it uses this repository
+
+The default hightlighing style is {pygments-css} using {source-highlighter} as highlighting engine.
+Supported styles can be listed by running `pygmentize -L styles`.

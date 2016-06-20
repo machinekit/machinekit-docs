@@ -61,5 +61,9 @@ which contains a series of tools for embedded diagrams and source highlighting, 
 
 Some examples:
 
-- link:/docs/documenting/diagram-examples/[embedding various diagrams and highlighting source code fragments]
-- link:/docs/documenting/plugins/[embedding Asciinema, Youtube videos, and gists]
+- link:/docs/documenting/diagram-examples/[embedding updateable diagrams]
+- link:/docs/documenting/plugins/#embedding-youtube-videos[embedding Youtube videos]
+- link:/docs/documenting/plugins/#how-to-embed-an-a-href-https-asciinema-org-asciinema-a-recording[embedding Asciinema]
+- link:/docs/documenting/plugins/#including-a-gist[embedding a gist]
+- link:/docs/documenting/highlight[highlighting source code]
+- link:/docs/documenting/plugins/#scaling-images[scaling images]
