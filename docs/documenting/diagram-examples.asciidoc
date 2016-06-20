@@ -505,9 +505,10 @@ See the PlantUML website for link:http://plantuml.com/salt.html[more examples]
 
 === wavedrom - Digital Timing Diagrams
 
-See the link:http://wavedrom.com/[wavedrom website].
+See the link:http://wavedrom.com/[wavedrom website],
+and this http://wavedrom.com/images/SNUG2016_WaveDrom.pdf[interesting article].
 
-["wavedrom",  "svg"]
+["wavedrom","wavedrom-demo",svg]
 ---------------------------------------------------------------------
 { signal: [
   {    name: 'clk',   wave: 'p..Pp..P'},
