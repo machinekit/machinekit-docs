@@ -3,10 +3,10 @@
 
 :skip-front-matter:
 
-= QtQuick Virtual Control Panel
+= QtQuickVcp
 :toc:
 
-
+The QtQuick Virtual Control Panel
 
 == QtQuickVcp?
 
