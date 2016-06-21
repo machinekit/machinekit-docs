@@ -12,6 +12,7 @@
     - index-developer
     - index-documenting
     - developing/develop-index
+    - developing/qtquickvcp
     
 - title: Manpages
   docs:
