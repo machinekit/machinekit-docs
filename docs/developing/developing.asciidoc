@@ -16,3 +16,8 @@ starting at point 1 should lead you thru the next steps and return you to this p
 
 == Other instructions for specific development
 . link:/docs/developing/CAN-developing[CAN developing for Machinekit]
+
+== QtQuickVcp
+
+. link:/docs/developing/qtquickvcp[Installing, Using and Developing for QtQuickVcp]
+

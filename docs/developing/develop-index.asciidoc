@@ -20,3 +20,5 @@
 - link:/docs/developing/toolchangers[Specific info on writing toolchanger components]
 
 - link:/docs/developing/CAN-developing[Information on developing using CAN]
+
+- link:/docs/developing/qtquickvcp[Installing Using and Developing for QtQuickVcp]
