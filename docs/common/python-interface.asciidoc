@@ -7,12 +7,6 @@
 :toc:
 [[cha:python-interface]] (((Python Interface)))
 
-:ini: {basebackend@docbook:'':ini}
-:hal: {basebackend@docbook:'':hal}
-:ngc: {basebackend@docbook:'':ngc}
-
-This is work in progress by Michael Haberler. Comments, fixes, and
-addenda are welcome, especially for PositionLogger (A bit of intent, purpose and usage would help here!)
 
 == The linuxcnc Python module
 
@@ -87,281 +81,281 @@ ini file values>> for an example.
 
 === linuxcnc.stat attributes
 
-*acceleration* :: '(returns float)' -
+*acceleration* :: _returns float_ -
 default acceleration, reflects the ini entry [TRAJ] DEFAULT_ACCELERATION.
 
-*active_queue*:: '(returns int)' -
+*active_queue*:: _returns int_ -
 number of motions blending.
 
-*actual_position*:: '(returns tuple of floats)' -
+*actual_position*:: _returns tuple of floats_ -
 current trajectory position, (x y z a b c u v w) in machine units.
 
-*adaptive_feed_enabled*:: '(returns True/False)' -
+*adaptive_feed_enabled*:: _returns True/False_ -
 status of adaptive feedrate override (0/1).
 
-*ain*:: '(returns tuple of floats)' -
+*ain*:: _returns tuple of floats_ -
 current value of the analog input pins.
 
-*angular_units*:: '(returns string)' -
+*angular_units*:: _returns string_ -
 reflects [TRAJ] ANGULAR_UNITS ini value.
 
-*aout*:: '(returns tuple of floats)' -
+*aout*:: _returns tuple of floats_ -
 current value of the analog output pins.
 
-*axes*:: '(returns string)' -
+*axes*:: _returns string_ -
 reflects [TRAJ] AXES ini value.
 
-*axis*:: '(returns tuple of dicts)' -
+*axis*:: _returns tuple of dicts_ -
 reflecting current axis values. See
 <<sec:The-Axis-dictionary,The axis dictionary>>.
 
-*axis_mask*:: '(returns integer)' -
+*axis_mask*:: _returns integer_ -
 mask of axis available as defined by [TRAJ] COORDINATES in the ini
 file. Returns the sum of the axes X=1, Y=2, Z=4, A=8, B=16, C=32, U=64,
 V=128, W=256.
 
-*block_delete*:: '(returns integer)' -
+*block_delete*:: _returns integer_ -
 block delete currently on/off.
 
-*command*:: '(returns string)' -
+*command*:: _returns string_ -
 currently executing command.
 
-*current_line*:: '(returns integer)' -
+*current_line*:: _returns integer_ -
 currently executing line, int.
 
-*current_vel*:: '(returns float)' -
+*current_vel*:: _returns float_ -
 current velocity in Cartesian space.
 
-*cycle_time*:: '(returns string)' -
+*cycle_time*:: _returns string_ -
 reflects [TRAJ] CYCLE_TIME ini value (FIXME is this right?).
 
-*debug*:: '(returns integer)' -
+*debug*:: _returns integer_ -
 debug flag.
 
-*delay_left*:: '(returns float)' -
+*delay_left*:: _returns float_ -
 remaining time on dwell (G4) command, seconds.
 
-*din*:: '(returns tuple of integers)' -
+*din*:: _returns tuple of integers_ -
 current value of the digital input pins.
 
-*distance_to_go*:: '(returns float)' -
+*distance_to_go*:: _returns float_ -
 remaining distance of current move, as reported by trajectory planner, in Cartesian space.
 
-*dout*:: '(returns tuple of integers)' -
+*dout*:: _returns tuple of integers_ -
 current value of the digital output pins.
 
-*dtg*:: '(returns tuple of 9 floats)' -
+*dtg*:: _returns tuple of 9 floats_ -
 remaining distance of current move, as reported by trajectory planner.
 
-*echo_serial_number*:: '(returns integer)' -
+*echo_serial_number*:: _returns integer_ -
 The serial number of the last completed command sent by a UI
 to task. All commands carry a serial number. Once the command
 has been executed, its serial number is reflected in
 `echo_serial_number`.
 
-*enabled*:: '(returns integer)' -
+*enabled*:: _returns integer_ -
 trajectory planner enabled flag.
 
-*estop*:: '(returns integer)' -
+*estop*:: _returns integer_ -
 estop flag.
 
-*exec_state*:: '(returns integer)' -
+*exec_state*:: _returns integer_ -
 task execution state. One of EXEC_ERROR, EXEC_DONE,
 EXEC_WAITING_FOR_MOTION, EXEC_WAITING_FOR_MOTION_QUEUE,
 EXEC_WAITING_FOR_PAUSE,EXEC_WAITING_FOR_MOTION_AND_IO,
 EXEC_WAITING_FOR_DELAY, EXEC_WAITING_FOR_SYSTEM_CMD.
 
-*feed_hold_enabled*:: '(returns integer)' -
+*feed_hold_enabled*:: _returns integer_ -
 enable flag for feed hold.
 
-*feed_override_enabled*:: '(returns integer)' -
+*feed_override_enabled*:: _returns integer_ -
 enable flag for feed override.
 
-*feedrate*:: '(returns float)' -
+*feedrate*:: _returns float_ -
 current feedrate override.
 
-*file*:: '(returns string)' -
+*file*:: _returns string_ -
 currently executing gcode file.
 
-*flood*:: '(returns integer)' -
+*flood*:: _returns integer_ -
 flood enabled.
 
-*g5x_index*:: '(returns string)' -
+*g5x_index*:: _returns string_ -
 currently active coordinate system, G54=0, G55=1 etc.
 
-*g5x_offset*:: '(returns tuple of floats)' -
+*g5x_offset*:: _returns tuple of floats_ -
 offset of the currently active coordinate system.
 
-*g92_offset*:: '(returns tuple of floats)' -
+*g92_offset*:: _returns tuple of floats_ -
 pose of the current g92 offset.
 
-*gcodes*:: '(returns tuple of 16 integers)' -
+*gcodes*:: _returns tuple of 16 integers_ -
 currently active G-codes.
 
-*homed*:: '(returns integer)' -
+*homed*:: _returns integer_ -
 flag. 1 if homed.
 
-*id*:: '(returns integer)' -
+*id*:: _returns integer_ -
 currently executing motion id.
 
-*inpos*:: '(returns integer)' -
+*inpos*:: _returns integer_ -
 machine-in-position flag.
 
-*input_timeout*:: '(returns integer)' -
+*input_timeout*:: _returns integer_ -
 flag for M66 timer in progress.
 
-*interp_state*:: '(returns integer)' -
+*interp_state*:: _returns integer_ -
 current state of RS274NGC interpreter. One of
 INTERP_IDLE, INTERP_READING, INTERP_PAUSED, INTERP_WAITING.
 
-*interpreter_errcode*:: '(returns integer)' -
+*interpreter_errcode*:: _returns integer_ -
 current RS274NGC interpreter return code. One of
 INTERP_OK, INTERP_EXIT, INTERP_EXECUTE_FINISH, INTERP_ENDFILE,
 INTERP_FILE_NOT_OPEN, INTERP_ERROR. 
 see src/emc/nml_intf/interp_return.hh
 
-*joint_actual_position*:: '(returns tuple of floats)' -
+*joint_actual_position*:: _returns tuple of floats_ -
 actual joint positions.
 
-*joint_position*:: '(returns tuple of floats)' -
+*joint_position*:: _returns tuple of floats_ -
 Desired joint positions.
 
-*kinematics_type*:: '(returns integer)' -
+*kinematics_type*:: _returns integer_ -
 identity=1, serial=2, parallel=3, custom=4 .
 
-*limit*:: '(returns tuple of integers)' -
+*limit*:: _returns tuple of integers_ -
 axis limit masks. minHardLimit=1,
 maxHardLimit=2, minSoftLimit=4, maxSoftLimit=8.
 
-*linear_units*:: '(returns string)' -
+*linear_units*:: _returns string_ -
 reflects [TRAJ]LINEAR_UNITS ini value.
 
-*lube*:: '(returns integer)' -
+*lube*:: _returns integer_ -
 'lube on' flag.
 
-*lube_level*:: '(returns integer)' -
+*lube_level*:: _returns integer_ -
 reflects 'iocontrol.0.lube_level'.
 
-*max_acceleration*:: '(returns float)' -
+*max_acceleration*:: _returns float_ -
 maximum  acceleration. reflects [TRAJ] MAX_ACCELERATION.
 
-*max_velocity*:: '(returns float)' -
+*max_velocity*:: _returns float_ -
 maximum  velocity. reflects [TRAJ] MAX_VELOCITY.
 
-*mcodes*:: '(returns tuple of 10 integers)' -
+*mcodes*:: _returns tuple of 10 integers_ -
 currently active M-codes.
 
-*mist*:: '(returns integer)' -
+*mist*:: _returns integer_ -
 'mist on' flag.
 
-*motion_line*:: '(returns integer)' -
+*motion_line*:: _returns integer_ -
 source line number motion is currently executing. Relation
 to `id` unclear.
 
-*motion_mode*:: '(returns integer)' -
+*motion_mode*:: _returns integer_ -
 motion mode.
 
-*motion_type*:: '(returns integer)' -
+*motion_type*:: _returns integer_ -
 trajectory planner mode. One of TRAJ_MODE_COORD,
 TRAJ_MODE_FREE, TRAJ_MODE_TELEOP.
 
-*optional_stop*:: '(returns integer)' -
+*optional_stop*:: _returns integer_ -
 option stop flag.
 
-*paused*:: '(returns integer)' -
+*paused*:: _returns integer_ -
 `motion paused` flag.
 
-*pocket_prepped*:: '(returns integer)' -
+*pocket_prepped*:: _returns integer_ -
 A Tx command completed, and this pocket is prepared. -1 if no
 prepared pocket.
 
 *poll()*:: -
 method to update current status attributes.
 
-*position*:: '(returns tuple of floats)' -
+*position*:: _returns tuple of floats_ -
 trajectory position.
 
-*probe_tripped*:: '(returns integer)' -
+*probe_tripped*:: _returns integer_ -
 flag, true if probe has tripped (latch)
 
-*probe_val*:: '(returns integer)' -
+*probe_val*:: _returns integer_ -
 reflects value of the `motion.probe-input` pin.
 
-*probed_position*:: '(returns tuple of floats)' -
+*probed_position*:: _returns tuple of floats_ -
 position where probe tripped.
 
-*probing*:: '(returns integer)' -
+*probing*:: _returns integer_ -
 flag, 1 if a probe operation is in progress.
 
-*program_units*:: '(returns integer)' -
+*program_units*:: _returns integer_ -
 one of CANON_UNITS_INCHES=1, CANON_UNITS_MM=2, CANON_UNITS_CM=3
 
-*queue*:: '(returns integer)' -
+*queue*:: _returns integer_ -
 current size of the trajectory planner queue.
 
-*queue_full*:: '(returns integer)' -
+*queue_full*:: _returns integer_ -
 the trajectory planner queue is full.
 
-*read_line*:: '(returns integer)' -
+*read_line*:: _returns integer_ -
 line the RS274NGC interpreter is currently reading.
 
-*rotation_xy*:: '(returns float)' -
+*rotation_xy*:: _returns float_ -
 current XY rotation angle around Z axis.
 
-*settings*:: '(returns tuple of 3 floats)' -
+*settings*:: _returns tuple of 3 floats_ -
 current interpreter settings. settings[0] =
 sequence number, settings[1] = feed rate, settings[2] = speed.
 
-*spindle_brake*:: '(returns integer)' -
+*spindle_brake*:: _returns integer_ -
 value of the spindle brake flag.
 
-*spindle_direction*:: '(returns integer)' -
+*spindle_direction*:: _returns integer_ -
 rotational direction of the spindle. forward=1, reverse=-1.
 
-*spindle_enabled*:: '(returns integer)' -
+*spindle_enabled*:: _returns integer_ -
 value of the spindle enabled flag.
 
-*spindle_increasing*:: '(returns integer)' -
+*spindle_increasing*:: _returns integer_ -
 unclear.
 
-*spindle_override_enabled*:: '(returns integer)' -
+*spindle_override_enabled*:: _returns integer_ -
 value of the spindle override enabled flag.
 
-*spindle_speed*:: '(returns float)' -
+*spindle_speed*:: _returns float_ -
 spindle speed value, rpm, > 0: clockwise, < 0:
 counterclockwise.
 
-*spindlerate*:: '(returns float)' -
+*spindlerate*:: _returns float_ -
 spindle speed override scale.
 
-*state*:: '(returns integer)' -
+*state*:: _returns integer_ -
 current command execution status. One of RCS_DONE,
 RCS_EXEC, RCS_ERROR.
 
-*task_mode*:: '(returns integer)' -
+*task_mode*:: _returns integer_ -
 current task mode. one of MODE_MDI, MODE_AUTO,
 MODE_MANUAL.
 
-*task_paused*:: '(returns integer)' -
+*task_paused*:: _returns integer_ -
 task paused flag.
 
-*task_state*:: '(returns integer)' -
+*task_state*:: _returns integer_ -
 current task state. one of STATE_ESTOP,
 STATE_ESTOP_RESET, STATE_ON, STATE_OFF.
 
-*tool_in_spindle*:: '(returns integer)' -
+*tool_in_spindle*:: _returns integer_ -
 current tool number.
 
-*tool_offset*:: '(returns tuple of floats)' -
+*tool_offset*:: _returns tuple of floats_ -
 offset values of the current tool.
 
-*tool_table*:: '(returns tuple of tool_results)' -
+*tool_table*:: _returns tuple of tool_results_ -
 list of tool entries. Each entry is a sequence of the following fields:
 id, xoffset, yoffset, zoffset, aoffset, boffset, coffset, uoffset, voffset,
 woffset, diameter, frontangle, backangle, orientation. The id and orientation
 are integers and the rest are floats.
 
-*velocity*:: '(returns float)' -
+*velocity*:: _returns float_ -
 default  velocity. reflects [TRAJ] DEFAULT_VELOCITY.
 
 === The `axis` dictionary [[sec:The-Axis-dictionary]]
@@ -380,75 +374,75 @@ print 'Axis 1 homed: ', s.axis[1]['homed']
 
 For each axis, the following dictionary keys are available:
 
-*axisType*:: '(returns integer)' -
+*axisType*:: _returns integer_ -
 type of axis configuration parameter, reflects
 [AXIS_x]TYPE. LINEAR=1, ANGULAR=2. See <<sub:AXIS-section, Axis
 ini configuration>> for details.
 
-*backlash*:: '(returns float)' -
+*backlash*:: _returns float_ -
 Backlash in machine units. configuration parameter, reflects [AXIS_x]BACKLASH.
 
-*enabled*:: '(returns integer)' -
+*enabled*:: _returns integer_ -
 non-zero means enabled.
 
-*fault*:: '(returns integer)' -
+*fault*:: _returns integer_ -
 non-zero means axis amp fault.
 
-*ferror_current*:: '(returns float)' -
+*ferror_current*:: _returns float_ -
 current following error.
 
-*ferror_highmark*:: '(returns float)' -
+*ferror_highmark*:: _returns float_ -
 magnitude of max following error.
 
-*homed*:: '(returns integer)' -
+*homed*:: _returns integer_ -
 non-zero means has been homed.
 
-*homing*:: '(returns integer)' -
+*homing*:: _returns integer_ -
 non-zero means homing in progress.
 
-*inpos*:: '(returns integer)' -
+*inpos*:: _returns integer_ -
 non-zero means in position.
 
-*input*:: '(returns float)' -
+*input*:: _returns float_ -
 current input position.
 
-*max_ferror*:: '(returns float)' -
+*max_ferror*:: _returns float_ -
 maximum following error. configuration
 parameter, reflects [AXIS_x]FERROR.
 
-*max_hard_limit*:: '(returns integer)' -
+*max_hard_limit*:: _returns integer_ -
 non-zero means max hard limit exceeded.
 
-*max_position_limit*:: '(returns float)' -
+*max_position_limit*:: _returns float_ -
 maximum limit (soft limit) for axis motion, in machine units.configuration
 parameter, reflects [AXIS_x]MAX_LIMIT.
 
 *max_soft_limit*::
 non-zero means `max_position_limit` was exceeded, int
 
-*min_ferror*:: '(returns float)' -
+*min_ferror*:: _returns float_ -
 configuration parameter, reflects [AXIS_x]MIN_FERROR.
 
-*min_hard_limit*:: '(returns integer)' -
+*min_hard_limit*:: _returns integer_ -
 non-zero means min hard limit exceeded.
 
-*min_position_limit*:: '(returns float)' -
+*min_position_limit*:: _returns float_ -
 minimum limit (soft limit) for axis motion, in machine units.configuration
 parameter, reflects [AXIS_x]MIN_LIMIT.
 
-*min_soft_limit*:: '(returns integer)' -
+*min_soft_limit*:: _returns integer_ -
 non-zero means `min_position_limit` was exceeded.
 
-*output*:: '(returns float)' -
+*output*:: _returns float_ -
 commanded output position.
 
-*override_limits*:: '(returns integer)' -
+*override_limits*:: _returns integer_ -
 non-zero means limits are overridden.
 
-*units*:: '(returns float)' -
+*units*:: _returns float_ -
 units per mm, deg for linear, angular
 
-*velocity*:: '(returns float)' -
+*velocity*:: _returns float_ -
 current velocity.
 
 ==  Preparing to send  commands 
@@ -476,7 +470,8 @@ c = linuxcnc.command()
 
 def ok_for_mdi():
     s.poll()
-    return not s.estop and s.enabled and s.homed and (s.interp_state == linuxcnc.INTERP_IDLE)
+    return not s.estop and s.enabled and
+        s.homed and (s.interp_state == linuxcnc.INTERP_IDLE)
 
 if ok_for_mdi():
    c.mode(linuxcnc.MODE_MDI)   
@@ -627,7 +622,7 @@ c.tool_offset(toolno, z_offset,  x_offset, diameter, frontangle, backangle, orie
 `set_max_limit(int, float)`::
         set max position limit for a given axis
         
-'set_home_parameters(int, float, float, float, float, float, int, int, int, int, int, int)'::
+'set_home_parameters(int, float, float, float, float, float, int, int, int, int, int, int::
 	set home parameters for a given axis. All parameters must be passed to the function to succeed.
 
 `set_min_limit()`::
