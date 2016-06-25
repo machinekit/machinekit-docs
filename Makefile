@@ -21,9 +21,9 @@ all:	docs/man/man1/index.asciidoc \
 
 
 # all asciidoc documents in this repo
-MAN1 := $(filter-out docs/man/man1/index.asciidoc, $(wilcard docs/man/man1/*.asciidoc))
-MAN3 := $(filter-out docs/man/man3/index.asciidoc, $(wilcard docs/man/man3/*.asciidoc))
-MAN9 := $(filter-out docs/man/man9/index.asciidoc, $(wilcard docs/man/man9/*.asciidoc))
+MAN1 := $(filter-out docs/man/man1/index.asciidoc, $(wildcard docs/man/man1/*.asciidoc))
+MAN3 := $(filter-out docs/man/man3/index.asciidoc, $(wildcard docs/man/man3/*.asciidoc))
+MAN9 := $(filter-out docs/man/man9/index.asciidoc, $(wildcard docs/man/man9/*.asciidoc))
 
 docs/man/man1/index.asciidoc: $(MAN1)
 	scripts/index-gen.sh man1 'HAL Utilities and GUIs'
