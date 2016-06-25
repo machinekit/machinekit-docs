@@ -5,7 +5,7 @@
 :imagesoutdir: docs/infra/repositories
 
 :toc:
-= git repos & automated build flows
+= Git Repos & Auto Build
 
 There are quite a few
 https://github.com/machinekit[Machinekit git repositories].
