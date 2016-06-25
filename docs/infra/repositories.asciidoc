@@ -1,0 +1,163 @@
+---
+---
+
+:skip-front-matter:
+:imagesoutdir: docs/infra/repositories
+
+:toc:
+= git repos & automated build flows
+
+There are quite a few
+https://github.com/machinekit[Machinekit git repositories].
+Here is what is contained where, and how they fit together with the build process.
+
+
+== https://github.com/machinekit/machinekit[main machinekit repo]
+
+- all the source code for HAL, RT, the CNC stack, and user interfaces lives here.
+- package builds happen from here using the https://travis-ci.org/[Travis CI service], driven https://github.com/machinekit/machinekit/tree/master/.travis[from this directory]
+
+=== Posting a pull request against the machinekit repo
+[seqdiag, "mk_pr_flow", "svg"]
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+
+  user ->     github [label = "posts pull request"];
+              github  -> travis [label = "PR webhook", note = "build & \nrun regresstion tests"];
+              github  <-  travis [label = "set commit status"];
+  user <-     github  [label = "PR result visible"];
+}
+----
+
+=== Merging a pull request into the machinekit repo
+[seqdiag, "mk_merge_flow", "svg",width=100%,height=100%] 
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+  
+  maintainer ->   github [label = "merge PR"];
+                  github  -> travis [label = "merge webhook", note = "build\npackages"];
+		             travis ->>  deb.machinekit.io [label = "upload deb"];
+                             travis <-   deb.machinekit.io [label = "successful upload", note = "new\npackage\nonline"];
+  //deb.machinekit.io -> users [label = "apt-get <package>"];
+                  github  <-  travis [label = "set commit status"];
+  maintainer <-   github  [label = "merge result visible"];
+}
+----
+
+=== comp and instcomp manpage extraction
+This happens in the https://jenkins.machinekit.io/view/machinekit/job/machinekit-manpages/[manpage extarction job].
+[seqdiag, "mk_manpage_flow", "svg"]
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+
+  maintainer ->   github [label = "merge PR"];
+                  github  -> jenkins.machinekit.io [label = "merge webhook",
+		  	  note = "extract comp &\ninstcomp manpages\nstore on jenkins host\nuntil next\nwebsite build"];
+                  github  <-  jenkins.machinekit.io [label = "set commit status"];
+  maintainer <-   github  [label = "manpage generation\nresult visible"];
+}
+----
+
+
+== https://github.com/machinekit/machinekit-docs[machinekit documentation]
+
+* source for the website, http://asciidoctor.org[asciidoc] format as understood by asciidoctor.
+* all static documentation resides here.
+* artefacts from other repos (comp & instcomp manpages, protobuf docs) are imported during the build process:
+** manual pages for HAL components: see link:/docs/infra/repositories/#comp-and-instcomp-manpage-extraction[comp and instcomp manpage extraction]
+** protobuf files are http://preview.machinekit.io/docs/machinetalk/protobuf/[automatically converted for documentation] using https://github.com/mhaberler/protoc-gen-doc[protoc-gen-doc]
+
+
+=== Posting a pull request against the machinekit-docs repo
+Formatting happens in the https://jenkins.machinekit.io/view/machinekit/job/website-preview/[website preview job].
+The resulting HTML is uploaded to the https://github.com/machinekit-ci/machinekit-ci.github.io
+repo which serves the preview.machinekit.io domain.
+
+There is only a single preview website; a followup PR overwrites the previous content of preview.machinekit.io.
+[seqdiag, "mkdocs_pr_flow", "svg"]
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+
+  user ->     github [label = "posts pull request"];
+              github  -> jenkins.machinekit.io [label = "PR webhook",
+	      note = "import manpages\nformat protobuf\nformat website &\nupload HTML"];
+              github  <-  jenkins.machinekit.io [label = "set commit status", note = "PR visible on\npreview.machinekit.io"];
+  user <-     github  [label = "PR result visible"];
+}
+----
+
+
+=== Merging a pull request into the machinekit-docs repo
+Formatting happens in the https://jenkins.machinekit.io/view/machinekit/job/website-production/[website production job].
+The resulting HTML is uploaded to the https://github.com/machinekit/machinekit.github.io
+repo which serves the www.machinekit.io domain.
+
+The linkchecker output is www.machinekit.io/linkchecker.html[available here].
+
+[seqdiag, "mkdocs_merge_flow", "svg",width=100%,height=100%] 
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+  
+  maintainer ->   github [label = "merge PR"];
+                  github  -> jenkins.machinekit.io
+		  	  [label = "merge webhook",
+			   note = "import manpages\nformat protobuf\nformat website\nrun linkchecker\nupload HTML"];
+                  github  <-  jenkins.machinekit.io [label = "set commit status", note = "merge result visible on\nwww.machinekit.io"];
+  maintainer <-   github  [label = "PR result visible"];
+}
+----
+
+== https://github.com/machinekit/machinetalk-protobuf[Protobuf message definitions]
+
+- these define the format of messages used in several places throughout machinekit, both internally and as an external API
+- for the format  see the excellent https://developers.google.com/protocol-buffers/[Google Protobuf documentation].
+- note files in this repo are published under the https://github.com/machinekit/machinetalk-protobuf/blob/master/LICENSE[MIT license], other than https://github.com/machinekit/machinekit/blob/master/COPYING[machinekit which is mostly GPL2 and LGPL]. This means usage of the remote API is governed by the former, similar to the Linux kernel which is GPL but the using code can be pretty much any license.
+
+
+== https://github.com/machinekit/mksocfpga[FPGA firmware for SoC/FPGA platforms]
+- contains VHDL source and configurations for various platforms
+- firmware packages are built automatically if a PR is merged into this repo
+
+== https://github.com/machinekit/pymachinetalk[Python machinetalk bindings]
+These serve as examples how to remotely interact with HAL and LinuxCNC stack.
+
+== https://github.com/machinekit/machinekit-dkms[Any kernel modules required for Machinekit]
+Kernel modules and drivers are by definition kernel-dependent and therefore not part of the standard build.
+
+Any drivers should be posted against this repo, following the example of the existing ones. A merge against this repo will cause the machinekit-dms package be build; if installed, this package will build any drivers _on the target platform against all installed kernel versions_.
+
+== https://github.com/machinekit/machinekit.github.io[github.machinekit.io]
+
+- static html content served by github for domain www.machinekit.io
+- fed from jenkins.machinekit.io via git push after sucessful format and linkcheck
+- see jenkins job https://jenkins.machinekit.io/view/machinekit/job/website-production/[website-production]
+
+
+
+
+
