@@ -1,10 +1,15 @@
-<div class="unit one-fifth hide-on-mobiles">
-  <aside>
-    {% for section in site.data.docs %}
-    <h4>{{ section.title }}</h4>
-    {% include docs_ul.html items=section.docs %}
-    {% endfor %}
-    {% include sandbox.html %}
-    {% include edit-me.html %}
-  </aside>
+<div class="nocontent">
+  <!-- The area to exclude -->
+  <!-- prevent google crawlers adding boiler plate stuff to search hits -->
+    <div class="unit one-fifth hide-on-mobiles">
+      <aside>
+	{% for section in site.data.docs %}
+        <h4>{{ section.title }}</h4>
+	{% include docs_ul.html items=section.docs %}
+        {% endfor %}
+	{% include sandbox.html %}
+        {% include edit-me.html %}
+      </aside>
+    </div>
 </div>
+
