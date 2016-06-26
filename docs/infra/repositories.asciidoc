@@ -11,6 +11,9 @@ There are quite a few
 https://github.com/machinekit[Machinekit git repositories].
 Here is what is contained where, and how they fit together with the build process.
 
+Below are several references to the https://jenkins.machinekit.io/[Machinekit jenkins server].
+Not all links might display without credentials;
+developers in good standing should send Michael Haberler a mail to enable access (linked on your github account).
 
 == https://github.com/machinekit/machinekit[main machinekit repo]
 
@@ -148,6 +151,30 @@ seqdiag {
 == https://github.com/machinekit/mksocfpga[FPGA firmware for SoC/FPGA platforms]
 - contains VHDL source and configurations for various platforms
 - firmware packages are built automatically if a PR is merged into this repo
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga/[build job configuration]
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-packaging/[packaging step], triggered after successful build
+
+=== Merging a pull request into the mksocfpga repo
+[seqdiag, "mksocfpga_merge_flow", "svg",width=100%,height=100%] 
+----
+seqdiag {
+  // Do not show activity line
+  activation = none;
+
+  // Change note color
+  default_note_color = lightblue;
+  
+  maintainer ->   github [label = "merge PR"];
+                  github  -> jenkins.machinekit.io
+		  	  [label = "merge webhook",
+			   note = "generate firmare"];
+   		             jenkins.machinekit.io ->>  deb.machinekit.io [label = "upload deb"];
+                             jenkins.machinekit.io <-   deb.machinekit.io [label = "successful upload", note = "new\npackage\nonline"];
+                  github  <-  jenkins.machinekit.io [label = "set commit status"];
+  maintainer <-   github  [label = "merge result visible"];
+  github [label = "github.com/\nmachinekit/\nmksocfpga"];
+}
+----
 
 == https://github.com/machinekit/pymachinetalk[Python machinetalk bindings]
 These serve as examples how to remotely interact with HAL and LinuxCNC stack.
