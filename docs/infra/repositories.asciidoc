@@ -26,11 +26,13 @@ seqdiag {
 
   // Change note color
   default_note_color = lightblue;
-
   user ->     github [label = "posts pull request"];
               github  -> travis [label = "PR webhook", note = "build & \nrun regresstion tests"];
               github  <-  travis [label = "set commit status"];
   user <-     github  [label = "PR result visible"];
+
+  github [label = "github.com/\nmachinekit/\nmachinekit"];
+
 }
 ----
 
@@ -51,11 +53,12 @@ seqdiag {
   //deb.machinekit.io -> users [label = "apt-get <package>"];
                   github  <-  travis [label = "set commit status"];
   maintainer <-   github  [label = "merge result visible"];
+  github [label = "github.com/\nmachinekit/\nmachinekit"];
 }
 ----
 
 === comp and instcomp manpage extraction
-This happens in the https://jenkins.machinekit.io/view/machinekit/job/machinekit-manpages/[manpage extarction job].
+This happens in the https://jenkins.machinekit.io/view/machinekit/job/machinekit-manpages/[manpage extraction job].
 [seqdiag, "mk_manpage_flow", "svg"]
 ----
 seqdiag {
@@ -70,6 +73,7 @@ seqdiag {
 		  	  note = "extract comp &\ninstcomp manpages\nstore on jenkins host\nuntil next\nwebsite build"];
                   github  <-  jenkins.machinekit.io [label = "set commit status"];
   maintainer <-   github  [label = "manpage generation\nresult visible"];
+  github [label = "github.com/\nmachinekit/\nmachinekit"];
 }
 ----
 
@@ -103,6 +107,7 @@ seqdiag {
 	      note = "import manpages\nformat protobuf\nformat website &\nupload HTML"];
               github  <-  jenkins.machinekit.io [label = "set commit status", note = "PR visible on\npreview.machinekit.io"];
   user <-     github  [label = "PR result visible"];
+  github [label = "github.com/\nmachinekit/\nmachinekit-docs"];
 }
 ----
 
@@ -129,6 +134,7 @@ seqdiag {
 			   note = "import manpages\nformat protobuf\nformat website\nrun linkchecker\nupload HTML"];
                   github  <-  jenkins.machinekit.io [label = "set commit status", note = "merge result visible on\nwww.machinekit.io"];
   maintainer <-   github  [label = "PR result visible"];
+  github [label = "github.com/\nmachinekit/\nmachinekit-docs"];
 }
 ----
 
