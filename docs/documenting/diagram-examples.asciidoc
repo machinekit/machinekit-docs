@@ -533,7 +533,7 @@ and this http://wavedrom.com/images/SNUG2016_WaveDrom.pdf[interesting article].
 
 === https://developers.google.com/chart/[Google Charts]
 
-can easily embedded in a http://asciidoctor.org/docs/user-manual/#pass-bl[passthrough block].
+can be embedded in a http://asciidoctor.org/docs/user-manual/#pass-bl[passthrough block].
 Example from https://google-developers.appspot.com/chart/interactive/docs/gallery/candlestickchart#example[here].
 ++++
 <html>
