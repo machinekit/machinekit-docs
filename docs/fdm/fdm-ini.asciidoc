@@ -1,0 +1,105 @@
+---
+---
+
+:skip-front-matter:
+
+:imagesdir: /docs/fdm/images
+:imagesoutdir: docs/fdm/images
+
+
+== FDM/FFF Specific INI parameters ==
+There are few sections in the INI file specific for 3D-printing.
+
+
+=== General ===
+In the general FDM section parameters that relate to FDM with Machinekit
+in general are defined.
+
+
+==== FDM ====
+*VELOCITY_EXTRUSION_ENABLE* Enables velocity extrusion mode
+
+*NUM_LIGHTS* Number of lights
+
+*NUM_EXTRUDERS* Number of extruders
+
+*NUM_FANS* Number of fans
+
+
+=== Heaters ===
+Machinekit has a INI section for each heating element. These are named
+`EXTRUDER_n` for the extruders (n is the number of the extruder), `HBP`
+for the heated build platform and `HBC` for the heated build chamber. It
+supports the following parameters:
+
+
+==== EXTRUDER_n, HBP or HBC ====
+*PID_PGAIN* P gain value of the PID component
+
+*PID_IGAIN* I gain value of the PID component
+
+*PID_DGAIN* D gain value of the PID component
+
+*PID_MAXERRORI* Maximum I error values of PID component
+
+*PID_BIAS* Bias value of the PID component
+
+*PWM_MAX* PWM value limitation (0-1)
+
+*TEMP_RANGE_POS_ERROR* Positive temperature error range value. The
+temperature range specifies how much temperature tolerance should be
+accepted for the temperature to be in range.
+
+*TEMP_RANGE_NEG_ERROR* Negative temperature error range value
+
+*TEMP_LIMIT_MIN* The minimum temperature limit for this heater.
+Temperatures outside the limit lead to triggering a error.
+
+*TEMP_LIMIT_MAX* The maximum temperature limit for this heater.
+
+*TEMP_STANDBY* The standby temperature for this heater.
+
+*THERMISTOR* Thermistor table to use for this heater.
+
+*RETRACT_VEL* Retraction velocity for this extruder.
+
+*RETRACT_LEN* Retraction length for this extruder.
+
+
+=== Probing ===
+If you have a probing head you need add a few probing related section to
+your INI file in order to use the G29 and G30 codes.
+
+The `PROBE` section contains values related the probe head. X, Y and Z
+offset are stored in the tool table as tool offsets. For every probing
+point you need to define a `Pn` section containing the coordinates of
+the probing point. At least one probing point needs to be defined.
+Currently only a single point is supported.
+
+
+==== PROBE ====
+*COUNT* The number of probe points to use. Currently only one supported.
+
+*SEARCH_VEL* Search velocity when probing.
+
+*TOOL_NR* Tool number of the probe head to use for X, Y and Z offsets.
+Usually 100.
+
+*START_Z* The Z position at which probing should be started. Before
+probing all machine offsets are cleared. Therefore Z is relative to the
+homing position.
+
+*END_Z* The Z position to which the probing head should be moved after
+probing. This position is in relation to the new offset values after
+probing. Therefore setting this value to 1 will result in the nozzle
+being placed 1mm above the build platform.
+
+*HBP_TEMP* When defined this value specifies the temperature the heated
+build platform should have when probing is utilized. Specifying this
+parameter is useful when using a inductive probe sensor and metal build
+platform.
+
+
+==== Pn ====
+*X* X position of the probing point. *Y* Y position of the probing
+point.

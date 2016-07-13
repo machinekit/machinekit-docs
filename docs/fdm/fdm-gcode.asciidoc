@@ -1,0 +1,328 @@
+---
+---
+
+:skip-front-matter:
+
+:imagesdir: /docs/fdm/images
+:imagesoutdir: docs/fdm/images
+
+
+== FDM/FFF GCodes ==
+This file contains Machinekit FDM related GCodes and MCodes. These codes can
+be implemented using remaps. For an example how to integrate it take look at
+link: https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/remap.ini[remap.ini].
+
+
+
+=== GCodes ===
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g22.ngc[G22]: Retract Extruder ====
+Retracts the currently active extruder.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g23.ngc[G23]: Unretract Extruder ====
+Unetracts the currently active extruder.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g28.ngc[G28]: Move to Origin ====
+Example: `G28`
+
+This code exists for compatibility reasons with RepRap flavor GCode.
+Machinekit does not support homing from GCode as homing needs to be
+triggered from the user interface. This code causes the FDM machine to
+move back to its X, Y and Z zero coordinates and resets the extruder
+axis.
+
+If you add coordinates, then just the axes with coordinates specified
+will be zeroed. Thus `G28 X0 Y72.3` will zero the X and Y axes, but not
+Z. The actual coordinate values are ignored.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g29.ngc[G29]: Detailed Z-Probe ====
+Example: `G29`
+
+Probes the bed at a specified number of point points (usually 3-4).
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g29_1.ngc[G29.1]: Set Z probe head offset ====
+Example: `G29.1 X30 Y20 Z0.5`
+
+Set the offset of the Z probe head. The offset will be subtracted from
+all probe moves.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g29_2.ngc[G29.2]: Set Z probe head offset ====
+calculated from toolhead position
+
+Example: `G29.2 Z0.0`
+
+Set the offset of the Z probe head. The offset will be subtracted from
+all probe moves. The calculated value is derived from the distance of
+the toolhead from the current axis zero point.
+
+The user would typically place the toolhead at the zero point of the
+axis and issue the G29.2 command.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/g30.ngc[G30]: Single Z Probe ====
+Example: `G30 X10 Y0`
+
+In its simplest form probes bed at current XY location.
+
+If X, or Y values are specified (e.g. `G30 X20 Y50`) then those values
+are used instead of the machine's current coordinates. The combination
+of these options allows for the machine to be moved to points using G1
+commands, and then probe the bed, or for the user to position the nozzle
+interactively and use those coordinates. The user can also record those
+values and place them in a setup GCode file for automatic execution.
+
+
+
+=== MCodes ===
+Machinekit supports a number of FDM specific MCodes inspired by the
+http://reprap.org/wiki/G-code[RepRap MCodes]. These codes are
+implemented using remapping. If you are interested in developing your
+own Machinekit based 3D printer take a look at the link:./remap.ini[remap
+file].
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m104.ngc[M104]: Set Extruder Temperature ====
+Example: `M104 P190`
+
+Set the temperature of the current extruder to 190 °C and return control
+to the host immediately (i.e. before that temperature has been reached
+by the extruder).
+
+
+===== Multiple Exruders =====
+M104 can be additionally used to handle all devices using a temperature
+sensor. It supports the additional T parameter, which is a zero-based
+index into the list of sensors. For devices without a temp sensor, see
+M106.
+
+Example: `M104 T1 P100`
+
+Set the temperature of the device attached to the second temperature
+sensor to 100 °C.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m106.ngc[M106]: Fan On ====
+Example: `M106 P127`
+
+Turn on the cooling fan at half speed.
+
+Mandatory parameter 'S' declares the PWM value (0-255). M106 S0 turns
+the fan off.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m107.ngc[M107]: Fan Off ====
+Example: `M107`
+
+Turn on the cooling fan off.
+
+Deprecated. Use `M106 P0` instead. (But used by Slic3r)
+
+
+===== Additional Fans/Devices =====
+Additionally to the above, Machinekit uses M106 to control general
+devices. It supports the additional T parameter, which is an zero-based
+index into the list of fans/devices.
+
+Example: `M106 T2 P255`
+
+Turn on device #3 at full speed/wattage.
+
+
+===== Sync with Motion =====
+By default the M106 command will be executed with the next movement.
+This default behavior is used since the fan speed is constantly switched
+during execution and an unsynchronized movement would break look-ahead
+and path blending. For the purpose of executing a command immediately
+the M106 supports the additional I parameter.
+
+Example: `M106 I1 P127`
+
+Turn on the cooling fan at half speed immediately. `I0` equals to not
+immediate, all other values evaluate to immediate if I is specified.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m109.ngc[M109]: Set Extruder Temperature and Wait ====
+Example: `M109 P185`
+
+Set extruder heater temperature in degrees celsius and wait for this
+temperature to be achieved.
+
+
+===== Multiple Exruders =====
+Similar to M104 this command supports the additional T parameter for
+specifying the extruder.
+
+Example: `M109 T1 P100`
+
+Set the temperature of the device attached to the second temperature
+sensor to 100 °C and wait for the temperature to be reached.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m140.ngc[M140]: Bed Temperature (Fast) ====
+Example: `M140 P55`
+
+Set the temperature of the build bed to 55 °C and return control to the
+host immediately (i.e. before that temperature has been reached by the
+bed).
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m141.ngc[M141]: Chamber Temperature (Fast) ====
+Example: `M141 P30`
+
+Set the temperature of the chamber to 30 °C and return control to the
+host immediately (i.e. before that temperature has been reached by the
+chamber).
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m190.ngc[M190]: Wait for bed temperature to reach ====
+target temp
+
+Example: `M190 P60`
+
+Set the temperature of the build bed to 60 °C and wait for the
+temperature to be reached.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m191.ngc[M191]: Wait for chamber temperature to ====
+reach target temp
+
+Example: `M191 P60`
+
+Set the temperature of the build chamber to 60 °C and wait for the
+temperature to be reached.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m200.ngc[M200]: Set filament diameter ====
+Example: `M200 D1.75`
+
+`M200 Dm.mmm` sets the filament diameter to m.mmm millimeters. It is
+used with 'volumetric calibration' and G-code generated for an ideal
+1.128mm diameter filament, which has a volume of 1mm\^3 per millimeter.
+The intention is to be able to generate filament-independent g-code.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m207.ngc[M207]: Set retract parameters ====
+Example `M207 P0.5 Q10.0`
+
+Sets retract length `P` in mm and retract velocity `Q` in mm/s.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m221.ngc[M221]: Set extrusion scale ====
+Example: `M221 P0.96` sets the extrusion scale factor to 96%
+
+Sets the scale factor that will be applied on the extrusion in percent of the
+standard extrusion output.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m226.ngc[M226]: Gcode Initiated Pause ====
+Example: `M226`
+
+Initiates a pause in the same way as if the pause button is pressed.
+That is, program execution is stopped and the printer waits for user
+interaction. This matches the behaviour of M1 in the
+http://www.nist.gov/manuscript-publication-search.cfm?pub_id=823374[NIST
+RS274NGC G-code standard].
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m280.ngc[M280]: Set servo position ====
+Example: `M280 T0 P1500`
+
+Set servo position absolute. T: servo index, P: angle or microseconds
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m300.ngc[M300]: Play beep sound ====
+Usage: `M300 Q<frequency Hz> P<duration ms>`
+
+Example: `M300 Q300 P1000`
+
+Play beep sound, use to notify important events like the end of
+printing. The P parameter is optional and may not be supported by all
+electronics that implement the buzzer.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m400.ngc[M400]: Wait for current moves to finish ====
+Example: `M400`
+
+Finishes all current moves and and thus clears the buffer. That's
+identical to `G4 P0`.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m420.ngc[M420]: Set RGBW Colors as PWM ====
+Usage:
+`M420 T<LED index (0-2)> R<Red PWM (0-1)> E<Green PWM (0-1)> D<Blue PWM (0-1)> P<White PWM (0-1)>`
+
+Example: `M420 R1.0 E1.0 D1.0 P1.0`
+
+Set the color of your RGBW LEDs that are connected to PWM-enabled pins.
+Note, the Green color is controlled by the E value instead of the G
+value due to the G code being a primary code that cannot be overridden.
+The optional T parameter specifies the index of the LEDs to set (default
+0).
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m700.ngc[M700]: Set line cross section ====
+Example: `M700 P0.061`
+
+Sets the cross section for a line to extrude in velocity extrusion mode.
+When the extruder is enabled and movement is executed the amount of
+extruded filament will be calculated to match the specified line cross
+section.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m701.ngc[M701]: Set line width ====
+Example: `M701 P0.2`
+
+Sets the width of a line to extrude in velocity extrusion mode. The value will
+be used in combination with the line height to calculate the line cross
+section.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m702.ngc[M702]: Set line height ====
+Example: `M702 P0.15`
+
+Sets the height of a line to extrude in velocity extrusion mode. The value will
+be used in combination with the line height to calculate the line cross
+section.
+
+
+==== link:https://github.com/machinekit/machinekit/blob/master/nc_files/remap-subroutines/fdm/m710.ngc[M710]: Jog filament ====
+Usage: `M710 P<length in mm> Q<velocity in mm/s> E<continuous 0 or 1>`
+
+Example:
+`M710 P10.0 Q2.0` extrude 10mm of filament with a velocity of 2mm/s
+`M710 Q4.0 E1` start continuous extrusion with a velocity of 4mm/s
+
+Extrudes a certain amount of filament with the specified extrusion
+velocity. Extrusion velocity can be either positive or negative. The
+continuous parameter starts or stops continuously extruding filament with a
+specified velocity.
+
+
+
+=== RepRap Alternatives ===
+Some RepRap GCodes can not be implemented but easily replaced by native
+Machinekit GCodes.
+
+
+==== M206: Set home offset ====
+Replacement: `G10 L2 P1 X10.0 Y10.0 Z-0.4`
+
+The values specified are added to the endstop position when the axes are
+referenced. The same can be achieved with a G92 right after homing (G28,
+G161).
+
+
+==== M306: Set home offset calculated from toolhead position ====
+Replacement: `G10 L20 P1 X10.0 Y10.0 Z-0.4`
+
+The values specified are added to the calculated end stop position when
+the axes are referenced. The calculated value is derived from the
+distance of the toolhead from the current axis zero point.
+
+The user would typically place the toolhead at the zero point of the
+axis and issue the M306 command.

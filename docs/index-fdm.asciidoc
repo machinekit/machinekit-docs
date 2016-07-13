@@ -1,0 +1,16 @@
+---
+---
+
+:skip-front-matter:
+
+
+= FDM/FFF (3D-printing) with Machinekit
+
+== Building a 3D-printer configuration
+:leveloffset: +1
+
+link:../fdm/fdm-hal[HAL]
+link:../fdm/fdm-ini[INI]
+link:../fdm/fdm-gcode[GCode]
+
+:leveloffset: -1

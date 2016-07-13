@@ -10,6 +10,7 @@
 - link:/docs/index-HAL[HAL manual]
 - link:/docs/index-integrator[Integrator manual]
 - link:/docs/index-developer[Developer manual]
+- link:/docs/index-fdm[FDM/FFF (3D-printing) manual]
 - link:/docs/index-documenting[Documenting links]
 
 Before asking questions on the google group Machinekit list,
