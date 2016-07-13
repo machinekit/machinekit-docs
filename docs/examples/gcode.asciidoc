@@ -13,19 +13,19 @@ machine before running.
 
 === Helical Hole Milling
 
-File Name: useful-subroutines.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/useful-subroutines.ngc#L14[useful-subroutines.ngc]
 
 Description: Subroutine for milling a hole using parameters.
 
 === Slotting
 
-File Name: useful-subroutines.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/useful-subroutines.ngc#L39[useful-subroutines.ngc]
 
 Description: Subroutine for milling a slot using parameters.
 
 === Grid Probe
 
-File Name: gridprobe.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/gridprobe.ngc[gridprobe.ngc]
 
 Description: Rectangular Probing
 
@@ -35,7 +35,7 @@ as the .ini file.
 
 === Smart Probe
 
-File Name: smartprobe.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/smartprobe.ngc[smartprobe.ngc]
 
 Description: Rectangular Probing
 
@@ -45,7 +45,7 @@ as the .ini file. This is improved from the grid probe file.
 
 === Tool Length Probe
 
-File Name: tool-length-probe.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/tool-length-probe.ngc[tool-length-probe.ngc]
 
 Description: Tool Length Probing
 
@@ -56,7 +56,7 @@ different every time it is inserted.
 
 === Hole Probe
 
-File Name: probe-hole.ngc
+File Name: https://github.com/machinekit/machinekit/blob/master/nc_files/probe-hole.ngc[probe-hole.ngc]
 
 Description: Finding the Center and Diameter of a hole.
 
@@ -71,7 +71,7 @@ To be added
 
 === Threading
 
-File Name lathe-g76.ngc
+File Name https://github.com/machinekit/machinekit/blob/master/nc_files/lathe-g76.ngc[lathe-g76.ngc]
 
 Description: Facing, threading and parting off.
 
