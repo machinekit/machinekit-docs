@@ -14,54 +14,10 @@ and documentation updates to the Machinekit project.
 Throughout this document, "source" means both the source code to the
 programs and libraries, and the source text for the documentation.
 
-
-== Communication among Machinekit developers
-
-The two main ways that project developers communicate with each other are:
-
-* Via IRC, at #machinekit-devel on FreeNode.
-
-* Via email, on the developers' mailing list:
-  https://lists.sourceforge.net/lists/listinfo/emc-developers
-
-
-== The Machinekit Source Forge project
-
-We use Source Forge for mailing lists and bug tracking.
-
-Our SF mailing lists are here: http://sourceforge.net/p/emc/mailman/
-
-Our SF bug tracker is here: http://sourceforge.net/p/emc/bugs/
-
-
-== The git Revision Control System
-
-All of the Machinekit source is maintained in the revision control system
-git footnote:[http://git-scm.com/].
-
-=== Machinekit official git repo
-
-The official Machinekit git repo is at http://git.machinekit.org.
-
-The anonymous clone command is:
-
-`git clone git://git.machinekit.org/git/machinekit.git machinekit-dev`
-
-If you are a registered developer with push access, the ssh clone
-command is:
-
-`git clone ssh://$YOU@git.machinekit.org/git/machinekit.git machinekit-dev`
-
-Note that both the clone commands put the local Machinekit repo in a
-directory called `machinekit-dev`, instead of the default `machinekit`.
-This is because the Machinekit software by default expects configs and
-G-code programs in a directory called `$HOME/machinekit`, and having the
-git repo there too is confusing.
-
 === Machinekit on github
 
-There is a regularly updated git clone on github:
-https://github.com/jepler/machinekit-mirror
+The main Machinekit git repo is at:
+http://github.com/machinekit/machinekit
 
 === git tutorials
 
@@ -99,26 +55,19 @@ like this:
 * Communicate with the project developers and let us know what you're
   hacking on
 
-* Clone the git repo
+* Fork the git repo into your account at github and clone it locally on your system
 
 * Commit the changes you desire to a local branch
 
-* Share your changes with the other project developers in one of two ways:
+* Push your new branch to your fork and create a Pull Request to the main
+  machinekit repo
 
-** Push your branch to a publicly visible git repo (such as github,
-   bitbucket, your own publicly-accessible server, etc), or
-
-** Email your commits to the emc-developers mailing list (using `git
-   format-patch`)
-
-* Champion your patch
-
-** Explain what problem it addresses and why it should be included
+* Explain what problem it addresses and why it should be included
    in Machinekit
 
-** Be receptive to questions and feedback from the developer community.
+* Be receptive to questions and feedback from the developer community.
 
-** It is not uncommon for a patch to go through several revisions before
+* It is not uncommon for a PR to go through several revisions before
    it is accepted.
 
 
@@ -156,12 +105,6 @@ then a longer message explaining the change.  Example:
     The test "retval < 0" should feel familiar; it's the same kind of
     test you use in userspace (returns -1 for error) and in kernel space
     (returns -ERRNO for error)
-
-=== Commit to the proper branch
-
-Bugfixes should go on the oldest applicable branch.  New features should
-go in the master branch.  If you're not sure where a change belongs,
-ask on irc or on the mailing list.
 
 === Use multiple commits to organize changes
 
@@ -253,9 +196,9 @@ central repository.
 There are many ways  to contribute to Machinekit, that are not addressed
 by this document.  These ways include:
 
-* Answering questions on the forum, mailing lists, and in IRC
+* Answering questions on the forum
 
-* Reporting bugs on the bug tracker, forum, mailing lists, or in IRC
+* Reporting bugs on the forum or github issues
 
 * Helping test experimental features
 
