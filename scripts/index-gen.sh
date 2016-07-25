@@ -20,3 +20,7 @@ for i in docs/man/$1/*.asciidoc ; do
 done
 echo "" >> $DOC
 echo "Automatically generated index at: $(date)" >> $DOC
+echo "" >> $DOC
+echo "Copies of all manual pages are now in package machinekit-manual-pages" >> $DOC
+
+
