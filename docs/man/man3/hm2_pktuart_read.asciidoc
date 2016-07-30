@@ -15,17 +15,17 @@
 
 
 == SYNTAX
-int *hm2_pktuart_read*(char *name,  unsigned char data[], u8 *num_frames, u16 *max_frame_length, u16 frame_sizes[])
+int *hm2_pktuart_read* (char *name,  unsigned char data[], u8 *num_frames, u16 *max_frame_length, u16 frame_sizes[])
 
 
 
 == DESCRIPTION
-`*hm2_pktuart_read*` reads data from the PktUART `name`. 
+`*hm2_pktuart_read*` reads data from the PktUART `name`. +
 `name` is a unique string given to each PktUART instance during hostmot2 setup.
 The names of the available channels are printed to standard output during
-the driver loading process and take the form:
-`hm2_<board name>.<board index>.pktuart.<index>`.
-For example, *hm2_5i25.0.pktuart.0* .
+the driver loading process and take the form: +
+`hm2_<board name>.<board index>.pktuart.<index>`. +
+For example, _hm2_5i25.0.pktuart.0_ .
 
 This function reads a variable number of PktUART packets from the specified 
 channel. It should be used inside a realtime HAL component registered with the 
