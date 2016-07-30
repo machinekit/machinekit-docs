@@ -70,7 +70,7 @@ Negative error codes are:
 
  -1120 - RxPacketSizeZero, the size of the received packet is zero
 
- -1140 - RxArraySizeError, the size of the *data* array is not large enough
+ -1140 - RxArraySizeError, the size of the data array is not large enough
  
 
 
