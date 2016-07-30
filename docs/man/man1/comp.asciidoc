@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= comp(1)
+= comp
 :manmanual: HAL Components
 :mansource: ../man/man1/comp.1.asciidoc
 :man version : 
@@ -58,4 +58,4 @@ __Comp HAL Component Generator__ in the LinuxCNC documentation for a full descri
 
 **pydoc hal** and __Creating Userspace Python Components__ in the LinuxCNC documentation for documentation on the Python interface to HAL components
 
-**comp(9)** for documentation on the "two input comparator with hysteresis", a HAL realtime component with the same name as this program
+**comp** for documentation on the "two input comparator with hysteresis", a HAL realtime component with the same name as this program

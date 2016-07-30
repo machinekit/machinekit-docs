@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= intro(3rtapi)
+= intro:- rtapi
 :manmanual: HAL Components
 :mansource: ../man/man3/intro.3rtapi.asciidoc
 :man version : 
@@ -54,24 +54,24 @@ types, such as INT_MIN and INT_MAX.  This should be used instead of
 == REALTIME CONSIDERATIONS
 .SS Userspace code
 Certain functions are not available in userspace code.  This includes functions
-that perform direct device access such as **rtapi_inb(3)**.
+that perform direct device access such as **rtapi_inb**.
 
 .SS Init/cleanup code
 Certain functions may only be called from realtime init/cleanup code.
 This includes functions that perform memory allocation, such as
-**rtapi_shmem_new(3)**.
+**rtapi_shmem_new**.
 
 .SS Realtime code
 Only a few functions may be called from realtime code.  This includes
-functions that perform direct device access such as **rtapi_inb(3)**.
-It excludes most Linux kernel APIs such as do_gettimeofday(3) and
-many rtapi APIs such as rtapi_shmem_new(3).
+functions that perform direct device access such as **rtapi_inb**.
+It excludes most Linux kernel APIs such as do_gettimeofday and
+many rtapi APIs such as rtapi_shmem_new.
 
 .SS Simulator
 For an RTAPI module to be buildable in the "sim" environment (fake realtime
 system without special privileges), it must not use **any** linux kernel
 APIs, and must not use the RTAPI APIs for direct device access such as
-**rtapi_inb(3)**.  This automatically includes any hardware device drivers,
+**rtapi_inb**.  This automatically includes any hardware device drivers,
 and also devices which use Linux kernel APIs to do things like create
 special devices or entries in the **/proc** filesystem.
 

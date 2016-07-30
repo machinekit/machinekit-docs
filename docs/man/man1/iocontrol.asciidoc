@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= IOCONTROL(1)
+= IOCONTROL
 :manmanual: HAL Components
 :mansource: ../man/man1/iocontrol.1.asciidoc
 :man version : 
@@ -24,7 +24,7 @@ iocontrol -- accepts NML I/O commands, interacts with HAL in userspace
 == DESCRIPTION
 These pins are created by the userspace IO controller, usually found in $LINUXCNC_HOME/bin/io
 .P
-The signals are turned on and off in userspace - if you have strict timing requirements or simply need more i/o, consider using the realtime synchronized i/o provided by **motion**(9) instead.
+The signals are turned on and off in userspace - if you have strict timing requirements or simply need more i/o, consider using the realtime synchronized i/o provided by **motion** instead.
 .P
 The inifile is searched for in the directory from which halcmd was run, unless an absolute path is specified.
 
@@ -91,5 +91,5 @@ The inifile is searched for in the directory from which halcmd was run, unless a
 
 
 == SEE ALSO
-**motion**(9)
+**motion**
 

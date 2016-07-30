@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_set_msg_level(3rtapi)
+= rtapi_set_msg_level
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_set_msg_level.3rtapi.asciidoc
 :man version : 
@@ -46,4 +46,4 @@ returns the current level.
 
 
 == SEE ALSO
-**rtapi_print_msg(3rtapi)**
+**rtapi_print_msg**

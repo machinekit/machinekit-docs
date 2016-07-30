@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= undocumented(3hal)
+= undocumented:- hal
 :manmanual: HAL Components
 :mansource: ../man/man3/undocumented.3hal.asciidoc
 :man version : 

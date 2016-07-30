@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_add_funct_to_thread(3hal)
+= hal_add_funct_to_thread
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_add_funct_to_thread.3hal.asciidoc
 :man version : 
@@ -58,4 +58,4 @@ Call only from realtime init code, not from user space or realtime code.
 
 
 == SEE ALSO
-**hal_thread_new(3hal)**, **hal_export_funct(3hal)**
+**hal_thread_new**, **hal_export_funct**

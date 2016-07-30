@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HALSAMPLER(1)
+= HALSAMPLER
 :manmanual: HAL Components
 :mansource: ../man/man1/halsampler.1.asciidoc
 :man version : 
@@ -19,7 +19,7 @@ halsampler
 
 
 == DESCRIPTION
- sampler (9)
+ sampler
 and
 halsampler
 are used together to sample HAL data in real time and store it in a file.
@@ -68,7 +68,7 @@ to write to **FILENAME** instead of to stdout.
 
 == USAGE
 A FIFO must first be created by loading 
- sampler (9)
+ sampler 
 with 
 halcmd loadrt
 or a
@@ -111,7 +111,7 @@ can be used to determine exactly how many samples were lost.
 The data format for
 halsampler
 output is the same as for
- halstreamer (1)
+ halstreamer 
 input, so 'waveforms' captured with
 halsampler
 can be replayed using
@@ -140,9 +140,9 @@ is not specified, it will always return failure when terminated.
 
 
 == SEE ALSO
- sampler (9)
- streamer (9)
- halstreamer (1)
+ sampler 
+ streamer 
+ halstreamer 
 
 
 

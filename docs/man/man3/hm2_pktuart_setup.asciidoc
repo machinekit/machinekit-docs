@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hm2_pktuart_setup(3hm2)
+= hm2_pktuart_setup
 \# Author Boris Skegin
 \# Issued under the terms of the GPL v2 License or any later version
 :manmanual: HAL Components

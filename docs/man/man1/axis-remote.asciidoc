@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= axis-remote(1)
+= axis-remote
 :manmanual: HAL Components
 :mansource: ../man/man1/axis-remote.1.asciidoc
 :man version : 
@@ -57,7 +57,7 @@ Load the G-code file **FILENAME**.
 
 
 == SEE ALSO
-**axis(1)**
+**axis**
 
 Much more information about Machinekit and HAL is available in the Machinekit
 and HAL User Manuals, found at /usr/share/doc/machinekit/.

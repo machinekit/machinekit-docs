@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HALCMD(1)
+= HALCMD
 .de URL
 \\$2 \(laURL: \\$1 \(ra\\$3
 .if \n[.g] .mso www.tmac
@@ -108,7 +108,7 @@ modules can do this by setting the permissions and group on
 In systems without realtime **halcmd** calls the
 **rtapi_app** which creates the simulated realtime environment
 if it did not yet exist, and then loads the requested component
-with a call to **dlopen(3)**.
+with a call to **dlopen**.
 
 **unloadrt** __modname__
 (__unload__ __r__eal__t__ime module)  Unloads a realtime HAL
@@ -395,6 +395,6 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
 == SEE ALSO
-**halrun(1)** -- a convenience script to start a realtime environment,
+**halrun** -- a convenience script to start a realtime environment,
 process a .hal or a .tcl file, and optionally start an interactive command
-session using **halcmd** (described here) or **haltcl**(1).
+session using **halcmd** (described here) or **haltcl**.

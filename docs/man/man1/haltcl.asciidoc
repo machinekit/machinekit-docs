@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HALTCL(1)
+= HALTCL
 .de URL
 \\$2 \(laURL: \\$1 \(ra\\$3
 .if \n[.g] .mso www.tmac
@@ -58,7 +58,7 @@ is specified, haltcl opens an interactive session.
 
 == COMMANDS
 **haltcl** includes the commands of a tcl interpreter augmented with
-commands for the hal language as described for **halcmd**(1).  The augmented
+commands for the hal language as described for **halcmd**.  The augmented
 commands can be listed with the command:
 
    haltcl: hal --commands
@@ -86,4 +86,4 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
 == SEE ALSO
-**halcmd**(1), **halrun**(1)
+**halcmd**, **halrun**

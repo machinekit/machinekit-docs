@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= intro(3hal)
+= intro:- hal
 :manmanual: HAL Components
 :mansource: ../man/man3/intro.3hal.asciidoc
 :man version : 
@@ -77,7 +77,7 @@ data.
 
 
 == REALTIME CONSIDERATIONS
-For an explanation of realtime considerations, see **intro(3rtapi)**.
+For an explanation of realtime considerations, see **intro**.
 
 
 
@@ -88,4 +88,4 @@ for errors, and nonnegative values for success.
 
 
 == SEE ALSO
-**intro(3rtapi)**
+**intro**

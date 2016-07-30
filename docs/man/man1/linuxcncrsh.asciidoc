@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= linuxcncrsh(1)
+= linuxcncrsh
 :manmanual: HAL Components
 :mansource: ../man/man1/linuxcncrsh.1.asciidoc
 :man version : 
@@ -18,9 +18,9 @@ linuxcncrsh [OPTIONS] [-- LINUXCNC_OPTIONS]
 
 == DESCRIPTION
 **linuxcncrsh\fP is a user interface for LinuxCNC.  Instead of popping up a GUI
-**window like axis(1) and touchy(1) do, it processes text-mode commands
+**window like axis and touchy do, it processes text-mode commands
 that it receives via the network.  A human (or a program) can interface
-with **linuxcncrsh\fP using telnet(1) or nc(1) or similar programs.
+with **linuxcncrsh\fP using telnet or nc or similar programs.
 **.P
 All features of LinuxCNC are available via the **linuxcncrsh\fP interface.
 **

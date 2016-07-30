@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_shmem(3rtapi)
+= rtapi_shmem
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_shmem.3rtapi.asciidoc
 :man version : 

@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HALSTREAMER(1)
+= HALSTREAMER
 :manmanual: HAL Components
 :mansource: ../man/man1/halstreamer.1.asciidoc
 :man version : 
@@ -19,7 +19,7 @@ halstreamer
 
 
 == DESCRIPTION
- streamer (9)
+ streamer 
 and
 halstreamer
 are used together to stream data from a file into the HAL in real time.
@@ -53,7 +53,7 @@ to read from **FILENAME** instead of from stdin.
 
 == USAGE
 A FIFO must first be created by loading 
- streamer (9)
+ streamer 
 with 
 halcmd loadrt
 or a
@@ -71,11 +71,11 @@ streamer
 config string was "ffbs" then each
 line of input must consist of two floats, a bit, and a signed integer, in that
 order and separated by whitespace.  Floats must be formatted as required by
- strtod (3),
+ strtod ,
 signed and unsigned integers must be formated as required by
- strtol (3)
+ strtol 
 and
- strtoul (3),
+ strtoul ,
 and bits must be either '0' or '1'.
 .P
 halstreamer
@@ -90,7 +90,7 @@ can be restarted with the same or a new file before the FIFO empties, resulting 
 The data format for
 halstreamer
 input is the same as for
- halsampler (1)
+ halsampler
 output, so 'waveforms' captured with
 halsampler
 can be replayed using
@@ -112,9 +112,9 @@ from the input, it returns success.  If it is terminated before the input ends, 
 
 
 == SEE ALSO
- streamer (9)
- sampler (9)
- halsampler (1)
+ streamer 
+ sampler 
+ halsampler
 
 
 

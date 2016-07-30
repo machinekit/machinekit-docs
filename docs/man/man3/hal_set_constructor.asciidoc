@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_set_constructor(3hal)
+= hal_set_constructor
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_set_constructor.3hal.asciidoc
 :man version : 
@@ -47,4 +47,4 @@ Returns a HAL status code.
 
 
 == SEE ALSO
-**halcmd(1)**
+**halcmd**

@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_task_pause(3rtapi)
+= rtapi_task_pause
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_task_pause.3rtapi.asciidoc
 :man version : 
@@ -63,4 +63,4 @@ An RTAPI status code.
 
 
 == SEE ALSO
-**rtapi_task_new(3rtapi)**, **rtapi_task_start(3rtapi)**
+**rtapi_task_new**, **rtapi_task_start**

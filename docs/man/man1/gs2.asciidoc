@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= gs2_vfd(1)
+= gs2_vfd
 :manmanual: HAL Components
 :mansource: ../man/man1/gs2.1.asciidoc
 :man version : 
