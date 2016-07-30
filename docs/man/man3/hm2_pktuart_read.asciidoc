@@ -73,6 +73,7 @@ Negative error codes are:
  -1140 - RxArraySizeError, the size of the data array is not large enough
  
 {empty} +
+{empty} +
 
 == SEE ALSO
 
