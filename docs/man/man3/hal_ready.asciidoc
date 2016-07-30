@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= funct(3hal)
+= hal_ready
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_ready.3hal.asciidoc
 :man version : 

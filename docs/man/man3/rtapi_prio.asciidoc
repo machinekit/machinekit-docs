@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_prio(3rtapi)
+= rtapi_prio
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_prio.3rtapi.asciidoc
 :man version : 
@@ -62,4 +62,4 @@ Returns an opaque real-time priority number.
 
 
 == SEE ALSO
-**rtapi_task_new(3rtapi)**
+**rtapi_task_new**

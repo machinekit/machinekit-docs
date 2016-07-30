@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_print(3rtapi)
+= rtapi_print
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_print.3rtapi.asciidoc
 :man version : 
@@ -35,7 +35,7 @@ actually output the message.
 
 .IP __fmt
 __.IP __...
-__Other arguments are as for __printf(3)__.
+__Other arguments are as for __printf__.
 
 
 
@@ -71,5 +71,5 @@ None.
 
 
 == SEE ALSO
-**rtapi_set_msg_level(3rtapi)**, **rtapi_get_msg_level(3rtapi)**,
-**printf(3)**
+**rtapi_set_msg_level**, **rtapi_get_msg_level**,
+**printf**

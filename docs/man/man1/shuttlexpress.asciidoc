@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= SHUTTLEXPRESS(1)
+= SHUTTLEXPRESS
 :manmanual: HAL Components
 :mansource: ../man/man1/shuttlexpress.1.asciidoc
 :man version : 

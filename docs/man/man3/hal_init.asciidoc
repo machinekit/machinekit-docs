@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_init(3hal)
+= hal_init
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_init.3hal.asciidoc
 :man version : 

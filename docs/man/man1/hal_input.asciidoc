@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HAL_INPUT(1)
+= HAL_INPUT
 :manmanual: HAL Components
 :mansource: ../man/man1/hal_input.1.asciidoc
 :man version : 

@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_snprintf(3rtapi)
+= rtapi_snprintf
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_snprintf.3rtapi.asciidoc
 :man version : 
@@ -22,7 +22,7 @@ __
 
 
 == ARGUMENTS
-As for __snprintf(3)__ or __vsnprintf(3)__.
+As for __snprintf__ or __vsnprintf__.
 
 
 
@@ -47,4 +47,4 @@ The number of characters written to __buf__.
 
 
 == SEE ALSO
-**printf(3)**
+**printf**

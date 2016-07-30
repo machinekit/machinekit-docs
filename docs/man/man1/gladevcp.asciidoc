@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= GLADEVCP(1)
+= GLADEVCP
 :manmanual: HAL Components
 :mansource: ../man/man1/gladevcp.1.asciidoc
 :man version : 

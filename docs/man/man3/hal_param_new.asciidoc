@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_param_new(3hal)
+= hal_param_new
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_param_new.3hal.asciidoc
 :man version : 
@@ -58,7 +58,7 @@ __fmt,\ ...__
 A printf-style format string and arguments
 
 __type__
-The type of the parameter, as specified in **hal_type_t(3hal)**.
+The type of the parameter, as specified in **hal_type_t**.
 
 
 
@@ -75,4 +75,4 @@ Returns a HAL status code.
 
 
 == SEE ALSO
-**hal_type_t(3hal)**
+**hal_type_t**

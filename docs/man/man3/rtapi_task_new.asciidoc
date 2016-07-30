@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_task_new(3rtapi)
+= rtapi_task_new
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_task_new.3rtapi.asciidoc
 :man version : 
@@ -61,5 +61,5 @@ returns an RTAPI status code.
 
 
 == SEE ALSO
-**rtapi_prio(3rtapi)**, **rtapi_task_start(3rtapi)**, **rtapi_task_wait(3rtapi)**, **rtapi_task_resume(3rtapi)
+**rtapi_prio**, **rtapi_task_start**, **rtapi_task_wait**, **rtapi_task_resume
 **

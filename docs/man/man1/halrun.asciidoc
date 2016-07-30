@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= HALRUN(1)
+= HALRUN
 
 :manmanual: HAL Components
 :mansource: ../man/man1/halrun.1.asciidoc
@@ -33,8 +33,8 @@ Abstraction Layer) from the command line.  When invoked, **halrun**:
     Tears down the realtime environment.
 
     If no filename is specified, an interactive session is started.
-    The session will use **halcmd**(1) unless -T is specified in
-    which case **haltcl**(1) will be used.
+    The session will use **halcmd** unless -T is specified in
+    which case **haltcl** will be used.
 
     If a filename is specifed and neither the -I nor the -T option
     is included, the filename will be processed by the command
@@ -53,7 +53,7 @@ Abstraction Layer) from the command line.  When invoked, **halrun**:
 
 **halcmd_opts**
 When a .hal file is specifed, the **halcmd_opts** are
-passed to **halcmd**.  See the man page for **halcmd**(1).
+passed to **halcmd**.  See the man page for **halcmd**.
 When a .tcl file is specified, the only valid options are:
     -i inifile
     -f filename[.tcl|.hal]  (alternate means of specifying a file)
@@ -97,4 +97,4 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
 == SEE ALSO
-**halcmd**(1), **haltcl**(1)
+**halcmd**, **haltcl**

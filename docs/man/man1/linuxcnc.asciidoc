@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= LinuxCNC(1)
+= LinuxCNC
 :manmanual: HAL Components
 :mansource: ../man/man1/linuxcnc.1.asciidoc
 :man version : 
@@ -76,7 +76,7 @@ The config chooser is currently set to search the path:
 
 
 == SEE ALSO
-**halcmd(1)**
+**halcmd**
 
 Much more information about LinuxCNC and HAL is available in the LinuxCNC
 and HAL User Manuals, found at /usr/share/doc/linuxcnc/.

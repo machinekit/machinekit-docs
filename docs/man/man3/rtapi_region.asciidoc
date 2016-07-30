@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_region(3rtapi)
+= rtapi_region
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_region.3rtapi.asciidoc
 :man version : 

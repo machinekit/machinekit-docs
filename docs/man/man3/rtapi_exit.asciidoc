@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_exit(3rtapi)
+= rtapi_exit
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_exit.3rtapi.asciidoc
 :man version : 

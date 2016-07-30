@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= axis-remote(1)
+= axis-remote
 :manmanual: HAL Components
 :mansource: ../man/man1/axis-remote.1.asciidoc
 :man version : 
@@ -57,7 +57,7 @@ Load the G-code file **FILENAME**.
 
 
 == SEE ALSO
-**axis(1)**
+**axis**
 
 Much more information about Machinekit and HAL is available in the Machinekit
 and HAL User Manuals, found at /usr/share/doc/machinekit/.
@@ -75,25 +75,24 @@ None
 
 
 None known at this time. 
-.PP
 
 
 
 == AUTHOR
 
 
-This man page written by Alex Joni, as part of the Machinekit project.
+This man page was written by Alex Joni, for Linuxcnc and is now part of the Machinekit project.
 
 
 
 == REPORTING BUGS
-Report bugs to alex_joni AT users DOT sourceforge DOT net
+Report bugs via the machinekit forum at https://groups.google.com/forum/#!forum/machinekit
 
 
 
 == COPYRIGHT
 
 
-Copyright \(co 2007 Alex Joni.
+Copyright (c) 2007 Alex Joni.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

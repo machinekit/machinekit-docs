@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= undocumented(3hal)
+= undocumented:- hal
 :manmanual: HAL Components
 :mansource: ../man/man3/undocumented.3hal.asciidoc
 :man version : 
@@ -15,5 +15,8 @@ undocumented -- undocumented functions in HAL
 
 
 == SEE ALSO
-The header file __hal.h__.  Most hal functions have documentation
-in that file.
+The header file __hal.h__.  
+
+https://github.com/machinekit/machinekit/blob/master/src/hal/lib/hal.h
+
+Most hal functions have documentation in that file.

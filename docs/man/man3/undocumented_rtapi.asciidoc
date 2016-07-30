@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= undocumented(3rtapi)
+= undocumented:-  rtai
 :manmanual: HAL Components
 :mansource: ../man/man3/undocumented.3rtapi.asciidoc
 :man version : 
@@ -15,5 +15,8 @@ undocumented -- undocumented functions in RTAPI
 
 
 == SEE ALSO
-The header file __rtapi.h__.  Most rtapi functions have documentation
-in that file.
+See the header file __rtapi.h__.  
+
+https://github.com/machinekit/machinekit/blob/master/src/rtapi/rtapi.h
+
+Most rtapi functions have documentation in that file.

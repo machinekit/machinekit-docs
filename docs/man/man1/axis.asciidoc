@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= AXIS(1)
+= AXIS
 :manmanual: HAL Components
 :mansource: ../man/man1/axis.1.asciidoc
 :man version : 
@@ -35,7 +35,7 @@ together. It can adjust a lot of parameters itself, but it also tells
 
 
 == SEE ALSO
-**LinuxCNC(1)**
+**LinuxCNC**
 
 Much more information about LinuxCNC and HAL is available in the LinuxCNC
 and HAL User Manuals, found at /usr/share/doc/LinuxCNC/.

@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= vfdb_vfd(1)
+= vfdb_vfd
 :manmanual: HAL Components
 :mansource: ../man/man1/vfdb_vfd.1.asciidoc
 :man version : 

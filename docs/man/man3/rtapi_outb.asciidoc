@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= rtapi_outb(3rtapi)
+= rtapi_outb
 :manmanual: HAL Components
 :mansource: ../man/man3/rtapi_outb.3rtapi.asciidoc
 :man version : 
@@ -53,4 +53,4 @@ kernel might attempt to access the I/O region at the same time.
 
 
 == SEE ALSO
-**rtapi_region(3rtapi)**
+**rtapi_region**

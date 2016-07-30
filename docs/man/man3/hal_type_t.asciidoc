@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_type_t(3hal)
+= hal_type_t
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_type_t.3hal.asciidoc
 :man version : 
@@ -89,4 +89,4 @@ using simulated (userspace) realtime.
 
 
 == SEE ALSO
-**hal_pin_new(3hal)**, **hal_param_new(3hal)**
+**hal_pin_new**, **hal_param_new**

@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_signal_new(3hal)
+= hal_signal_new
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_signal_new.3hal.asciidoc
 :man version : 
@@ -32,7 +32,7 @@ The name of the signal
 The name of the pin
 
 .IP __type__
-The type of the signal, as specified in **hal_type_t(3hal)**.
+The type of the signal, as specified in **hal_type_t**.
 
 
 
@@ -64,4 +64,4 @@ Returns a HAL status code.
 
 
 == SEE ALSO
-**hal_type_t(3hal)**
+**hal_type_t**

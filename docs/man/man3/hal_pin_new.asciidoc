@@ -2,7 +2,7 @@
 ---
 :skip-front-matter:
 
-= hal_pin_new(3hal)
+= hal_pin_new
 :manmanual: HAL Components
 :mansource: ../man/man3/hal_pin_new.3hal.asciidoc
 :man version : 
@@ -59,7 +59,7 @@ A HAL component identifier returned by an earlier call to **hal_init**.
 A printf-style format string and arguments
 
 .IP __type__
-The type of the param, as specified in **hal_type_t(3hal)**.
+The type of the param, as specified in **hal_type_t**.
 
 
 
@@ -80,4 +80,4 @@ Returns a HAL status code.
 
 
 == SEE ALSO
-**hal_type_t(3hal)**, **hal_link(3hal)**
+**hal_type_t**, **hal_link**
