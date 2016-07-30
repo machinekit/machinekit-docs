@@ -75,25 +75,24 @@ None
 
 
 None known at this time. 
-.PP
 
 
 
 == AUTHOR
 
 
-This man page written by Alex Joni, as part of the Machinekit project.
+This man page was written by Alex Joni, for Linuxcnc and is now part of the Machinekit project.
 
 
 
 == REPORTING BUGS
-Report bugs to alex_joni AT users DOT sourceforge DOT net
+Report bugs via the machinekit forum at https://groups.google.com/forum/#!forum/machinekit
 
 
 
 == COPYRIGHT
 
 
-Copyright \(co 2007 Alex Joni.
+Copyright (c) 2007 Alex Joni.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
