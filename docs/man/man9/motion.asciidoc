@@ -1,4 +1,8 @@
-= MOTION(9)
+---
+---
+:skip-front-matter:
+
+= MOTION
 :manmanual: HAL Components
 :mansource: ../man/man9/motion.9.asciidoc
 :man version : 
@@ -694,4 +698,4 @@ Runs the LinuxCNC motion controller
 This manual page is horribly incomplete.
 
 == SEE ALSO
-iocontrol(1)
+iocontrol
