@@ -68,7 +68,7 @@ check back here before installing a new kernel.
 
 :leveloffset: +2
 
-- link:../APT-packages-jessie[APT Packages for Jessie]
+- link:../APT-packages-raspbian[APT Packages for Raspbian]
 
 - link:../install-rt-kernel-RPi2[Install the kernel]
 
