@@ -10,66 +10,70 @@
 
 
 == NAME
-halrun -- manipulate the LinuxCNC HAL from the command line
+**halrun**-- manipulate the LinuxCNC HAL from the command line
 
 
 == SYNOPSIS
-halrun __-h__
+**halrun**__-h__
 
-halrun [__-I__] [__halcmd_opts__] [__filename[.hal|.tcl]__]
+**halrun**[__-I__] [__halcmd_opts__] [__filename[.hal|.tcl]__]
 
-halrun __-T__ [__halcmd_opts__] [__filename[.hal|.tcl]__]
+**halrun**__-T__ [__halcmd_opts__] [__filename[.hal|.tcl]__]
 
-halrun __-U__
+**halrun**__-U__
 
 
 == DESCRIPTION
 **halrun** is a convenience script used to manipulate the HAL (Hardware
-Abstraction Layer) from the command line.  When invoked, **halrun**:
+Abstraction Layer) from the command line.  
 
-    Sets up the realtime environment.
-    Executes a command interpreter (**halcmd** or **haltcl**).
-    (Optionally) runs an interactive session.
-    Tears down the realtime environment.
+When invoked, **halrun**:
 
-    If no filename is specified, an interactive session is started.
-    The session will use **halcmd** unless -T is specified in
-    which case **haltcl** will be used.
+Sets up the realtime environment. +
+Executes a command interpreter (**halcmd** or **haltcl**). +
+(Optionally) runs an interactive session. +
+Tears down the realtime environment. +
 
-    If a filename is specifed and neither the -I nor the -T option
-    is included, the filename will be processed by the command
-    interpreter corresponding to the filename extension (**halcmd**
-    or **haltcl**).  After processing, the realtime environment
-    will be torn down.
+If no filename is specified, an interactive session is started. +
+The session will use **halcmd** unless __-T__ is specified in
+which case **haltcl** will be used. +
 
-    If a filename is specifed and the -I or -T option is included,
-    the file is processed by the appropriate command interpreter and
-    then an interactive session is started for **halcmd** or
-    **haltcl** according to the -I or -T option.
+If a filename is specifed and neither the __-I__ nor the __-T__ option
+is included, the filename will be processed by the command
+interpreter corresponding to the filename extension (**halcmd**
+or **haltcl**). +  After processing, the realtime environment
+will be torn down. +
+
+If a filename is specifed and the __-I__ or __-T__ option is included,
+the file is processed by the appropriate command interpreter and
+then an interactive session is started for **halcmd** or
+**haltcl** according to the __-I__ or __-T__ option. +
 
 
 
 == OPTIONS
 
-**halcmd_opts**
+**halcmd_opts** +
 When a .hal file is specifed, the **halcmd_opts** are
-passed to **halcmd**.  See the man page for **halcmd**.
-When a .tcl file is specified, the only valid options are:
-    -i inifile
-    -f filename[.tcl|.hal]  (alternate means of specifying a file)
+passed to **halcmd**. +
+See http://www.machinekit.io/docs/man/man1/halcmd
 
-**-I**
+When a .tcl file is specified, the only valid options are: +
+    -i inifile + 
+    -f filename[.tcl|.hal]  (alternate means of specifying a file) +
+
+**-I** +
 Run an interactive **halcmd** session
 
-**-T**
+**-T** +
 Run an interactive **haltcl** session.
 
-**-U**
+**-U** +
 Forcibly cause the realtime environment to exit.  It releases the HAL mutex,
 requests that all HAL components unload, and stops the realtime system.
 **-U** must be the only commandline argument.
 
-**--h**
+**--h** +
 display a brief help screen and exit
 
 
