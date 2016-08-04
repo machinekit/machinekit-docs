@@ -9,7 +9,7 @@
 
 
 == NAME
-gladevcp -- Virtual Control Panel for LinuxCNC based on Glade, Gtk and HAL widgets
+gladevcp -- Virtual Control Panel for Machinekit based on Glade, Gtk and HAL widgets
 
 
 == SYNOPSIS
@@ -68,5 +68,9 @@ matches in gtk theme and gtkrc files fail. Normally not needed.
 
 
 == SEE ALSO
-__GladeVCP__ in the LinuxCNC documentation for a description of gladevcp's capabilities
-and the associated HAL widget set, along with examples
+__GladeVCP__ in the Machinekit documentation for a description of gladevcp's capabilities
+and the associated HAL widget set, along with examples +
+http://www.machinekit.io/docs/gui/gladevcp/
+
+
+
