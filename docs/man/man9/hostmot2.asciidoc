@@ -121,6 +121,7 @@ The valid entries in the format string are:
 
 * [**firmware=**__F__]
 * [**num_encoders=**__N__]
+* [**num_mencoders=**__N__]
 * [**ssi_chan_**__N__**=**__abc%nq__]
 * [**biss_chan_**__N__**=**__abc%nq__]
 * [**fanuc_chan_**__N__**=**__abc%nq__]
@@ -159,7 +160,12 @@ timer channels, so the other valid numbers are -1 (enable all) and 1, both of
 which end up meaning the same thing.
 
 === **num_encoders** [optional, default: -1]
-Only enable the first N encoders.  If N is -1, all encoders are enabled.
+Only enable the first N normal (non-multiplexed) encoders.  If N is -1, all encoders are enabled.
+If N is 0, no encoders are enabled.  If N is greater than the number of
+encoders available in the firmware, the board will fail to register.
+
+=== **num_mencoders** [optional, default: -1]
+Only enable the first N multiplexed encoders.  If N is -1, all muxed encoders are enabled.
 If N is 0, no encoders are enabled.  If N is greater than the number of
 encoders available in the firmware, the board will fail to register.
 
@@ -321,7 +327,7 @@ Used internally by the driver, likely to disappear.
 Prescale factor for the rate generator. Default 1. 
 ====
 
-== encoder
+== encoder, muxed encoder
 Encoders have names like "hm2___<BoardType>__.__<BoardNum>__.encoder.__<Instance>__".
 "Instance" is a two-digit number that corresponds to the HostMot2 encoder
 instance number.  There are 'num_encoders' instances, starting with 00.
