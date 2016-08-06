@@ -4,7 +4,7 @@
 
 = SHUTTLEXPRESS
 :manmanual: HAL Components
-:mansource: ../man/man1/shuttlexpress.1.asciidoc
+:mansource: ../man/man1/shuttlexpress.asciidoc
 :man version : 
 
 

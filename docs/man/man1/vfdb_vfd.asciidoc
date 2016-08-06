@@ -4,7 +4,7 @@
 
 = vfdb_vfd
 :manmanual: HAL Components
-:mansource: ../man/man1/vfdb_vfd.1.asciidoc
+:mansource: ../man/man1/vfdb_vfd.asciidoc
 :man version : 
 
 

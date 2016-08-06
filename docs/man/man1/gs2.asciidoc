@@ -4,7 +4,7 @@
 
 = gs2_vfd
 :manmanual: HAL Components
-:mansource: ../man/man1/gs2.1.asciidoc
+:mansource: ../man/man1/gs2.asciidoc
 :man version : 
 
 

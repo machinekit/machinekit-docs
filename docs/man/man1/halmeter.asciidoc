@@ -4,7 +4,7 @@
 
 = HALMETER
 :manmanual: HAL Components
-:mansource: ../man/man1/halmeter.1.asciidoc
+:mansource: ../man/man1/halmeter.asciidoc
 :man version : 
 
 
