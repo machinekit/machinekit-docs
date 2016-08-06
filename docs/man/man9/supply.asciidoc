@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= SUPPLY(9)
+= SUPPLY
 :manmanual: HAL Components
-:mansource: ../man/man9/supply.9.asciidoc
+:mansource: ../man/man9/supply.asciidoc
 :man version : 
 
 

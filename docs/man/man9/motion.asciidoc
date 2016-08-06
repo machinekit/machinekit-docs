@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= MOTION(9)
+= MOTION
 :manmanual: HAL Components
-:mansource: ../man/man9/motion.9.asciidoc
+:mansource: ../man/man9/motion.asciidoc
 :man version : 
 
 
@@ -440,4 +440,4 @@ This manual page is horribly incomplete.
 
 
 == SEE ALSO
-iocontrol(1)
+iocontrol

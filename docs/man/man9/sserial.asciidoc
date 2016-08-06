@@ -2,11 +2,9 @@
 ---
 :skip-front-matter:
 
-= SSERIAL(9)
-\# Author Andy Pugh
-\# Issued under the terms of the GPL v2 License or any later version
+= SSERIAL
 :manmanual: HAL Components
-:mansource: ../man/man9/sserial.9.asciidoc
+:mansource: ../man/man9/sserial.asciidoc
 :man version : 
 
 

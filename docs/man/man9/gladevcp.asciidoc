@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= gladevcp(9)
+= gladevcp
 :manmanual: HAL Components
-:mansource: ../man/man9/gladevcp.9.asciidoc
+:mansource: ../man/man9/gladevcp.asciidoc
 :man version : 
 
 == NAME

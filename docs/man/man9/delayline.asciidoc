@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= DELAYLINE(9)
+= DELAYLINE
 :manmanual: HAL Components
-:mansource: ../man/man9/delayline.9.asciidoc
+:mansource: ../man/man9/delayline.asciidoc
 :man version : 
 
 == NAME

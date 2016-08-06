@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= HM2_PCI(9)
+= HM2_PCI
 :manmanual: HAL Components
-:mansource: ../man/man9/hm2_pci.9.asciidoc
+:mansource: ../man/man9/hm2_pci.asciidoc
 :man version : 
 
 == NAME
@@ -33,7 +33,7 @@ in the __config modparam__ section.
 
 
 == SEE ALSO
-hostmot2(9)
+hostmot2
 
 
 == LICENSE

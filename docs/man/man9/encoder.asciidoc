@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= ENCODER(9)
+= ENCODER
 :manmanual: HAL Components
-:mansource: ../man/man9/encoder.9.asciidoc
+:mansource: ../man/man9/encoder.asciidoc
 :man version : 
 
 == NAME

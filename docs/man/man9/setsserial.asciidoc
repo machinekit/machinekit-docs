@@ -2,11 +2,9 @@
 ---
 :skip-front-matter:
 
-= SETSERIAL(9)
-\# Author Andy Pugh
-\# Issued under the terms of the GPL v2 License or any later version
+= SETSERIAL
 :manmanual: HAL Components
-:mansource: ../man/man9/setsserial.9.asciidoc
+:mansource: ../man/man9/setsserial.asciidoc
 :man version : 
 
 

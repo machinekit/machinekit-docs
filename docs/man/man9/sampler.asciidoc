@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= SAMPLER(9)
+= SAMPLER
 :manmanual: HAL Components
-:mansource: ../man/man9/sampler.9.asciidoc
+:mansource: ../man/man9/sampler.asciidoc
 :man version : 
 
 
@@ -128,9 +128,9 @@ option. (see
 
 
 == SEE ALSO
- halsampler (1)
- streamer (9)
- halstreamer (1)
+ halsampler
+ streamer
+ halstreamer
 
 
 

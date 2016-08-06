@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= LCD(9)
+= LCD
 :manmanual: HAL Components
-:mansource: ../man/man9/lcd.9.asciidoc
+:mansource: ../man/man9/lcd.asciidoc
 :man version : 
 
 == NAME

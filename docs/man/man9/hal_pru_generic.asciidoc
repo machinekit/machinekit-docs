@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= HAL_PRU_GENERIC(9)
+= HAL_PRU_GENERIC
 :manmanual: HAL Components
-:mansource: ../man/man9/hal_pru_generic.9.asciidoc
+:mansource: ../man/man9/hal_pru_generic.asciidoc
 :man version : 
 
 == NAME

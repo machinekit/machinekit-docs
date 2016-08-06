@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= HM2_7I43(9)
+= HM2_7I43
 :manmanual: HAL Components
-:mansource: ../man/man9/hm2_7i43.9.asciidoc
+:mansource: ../man/man9/hm2_7i43.asciidoc
 :man version : 
 
 == NAME
@@ -110,7 +110,7 @@ Access to the EPP bus is not threadsafe: only one realtime thread may
 access the EPP bus.
 
 == SEE ALSO
-hostmot2(9)
+hostmot2
 
 == LICENSE
 GPL
