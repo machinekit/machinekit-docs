@@ -557,4 +557,9 @@ Parameters:
 
 TODO: Add 7i77, 7i66, 7i72, 7i83, 7i84, 7i87. 
 
+== LICENSE
+GPL
 
+
+== AUTHOR
+Andy Pugh

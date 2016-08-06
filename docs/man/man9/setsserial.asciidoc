@@ -117,3 +117,7 @@ feedback terminal after the loadrt hm2_pci step of the sequence.
 == LICENSE
 
 GPL
+
+
+== AUTHOR
+Andy Pugh
