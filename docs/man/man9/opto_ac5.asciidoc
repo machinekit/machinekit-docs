@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= OPTO_AC5(9)
+= OPTO_AC5
 :manmanual: HAL Components
-:mansource: ../man/man9/opto_ac5.9.asciidoc
+:mansource: ../man/man9/opto_ac5.asciidoc
 :man version : 
 
 

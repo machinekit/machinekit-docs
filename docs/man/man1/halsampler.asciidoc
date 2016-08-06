@@ -4,7 +4,7 @@
 
 = HALSAMPLER
 :manmanual: HAL Components
-:mansource: ../man/man1/halsampler.1.asciidoc
+:mansource: ../man/man1/halsampler.asciidoc
 :man version : 
 
 

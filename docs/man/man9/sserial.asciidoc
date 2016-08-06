@@ -2,11 +2,9 @@
 ---
 :skip-front-matter:
 
-= SSERIAL(9)
-\# Author Andy Pugh
-\# Issued under the terms of the GPL v2 License or any later version
+= SSERIAL
 :manmanual: HAL Components
-:mansource: ../man/man9/sserial.9.asciidoc
+:mansource: ../man/man9/sserial.asciidoc
 :man version : 
 
 
@@ -559,4 +557,9 @@ Parameters:
 
 TODO: Add 7i77, 7i66, 7i72, 7i83, 7i84, 7i87. 
 
+== LICENSE
+GPL
 
+
+== AUTHOR
+Andy Pugh

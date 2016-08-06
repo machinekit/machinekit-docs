@@ -5,7 +5,7 @@
 = HALRUN
 
 :manmanual: HAL Components
-:mansource: ../man/man1/halrun.1.asciidoc
+:mansource: ../man/man1/halrun.asciidoc
 :man version : 
 
 

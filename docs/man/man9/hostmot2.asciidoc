@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= HOSTMOT2(9)
+= HOSTMOT2
 :manmanual: HAL Components
-:mansource: ../man/man9/hostmot2.9.asciidoc
+:mansource: ../man/man9/hostmot2.asciidoc
 :man version : 
 
 == NAME
@@ -1588,8 +1588,8 @@ it is better to use the synchronous hm2dpll triggering function.
 ==== 
 
 == SEE ALSO
-* hm2_7i43(9)
-* hm2_pci(9)
+* hm2_7i43
+* hm2_pci
 * Mesa's documentation for the Anything I/O boards, at <http://www.mesanet.com>
 
 == LICENSE

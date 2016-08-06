@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= STEPGEN(9)
+= STEPGEN
 :manmanual: HAL Components
-:mansource: ../man/man9/stepgen.9.asciidoc
+:mansource: ../man/man9/stepgen.asciidoc
 :man version : 
 
 

@@ -4,7 +4,7 @@
 
 = axis-remote
 :manmanual: HAL Components
-:mansource: ../man/man1/axis-remote.1.asciidoc
+:mansource: ../man/man1/axis-remote.asciidoc
 :man version : 
 
 

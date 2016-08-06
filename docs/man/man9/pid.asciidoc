@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= PID(9)
+= PID
 :manmanual: HAL Components
-:mansource: ../man/man9/pid.9.asciidoc
+:mansource: ../man/man9/pid.asciidoc
 :man version : 
 
 

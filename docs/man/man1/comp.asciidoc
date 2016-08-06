@@ -4,7 +4,7 @@
 
 = comp
 :manmanual: HAL Components
-:mansource: ../man/man1/comp.1.asciidoc
+:mansource: ../man/man1/comp.asciidoc
 :man version : 
 
 

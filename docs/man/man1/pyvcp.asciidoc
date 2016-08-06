@@ -4,7 +4,7 @@
 
 = PYVCP
 :manmanual: HAL Components
-:mansource: ../man/man1/pyvcp.1.asciidoc
+:mansource: ../man/man1/pyvcp.asciidoc
 :man version : 
 
 

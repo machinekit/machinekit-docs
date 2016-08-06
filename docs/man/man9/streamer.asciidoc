@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= STREAMER(9)
+= STREAMER
 :manmanual: HAL Components
-:mansource: ../man/man9/streamer.9.asciidoc
+:mansource: ../man/man9/streamer.asciidoc
 :man version : 
 
 
@@ -110,10 +110,9 @@ command.
 
 
 == SEE ALSO
- halstreamer (1)
- sampler (9)
- halsampler (1)
-
+ halstreamer
+ sampler
+ halsampler
 
 
 == HISTORY

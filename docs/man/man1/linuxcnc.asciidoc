@@ -4,7 +4,7 @@
 
 = LinuxCNC
 :manmanual: HAL Components
-:mansource: ../man/man1/linuxcnc.1.asciidoc
+:mansource: ../man/man1/linuxcnc.asciidoc
 :man version : 
 
 

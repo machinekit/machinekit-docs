@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= LINEARDELTAKINS(9)
+= LINEARDELTAKINS
 :manmanual: HAL Components
-:mansource: ../man/man9/lineardeltakins.9.asciidoc
+:mansource: ../man/man9/lineardeltakins.asciidoc
 :man version : 
 
 == NAME

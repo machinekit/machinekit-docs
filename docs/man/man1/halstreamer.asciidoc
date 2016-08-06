@@ -4,7 +4,7 @@
 
 = HALSTREAMER
 :manmanual: HAL Components
-:mansource: ../man/man1/halstreamer.1.asciidoc
+:mansource: ../man/man1/halstreamer.asciidoc
 :man version : 
 
 

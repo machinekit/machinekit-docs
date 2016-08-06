@@ -4,7 +4,7 @@
 
 = HAL_INPUT
 :manmanual: HAL Components
-:mansource: ../man/man1/hal_input.1.asciidoc
+:mansource: ../man/man1/hal_input.asciidoc
 :man version : 
 
 

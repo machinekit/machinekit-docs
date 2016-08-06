@@ -4,7 +4,7 @@
 
 = HALCMD
 :manmanual: HAL Components
-:mansource: ../man/man1/halcmd.1.asciidoc
+:mansource: ../man/man1/halcmd.asciidoc
 :man version : 
 
 
