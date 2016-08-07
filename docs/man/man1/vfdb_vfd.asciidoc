@@ -2,106 +2,112 @@
 ---
 :skip-front-matter:
 
-= vfdb_vfd
+= **vfdb_vfd**
 :manmanual: HAL Components
 :mansource: ../man/man1/vfdb_vfd.asciidoc
 :man version : 
 
-
-
 == NAME
 **vfdb_vfd** - HAL userspace component for Delta VFD-B Variable Frequency Drives
 
-
-
 == SYNOPSIS
-vfdb_vfd
-.RI [OPTIONS]
+**vfdb_vfd** __[OPTIONS]__
 
 
 
 == DESCRIPTION
-This manual page explains the
-vfdb_vfd
+This manual page explains the **vfdb_vfd**
 component. This component reads and writes to the VFD-B device via a
 Modbus connection.
-.PP
-**vfdb_vfd\fP is for use with LinuxCNC.
-**
 
+**vfdb_vfd** is for use with Machinekit.
 
 == QUICK START
-The VFD-B ships in a configuration that can not talk to this driver.
+The VFD-B ships in a configuration that cannot talk to this driver. +
 The VFD-B must be reconfigured via the face plate by the integrator
-before it will work.  This section gives a brief description of what
-changes need to be made, consult your Delta VFD-B manual for more details.
-.RS
+before it will work. +
+This section gives a brief description of what changes need to be made, consult your Delta VFD-B manual for more details.
 
-Switch the VFD-B to Modbus RTU frame format:
+
+Switch the VFD-B to Modbus RTU frame format: +
 Switch parameter 09-04 from the factory default of 0 (Ascii framing)
-to 3, 4, or 5 (RTU framing).  The setting you choose will determine
+to 3, 4, or 5 (RTU framing).  +
+The setting you choose will determine
 several serial parameters in addition to the Modbus framing protocol.
 
-Set the frequency control source to be Modbus, not the keypad:
+Set the frequency control source to be Modbus, not the keypad: +
 Switch parameter 02-00 from factory default of 00 (keypad control) to 5
 (control from RS-485).
 
-Set the run/stop control source to be Modbus, not the keypad:
+Set the run/stop control source to be Modbus, not the keypad: +
 Switch parameter 02-01 from the factory default of 0 (control from keypad)
 to 3 (control from Modbus, with Stop enabled on the keypad).
-.RE
-
 
 
 == OPTIONS
-.IP -n\ --name\ <halname>
+**-n, --name** __<halname>__ +
 set the HAL component name
-.IP -d\ --debug
+
+**-d, --debug** +
 Turn on debugging messages. Also toggled by sending a USR1 signal to the
-vfdb_vfd process.
-.IP -m\ --modbus-debug
+**vfdb_vfd** process.
+
+**m, --modbus-debug** +
 Turn on Modbus debugging messages. This will cause all Modbus messages to
 be printed in hex on the terminal.  Also toggled by sending a USR2 signal
-to the vfdb_vfd process.
-.IP -I\ --ini\ <inifilename>
+to the **vfdb_vfd** process.
+
+**-I, --ini** __<inifilename>__ +
 take configuration from this ini
-file. Defaults to environment variable INI_FILE_NAME.  Most vfdb_vfd
+file. Defaults to environment variable INI_FILE_NAME.  Most **vfdb_vfd**
 configuration comes from the ini file, not from command-line arguments.
-.IP -S\ --section\ <section\ name>
+
+**-S, --section** __<section name>__ +
 take configuration from this
 section in the ini file. Defaults to 'VFD-B'.
-.IP -r\ --report-device
+
+**-r, --report-device** +
 report device propertiers on console at startup
 
 
 
 == INI CONFIG VARIABLES
-.IP DEBUG
+**DEBUG** +
 Set to a non-zero value to enable general debug output from the VFD-B
 driver.  Optional.
-.IP MODBUS_DEBUG
+
+**MODBUS_DEBUG** +
 Set to a non-zero value to enable modbus debug output from the VFD-B
 driver.  Optional.
-.IP DEVICE
+
+**DEVICE** +
 Serial port device file to use for Modbus communication with the VFD-B.
 Defaults to '/dev/ttyS0'.
-.IP BAUD
+
+**BAUD** +
 Modbus baud rate.  Defaults to 19200.
-.IP BITS
+
+**BITS** +
 Modbus data bits.  Defaults to 8.
-.IP PARITY
+
+**PARITY** +
 Modbus parity.  Defaults to Even.  Accepts 'Even', 'Odd', or 'None'.
-.IP STOPBITS
+
+**STOPBITS** +
 Modbus stop bits.  Defaults to 1.
-.IP TARGET
+
+**TARGET** +
 Modbus target number of the VFD-B to speak to.  Defaults to 1.
-.IP POLLCYCLES
+
+**POLLCYCLES** +
 Only read the less important variables from the VFD-B once in this many
 poll cycles.  Defaults to 10.
-.IP RECONNECT_DELAY
+
+**RECONNECT_DELAY** +
 If the connection to the VFD-B is broken, wait this many seconds before
 reconnecting.  Defaults to 1.
-.IP MOTOR_HZ,\ MOTOR_RPM
+
+**MOTOR_HZ, MOTOR_RPM** +
 The frequency of the motor (in Hz) and the corresponding speed of the
 motor (in RPM).  This information is provided by the motor manufacturer,
 and is generally printed on the motor's name plate.
@@ -109,108 +115,124 @@ and is generally printed on the motor's name plate.
 
 
 == PINS
-.IP <name>.at-speed\ (bit,\ out)
-True when drive is at commanded speed (see
-.I
-speed-tolerance
-below)
-.IP <name>.enable\ (bit,\ in)
+**<name>.at-speed** (bit, out) +
+True when drive is at commanded speed (see __speed-tolerance__ below)
+
+**<name>.enable** (bit, in) +
 Enable the VFD. If False, all operating parameters are still read but
 control is released and panel control is enabled (subject to VFD setup).
-.IP <name>.frequency-command\ (float,\ out)
+
+**<name>.frequency-command** (float, out) +
 Current target frequency in HZ as set through speed-command (which is in
 RPM), from the VFD.
-.IP <name>.frequency-out\ (float,\ out)
+
+**<name>.frequency-out** (float, out) +
 Current output frequency of the VFD.
-.IP <name>.inverter-load-percentage\ (float,\ out)
+
+**<name>.inverter-load-percentage** (float, out) +
 Current load report from VFD.
-.IP <name>.is-e-stopped\ (bit,\ out)
+
+**<name>.is-e-stopped** (bit, out) +
 The VFD is in emergency stop status (blinking "E" on panel).
-.IP <name>.is-stopped\ (bit,\ out)
+
+**<name>.is-stopped** (bit, out) +
 True when the VFD reports 0 Hz output.
-.IP <name>.jog-mode\ (bit,\ in)
+
+**<name>.jog-mode** (bit, in) +
 1 for ON and 0 for OFF, enables the VFD-B 'jog mode'. Speed control
 is disabled.  This might be useful for spindle orientation.
-.IP <name>.max-rpm\ (float,\ out)
+
+**<name>.max-rpm** (float, out) +
 Actual RPM limit based on maximum frequency the VFD may generate, and
-the motors nameplate values. For instance, if
-.I nameplate-HZ
-is 50, and
-.I nameplate-RPM
-is 1410, but the VFD may generate up to 80Hz, then
-.I max-rpm
-would read as 2256 (80*1410/50). The frequency limit is read from the VFD
-at startup.  To increase the upper frequency limit, the UL and FH
-parameters must be changed on the panel.  See the VFD-B manual for
+the motors nameplate values. +
+For instance, if __nameplate-HZ__ is 50, and __nameplate-RPM__
+is 1410, but the VFD may generate up to 80Hz, then __max-rpm__
+would read as 2256 (80*1410/50). 
+
+The frequency limit is read from the VFD at startup.  +
+To increase the upper frequency limit, the UL and FH
+parameters must be changed on the panel.  +
+See the VFD-B manual for
 instructions how to set the maximum frequency.
-.IP <name>.modbus-ok\ (bit,\ out)
+
+**<name>.modbus-ok** (bit, out) +
 True when the Modbus session is successfully established and the last 10
 transactions returned without error.
-.IP <name>.motor-RPM\ (float,\ out)
+
+**<name>.motor-RPM** (float, out) +
 Estimated current RPM value, from the VFD.
-.IP <name>.motor-RPS\ (float,\ out)
+
+**<name>.motor-RPS** (float, out) +
 Estimated current RPS value, from the VFD.
-.IP <name>.output-voltage\ (float,\ out)
+
+**<name>.output-voltage** (float, out) +
 From the VFD.
-.IP <name>.output-current\ (float,\ out)
+
+**<name>.output-current** (float, out) +
 From the VFD.
-.IP <name>.speed-command\ (float,\ in)
+
+**<name>.speed-command** (float, in) +
 Speed sent to VFD in RPM. It is an error to send a speed faster than the
 Motor Max RPM as set in the VFD.
-.IP <name>.spindle-on\ (bit,\ in)
+
+**<name>.spindle-on** (bit, in) +
 1 for ON and 0 for OFF sent to VFD, only on when running.
-.IP <name>.max-speed\ (bit,\ in)
+
+**<name>.max-speed** (bit, in) +
 Ignore the loop-time paramater and run Modbus at maximum
 speed, at the expense of higher CPU usage. Suggested use
 during spindle positioning.
-.IP <name>.status\ (s32,\ out)
+
+**<name>.status** (s32, out) +
 Drive Status of the VFD (see the VFD manual). A bitmap.
-.IP <name>.error-count\ (s32,\ out)
+
+**<name>.error-count** (s32, out) +
 Total number of transactions returning a Modbus error.
-.IP <name>.error-code\ (s32,\ out)
+
+**<name>.error-code** (s32, out) +
 Most recent Error Code from VFD.
-.IP <name>.frequency-limit\ (float,\ out)
+
+**<name>.frequency-limit** (float, out) +
 Upper limit read from VFD setup.
 
-
-
 == PARAMETERS
-.IP <name>.loop-time\ (float,\ RW)
+**<name>.loop-time** (float, RW) +
 How often the Modbus is polled (default interval 0.1 seconds).
-.IP <name>.nameplate-HZ\ (float,\ RW)
+
+**<name>.nameplate-HZ** (float, RW) +
 Nameplate Hz of motor (default 50). Used to calculate target frequency
 (together with
 .I nameplate-RPM
 ) for a target RPM value as given by speed-command.
-.IP <name>.nameplate-RPM\ (float,\ RW)
+
+**<name>.nameplate-RPM** (float, RW) +
 Nameplate RPM of motor (default 1410)
-.IP <name>.rpm-limit\ (float,\ RW)
+
+**<name>.rpm-limit** (float, RW) +
 Do-not-exceed soft limit for motor RPM (defaults to
 .I nameplate-RPM
 ).
-.IP <name>.tolerance\ (float,\ RW)
+
+**<name>.tolerance** (float, RW) +
 Speed tolerance (default 0.01) for determining wether spindle is at speed
 (0.01 meaning: output frequency is within 1% of target frequency).
 
 
 
 == USAGE
-The vfdb_vfd driver takes precedence over panel control while it is enabled
-(see
-.I .enable
-pin), effectively disabling the panel. Clearing the
-.I .enable
-pin re-enables the panel. Pins and parameters can still be set, but will
-not be written to the VFD untile the .enable pin is set. Operating
-parameters are still read while bus control is disabled.
-.P
-Exiting the vfdb_vfd driver in a controlled way will release the VFD from
+The **vfdb_vfd** driver takes precedence over panel control while it is enabled
+(see __.enable__pin), effectively disabling the panel. +
+Clearing the __.enable__ pin re-enables the panel. +
+Pins and parameters can still be set, but will not be written to the VFD until the __.enable__ pin is set. +
+Operating parameters are still read while bus control is disabled.
+
+Exiting the **vfdb_vfd** driver in a controlled way will release the VFD from
 the bus and restore panel control.
 
-See the LinuxCNC Integrators Manual for more information. For a detailed
-register description of the Delta VFD-B, see the VFD manual.
+See the Machinekit Integrators Manual for more information. 
+http://www.machinekit.io/docs/index-integrator/
 
-
+For a detailed register description of the Delta VFD-B, see the VFD manual.
 
 
 == AUTHOR
