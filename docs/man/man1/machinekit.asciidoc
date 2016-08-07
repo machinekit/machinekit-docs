@@ -1,0 +1,107 @@
+---
+---
+:skip-front-matter:
+
+= Machinekit
+:manmanual: HAL Components
+:mansource: ../man/man1/machinekit.asciidoc
+:man version : 
+
+
+== NAME
+machinekit -- the startup script for Machinekit
+
+
+== SYNOPSIS
+**machinekit** [__-v__] [__-d__] [__INIFILE__]
+
+
+== DESCRIPTION
+**machinekit** is used to start Machinekit (Machine Controller). It
+starts the realtime system and then initializes a number of Machinekit
+components (IO, Motion, GUI, HAL, etc).  
+
+The most important parameter
+is __INIFILE__, which specifies the configuration name you would like
+to run. If __INIFILE__ is not specified, the **machinekit** script presents
+a graphical wizard to let you choose one.
+
+
+== OPTIONS
+
+**--v** +
+Be a little bit verbose. This causes the script to print information
+as it works.
+
+**--d** +
+Print lots of debug information. All executed commands
+are echoed to the screen. This mode is useful when something is
+not working as it should.
+
+**INIFILE** +
+The ini file is the main piece of an Machinekit configuration. It is not the
+entire configuration; there are various other files that go with it
+(NML files, HAL files, TBL files, VAR files). It is, however, the most
+important one, because it is the file that holds the configuration
+together. It can adjust a lot of parameters itself, but it also tells
+**machinekit** which other files to load and use.
+
+There are several ways to specify which config to use:
+
+Specify the absolute path to an ini, e.g. +
+**machinekit** __/usr/local/linuxcnc/configs/sim/sim.ini__
+
+Specify a relative path from the current directory, e.g. +
+**machinekit** __configs/sim/sim.ini__
+
+Otherwise, in the case where the **INIFILE** is not specified,
+the behavior will depend on whether you configured machinekit with
+**--enable-run-in-place**.  
+
+If so, the machinekit config chooser will search
+only the configs directory in your source tree.  If not (or if you are
+using a packaged version of machinekit), it may search several directories.
+The config chooser is currently set to search the path:
+
+**~/machinekit/configs:/home/<username>/machinekit/configs**
+
+
+
+== EXAMPLES
+    
+**machinekit**
+
+**machinekit** __configs/sim/sim.ini__
+
+**machinekit** __/etc/machinekit/sample-configs/stepper/stepper_mm.ini__
+
+
+
+== SEE ALSO
+
+Much more information about Machinekit and HAL is available in the Machinekit web site.
+
+Start with +
+http://www.machinekit.io/docs/index-user/ +
+http://www.machinekit.io/docs/index-HAL/
+
+== HISTORY
+
+
+
+== BUGS
+None known at this time. 
+
+
+== AUTHOR
+The original Linuxcnc man page written by Alex Joni, as part of the Linuxcnc project.
+Adapted by ArcEye 2016
+
+
+== REPORTING BUGS
+Report bugs via the machinekit forum at https://groups.google.com/forum/#!forum/machinekit
+
+== COPYRIGHT
+Copyright (c) 2006 Alex Joni and adapted 2016. +
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
