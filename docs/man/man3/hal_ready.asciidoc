@@ -4,7 +4,7 @@
 
 = hal_ready
 :manmanual: HAL Components
-:mansource: ../man/man3/hal_ready.3hal.asciidoc
+:mansource: ../man/man3/hal_ready.asciidoc
 :man version : 
 
 

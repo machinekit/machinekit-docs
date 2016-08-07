@@ -4,7 +4,7 @@
 
 = rtapi_get_time
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_get_time.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_get_time.asciidoc
 :man version : 
 
 

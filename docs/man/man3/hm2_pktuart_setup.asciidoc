@@ -6,7 +6,7 @@
 \# Author Boris Skegin
 \# Issued under the terms of the GPL v2 License or any later version
 :manmanual: HAL Components
-:mansource: ../man/man3/hm2_pktuart_setup.3hm2.asciidoc
+:mansource: ../man/man3/hm2_pktuart_setup.asciidoc
 :man version : 
 
 

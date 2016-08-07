@@ -4,7 +4,7 @@
 
 = rtapi_prio
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_prio.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_prio.asciidoc
 :man version : 
 
 

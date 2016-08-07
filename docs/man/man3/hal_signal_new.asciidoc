@@ -4,7 +4,7 @@
 
 = hal_signal_new
 :manmanual: HAL Components
-:mansource: ../man/man3/hal_signal_new.3hal.asciidoc
+:mansource: ../man/man3/hal_signal_new.asciidoc
 :man version : 
 
 

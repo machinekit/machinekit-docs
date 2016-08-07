@@ -4,7 +4,7 @@
 
 = rtapi_task_pause
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_task_pause.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_task_pause.asciidoc
 :man version : 
 
 
