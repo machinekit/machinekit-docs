@@ -7,7 +7,7 @@
 \# Issued under the terms of the GPL v2 License or any later version
 
 :manmanual: HAL Components
-:mansource: ../man/man3/hm2_bspi_set_read_function.3hm2.asciidoc
+:mansource: ../man/man3/hm2_bspi_set_read_function.asciidoc
 :man version : 
 
 

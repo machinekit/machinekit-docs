@@ -4,7 +4,7 @@
 
 = hal_create_thread
 :manmanual: HAL Components
-:mansource: ../man/man3/hal_create_thread.3hal.asciidoc
+:mansource: ../man/man3/hal_create_thread.asciidoc
 :man version : 
 
 

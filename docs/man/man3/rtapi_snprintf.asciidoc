@@ -4,7 +4,7 @@
 
 = rtapi_snprintf
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_snprintf.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_snprintf.asciidoc
 :man version : 
 
 

@@ -4,7 +4,7 @@
 
 = intro:- rtapi
 :manmanual: HAL Components
-:mansource: ../man/man3/intro.3rtapi.asciidoc
+:mansource: ../man/man3/intro_rtapi.asciidoc
 :man version : 
 
 

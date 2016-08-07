@@ -4,7 +4,7 @@
 
 = rtapi_module_param
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_module_param.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_module_param.asciidoc
 :man version : 
 
 

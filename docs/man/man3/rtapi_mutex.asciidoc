@@ -4,7 +4,7 @@
 
 = rtapi_mutex
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_mutex.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_mutex.asciidoc
 :man version : 
 
 

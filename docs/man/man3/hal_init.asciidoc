@@ -4,7 +4,7 @@
 
 = hal_init
 :manmanual: HAL Components
-:mansource: ../man/man3/hal_init.3hal.asciidoc
+:mansource: ../man/man3/hal_init.asciidoc
 :man version : 
 
 

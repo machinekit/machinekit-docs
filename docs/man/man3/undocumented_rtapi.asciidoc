@@ -4,7 +4,7 @@
 
 = undocumented:-  rtai
 :manmanual: HAL Components
-:mansource: ../man/man3/undocumented.3rtapi.asciidoc
+:mansource: ../man/man3/undocumented_rtapi.asciidoc
 :man version : 
 
 
