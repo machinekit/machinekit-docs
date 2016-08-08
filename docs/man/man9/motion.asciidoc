@@ -11,12 +11,16 @@
 motion - accepts NML motion commands, interacts with HAL in realtime
 
 == SYNOPSIS
-**loadrt motmod [base_period_nsec=**__period__**]
-[base_thread_fp=**__0 or 1__**] [base_cpu=**__cpu number__**]
-[servo_period_nsec=**__period__**]  [servo_cpu=**__cpu number__**]
-[traj_period_nsec=**__period__**]
-[num_joints=**__[0-9]__**]
-([num_dio=**__[1-64]__**] [num_aio=**__[1-16]__**])**
+
+**loadrt motmod base_period_nsec=**__period__ 
+**base_thread_fp=**__[0 or 1]__
+**base_cpu=**__cpu number__
+**servo_period_nsec=**__period__ 
+**servo_cpu=**__cpu number__
+**traj_period_nsec=**__period__
+**num_joints=**__[0-9]__
+
+optional arguments: **num_dio=**__[1-64]__ **num_aio=**__[1-16]__
 
 == DESCRIPTION
 By default, the base thread does not support floating point.  Software
