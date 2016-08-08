@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= GANTRYKINS(9)
+= GANTRYKINS
 :manmanual: HAL Components
-:mansource: ../man/man9/gantrykins.9.asciidoc
+:mansource: ../man/man9/gantrykins.asciidoc
 :man version : 
 
 == NAME

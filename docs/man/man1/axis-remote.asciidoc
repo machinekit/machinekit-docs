@@ -4,7 +4,7 @@
 
 = axis-remote
 :manmanual: HAL Components
-:mansource: ../man/man1/axis-remote.1.asciidoc
+:mansource: ../man/man1/axis-remote.asciidoc
 :man version : 
 
 
@@ -81,8 +81,8 @@ None known at this time.
 == AUTHOR
 
 
-This man page was written by Alex Joni, for Linuxcnc and is now part of the Machinekit project.
-
+This man page was written by Alex Joni, for Linuxcnc and is now part of the Machinekit project. +
+Amended by ArcEye <arceye@mgware.co.uk> with addition of **--run** capability
 
 
 == REPORTING BUGS

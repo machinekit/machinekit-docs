@@ -4,7 +4,7 @@
 
 = funct
 :manmanual: HAL Components
-:mansource: ../man/man3/PM_ROTATION_VECTOR.3.asciidoc
+:mansource: ../man/man3/PM_ROTATION_VECTOR.asciidoc
 :man version : 
 
 

@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= THREADS(9)
+= THREADS
 :manmanual: HAL Components
-:mansource: ../man/man9/threads.9.asciidoc
+:mansource: ../man/man9/threads.asciidoc
 :man version : 
 
 

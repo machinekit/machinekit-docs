@@ -4,7 +4,7 @@
 
 = rtapi_delay
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_delay.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_delay.asciidoc
 :man version : 
 
 

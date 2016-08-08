@@ -4,7 +4,7 @@
 
 = rtapi_shmem
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_shmem.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_shmem.asciidoc
 :man version : 
 
 

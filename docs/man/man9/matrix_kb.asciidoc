@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= MATRIX_KB(9)
+= MATRIX_KB
 :manmanual: HAL Components
-:mansource: ../man/man9/matrix_kb.9.asciidoc
+:mansource: ../man/man9/matrix_kb.asciidoc
 :man version : 
 
 == NAME

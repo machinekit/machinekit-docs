@@ -4,7 +4,7 @@
 
 = hm2_pktuart_read
 :manmanual: HAL Components
-:mansource: ../man/man3/hm2_pktuart_read.3hm2.asciidoc
+:mansource: ../man/man3/hm2_pktuart_read.asciidoc
 :man version : 
 
 

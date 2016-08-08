@@ -4,7 +4,7 @@
 
 = rtapi_print
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_print.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_print.asciidoc
 :man version : 
 
 

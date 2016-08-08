@@ -4,145 +4,92 @@
 
 = HALSAMPLER
 :manmanual: HAL Components
-:mansource: ../man/man1/halsampler.1.asciidoc
+:mansource: ../man/man1/halsampler.asciidoc
 :man version : 
 
 
 == NAME
-halsampler -- sample data from HAL in realtime
+**halsampler** -- sample data from HAL in realtime
 
 
 == SYNOPSIS
-halsampler
-.RI [ options ]
-
+**halsampler** 
 
 
 == DESCRIPTION
- sampler
-and
-halsampler
-are used together to sample HAL data in real time and store it in a file.
-sampler
-is a realtime HAL component that exports HAL pins and creates a FIFO in shared memory.  It then begins sampling data from the HAL and storing it to the FIFO.
-halsampler
-is a user space program that copies data from the FIFO to stdout, where it can
+
+**sampler** and **halsampler** are used together to sample HAL data in real time and store it in a file.
+
+**sampler** is a realtime HAL component that exports HAL pins and creates a FIFO in shared memory.
+It then begins sampling data from the HAL and storing it to the FIFO. +
+**halsampler** is a user space program that copies data from the FIFO to stdout, where it can
 be redirected to a file or piped to some other program.
 
 
 
 == OPTIONS
 
- "-c " CHAN
-instructs 
-halsampler
-to read from FIFO
-.IR CHAN .
+**-c**  __CHAN__ +
+instructs **halsampler** to read from FIFO __CHAN__ . +
 FIFOs are numbered from zero, and the default value is zero, so
 this option is not needed unless multiple FIFOs have been created.
 
- "-n " COUNT
-instructs 
-halsampler
-to read
-.I COUNT
-samples from the FIFO, then exit.  If
--n
-is not specified,
-halsampler
-will read continuously until it is killed.
+**-n** __COUNT__ +
+instructs **halsampler** to read __COUNT__ samples from the FIFO, then exit. +
+If **-n** is not specified, **halsampler** will read continuously until it is killed.
 
- "-N " NAME
+**-N** __NAME__ +
 sets an explicit HAL component name.
 
--t
-instructs 
-halsampler
-to tag each line by printing the sample number in the first column.
+**-t** +
+instructs **halsampler** to tag each line by printing the sample number in the first column.
 
-FILENAME
-instructs
-halsampler
-to write to **FILENAME** instead of to stdout.
+__FILENAME__ +
+instructs **halsampler** to write to __FILENAME__ instead of to stdout.
 
 
 == USAGE
-A FIFO must first be created by loading 
- sampler 
-with 
-halcmd loadrt
-or a
-loadrt
-command in a .hal file.  Then
-halsampler
-can be invoked to begin printing data from the FIFO to stdout.
-.P
-Data is printed one line per sample.  If
--t
-was specified, the sample number is printed first.  The data follows, in the
-order that the pins were defined in the config string.  For example, if the
-sampler
-config string was "ffbs" then a typical line of output (without
- -t )
-would look like:
-.P
-123.55 33.4 0 -12
-.P
-halsampler
-prints data as fast as possible until the FIFO is empty, then it retries at regular intervals, until it is either killed or has printed
-.I COUNT
-samples as requested by
- -n .
-Usually, but not always, data printed by
-halsampler
-will be redirected to a file or piped to some other program.
-.P
-The FIFO size should be chosen to absorb samples captured during any momentary disruptions in the flow of data, such as disk seeks, terminal scrolling, or the processing limitations of subsequent program in a pipeline.  If the FIFO gets
-full and
-sampler
-is forced to overwrite old data,
-halsampler
-will print 'overrun' on a line by itself to mark each gap in the sampled
-data.  If
--t
-was specified, gaps in the sequential sample numbers in the first column
-can be used to determine exactly how many samples were lost.
-.P
-The data format for
-halsampler
-output is the same as for
- halstreamer 
-input, so 'waveforms' captured with
-halsampler
-can be replayed using
- halstreamer .
-The
--t
-option should not be used in this case.
+A FIFO must first be created by loading **sampler** with +
+**halcmd loadrt** +
+or a **loadrt** command in a .hal file.  
 
+Then **halsampler** can be invoked to begin printing data from the FIFO to stdout.
+
+Data is printed one line per sample.  If **-t** was specified, the sample number is printed first. +
+The data follows, in the order that the pins were defined in the config string.
+
+For example, if the **sampler** config string was "ffbs" then a typical line of output (without **-t** ) would look like: +
+`123.55 33.4 0 -12`
+
+**halsampler** prints data as fast as possible until the FIFO is empty, then it retries at regular intervals, until it is either killed or has printed
+__COUNT__ samples as requested by **-n**.
+
+Usually, but not always, data printed by **halsampler** will be redirected to a file or piped to some other program.
+
+The FIFO size should be chosen to absorb samples captured during any momentary disruptions in the flow of data, 
+such as disk seeks, terminal scrolling, or the processing limitations of subsequent program in a pipeline.
+
+If the FIFO gets full and **sampler** is forced to overwrite old data, **halsampler** will print 'overrun' on a line by itself to mark each gap in the sampled
+data. +
+If **-t** was specified, gaps in the sequential sample numbers in the first column can be used to determine exactly how many samples were lost.
+
+The data format for **halsampler** output is the same as for **halstreamer** input, so 'waveforms' captured with **halsampler** can be replayed using **halstreamer**. +
+The **-t** option should not be used in this case.
 
 
 == EXIT STATUS
-If a problem is encountered during initialization,
-halsampler
-prints a message to stderr and returns failure.
-.P
-Upon printing
-.I COUNT
-samples (if
--n
-was specified) it will shut down and return success.  If it is terminated
-before printing the specified number of samples, it returns failure.  This
-means that when
--n
-is not specified, it will always return failure when terminated.
+If a problem is encountered during initialization, **halsampler** prints a message to stderr and returns failure.
+
+Upon printing __COUNT__ samples (if **-n** was specified) it will shut down and return success. +
+If it is terminated before printing the specified number of samples, it returns failure. +
+This means that when **-n** is not specified, it will always return failure when terminated.
 
 
 
 == SEE ALSO
- sampler 
- streamer 
- halstreamer 
+**sampler**     -  http://www.machinekit.io/docs/man/man9/sampler  +
+**streamer**    -  http://www.machinekit.io/docs/man/man9/streamer  + 
+**halstreamer** -  http://www.machinekit.io/docs/man/man1/halstreamer +
 
 
 
@@ -161,10 +108,10 @@ the LinuxCNC development team.
 
 
 == REPORTING BUGS
-Report bugs to jmkasunich AT users DOT sourceforge DOT net
-
+Report bugs to the Machinekit forum +
+https://groups.google.com/forum/#!forum/machinekit
 
 == COPYRIGHT
-Copyright \(co 2006 John Kasunich.
+Copyright (c) 2006 John Kasunich.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

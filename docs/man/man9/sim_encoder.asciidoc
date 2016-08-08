@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= SIM_ENCODER(9)
+= SIM_ENCODER
 :manmanual: HAL Components
-:mansource: ../man/man9/sim_encoder.9.asciidoc
+:mansource: ../man/man9/sim_encoder.asciidoc
 :man version : 
 
 

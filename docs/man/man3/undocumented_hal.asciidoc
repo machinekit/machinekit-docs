@@ -4,7 +4,7 @@
 
 = undocumented:- hal
 :manmanual: HAL Components
-:mansource: ../man/man3/undocumented.3hal.asciidoc
+:mansource: ../man/man3/undocumented_hal.asciidoc
 :man version : 
 
 

@@ -4,7 +4,7 @@
 
 = hal_start_threads
 :manmanual: HAL Components
-:mansource: ../man/man3/hal_start_threads.3hal.asciidoc
+:mansource: ../man/man3/hal_start_threads.asciidoc
 :man version : 
 
 

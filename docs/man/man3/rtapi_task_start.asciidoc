@@ -4,7 +4,7 @@
 
 = rtapi_task_start
 :manmanual: HAL Components
-:mansource: ../man/man3/rtapi_task_start.3rtapi.asciidoc
+:mansource: ../man/man3/rtapi_task_start.asciidoc
 :man version : 
 
 

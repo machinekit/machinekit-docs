@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= SIGGEN(9)
+= SIGGEN
 :manmanual: HAL Components
-:mansource: ../man/man9/siggen.9.asciidoc
+:mansource: ../man/man9/siggen.asciidoc
 :man version : 
 
 

@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= COUNTER(9)
+= COUNTER
 :manmanual: HAL Components
-:mansource: ../man/man9/counter.9.asciidoc
+:mansource: ../man/man9/counter.asciidoc
 :man version : 
 
 == NAME
@@ -97,4 +97,4 @@ in the output pins at the next call to **capture-position**.
 ====
 
 == SEE ALSO
-**encoder(9)** in the Machinekit documentation.
+**encoder** in the Machinekit documentation.

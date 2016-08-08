@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= ENCODER_RATIO(9)
+= ENCODER_RATIO
 :manmanual: HAL Components
-:mansource: ../man/man9/encoder_ratio.9.asciidoc
+:mansource: ../man/man9/encoder_ratio.asciidoc
 :man version : 
 
 == NAME
@@ -110,4 +110,4 @@ The number of "teeth" on the master and slave gears.
 ====
 
 == SEE ALSO
-**encoder(9)**
+**encoder**

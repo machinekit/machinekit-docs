@@ -2,9 +2,9 @@
 ---
 :skip-front-matter:
 
-= WATCHDOG(9)
+= WATCHDOG
 :manmanual: HAL Components
-:mansource: ../man/man9/watchdog.9.asciidoc
+:mansource: ../man/man9/watchdog.asciidoc
 :man version : 
 
 
