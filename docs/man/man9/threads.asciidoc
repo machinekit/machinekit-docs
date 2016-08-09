@@ -7,8 +7,7 @@
 :mansource: ../man/man9/threads.asciidoc
 :man version : 
 
-
-
+== DEPRECATED - use "newthread" command instead
 
 == NAME
 threads -- creates hard realtime HAL threads
