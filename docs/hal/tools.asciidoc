@@ -12,15 +12,11 @@
 == Halcmd[[sec:Halcmd]]
 
 Halcmd is a command line tool for manipulating the HAL. There is a
-rather complete man page for halcmd, which will be installed if you
-have installed Machinekit from either source or a package. If you have
-compiled Machinekit for “run-in-place”, the man page is not installed, but it
-is accessible. From the main Machinekit directory, do:
-
-[source]
-----
-man -M docs/man halcmd
-----
+rather complete man page for halcmd and the HAL language, which is
+available on the Machinekit website.  Man pages are not installed 
+as part of the main Machinekit packages, however an optional package
+"machinekit-manual-pages" is available.  Note that the Machinekit 
+man pages should be accessed using "mank foo", not "man foo".
 
 The <<cha:HAL-tutorial,HAL Tutorial>> has a number of examples of halcmd
 usage, and is a good tutorial for halcmd.

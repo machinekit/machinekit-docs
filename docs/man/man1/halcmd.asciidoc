@@ -344,6 +344,22 @@ Fails if __name__ does not exist as a pin or parameter. +
 If a pin and a parameter both exist with the given name, the
 parameter is acted on.
 
+=== newthread
+**newthread** __threadname__ [__options__] __period__
+
+Creates a new HAL thread named __threadname__ which runs every
+__period__ nanoseconds.  Options are:
+
+fp	(deprecated) thread supports floating point
+
+nofp	(deprecated) (default) thread does not support floating point
+
+cpu=N	run thread on CPU #N
+
+nowait	(experimental) ignores period, thread free-runs and must be synchronized externally
+
+posix	(experimental) non-realtime posix thread.  Can make Linux system calls, but has no timing guarantees
+
 === addf
 **addf** __functname__ __threadname__
 (__add__ __f__unction)  
