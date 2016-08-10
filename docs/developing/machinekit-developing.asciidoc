@@ -89,7 +89,41 @@ sudo adduser <username> xenomai
 Logout and login again therafter.
 
 
-### Additional runtime packages you may need
+== Additional runtime packages you may need
+
+=== Documentation
+
+Documentation has been almost completely split from the machinekit build.
+
+Drivers and components built with comp or instcomp, can still be configured to provide
+documentation for those items only using
+[source, bash]
+----
+./configure --enable-build-documentation
+----
+when building machinekit.
+
+The complete documentation is available as below, so this option is only really of interest
+to developers writing components who wish to check the generated manual page for it.
+
+This package will provide local copies of the manual pages and a man page stub to remind
+of how to use them.
+
+[source,bash]
+----
+sudo apt-get install machinekit-manual-pages
+----
+
+It is an optional install for users who wish to use a stand alone system or who have limited
+internet connectivity.
+
+The same pages can be accessed here: +
+http://www.machinekit.io/docs/man/man1/  For information on utilities and GUIs +
+http://www.machinekit.io/docs/man/man3/  For information on the hal and rtapi APIs +
+http://www.machinekit.io/docs/man/man9/  For information on components and drivers +
+
+
+=== Additional runtime packages
 
 The above steps outline only the build requirements. There might be some 
 runtime support packages missing if machinekit was never installed before.
