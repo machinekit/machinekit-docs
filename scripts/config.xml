@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  example config file for building sitemap.xml in format
+  required by google search bots
+
+  store_into field needs changing to suitable local dir
+  lastmod date also needs updating at each use
+
+  ********************************************************* -->
+
+ <site
+  base_url="http://www.machinekit.io/"
+  store_into="/downloads/sitemap/sitemap.xml"
+  verbose="1"
+  sitemap_type="web"
+ >
+ 
+
+  <url  href="http://www.machinekit.io/stats?q=name"  />
+  <url
+     href="http://www.machinekit.io/stats?q=age"
+     lastmod="2016-08-10T01:00:00-12:00"
+     changefreq="yearly"
+     priority="0.3"
+  />
+
+  
+  <urllist path="urllist.txt" encoding="UTF-8" /> 
+
+
+  <!-- Exclude URLs that end with a '~'   (IE: emacs backup files)      -->
+  <filter  action="drop"  type="wildcard"  pattern="*~"           />
+
+  <!-- Exclude URLs within UNIX-style hidden files or directories       -->
+  <filter action="drop" type="regexp"   pattern="/\.[^/]*"     />
+  
+</site>
