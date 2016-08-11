@@ -8,11 +8,10 @@
 :man version : 
 
 == NAME
-encoder_ratio - an electronic gear to synchronize two axes
+**encoder_ratio** - an electronic gear to synchronize two axes
 
 == SYNOPSIS
-**loadrt encoder_ratio [num_chan=**__num__** | names=**__name1__**[,**__name2...__**]]
-**
+**loadrt encoder_ratio** __[num_chan=**num** | names=**name1**[,**name2...**]]__
 
 == DESCRIPTION
 **encoder_ratio** can be used to synchronize two axes (like an "electronic

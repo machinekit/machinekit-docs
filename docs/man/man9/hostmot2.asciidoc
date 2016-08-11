@@ -8,7 +8,7 @@
 :man version : 
 
 == NAME
-hostmot2 - LinuxCNC HAL driver for the Mesa Electronics HostMot2 firmware.
+hostmot2 - Machinekit HAL driver for the Mesa Electronics HostMot2 firmware.
 
 
 == SYNOPSIS
@@ -51,7 +51,7 @@ Modules used.
 
 == DESCRIPTION
 hostmot2 is a device driver that interfaces the Mesa HostMot2 firmware
-to the LinuxCNC HAL.  This driver by itself does nothing, the boards
+to the Machinekit HAL.  This driver by itself does nothing, the boards
 that actually run the firmware require their own drivers before anything
 can happen.  Currently drivers are available for the 5i20, 5i22, 5i23,
 5i25, 3x20, 4i65, and 4i68 (all using the hm2_pci module) and the 7i43
@@ -143,7 +143,7 @@ The requested firmware F is fetched by udev.  udev searches for the
 firmware in the system's firmware search path, usually /lib/firmware.
 F typically has the form "hm2/<BoardType>/file.bit"; a typical value
 for F might be "hm2/5i20/SVST8_4.BIT".  The hostmot2 firmware files are
-supplied by the hostmot2-firmware packages, available from linuxcnc.org and can
+supplied by the hostmot2-firmware packages, available from machinekit.org and can
 normally be installed by entering the command "sudo apt-get install
 hostmot2-firmware-5i23" to install the support files for the 5i23 for example.
 
@@ -698,7 +698,7 @@ synchronous drive ratio between the encoder and the spindle or ballscrew.
 
 == BiSS
 BiSS is a bidirectional variant of SSI. Currently only a single direction is
-supported by LinuxCNC (encoder to PC). 
+supported by Machinekit (encoder to PC). 
 
 One pin is created for each BiSS instance regardless of data format:
 
@@ -714,7 +714,7 @@ function (described below)
 The names of the pins created by the BiSS module will depend entirely on the 
 format string for each channel specified in the loadrt command line and follow
 closely the format defined above for SSI. 
-Currently data packets of up to 96 bits are supported by the LinuxCNC driver, 
+Currently data packets of up to 96 bits are supported by the Machinekit driver, 
 although the Mesa Hostmot2 module can handle 512 bit packets. It should be
 possible to extend the number of packets supported by the driver if there is a
 requirement to do so. 
@@ -840,11 +840,11 @@ speed in rps, a value of 0.01666667 will give (approximate) RPM.
 ====
 The resolver component emulates an index at a fixed point in the sin/cos cycle.
 Some resolvers have multiple cycles per rev (often related to the number of
-pole-pairs on the attached motor). LinuxCNC requires an index once per
+pole-pairs on the attached motor). Machinekit requires an index once per
 revolution for proper threading etc.
 This parameter should be set to the number of cycles per rev of the resolver.
 CAUTION: Which pseudo-index is used will not necessarily be consistent between
-LinuxCNC runs. Do not expect to re-start a thread after restarting LinuxCNC.
+Machinekit runs. Do not expect to re-start a thread after restarting Machinekit.
 It is not appropriate to use this parameter for index-homing of axis drives.
 ====
 
@@ -1055,7 +1055,7 @@ fault pin unconnected.
 ====
 Sets the time during the cycle when an ADC pulse
 is generated.  0 = start of PWM cycle and 1 = end. Not currently useful
-to LinuxCNC. Default 0.5.
+to Machinekit. Default 0.5.
 ====
 
 In addition the per-instance parameters above there is the following parameter
@@ -1177,7 +1177,7 @@ Maximum acceleration, in position units per second
 per second.  Defaults to 1.0.  If set to 0, the driver will not limit its
 acceleration at all - this requires that the position-cmd or velocity-cmd
 pin is driven in a way that does not exceed the machine's capabilities.
-This is probably what you want if you're going to be using the LinuxCNC
+This is probably what you want if you're going to be using the Machinekit
 trajectory planner to jog or run G-code.
 ====
 
