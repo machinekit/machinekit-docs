@@ -8,10 +8,10 @@
 :man version : 
 
 == NAME
-hal_pru_generic - Machinekit HAL driver for the TI Programmable Realtime Unit (PRU).
+**hal_pru_generic** - Machinekit HAL driver for the TI Programmable Realtime Unit (PRU).
 
 == SYNOPSIS
-**loadrt hal_pru_generic [argument]...**
+**loadrt hal_pru_generic** __[argument]...__
 
 Valid arguments are:
 
@@ -38,10 +38,17 @@ results in a PRU task frequency of 100 KHz.  Smaller values here provide better
 timing performance for pwm and step/dir generators, but the setting must be
 large enough to allow all PRU tasks to complete.
 
-=== **halname** [optional, default: hal_pru_generic]
+=== **halname** [optional, default: **hal_pru_generic**]
 This identifier is used to prefix all created HAL pins and parameters.  The
-default is for legacy configurations and should otherwise be avoided.  Recent
-convention sets halname=hpg to provide for shorter HAL names.
+default is for legacy configurations and should otherwise be avoided.  
+
+==== NB
+You **MUST** set the name to a short one +
+Recent convention sets **halname=hpg** to provide for shorter HAL names.
+
+This is very important to do, because additions to HAL pins, mean some pins names
+will exceed a 49 charactor limit, if you use 15 charactors just for the base name.
+
 
 === **num_stepgens** [optional, default: 0]
 Create N stepgen instances.
@@ -58,7 +65,7 @@ state, which can be useful for debugging.  In this state, it is possible to
 single-step through the PRU startup code after the driver is loaded.
 
 == DESCRIPTION
-hal_pru_generic is a device driver that uses the PRU subsystem available
+**hal_pru_generic** is a device driver that uses the PRU subsystem available
 in Texas Instruments Sitara processors like on
 the BeagleBone SBC to perform high-speed hard-real-time bit-twiddling to
 generate step/direction and PWM outputs, avoiding the need to run a base
@@ -76,7 +83,7 @@ Currently, there are tasklets written for step/direction generation, PWM
 output, and encoder inputs (using direct PRU input pins).
 
 == I/O PINS
-The hal_pru_generic driver runs on a BeagleBone and has used a variety of
+The **hal_pru_generic** driver runs on a BeagleBone and has used a variety of
 numbering schemes to identify I/O pins.  All legacy pin numbering schemes
 are still supported for backwards compatibility, but are not documented here
 to avoid confusion (see fixup_pin() the code if you really need to know
@@ -119,8 +126,10 @@ utility.
 
 == STEPGEN
 
-stepgens have names like "hpg.stepgen.__<Instance>__".
-"Instance" is a two-digit number that corresponds to the stepgen
+stepgens have names like + 
+**"hpg.stepgen.__<Instance>__"**]
+
+__"Instance"__ is a two-digit number that corresponds to the stepgen
 instance number.  There are 'num_stepgens' instances, starting with 00.
 
 Each stepgen uses 2 IO pins, one for the step signal and one for the direction
@@ -168,7 +177,7 @@ change if the step timings or position-scale changes. Defaults to 0.
 per second.  Defaults to 1.0.  If set to 0, the driver will not limit its
 acceleration at all - this requires that the position-cmd or velocity-cmd
 pin is driven in a way that does not exceed the machine's capabilities.
-This is probably what you want if you're going to be using the LinuxCNC
+This is probably what you want if you're going to be using the Machinekit
 trajectory planner to jog or run G-code.
 
 *steplen* (u32 input):: Minimum duration of the step signal, in nanoseconds.
@@ -189,8 +198,10 @@ step ends, in nanoseconds.
 *stepinvert* (bit input):: Inverts the step output (normally high with pulses going low)
 
 == PWMGEN
-pwmgens have names like "hpg.pwmgen.__<Instance>__.out.__<Channel>__".
-"Instance" is a two-digit number that corresponds to the pwmgen
+pwmgens have names like +
+**"hpg.pwmgen.__<Instance>__.out.__<Channel>__"**
+
+__"Instance"__ is a two-digit number that corresponds to the pwmgen
 instance number.  Each channel number value passed to 'num_pwmgens'
 creates a pwmgen instance, starting with 00.  "Channel" is a two-digit
 number that corresponds to a specific pwmgen channel in a pwmgen
@@ -236,8 +247,10 @@ available but the lower the PWM frequency.
 
 
 == ENCODER
-Encoders have names like "hpg.encoder.__<Instance>__.out.__<Channel>__".
-"Instance" is a two-digit number that corresponds to the encoder
+Encoders have names like +
+**"hpg.encoder.__<Instance>__.out.__<Channel>__"**
+
+__"Instance"__ is a two-digit number that corresponds to the encoder
 instance number.  Each channel number value passed to 'num_encoders'
 creates an encoder instance, starting with 00.  "Channel" is a two-digit
 number that corresponds to a specific encoder channel in an encoder
@@ -256,11 +269,11 @@ Each encoder uses up to three PRU direct input pins, depending on the
 counting mode.
 
 WARNING: The encoder uses different pin numbering than the rest of the
-hal_pru_generic driver.  The pin number values for (A|B|index)-pin
+**hal_pru_generic** driver.  The pin number values for (A|B|index)-pin
 should be the PRU dedicated input pin number, a value in the range of
 0-16 inclusive.  It is the user's responsibility to insure the physical
 I/O pins used are available as direct PRU input pins on the PRU used
-to run the hal_pru_generic PRU binary.  Unused pins should be assigned
+to run the **hal_pru_generic** PRU binary.  Unused pins should be assigned
 to a PRU input that will not change value (the 'unconnected' inputs
 17-29 work well for this).
 

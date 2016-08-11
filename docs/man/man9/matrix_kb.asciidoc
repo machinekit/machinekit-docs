@@ -8,14 +8,15 @@
 :man version : 
 
 == NAME
-matrix_kb - Convert integers to HAL pins. Optionally scan a matrix of IO ports
-to create those integers.  
+**matrix_kb** - Convert integers to HAL pins. 
+
+Optionally scan a matrix of IO ports to create those integers.  
 
 
 == SYNOPSIS
-**loadrt matrix_kb config=**__RxCs,RxCs__**... names=**__name1,name2__**...
-**.P
-Creates a component configured for R rows and N columns of matrix keyboard. 
+**loadrt matrix_kb __config=**RxCs,RxCs**... names=**name1,name2**...__
+
+Creates a component configured for R rows and C columns of matrix keyboard. 
 
 If the **s** option is specified then a set of output rows will be cyclically
 toggled, and a set of input columns will be scanned. 

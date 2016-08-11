@@ -8,12 +8,12 @@
 :man version : 
 
 == NAME
-gantrykins - A kinematics module that maps one axis to multiple joints
+**gantrykins** - A kinematics module that maps one axis to multiple joints
 
 == SYNOPSIS
-**loadrt gantrykins coordinates=**__axisletters__
+**loadrt gantrykins** __coordinates=[X[Y[Z[A[B[C...]]]]]]__
 
-**Specifying gantry joint mapping via loadrt**
+=== Specifying gantry joint mapping via loadrt
 
 [indent=4]
 ====
@@ -26,11 +26,11 @@ the default mapping is **coordinates=XYZABC**. Coordinate
 letters may be specified in uppercase or lowercase.
 ====
 
-**A note about joints and axes**
+=== A note about joints and axes
 
 [indent=4]
 ====
-LinuxCNC makes a distinction between joints and axes: a joint
+Machinekit makes a distinction between joints and axes: a joint
 is something controlled by a motor, and an axis is a coordinate
 you can move via G-code. You can also jog joints or jog axes.
 
@@ -45,7 +45,7 @@ Jogging of a gantry must happen in world mode (aka Teleop mode).
 If you jog a gantry in joint mode (Free mode), you will move
 just one of the joints, and the gantry will rack.  In contrast,
 if you jog a gantry in world mode (Teleop mode), it's the axis
-that jogs: linuxcnc will coordinate the motion of the two joints
+that jogs: machinekit will coordinate the motion of the two joints
 that make up the axis, both joints will move together, and the
 gantry will stay square.
 

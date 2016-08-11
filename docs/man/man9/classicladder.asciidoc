@@ -11,7 +11,8 @@
 classicladder - realtime software plc based on ladder logic
 
 == SYNOPSIS
-**loadrt classicladder_rt  [numRungs=**__N__**] [numBits=**__N__**] [numWords=**__N__**] [numTimers=**__N__**] [numMonostables=**__N__**] [numCounters=**__N__**] [numPhysInputs=**__N__**] [numPhysOutputs=**__N__**] [numArithmExpr=**__N__**] [numSections=**__N__**] [numSymbols=**__N__**] [numS32in=**__N__**] [numS32out=**__N__**]**
+**loadrt classicladder_rt** 
+ __[numRungs=N] [numBits=N] [numWords=N] [numTimers=N] [numMonostables=N] [numCounters=N] [numPhysInputs=N] [numPhysOutputs=N] [numArithmExpr=N] [numSections=N] [numSymbols=N] [numS32in=N] [numS32out=N]__
 
 == DESCRIPTION
 These pins and parameters are created by the realtime **classicladder_rt** module. Each period (minimum 1000000 ns), classicladder reads the inputs, evaluates the ladder logic defined in the GUI, and then writes the outputs.

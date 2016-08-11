@@ -8,10 +8,10 @@
 :man version : 
 
 == NAME
-encoder - software counting of quadrature encoder signals
+**encoder** - software counting of quadrature encoder signals
 
 == SYNOPSIS
-**loadrt encoder [num_chan=**__num__** | names=**__name1__**[,**__name2...__**]]**
+**loadrt encoder** __[num_chan=**num** | names=**name1**[,**name2...**]]__
 
 == DESCRIPTION
 **encoder** is used to measure position by counting the pulses

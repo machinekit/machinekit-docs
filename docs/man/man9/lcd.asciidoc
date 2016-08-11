@@ -8,14 +8,14 @@
 :man version : 
 
 == NAME
-lcd - Stream HAL data to an LCD screen
+**lcd** - Stream HAL data to an LCD screen
 
 == SYNOPSIS
-loadrt lcd fmt_strings=""Plain Text %4.4f\enAnd So on|Second Page, Next Inst""
+**loadrt lcd** __fmt_strings=""Plain Text %4.4f\enAnd So on|Second Page, Next Inst""__
 
 == FUNCTIONS
-**lcd** (requires a floating-point thread). All LCD instances are updated by the
-same function. 
+**lcd** (requires a floating-point thread). +
+All LCD instances are updated by the same function. 
 
 == PINS
 **lcd.**__NN__**.out** (u32) out
