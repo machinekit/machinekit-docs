@@ -30,7 +30,7 @@ base thread (for example for brushless DC motor control).
 
 
 These pins and parameters are created by the realtime **motmod** module. This
-module provides a HAL interface for LinuxCNC's motion planner. Basically
+module provides a HAL interface for Machinekit's motion planner. Basically
 **motmod** takes in a list of waypoints and generates a nice blended and
 constraint-limited stream of joint positions to be fed to the motor drives. 
 
@@ -695,7 +695,7 @@ Processes motion commands coming from user space
 
 [indent=4]
 ====
-Runs the LinuxCNC motion controller
+Runs the Machinekit motion controller
 ====
 
 == BUGS
