@@ -15,7 +15,7 @@
 
 
 == SYNOPSIS
-**loadrt stepgen step_type=**__type0__[,__type1__...] [**ctrl_type=**__type0__[,__type1__...]] [**user_step_type=#,#**...]
+**loadrt stepgen step_type=**__type0__[,__type1__...] [**ctrl_type=**__type0__[,__type1__...]] [**user_step_type=**__N,N__...]
 
 
 
