@@ -10,24 +10,25 @@
 
 == NAME
 
-hal_exit -- terminate a component
+**hal_exit** -- terminate a component
 
 
 
 == SYNTAX
-int hal_exit(int __comp_id__)
+**int hal_exit** ( **int** __comp_id__)
 
 
 
 == ARGUMENTS
-__comp_id__
+__comp_id__ +
 A HAL component identifier returned by an earlier call to **hal_init**.
 
 
 
 == DESCRIPTION
 **hal_exit** terminates a component, and unlinks and removes all
-its pins and parameters.  It also removes any thread functions currently added to a thread.
+its pins and parameters.  +
+It also removes any thread functions currently added to a thread.
  
 
 
