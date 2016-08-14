@@ -10,30 +10,29 @@
 
 == NAME
 
-hal_create_thread -- Create a HAL thread
+**hal_create_thread** -- Create a HAL thread
 
 
 
 == SYNTAX
-int hal_create_thread(const char *__name__, unsigned long
-__period__, int __uses_fp__, int __cpu_id__)
+**int hal_create_thread** ( **const char** *__name__, **unsigned long** __period__, **int** __uses_fp__, **int** __cpu_id__)
 
-int hal_thread_delete(const char *__name__)
+**int hal_thread_delete** ( **const char** *__name__)
 
 
 
 == ARGUMENTS
-__name__
+__name__ +
 The name of the thread
 
-__period__
+__period__ +
 The interval, in nanoseconds, between iterations of the thread
 
-__uses_fp__
+__uses_fp__ +
 Must be nonzero if a function which uses floating-point will be attached
 to this thread.
 
-__cpu_id__
+__cpu_id__ +
 Make the RTAPI layer bind this thread to a particular CPU core.
 
 
@@ -43,8 +42,10 @@ Make the RTAPI layer bind this thread to a particular CPU core.
 execute one or more HAL functions periodically.
 
 All thread periods are rounded to integer multiples of the hardware timer
-period, and the timer period is based on the first thread created.  Threads
-must be created in order, from the fastest to the slowest.  HAL assigns
+period, and the timer period is based on the first thread created.  +
+Threads
+must be created in order, from the fastest to the slowest.  +
+HAL assigns
 decreasing priorities to threads that are created later, so creating them
 from fastest to slowest results in rate monotonic priority scheduling.
 
