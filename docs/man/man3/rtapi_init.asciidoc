@@ -10,33 +10,32 @@
 
 == NAME
 
-rtapi_init -- Sets up RTAPI
+**rtapi_init** -- Sets up RTAPI
 
 
 
 == SYNTAX
- int rtapi_init(const char *__modname__, global_data_t global**)
+**int rtapi_init** ( **const char** *__modname__ )
 
 
 
 == ARGUMENTS
-.IP __modname__
-The name of this rtapi module
-.IP __global__
-reference to the global data segment. Can be NULL if unused.
-
-
+__modname__ +
+module name string
 
 
 == DESCRIPTION
 
-**rtapi_init** sets up the RTAPI.  It must be called by any
+**rtapi_init** sets up the RTAPI.  +
+It must be called by any
 module that intends to use the API, before any other RTAPI
 calls.
 
 __modname__ can optionally point to a string that identifies
-the module.  The string will be truncated at **RTAPI_NAME_LEN**
-characters.  If __modname__ is **NULL**, the system will assign a
+the module.  +
+The string will be truncated at **RTAPI_NAME_LEN**
+characters.  +
+If __modname__ is **NULL**, the system will assign a
 name.
 
 
@@ -49,4 +48,5 @@ Call only from within user or init/cleanup code, not from realtime tasks.
 == RETURN VALUE
 On success, returns a positive integer module ID, which is
 used for subsequent calls to rtapi_xxx_new, rtapi_xxx_delete,
-and rtapi_exit.  On failure, returns an RTAPI error code.
+and rtapi_exit.  +
+On failure, returns an RTAPI error code.

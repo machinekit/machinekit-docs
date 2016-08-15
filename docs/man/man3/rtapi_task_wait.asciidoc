@@ -10,18 +10,19 @@
 
 == NAME
 
-rtapi_task_wait -- suspend execution of this periodic task
+**rtapi_task_wait** -- suspend execution of this periodic task
 
 
 
 == SYNTAX
-void rtapi_task_wait()
+**void rtapi_task_wait**()
 
 
 
 == DESCRIPTION
 **rtapi_task_wait** suspends execution of the current task until the next
-period.  The task must be periodic.  If not, the result is undefined.
+period.  +
+The task must be periodic.  If not, the result is undefined.
 
 
 
@@ -36,4 +37,5 @@ None
 
 
 == SEE ALSO
-**rtapi_task_start**, **rtapi_task_pause**
+**rtapi_task_start** +
+**rtapi_task_pause**

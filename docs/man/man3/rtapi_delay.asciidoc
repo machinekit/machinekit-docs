@@ -10,32 +10,37 @@
 
 == NAME
 
-rtapi_delay -- Busy-loop for short delays
+**rtapi_delay** -- Busy-loop for short delays
 
 
 
 == SYNTAX
-void rtapi_delay(long int __nsec__)
-void rtapi_delay_max()
+__#include "rtapi.h"__
+
+**void rtapi_delay** ( **long int** __nsec__ ) +
+**long int rtapi_delay_max**()
 
 
 
 == ARGUMENTS
-.IP __nsec__
+__nsec__ +
 The desired delay length in nanoseconds
 
 
 
 == DESCRIPTION
-**rtapi_delay** is a simple delay.  It is intended only for short
+**rtapi_delay** is a simple delay.  +
+t is intended only for short
 delays, since it simply loops, wasting CPU cycles.
 
 **rtapi_delay_max** returns the max delay permitted (usually
-approximately 1/4 of the clock period).  Any call to **rtapi_delay**
+approximately 1/4 of the clock period).  +
+Any call to **rtapi_delay**
 requesting a delay longer than the max will delay for the max time only.
 
 **rtapi_delay_max** should be called before using **rtapi_delay** to
-make sure the required delays can be achieved.  The actual resolution
+make sure the required delays can be achieved.  +
+The actual resolution
 of the delay may be as good as one nano-second, or as bad as a several
 microseconds.
 
@@ -47,8 +52,8 @@ May be called from init/cleanup code, and from within realtime tasks.
 
 
 == RETURN VALUE
-**rtapi_delay_max returns the maximum delay permitted.
-**
+**rtapi_delay_max** returns the maximum delay permitted.
+
 
 
 == SEE ALSO

@@ -10,15 +10,15 @@
 
 == NAME
 
-rtapi_snprintf, rtapi_vsnprintf -- Perform snprintf-like string formatting
+**rtapi_snprintf**, **rtapi_vsnprintf** -- Perform snprintf-like string formatting
 
 
 
 == SYNTAX
- int rtapi_snprintf(char *__buf__, unsigned long int __size__, const char *__fmt__, __...__)
+**int rtapi_snprintf** ( **char** *__buf__, **unsigned long int** __size__, **const char** *__fmt__, __...__)
 
- int rtapi_vsnprintf(char *__buf__, unsigned long int __size__, const char *__fmt__, va_list __apfB)
-__
+**int rtapi_vsnprintf** ( **char** *__buf__, **unsigned long int** __size__, **const char** *__fmt__, **va_list** __apfB__)
+
 
 
 == ARGUMENTS
@@ -30,7 +30,8 @@ As for __snprintf__ or __vsnprintf__.
 These functions work like the standard C printf functions, except that a
 reduced set of formatting operations are supported.
 
-In particular: formatting of long long values is not supported.  Formatting of
+In particular: formatting of long long values is not supported.  +
+Formatting of
 floating-point values is done as though with %A even when other formats like %f
 are specified.
 
