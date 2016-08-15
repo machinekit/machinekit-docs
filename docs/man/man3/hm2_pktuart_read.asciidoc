@@ -9,38 +9,37 @@
 
 
 == NAME
-
-`*hm2_pktuart_read*` -- read data from a Hostmot2 PktUART buffer
+**hm2_pktuart_read** -- read data from a Hostmot2 PktUART buffer
 
 
 
 == SYNTAX
-int *hm2_pktuart_read* (char *name,  unsigned char data[], u8 *num_frames, u16 *max_frame_length, u16 frame_sizes[])
+**int hm2_pktuart_read** ( **char** *__name__,  **unsigned char** __data[]__, **u8** *__num_frames__, **u16** *__max_frame_length__, **u16** __frame_sizes[]__ )
 
 
 
 == DESCRIPTION
-`*hm2_pktuart_read*` reads data from the PktUART `name`. +
+**hm2_pktuart_read** reads data from the PktUART `name`. +
 `name` is a unique string given to each PktUART instance during hostmot2 setup.
+
 The names of the available channels are printed to standard output during
 the driver loading process and take the form: +
-`hm2_<board name>.<board index>.pktuart.<index>`. +
-For example, _hm2_5i25.0.pktuart.0_ .
+**hm2_**__<board name>.<board index>__.**pktuart**.__<index>__ +
+For example +
+**hm2_5i25.0.pktuart.0**
 
 This function reads a variable number of PktUART packets from the specified 
-channel. It should be used inside a realtime HAL component registered with the 
-main hostmot2 driver using the function http://www.machinekit.io/docs/man/man3/hm2_pktuart_setup/[`*hm2_pktuart_setup*`] in the setup
+channel. +
+It should be used inside a realtime HAL component registered with the 
+main hostmot2 driver using the function http://www.machinekit.io/docs/man/man3/hm2_pktuart_setup/[**hm2_pktuart_setup**] in the setup
 code. 
 
 `(*num_frames) * (*max_frame_length)` should be \<= `sizeof data`, which one tries
-to estimate or guess before calling the function.
+to estimate or guess before calling the function. +
 If there are more bytes in the buffer than the size of `data` array is, then
 `RxArraySizeError` is returned.
 
-Note that the PktUART MaxFrameSize is 1024 bytes as hard-coded in hostmot2.vhd .
-
-
-
+Note that the PktUART MaxFrameSize is 1024 bytes as hard-coded in hostmot2.vhd
 
 == RETURN VALUE
 Returns the number of bytes read on success and negative error codes on failure.
@@ -53,7 +52,6 @@ Negative error codes are:
  -1 - low level read/write error
 
  -EINVAL - any PktUART configuration error per instance
- 
 
  -110 - RxStartbitError, Rx mode register error
 
@@ -61,25 +59,25 @@ Negative error codes are:
 
  -114 - RxRCFIFOError, Rx mode register error
 
-
  -1115 - RxPacketOverrrunError, Rx count register error
 
  -1114 - RxPacketStartbitError, Rx count register error
 
-
-
  -1120 - RxPacketSizeZero, the size of the received packet is zero
 
  -1140 - RxArraySizeError, the size of the data array is not large enough
- 
-{empty} +
-{empty} +
+
+== LICENCE
+Issued under the terms of the GPL v2 License or any later version
+
+== AUTHOR
+Boris Skegin
+
 
 == SEE ALSO
 
-http://www.machinekit.io/docs/man/man3/hm2_pktuart_setup/[`*hm2_pktuart_setup*`]
+http://www.machinekit.io/docs/man/man3/hm2_pktuart_setup +
+http://www.machinekit.io/docs/man/man3/hm2_pktuart_send 
 
-http://www.machinekit.io/docs/man/man3/hm2_pktuart_send/[`*hm2_pktuart_send*`]
-
-https://github.com/machinekit/machinekit/blob/master/src/hal/components/mesa_pktgyro_test.comp[Example component]
+See link:https://github.com/machinekit/machinekit/blob/master/src/hal/components/mesa_pktgyro_test.comp[mesa_pktgyro_test.comp] for an example usage
 
