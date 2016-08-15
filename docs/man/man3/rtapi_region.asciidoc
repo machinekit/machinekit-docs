@@ -10,25 +10,25 @@
 
 == NAME
 
-rtapi_region -- functions to manage I/O memory regions
+**rtapi_region** -- functions to manage I/O memory regions
 
 
 
 == SYNTAX
- void *rtapi_request_region(unsigned long __base__, unsigned long int __size__, const char *__name__)
+**void * rtapi_request_region** ( **unsigned long** __base__, **unsigned long int** __size__, **const char** *__name__ )
 
- void rtapi_release_region(unsigned long __base__, unsigned long int __size__)
+**void rtapi_release_region** ( **unsigned long** __base__, **unsigned long int** __size__ )
 
 
 
 == ARGUMENTS
-.IP __base__
+__base__ +
 The base address of the I/O region
 
-.IP __size__
+__size__ +
 The size of the I/O region
 
-.IP __name__
+__name__ +
 The name to be shown in /proc/ioports
 
 

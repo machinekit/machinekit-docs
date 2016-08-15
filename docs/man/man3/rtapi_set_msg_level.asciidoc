@@ -10,25 +10,26 @@
 
 == NAME
 
-rtapi_get_msg_level, rtapi_set_msg_level -- Get or set the logging level
+**rtapi_get_msg_level**, **rtapi_set_msg_level** -- Get or set the logging level
 
 
 
 == SYNTAX
- int rtapi_set_msg_level(int __level__)
+**int rtapi_set_msg_level** ( **int** __level__ )
 
- int rtapi_get_msg_level()
+**int rtapi_get_msg_level**()
 
 
 
 == ARGUMENTS
-.IP __level__
+__level__ +
 The desired logging level
 
 
 
 == DESCRIPTION
-Get or set the RTAPI message level used by **rtapi_print_msg**.  Depending
+Get or set the RTAPI message level used by **rtapi_print_msg**.  +
+Depending
 on the RTOS, this level may apply to a single RTAPI module, or it may apply
 to a group of modules.
 

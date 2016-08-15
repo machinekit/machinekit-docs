@@ -10,24 +10,25 @@
 
 == NAME
 
-rtapi_task_start -- start a realtime task in periodic mode
+**rtapi_task_start** -- start a realtime task in periodic mode
 
 
 
 == SYNTAX
-int rtapi_task_start(int __task_id__, unsigned long __period_nsec__)
+**int rtapi_task_start** ( **int** __task_id__, **unsigned long** __period_nsec__ )
 
 
 == ARGUMENTS
-.IP __task_id__
+__task_id__ +
 A task ID returned by a previous call to **rtapi_task_new**
-.IP __period_nsec__
+
+__period_nsec__ +
 The clock period in nanoseconds between iterations of a periodic task
 
 
 == DESCRIPTION
-**rtapi_task_start** starts a task in periodic mode.  The task must be in the
-__paused__ state.
+**rtapi_task_start** starts a task in periodic mode.  +
+The task must be in the __paused__ state.
 
 
 
@@ -42,5 +43,6 @@ Returns an RTAPI status code.
 
 
 == SEE ALSO
-**rtapi_task_new**, **rtapi_task_pause**, **rtapi_task_resume
-**
+**rtapi_task_new** +
+**rtapi_task_pause** +
+**rtapi_task_resume**

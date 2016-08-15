@@ -10,13 +10,14 @@
 
 == NAME
 
-rtapi_app_main -- User-provided function to initialize a component
+**rtapi_app_main** -- User-provided function to initialize a component
 
 
 
 == SYNTAX
-#include "rtapi_app.h"
-int **rtapi_app_main**(void) { __...__ }
+__#include "rtapi_app.h"__
+
+**int rtapi_app_main**( **void** ) { __...__ }
 
 
 == ARGUMENTS
@@ -33,7 +34,8 @@ component-specific initialization code.
 
 == RETURN VALUE
 Return 0 for success.  Return a negative errno value (e.g., -EINVAL) on
-error.  Existing code also returns RTAPI or HAL error values, but using
+error.  +
+xisting code also returns RTAPI or HAL error values, but using
 negative errno values gives better diagnostics from insmod.
 
 
@@ -45,6 +47,6 @@ realtime) context.
 
 
 == SEE ALSO
-**rtapi_app_exit**,
-**rtapi_init**,
+**rtapi_app_exit** +
+**rtapi_init** +
 **hal_init**

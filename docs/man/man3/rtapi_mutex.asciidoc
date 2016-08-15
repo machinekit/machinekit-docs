@@ -10,34 +10,37 @@
 
 == NAME
 
-rtapi_mutex -- Mutex-related functions
+**rtapi_mutex** -- Mutex-related functions
 
 
 
 == SYNTAX
- int rtapi_mutex_try(unsigned long *__mutex__)
 
- void rtapi_mutex_get(unsigned long *__mutex__)
+**int rtapi_mutex_try** ( **unsigned long** *__mutex__ )
 
- void rtapi_mutex_give(unsigned long *__mutex__)
+**void rtapi_mutex_get** ( **unsigned long** *__mutex__ )
+
+**void rtapi_mutex_give** ( **unsigned long** *__mutex__ )
 
 
 
 == ARGUMENTS
-.IP __mutex__
+__mutex__ +
 A pointer to the mutex.
 
 
 
 == DESCRIPTION
-**rtapi_mutex_try** makes a non-blocking attempt to get the mutex.
-If the mutex is available, it returns 0, and the mutex is no longer available.
+**rtapi_mutex_try** +
+makes a non-blocking attempt to get the mutex. +
+If the mutex is available, it returns 0, and the mutex is no longer available. +
 Otherwise, it returns a nonzero value.
 
-**rtapi_mutex_get** blocks until the mutex is available.
+**rtapi_mutex_get** +
+blocks until the mutex is available.
 
-**rtapi_mutex_give** releases a mutex acquired by **rtapi_mutex_try** or
-**rtapi_mutex_get**.
+**rtapi_mutex_give** +
+releases a mutex acquired by **rtapi_mutex_try** or **rtapi_mutex_get**.
 
 
 
@@ -53,4 +56,4 @@ init/cleanup, and realtime code.
 **rtapi_mutex_try** returns 0 for if the mutex was claimed, and nonzero
 otherwise.
 
-**rtapi_mutex_get** and **rtapi_mutex_gif** have no return value.
+**rtapi_mutex_get** and **rtapi_mutex_give** have no return value.

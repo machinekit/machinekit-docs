@@ -10,32 +10,33 @@
 
 == NAME
 
-rtapi_print, rtapi_print_msg -- print diagnostic messages
+**rtapi_print**, **rtapi_print_msg** -- print diagnostic messages
 
 
 
 == SYNTAX
- void rtapi_print(const char *__fmt__, __...__)
+**void rtapi_print** ( **const char** *__fmt__, __...__ )
 
- void rtapi_print_msg(int level, const char *__fmt__, __...__)
+**void rtapi_print_msg** ( **int** __level__, **const char** *__fmt__, __...__ )
 
- typedef void(***rtapi_msg_handler_t**)(msg_level_t __level__, const char *__msg__);
- void **rtapi_set_msg_handler**(rtapi_msg_handler_t __handler__);
- rtapi_msg_handler_t **rtapi_set_msg_handler**(void);
+**typedef void**(***rtapi_msg_handler_t**)( **msg_level_t** __level__, **const char** *__msg__ );
+
+**void rtapi_set_msg_handler** ( **rtapi_msg_handler_t** __handler__ );
+
+**rtapi_msg_handler_t rtapi_set_msg_handler**(__void__);
 
 
 == ARGUMENTS
-.IP __level__
-A message level: One of **RTAPI_MSG_ERR**,
-**RTAPI_MSG_WARN**, **RTAPI_MSG_INFO**, or **RTAPI_MSG_DBG**.
+__level__ +
+A message level: +
+One of **RTAPI_MSG_ERR**, **RTAPI_MSG_WARN**, **RTAPI_MSG_INFO**, or **RTAPI_MSG_DBG**.
 
-.IP __handler__
+__handler__ +
 A function to call from **rtapi_print** or **rtapi_print_msg** to
 actually output the message.
 
-.IP __fmt
-__.IP __...
-__Other arguments are as for __printf__.
+__fmt__ __...__ +
+Other arguments are as for __printf__.
 
 
 
@@ -45,10 +46,13 @@ printf functions, except that a reduced set of formatting operations are
 supported.
 
 Depending on the RTOS, the default may be to print the message to stdout,
-stderr, a kernel log, etc.   In RTAPI code, the action may be changed by
-a call to **rtapi_set_msg_handler**.  A **NULL** argument to
+stderr, a kernel log, etc.   +
+In RTAPI code, the action may be changed by
+a call to **rtapi_set_msg_handler**.  +
+A **NULL** argument to
 **rtapi_set_msg_handler** restores the default handler.
-**rtapi_msg_get_handler** returns the current handler.  When the
+**rtapi_msg_get_handler** returns the current handler.  +
+When the
 message came from **rtapi_print**, __level__ is RTAPI_MSG_ALL.
 
 **rtapi_print_msg** works like rtapi_print but only prints if
@@ -58,9 +62,10 @@ __level__ is less than or equal to the current message level.
 
 == REALTIME CONSIDERATIONS
 **rtapi_print** and **rtapi_print_msg** May be called from user,
-init/cleanup, and realtime code.  **rtapi_get_msg_handler** and
-**ftapi_set_msg_handler** may be called from realtime init/cleanup
-code.  A message handler passed to **rtapi_set_msg_handler** may only
+init/cleanup, and realtime code.  +
+**rtapi_get_msg_handler** and **rtapi_set_msg_handler** may be called from realtime init/cleanup
+code.  +
+A message handler passed to **rtapi_set_msg_handler** may only
 call functions that can be called from realtime code.
 
 
@@ -71,5 +76,6 @@ None.
 
 
 == SEE ALSO
-**rtapi_set_msg_level**, **rtapi_get_msg_level**,
+**rtapi_set_msg_level** +
+**rtapi_get_msg_level** +
 **printf**
