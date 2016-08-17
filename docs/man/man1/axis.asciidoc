@@ -35,7 +35,50 @@ together.
 It can adjust a lot of parameters itself, but it also tells
 **Machinekit** which other files to load and use.
 
+== ADDITIONAL INFO
 
+The axis GUI exports several pins, which may be used to get its state and other uses.
+
+**axisui.jog.x**  (OUT,bit)	+
+TRUE if x axis is selected for jogging in the GUI
+
+**axisui.jog.y**  (OUT,bit)	+
+TRUE if y axis is selected for jogging in the GUI
+
+**axisui.jog.z**  (OUT,bit)	+
+TRUE if z axis is selected for jogging in the GUI
+
+**axisui.jog.a**  (OUT,bit)	+
+TRUE if a axis is selected for jogging in the GUI
+
+**axisui.jog.b**  (OUT,bit)	+
+TRUE if b axis is selected for jogging in the GUI
+
+**axisui.jog.c**  (OUT,bit)	+
+TRUE if c axis is selected for jogging in the GUI
+
+**axisui.jog.u**  (OUT,bit)	+
+TRUE if u axis is selected for jogging in the GUI
+
+**axisui.jog.v**  (OUT,bit)	+
+TRUE if v axis is selected for jogging in the GUI
+
+**axisui.jog.w**  (OUT,bit)	+
+TRUE if w axis is selected for jogging in the GUI
+
+**axisui.jog.increment** (OUT,float) +
+Current jog increment value set
+
+**axisui.notifications-clear**       (IN,bit) +
+**axisui.notifications-clear-info**  (IN,bit) +
+**axisui.notifications-clear-error** (IN,bit) +
+Clear the different sources of error messages with Axis without using GUI
+
+**axisui.run-disable**               (IN,bit) +
+A disable bit designed for college use or similar. +
+All the functions such as touch off and jog will work, but a program cannot be started if it is TRUE.
+
+Connect to safety door interlinks etc. to prevent un-guarded operation
 
 == SEE ALSO
 
