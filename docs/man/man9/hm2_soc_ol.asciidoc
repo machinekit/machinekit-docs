@@ -1,0 +1,70 @@
+---
+---
+:skip-front-matter:
+
+= HM2_SOC_OL
+:manmanual: HAL Components
+:mansource: ../man/man9/hm2_soc_ol.asciidoc
+:man version : 
+
+== NAME
+**hm2_soc_ol** - Machinekit HAL driver for Altera CycloneV and Xilinx Zynq platforms running HostMot2 firmware.
+
+== SYNOPSIS
+**newinst hm2_soc_ol hm2-socfpga0**  [config=**"str[,str...]"**] __
+
+**hm2-socfpga0**
+
+[indent=4]
+====
+HAL instance name, must match the device name in the Device Tree Overlay (see below). Do not change.
+====
+
+**config** [default: ""]
+
+[indent=4]
+====
+HostMot2 config strings, described in the hostmot2(9) manpage.
+====
+
+== DESCRIPTION
+**hm2_soc_ol** is a HAL driver that interfaces the FPGA of the CycloneV and Zynq platforms
+running HostMot2 firmware to the Machinekit HAL. Both platforms are supported
+transparently, the only difference being the firmware pathname.
+
+The driver talks to the FPGA by memory-mapped access.
+
+The driver programs the FPGA when it registers the board with the
+hostmot2 driver.  The firmware to load is specified in the **config**
+modparam, as described in the hostmot2(9) manpage, in the __config
+modparam__ section.
+
+== Specifying the firmware
+
+The "firmware=" config argument must point to a file with extension ".dtbo"
+(a device tree overlay). The locations of these overlays are:
+
+- CycloneV: /lib/firmware/socfpga/dtbo
+- Zynq: /lib/firmware/zynq/dtbo
+
+The argument to "firmware=" must be relative to /lib/firmware - example:
+
+ # CycloneV:
+ newinst hm2_soc_ol hm2-socfpga0 config="firmware=socfpga/dtbo/DE0_Nano_SoC_DB25.7I76_7I85S_GPIO_GPIO.dtbo"
+
+ # Zynq:
+ newinst hm2_soc_ol hm2-socfpga0 config="firmware=zynq/dtbo/zturn_ztio_7z020_ol.dtbo"
+
+Currently firmware is provided by the socfpga-rbf (CycloneV) and socfpga-bit (Zynq) packages
+in the deb.machinekit.io repository.
+
+== Firmware creation
+
+Firmware is automatically built from the https://github.com/machinekit/mksocfpga repository.
+
+
+== SEE ALSO
+hostmot2
+
+== LICENSE
+GPL
