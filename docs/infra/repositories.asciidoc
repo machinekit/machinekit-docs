@@ -149,10 +149,12 @@ seqdiag {
 
 
 == https://github.com/machinekit/mksocfpga[FPGA firmware for SoC/FPGA platforms]
-- contains VHDL source and configurations for various platforms
+- contains VHDL source and configurations for CycloneV and Zynq platforms
 - firmware packages are built automatically if a PR is merged into this repo
-- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga/[build job configuration]
-- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-packaging/[packaging step], triggered after successful build
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-quartus/[CycloneV build job configuration]
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-packaging-quartus/[CycloneV packaging step], triggered after successful build
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-vivado/[Zynq build job configuration]
+- https://jenkins.machinekit.io/view/machinekit/job/mksocfpga-packaging-vivado/[Zynq packaging step], triggered after successful build
 
 === Merging a pull request into the mksocfpga repo
 [seqdiag, "mksocfpga_merge_flow", "svg",width=100%,height=100%] 
