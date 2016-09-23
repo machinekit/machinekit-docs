@@ -68,16 +68,24 @@ sudo make setuid
 ../scripts/check-system-configuration.sh
 ----
 
-Add the next lines to your `.bashrc` file so that every new terminal is set up
-correctly for running Machinekit.
+If you wish to run this installation by default, add the next lines to your `~/.bashrc` file,
+so that every new terminal is set up correctly for running Machinekit.
 
 [source,bash]
 ----
-sh -c "echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then\n\
-    source ~/machinekit/scripts/rip-environment\n\
-    echo \"Environment set up for running Machinekit\"\n\
-fi\n' >> ~/.bashrc"
+echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then \
+    source ~/machinekit/scripts/rip-environment \
+    echo "Environment set up for running Machinekit" \
+fi' >> ~/.bashrc
 ----
+
+However, if you are installing a RIP build onto a system that already has a version of Machinekit installed as a binary
+install from packages say, or has other RIP builds, you should invoke from the root dir of the RIP,
+[source,bash]
+----
+. ./scripts/rip-environment
+----
+only in terminal sessions where you specifically want to run this RIP.
 
 Users who wish to invoke machinekit (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
 
