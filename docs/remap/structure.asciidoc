@@ -1136,22 +1136,38 @@ Note that both `(abort, msg)` and returning INTERP_ERROR from an
 epilog will cause any ON_ABORT handler to be called as well if defined
 (see previous section).
 
-== Remapping other existing codes: S, M0, M1, M60
+== Remapping other existing codes
 
-=== Automatic gear selection be remapping  S (set spindle speed)
-A potential use for a remapped S code would be 'automatic gear
-selection' depending on speed. In the remap procedure one would test
-for the desired speed attainable given the current gear setting, and
-change gears appropriately if not.
+=== Automatic gear selection:  remapping S
+
+A potential use for a remapped S code, set spindle speed, would be
+'automatic gear selection' depending on speed. In the remap procedure
+one would test for the desired speed attainable given the current gear
+setting, and change gears appropriately if not.
 
 === Adjusting the behaviour of M0, M1, M60
-A use case for remapping M0/M1 would be to customize the behaviour of
-the existing code. For instance, it could be desirable to turn off the
-spindle, mist and flood during an M0 or M1 program pause, and turn
-these settings back on when the program is resumed.
+
+A use case for remapping M0/M1, pause running program, would be to
+customize the behaviour of the existing code.  For instance, it could
+be desirable to turn off the spindle, mist and flood during an M0 or
+M1 program pause, and turn these settings back on when the program is
+resumed.
 
 For a complete example doing just that, see
 'configs/sim/axis/remap/extend-builtins/', which adapts M1 as laid out above.
+
+=== Other existing codes
+
+Below is a list of other existing codes available to be remapped.
+Calling these codes from within their own remap body, either python or
+ngc, the behavior will be the same as the unremapped command,
+simplifying small modifications to the existing code behavior.
+
+- `M19`, spindle orient
+- `M62` through `M66`, analog and digital I/O
+  * `M66` must yield control while waiting on input, a queue-buster
+    condition; see the <<remap:how-queuebusters-are-dealt-with,"How
+    queuebusters are dealt with">> section below for details.
 
 == Creating new G-code cycles [[remap:G-code-cycles]]
 
@@ -1499,9 +1515,6 @@ apply to the usage of 'yield INTERP_EXECUTE_FINISH':
   of a remap procedure. Yield does not work in a Python oword procedure.
 - A Python remap subroutine containing 'yield INTERP_EXECUTE_FINISH' statement may
 not return a value, as with normal Python yield statements.
-- Code following a yield may not recursively call the interpreter, like with
-  self.execute("<mdi command>"). This is an architectural restriction
-  of the interpreter and is not fixable without a major redesign.
 
 === Calling conventions: Python to NGC
 
@@ -2259,6 +2272,7 @@ are called 'queue busters', and they are:
 - executing a probe with G38.x: final position and success/failure not predictable
 
 
+[[remap:how-queuebusters-are-dealt-with]]
 === How queuebusters are dealt with
 
 Whenever the interpreter encounters a queuebuster, it needs to stop
