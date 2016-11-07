@@ -14,17 +14,30 @@ sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
 
 = RT-PREEMPT realtime kernel (amd64)
 
-There is currently no stock Debian RT-PREEMPT kernel for Jessie; the machinekit apt repository provides
-several known-to work kernels. 
+There is currently no stock Debian RT-PREEMPT kernel for Jessie.
+The Debian meta package `linux-image-rt-[amd64/i386]` will error if you try to install it
+with an error message similar to
+[source, bash]
+----
+The following packages have unmet dependencies:
+ linux-image-rt-amd64 : Depends: linux-image-4.1.0-0.bpo.1-rt-amd64 but it is not installable
+---- 
 
-If you want to build your own kernel, see the developing section for more details.
+The machinekit apt repository provides several known-to work kernels, plus headers etc. 
 
-Choose and copy and paste the following into a shell to
+If you install the `machinekit-rt-preempt` package, one of these will be installed automatically.
+
+Alternately you can build your own kernel (see the developing section for more details) or manually install another kernel.
+
+Choose and copy and paste one of the following into a shell to
 install your kernel:
 
 [source,bash]
 ----
-sudo apt-get install linux-image-rt-amd64           # amd64 Jessie
-# alternatively, a newer experimental kernel:
-sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 Jessie
+sudo apt-get install linux-image-4.1.15-rt17mah     # amd64 and i386 
+
+sudo apt-get install linux-image-4.1.19-rt22mah     # amd64 and i386 
+
+sudo apt-get install linux-image-4.8.0-1-rt-amd64   # amd64
+sudo apt-get install linux-image-4.8.0-1-rt-686-pae # i386
 ----
