@@ -27,6 +27,13 @@ The file extension is .stepconf.
 
 The Stepconf Wizard works best with at least 800 x 600 screen resolution.
 
+[NOTE]
+Before starting stepconf it is advisable to first run one of the simulated configs,
+eg. axis_mm.  This will ensure your system is working properly and will create
+a machinekit folder in your home dir if it does not already exist.
+This is required for stepconf.
+
+
 [float]
 Step by Step Instructions
 //__=========================
