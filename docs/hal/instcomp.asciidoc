@@ -118,7 +118,7 @@ The following accessors are available within the function:
 == Instance creation
 
 
-*'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > --- extra_arg1 extra_arg2 ......'*
+*'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > -- extra_arg1 extra_arg2 ......'*
 
 Loads somecomponent and creates a new instance of somecomponent called somenewname
 
@@ -285,9 +285,9 @@ will result in a new instance of the component called newname, with 16 pins .inv
 
 Any additional args which do not match the RTAPI_IP_PARAM parameters expected, are passed through the argc / argv mechanism to the new component
 
-These should be separated from the instanceparam args with *---*
+These should be separated from the instanceparam args with *--*
 
-eg:  *'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > --- extra_arg1 extra_arg2 ......'*
+eg:  *'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > -- extra_arg1 extra_arg2 ......'*
 
 This allows the use of 'arg=value' type arguments without newinst believing it should be an instanceparam argument
 
