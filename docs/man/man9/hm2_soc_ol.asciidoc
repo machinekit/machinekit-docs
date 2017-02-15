@@ -11,9 +11,12 @@
 **hm2_soc_ol** - Machinekit HAL driver for Altera CycloneV and Xilinx Zynq platforms running HostMot2 firmware.
 
 == SYNOPSIS
-**newinst hm2_soc_ol hm2-socfpga0**  [config=**"str[,str...]"**] __
+**newinst hm2_soc_ol hm2-socfpga0** **--** [config=**"str[,str...]"**] __
 
 **hm2-socfpga0**
+
+Note:  The 2 dashes between the instance name and the config string, became effective for builds after 3rd Feb 2017
+( commit a2984ebb091109fd4c33b6a5ebe3dac1442a1e8 ) due to changes as to how string arguments are dealt with.
 
 [indent=4]
 ====
