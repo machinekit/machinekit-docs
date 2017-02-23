@@ -165,7 +165,11 @@ The reason for this is that kernel module parameters were never envisaged to be 
 Saving a numerical value for use is quite simple, but saving a string which could be any length would involve allocating memory to duplicate it,
 making it a wasteful process and requiring the explicit freeing of that memory when the instance exits.
 
-For this reason, do not use the instanceparam value directly, access it through a copy in the inst_data struct which is named *local_[instanceparamname]*
+There is another consideration regards strings.  
+If the first string to be passed with the first instance of the component is short and a longer string is passed to a subsequent instance, 
+there is no guarantee that enough memory was allocated to contain the new longer string, a major concern given that module parameters are reused for each new instance.
+
+For these reasons, do not use the instanceparam value directly, access it through a copy in the inst_data struct which is named *local_[instanceparamname]*
 
 The most common example is in those components which create variable pin numbers through the 'pincount=NN' parameter.
 
@@ -243,7 +247,7 @@ pin in float in-##[pincount];
 
 Within your code, in the function body, a local copy within the instance struct is used to get this value
 
-for( x = 0; x < localpincount; x++)
+for( x = 0; x < local_pincount; x++)
     {
     // do stuff
     }
@@ -285,11 +289,16 @@ will result in a new instance of the component called newname, with 16 pins .inv
 
 Any additional args which do not match the RTAPI_IP_PARAM parameters expected, are passed through the argc / argv mechanism to the new component
 
-These should be separated from the instanceparam args with *--*
+These should be separated from the instanceparam args with two dashes *--*
 
 eg:  *'newinst somecomponent somenewname < pincount=0 > < other_instanceparam=xxx > -- extra_arg1 extra_arg2 ......'*
 
 This allows the use of 'arg=value' type arguments without newinst believing it should be an instanceparam argument
+
+As an example, see the C driver for the DE0-NANO-Soc FPGA boards
+https://github.com/machinekit/machinekit/blob/master/src/hal/drivers/mesa-hostmot2/hm2_soc_ol.c
+
+This passes a complex configuration string without using instparams via the argc/argv mechanism.
 
 Using in the comp file:-
 
@@ -469,14 +478,14 @@ FUNCTION(_)
     if (position < 0) position = top_position;
     if (position > top_position) position = 0;
 
-    for (i = 0 ; i < localpincount; i++){
+    for (i = 0 ; i < local_pincount; i++){
         bit(i) = (i == position);
     }
 
 }
 
 EXTRA_INST_SETUP(){
-    top_position = localpincount - 1;
+    top_position = local_pincount - 1;
     return 0;
 }
 
@@ -526,7 +535,7 @@ FUNCTION(_)
 int i;
 int shift = 0;
 
-    for (i = 0; i < localpincount; i++)
+    for (i = 0; i < local_pincount; i++)
     if (in(i))
         shift += (1 << i);
 
