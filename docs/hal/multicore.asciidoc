@@ -28,49 +28,96 @@ As soon as one of these threads start running on other cores, with their own sch
 A lower priority thread can run on another core, when it was assumed it would have to wait for the higher priority 
 thread to exit on a single core.
 
+The general problems are discussed in greater depth here +
+https://plus.google.com/events/cgmuboguggfmj6o8j3uvspjmmgs
+
 == Multicore solutions
 
 To combat the value consistency problems, atomic operations were used to read and write.  +
 An atomic operation is one which is indivisible and runs without interruption in a single step. + 
 This prevents race conditions where more than one update is being attempted to a pin or signal.
 
-The operations on pins etc are made via accessor functions, removing the direct memory access used in legacy HAL operations. +
+The operations on pins etc are now made via accessor functions, removing the direct memory access used in legacy HAL operations. +
 This removes the need for the memory address of the data to be known by the calling function and assumptions about memory
 ordering. +
 Since the operations are atomic, they can be lock free.
 
-Further measures to achieve synchronisation and data sharing via lock-free data structures, ring buffers and triple buffers were made.
+Hardening against pin, signal and funct data reordering across cores was achieved by allowing memory barriers to be used. +
+A memory barrier, is a type of barrier instruction that causes a central processing unit (CPU) or compiler to enforce an ordering constraint 
+on memory operations issued before and after the barrier instruction. +
+This typically means that operations issued prior to the barrier are guaranteed to be performed before operations issued after the barrier.
+
+For instances where more data needs to be shared than fits in a single 64-bit atomic transaction, ring-buffer and
+triple-buffer routines are available that can synchronize both fixed and variable sized data structures across multiple physical cores.
+
+A ring buffer is used where every value update counts, as in perhaps an incremental total which is calculated on the receiving side. +
+Ring buffers support non-blocking, variable-sized record queue operations between cooperating entities. +
+The underlying model is a lock-free, single-reader, single-writer queue which does not require any operating system support and is extremely fast. +
+
+Ringbuffers are intended to replace a variety of special-purpose messaging schemes, +
+like the ones used between task and motion, in halstreamer, halsampler and halscope, at the same time making those amenable to a networked messaging integration. 
+
+In many cases, only the last value is of interest, there a triple buffer can be used. +
+This mechanism takes a write and flips the buffer to be the read buffer. +
+So whichever write is made last will be reflected in the read buffer.
+
 
 For the full details, see this talk from 2015. +
 https://plus.google.com/events/cvhj9r8m2gh0v0kj7ccme36hlpo 
+
+== API changes
+
+Where humanly possible, the changes are kept 'under the skin' and code that worked previously, will continue to do so,
+even if the way it does it is different. +
+
+A major rewrite of the HAL objects was made, with a base union structure of *hal_object_ptr*. 
+
+All objects share a common *halhdr_t* struct as the first field in their hal_object descriptor. +
+This gives information such as object ID, name, owner, type and sets read/write barriers. +
+All are available via accessor functions.
+
+The code which used direct memory access via pointer dereferencing was replaced. +
+Halcmd for instance contains a huge number of display functions, each of which was previously reliant upon its own list walking routine,
+used with the mutex held, which directly accessed data from dereferenced pointers.
+
+These are replaced with a single recursive iteration routine *halg_foreach* +
+This takes arguments to specify a callback routine to handle the iterations and a *foreach_args_t* structure. +
+That structure specifies the hal object type to be iterated through, name to be matched etc. and also contains additional user defined data
+which can be used in the callback routine. +
+Along with various *yield_xxx* routines, it can return anything from a count of all matches to a detailed printout of matches.
 
 == v2 components
 
 Components which utilise the 'atomic operation via accessors' model, were called version 2 or v2 for short. +
 They have v2 inserted before the file extension eg. debouncev2.icomp
 
-In the instantiated components directory src/hal/i_components, there are conventional and v2 versions of each component.
+All v2 components are instantiated, even if the v1 counterpart is not. +
+Some are C components, but the vast majority are .icomp scripts designed to be generated with the *instcomp* tool. + 
+This is the recommended way to write new components.
 
+For further information on writing instantiated components (v1 or v2) see
+http://www.machinekit.io/docs/hal/instcomp
+
+In the instantiated components directory https://github.com/machinekit/machinekit/tree/master/src/hal/i_components, 
+there are conventional and v2 versions of each component. +
 They differ internally in a 2 main respects.
 
 They use 'pin_ptr' instead of 'pin'.
 
-*pin in float input;* +
 *pin out float output;* +
-becomes +
-*pin_ptr in float input;* +
-*pin_ptr out float output;* +
+_becomes_ +
+*pin_ptr out float output;* 
 
 They use accessor macros to get/set/increment the pin values.
 
 *output = 1.23;* +
-becomes + 
-*sf(output, 1.23);*  // sf being s(et)f(loat) +
+_becomes_ +
+*sf(output, 1.23);*  // sf being *s*(et)*f*(loat) +
 
 The header file containing macros is included into all components created with instcomp. +
-It is hal_accessor_macros.h 
+It is https://github.com/machinekit/machinekit/blob/master/src/hal/lib/hal_accessor_macros.h
 
 
 
 
-Last updated 2015-05-31 16:44:22 BST
+Last updated 2017-03-04 10:44:22 GMT
