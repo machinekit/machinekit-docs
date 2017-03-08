@@ -17,6 +17,8 @@
 
 - link:/docs/developing/writing-components[General info and links re writing components]
 
+- link:/docs/hal/instcomp_writing_a_component[Tutorial on writing an instantiated component with instcomp]
+
 - link:/docs/developing/toolchangers[Specific info on writing toolchanger components]
 
 - link:/docs/developing/CAN-developing[Information on developing using CAN]

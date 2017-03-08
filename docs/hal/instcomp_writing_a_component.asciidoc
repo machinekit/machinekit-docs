@@ -11,7 +11,7 @@
 
 *instcomp* is the Machinekit component pre-processor and compiler for instantiable components (.icomp)
 
-It is the counterpart to the legacy *comp* program, for creating rt components, which is all but deprecated.
+It is the counterpart to the *comp* program, for creating legacy rt components.
 
 Instcomp allows the user to write a short script which details what pins should be created, default and maximum
 numbers of pins and what functions should be created etc.
@@ -235,14 +235,16 @@ You may have noticed that the pin names get changed from _in_ to __in_ etc.
 
 This is because of how one of the conversion routines in instcomp treats names preceeded by a . (period) +
 They are a local reference to the pin, the pin name seen externally will be as intended. +
-(Some compilers used to create leading underscored local variables automatically if you try to use _in_ or _out_ as a variable name.)
 
 The writer knew this would happen and wrote his function code accordingly, with underscores.
 
-It does raise a unrelated, very common naming issue that is best avoided. +
+It does however raise a unrelated, very common naming issue that is best avoided.
+
 The naming of pins as _in_ or _out_ clashes with the IO type of the pin, as well as possibly some default compiler routines. +
 The naming functions as _read_ and _write_, definately clashes with basic compiler routines. +
-All are best avoided.
+All are best avoided. +
+( Confusingly, some compilers used to create leading underscored local variables automatically, if you try to use a built-in function
+as a variable name. )
 
 ===  The End Result
 
