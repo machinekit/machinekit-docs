@@ -1,0 +1,280 @@
+---
+---
+
+:skip-front-matter:
+
+= Writing a component with instcomp
+:toc:
+[[cha:writing-a-component-with-instcomp]] (((Writing a component with instcomp)))
+
+== Introduction
+
+*instcomp* is the Machinekit component pre-processor and compiler for instantiable components (.icomp)
+
+It is the counterpart to the *comp* program, for creating legacy rt components.
+
+Instcomp allows the user to write a short script which details what pins should be created, default and maximum
+numbers of pins and what functions should be created etc.
+
+The function code is appended below the script delimiter *;;* and this code is inserted unaltered into the
+component function. +
+The correctness of this code is the sole responsibility of the user.
+
+The preprocessor creates a complete C component by interpreting the script section and creates all the
+rtapi calls and functions required, without any knowledge being required on the part of the user.
+
+== Writing an Instantiated Component
+
+The easiest way to demonstrate is by way of example, so we will use an existing component - debounce.icomp
+
+debounce is used to eliminate false signals due to electrical noise. +
+Common applications are for limit and home switches, to prevent false triggers from induced voltages from 'dirty' spindle motors for instance.
+
+The component will delay for a specified number of thread polls with an input pin HIGH, before it will pass that signal on to the output pin.
+
+=== First line
+
+[ source, bash ]
+----
+component debounce "Debounce filter for Machinekit HAL";
+----
+
+The first line of a component, must specify its name.  This name must be the same as the filename, minus the extension. +
+There may be an optional description and this and all other lines are terminated with a C style semi colon.
+
+=== The pins
+
+Pins and variables are the first thing detailed in the script. +
+They will be created and added to the instance structure which contains all the data relating to _that_ instance of the component.
+
+[ source, bash ]
+----
+    // Input Pins
+pin in bit #.in[pincount];
+pin out bit #.out[pincount];
+pin io s32 #.state[pincount];
+
+pin io s32 delay = 5;
+----
+
+Pins are described in a pin [direction] [type] [name] format. +
+This can be seen in the _delay_ pin line, plus an initialisation to a default value.
+
+*NB.* +
+Params are deprecated, if you want a pin value that can be initialised and altered by the user, use an *io* pin. +
+Params go back to a stage when normal pins could not be initialised at construction, which no longer applies.
+
+
+The 3 top lines create arrays of pins for in, out and state. +
+The *#* is a placeholder for the pin number and *pincount* is a special integer instanceparam, which we will cover shortly.
+
+If pincount is 4, the script instructs that 3 arrays of 4 pins, numbered from 0 - 3 be created.
+
+=== Instanceparams
+
+[ source, bash ]
+----
+instanceparam int pincount = 8;
+
+option MAXCOUNT 16;
+----
+
+instanceparams are the equivilent to rt module parameters, that is, they are arguments used in the creation and running of the component.
+
+*pincount* is a reserved name, used by a lot of components, to tell the component the size of the pin arrays.
+
+The value of the default is 8, the _option MAXCOUNT_ tells instcomp that the largest number permitted is 16.
+However if the user creates the component with
+[ source, bash ]
+----
+newinst debounce db pincount=4
+----
+the component will be created with 3 arrays of 4 pins 
+
+=== Licence etc.
+
+Next come any author credits and licence details
+
+[ source, bash ]
+----
+license "GPL";
+author "John Kasunich, adapted by ArcEye";
+----
+
+=== Functions and delimiter
+
+[ source, bash ]
+----
+function _;
+;;
+----
+
+The function is the part of the code that is attached to a thread and called at every thread period +
+You MUST declare at least one function.
+
+The majority of components only have one function, which executes all the code. +
+In this case there is no need to uniquely name it, it can be represented by an underscore. +
+When loaded it will appear as component.[N.]funct
+
+If you had 2 functions, one to read data and the other to write it out, you might declare it thus.
+
+[ source, bash ]
+----
+function readin ;
+function writeout ;
+----
+
+The script section is terminated by the delimiter *;;*
+
+So the script section of this component in its entirity is
+[ source, bash ]
+----
+component debounce "Debounce filter for Machinekit HAL";
+
+    // Input Pins
+pin in bit #.in[pincount];
+pin out bit #.out[pincount];
+pin io s32 #.state[pincount];
+
+pin io s32 delay = 5;
+
+instanceparam int pincount = 8;
+
+option MAXCOUNT 16;
+
+license "GPL";
+
+author "John Kasunich, adapted by ArcEye";
+
+function _;
+;;
+----
+
+
+=== Function Code
+
+Everything below the *;;* delimiter, will be reproduced verbatim in the component.
+
+In our example this is
+
+[ source, bash ]
+----
+FUNCTION(_)
+{
+hal_s32_t n;
+
+    // first make sure delay is sane
+    if (delay < 0)
+        delay = 1;
+
+    // loop through filters
+    for (n = 0; n < local_pincount; n++)
+        {
+        if(_in(n))
+            {
+            /* input true, is state at threshold? */
+            if (_state(n) < delay)
+                _state(n)++;
+            else
+                _out(n) = true;
+            }
+        else
+            {
+            if (_state(n) > 0)
+                _state(n)--;
+            else
+                _out(n) = false;
+            }
+        }
+    return 0;
+}
+----
+
+==== FUNCTION()
+
+*FUNCTION()* is a macro which expands into the function declaration. +
+The name of the function is inserted between the parentheses, in this case the default underscore.
+
+There are convenience macros created by default for all the pins and variables in the instance structure.
+
+These allow the user to address the pins by name without worrying about the pointer dereferencing required. +
+Arrays are addressed using parenthesis instead of square brackets.
+
+==== local_xxxx
+
+You will note that to iterate through the arrays of pins, a variable called *local_pincount* is used.
+
+This is a standard local variable created in the instance structure whenever _pincount_ appears in a component. +
+It holds the value that was passed to *that* instance.
+
+Instanceparams are based upon kernel module params and have one major achilles heel, they are persistent for the
+life of the base component and are not renewed at each instance creation. +
+This was never a problem when you could only load a legacy component once, but the advent of instantiated components
+means you could load the same component several times, with different values to pincount say. +
+
+If you used the global instanceparam _pincount_ in your function, to iterate through the array, you would get whatever value it was last set to. +
+So if you loaded an instance with less pins after this instance, you would be restricted to less pins than you actually created. +
+However if you loaded an instance with more pins after this instance, your function would overrun the bounds of its array and segfault,
+possibly crashing the system.
+
+To prevent this, instcomp sets the global instanceparams to 0 or -1 after they are copied locally. + 
+Thus, if for instance pincount is not specified in a subsequent instance creation,
+it will use the default set for the component, not whatever the last instance used.
+
+Other standard local variables are _local_argc_ and _local_argv_ +
+which hold the values passed to the component at instantiation. +
+These can be used in components to pass complex string arguments. +
+An advanced example of the use of this mechanism can be found in +
+https://github.com/machinekit/machinekit/blob/master/src/hal/drivers/mesa-hostmot2/hm2_soc_ol.c
+
+Any instanceparam that you declare in the script, will have a corresponding _local__ version created and its value copied to it by instcomp.
+
+==== _in, _out and _state
+
+You may have noticed that the pin names get changed from _in_ to __in_ etc.
+
+This is because of how one of the conversion routines in instcomp treats names preceeded by a . (period) +
+They are a local reference to the pin, the pin name seen externally will be as intended. +
+
+The writer knew this would happen and wrote his function code accordingly, with underscores.
+
+It does however raise a unrelated, very common naming issue that is best avoided.
+
+The naming of pins as _in_ or _out_ clashes with the IO type of the pin, as well as possibly some default compiler routines. +
+The naming functions as _read_ and _write_, definately clashes with basic compiler routines. +
+All are best avoided. +
+( Confusingly, some compilers used to create leading underscored local variables automatically, if you try to use a built-in function
+as a variable name. )
+
+===  The End Result
+
+Just to show how the code you have seen above translates in the actual component, especially with regards to pin names, this
+is what you get when you load it.
+
+[ source, bash ]
+----
+user@INTEL-i7:/usr/src/machinekit/src/hal/i_components$ realtime restart
+user@INTEL-i7:/usr/src/machinekit/src/hal/i_components$ halcmd newinst debounce db pincount=4
+user@INTEL-i7:/usr/src/machinekit/src/hal/i_components$ halcmd show pin db
+Component Pins:
+  Comp   Inst Type  Dir         Value  Name                                            Epsilon Flags  linked to:
+    78     80 bit   IN          FALSE  db.0.in                                      --l-
+    78     80 bit   OUT         FALSE  db.0.out                                     --l-
+    78     80 s32   I/O             0  db.0.state                                   --l-
+    78     80 bit   IN          FALSE  db.1.in                                      --l-
+    78     80 bit   OUT         FALSE  db.1.out                                     --l-
+    78     80 s32   I/O             0  db.1.state                                   --l-
+    78     80 bit   IN          FALSE  db.2.in                                      --l-
+    78     80 bit   OUT         FALSE  db.2.out                                     --l-
+    78     80 s32   I/O             0  db.2.state                                   --l-
+    78     80 bit   IN          FALSE  db.3.in                                      --l-
+    78     80 bit   OUT         FALSE  db.3.out                                     --l-
+    78     80 s32   I/O             0  db.3.state                                   --l-
+    78     80 s32   I/O             5  db.delay                                     --l-
+    78     80 s32   OUT             0  db.funct.time                                ----
+    78     80 s32   I/O             0  db.funct.tmax                                ----
+    78     80 bit   OUT         FALSE  db.funct.tmax-inc                            ----
+----
+
+
+
