@@ -32,11 +32,6 @@ it runs a http://www.machinekit.io/linkchecker.html[linkchecker]
 step to analyze the site for broken links.
 
 
-== Contributing a new page: use the link:http://www.machinekit.io/docs/sandbox/index.html[sandbox] to get started!
-
-Mick came up with this neat idea - just follow the instructions there and commit as PR!
-See the Sandbox link on the right above the Search box.
-
 == Contributing a large chunk of material: editing and previewing locally
 
 The 'Edit this page' process is great for small changes. For big chunks of material - not so much. In this case it is best to set up jekyll-asciidoctor locally. The edit-preview turnaround is very quick - Instructions will follow here hortly !
