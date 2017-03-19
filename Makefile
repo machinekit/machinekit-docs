@@ -16,10 +16,6 @@ all:	docs/man/man1/index.asciidoc \
 	docs/man/man9/index.asciidoc \
 	docs/machinetalk/protobuf.asciidoc
 
-# this should be made minimal
-#	scripts/filenums
-
-
 # all asciidoc documents in this repo
 MAN1 := $(filter-out docs/man/man1/index.asciidoc, $(wildcard docs/man/man1/*.asciidoc))
 MAN3 := $(filter-out docs/man/man3/index.asciidoc, $(wildcard docs/man/man3/*.asciidoc))
