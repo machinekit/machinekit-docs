@@ -73,9 +73,9 @@ so that every new terminal is set up correctly for running Machinekit.
 
 [source,bash]
 ----
-echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then \
-    source ~/machinekit/scripts/rip-environment \
-    echo "Environment set up for running Machinekit" \
+echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then
+    source ~/machinekit/scripts/rip-environment
+    echo "Environment set up for running Machinekit"
 fi' >> ~/.bashrc
 ----
 
