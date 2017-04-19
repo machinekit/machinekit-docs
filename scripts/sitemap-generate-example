@@ -1,0 +1,18 @@
+# !/bin/bash
+
+#######################################################################################
+# this is an example of how to generate a full depth sitemap.xml offline
+#
+###  NOT FOR RUNNING FROM THIS REPO IN JENKINS  ###
+#
+# see the contents of config.xml, for the configuration required
+# will need alteration for local paths to suit
+#
+# google-sitemapgen is a Debian package
+#########################################################################################
+
+wget -mk --spider -r http://www.machinekit.io/ -o urlinfolist.txt ;
+
+cat urlinfolist.txt | tr ' ' '\012' | grep "^http" | egrep -vi "[?]|[.]jpg$" | sort -u > urllist.txt ;
+
+google-sitemapgen --config=config.xml
