@@ -42,6 +42,17 @@ sudo apt-get install -t wheezy-backports cython
 ----
 
 == [[get-source-and-build]]Get and build the source
+IMPORTANT If you wish to contribute changes back to the project, do NOT
+clone the main project repository (3rd line below).  Instead, read
+this page: http://www.machinekit.io/community/contributing/
+Create a Github account, fork the main project repository, clone your
+fork, and synch your fork to the main project repository.
+The instructions below should be revised to show that process in detail,
+but I don't have time right now.  Additional details are on these
+github pages:
+https://help.github.com/articles/fork-a-repo/
+https://help.github.com/articles/syncing-a-fork/
+
 
 [source,bash]
 ----
