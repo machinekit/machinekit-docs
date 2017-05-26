@@ -14,7 +14,7 @@ TEMPLATE:= $(shell pwd)/scripts/machinekit-docs.mustache
 all:	docs/man/man1/index.asciidoc \
 	docs/man/man3/index.asciidoc \
 	docs/man/man9/index.asciidoc 
-#	docs/machinetalk/protobuf.asciidoc
+	docs/machinetalk/protobuf.asciidoc
 
 # all asciidoc documents in this repo
 MAN1 := $(filter-out docs/man/man1/index.asciidoc, $(wildcard docs/man/man1/*.asciidoc))
@@ -30,10 +30,10 @@ docs/man/man3/index.asciidoc: $(MAN3)
 docs/man/man9/index.asciidoc: $(MAN9)
 	scripts/index-gen.sh man9 'HAL Components'
 
-#docs/machinetalk/protobuf.asciidoc: \
-#	machinetalk-protobuf/src/machinetalk/protobuf/*.proto \
-#	$(TEMPLATE) \
-#	machinetalk-protobuf/Makefile \
-#	scripts/gen-proto-docs.sh
-#	scripts/gen-proto-docs.sh  $(TEMPLATE)
+docs/machinetalk/protobuf.asciidoc: \
+	machinetalk-protobuf/src/machinetalk/protobuf/*.proto \
+	$(TEMPLATE) \
+	machinetalk-protobuf/Makefile \
+	scripts/gen-proto-docs.sh
+	scripts/gen-proto-docs.sh  $(TEMPLATE)
 
