@@ -4,5 +4,12 @@
 :skip-front-matter:
 = Machinekit Commercial Support
 
-This is a placeholder
+The mailing lists and documentation are helpful, but your company might require more in-depth assistance or custom development. If so feel free to contact the following freelance developers and companies directly to discuss a commercial arrangement.
+
+[width="80%",options="header"]
+|====
+| Name | Contact | Location
+
+| http://machinekoder.com/about/[Alexander Rössler aka. machinekoder] | http://machinekoder.com/services/[machinekoder.com] or mailto:alexander@roessler.systems[alexander@roessler.systems] | Vienna, Austria
+|====
 
