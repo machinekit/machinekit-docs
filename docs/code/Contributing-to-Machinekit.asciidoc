@@ -169,7 +169,7 @@ There's an automatic way to check a branch for each commit being buildable
 Use as follows (in this case testing every commit from origin/master to
 HEAD, including running regression tests):
 
-`cd machinekit-dev`
+`cd machinekit`
 
 `git-test-sequence origin/master..  '(cd src;make;runtests)'`
 

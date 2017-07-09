@@ -38,19 +38,9 @@ old = tmp;
 
 == Installing
 
-If you're working with an installed version of Machinekit you will need to install
-the development packages.
+If you're working with an installed version of Machinekit you no longer need to install
+the development packages. They are part of the main machinekit-{kernel-flavour} package
 
-One method is to say following line in a terminal.
-
-.Installing Dev
-[source, bash]
-----
-sudo apt-get install machinekit-dev
-----
-
-Another method is to use the Synaptic Package Manager from the main Debian menu
-to install machinekit-dev.
 
 == Definitions
 
