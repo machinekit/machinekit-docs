@@ -11,15 +11,15 @@ kernels and flavors possible) Choose the same one as the kernel you use:
 
 [source,bash]
 ----
-sudo apt-get install machinekit-rt-preempt machinekit-dev
+sudo apt-get install machinekit-rt-preempt
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-xenomai machinekit-dev
+sudo apt-get install machinekit-xenomai
 ----
 [source,bash]
 ----
-sudo apt-get install machinekit-posix  machinekit-dev # non-RT (aka 'simulator mode')
+sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
 ----
 
 This package will provide local copies of the manual pages and a man page stub to remind
