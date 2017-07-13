@@ -9,9 +9,15 @@
 Follow these steps to configure Apt and install a kernel and Machinekit packages:
 
 [NOTE]
-The kernel-naming convention used in these packages may change as
+1) The kernel-naming convention used in these packages may change as
 experience is accumulated, especially with ARM-based systems. Be sure to
 check back here before installing a new kernel.
+
+[NOTE]
+2)  Do NOT try to install more than one machinekit-{kernel-flavour} package on the same partition.
+The packages now contain some kernel-flavour set files which used to be in the machinekit-dev
+package and they conflict with each other. If you require to switch between different kernels on the same partition, build
+a development RIP build and run from that.
 
 :sectnums:
 
