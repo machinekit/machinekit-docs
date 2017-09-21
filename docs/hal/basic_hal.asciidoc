@@ -23,6 +23,25 @@ window.
 
 image::HAL_Configuration.png[align="center"]
 
+== Loading a component.
+
+Nearly all components in Machinekit are now __instantiable__.
+
+This is a major difference between Machinekit and Linuxcnc.
+
+_Instantiable_ means that a base component is created and multiple instances of that component can loaded
+at will at any time.
+This completely does away with the shortcomings of fixed classic components, which must be loaded at startup
+and thereafter no components can be loaded unless the session is halted and restarted.
+
+There are 2 methods of loading instantiable components. +
+1. The classic _loadrt_ method detailed below +
+2. By the _newinst_ command below +
+
+Method 1. is retained for compatibility and will accept parameters of __count=__ or __names=__ to control numbers of instances created.
+
+Method 2. gives the full range of instantiated component options, including direct renaming, setting the number of pin sets through __pincount=__ and many others, if the component uses them.
+
 === loadrt [[sub:loadrt]] (((loadrt)))
 
 The command 'loadrt' loads a real time HAL component. Real time
@@ -38,6 +57,22 @@ loadrt <component> <options>
 
 loadrt mux4 count=1
 ----
+
+=== newinst [[sub:newinst]] (((newinst)))
+
+The command newinst, creates a new instance of a component.
+Components are added to threads just as with those loaded with _loadrt_.
+
+[source, {hal}]
+----
+newinst debounce db1 pincount=10
+----
+
+The above command creates a new instance of debounce, called _db1_ +
+It specifies db1 should have 10 sets of pins. +
+
+If a new name for debounce is not given, the default is __debounce.0__ +
+(or a higher incremented number if a debounce.0 already exists)
 
 
 === addf [[sub:addf]] (((addf)))
