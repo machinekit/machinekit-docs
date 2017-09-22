@@ -29,8 +29,8 @@ Nearly all components in Machinekit are now __instantiable__.
 
 This is a major difference between Machinekit and Linuxcnc.
 
-_Instantiable_ means that a base component is created and multiple instances of that component can loaded
-at will at any time.
+_Instantiable_ means that a base component is created and multiple instances of that component can be loaded
+at will at any time. +
 This completely does away with the shortcomings of fixed classic components, which must be loaded at startup
 and thereafter no components can be loaded unless the session is halted and restarted.
 
