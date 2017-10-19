@@ -14,14 +14,36 @@ sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 
 = RT-PREEMPT realtime kernel (i386)
 
-Debian Wheezy has an older RT-PREEMPT kernel (currently `linux-image-3.2.0-4-rt-686-pae`).
+== Debian Wheezy has an older RT-PREEMPT kernel 
 
-If you want to build your own kernel, see the Developing section for more details.
-
-Choose and copy and paste the following into a shell to
-install your kernel:
+This is installable with
 
 [source,bash]
 ----
-sudo apt-get install linux-image-3.2.0-4-rt-686-pae # i386 Wheezy
+sudo apt-get install linux-image-3.2.0-4-rt-686-pae
+or just
+sudo apt-get install linux-image-rt-686-pae
 ----
+
+== Debian Jessie has now been backported to the Debian Stretch rt-preempt kernel
+
+You need to add a line to your /etc/apt/sources.list file
+
+[source,bash]
+----
+sudo echo "deb http://ftp.uk.debian.org/debian/ jessie-backports main contrib non-free" \
+ >> /etc/apt/sources.list
+----
+
+(You can change *uk* for whatever your geographic mirror location)
+
+Then update apt and pull the kernel
+
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install linux-image-rt-686-pae
+----
+
+If you want to build your own kernel, see the Developing section for more details.
+
