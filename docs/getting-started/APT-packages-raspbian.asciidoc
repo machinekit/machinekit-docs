@@ -5,13 +5,25 @@
 
 = Configure APT for `raspbian`
 
+NB. +
+Raspbian continues as a distro, but the packages it uses are just Jessie armhf ones
+
+As from 22.Oct.2017 specific Raspbian packages will no longer be produced
+
+If you want to continue to update as changes to the code are made +
+just substitute *raspbian* in the below stanza with *jessie*
+
+If you have already installed raspbian packages and want to use Jessie, +
+purge them first and install anew.
+
+
 . Add Machinekit repository
 
 [source,bash]
 ----
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 43DDF224
 sudo sh -c \
-  "echo 'deb http://deb.machinekit.io/debian raspbian main' > \
+  "echo 'deb http://deb.machinekit.io/debian {raspbian|jessie} main' > \
   /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 ----
