@@ -106,4 +106,42 @@ a development RIP build and run from that.
 
 :leveloffset: -2
 
+
+== Debian Stretch on armhf (BBB | RPi2/3 | Other armhf)
+
+:leveloffset: +2
+
+- link:../APT-packages-stretch[APT Packages for Stretch]
+
+- link:../install-rt-kernel-armhf[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Stretch on i386
+
+:leveloffset: +2
+
+- link:../APT-packages-stretch[APT Packages for Stretch]
+
+- link:../install-rt-kernel-i386[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Stretch on amd64
+
+:leveloffset: +2
+
+- link:../APT-packages-stretch[APT Packages for Stretch]
+
+- link:../install-rt-kernel-amd64[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+
 :sectnums!:

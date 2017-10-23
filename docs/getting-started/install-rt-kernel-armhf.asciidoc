@@ -1,0 +1,13 @@
+---
+---
+
+:skip-front-matter:
+
+= Stretch realtime kernel 
+
+Xenomai is not supported in Stretch, you should use a rt-preempt kernel
+
+There are many kernels in this repository
+http://repos.rcn-ee.com/debian/pool/main/l/linux-upstream/
+
+You will need to check that it specifies `rt` and is targetted at your board type.
