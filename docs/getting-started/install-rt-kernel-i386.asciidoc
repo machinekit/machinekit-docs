@@ -45,5 +45,15 @@ sudo apt-get update
 sudo apt-get install linux-image-rt-686-pae
 ----
 
+== Debian Stretch repos contain rt-preempt kernels
+
+Update apt and pull the kernel
+
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install linux-image-rt-686-pae
+----
+
 If you want to build your own kernel, see the Developing section for more details.
 
