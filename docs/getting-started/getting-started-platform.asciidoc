@@ -32,3 +32,7 @@ setup.
 
 link:../../developing/developing[Set up a development platform]
   when you want to develop for Machinekit.
+
+[NOTE]
+For kernels after 3.8 you may need to change the device tree overlay in /boot/uEnv.txt.
+link:https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Loading_custom_capes has some help on this matter.
