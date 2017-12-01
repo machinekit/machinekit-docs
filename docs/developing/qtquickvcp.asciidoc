@@ -170,7 +170,7 @@ To modify these user interfaces a simple text editor is sufficient. Using a text
 
 === Install the Machinekit-Client
 
-For desktop platforms (*Linux, Windows, Mac*) you can find binaries here: link:http://buildbot.roessler.systems/files/machinekit-client[Machinekit-Client releases]
+For desktop platforms (*Linux, Windows, Mac*) you can find binaries here: link:https://github.com/qtquickvcp/QtQuickVcp[Machinekit-Client releases]
 
 You can find the *Android* client link:https://play.google.com/store/apps/details?id=io.machinekit.appdiscover[here]
 image:https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png[play,300,150,role="left"]
