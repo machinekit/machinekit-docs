@@ -1,0 +1,144 @@
+---
+---
+
+:skip-front-matter:
+
+= Writing a userspace component for comp that uses extra args
+:toc:
+[[cha:Writing-a-userspace-component-that-uses-extra-args]] (((Writing a userspace component for comp that uses extra args)))
+
+== Introduction
+
+*comp* has had the facility to specify extra arguments to gcc for some while, but they have hitherto been undocumented
+
+When writing a *userspace* component to be built with comp, one can specify 2 extra options.
+
+- *option extra_compile_args* allows an argument string to be specified which will be added to existing CFLAGS
+
+The most usual type of argument is additional include search paths for headers, but it could be any legitimate gcc flag +
+eg. +
+*option extra_compile_args "-I/path/to/extra/headers"*
+
+
+- *option extra_link_args* allows an argument string to be specified which will be added to existing LDFLAGS
+
+The use for this is almost exclusively add additional library search paths and to add specific libraries to be linked against. +
+eg. +
+*option extra_link_args "-L/path/to/extra/libs -lfoo*
+
+== Writing an userspace component that uses extra args
+
+The easiest way to demonstrate is by way of example.
+
+The below .h and .c files create a function foo() which just outputs a message
+
+[ source, C ]
+----
+// contents of foo.h
+#ifndef FOO_H_
+#define FOO_H_
+
+extern void foo(void);
+
+#endif  // FOO_H_
+----
+
+[ source, C ]
+----
+// contents of foo.c
+#include <stdio.h>
+
+void foo(void)
+{
+    puts("This message is from library libfoo");
+}
+----
+
+Then we compile it and link into a shared library called *libfoo*
+
+[ source, bash ]
+----
+$ gcc -c -Wall -Werror -fpic foo.c
+$ gcc -shared -o libfoo.so foo.o
+----
+
+Next we write a very simple userspace component that waits for a signal. +
+When received it uses the library function to write a message and exits.
+
+It specifies the locations of foo.h and libfoo.so in its extra args +
+and specifies linkage against libfoo
+
+[ source, C ]
+----
+// component tester.comp
+component tester;
+
+option userspace;
+
+option extra_compile_args "-I/prog/MK/comp-example";
+option extra_link_args "-L/prog/MK/comp-example -lfoo";
+
+pin in bit signal = 0;
+license "GPL"; // indicates GPL v2 or later
+;;
+
+#include <stdio.h>
+#include <unistd.h>
+#include "foo.h"
+
+void user_mainloop(void).
+{
+int once = 1;
+
+    while(once).
+	{
+        usleep(1000);
+        FOR_ALL_INSTS()
+	    {
+	    if(signal)
+		{
+		puts("This is a shared library test...");
+		foo();
+		once = 0;
+		}
+	    }
+	}
+}
+----
+
+Now we build the userspace component tester
+(note that the extra args are injected into the gcc arguments)
+
+[ source, bash ]
+----
+$ comp --compile tester.comp
+    gcc -I. -pthread -DTHREAD_FLAVOR_ID=0 -DRTAPI -D_GNU_SOURCE -D_FORTIFY_SOURCE=0 -D__MODULE__ -mieee-fp  -I/usr/src/machinekit/include -fPIC -g -funwind-tables.
+    -I/media/sdd/sdd3/prog/MK/comp-example -I/media/sdd/sdd3/prog/MK/comp-example -URTAPI -U__MODULE__ -DULAPI -Os -I/prog/MK/comp-example -o tester.
+    /tmp/tmpibcrEK/tester.c -Wl,-rpath,/usr/src/machinekit/lib -L/usr/src/machinekit/lib -llinuxcnchal -L/prog/MK/comp-example -lfoo
+----
+
+Now to test the userspace component - tester
+
+[source, bash]
+----
+$ DEBUG=5 realtime restart
+$ halcmd loadusr ./tester
+    <commandline>:0: Program './tester' started
+$ halcmd show pin
+    Component Pins:
+      Comp   Inst Type  Dir         Value  Name                                            Epsilon Flags  linked to:
+        80        bit   IN          FALSE  tester.0.signal
+$ halcmd setp tester.0.signal 1
+    <commandline>:0: setting parameter 'tester.0.signal' to '1'
+    <commandline>:0: Pin 'tester.0.signal' set to 1
+    This is a shared library test...
+    This message is from library libfoo
+$ halrun -U
+    <commandline>:0: Realtime threads stopped
+$
+----
+
+Success, tester prints to stdout using the library function foo() to print the second line.
+
+
+
