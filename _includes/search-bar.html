@@ -1,45 +1,19 @@
-<style>
-.cse input.gsc-input, input.gsc-input ,
-input.gsc-input {
-    moz-border-radius: 0 !important;
-    webkit-border-radius: 0 !important;
-    padding-right: 68px !important;
-    padding: 5px !important;
-    border-radius: 0 !important;
-    height: 26px !important;
-}
-.cse .gsc-search-button input.gsc-search-button-v2,
-input.gsc-search-button-v2 {
-    height: 26px !important;
-    margin-top: 0 !important;
-    min-width: 13px !important;
-    padding: 5px 26px !important;
-    width: 68px !important;
-}
-
-</style>
-
-
 <script>
-  (function() {
-    var cx = '013132401186084955638:hpvljajpulu';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
+    (function() {
+        var cx = '013132401186084955638:hpvljajpulu';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
 </script>
 
 <search-bar>
-  <div class="grid">
-    <div class="unit align-left center-on-mobiles">
-      <p>
-        <div class="top-search">
-	<gcse:searchbox-only></gcse:searchbox-only>
-        </div>
-      </p>
-    </div>
-  </div>
+    <form action="" method="GET">
+      <input class="input" name="q" size="10" placeholder="Search Site...">
+    </form>
 </search-bar>
+
+<gcse:searchresults-only></gcse:searchresults-only>

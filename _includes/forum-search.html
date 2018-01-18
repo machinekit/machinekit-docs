@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    function goToPage() {
+        var page = document.getElementById("uniqA45DE").value;
+	var base = "https://www.google.co.uk/search?&q=site%3Agroups.google.com%2Fd%2Fmsg%2Fmachinekit%2F%20";
+	var full = base + page;
+        window.open(full);
+	
+    }
+</script>
+
+<forum-search-bar>
+<div class="grid">
+    <div class="unit align-left hide-on-mobiles">
+        <div class="forum-search">
+	<p>
+        <form>
+	    <input type="text" placeholder="Search Forum..." name="uniqA45DE" size="10" id="uniqA45DE" onkeypress="if (event.keyCode == 13) { goToPage(); return false;}" />
+        </form>
+        </p>
+	</div>
+    </div>
+</div>
+</forum-search-bar>
