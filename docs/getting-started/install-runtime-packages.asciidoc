@@ -17,6 +17,10 @@ sudo apt-get install machinekit-rt-preempt
 ----
 sudo apt-get install machinekit-xenomai
 ----
+
+[NOTE]
+There are only Xenomai packages for Wheezy and Jessie not Stretch
+
 [source,bash]
 ----
 sudo apt-get install machinekit-posix # non-RT (aka 'simulator mode')
