@@ -12,6 +12,9 @@ Choose and copy and paste the following into a shell to install your kernel:
 sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 ----
 
+[NOTE]
+There are only Xenomai kernels for Wheezy and Jessie not Stretch
+
 = RT-PREEMPT realtime kernel (i386)
 
 == Debian Wheezy has an older RT-PREEMPT kernel 
