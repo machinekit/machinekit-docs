@@ -248,7 +248,7 @@ available but the lower the PWM frequency.
 
 == ENCODER
 Encoders have names like +
-**"hpg.encoder.__<Instance>__.out.__<Channel>__"**
+**"hpg.encoder.__<Instance>__.chan.__<Channel>__"**
 
 __"Instance"__ is a two-digit number that corresponds to the encoder
 instance number.  Each channel number value passed to 'num_encoders'
