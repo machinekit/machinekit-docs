@@ -1621,7 +1621,7 @@ following attributes:
 Errors can be trapped in the following Pythonic way:
 
 [source,python]
--------------------------------------------------------------------
+---------------------------------------------------------------------
 import interpreter
 interpreter.throw_exceptions = 1
    ...
