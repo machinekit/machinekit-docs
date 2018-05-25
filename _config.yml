@@ -63,4 +63,4 @@ exclude: [Makefile,
 	 '*/*.9' ]
 
 # for www.machinekit.io
-google_analytics_id:  UA-108874248-1
+#google_analytics_id:  UA-108874248-1
