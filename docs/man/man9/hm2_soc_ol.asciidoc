@@ -42,7 +42,17 @@ hostmot2 driver.  The firmware to load is specified in the **config**
 modparam, as described in the hostmot2(9) manpage, in the __config
 modparam__ section.
 
-== Specifying the firmware
+= Specifying the firmware
+
+=== No firmware load
+If you are dependent upon programming the fpga before starting Machinekit (ie: from u-boot before booting linux for framebuffer or similar) It is possible to inform the hm2_soc_ol driver to not re-program the fpga by issuing (already_programmed=1):
+    
+    newinst HOSTMOT2 [HOSTMOT2]DEVNAME already_programmed=1 -- config=HOSTMOT2
+
+a working example of how to get this into a working .ini file is
+in the example config (5i25-soc-cramps_no-fw-load.ini) here: https://github.com/machinekit/machinekit/blob/master/configs/hm2-soc-stepper/5i25-soc-cramps_no-fw-load.ini
+
+=== With firmware load
 
 The "firmware=" config argument must point to a file with extension ".dtbo"
 (a device tree overlay). The locations of these overlays are:
