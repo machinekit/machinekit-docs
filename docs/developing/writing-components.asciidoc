@@ -67,7 +67,7 @@ Instantiable components load the 'base component' and from that can create insta
 of the component whenever they are required.
 So instances can be created in separate hal files, on-the-fly or whatever.
 
-Further info link:/docs/hal/new-instantiated-components[here]
+Further info link:/docs/hal/instcomp_writing_a_component[here]
 
 Amoungst many advantages, it opens up huge flexibility in configuration.
 
