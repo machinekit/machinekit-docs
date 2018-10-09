@@ -1,0 +1,42 @@
+---
+---
+
+:skip-front-matter:
+
+= Unsupported distributions and packages.
+
+== Debian Wheezy on arm7 (BeagleBone)
+
+:leveloffset: +2
+
+- link:../APT-packages-wheezy[APT Packages for Wheezy]
+
+- link:../install-rt-kernel-arm7[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Wheezy on i386
+
+:leveloffset: +2
+
+- link:../APT-packages-wheezy[APT Packages for Wheezy]
+
+- link:../install-rt-kernel-i386[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Wheezy on amd64
+
+:leveloffset: +2
+
+- link:../APT-packages-wheezy[APT Packages for Wheezy]
+
+- link:../install-rt-kernel-amd64[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
