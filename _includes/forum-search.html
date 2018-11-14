@@ -1,12 +1,20 @@
 <script type="text/javascript">
     function goToPage() {
-        var page = document.getElementById("uniqA45DE").value;
+	var site = document.getElementById("site").value;
+        var forum = document.getElementById("forum").value;
+	var page = document.getElementById("uniqA45DE").value;
 	var base1 = "https://www.google.co.uk/search?&q=site%3Agroups.google.com%2Fd%2Fmsg%2Fmachinekit%2F%20";
 	var base2 = "https://www.google.co.uk/search?&q=site%3Amachinekit.io%2Fdocs%2F%20";
-	var full = base1 + page;
-	var full2 = base2 + page;
-	window.open(full);
-	window.open(full2);
+	if (document.getElementById('site').checked)
+	    {
+	    var full = base2 + page;
+	    window.open(full, '_self');
+	    }
+	else
+	    {
+    	    var full2 = base1 + page;
+	    window.open(full2, '_self');
+	    }
     }
 </script>
 
@@ -16,7 +24,7 @@
         <div class="forum-search">
 	<p>
         <form>
-	    <input type="text" placeholder="Search ..." name="uniqA45DE" size="10" id="uniqA45DE" onkeypress="if (event.keyCode == 13) { goToPage(); return false;}" />
+	    <input type="text" placeholder="Search ..." name="uniqA45DE" height="48" size="10" id="uniqA45DE" onkeypress="if (event.keyCode == 13) { goToPage(); return false;}" />
         </form>
         </p>
 	</div>
