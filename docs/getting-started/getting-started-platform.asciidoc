@@ -12,6 +12,11 @@ can be some differences in the installation for a specific platform.
 [NOTE]
 You should first have a working Debian installation.
 
+link:https://groups.google.com/forum/#!msg/machinekit/dDz0w80EFDE/bN85dTJFCQAJ[This post ]
+details how to set up Debian Stretch i386 on a PC, add a rt-preempt kernel and machinekit packages.
+
+As a general example of a package install, you may find it useful.
+
 == Installation options:
 
 === Images
