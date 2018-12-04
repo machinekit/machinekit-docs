@@ -285,7 +285,7 @@ Each encoder instance has the following pins:
 *position* (float output):: Encoder position in position units (count / scale).
 *velocity* (float output):: Estimated encoder velocity in position units per second.
 *reset* (bit input):: Currently unsupported, included for compatability with hm2.
-*index-enable* (bit in/out):: Currently unsupported, included for compatability with hm2.
+*index-enable* (bit in/out):: When this pin is set to True, the count (and therefore also position) are reset to zero on the next Index (Phase-Z) pulse.  At the same time, index-enable is reset to zero to indicate that the pulse has occurred.
 *rawcount* (s32 output):: Total number of encoder counts since the start, not adjusted for index or reset.
 *scale* (float input):: Converts from 'count' units to 'position' units.
 *A-pin* (u32 input):: PRU direct input pin to use for the A signal
