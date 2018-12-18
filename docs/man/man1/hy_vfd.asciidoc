@@ -48,21 +48,16 @@ following parameter should be configured:
 | *PD001 = 2* |
 Set register PD001 (source of run commands) to 2.
 
-0 ... operator
-
-1 ... external terminal
-
-1 ... external terminal
-
+0 ... operator +
+1 ... external terminal +
+1 ... external terminal +
 2 ... communication port
 
 | *PD002 = 2* |
 Set register PD002 (source of operating frequency) to 2.
 
-0 ... operator board
-
-1 ... board potentiometer
-
+0 ... operator board +
+1 ... board potentiometer +
 2 ... communication port
 
 | *PD005* |
@@ -92,20 +87,16 @@ motor's max speed (unless the max motor frequency happens to be 50 Hz)!
 |*PD163 = 1* |
 Set register PD163 (communication address) to 1 (default 0).
 
-range: 0 ... 240
-
+range: 0 ... 240 +
 0 ... invalid address
 
 |*PD164 = 2* |
 Set register PD164 (baud rate [b/s]) to 2 (19200).  This matches the
 default in the hy_vfd driver, change this if your setup has special needs.
 
-0 ...  4800
-
-1 ...  9600
-
-2 ... 19200
-
+0 ...  4800 +
+1 ...  9600 +
+2 ... 19200 +
 3 ... 348400
 
 | *PD165 = 3* |
@@ -114,16 +105,11 @@ This matches the default in the hy_vfd driver, change this if your
 setup has special needs.  Note that the hy_vfd driver only supports RTU
 communication, not ASCII.
 
-0 ... 8N1 ASCII
-
-1 ... 8E1 ASCII
-
-2 ... 8O1 ASCII
-
-3 ... 8N1 RTU
-
-4 ... 8E1 RTU
-
+0 ... 8N1 ASCII +
+1 ... 8E1 ASCII +
+2 ... 8O1 ASCII +
+3 ... 8N1 RTU +
+4 ... 8E1 RTU +
 5 ... 8O1 RTU
 |===
 
