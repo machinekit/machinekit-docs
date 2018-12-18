@@ -296,7 +296,7 @@ into the reason "why". A small deviation is no problem since the cosine part (`Z
 of the (`X`,`Y`) error is very small and has very little influence of the height
 (position of the tower)
 
-. go down with the nozzle until you experience friction between nozzle and bed
+. go down with the nozzle in MDI mode until you experience friction between nozzle and bed
   with the "dragging-paper-method" or to a specified height of a dial caliper.
 . **write down the cartesian Z-position**.
 . go to another tower and move down until you have the nozzle at the same height
@@ -309,7 +309,7 @@ of the (`X`,`Y`) error is very small and has very little influence of the height
 +
 [source]
 ----
-halcmd sets lineardeltakins.J{n}off 0.1
+halcmd setp lineardeltakins.J{n}off 0.1
 ----
 +
 you should be able to notice (paper-friction-test, or see the dial caliper change)
@@ -329,18 +329,24 @@ or...
 . we can without having to restart
   change the value from terminal like this, where {n} is to be replaced by
   the joint number of the HOME_OFFSET you want to change, and {value} is the new
-  value you found in the previous steps:
+  value you calculate from the previous steps, where Z(C) is the Z-position as
+  noted with ˋTOWER Cˋ and axis.{n}.home-offset is your present home offset:
 +
 [source]
 ----
-halcmd sets axis.{n}.home_offset {value}
+value = axis.{n}.home-offset - Z(C) - lineardeltakins.J{n}off
+----
++
+[source]
+----
+halcmd setp axis.{n}.home-offset {value}
 ----
 . After you have done this for all the offsets you want to change you need to home
   the machine again, which will result in the joints getting an other position
   the moment the homing sequence is done.
 . Set all the debug pins `lineardeltakins.J{n}off` to zero.
 . Re-home for good measure.
-. **CHANGE THESE VALUES IN YOUR INI FILE!**
+. **CHANGE THE HOME_OFFSET VALUES IN YOUR INI FILE!**
 
 
 == [[delta-radius]]Delta Radius

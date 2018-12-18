@@ -21,41 +21,14 @@ a development RIP build and run from that.
 
 :sectnums:
 
-== Debian Wheezy on arm7 (BeagleBone)
+== EOL distributions ==
 
-:leveloffset: +2
+When a debian distribution becomes EOL it is not recommended to use
+these packages. The Machinekit project will stop producing packages and
+support for that distribution.
 
-- link:../APT-packages-wheezy[APT Packages for Wheezy]
-
-- link:../install-rt-kernel-arm7[Install the kernel]
-
-- link:../install-runtime-packages[Install Runtime Packages]
-
-:leveloffset: -2
-
-== Debian Wheezy on i386
-
-:leveloffset: +2
-
-- link:../APT-packages-wheezy[APT Packages for Wheezy]
-
-- link:../install-rt-kernel-i386[Install the kernel]
-
-- link:../install-runtime-packages[Install Runtime Packages]
-
-:leveloffset: -2
-
-== Debian Wheezy on amd64
-
-:leveloffset: +2
-
-- link:../APT-packages-wheezy[APT Packages for Wheezy]
-
-- link:../install-rt-kernel-amd64[Install the kernel]
-
-- link:../install-runtime-packages[Install Runtime Packages]
-
-:leveloffset: -2
+If you for whatever reason need to use these packages, please follow this
+link to link:../unsupported-packages[the unsupported packages page].
 
 
 == Debian Jessie on arm7 (BeagleBone)

@@ -19,10 +19,19 @@
   </li>
   <li class="{% if page.author %}current{% endif %}">
     <a href="http://blog.machinekit.io/">Blog</a>
-  <li>
+  </li>
   <li>
     <a href="{{ site.repository }}">GitHub</a>
   </li>
+  <li">
+    <a href="https://groups.google.com/forum/#!forum/machinekit">Forum</a>
+  </li>
+  <li>
+    {% include forum-search.html %}
+  </li>  
+  <li>
+    {% include search-radio.html %}
+  </li>  
   <li>
     {% include commercial-support.html %}
   </li>

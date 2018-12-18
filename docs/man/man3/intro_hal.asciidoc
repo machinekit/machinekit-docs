@@ -22,7 +22,7 @@ realtime data to and from I/O devices and other low-level modules.
 **hal.h** defines the API and data structures used by the **HAL**.  +
 This file is
 included in both realtime and non-realtime **HAL** components.  +
-**HAL** uses the RTPAI
+**HAL** uses the RTAPI
 real time interface, and the #define symbols RTAPI and ULAPI are used to
 distinguish between realtime and non-realtime code.  +
 The API defined in this

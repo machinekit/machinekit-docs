@@ -12,6 +12,10 @@ install your kernel:
 sudo apt-get install linux-image-xenomai.x86-amd64 	  # amd64
 ----
 
+[NOTE]
+There are only Xenomai kernels for Wheezy and Jessie not Stretch
+
+
 = RT-PREEMPT realtime kernel (amd64)
 
 == Debian Wheezy has an older RT-PREEMPT kernel.

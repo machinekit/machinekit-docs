@@ -266,6 +266,20 @@ The currently defined options are:
    a short time. Another common action in 'user_mainloop()' may 
    be to call the event handler loop of a GUI toolkit. 
 
+* 'option extra_compile_args <arg-string> - (default empty)
+   ONLY applicable if option userspace is YES
+   If specified, the argument string will be added to CFLAGS in the component build.
+   eg.
+   option extra_compile_flags "-I/path/to/extra/header/files"
+   link:../comp_using_extra_args[See this doc for example of usage]   
+
+* 'option extra_link_args <arg-string> - (default empty)
+   ONLY applicable if option userspace is YES
+   If specified, the argument string will be added to LDFLAGS in the component build.
+   eg.
+   option extra_compile_flags "-L/path/to/extra/libs -lfoo"
+   link:../comp_using_extra_args[See this doc for example of usage]   
+
 * 'option userinit yes' - (default: no)
    This option is ignored if the option 'userspace' (see above) is set to
    'no'.  If 'userinit' is specified, the function 'userinit(argc,argv)'

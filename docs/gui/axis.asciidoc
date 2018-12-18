@@ -1033,7 +1033,7 @@ an ini file field
 [source]
 ----
 [USER_COMMANDS]
-DISABLE_DISPLAY = YES
+DISABLE_PREVIEW = YES
 ----
 
 Full details in the below 
