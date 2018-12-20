@@ -87,15 +87,15 @@ The apps items are typically 1) utilities that don't require
 starting machinekit or 2) demonstrations of applications that can
 be used with machinekit:
 
-    info ------ creates a file with system information that
-                may be useful for problem diagnosis
-    gladevcp -- example gladevcp applications
-    halrun  --- starts halrun in an terminal
-    latency --- applications to investigate latency
-    parport --- applications to test parport
-    pyvcp ----- example pyvcp applications
-    xhc-hb04 -- applications to test an xhc-hb04 USB wireless MPG
-
+    info ---------- creates a file with system information that
+                    may be useful for problem diagnosis
+    gladevcp ------ example gladevcp applications
+    halrun  ------- starts halrun in an terminal
+    latency ------- applications to investigate latency
+    parport ------- applications to test parport
+    pyvcp --------- example pyvcp applications
+    xhc-hb04 ------ applications to test an xhc-hb04 USB wireless MPG
+    xhc-whb04b-6 -- applications to test an xhc-whb04b-6 USB wireless MPG
 
 The attic directory stores obsolete or historical configurations.
 

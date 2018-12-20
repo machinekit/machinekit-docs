@@ -19,15 +19,14 @@
 // License along with this manual; if not, write to the Free
 // Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
 // USA.
+---
+---
 
----
----
 :skip-front-matter:
 
 = hy_vfd
-:manmanual: HAL Components
-:mansource: ../man/man1/hy_vfd.asciidoc
-:man version : 0.2
+:toc:
+[[cha:hyvfd-driver]] (((Huanyang HY VFD)))
 
 == NAME
 *hy_vfd* - HAL userspace component for Huanyang VFDs
@@ -226,8 +225,6 @@ within .spindle-at-speed-tolerance of the commanded speed.
 | *<name>.loop-time* (float, out)           | current time to wait in between communication loops [s]
 | *<name>.retval* (s32, out)                | return value of last communicaton
 |===
-
-
 
 == AUTHORS
 Sebastian Kuzminsky, Raoul Rubien
