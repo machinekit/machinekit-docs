@@ -169,4 +169,8 @@ link:../hal/halshow[HalShow]
 
 - link:../drivers/GM[GM]
 
+- link:../drivers/xhc-whb04b-6[xhc-whb04b-6]
+
+- link:../drivers/hy_vfd[hy_vfd]
+
 :leveloffset: -1
