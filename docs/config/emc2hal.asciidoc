@@ -355,6 +355,13 @@ change or removal at any time.
     failure to meet its timing constraints. Each time such a failure is
     detected, this value is incremented.
 
+* 'motion.spindle.speed-change-step-abs' -
+    (u32, RW) Step size to increment/decrement on spindle increase/decrease speed (default 100).
+* 'motion.spindle.speed-change-max-abs' -
+    (u32, RW) Absolute spindle speed limit for increment either directions (default 48000).
+* 'motion.spindle.speed-change-min-abs' -
+    (u32, RW) Absolute spindle speed limit for decrement either directions (default 0).
+
 === Functions
 
 Generally, these functions are both added to the servo-thread in the

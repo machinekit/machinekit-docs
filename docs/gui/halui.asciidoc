@@ -257,9 +257,9 @@ true when setting counts directly. The 'count-enable' pin must be true.
 * 'halui.spindle.brake-is-on' (bit, out) - indicates brake is on
 * 'halui.spindle.brake-off' (bit, in) - pin for deactivating spindle/brake
 * 'halui.spindle.brake-on' (bit, in) - pin for activating spindle-brake
-* 'halui.spindle.decrease' (bit, in) - decreases spindle speed
+* 'halui.spindle.decrease' (bit, in) - decreases spindle speed (see also emc2hal: motion.spindle.speed-change-*)
 * 'halui.spindle.forward' (bit, in) - starts the spindle with CW motion
-* 'halui.spindle.increase' (bit, in)- increases spindle speed
+* 'halui.spindle.increase' (bit, in)- increases spindle speed (see also emc2hal: motion.spindle.speed-change-*)
 * 'halui.spindle.is-on' (bit, out) - indicates spindle is on (either direction)
 * 'halui.spindle.reverse' (bit, in)- starts the spindle with a CCW motion
 * 'halui.spindle.runs-backward' (bit, out) - indicates spindle is on, and in reverse
