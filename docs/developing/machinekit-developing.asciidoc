@@ -96,6 +96,41 @@ sudo adduser <username> xenomai
 
 Logout and login again therafter.
 
+=== A Note on machinekit.ini and the MKUUID
+
+Since inception, /etc/linuxcnc/machinekit.ini has contained a hard coded UUID under the 'MKUUID=' field
+
+This despite the text above it stating that all machines should have a unique MKUUID to enable the
+zeroconf browsing for particular instances to work.
+
+This has now actually caused problems, with some users exploring the networked communications aspect
+of machinekit, as perhaps it was originally envisaged.
+
+So, from 16th Jan 2019 onwards, there are a couple of wrinkles to be aware of, if you actually intend using the MKUUID for anything.
+
+**RIP builds**
+
+A fresh clone will generate a new UUID when built.
+If you want to use a particular UUID, keep it in a separate system file called /etc/linuxcnc/mkuuid [1] and manually edit RIP/etc/linuxcnc/machinekit.ini to use it.
+When you rebuild the machinekit.ini UUID will be preserved, however be aware doing a complete ' git clean -xdf && ./autogen.sh && ./configure' will wipe it.
+
+([1] For RIPs, this file is just a suggested failsafe storage option for now, it will actually be used by package installs)
+
+**Package installs**
+
+A package install onto a blank system will generate a new UUID.
+
+If you are updating and do not purge your configs:
+
+- If the package finds an /etc/linuxcnc/mkuuid file [1], it will use the MKUUID within if valid, over any other option.
+
+- If machinekit.ini exists with a valid UUID, it will use that.  Otherwise it will update with the generated UUID.
+
+- If machinekit.ini is missing even though the previous package was not purged, it will generate one with a valid UUID.
+
+
+For the vast majority of users, this change will have no impact, their configs just use whatever UUID is in machinekit.ini, if at all, without consequence.
+
 
 == Additional runtime packages you may need
 
@@ -129,7 +164,6 @@ The same pages can be accessed here: +
 http://www.machinekit.io/docs/man/man1/  For information on utilities and GUIs +
 http://www.machinekit.io/docs/man/man3/  For information on the hal and rtapi APIs +
 http://www.machinekit.io/docs/man/man9/  For information on components and drivers +
-
 
 === Additional runtime packages
 
