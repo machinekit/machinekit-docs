@@ -189,6 +189,7 @@ If __compname__ is "all", it will unload all userspace components. +
 Unloads a userspace component or realtime module.  If __compname__ is "all",
 it will unload all userspace components and realtime modules.
 
+
 === newsig
 **newsig** __signame__ __type__
 (__new__ __sig__nal)
@@ -350,13 +351,15 @@ parameter is acted on.
 Creates a new HAL thread named __threadname__ which runs every
 __period__ nanoseconds.  Options are:
 
-fp	(deprecated) thread supports floating point
+fp	thread supports floating point
 
-nofp	(deprecated) (default) thread does not support floating point
+nofp	(default) thread does not support floating point
 
 cpu=N	run thread on CPU #N
 
 cgname=/N   run thread in cgroup `cpuset:N`
+
+**NB.** See link:../../hal/threads-and-latency[threads and latency information] for advanced settings.
 
 nowait	(experimental) ignores period, thread free-runs and must be synchronized externally
 
