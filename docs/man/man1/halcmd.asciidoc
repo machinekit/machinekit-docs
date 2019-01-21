@@ -356,6 +356,8 @@ nofp	(deprecated) (default) thread does not support floating point
 
 cpu=N	run thread on CPU #N
 
+cgname=/N   run thread in cgroup `cpuset:N`
+
 nowait	(experimental) ignores period, thread free-runs and must be synchronized externally
 
 posix	(experimental) non-realtime posix thread.  Can make Linux system calls, but has no timing guarantees
