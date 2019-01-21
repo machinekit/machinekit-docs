@@ -9,6 +9,7 @@
 
 [NOTE]
 DEPRECATED - use "newthread" command instead
+This command is retain for legacy support only
 
 == NAME
 **threads** -- creates hard realtime HAL threads

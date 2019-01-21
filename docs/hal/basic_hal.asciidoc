@@ -75,6 +75,32 @@ If a new name for debounce is not given, the default is __debounce.0__ +
 (or a higher incremented number if a debounce.0 already exists)
 
 
+=== newthread
+**newthread** __threadname__ [__options__] __period__
+
+[source, hal]
+----
+newthread servo fp 1000000
+----
+
+Creates a new HAL thread named __threadname__ which runs every
+__period__ nanoseconds.  Options are:
+
+**fp** thread supports floating point
+
+**nofp** (default) thread does not support floating point
+
+**cpu=N** run thread on CPU #N
+
+**cgname=/N**   run thread in cgroup `cpuset:N`
+
+**NB.** See link:../../hal/threads-and-latency[threads and latency information] for advanced settings.
+
+**nowait** (experimental) ignores period, thread free-runs and must be synchronized externally
+
+**posix** (experimental) non-realtime posix thread.  Can make Linux system calls, but has no timing guarantees
+
+
 === addf [[sub:addf]] (((addf)))
 
 The command 'addf' adds a real time component function to a thread.

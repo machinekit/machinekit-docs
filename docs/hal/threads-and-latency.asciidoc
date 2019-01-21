@@ -16,19 +16,24 @@ On some SMP systems, a HAL thread's latency measurements (using
 when it is run by itself on its own CPU and L2 cache.
 
 While the author has data on few CPUs, a well-tested example is the
-Intel J1900.  This CPU has four cores, with the first two and the
-second two each sharing a L2 cache.  Running an RT_PREEMPT HAL thread
-normally, without dedicated CPU, latency reached a maximum of about
-about 40us; dedicating only CPU 2 or 3 yielded the same results.
+Intel J1900. +
+This CPU has four cores, with the first two and the
+second two each sharing a L2 cache.  +
+Running an RT_PREEMPT HAL thread normally, without dedicated CPU, latency reached a maximum of about
+about 40us; dedicating only CPU 2 or 3 yielded the same results. 
+
 Dedicating both CPUs 2 and 3, which effectively dedicated one of the
 L2 caches to the thread, maximum latency reached about 6us, with
 similar results for POSIX (non-RT) threads.
 
 Running a HAL thread on particular CPUs is done with a Linux cgroup
 https://github.com/torvalds/linux/blob/master/Documentation/cgroup-v1/cpusets.txt["cpuset"]
-in two parts.  The cpuset must first be set up outside of HAL,
+in two parts.  
+
+The cpuset must first be set up outside of HAL,
 assigning CPUs to it and preventing Linux from scheduling processes in
-the cpuset.  Then in the HAL configuration, the thread must be
+the cpuset. +
+Then in the HAL configuration, the thread must be
 configured to run on the cpuset.
 
 === Setting up a cpuset
@@ -36,6 +41,7 @@ configured to run on the cpuset.
 The set of CPUs to dedicate to HAL threads must be decided.  Ideally,
 just one CPU should be dedicated to one HAL thread; however,
 sharing cache may hurt latency (as in the above Intel J1900 example).
+
 Consult CPU documentation and run tests to determine whether
 additional CPUs must be dedicated to the cpuset.
 
@@ -57,8 +63,9 @@ The `/rt` cpuset with dedicated CPUs may be set up manually, in one
 shot, with the `partrt` script from the
 https://github.com/OpenEneaLinux/rt-tools[rt-tools project].
 
-Build and install that project, then run `partrt create \#2,3`.  If
-this succeeds, `partrt list` should show two groups, including the
+Build and install that project, then run `partrt create \#2,3`.  
+
+If this succeeds, `partrt list` should show two groups, including the
 `rt` group with configured CPUs, and an `nrt` group with all other
 CPUs.
 
@@ -69,7 +76,9 @@ This is easily undone with `partrt undo`.
 CPUs may be isolated from the Linux scheduler at boot time using the
 https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/cpu-partitioning/isolcpus[`isolcpus`]
 kernel command line argument, and setting up the cpuset during system
-init.  This approach is more complex, but is automatic and may do a
+init.  
+
+This approach is more complex, but is automatic and may do a
 better job of isolating CPUs than `partrt` (this claim needs
 verification).
 
@@ -131,15 +140,24 @@ ExecStop=/usr/sbin/cgclear -l /etc/cgconfig.conf -e
 WantedBy=sysinit.target
 ----
 
-Then configure to start automatically with `sudo systemctl enable
-cgred.service`.
+Then configure to start automatically with 
+[source, bash]
+----
+sudo systemctl enable cgred.service
+----
 
 After reboot, `lscgroup cpuset:/` should show the `/rt` cgroup, and
 `cgget -g cpuset /rt` should show the configured `cpuset.cpus`.
 
 Disable these by removing `isolcpus` from `/etc/default/grub` and
-re-running `sudo update-grub`, running `sudo systemctl disable
-cgred.service`, and rebooting.  Verify thet `isolcpus` is absent from
+re-running `sudo update-grub`, running 
+[source, bash]
+----
+sudo systemctl disable cgred.service
+----
+and rebooting.  
+
+Verify that `isolcpus` is absent from
 `/proc/cmdline` and running `lscgroup cpuset:/` shows no `cpuset:/rt`
 cgroup.
 
@@ -150,11 +168,16 @@ HAL configuration with `newthread cgname=/rt`.
 
 === Testing
 
-Run the `latency-test` script in the cgroup with `CGNAME=/rt
-latency-test`.
+Run the `latency-test` script in the cgroup with 
+[sorce, bash]
+----
+CGNAME=/rt latency-test
+----
 
 Run `ps -Leo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,comm,args`,
-checking the `PSR` column.  The only threads running on the `/rt`
+checking the `PSR` column.  
+
+The only threads running on the `/rt`
 cpuset CPUs should be some number of kernel threads (surrounded by
 square braces in the `COMMAND` column, e.g. `[kworker/2:0]`) and the
 RT HAL threads (`rtapi:0` in the `COMMAND` column).
