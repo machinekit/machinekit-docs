@@ -359,7 +359,7 @@ cpu=N	run thread on CPU #N
 
 cgname=/N   run thread in cgroup `cpuset:N`
 
-**NB.** See link:../../hal/threads-and-latency[threads and latency information] for advanced settings.
+**NB.** See link:../../../hal/threads-and-latency[threads and latency information] for advanced settings.
 
 nowait	(experimental) ignores period, thread free-runs and must be synchronized externally
 
