@@ -40,4 +40,12 @@ All boards can run fine on both types of sd-card images, however if you want to 
 the desktop image is setup to work out of the box with a hdmi 1920x1080 display (DE10_Nano only).
 As long as you follow all the initial setup steps.
 
+(link to console image) +
+(link to desktop image) +
+
+defaults: +
+hostname:   mksocfpga-nano-soc +
+user:       machinekit +
+password:   machinekit +
+
 - link:/docs/getting-started/u-boot-mksocfpga-altera-initial[DEx(x) Initial Setup Steps]

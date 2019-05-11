@@ -22,7 +22,7 @@ linux example:
     kermit -c
 ----
 
-* At least setup the ethaddr variable:
+* first setup the ethaddr variable:
 
 This has to contain a real ipv4 internet mac address in below format (replace the x'es with hex numbers)
 (link to uboot console method)
@@ -39,7 +39,7 @@ However you can reset all variables to their default first boot settings with:
 => env default -f -a
 ----
 
-* Check that the fdtfile is set to the generic version that will make all boards boot without the fpga being configured
+* Second check that the fdtfile is set to the generic version that will make all boards boot without the fpga being configured
 by uboot.
 
 [source,uboot]
@@ -47,6 +47,15 @@ by uboot.
 => print fdtfile
 fdtfile=socfpga_cyclone5_de0_sockit.dtb
 ----
+
+if this variable shows something else change it with:
+
+
+[source,uboot]
+----
+=> setenv fdtfile socfpga_cyclone5_de0_sockit.dtb
+----
+
 * Check the fpgaload_on_boot variable is unset:
 
 [source,uboot]
@@ -61,7 +70,8 @@ fpgaload_on_boot=0
 => saveenv
 => reset
 ----
-* Next install the (Altera/Intel socfpga related) bitfiles:
+
+* Next from any linux console install the (Altera/Intel socfpga related) bitfiles:
 
 [source,bash]
 ----
@@ -97,6 +107,7 @@ Either in a linux console
 [source,bash]
 ----
 fw_setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+fw_setenv fdtfile 'socfpga_cyclone5_de10_nano_uio_fb_hd.dtb'
 fw_setenv fpgaload_on_boot 1
 ----
 then reboot
@@ -142,33 +153,19 @@ More About the  "SOC-no-fw-load" config method:
 * This makes Machinekit not (re)program the fpga when MACHINEKIT starts...
 The  "fpgaload_on_boot 1" in u-boot makes u-boot program the fpga
 BEFORE linux starts up so that the Framebuffer then can be picked up,
-Ensure that the right devicetree (the one with framebuffer enabled) is loaded by u-boot.
-(has xxx_FB_xxx in its name)
+Ensure that the right devicetree (the one with framebuffer enabled: socfpga_cyclone5_de10_nano_uio_fb_hd.dtb)
+and bitfile are loaded by u-boot:
 
-NOTE 2:
-Using the Desktop image you may have a problem with getting assigned 2 ethernet address,
-
-* this is due to:
-the default setup uses the systemd networkd.service daemon to request an dhcp ip address and
-the desktop install pulls in the package connman.
-
-either uninstall the connman package via apt
-
-or
-
-disable the systemd.networkd. service via the systemctl command:
+Current availabe bitfiles are:
 
 [source,bash]
 ----
-sudo systemctl disable systemd-networkd
+machinekit@mksocfpga-nano-soc:~$ ls -l /lib/firmware/socfpga/DE10_Nano_FB_Cramps*
+-rw-r--r-- 1 root root 2413816 May 10 01:26 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf
+-rw-r--r-- 1 root root 2408572 May 10 02:14 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap.rbf
+-rw-r--r-- 1 root root 2406916 May 10 01:50 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_spi.rbf
+-rw-r--r-- 1 root root 2405236 May 10 02:36 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24.rbf
 ----
-and reboot
-
-[source,bash]
-----
-sudo reboot now
-----
-
 ---
 
  This ends the install for desktop screen mode operation
