@@ -1,0 +1,176 @@
+---
+---
+
+:skip-front-matter:
+
+= DEx(x) U-BOOT (initial boot):
+
+Regarding the Terasic based DEx(x) Boards there are 4 crucial u-boot variables to be aware of:
+
+. ethaddr,
+. fdtfile,
+. fpgaload_on_boot
+. bitimage (only perhaps):
+
+* On your very first boot you have to boot into a u-boot console:
+
+Attach usb cable to port next to ethernet connector and open a separate serial console 115k 8n1
+
+linux example:
+[source,bash]
+----
+    kermit -c
+----
+
+* At least setup the ethaddr variable:
+
+This has to contain a real ipv4 internet mac address in below format (replace the x'es with hex numbers)
+(link to uboot console method)
+[source,uboot]
+----
+=> setenv ethaddr xx:xx:xx:xx:xx:xx:xx
+----
+
+Note:
+the ethernet nic mac address is a special sticky variable and cannot be changed the same way again.
+However you can reset all variables to their default first boot settings with:
+[source,uboot]
+----
+=> env default -f -a
+----
+
+* Check that the fdtfile is set to the generic version that will make all boards boot without the fpga being configured
+by uboot.
+
+[source,uboot]
+----
+=> print fdtfile
+fdtfile=socfpga_cyclone5_de0_sockit.dtb
+----
+* Check the fpgaload_on_boot variable is unset:
+
+[source,uboot]
+----
+=> print fpgaload_on_boot
+fpgaload_on_boot=0
+----
+* Now you are ready to save the settings and reboot fully into a linux console for the very first time:
+
+[source,uboot]
+----
+=> saveenv
+=> reset
+----
+* Next install the (Altera/Intel socfpga related) bitfiles:
+
+[source,bash]
+----
+sudo apt update
+sudo apt install socfpga-rbf
+----
+* Then you are all set to install Machinekit
+
+[source,bash]
+----
+sudo apt update
+sudo apt install machinekit-rt-preempt
+----
+On your initial boot its recomended to update the distribuation by doing
+
+[source,bash]
+----
+sudo apt update
+sudo apt upgrade
+----
+
+---
+
+ This ends the install for console only mode operation
+
+---
+
+To run with a hdmi display (DE10_Nano only) following extra steps are needed:
+
+* Set the following uboot variables:
+Either in a linux console
+
+[source,bash]
+----
+fw_setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+fw_setenv fpgaload_on_boot 1
+----
+then reboot
+
+[source,bash]
+----
+sudo reboot now
+----
+
+Or
+
+From the u-boot console:
+
+[source,uboot]
+----
+=> setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+=> setenv fpgaload_on_boot 1
+=> savvenv
+=> reset
+----
+
+NOTE 1:
+When using the display the fpga needs to be programmed by u-boot,
+
+* This happens before the linux kernel loads.
+Reprogramming the fpga after linux is booted will currently give problems,
+(until partial reconfiguration becomes an option hopefully with quartus 19.1 lite).
+So machinekit has to use the:
+"SOC-no-fw-load" config method when loading the hm2_soc_ol driver:
+(fpga gets programmed by u-boot, setup earlier)
+
+example:
+
+[source,hal]
+----
+newinst hm2_soc_ol hm2-socfpga0 already_programmed=1 -- config="num_pwmgens=1 num_stepgens=4 num_encoders=1 enable_adc=1" debug=1
+----
+
+http://www.machinekit.io/docs/man/man9/hm2_soc_ol
+
+More About the  "SOC-no-fw-load" config method:
+
+* This makes Machinekit not (re)program the fpga when MACHINEKIT starts...
+The  "fpgaload_on_boot 1" in u-boot makes u-boot program the fpga
+BEFORE linux starts up so that the Framebuffer then can be picked up,
+Ensure that the right devicetree (the one with framebuffer enabled) is loaded by u-boot.
+(has xxx_FB_xxx in its name)
+
+NOTE 2:
+Using the Desktop image you may have a problem with getting assigned 2 ethernet address,
+
+* this is due to:
+the default setup uses the systemd networkd.service daemon to request an dhcp ip address and
+the desktop install pulls in the package connman.
+
+either uninstall the connman package via apt
+
+or
+
+disable the systemd.networkd. service via the systemctl command:
+
+[source,bash]
+----
+sudo systemctl disable systemd-networkd
+----
+and reboot
+
+[source,bash]
+----
+sudo reboot now
+----
+
+---
+
+ This ends the install for desktop screen mode operation
+
+---
