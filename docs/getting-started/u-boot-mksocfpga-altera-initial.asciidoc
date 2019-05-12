@@ -106,11 +106,11 @@ sudo apt install machinekit-cnc-rt-preempt
 
 ---
 
- This ends the install for console only mode operation
+ This ends the initial install for console only mode operation
 
 ---
 
-To run with a hdmi display 1024x768@60 (DE10_Nano only) following extra steps are needed:
+To run lxqt desktop with a hdmi display 1024x768@60 (DE10_Nano only) following extra steps are needed:
 
 * install display manager:
 
@@ -190,6 +190,6 @@ machinekit@mksocfpga-nano-soc:~$ ls -l /lib/firmware/socfpga/DE10_Nano_FB_Cramps
 ----
 ---
 
- This ends the install for desktop hdmi display mode operation
+ This ends the initial install for desktop hdmi display mode operation
 
 ---
