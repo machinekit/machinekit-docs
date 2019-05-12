@@ -25,6 +25,10 @@ linux example:
     kermit -c
 ----
 
+- press any button on your keyboard in the u-boot console within 2 sec of turning on power to your soc board.
+
+---
+
 * first setup the ethaddr variable:
 
 This has to contain a real ipv4 internet mac address in below format (replace the x'es with hex numbers)
@@ -42,6 +46,7 @@ However you can reset all variables to their default first boot settings with:
 => env default -f -a
 ----
 
+---
 * Second check that the fdtfile is set to the generic version that will make all boards boot without the fpga being configured
 by uboot.
 
@@ -59,13 +64,16 @@ if this variable shows something else change it with:
 => setenv fdtfile socfpga_cyclone5_de0_sockit.dtb
 ----
 
-* Check the fpgaload_on_boot variable is unset:
+---
+* Third Check the fpgaload_on_boot variable is unset:
 
 [source,uboot]
 ----
 => print fpgaload_on_boot
 fpgaload_on_boot=0
 ----
+
+---
 * Now you are ready to save the settings and reboot fully into a linux console for the very first time:
 
 [source,uboot]
@@ -74,11 +82,12 @@ fpgaload_on_boot=0
 => reset
 ----
 
-* Then from any linux console:
+---
+* From any linux console:
 
 = Linux:
 
-On your initial boot its recomended to update the linux distribuation by doing
+* On your initial boot its recomended to update the linux distribuation by doing:
 
 [source,bash]
 ----
@@ -86,7 +95,7 @@ sudo apt update
 sudo apt upgrade
 ----
 
-Bugfix: +
+* Bugfix: +
 lib5-dev does'nt get installed properly by the image builder, this gives errors if anything tries to build software, solution:
 
 [source,bash]
@@ -94,6 +103,7 @@ lib5-dev does'nt get installed properly by the image builder, this gives errors 
 sudo apt install --reinstall libc6-dev
 ----
 
+---
 * Next install the (Altera/Intel socfpga related) bitfiles:
 
 [source,bash]
@@ -101,6 +111,7 @@ sudo apt install --reinstall libc6-dev
 sudo apt install socfpga-rbf
 ----
 
+---
 * Then you are all set to install Machinekit-hal and eventually machinekit-cnc
 
 [source,bash]
@@ -111,7 +122,7 @@ sudo apt install machinekit-cnc-rt-preempt
 
 ---
 
- This ends the initial install for console only mode operation
+ ###   This ends the initial install for console only mode   ###
 
 ---
 
@@ -200,6 +211,6 @@ machinekit@mksocfpga-nano-soc:~$ ls -l /lib/firmware/socfpga/DE10_Nano_FB_Cramps
 ----
 ---
 
- This ends the initial install for desktop hdmi display mode operation
+ ### This ends the initial install for desktop hdmi display mode ###
 
 ---
