@@ -121,9 +121,9 @@ Either in your linux console:
 
 [source,bash]
 ----
-fw_setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
-fw_setenv fdtfile 'socfpga_cyclone5_de10_nano_uio_fb_hd.dtb'
-fw_setenv fpgaload_on_boot 1
+sudo fw_setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+sudo fw_setenv fdtfile 'socfpga_cyclone5_de10_nano_uio_fb_hd.dtb'
+sudo fw_setenv fpgaload_on_boot 1
 ----
 then reboot
 
