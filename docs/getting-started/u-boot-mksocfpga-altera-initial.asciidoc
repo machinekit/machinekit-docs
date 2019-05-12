@@ -12,7 +12,10 @@ Regarding the Terasic based DEx(x) Boards there are 4 crucial u-boot variables t
 . fpgaload_on_boot
 . bitimage (only perhaps):
 
-* On your very first boot you have to boot into a u-boot console:
+---
+- On your very first boot you have to boot into a u-boot console:
+
+= U-Boot:
 
 Attach usb cable to port next to ethernet connector and open a separate serial console 115k 8n1
 
@@ -73,6 +76,8 @@ fpgaload_on_boot=0
 
 * Then from any linux console:
 
+= Linux:
+
 On your initial boot its recomended to update the linux distribuation by doing
 
 [source,bash]
@@ -112,6 +117,8 @@ sudo apt install machinekit-cnc-rt-preempt
 
 To run lxqt desktop with a hdmi display 1024x768@60 (DE10_Nano only) following extra steps are needed:
 
+= Linux:
+
 * install display manager:
 
 [source,bash]
@@ -141,6 +148,8 @@ sudo reboot now
 
 Or:
 
+= u-boot:
+
 From the u-boot console:
 
 [source,uboot]
@@ -150,11 +159,12 @@ From the u-boot console:
 => savvenv
 => reset
 ----
+---
 
-NOTE 1:
-When using the display the fpga needs to be programmed only by u-boot and not machinekit,
+= Fpga config note:
+When using the display the fpga must be programmed by u-boot only and not (re)programmed later by machinekit,
 
-* This happens before the linux kernel loads.
+* This has to happen before the linux kernel loads.
 Reprogramming the fpga after linux is booted will currently give problems,
 (until partial reconfiguration becomes an option hopefully with quartus 19.1 lite).
 So machinekit has to use the:
@@ -163,7 +173,7 @@ So machinekit has to use the:
 
 example:
 
-[source,hal]
+[source,text]
 ----
 newinst hm2_soc_ol hm2-socfpga0 already_programmed=1 -- config="num_pwmgens=1 num_stepgens=4 num_encoders=1 enable_adc=1" debug=1
 ----
