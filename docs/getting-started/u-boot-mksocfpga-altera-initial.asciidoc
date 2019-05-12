@@ -95,6 +95,15 @@ sudo apt upgrade
 
 ---
 
+
+Lastly: +
+lib5-dev does'nt get installed properly by the image builder, this gives errors if anything tries to build a file, solution:
+
+[source,bash]
+----
+sudo apt install --reinstall libc6-dev
+----
+
  This ends the install for console only mode operation
 
 ---
@@ -168,6 +177,6 @@ machinekit@mksocfpga-nano-soc:~$ ls -l /lib/firmware/socfpga/DE10_Nano_FB_Cramps
 ----
 ---
 
- This ends the install for desktop screen mode operation
+ This ends the install for desktop HD hdmi display mode operation
 
 ---
