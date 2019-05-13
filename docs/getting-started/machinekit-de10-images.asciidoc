@@ -10,7 +10,7 @@ link:https://encrypted.google.com/search?q=Mksocfpga[What is Mksocfpga ]
 There are pre-built (debian Stretch) sd-card images to get started with Machinekit on the
 SocFPGA based DE0_Nano_SoC, DE10_Nano and the DE1_SoC boards from Terasic
 
-- link:http://deb.machinekit.io/uploads/de10-nano/[Sd-card inages are here]
+- link:http://deb.machinekit.io/uploads/de10-nano/[Sd-card images are here]
 
 All boards can run fine on both types of sd-card images, however if you want to use a display
 the desktop image is setup to work out of the box with a hdmi 1920x1080 display (DE10_Nano only).
