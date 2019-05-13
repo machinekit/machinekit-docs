@@ -3,7 +3,9 @@
 
 :skip-front-matter:
 
-= DEx(x) Debian Mksocfpga Images
+= DEx(x) Debian link:https://github.com/machinekit/mksocfpga[ Mksocfpga ] Images
+
+link:https://encrypted.google.com/search?q=Mksocfpga[What is Mksocfpga ]
 
 There are pre-built (debian Stretch) sd-card images to get started with Machinekit on the
 SocFPGA based DE0_Nano_SoC, DE10_Nano and the DE1_SoC boards from Terasic
