@@ -21,8 +21,8 @@ As a general example of a package install, you may find it useful.
 
 === Images
 
-link:../machinekit-images[Machinekit Images]
-
+link:../machinekit-images-for-bbb[Machinekit Images for BeagleBoneBlack] +
+link:../machinekit-de10-images[Machinekit Images for DE0/DE10-Nano-SoC boards]
 
 === Installing packages
 

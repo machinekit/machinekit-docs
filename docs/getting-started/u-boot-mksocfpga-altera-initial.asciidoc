@@ -1,0 +1,216 @@
+---
+---
+
+:skip-front-matter:
+
+= DEx(x) U-BOOT (initial boot):
+
+Regarding the Terasic based DEx(x) Boards there are 4 crucial u-boot variables to be aware of:
+
+. ethaddr,
+. fdtfile,
+. fpgaload_on_boot
+. bitimage (only perhaps):
+
+---
+- On your very first boot you have to boot into a u-boot console:
+
+= U-Boot:
+
+Attach usb cable to port next to ethernet connector and open a separate serial console 115k 8n1
+
+linux example:
+[source,bash]
+----
+    kermit -c
+----
+
+- press any button on your keyboard in the u-boot console within 2 sec of turning on power to your soc board.
+
+---
+
+* first setup the ethaddr variable:
+
+This has to contain a real ipv4 internet mac address in below format (replace the x'es with hex numbers)
+(link to uboot console method)
+[source,uboot]
+----
+=> setenv ethaddr xx:xx:xx:xx:xx:xx:xx
+----
+
+Note:
+the ethernet nic mac address is a special sticky variable and cannot be changed the same way again.
+However you can reset all variables to their default first boot settings with:
+[source,uboot]
+----
+=> env default -f -a
+----
+
+---
+* Second check that the fdtfile is set to the generic version that will make all boards boot without the fpga being configured
+by uboot.
+
+[source,uboot]
+----
+=> print fdtfile
+fdtfile=socfpga_cyclone5_de0_sockit.dtb
+----
+
+if this variable shows something else change it with:
+
+
+[source,uboot]
+----
+=> setenv fdtfile socfpga_cyclone5_de0_sockit.dtb
+----
+
+---
+* Third Check the fpgaload_on_boot variable is unset:
+
+[source,uboot]
+----
+=> print fpgaload_on_boot
+fpgaload_on_boot=0
+----
+
+---
+* Now you are ready to save the settings and reboot fully into a linux console for the very first time:
+
+[source,uboot]
+----
+=> saveenv
+=> reset
+----
+
+---
+* From any linux console:
+
+= Linux:
+
+* On your initial boot its recomended to update the linux distribuation by doing:
+
+[source,bash]
+----
+sudo apt update
+sudo apt upgrade
+----
+
+* Bugfix: +
+lib5-dev does'nt get installed properly by the image builder, this gives errors if anything tries to build software, solution:
+
+[source,bash]
+----
+sudo apt install --reinstall libc6-dev
+----
+
+---
+* Next install the (Altera/Intel socfpga related) bitfiles:
+
+[source,bash]
+----
+sudo apt install socfpga-rbf
+----
+
+---
+* Then you are all set to install Machinekit-hal and eventually machinekit-cnc
+
+[source,bash]
+----
+sudo apt install machinekit-hal-rt-preempt
+sudo apt install machinekit-cnc-rt-preempt
+----
+
+---
+
+ ###   This ends the initial install for console only mode   ###
+
+---
+
+To run lxqt desktop with a hdmi display 1024x768@60 (DE10_Nano only) following extra steps are needed:
+
+= Linux:
+
+* install display manager:
+
+[source,bash]
+----
+sudo apt install lxqt
+----
+
+* Set the following uboot variables: +
+bitimage +
+fdtfile +
+fpgaload_on_boot+
+
+Either in your linux console:
+
+[source,bash]
+----
+sudo fw_setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+sudo sudo fw_setenv fdtfile 'socfpga_cyclone5_de10_nano_uio_fb.dtb'
+sudo fw_setenv fpgaload_on_boot 1
+----
+then reboot
+
+[source,bash]
+----
+sudo reboot now
+----
+
+Or:
+
+= u-boot:
+
+From the u-boot console:
+
+[source,uboot]
+----
+=> setenv bitimage '/lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf'
+=> setenv fpgaload_on_boot 1
+=> savvenv
+=> reset
+----
+---
+
+= Fpga config note:
+When using the display the fpga must be programmed by u-boot only and not (re)programmed later by machinekit,
+
+* This has to happen before the linux kernel loads.
+Reprogramming the fpga after linux is booted will currently give problems,
+(until partial reconfiguration becomes an option hopefully with quartus 19.1 lite).
+So machinekit has to use the:
+"SOC-no-fw-load" config method when loading the hm2_soc_ol driver:
+(fpga gets programmed by u-boot, setup earlier)
+
+example:
+
+[source,text]
+----
+newinst hm2_soc_ol hm2-socfpga0 already_programmed=1 -- config="num_pwmgens=1 num_stepgens=4 num_encoders=1 enable_adc=1" debug=1
+----
+
+http://www.machinekit.io/docs/man/man9/hm2_soc_ol
+
+More About the  "SOC-no-fw-load" config method:
+
+* This makes Machinekit not (re)program the fpga when MACHINEKIT starts...
+The  "fpgaload_on_boot 1" in u-boot makes u-boot program the fpga
+BEFORE linux starts up so that the Framebuffer then can be picked up,
+Ensure that the right devicetree (the one with framebuffer enabled: socfpga_cyclone5_de10_nano_uio_fb_hd.dtb)
+and bitfile are loaded by u-boot:
+
+Current availabe 1024x768 hdmi bitfiles are:
+
+[source,bash]
+----
+machinekit@mksocfpga-nano-soc:~$ ls -l /lib/firmware/socfpga/DE10_Nano_FB_Cramps*
+-rw-r--r-- 1 root root 2413816 May 10 01:26 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_enc.rbf
+-rw-r--r-- 1 root root 2408572 May 10 02:14 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap.rbf
+-rw-r--r-- 1 root root 2406916 May 10 01:50 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24_cap_spi.rbf
+-rw-r--r-- 1 root root 2405236 May 10 02:36 /lib/firmware/socfpga/DE10_Nano_FB_Cramps.3x24.rbf
+----
+---
+
+ ### This ends the initial install for desktop hdmi display mode ###
+
+---
