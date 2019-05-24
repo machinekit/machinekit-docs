@@ -22,7 +22,22 @@ Attach usb cable to port next to ethernet connector and open a separate serial c
 linux example:
 [source,bash]
 ----
-    kermit -c
+me@pc:~$ sudo apt install ckermit
+me@pc:~$ sudo kermit
+C-Kermit 9.0.302 OPEN SOURCE:, 20 Aug 2011, for Linux+SSL+KRB5 (64-bit)
+ Copyright (C) 1985, 2011,
+  Trustees of Columbia University in the City of New York.
+Type ? or HELP for help.
+(/home/me/) C-Kermit>set line /dev/ttyUSB0
+(/home/me/) C-Kermit>set baud 115200
+/dev/ttyUSB0, 115200 bps
+(/home/me/) C-Kermit>set escape-character ^X
+(/home/me/) C-Kermit>log session ~/.kermlog
+(/home/me/) C-Kermit>set flow-control none
+(/home/me/) C-Kermit>set stop-bits 1
+(/home/me/) C-Kermit>set carrier-watch off
+(/home/me/) C-Kermit>connect   
+Connecting to /dev/ttyUSB0, speed 115200
 ----
 
 - press any button on your keyboard in the u-boot console within 2 sec of turning on power to your soc board.
@@ -31,11 +46,12 @@ linux example:
 
 * first setup the ethaddr variable:
 
-This has to contain a real ipv4 internet mac address in below format (replace the x'es with hex numbers)
-(link to uboot console method)
+This has to contain a real ipv4 internet mac address in below format; replace the x'es with hex numbers.
+If you want to have a random mac adress generated, see https://serverfault.com/questions/299556/how-to-generate-a-random-mac-address-from-the-linux-command-line[this link].
+
 [source,uboot]
 ----
-=> setenv ethaddr xx:xx:xx:xx:xx:xx:xx
+=> setenv ethaddr xx:xx:xx:xx:xx:xx
 ----
 
 Note:
