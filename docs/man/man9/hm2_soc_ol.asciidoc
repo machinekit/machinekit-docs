@@ -11,7 +11,7 @@
 **hm2_soc_ol** - Machinekit HAL driver for Altera CycloneV and Xilinx Zynq platforms running HostMot2 firmware.
 
 == SYNOPSIS
-**newinst hm2_soc_ol hm2-socfpga0** **--** [config=**"str[,str...]"**] __
+**newinst hm2_soc_ol hm2-socfpga0** **---** [config=**"str[,str...]"**] __
 
 **hm2-socfpga0**
 
@@ -47,7 +47,7 @@ modparam__ section.
 === No firmware load
 If you are dependent upon programming the fpga before starting Machinekit (ie: from u-boot before booting linux for framebuffer or similar) It is possible to inform the hm2_soc_ol driver to not re-program the fpga by issuing (already_programmed=1):
     
-    newinst HOSTMOT2 [HOSTMOT2]DEVNAME already_programmed=1 -- config=HOSTMOT2
+    newinst HOSTMOT2 [HOSTMOT2]DEVNAME already_programmed=1 --- config=HOSTMOT2
 
 a working example of how to get this into a working .ini file is
 in the example config (5i25-soc-cramps_no-fw-load.ini) here: https://github.com/machinekit/machinekit/blob/master/configs/hm2-soc-stepper/5i25-soc-cramps_no-fw-load.ini
@@ -63,10 +63,10 @@ The "firmware=" config argument must point to a file with extension ".dtbo"
 The argument to "firmware=" must be relative to /lib/firmware - example:
 
  # CycloneV:
- newinst hm2_soc_ol hm2-socfpga0 config="firmware=socfpga/dtbo/DE0_Nano_SoC_DB25.7I76_7I85S_GPIO_GPIO.dtbo"
+ newinst hm2_soc_ol hm2-socfpga0 --- config="firmware=socfpga/dtbo/DE0_Nano_SoC_DB25.7I76_7I85S_GPIO_GPIO.dtbo"
 
  # Zynq:
- newinst hm2_soc_ol hm2-socfpga0 config="firmware=zynq/dtbo/zturn_ztio_7z020_ol.dtbo"
+ newinst hm2_soc_ol hm2-socfpga0 --- config="firmware=zynq/dtbo/zturn_ztio_7z020_ol.dtbo"
 
 Currently firmware is provided by the socfpga-rbf (CycloneV) and socfpga-bit (Zynq) packages
 in the deb.machinekit.io repository.
