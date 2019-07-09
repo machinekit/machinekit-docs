@@ -13,7 +13,7 @@ sudo apt-get install linux-image-xenomai.x86-686-pae      # i386
 ----
 
 [NOTE]
-There are only Xenomai kernels for Wheezy and Jessie not Stretch
+There are only Xenomai kernels for Wheezy and Jessie not Stretch or Buster
 
 = RT-PREEMPT realtime kernel (i386)
 
@@ -48,7 +48,7 @@ sudo apt-get update
 sudo apt-get install linux-image-rt-686-pae
 ----
 
-== Debian Stretch repos contain rt-preempt kernels
+== Debian Stretch and Buster repos contain rt-preempt kernels
 
 Update apt and pull the kernel
 
