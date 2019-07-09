@@ -116,5 +116,41 @@ link to link:../unsupported-packages[the unsupported packages page].
 
 :leveloffset: -2
 
+== Debian Buster on armhf
+
+:leveloffset: +2
+
+- link:../APT-packages-buster[APT Packages for Buster]
+
+- link:../install-rt-kernel-armhf[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Buster on i386
+
+:leveloffset: +2
+
+- link:../APT-packages-buster[APT Packages for Buster]
+
+- link:../install-rt-kernel-i386[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
+== Debian Buster on amd64
+
+:leveloffset: +2
+
+- link:../APT-packages-buster[APT Packages for Buster]
+
+- link:../install-rt-kernel-amd64[Install the kernel]
+
+- link:../install-runtime-packages[Install Runtime Packages]
+
+:leveloffset: -2
+
 
 :sectnums!:

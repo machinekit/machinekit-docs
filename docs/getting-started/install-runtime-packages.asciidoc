@@ -19,7 +19,7 @@ sudo apt-get install machinekit-xenomai
 ----
 
 [NOTE]
-There are only Xenomai packages for Wheezy and Jessie not Stretch
+There are only Xenomai packages for Jessie not Stretch or Buster
 
 [source,bash]
 ----
