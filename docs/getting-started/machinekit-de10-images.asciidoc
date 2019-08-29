@@ -36,5 +36,5 @@ be sure to pick the right dexice name (here it is /dev/sdx )
 Copy to SD card:
 [source,bash]
 ----
-sudo bmaptool socfpga_stretch_machinekit_4.9.76-ltsi-rt-DExx_desktop_sd_2019-05-11.img.tar.bz2 /dev/sdx
+sudo bmaptool copy socfpga_stretch_machinekit_4.9.76-ltsi-rt-DExx_desktop_sd_2019-05-11.img.tar.bz2 /dev/sdx
 ----
