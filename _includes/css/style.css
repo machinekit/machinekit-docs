@@ -171,6 +171,16 @@ body > footer {
   }
 }
 
+.big-diagram {
+  justify-content: center;
+}
+
+.big-diagram img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Features boxes */
 .features .unit {
     margin-bottom: 2em;
