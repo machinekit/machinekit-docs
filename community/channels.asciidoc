@@ -7,7 +7,7 @@ permalink: /community/channels/
 = Community channels
 
 There are various ways to stay up to date, or get in toutch if you
-use, or are planning to use Machinekit. These channels are listed below
+use, or are planning to use Machinekit (both HAL and CNC). These channels are listed below
 
 :toc:
 
@@ -27,14 +27,23 @@ an email list:
 
 Both means are equivalent, and give access to the same postings.
 
+== Machinekit Matrix room
+
+Machinekit-related topics including HAL and CNC repositories, build and related programming technologies and procedures can be discussed in Matrix https://matrix.to/#/#machinekit:matrix.org[Machinekit Room] which can be accessed from web browser by https://riot.im/app/[RIOT App] or by installing https://github.com/vector-im/riotX-android[RiotX] from https://play.google.com/store/apps/details?id=im.vector.riotx&hl=en[Google Play Store] or from https://f-droid.org/en/packages/im.vector.riotx/[F-Droid]. On Apple iOS planform you can install the https://apps.apple.com/us/app/riot-im/id1083446067[Riot.im] application.
+
 
 == Machinekit GitHub issue tracker
 
-Report problems with Machinekit on the
-link:https://github.com/machinekit/machinekit/issues[GitHub issue tracker].
+Report problems with Machinekit on
+link:https://github.com/machinekit/machinekit-hal/issues[GitHub issue tracker for Machinekit-HAL] or
+link:https://github.com/machinekit/machinekit-cnc/issues[GitHub issue tracker for Machinekit-CNC]. (Make sure you file your problem in correct repository. If you are not sure, ask in Machinekit Google group or in Machinekit Matrix room.)
 Please read up on link:/docs/getting-help[how to get help]
 for some pointers about this.
 
 == Gitter channel
 
-There's a Gitter channel at link:https://gitter.im/machinekit/machinekit[]
+There's a Gitter channel at link:https://gitter.im/machinekit/machinekit[]. The channel is bridged into https://matrix.to/#/#machinekit:matrix.org[Machinekit Matrix Room] by way of Matrix Bot. (Matrix users are represented as a one Gitter user `matrixbot` with the real Matrix user as a fist item in message.)
+
+== Freenode IRC channel
+
+There is also not-very-frequently used IRC channel on https://freenode.net/[Freenode] #machinekit where you can try asking for help.
