@@ -3,19 +3,118 @@
 
 :skip-front-matter:
 
-== [[packages-developing]]Setting up for development
+== [[packages-developing-rip]]Setting up for development
+=== [[packages-developing-docker]]Docker .deb build
+
+. <<install-development-packages-docker,Install packages required for building Debian packages with Docker>>
+. <<get-source-and-build-docker,Get and build the Debian packages>>
+
+=== [[packages-developing-rip]]Run-In-Place build
 
 . <<install-development-packages,Install packages required for building from source>>
 . <<get-source-and-build,Get and build the source>>
 
+== [[install-development-packages-docker]]Install packages required for building Debian packages with Docker
+
+These instructions assume that you have `sudo` rights and that you can execute `bash` scripts on your machine. You can build the *Machinekit-HAL* debian package this way which can be then installed on target machine by the `apt` utility.
+
+As a fist step make sure you can execute *Docker CLI* commands by installing https://docker.com[Docker]. The current steps needed for your platform are published in the official https://docs.docker.com/get-docker/[Docker documentation]. For vast majority of cases following the Debian Buster (current Debian stable version) https://docs.docker.com/get-docker/[here] will be the right one. Make sure you can run Docker commands without the need for `sudo` command!
+
+Test the installation by running few basic commands:
+
+[source,bash]
+----
+machinekit@machinekit:~$ docker --version
+Docker version 0.0.0-20190727010531-15bdbd76a5, build 15bdbd76a5
+machinekit@machinekit:~$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete 
+Digest: sha256:fc6a51919cfeb2e6763f62b6d9e8815acbf7cd2e476ea353743570610737b752
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+machinekit@machinekit:~$
+
+----
+
+Then you will need to have installed (and from terminal accessible) `git` CLI. The current steps needed for your platform are published in the official https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git documentation]. For Debian system and standard official repository this means running:
+
+[source,bash]
+----
+sudo apt install git
+----
+
+After test that you can successfuly use git by running:
+
+[source,bash]
+----
+machinekit@machinekit:~$ git --version
+git version 2.20.1
+machinekit@machinekit:~$ 
+
+----
+
+This is all you actually need for building Machinekit-HAL Debian packages in Docker containers.
+
+== [[get-source-and-build-docker]]Get and build the Debian packages
+
+Download (clone) the latest Machinekit-HAL repository locally and navigate to its folder.
+
+[source,bash]
+----
+git clone https://github.com/machinekit/machinekit-hal.git
+cd machinekit-hal
+
+----
+
+From here run the `build_docker` script as follows:
+
+[source,bash]
+----
+scripts/build_docker -t amd64_10 -c deb -n
+----
+
+Where `amd64_10` stands for _architecture_ _ _debian-version_ for which you want to have the package build. For example, for example for `armhf` packages for _Debian Stretch_ you would use `armhf_9`. More information can be glanced from the official Dovetail Automata GitHUB repository for https://github.com/dovetail-automata/mk-cross-builder/#using-the-images[mk-cross-builder].
+
+This script uses the official pre-build Docker images from Dovetail Automata's https://hub.docker.com/r/dovetailautomata/mk-cross-builder/tags[Docker HUB]. In case you want to use your own compiled packages (or some other pre-compiled packages from Docker HUB or other container repository), use environment variable when running aforementioned script:
+
+[source,bash]
+----
+IMAGE=eryaf/mk-cross-builder scripts/build_docker -t amd64_10 -c deb -n
+----
+
+The build objects (with wanted `.deb` packages) will be created in directory where `machinekit-hal` resides.
+
+
 == [[install-development-packages]]Install packages required for building from source
 
 These instructions assume you have a pristine Debian installation, and you
-have made sure you have `sudo` rights. Do not build Machinekit as root.
+have made sure you have `sudo` rights. Do not build Machinekit-HAL or Machinekit-CNC as root.
 
-If you have previously installed the machinekit runtime packages, make sure
+If you have previously installed the `machinekit*` runtime packages, make sure
 you have completely removed all of the runtime packages before you continue.
-To do so, execute `sudo apt-get remove --purge machinekit` .
+To do so, execute `sudo apt-get remove --purge machinekit*` .
 
 Note that a previous LinuxCNC package install will conflict with building from source,
 so make sure LinuxCNC packages are removed by `sudo apt-get remove --purge linuxcnc` .
@@ -27,28 +126,22 @@ link:/docs/getting-started/installing-packages#configure-apt[here] to do so.
 [source,bash]
 ----
 sudo apt-get install libczmq-dev python-zmq libjansson-dev pkg-config \
-  libwebsockets-dev libxenomai-dev python-pyftpdlib cython bwidget lsb-release
-----
+  libwebsockets-dev python-pyftpdlib cython bwidget lsb-release git dpkg-dev
 
-If you are on Debian Wheezy then you need to add wheezy-backports in the
-package archive for cython 0.19:
-[source,bash]
-----
-sudo sh -c \
-  "echo 'deb http://ftp.us.debian.org/debian wheezy-backports main' > \
-  /etc/apt/sources.list.d/wheezy-backports.list"
-sudo apt-get update
-sudo apt-get install -t wheezy-backports cython
+sudo apt-get install --no-install-recommends devscripts equivs
 ----
 
 == [[get-source-and-build]]Get and build the source
 
+For Machinekit-HAL run the following commands:
+
 [source,bash]
 ----
-sudo apt-get install git dpkg-dev
-sudo apt-get install --no-install-recommends devscripts equivs
-git clone https://github.com/machinekit/machinekit.git
-cd machinekit
+# only if you want to follow the step with adding to ~/.bashrc
+cd ~
+git clone https://github.com/machinekit/machinekit-hal.git
+cd machinekit-hal
+# to add non-RT POSIX support, add a 'p'
 # to add RT-PREEMPT support, add a 'r'
 # to add Xenomai support, add an 'x'
 # this builds for Posix, RT-PREEMPT, Xenomai:
@@ -69,32 +162,50 @@ sudo make setuid
 ----
 
 If you wish to run this installation by default, add the next lines to your `~/.bashrc` file,
-so that every new terminal is set up correctly for running Machinekit.
+so that every new terminal is set up correctly for running Machinekit-HAL.
 
 [source,bash]
 ----
-echo 'if [ -f ~/machinekit/scripts/rip-environment ]; then
+echo 'if [ -f ~/machinekit-hal/scripts/rip-environment ]; then
     source ~/machinekit/scripts/rip-environment
-    echo "Environment set up for running Machinekit"
+    echo "Environment set up for running Machinekit-HAL"
 fi' >> ~/.bashrc
 ----
 
-However, if you are installing a RIP build onto a system that already has a version of Machinekit installed as a binary
+However, if you are installing a RIP build onto a system that already has a version of Machinekit* installed as a binary
 install from packages say, or has other RIP builds, you should invoke from the root dir of the RIP,
 [source,bash]
 ----
 . ./scripts/rip-environment
 ----
+
 only in terminal sessions where you specifically want to run this RIP.
 
-Users who wish to invoke machinekit (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
+Users who wish to invoke machinekit-hal (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
 
 [source,bash]
 ----
 sudo adduser <username> xenomai
 ----
 
-Logout and login again therafter.
+Logout and login again therafter. (Machinekit-HAL supports only the `2.x` version of Xenomai. For most uses use the Preempt_RT patched kernel only.)
+
+To build both Machinekit-HAL and Machinekit-CNC in one step, use special script `build_with_cnc` in the `scripts` directory. Please, be advised that this script presumes existence of all needed packages on build machine and does not have provision for errors. To faciliate a issue-less build, try building the Machinekit-HAL package first.
+
+Also, the `build_with_cnc` script is better run in newly cloned repository of Machinekit-HAL, as it internally clones the Machinekit-CNC repository into the Machinekit-HAL repository.
+
+Run:
+
+[source,bash]
+----
+git clone https://github.com/machinekit/machinekit-hal.git machinekit-hal-cnc-build
+cd machinekit-hal-cnc-build
+scripts/build_with_cnc
+scripts/check-system-configuration.sh
+. ./scripts/rip-environment
+----
+
+You will need to hack the `build_with_cnc` script for other uses. (Patches welcome!)
 
 === A Note on machinekit.ini and the MKUUID
 
@@ -175,6 +286,6 @@ a current package, and then delete it - the process pulls in all current
 runtime prerequisites:
 [source,bash]
 ----
-sudo apt-get install machinekit
-sudo apt-get remove --purge machinekit
+sudo apt-get install machinekit-hal machinekit-cnc
+sudo apt-get remove --purge machinekit*
 ----
