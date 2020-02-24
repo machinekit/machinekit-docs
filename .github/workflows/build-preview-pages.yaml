@@ -1,93 +1,82 @@
-name: Rebuild on pull request on master
+name: Build site preview
 
 on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - '*'
+      - '!master'
 
 jobs:
+  # This job is only temporary solution until a new Jekyll builder (Dockerfile) is
+  # created. Then the logic will be reworked.
   buildMachinekitSite:
     runs-on: ubuntu-latest
-
+    env:
+      ACTING_SHA: ${{ github.sha }}
+      POSITION_FROM_TOP: 1
+      OUTPUT_NAME: 'machinekit-site-${{ github.sha }}'
+      ACTING_REPOSITORY: ${{ github.repository }}
     steps:
       # Locally clone the repository which we want to build with depth of 5 commits
       - name: Checkout the pull request for Machinekit-docs
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          repository: '${{ env.ACTING_REPOSITORY }}'
+          ref: ${{ env.ACTING_SHA }}
           path: to_build
           fetch-depth: '5'
 
       - name: Git SHA on which the build is requested
-        run: echo ${{ github.event.pull_request.head.sha }}
-
-      # Locally clone the repository to which the build results will be pushed
-      - name: Checkout this repository, gh-pages branch
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: target
+        run: echo ${{ env.ACTING_SHA }}
 
       - name: Git log of repository on which the build is requested
         run: git log
         working-directory: ./to_build
 
+      # Create directory for output files and export it's name as a environment variable
+      - name: Create output directory
+        run: |
+          mkdir ./${{ env.OUTPUT_NAME }}
+          echo ::set-env name=OUTPUT_DIRECTORY::$(pwd)/${{ env.OUTPUT_NAME }}
+          echo "The output directory is ${{ env.OUTPUT_DIRECTORY }}"
+          mkdir ./${{ env.OUTPUT_NAME }}/build      
+
       # The commits pushed to gh-pages branch will appear as originated from the author
       # of the changes
-      - name: Get last commit author
+      - name: Create JSON with commit metadata
+        env: 
+          FILENAME: '$OUTPUT_DIRECTORY/build-metadata.json'
         run: |
           echo "###########################################################"
           echo "# Commit which will be used for mining of the credentials #"
           echo "###########################################################"
-          git log -n 1
-          echo ::set-env name=authormail::$(git log --format='%ae' -n 1 ${{ github.event.after }})
-          echo ::set-env name=authorname::$(git log --format='%an' -n 1 ${{ github.event.after }})
+          git log -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1))
+          jq -n --arg authoremail "$(git log --format='%ae' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg authorname "$(git log --format='%an' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg commitmsg "$(git log --format='%B' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg sha "${{ env.ACTING_SHA }}" '{"author":"\($authorname)","email":"\($authoremail)","message":"\($commitmsg)","sha":"\($sha)"}' > ${{ env.FILENAME }}
+          echo "###########################################################"
+          echo "# JSON file with metadata information of pertinent commit #"
+          echo "###########################################################"          
+          echo "Whole path: ${{ env.FILENAME }}"
+          echo ""
+          cat ${{ env.FILENAME }}
         working-directory: ./to_build
-
-      - name: Set up credentials for the new commit
-        run: |
-          git config --local user.email "$authormail"
-          git config --local user.name "$authorname"
-          echo "Author's name for the commit set to $authorname"
-          echo "Author's mail for the commit set to $authormail"
-        working-directory: ./target
 
       # Running the commands in ubuntu-master and not in Docker container because
       # of the age of the container -> It cannot be even build anymore
-      - name: Run a Jekyll builder
+      - name: Run the Jekyll builder
         run: docker run -v $(pwd)/to_build:/work haberlerm/docker-jekyll-asciidoctor jekyll build --verbose --trace --config _config.yml,_config_devel.yml
 
       - name: Print newly created files
-        run: ls -R _site -print1
+        run: find . -print0 | xargs -0 -I '{}' ls --color -d '{}'
         working-directory: ./to_build
 
-      # Always delete old files in the repository (for example for the case when commits
-      # remove some files), but keep the .git directory and files in it intact
-      # In other words, don't kill itself
-      - name: Delete all files from ./target
-        run: find . -depth -not \( -path "./.git" -or -path "." -or -path "./.git/*" \) -print0 | xargs -0 -t -I '{}' rm  -d '{}'
-        working-directory: ./target
-
-      - name: Copy the newly generated site to ./target
-        run: cp -r to_build/_site/* target/
-
-      - name: Create commit
-        run: |
-          git add --all
-          git commit -m "PULL request ID ${{ github.event.pull_request.id }}, URL ${{ github.event.pull_request.url }}, SHA ${{ github.event.pull_request.head.sha }} "
-        working-directory: ./target
-
-      # In the case of multiple running builders at the same time, always fetch and rebase
-      # gh-pages branch right before commit to minimize chances of failure
-      - name: Rebase ./target repository as a last thing before Push
-        run: |
-          git fetch origin gh-pages
-          git rebase origin/gh-pages
-        working-directory: ./target
-
-      - name: Push changes to gh-pages
-        uses: ad-m/github-push-action@master
+      - name: Copy the newly generated site to output directory
+        run: cp -r to_build/_site/* ${{ env.OUTPUT_DIRECTORY }}/build
+      
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: target
-          branch: gh-pages
+          name: ${{ env.OUTPUT_NAME}}
+          path: ${{ env.OUTPUT_DIRECTORY}}

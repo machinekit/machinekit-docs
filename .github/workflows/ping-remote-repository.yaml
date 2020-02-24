@@ -1,0 +1,41 @@
+name: Ping remote repository
+
+# Send event over the GitHub API to machinekit/machinekit.github.io
+# that it should start the build workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sendPing:
+    runs-on: ubuntu-latest
+
+    steps:
+    # We need to somehow get the current Github user's name
+    - name: Get the Github handle of user
+      run: |
+        str="${{ github.repository }}"
+        IFS='/'
+        read -ra ARRA <<< "$str"
+        echo ::set-env name=PARSED_USERNAME::${ARRA[0]}
+        echo ::set-env name=PARSED_LOCAL_REPOSITORY::${ARRA[1]}
+
+      # Another shell is needed for the environment variables to take effect
+    - name: Print parsed Github handle and repository
+      run: |
+        echo "The Github user handle found: ${{ env.PARSED_USERNAME }}."
+        echo "The local repository name: ${{ env.PARSED_LOCAL_REPOSITORY}}."
+    
+    # GitHub Actions unfortunately require that the Repository Dispatch action
+    # is authorized by the Personal Access Token, so we are using a robot account
+    - name: Signal other repository by a message
+        # This in forked context really takes more for granted than is reasonable,
+        # but there is no way to know how user named his fork of machinekit.github.io
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.ROBOT_TOKEN }}
+        repository: ${{ env.PARSED_USERNAME }}/machinekit.github.io
+        event-type: rebuild-site-now
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "authorization": "${{ secrets.DOCUMENTATION_PING_KEYCODE }}", "originating_repository": "${{ env.PARSED_USERNAME }}/${{ env.PARSED_LOCAL_REPOSITORY }}"}'
