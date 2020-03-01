@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ACTING_SHA: ${{ github.sha }}
-      POSITION_FROM_TOP: 1
       OUTPUT_NAME: 'machinekit-site-${{ github.sha }}'
       ACTING_REPOSITORY: ${{ github.repository }}
     steps:
@@ -53,8 +52,8 @@ jobs:
           echo "###########################################################"
           echo "# Commit which will be used for mining of the credentials #"
           echo "###########################################################"
-          git log -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1))
-          jq -n --arg authoremail "$(git log --format='%ae' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg authorname "$(git log --format='%an' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg commitmsg "$(git log --format='%B' -n 1 ${{ env.ACTING_SHA }}~$((${{ env.POSITION_FROM_TOP }}-1)))" --arg sha "${{ env.ACTING_SHA }}" '{"author":"\($authorname)","email":"\($authoremail)","message":"\($commitmsg)","sha":"\($sha)"}' > ${{ env.FILENAME }}
+          git log -n 1 --no-merges HEAD
+          jq -n --arg authoremail "$(git log --format='%ae' -n 1 --no-merges HEAD)" --arg authorname "$(git log --format='%an' -n 1 --no-merges HEAD)" --arg commitmsg "$(git log --format='%B' -n 1 --no-merges HEAD)" --arg sha "${{ env.ACTING_SHA }}" '{"author":"\($authorname)","email":"\($authoremail)","message":"\($commitmsg)","sha":"\($sha)"}' > ${{ env.FILENAME }}
           echo "###########################################################"
           echo "# JSON file with metadata information of pertinent commit #"
           echo "###########################################################"          
