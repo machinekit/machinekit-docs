@@ -141,17 +141,12 @@ For Machinekit-HAL run the following commands:
 cd ~
 git clone https://github.com/machinekit/machinekit-hal.git
 cd machinekit-hal
-# to add non-RT POSIX support, add a 'p'
-# to add RT-PREEMPT support, add a 'r'
-# to add Xenomai support, add an 'x'
-# this builds for Posix, RT-PREEMPT, Xenomai:
-debian/configure -prx 
+debian/configure
 sudo mk-build-deps -ir
 cd src
 ./autogen.sh
 # for the Beaglebone, add --with-platform-beaglebone to ./configure
 # for the Raspberry2, add --with-platform-raspberry to ./configure
-# for PC platforms, add --with-rt-preempt  --with-posix  --with-xenomai
 ./configure  
 make
 sudo make setuid
@@ -181,7 +176,7 @@ install from packages say, or has other RIP builds, you should invoke from the r
 
 only in terminal sessions where you specifically want to run this RIP.
 
-Users who wish to invoke machinekit-hal (built with xenomai threads enabled) on a xenomai realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
+Users who wish to invoke machinekit-hal (built with Xenomai 2 threads enabled) on a Xenomai 2 realtime kernel must ensure they are members of the xenomai group. If that wasn't already done when installing the kernel, then add each such user now
 
 [source,bash]
 ----
