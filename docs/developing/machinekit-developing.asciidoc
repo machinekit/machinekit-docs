@@ -18,7 +18,7 @@
 
 These instructions assume that you have `sudo` rights and that you can execute `bash` scripts on your machine. You can build the *Machinekit-HAL* debian package this way which can be then installed on target machine by the `apt` utility.
 
-As a fist step make sure you can execute *Docker CLI* commands by installing https://docker.com[Docker]. The current steps needed for your platform are published in the official https://docs.docker.com/get-docker/[Docker documentation]. For vast majority of cases following the Debian Buster (current Debian stable version) https://docs.docker.com/get-docker/[here] will be the right one. Make sure you can run Docker commands without the need for `sudo` command!
+As a first step make sure you can execute *Docker CLI* commands by installing https://docker.com[Docker]. The current steps needed for your platform are published in the official https://docs.docker.com/get-docker/[Docker documentation]. For the vast majority of cases following the Debian Buster (current Debian stable version) https://docs.docker.com/get-docker/[here] will be the right one. Make sure you can run Docker commands without the need for `sudo` command!
 
 Test the installation by running few basic commands:
 
@@ -65,14 +65,34 @@ Then you will need to have installed (and from terminal accessible) `git` CLI. T
 sudo apt install git
 ----
 
-After test that you can successfuly use git by running:
+After test that you can successfully use git by running:
 
 [source,bash]
 ----
 machinekit@machinekit:~$ git --version
-git version 2.20.1
+git version 2.27.0
 machinekit@machinekit:~$ 
 
+----
+
+Another dependency is the `Python SH` module which is extensively used in the Python 3 scripts functioning as wrappers around the calls to programs actually doing the build. The official https://amoffat.github.io/sh/[documentation] has a tutorial how to install it by invoking Pip, but for standard Debian system you can just get it by running standard APT installation:
+
+[source,bash]
+----
+sudo apt install python3-sh
+----
+
+After test that you can successfully use Python SH by running:
+
+[source,bash]
+----
+machinekit@machinekit:~$ python3
+Python 3.7.3 (default, Dec 20 2019, 18:57:59) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sh
+>>> sh.whoami(_output_tty=False).strip()
+'machinekit'
 ----
 
 This is all you actually need for building Machinekit-HAL Debian packages in Docker containers.
@@ -88,69 +108,99 @@ cd machinekit-hal
 
 ----
 
-From here run the `build_docker` script as follows:
+Now we need to build the Docker images used as builders in following steps. We will discuss only native building of the Docker images as the system is as of time of writing this not adjusted to compiling multiarch Docker images with QEMU (https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/[Docker blog]). However, you can try on your own, but be aware that there is a bug which will cause a _certificate validation error_ when using _SSL_ with _curl_.
+
+Invoke the `scripts/buildcontainerimage.py` script with arguments:
 
 [source,bash]
 ----
-scripts/build_docker -t amd64_10 -c deb -n
+scripts/buildcontainerimage.py DISTRIBUTION VERSION ARCHITECTURE
 ----
 
-Where `amd64_10` stands for _architecture_ _ _debian-version_ for which you want to have the package build. For example, for example for `armhf` packages for _Debian Stretch_ you would use `armhf_9`. More information can be glanced from the official Dovetail Automata GitHUB repository for https://github.com/dovetail-automata/mk-cross-builder/#using-the-images[mk-cross-builder].
+Where `DISTRIBUTION` is the _Operating System_ for which you want to assemble the packages (currently only `Debian` is supported), `VERSION` is the version of the _Operating system_ (currently supported are `Stretch` and `Buster`, respective `9` and `10`) and `ARCHITECTURE` is the _so-called_ **HOST_ARCHITECTURE** on which you want to install the built packages. Operatively, you can also pass the `-d PREFIX` option, which defines the **PREFIX** of the image tag.
 
-This script uses the official pre-build Docker images from Dovetail Automata's https://hub.docker.com/r/dovetailautomata/mk-cross-builder/tags[Docker HUB]. In case you want to use your own compiled packages (or some other pre-compiled packages from Docker HUB or other container repository), use environment variable when running aforementioned script:
+When the _ARCHITECTURE_ is the same as the architecture of the system on which you are building the Docker images, you are **natively compiling the packages**. Otherwise, you are **cross-compiling the packages**. Cross- compilation is currently supported from `amd64` to one of `i686`, `armhf` or `arm64` by Machinekit organization. Cross-compilation between other architectures (for example from `arm64` to `amd64`) is on _the best effort_ basis and dependent on upstream Operating system support. Machinekit-HAL build flow abstract away the differences between cross-compilation and native compilation.
+
+Building new Docker image will take few minutes (depending on your internet connection probably about 10 minutes). After successful build new image named `${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest` will be created. For example `machinekit-hal-debian-builder-v.arm64_10:latest` with invoking a call to `scripts/buildcontainerimage.py Debian Buster arm64`.
+
+Now we need to `bootstrap` the Machinekit-HAL repository with call to:
 
 [source,bash]
 ----
-IMAGE=eryaf/mk-cross-builder scripts/build_docker -t amd64_10 -c deb -n
+docker run -it --rm -u "$(id -u):$(id -g)" -v "$(pwd):/home/machinekit/build/machinekit-hal" -w "/home/machinekit/build/machinekit-hal" ${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest debian/bootstrap
 ----
 
-The build objects (with wanted `.deb` packages) will be created in directory where `machinekit-hal` resides.
+Then we need to `configure` the Machinekit-HAL repository with call to:
+
+[source,bash]
+----
+docker run -it --rm -u "$(id -u):$(id -g)" -v "$(pwd):/home/machinekit/build/machinekit-hal" -w "/home/machinekit/build/machinekit-hal" ${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest debian/configure.py -c
+----
+
+This step will create the `changelog` file (as specified by the `-c` flag option).
+
+As a last step we need to `cd` to a parent directory (making sure the current user has a write access rights) and execute the build (we are presuming that the Machinekit-HAL repository is in directory _machinekit-hal_): 
+
+[source,bash]
+----
+docker run -it --rm -u "$(id -u):$(id -g)" -v "$(pwd):/home/machinekit/build" -w "/home/machinekit/build/machinekit-hal" ${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest debian/buildpackages.py
+----
+
+This step will create multitude of `.deb` or `.ddeb` packages in the current working directory.
 
 
 == [[install-development-packages]]Install packages required for building from source
 
+This is called **Run-In-Place** build and it means that Machinekit-HAL will be build in the source-tree (from which it will also need to be run).
+
 These instructions assume you have a pristine Debian installation, and you
-have made sure you have `sudo` rights. Do not build Machinekit-HAL or Machinekit-CNC as root.
+have made sure you have `sudo` rights. Do not build Machinekit-HAL as the root.
 
 If you have previously installed the `machinekit*` runtime packages, make sure
-you have completely removed all of the runtime packages before you continue.
+you have completely removed all the runtime packages before you continue.
 To do so, execute `sudo apt-get remove --purge machinekit*` .
 
-Note that a previous LinuxCNC package install will conflict with building from source,
-so make sure LinuxCNC packages are removed by `sudo apt-get remove --purge linuxcnc` .
-
-First, install supporting packages - note you *must* have configured the deb.machinekit.io 
-apt repository already or the wrong package versions will be installed - see the instructions
-link:/docs/getting-started/installing-packages#configure-apt[here] to do so.
+As a first step, clone Machinekit-HAL, `cd` into the root of Machinekit-HAL repository and `bootstrap` it:
 
 [source,bash]
 ----
-sudo apt-get install libczmq-dev python-zmq libjansson-dev pkg-config \
-  libwebsockets-dev python-pyftpdlib cython bwidget lsb-release git dpkg-dev
-
-sudo apt-get install --no-install-recommends devscripts equivs
-----
-
-== [[get-source-and-build]]Get and build the source
-
-For Machinekit-HAL run the following commands:
-
-[source,bash]
-----
-# only if you want to follow the step with adding to ~/.bashrc
-cd ~
 git clone https://github.com/machinekit/machinekit-hal.git
 cd machinekit-hal
-debian/configure
-sudo mk-build-deps -ir
+debian/bootstrap
+----
+
+If you don't have build package installed, install it by following the official https://wiki.debian.org/BuildingTutorial#Requirements[Debian wiki]. You may also need to have installed the official https://cloudsmith.io/~machinekit/repos/machinekit/packages/][Machinekit dependencies repository], install it by following the https://cloudsmith.io/~machinekit/repos/machinekit/setup/#formats-deb[instructions].
+
+Then install all build dependencies for your architecture by running `mk-build-deps`:
+
+[source,bash]
+----
+mk-build-deps -irs sudo
+----
+
+Now you should have all needed dependencies and tools installed on your system. You should be able to `cd` into the `src` folder and run `autogen.sh` and `configure script`:
+
+[source,bash]
+----
 cd src
 ./autogen.sh
 # for the Beaglebone, add --with-platform-beaglebone to ./configure
 # for the Raspberry2, add --with-platform-raspberry to ./configure
-./configure  
+./configure
+----
+
+You should see on standard output that everything was configured correctly and you can actually build the software. So now invoke `make` and `make setuid`:
+
+[source,bash]
+----
 make
 sudo make setuid
+----
 
+Now everything should be compiled. Please, check it!
+
+[source,bash]
+----
 # this script checks for missing configuration files
 # and will give hints how to remedy:
 ../scripts/check-system-configuration.sh
@@ -168,7 +218,7 @@ fi' >> ~/.bashrc
 ----
 
 However, if you are installing a RIP build onto a system that already has a version of Machinekit* installed as a binary
-install from packages say, or has other RIP builds, you should invoke from the root dir of the RIP,
+install from packages, or has other RIP builds, you should invoke from the root dir of the RIP,
 [source,bash]
 ----
 . ./scripts/rip-environment
@@ -183,28 +233,13 @@ Users who wish to invoke machinekit-hal (built with Xenomai 2 threads enabled) o
 sudo adduser <username> xenomai
 ----
 
-Logout and login again therafter. (Machinekit-HAL supports only the `2.x` version of Xenomai. For most uses use the Preempt_RT patched kernel only.)
+Logout and login again thereafter. (Machinekit-HAL supports only the `2.x` version of Xenomai. For most uses use the Preempt_RT patched kernel only.)
 
-To build both Machinekit-HAL and Machinekit-CNC in one step, use special script `build_with_cnc` in the `scripts` directory. Please, be advised that this script presumes existence of all needed packages on build machine and does not have provision for errors. To faciliate a issue-less build, try building the Machinekit-HAL package first.
-
-Also, the `build_with_cnc` script is better run in newly cloned repository of Machinekit-HAL, as it internally clones the Machinekit-CNC repository into the Machinekit-HAL repository.
-
-Run:
-
-[source,bash]
-----
-git clone https://github.com/machinekit/machinekit-hal.git machinekit-hal-cnc-build
-cd machinekit-hal-cnc-build
-scripts/build_with_cnc
-scripts/check-system-configuration.sh
-. ./scripts/rip-environment
-----
-
-You will need to hack the `build_with_cnc` script for other uses. (Patches welcome!)
+To build both Machinekit-HAL and Machinekit-CNC in one step, **please be advised** that this is currently not possible. The development on that front is continuing and hopefully this will be possible in short while.
 
 === A Note on machinekit.ini and the MKUUID
 
-Since inception, /etc/linuxcnc/machinekit.ini has contained a hard coded UUID under the 'MKUUID=' field
+Since inception, /etc/machinekit/machinekit.ini has contained a hard coded UUID under the 'MKUUID=' field
 
 This despite the text above it stating that all machines should have a unique MKUUID to enable the
 zeroconf browsing for particular instances to work.
@@ -217,20 +252,20 @@ So, from 16th Jan 2019 onwards, there are a couple of wrinkles to be aware of, i
 **RIP builds**
 
 A fresh clone will generate a new UUID when built.
-If you want to use a particular UUID, keep it in a separate system file called /etc/linuxcnc/mkuuid [1] and manually edit RIP/etc/linuxcnc/machinekit.ini to use it.
+If you want to use a particular UUID, keep it in a separate system file called /etc/machinekit/mkuuid [1] and manually edit ${RIP_DIRECTORY}/etc/machinekit/machinekit.ini to use it.
 When you rebuild the machinekit.ini UUID will be preserved, however be aware doing a complete ' git clean -xdf && ./autogen.sh && ./configure' will wipe it.
 
-([1] For RIPs, this file is just a suggested failsafe storage option for now, it will actually be used by package installs)
+([1] For RIPs, this file is just a suggested fail-safe storage option for now, it will actually be used by package installs)
 
 **Package installs**
 
-A package install onto a blank system will generate a new UUID.
+A package installation onto a blank system will generate a new UUID.
 
 If you are updating and do not purge your configs:
 
-- If the package finds an /etc/linuxcnc/mkuuid file [1], it will use the MKUUID within if valid, over any other option.
+- If the package finds an /etc/machinekit/mkuuid file [1], it will use the MKUUID within if valid, over any other option.
 
-- If machinekit.ini exists with a valid UUID, it will use that.  Otherwise it will update with the generated UUID.
+- If machinekit.ini exists with a valid UUID, it will use that.  Otherwise, it will update with the generated UUID.
 
 - If machinekit.ini is missing even though the previous package was not purged, it will generate one with a valid UUID.
 
@@ -242,7 +277,7 @@ For the vast majority of users, this change will have no impact, their configs j
 
 === Documentation
 
-Documentation has been almost completely split from the machinekit build.
+Documentation has been almost completely split from the Machinekit-HAL build.
 
 Drivers and components built with comp or instcomp, can still be configured to provide
 documentation for those items only using
@@ -250,26 +285,10 @@ documentation for those items only using
 ----
 ./configure --enable-build-documentation
 ----
-when building machinekit.
+when building Machinekit-HAL.
 
 The complete documentation is available as below, so this option is only really of interest
 to developers writing components who wish to check the generated manual page for it.
-
-This package will provide local copies of the manual pages and a man page stub to remind
-of how to use them.
-
-[source,bash]
-----
-sudo apt-get install machinekit-manual-pages
-----
-
-It is an optional install for users who wish to use a stand alone system or who have limited
-internet connectivity.
-
-The same pages can be accessed here: +
-http://www.machinekit.io/docs/man/man1/  For information on utilities and GUIs +
-http://www.machinekit.io/docs/man/man3/  For information on the hal and rtapi APIs +
-http://www.machinekit.io/docs/man/man9/  For information on components and drivers +
 
 === Additional runtime packages
 
@@ -281,6 +300,6 @@ a current package, and then delete it - the process pulls in all current
 runtime prerequisites:
 [source,bash]
 ----
-sudo apt-get install machinekit-hal machinekit-cnc
-sudo apt-get remove --purge machinekit*
+sudo apt install machinekit-hal
+sudo apt remove --purge machinekit*
 ----
