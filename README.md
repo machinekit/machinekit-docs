@@ -4,6 +4,6 @@ Website PR Builder Status: [![Website PR Build Status](https://jenkins.machineki
 
 Manpage Build Status: [![Manpage Build Status](https://jenkins.machinekit.io/buildStatus/icon?job=machinekit-manpages)](https://jenkins.machinekit.io/job/machinekit-manpages/)
 
-# Machinekit Documentation
+# Machinekit Documentation:
 
 This repository contains the source for the Machinekit website anddocumentation which are available at [machinekit.io/docs](http://www.machinekit.io/docs/)
