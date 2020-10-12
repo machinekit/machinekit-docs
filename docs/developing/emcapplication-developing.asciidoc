@@ -14,6 +14,10 @@
 . <<install-development-packages,Install packages required for building from source>>
 . <<get-source-and-build,Get and build the source>>
 
+=== [[aditional-notes]]Additional notes
+
+. <<machinekit-hal-pinning,Why do I have to pass Machinekit-version when building debian packages>>
+
 == [[install-development-packages-docker]]Install packages required for building Debian packages with Docker
 
 These instructions assume that you have `sudo` rights and that you can execute `bash` scripts on your machine. You can build the *EMCApplication* debian package this way which can be then installed on target machine by the `apt` utility. You will also need to have installed **Git** executable and for container specific instructions also **Docker CLI** and **Docker daemon**. Directions for both can be found in link:/docs/developing/common-developing[Set up common development environment for all Machinekit projects].
@@ -149,3 +153,13 @@ It is also viable to disallow _apt_ to upgrade the _machinekit-hal_ package to h
 ----
 sudo apt-mark hold machinekit-hal
 ----
+
+== [[machinekit-hal-pinning]]Why do I have to pass Machinekit-version when building Debian packages?
+
+It is important to understand what Machinekit EMCApplication really is. From programming point of view it is just set of patches applied over _LinuxCNC@master_ branch which it periodically tracks. (Meaning changes happening in the _upstream_ LinuxCNC@master are from time to time _merged into_ the _EMCApplication@machinekit/master_ branch.) And all what these additional patches are doing is to allow parts of LinuxCNC CNC stack (historically called **E**nhanced **M**otion **C**ontroller) to use external HAL dependency.
+
+Machinekit-HAL project and LinuxCNC project both have certain development vector independent of each other, i.e. Machinekit-HAL does not care about LinuxCNC and LinuxCNC does not care about Machinekit-HAL. This represents quite interesting problem when creating **dpkg** packages, because **EMCApplication** package has to depend on **Machinekit-HAL** package, but also specific version of _EMCApplication_ has to depend on specific version of _Machinekit-HAL_ (or specific range) as later or previous versions of Machinekit-HAL can include incompatible code. And the easiest way how to guarantee the compatibility is to require the same version of Machinekit-HAL package as install dependency of EMCApplication as was used in build stage.
+
+This way the _apt_ will make sure that the correct version of Machinekit-HAL is installed for the EMCApplication issue-less operation.
+
+Using the _**mk-build-deps**_ script from the _devscripts_ package for creating environment capable of problem-less building of packages by invocating `dpkg-buildpackage` or compiling and linking the software during **R**un-**I**n-**P**lace build needs the `debian/control` file with correctly stated `Build-Depends: machinekit-ha (=` dependency. This is why we need to pass the _machinekit-hal_ package version early in stage when calling the `debian/configure machinekit-hal=${VERSION}` script.
