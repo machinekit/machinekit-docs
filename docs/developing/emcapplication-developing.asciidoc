@@ -1,0 +1,165 @@
+---
+---
+
+:skip-front-matter:
+
+== [[packages-developing-rip]]Setting up for development
+=== [[packages-developing-docker]]Docker .deb build
+
+. <<install-development-packages-docker,Install packages required for building Debian packages with Docker>>
+. <<get-source-and-build-docker,Get and build the Debian packages>>
+
+=== [[packages-developing-rip]]Run-In-Place build
+
+. <<install-development-packages,Install packages required for building from source>>
+. <<get-source-and-build,Get and build the source>>
+
+=== [[aditional-notes]]Additional notes
+
+. <<machinekit-hal-pinning,Why do I have to pass Machinekit-version when building debian packages>>
+
+== [[install-development-packages-docker]]Install packages required for building Debian packages with Docker
+
+These instructions assume that you have `sudo` rights and that you can execute `bash` scripts on your machine. You can build the *EMCApplication* debian package this way which can be then installed on target machine by the `apt` utility. You will also need to have installed **Git** executable and for container specific instructions also **Docker CLI** and **Docker daemon**. Directions for both can be found in link:/docs/developing/common-developing[Set up common development environment for all Machinekit projects].
+
+EMCApplication is tightly tracking https:github.com/linuxCNC/linuxcnc[LinuxCNC@master] branch with minimal set of additional patches to use the Machinekit-HAL project. You can try to follow https://linuxcnc.org/docs/devel/html/[LinuxCNC'd documentation], but be aware that any part pertaining RuntimeAPI (RTAPI), Hardware Abstraction Layer (HAL) and most HAL modules and Python code will not be accurate as these components come from Machinekit-HAL package.
+
+The supported distributions for which you can build _apt_ packages is the intersection of supported distribution of Machinekit-HAL and supported distributions for LinuxCNC.
+
+Currently, Machinekit-HAL code stack is fully Python 3 ported, LinuxCNC code stack is made so both Python 2 and Python 3 are supported (with some parts [mainly GUI] requiring Python 2), however the Debian packaging recipes still support only Python 2 (this problem is being intensively worked on in https://github.com/LinuxCNC/linuxcnc/pull/943[PR#943]). This means that for building of successful packages the input version of _machinekit-hal_ and _machinekit-hal-dev_ packages have to be https://cloudsmith.io/~machinekit/repos/machinekit-hal/packages/?q=version%3A0.4.20868*[**0.4.20868**] maximum.
+
+Following steps presume that you have cloned the EMCApplication repository to local folder and that you know the _UID_ and _GID_ of your user.
+
+[source,bash]
+----
+git clone https://github.com/machinekit/emcapplication.git
+id
+----
+
+Starting from current version of _Debian Buster_ image downloaded from DockerHUB (replace with version for which you want to build the packages), the following commands would be used for building:
+
+[source,bash]
+----
+docker run -it --rm -v "$(pwd):/machinekit/emca" debian:buster bash -i
+apt update
+apt upgrade
+apt install build-essential fakeroot devscripts equivs sudo curl python lsb-release apt-cudf
+addgroup machinekit --gid 1000
+adduser machinekit --uid 1000 --gid 1000
+echo "machinekit ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers
+chown -R machinekit:machinekit /machinekit
+su machinekit
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/machinekit/machinekit/cfg/setup/bash.deb.sh' \
+  | sudo -E bash
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/setup/bash.deb.sh' \
+  | sudo -E bash
+cd /machinekit/emca
+./debian/configure machinekit-hal=0.4.20894-1.gitebe1344a0~$(lsb_release -cs) no-docs
+mk-build-deps -irs sudo -t 'apt-cudf-get --solver aspcud -o Debug::pkgProblemResolver=0 -o APT::Install-Recommends=0'
+dpkg-buildpackage -us -uc
+cp ../*.deb .
+exit
+exit
+----
+
+At the end you will have several new **.deb** files in your folder.
+
+You should replace `--gid 1000`s and `--uid 1000` with numbers which you got from `id` command in previous step.
+
+As EMCApplication packages are pinning the version of Machinekit-HAL packages dependency to one specific version, we need to pass this version string to _debian/configure_ script as `debian/configure machinekit-hal=${VERSION}`. One can use either version available from one of accessible Debian repositories, or already installed version.
+
+To determine which Machinekit-HAL packages are currently installed on the system, run:
+
+[source,bash]
+----
+apt list --installed | grep machinekit
+----
+
+As standard Debian _mk-build-deps_ script with _apt_ manager cannot resolve build dependencies fixed to one particular version, we need to install _apt-cudf_ package to be able to choose different dependency solver.
+
+LinuxCNC does not support **cross-building** of Debian packages, which is the reason why you will need to build the _EMCApplication_ natively. Because of time needed to build the whole application on _arm_ devices, the best course of action is to use _QEMU-user-static_ binaries for running the foreign architecture code on _amd64_ machine. There are multiple ways how to reach functional system: First, use https://github.com/multiarch/qemu-user-static[Multiarch/QEMU-user-static] Docker image (please heed advice in https://github.com/multiarch/qemu-user-static/issues/17#issuecomment-518660227[this] issue if you get `sudo` related problem), or Second, install the https://packages.debian.org/sid/qemu-user-static[qemu-user-static] Debian package (preferably the latest, _Sid_ version).
+
+Then run the Docker container with specific architecture (here _arm32_):
+
+[source,bash]
+----
+docker run -it --rm -v "$(pwd):/machinekit/emca" arm32v7/debian:buster bash -i
+dpkg --print-architecture && uname -m
+apt update
+apt upgrade
+apt install build-essential fakeroot devscripts equivs sudo curl python lsb-release apt-cudf
+addgroup machinekit --gid 1000
+adduser machinekit --uid 1000 --gid 1000
+echo "machinekit ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers
+chown -R machinekit:machinekit /machinekit
+su machinekit
+sudo apt install debian-keyring debian-archive-keyring apt-transport-https
+curl -k 'https://dl.cloudsmith.io/public/machinekit/machinekit/cfg/gpg/gpg.A9B6D8B4BD8321F3.key' | sudo apt-key add -
+curl -k https://dl.cloudsmith.io/public/machinekit/machinekit/cfg/setup/config.deb.txt?distro=$(lsb_release -is | tr "[:upper:]" "[:lower:]")\&codename=$(lsb_release -cs) | sudo tee -a /etc/apt/sources.list.d/machinekit-machinekit.list
+curl -k 'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/gpg/gpg.D35981AB4276AC36.key' | sudo apt-key add -
+curl -k https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/setup/config.deb.txt?distro=$(lsb_release -is | tr "[:upper:]" "[:lower:]")\&codename=$(lsb_release -cs) | sudo tee -a /etc/apt/sources.list.d/machinekit-machinekit-hal.list
+sudo apt update
+cd /machinekit/emca
+./debian/configure machinekit-hal=0.4.20894-1.gitebe1344a0~$(lsb_release -cs) no-docs
+mk-build-deps -irs sudo -t 'apt-cudf-get --solver aspcud -o Debug::pkgProblemResolver=0 -o APT::Install-Recommends=0'
+dpkg-buildpackage -us -uc
+cp ../*.deb .
+exit
+exit
+----
+
+Running Docker containers has a problem with _SLL/certificates/PGP_ (generally speaking there is some problem with _encryption_). This is why the previous example is using the manual installation of Debian registry instead of the automatic script like native build. (https://cloudsmith.io/~machinekit/repos/machinekit/setup/#formats-deb[Here] is the original procedure from Cloudsmith.) _Information why is this happening and how to solve this issue are greatly appreciated._
+
+All other notes mentioned with native build previously are also valid here.
+
+== [[install-development-packages]]Install packages required for building Run-In-Place
+
+Building EMCApplication to run as separate and isolated software bundle (known as a RIP build from LinuxCNC world) is not possible. In all cases the Machinekit-HAL will need to be installed onto the system in the form of Debian packages.
+timeAPI to find them. (This condition could be circumvented with changing _loader_ rules.)
+
+All that would be compiled and ruI to find them. (This condition could be circumvented with changing _loader_ rules.)
+
+All that would be compiled and run from the given directory, will be the Enhanced Machine Controller and Graphical User Interfaces.
+
+From root of the EMCApplication source directory run:
+
+[source,bash]
+----
+apt install build-essential fakeroot devscripts equivs python lsb-release apt-cudf
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/machinekit/machinekit/cfg/setup/bash.deb.sh' \
+  | sudo -E bash
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/setup/bash.deb.sh' \
+  | sudo -E bash
+debian/configure machinekit-hal=0.4.20894-1.gitebe1344a0~$(lsb_release -cs) no-docs
+mk-build-deps -irs sudo -t 'apt-cudf-get --solver aspcud -o Debug::pkgProblemResolver=0 -o APT::Install-Recommends=0'
+cd src
+./autogen.sh
+./configure --with-hal=machinekit-hal
+make -j$(nproc)
+sudo make install
+source ../scripts/rip-environment
+linuxcnc
+----
+
+Now you should have a functioning Machinekit-HAL + EMCApplication installation. You will need to rerun `source ../scripts/rip-environment` code in each new terminal to populate the environment with correct values.
+
+It is also viable to disallow _apt_ to upgrade the _machinekit-hal_ package to higher version:
+
+[source,bash]
+----
+sudo apt-mark hold machinekit-hal
+----
+
+== [[machinekit-hal-pinning]]Why do I have to pass Machinekit-version when building Debian packages?
+
+It is important to understand what Machinekit EMCApplication really is. From programming point of view it is just set of patches applied over _LinuxCNC@master_ branch which it periodically tracks. (Meaning changes happening in the _upstream_ LinuxCNC@master are from time to time _merged into_ the _EMCApplication@machinekit/master_ branch.) And all what these additional patches are doing is to allow parts of LinuxCNC CNC stack (historically called **E**nhanced **M**otion **C**ontroller) to use external HAL dependency.
+
+Machinekit-HAL project and LinuxCNC project both have certain development vector independent of each other, i.e. Machinekit-HAL does not care about LinuxCNC and LinuxCNC does not care about Machinekit-HAL. This represents quite interesting problem when creating **dpkg** packages, because **EMCApplication** package has to depend on **Machinekit-HAL** package, but also specific version of _EMCApplication_ has to depend on specific version of _Machinekit-HAL_ (or specific range) as later or previous versions of Machinekit-HAL can include incompatible code. And the easiest way how to guarantee the compatibility is to require the same version of Machinekit-HAL package as install dependency of EMCApplication as was used in build stage.
+
+This way the _apt_ will make sure that the correct version of Machinekit-HAL is installed for the EMCApplication issue-less operation.
+
+Using the _**mk-build-deps**_ script from the _devscripts_ package for creating environment capable of problem-less building of packages by invocating `dpkg-buildpackage` or compiling and linking the software during **R**un-**I**n-**P**lace build needs the `debian/control` file with correctly stated `Build-Depends: machinekit-ha (=` dependency. This is why we need to pass the _machinekit-hal_ package version early in stage when calling the `debian/configure machinekit-hal=${VERSION}` script.
