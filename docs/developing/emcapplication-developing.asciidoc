@@ -66,7 +66,7 @@ exit
 
 At the end you will have several new **.deb** files in your folder.
 
-You should replace `--gid 1000`s and `--uid 1000` with numbers which you got from `id` command in previous step.
+You should replace `--gid 1000` and `--uid 1000` with numbers which you got from `id` command in previous step.
 
 As EMCApplication packages are pinning the version of Machinekit-HAL packages dependency to one specific version, we need to pass this version string to _debian/configure_ script as `debian/configure machinekit-hal=${VERSION}`. One can use either version available from one of accessible Debian repositories, or already installed version.
 
@@ -162,4 +162,4 @@ Machinekit-HAL project and LinuxCNC project both have certain development vector
 
 This way the _apt_ will make sure that the correct version of Machinekit-HAL is installed for the EMCApplication issue-less operation.
 
-Using the _**mk-build-deps**_ script from the _devscripts_ package for creating environment capable of problem-less building of packages by invocating `dpkg-buildpackage` or compiling and linking the software during **R**un-**I**n-**P**lace build needs the `debian/control` file with correctly stated `Build-Depends: machinekit-ha (=` dependency. This is why we need to pass the _machinekit-hal_ package version early in stage when calling the `debian/configure machinekit-hal=${VERSION}` script.
+Using the _**mk-build-deps**_ script from the _devscripts_ package for creating environment capable of problem-less building of packages by invocating `dpkg-buildpackage` or compiling and linking the software during **R**un-**I**n-**P**lace build needs the `debian/control` file with correctly stated `Build-Depends: machinekit-hal (=` dependency. This is why we need to pass the _machinekit-hal_ package version early in stage when calling the `debian/configure machinekit-hal=${VERSION}` script.
