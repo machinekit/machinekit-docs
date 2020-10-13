@@ -65,7 +65,7 @@ link:../common/GPLD_Copyright[GPLD Copyright]
 
 :leveloffset: +1
 
-- link:/docs/setting-up/developing-setting-up[Setting up development environment]
+- link:/docs/developing/developing[Setting up development environment]
 
 - link:/docs/developing/writing-components[Write HAL Components]
 
