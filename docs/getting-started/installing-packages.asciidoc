@@ -3,6 +3,60 @@
 
 :skip-front-matter:
 
+= OLD and NEW Debian package repositories
+
+Currently, the situation in Machinekit it such that there are two channels from which one can install Machinekit binaries. The newer version is using the https://cloudsmith.io/~machinekit/repos[Cloudsmith service] with repositories https://cloudsmith.io/~machinekit/repos/machinekit/packages/[Machinekit] (with dependency packages common to all other repositories), https://cloudsmith.io/~machinekit/repos/machinekit-hal/packages/[Machinekit-HAL] (with packages from the https://github.com/machinekit/machinekit-hal[Machinekit-HAL project]) and https://cloudsmith.io/~machinekit/repos/emcapplication/packages/[EMCApplication] (with packages from the https://github.com/machinekit/emcapplication[EMCApplication project]. You will need to have usually two or all three set up on you local machine to install Machinekit-HAL or EMCApplication.
+
+To set up, you should follow instruction from Cloudsmith landing page of respective repository under _**S**et-**M**e-**U**p_ icon (here for example for https://cloudsmith.io/~machinekit/repos/machinekit-hal/setup/#formats-deb[Machinekit-HAL]):
+
+[source,bash]
+----
+sudo apt install curl
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/setup/bash.deb.sh' \
+  | sudo -E bash
+----
+
+Or if the automatic script is causing problems, use manual procedure:
+
+[source,bash]
+----
+sudo apt-get install -y debian-keyring
+sudo apt-get install -y debian-archive-keyring
+sudo apt-get install -y apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/gpg/gpg.D35981AB4276AC36.key' | sudo apt-key add -
+curl -1sLf 'https://dl.cloudsmith.io/public/machinekit/machinekit-hal/cfg/setup/config.deb.txt?distro=$(lsb_release -is | tr "[:upper:]" "[:lower:]")\&codename=$(lsb_release -cs) | sudo tee -a /etc/apt/sources.list.d/machinekit-machinekit-hal.list'
+apt-get update
+----
+
+This setup will allow you to install the currently maintained and developed Machinekit-HAL and EMCApplication packages.
+
+For EMCApplication:
+
+[source,bash]
+----
+sudo apt install emcapplication
+----
+
+For Machinekit-HAL (optionaly Machinekit-HAL-dev package):
+
+[source,bash]
+----
+sudo apt install machinekit-hal
+sudo apt install machinekit-hal-dev
+----
+
+For Machinekit-HAL meta-package which will install the *rt_preempt* real-time kernel:
+
+[source,bash]
+----
+sudo apt install machinekit-hal-rt-preempt
+----
+
+Everything else in pages below (_Platforms_) which uses the `deb.machinekit.io` Debian repository address is related to the **old** distribution channel. This includes mainly the now deprecated https://github.com/machinekit/machinekit[Machinekit repository] and older Machinekit-HAL and Machinekit-CNC packages. This channel **will not get any updates in the future!** However, this version is stable and tested one.
+
+You can get current *Preempt_RT* patched kernel packages from official Debian repositories. (Ubuntu unfortunately at this point does not offer this service.)
+
 = Platforms
 
 
