@@ -86,7 +86,7 @@ As a last step we need to `cd` to a parent directory (making sure the current us
 
 [source,bash]
 ----
-docker run -it --rm -u "$(id -u):$(id -g)" -v "$(pwd):/home/machinekit/build" -w "/home/machinekit/build/machinekit-hal" ${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest debian/buildpackages.py
+docker run -it --rm -u "$(id -u):$(id -g)" -v "$(pwd):/home/machinekit/build" -w "/home/machinekit/build" ${PREFIX}/machinekit-hal-${DISTRUBUTION}-builder-v.${ARCHITECTURE}_${OS_VERSION_NUMBER}:latest /bin/bash -c "debian/buildpackages.py; cp ../*.deb ."
 ----
 
 This step will create multitude of `.deb` or `.ddeb` packages in the current working directory.
