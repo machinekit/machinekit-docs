@@ -19,8 +19,8 @@ jobs:
         str="${{ github.repository }}"
         IFS='/'
         read -ra ARRA <<< "$str"
-        echo ::set-env name=PARSED_USERNAME::${ARRA[0]}
-        echo ::set-env name=PARSED_LOCAL_REPOSITORY::${ARRA[1]}
+        echo "PARSED_USERNAME=${ARRA[0]}" >> "$GITHUB_ENV"
+        echo "PARSED_LOCAL_REPOSITORY=${ARRA[1]}" >> "$GITHUB_ENV"
 
       # Another shell is needed for the environment variables to take effect
     - name: Print parsed Github handle and repository
@@ -38,4 +38,4 @@ jobs:
         token: ${{ secrets.ROBOT_TOKEN }}
         repository: ${{ env.PARSED_USERNAME }}/machinekit.github.io
         event-type: rebuild-site-now
-        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "authorization": "${{ secrets.DOCUMENTATION_PING_KEYCODE }}", "originating_repository": "${{ env.PARSED_USERNAME }}/${{ env.PARSED_LOCAL_REPOSITORY }}"}'
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "originating_repository": "${{ env.PARSED_USERNAME }}/${{ env.PARSED_LOCAL_REPOSITORY }}"}'
