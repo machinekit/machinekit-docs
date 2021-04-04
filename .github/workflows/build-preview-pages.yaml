@@ -39,7 +39,7 @@ jobs:
       - name: Create output directory
         run: |
           mkdir ./${{ env.OUTPUT_NAME }}
-          echo ::set-env name=OUTPUT_DIRECTORY::$(pwd)/${{ env.OUTPUT_NAME }}
+          echo "OUTPUT_DIRECTORY=$(pwd)/${{ env.OUTPUT_NAME }}" >> "$GITHUB_ENV"
           echo "The output directory is ${{ env.OUTPUT_DIRECTORY }}"
           mkdir ./${{ env.OUTPUT_NAME }}/build      
 
